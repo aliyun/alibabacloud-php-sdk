@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetSelectionProductRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetSelectionProductResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetSelectionProductSaleInfoRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetSelectionProductSaleInfoResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListCategoriesRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListCategoriesResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListLogisticsOrdersResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListPurchaserShopsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListPurchaserShopsResponse;
@@ -603,6 +605,48 @@ class Linkedmall extends OpenApiClient
         $headers = [];
 
         return $this->getSelectionProductSaleInfoWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListCategoriesRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListCategoriesResponse
+     */
+    public function listCategoriesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCategories',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/categories/commands/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCategoriesRequest $request
+     *
+     * @return ListCategoriesResponse
+     */
+    public function listCategories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCategoriesWithOptions($request, $headers, $runtime);
     }
 
     /**

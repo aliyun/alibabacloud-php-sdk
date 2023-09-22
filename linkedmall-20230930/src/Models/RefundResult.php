@@ -124,6 +124,13 @@ class RefundResult extends Model
     public $refunderZipCode;
 
     /**
+     * @example 841471F6-5D61-1331-8C38-2****B55
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @example 0
      *
      * @var int
@@ -168,6 +175,7 @@ class RefundResult extends Model
         'refunderName'                 => 'refunderName',
         'refunderTel'                  => 'refunderTel',
         'refunderZipCode'              => 'refunderZipCode',
+        'requestId'                    => 'requestId',
         'returnGoodLogisticsStatus'    => 'returnGoodLogisticsStatus',
         'sellerAgreeMsg'               => 'sellerAgreeMsg',
         'sellerRefuseAgreementMessage' => 'sellerRefuseAgreementMessage',
@@ -231,6 +239,9 @@ class RefundResult extends Model
         }
         if (null !== $this->refunderZipCode) {
             $res['refunderZipCode'] = $this->refunderZipCode;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->returnGoodLogisticsStatus) {
             $res['returnGoodLogisticsStatus'] = $this->returnGoodLogisticsStatus;
@@ -306,6 +317,9 @@ class RefundResult extends Model
         }
         if (isset($map['refunderZipCode'])) {
             $model->refunderZipCode = $map['refunderZipCode'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['returnGoodLogisticsStatus'])) {
             $model->returnGoodLogisticsStatus = $map['returnGoodLogisticsStatus'];

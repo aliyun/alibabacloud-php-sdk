@@ -18,7 +18,7 @@ class GoodsShippingNoticeCreateCmd extends Model
     /**
      * @example 6693****4352
      *
-     * @var int
+     * @var string
      */
     public $disputeId;
 

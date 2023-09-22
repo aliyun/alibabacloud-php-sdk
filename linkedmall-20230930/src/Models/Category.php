@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class Category extends Model
 {
     /**
+     * @example 201792301
+     *
      * @var int
      */
     public $categoryId;
@@ -18,31 +20,31 @@ class Category extends Model
      *
      * @var bool
      */
-    public $leaf;
+    public $isLeaf;
 
     /**
-     * @example 0
+     * @example 2
      *
      * @var int
      */
     public $level;
 
     /**
-     * @example 名称测试
+     * @example 方便面/拉面/挂面/轻食面速食
      *
      * @var string
      */
     public $name;
 
     /**
-     * @example 0
+     * @example 50016422
      *
      * @var int
      */
     public $parentId;
     protected $_name = [
         'categoryId' => 'categoryId',
-        'leaf'       => 'leaf',
+        'isLeaf'     => 'isLeaf',
         'level'      => 'level',
         'name'       => 'name',
         'parentId'   => 'parentId',
@@ -58,8 +60,8 @@ class Category extends Model
         if (null !== $this->categoryId) {
             $res['categoryId'] = $this->categoryId;
         }
-        if (null !== $this->leaf) {
-            $res['leaf'] = $this->leaf;
+        if (null !== $this->isLeaf) {
+            $res['isLeaf'] = $this->isLeaf;
         }
         if (null !== $this->level) {
             $res['level'] = $this->level;
@@ -85,8 +87,8 @@ class Category extends Model
         if (isset($map['categoryId'])) {
             $model->categoryId = $map['categoryId'];
         }
-        if (isset($map['leaf'])) {
-            $model->leaf = $map['leaf'];
+        if (isset($map['isLeaf'])) {
+            $model->isLeaf = $map['isLeaf'];
         }
         if (isset($map['level'])) {
             $model->level = $map['level'];
