@@ -24,6 +24,12 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeRiskScoreRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeRiskScoreResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeTransactionsListRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeTransactionsListResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeWeb3AddressLabelsRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeWeb3AddressLabelsResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeWeb3RiskScoreRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeWeb3RiskScoreResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeWeb3TransactionLabelsRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeWeb3TransactionLabelsResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyRequest;
@@ -558,6 +564,159 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTransactionsListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWeb3AddressLabelsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeWeb3AddressLabelsResponse
+     */
+    public function describeWeb3AddressLabelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->chainShortName)) {
+            $query['ChainShortName'] = $request->chainShortName;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWeb3AddressLabels',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWeb3AddressLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWeb3AddressLabelsRequest $request
+     *
+     * @return DescribeWeb3AddressLabelsResponse
+     */
+    public function describeWeb3AddressLabels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWeb3AddressLabelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWeb3RiskScoreRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeWeb3RiskScoreResponse
+     */
+    public function describeWeb3RiskScoreWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->chainShortName)) {
+            $query['ChainShortName'] = $request->chainShortName;
+        }
+        if (!Utils::isUnset($request->depth)) {
+            $query['Depth'] = $request->depth;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $query['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWeb3RiskScore',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWeb3RiskScoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWeb3RiskScoreRequest $request
+     *
+     * @return DescribeWeb3RiskScoreResponse
+     */
+    public function describeWeb3RiskScore($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWeb3RiskScoreWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWeb3TransactionLabelsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeWeb3TransactionLabelsResponse
+     */
+    public function describeWeb3TransactionLabelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->chainShortName)) {
+            $query['ChainShortName'] = $request->chainShortName;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->transaction)) {
+            $query['Transaction'] = $request->transaction;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWeb3TransactionLabels',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWeb3TransactionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWeb3TransactionLabelsRequest $request
+     *
+     * @return DescribeWeb3TransactionLabelsResponse
+     */
+    public function describeWeb3TransactionLabels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWeb3TransactionLabelsWithOptions($request, $runtime);
     }
 
     /**
