@@ -6,6 +6,12 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyFourElementsVerificationRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyFourElementsVerificationResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyThreeElementsVerificationRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyThreeElementsVerificationResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyTwoElementsVerificationRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyTwoElementsVerificationResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisAIRequest;
@@ -22,6 +28,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneTwiceTelVerifyReques
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneTwiceTelVerifyResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberConvertServiceRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberConvertServiceResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberEncryptRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberEncryptResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForAccountRequest;
@@ -36,6 +44,16 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForVirtualReques
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForVirtualResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForVoiceRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForVoiceResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryAvailableAuthCodeRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryAvailableAuthCodeResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagApplyRuleRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagApplyRuleResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagInfoBySelectionRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagInfoBySelectionResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagListPageRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagListPageResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryUsageStatisticsByTagIdRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryUsageStatisticsByTagIdResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ThreeElementsVerificationRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ThreeElementsVerificationResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\TwoElementsVerificationRequest;
@@ -77,6 +95,189 @@ class Dytnsapi extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CompanyFourElementsVerificationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CompanyFourElementsVerificationResponse
+     */
+    public function companyFourElementsVerificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->epCertName)) {
+            $query['EpCertName'] = $request->epCertName;
+        }
+        if (!Utils::isUnset($request->epCertNo)) {
+            $query['EpCertNo'] = $request->epCertNo;
+        }
+        if (!Utils::isUnset($request->legalPersonCertName)) {
+            $query['LegalPersonCertName'] = $request->legalPersonCertName;
+        }
+        if (!Utils::isUnset($request->legalPersonCertNo)) {
+            $query['LegalPersonCertNo'] = $request->legalPersonCertNo;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CompanyFourElementsVerification',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CompanyFourElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CompanyFourElementsVerificationRequest $request
+     *
+     * @return CompanyFourElementsVerificationResponse
+     */
+    public function companyFourElementsVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->companyFourElementsVerificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CompanyThreeElementsVerificationRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CompanyThreeElementsVerificationResponse
+     */
+    public function companyThreeElementsVerificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->epCertName)) {
+            $query['EpCertName'] = $request->epCertName;
+        }
+        if (!Utils::isUnset($request->epCertNo)) {
+            $query['EpCertNo'] = $request->epCertNo;
+        }
+        if (!Utils::isUnset($request->legalPersonCertName)) {
+            $query['LegalPersonCertName'] = $request->legalPersonCertName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CompanyThreeElementsVerification',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CompanyThreeElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CompanyThreeElementsVerificationRequest $request
+     *
+     * @return CompanyThreeElementsVerificationResponse
+     */
+    public function companyThreeElementsVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->companyThreeElementsVerificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CompanyTwoElementsVerificationRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CompanyTwoElementsVerificationResponse
+     */
+    public function companyTwoElementsVerificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->epCertName)) {
+            $query['EpCertName'] = $request->epCertName;
+        }
+        if (!Utils::isUnset($request->epCertNo)) {
+            $query['EpCertNo'] = $request->epCertNo;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CompanyTwoElementsVerification',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CompanyTwoElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CompanyTwoElementsVerificationRequest $request
+     *
+     * @return CompanyTwoElementsVerificationResponse
+     */
+    public function companyTwoElementsVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->companyTwoElementsVerificationWithOptions($request, $runtime);
     }
 
     /**
@@ -553,6 +754,64 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
+     * @param PhoneNumberConvertServiceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return PhoneNumberConvertServiceResponse
+     */
+    public function phoneNumberConvertServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->inputNumber)) {
+            $query['InputNumber'] = $request->inputNumber;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $query['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PhoneNumberConvertService',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PhoneNumberConvertServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PhoneNumberConvertServiceRequest $request
+     *
+     * @return PhoneNumberConvertServiceResponse
+     */
+    public function phoneNumberConvertService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->phoneNumberConvertServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PhoneNumberEncryptRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -956,6 +1215,287 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->phoneNumberStatusForVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryAvailableAuthCodeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryAvailableAuthCodeResponse
+     */
+    public function queryAvailableAuthCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAvailableAuthCode',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryAvailableAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryAvailableAuthCodeRequest $request
+     *
+     * @return QueryAvailableAuthCodeResponse
+     */
+    public function queryAvailableAuthCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAvailableAuthCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryTagApplyRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryTagApplyRuleResponse
+     */
+    public function queryTagApplyRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTagApplyRule',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTagApplyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryTagApplyRuleRequest $request
+     *
+     * @return QueryTagApplyRuleResponse
+     */
+    public function queryTagApplyRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTagApplyRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryTagInfoBySelectionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryTagInfoBySelectionResponse
+     */
+    public function queryTagInfoBySelectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->industryId)) {
+            $query['IndustryId'] = $request->industryId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTagInfoBySelection',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTagInfoBySelectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryTagInfoBySelectionRequest $request
+     *
+     * @return QueryTagInfoBySelectionResponse
+     */
+    public function queryTagInfoBySelection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTagInfoBySelectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryTagListPageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryTagListPageResponse
+     */
+    public function queryTagListPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTagListPage',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTagListPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryTagListPageRequest $request
+     *
+     * @return QueryTagListPageResponse
+     */
+    public function queryTagListPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTagListPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryUsageStatisticsByTagIdRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryUsageStatisticsByTagIdResponse
+     */
+    public function queryUsageStatisticsByTagIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUsageStatisticsByTagId',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryUsageStatisticsByTagIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryUsageStatisticsByTagIdRequest $request
+     *
+     * @return QueryUsageStatisticsByTagIdResponse
+     */
+    public function queryUsageStatisticsByTagId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUsageStatisticsByTagIdWithOptions($request, $runtime);
     }
 
     /**
