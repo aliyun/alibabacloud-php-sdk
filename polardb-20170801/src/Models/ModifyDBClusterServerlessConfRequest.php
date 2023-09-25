@@ -65,6 +65,16 @@ class ModifyDBClusterServerlessConfRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $scaleApRoNumMax;
+
+    /**
+     * @var string
+     */
+    public $scaleApRoNumMin;
+
+    /**
      * @description The maximum number of PCUs per node for scaling. Valid values: 1 PCU to 32 PCUs.
      *
      * @example 10
@@ -118,6 +128,8 @@ class ModifyDBClusterServerlessConfRequest extends Model
         'plannedStartTime'      => 'PlannedStartTime',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
+        'scaleApRoNumMax'       => 'ScaleApRoNumMax',
+        'scaleApRoNumMin'       => 'ScaleApRoNumMin',
         'scaleMax'              => 'ScaleMax',
         'scaleMin'              => 'ScaleMin',
         'scaleRoNumMax'         => 'ScaleRoNumMax',
@@ -158,6 +170,12 @@ class ModifyDBClusterServerlessConfRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->scaleApRoNumMax) {
+            $res['ScaleApRoNumMax'] = $this->scaleApRoNumMax;
+        }
+        if (null !== $this->scaleApRoNumMin) {
+            $res['ScaleApRoNumMin'] = $this->scaleApRoNumMin;
         }
         if (null !== $this->scaleMax) {
             $res['ScaleMax'] = $this->scaleMax;
@@ -212,6 +230,12 @@ class ModifyDBClusterServerlessConfRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ScaleApRoNumMax'])) {
+            $model->scaleApRoNumMax = $map['ScaleApRoNumMax'];
+        }
+        if (isset($map['ScaleApRoNumMin'])) {
+            $model->scaleApRoNumMin = $map['ScaleApRoNumMin'];
         }
         if (isset($map['ScaleMax'])) {
             $model->scaleMax = $map['ScaleMax'];

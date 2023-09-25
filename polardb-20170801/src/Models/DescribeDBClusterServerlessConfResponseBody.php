@@ -39,6 +39,16 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $scaleApRoNumMax;
+
+    /**
+     * @var string
+     */
+    public $scaleApRoNumMin;
+
+    /**
      * @description The maximum number of PCUs per node for scaling. Valid values: 1 PCU to 32 PCUs.
      *
      * @example 3
@@ -82,15 +92,23 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
      * @var string
      */
     public $secondsUntilAutoPause;
+
+    /**
+     * @var string
+     */
+    public $switchs;
     protected $_name = [
         'allowShutDown'         => 'AllowShutDown',
         'DBClusterId'           => 'DBClusterId',
         'requestId'             => 'RequestId',
+        'scaleApRoNumMax'       => 'ScaleApRoNumMax',
+        'scaleApRoNumMin'       => 'ScaleApRoNumMin',
         'scaleMax'              => 'ScaleMax',
         'scaleMin'              => 'ScaleMin',
         'scaleRoNumMax'         => 'ScaleRoNumMax',
         'scaleRoNumMin'         => 'ScaleRoNumMin',
         'secondsUntilAutoPause' => 'SecondsUntilAutoPause',
+        'switchs'               => 'Switchs',
     ];
 
     public function validate()
@@ -109,6 +127,12 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->scaleApRoNumMax) {
+            $res['ScaleApRoNumMax'] = $this->scaleApRoNumMax;
+        }
+        if (null !== $this->scaleApRoNumMin) {
+            $res['ScaleApRoNumMin'] = $this->scaleApRoNumMin;
+        }
         if (null !== $this->scaleMax) {
             $res['ScaleMax'] = $this->scaleMax;
         }
@@ -123,6 +147,9 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
         }
         if (null !== $this->secondsUntilAutoPause) {
             $res['SecondsUntilAutoPause'] = $this->secondsUntilAutoPause;
+        }
+        if (null !== $this->switchs) {
+            $res['Switchs'] = $this->switchs;
         }
 
         return $res;
@@ -145,6 +172,12 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['ScaleApRoNumMax'])) {
+            $model->scaleApRoNumMax = $map['ScaleApRoNumMax'];
+        }
+        if (isset($map['ScaleApRoNumMin'])) {
+            $model->scaleApRoNumMin = $map['ScaleApRoNumMin'];
+        }
         if (isset($map['ScaleMax'])) {
             $model->scaleMax = $map['ScaleMax'];
         }
@@ -159,6 +192,9 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
         }
         if (isset($map['SecondsUntilAutoPause'])) {
             $model->secondsUntilAutoPause = $map['SecondsUntilAutoPause'];
+        }
+        if (isset($map['Switchs'])) {
+            $model->switchs = $map['Switchs'];
         }
 
         return $model;

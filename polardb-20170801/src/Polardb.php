@@ -174,6 +174,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeUserEncryptionKeyListReque
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeUserEncryptionKeyListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeVSwitchesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterServerlessRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterServerlessResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableFirewallRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EvaluateRegionResourceRequest;
@@ -5998,6 +6000,61 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @param DisableDBClusterServerlessRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DisableDBClusterServerlessResponse
+     */
+    public function disableDBClusterServerlessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableDBClusterServerless',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableDBClusterServerlessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisableDBClusterServerlessRequest $request
+     *
+     * @return DisableDBClusterServerlessResponse
+     */
+    public function disableDBClusterServerless($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDBClusterServerlessWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EnableFirewallRulesRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -7692,6 +7749,12 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scaleApRoNumMax)) {
+            $query['ScaleApRoNumMax'] = $request->scaleApRoNumMax;
+        }
+        if (!Utils::isUnset($request->scaleApRoNumMin)) {
+            $query['ScaleApRoNumMin'] = $request->scaleApRoNumMin;
         }
         if (!Utils::isUnset($request->scaleMax)) {
             $query['ScaleMax'] = $request->scaleMax;
