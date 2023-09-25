@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class table extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example amv-bp1xxxxxxxx47
      *
      * @var string
@@ -16,6 +18,8 @@ class table extends Model
     public $DBClusterId;
 
     /**
+     * @description The name of the database.
+     *
      * @example adb_demo
      *
      * @var string
@@ -23,6 +27,8 @@ class table extends Model
     public $schemaName;
 
     /**
+     * @description The name of the table.
+     *
      * @example test
      *
      * @var string

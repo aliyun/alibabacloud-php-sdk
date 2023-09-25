@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSchemasRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example amv-bp1xxxxxxxx47
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeSchemasRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

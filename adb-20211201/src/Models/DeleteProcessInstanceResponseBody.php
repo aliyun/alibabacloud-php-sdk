@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteProcessInstanceResponseBody extends Model
 {
     /**
+     * @description Indicates whether the workflow instance is deleted. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,11 @@ class DeleteProcessInstanceResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message. Valid values:
+     *
+     *   If the request was successful, **Success** is returned.
+     *   If the request failed, an error message is returned.
+     *
      * @example Success
      *
      * @var string
@@ -23,6 +33,8 @@ class DeleteProcessInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 115F9CCA-EF2E-5F91-AB60-4961D52FEAB4
      *
      * @var string
@@ -30,6 +42,11 @@ class DeleteProcessInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

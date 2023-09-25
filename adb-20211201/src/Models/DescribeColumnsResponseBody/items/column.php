@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class column extends Model
 {
     /**
+     * @description Indicates whether the column is an auto-increment column. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class column extends Model
     public $autoIncrementColumn;
 
     /**
+     * @description The name of the column.
+     *
      * @example id
      *
      * @var string
@@ -23,6 +30,8 @@ class column extends Model
     public $columnName;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example amv-bp111m2cfrdl1****
      *
      * @var string
@@ -30,6 +39,11 @@ class column extends Model
     public $DBClusterId;
 
     /**
+     * @description Indicates whether the column is the primary key of the table. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +51,8 @@ class column extends Model
     public $primaryKey;
 
     /**
+     * @description The name of the database.
+     *
      * @example adb_demo
      *
      * @var string
@@ -44,6 +60,8 @@ class column extends Model
     public $schemaName;
 
     /**
+     * @description The name of the table.
+     *
      * @example test
      *
      * @var string
@@ -51,6 +69,8 @@ class column extends Model
     public $tableName;
 
     /**
+     * @description The data type of the column.
+     *
      * @example bigint
      *
      * @var string

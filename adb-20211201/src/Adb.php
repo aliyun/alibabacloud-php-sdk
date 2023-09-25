@@ -754,6 +754,12 @@ class Adb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clusterMode)) {
+            $query['ClusterMode'] = $request->clusterMode;
+        }
+        if (!Utils::isUnset($request->clusterSizeResource)) {
+            $query['ClusterSizeResource'] = $request->clusterSizeResource;
+        }
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
@@ -763,8 +769,14 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->groupType)) {
             $query['GroupType'] = $request->groupType;
         }
+        if (!Utils::isUnset($request->maxClusterCount)) {
+            $query['MaxClusterCount'] = $request->maxClusterCount;
+        }
         if (!Utils::isUnset($request->maxComputeResource)) {
             $query['MaxComputeResource'] = $request->maxComputeResource;
+        }
+        if (!Utils::isUnset($request->minClusterCount)) {
+            $query['MinClusterCount'] = $request->minClusterCount;
         }
         if (!Utils::isUnset($request->minComputeResource)) {
             $query['MinComputeResource'] = $request->minComputeResource;
@@ -5518,6 +5530,12 @@ class Adb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clusterMode)) {
+            $query['ClusterMode'] = $request->clusterMode;
+        }
+        if (!Utils::isUnset($request->clusterSizeResource)) {
+            $query['ClusterSizeResource'] = $request->clusterSizeResource;
+        }
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
@@ -5527,8 +5545,14 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->groupType)) {
             $query['GroupType'] = $request->groupType;
         }
+        if (!Utils::isUnset($request->maxClusterCount)) {
+            $query['MaxClusterCount'] = $request->maxClusterCount;
+        }
         if (!Utils::isUnset($request->maxComputeResource)) {
             $query['MaxComputeResource'] = $request->maxComputeResource;
+        }
+        if (!Utils::isUnset($request->minClusterCount)) {
+            $query['MinClusterCount'] = $request->minClusterCount;
         }
         if (!Utils::isUnset($request->minComputeResource)) {
             $query['MinComputeResource'] = $request->minComputeResource;

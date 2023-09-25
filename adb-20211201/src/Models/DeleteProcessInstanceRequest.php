@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteProcessInstanceRequest extends Model
 {
     /**
+     * @description The ID of the Data Lakehouse Edition (V3.0) cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~612397~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
      * @example am-wz9rq819u71ig****
      *
      * @var string
@@ -16,6 +19,8 @@ class DeleteProcessInstanceRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The ID of the workflow instance.
+     *
      * @example 4017
      *
      * @var int
@@ -23,6 +28,8 @@ class DeleteProcessInstanceRequest extends Model
     public $processInstanceId;
 
     /**
+     * @description The project ID, which is the unique identifier of the project.
+     *
      * @example 9839028042592
      *
      * @var int
@@ -30,6 +37,8 @@ class DeleteProcessInstanceRequest extends Model
     public $projectCode;
 
     /**
+     * @description The region ID of the cluster.
+     *
      * @example cn-hangzhou
      *
      * @var string

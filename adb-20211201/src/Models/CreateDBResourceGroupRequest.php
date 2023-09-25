@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateDBResourceGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterMode;
+
+    /**
+     * @var string
+     */
+    public $clusterSizeResource;
+
+    /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
      * @example amv-bp11q28kvl688****
@@ -44,6 +54,11 @@ class CreateDBResourceGroupRequest extends Model
     public $groupType;
 
     /**
+     * @var int
+     */
+    public $maxClusterCount;
+
+    /**
      * @description The maximum reserved computing resources. Unit: ACU.
      *
      *   If GroupType is set to Interactive, the maximum amount of reserved computing resources refers to the amount of resources that are not allocated in the cluster. Set this parameter to a value in increments of 16 ACUs.
@@ -54,6 +69,11 @@ class CreateDBResourceGroupRequest extends Model
      * @var string
      */
     public $maxComputeResource;
+
+    /**
+     * @var int
+     */
+    public $minClusterCount;
 
     /**
      * @description The minimum reserved computing resources. Unit: AnalyticDB Compute Unit (ACU).
@@ -67,11 +87,15 @@ class CreateDBResourceGroupRequest extends Model
      */
     public $minComputeResource;
     protected $_name = [
-        'DBClusterId'        => 'DBClusterId',
-        'groupName'          => 'GroupName',
-        'groupType'          => 'GroupType',
-        'maxComputeResource' => 'MaxComputeResource',
-        'minComputeResource' => 'MinComputeResource',
+        'clusterMode'         => 'ClusterMode',
+        'clusterSizeResource' => 'ClusterSizeResource',
+        'DBClusterId'         => 'DBClusterId',
+        'groupName'           => 'GroupName',
+        'groupType'           => 'GroupType',
+        'maxClusterCount'     => 'MaxClusterCount',
+        'maxComputeResource'  => 'MaxComputeResource',
+        'minClusterCount'     => 'MinClusterCount',
+        'minComputeResource'  => 'MinComputeResource',
     ];
 
     public function validate()
@@ -81,6 +105,12 @@ class CreateDBResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterMode) {
+            $res['ClusterMode'] = $this->clusterMode;
+        }
+        if (null !== $this->clusterSizeResource) {
+            $res['ClusterSizeResource'] = $this->clusterSizeResource;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -90,8 +120,14 @@ class CreateDBResourceGroupRequest extends Model
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
         }
+        if (null !== $this->maxClusterCount) {
+            $res['MaxClusterCount'] = $this->maxClusterCount;
+        }
         if (null !== $this->maxComputeResource) {
             $res['MaxComputeResource'] = $this->maxComputeResource;
+        }
+        if (null !== $this->minClusterCount) {
+            $res['MinClusterCount'] = $this->minClusterCount;
         }
         if (null !== $this->minComputeResource) {
             $res['MinComputeResource'] = $this->minComputeResource;
@@ -108,6 +144,12 @@ class CreateDBResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterMode'])) {
+            $model->clusterMode = $map['ClusterMode'];
+        }
+        if (isset($map['ClusterSizeResource'])) {
+            $model->clusterSizeResource = $map['ClusterSizeResource'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
@@ -117,8 +159,14 @@ class CreateDBResourceGroupRequest extends Model
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
         }
+        if (isset($map['MaxClusterCount'])) {
+            $model->maxClusterCount = $map['MaxClusterCount'];
+        }
         if (isset($map['MaxComputeResource'])) {
             $model->maxComputeResource = $map['MaxComputeResource'];
+        }
+        if (isset($map['MinClusterCount'])) {
+            $model->minClusterCount = $map['MinClusterCount'];
         }
         if (isset($map['MinComputeResource'])) {
             $model->minComputeResource = $map['MinComputeResource'];

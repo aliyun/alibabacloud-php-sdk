@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeColumnsResponseBody extends Model
 {
     /**
+     * @description The queried columns.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AD222E9-E606-4A42-BF6D-XXX442913CEF
      *
      * @var string
