@@ -32,6 +32,11 @@ class DescribeUsersRequest extends Model
     public $filter;
 
     /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
      * @description The number of entries per page.
      *
      *   Valid values: 1 to 500
@@ -64,6 +69,7 @@ class DescribeUsersRequest extends Model
         'endUserIds'        => 'EndUserIds',
         'excludeEndUserIds' => 'ExcludeEndUserIds',
         'filter'            => 'Filter',
+        'groupId'           => 'GroupId',
         'maxResults'        => 'MaxResults',
         'nextToken'         => 'NextToken',
         'orgId'             => 'OrgId',
@@ -84,6 +90,9 @@ class DescribeUsersRequest extends Model
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -118,6 +127,9 @@ class DescribeUsersRequest extends Model
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

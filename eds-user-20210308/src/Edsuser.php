@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersShrinkRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetManagerInfoByAuthCodeRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetManagerInfoByAuthCodeResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyValueRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyValueResponse;
@@ -417,6 +419,9 @@ class Edsuser extends OpenApiClient
         if (!Utils::isUnset($request->excludeEndUserIds)) {
             $body['ExcludeEndUserIds'] = $request->excludeEndUserIds;
         }
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
         if (!Utils::isUnset($request->orgId)) {
             $body['OrgId'] = $request->orgId;
         }
@@ -527,6 +532,49 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->filterUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetManagerInfoByAuthCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetManagerInfoByAuthCodeResponse
+     */
+    public function getManagerInfoByAuthCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetManagerInfoByAuthCode',
+            'version'     => '2021-03-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetManagerInfoByAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetManagerInfoByAuthCodeRequest $request
+     *
+     * @return GetManagerInfoByAuthCodeResponse
+     */
+    public function getManagerInfoByAuthCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getManagerInfoByAuthCodeWithOptions($request, $runtime);
     }
 
     /**
