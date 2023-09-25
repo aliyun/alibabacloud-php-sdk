@@ -46,6 +46,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDataServiceGroupRequ
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDataServiceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIAlarmRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIAlarmRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIAlarmRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDISyncTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDISyncTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateExportMigrationRequest;
@@ -100,6 +106,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDataServiceApiReques
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDIAlarmRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDIAlarmRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDISyncTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDISyncTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteFileRequest;
@@ -178,6 +188,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDDLJobStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDDLJobStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDeploymentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDIAlarmRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDIAlarmRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncInstanceInfoRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncInstanceInfoResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskRequest;
@@ -325,6 +339,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataSourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataSourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIAlarmRulesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIAlarmRulesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIJobsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIJobsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEnabledExtensionsForProjectRequest;
@@ -461,10 +479,15 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetEntityTagsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetEntityTagsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetSuccessInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetSuccessInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDIJobShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDISyncInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDISyncInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartMigrationRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartMigrationResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopDISyncInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopDISyncInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopInstanceRequest;
@@ -498,6 +521,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDataServiceApiReques
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIAlarmRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIAlarmRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIAlarmRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIProjectConfigRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIProjectConfigResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDISyncTaskRequest;
@@ -1314,6 +1343,173 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDIAlarmRuleRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDIAlarmRuleResponse
+     */
+    public function createDIAlarmRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDIAlarmRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notificationSettings)) {
+            $request->notificationSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notificationSettings, 'NotificationSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->triggerConditions)) {
+            $request->triggerConditionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->triggerConditions, 'TriggerConditions', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->DIJobId)) {
+            $body['DIJobId'] = $request->DIJobId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $body['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $body['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->notificationSettingsShrink)) {
+            $body['NotificationSettings'] = $request->notificationSettingsShrink;
+        }
+        if (!Utils::isUnset($request->triggerConditionsShrink)) {
+            $body['TriggerConditions'] = $request->triggerConditionsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDIAlarmRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDIAlarmRuleRequest $request
+     *
+     * @return CreateDIAlarmRuleResponse
+     */
+    public function createDIAlarmRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDIAlarmRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDIJobRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateDIJobResponse
+     */
+    public function createDIJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDIJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destinationDataSourceSettings)) {
+            $request->destinationDataSourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destinationDataSourceSettings, 'DestinationDataSourceSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->jobSettings)) {
+            $request->jobSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSettings, 'JobSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->resourceSettings)) {
+            $request->resourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSettings, 'ResourceSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceDataSourceSettings)) {
+            $request->sourceDataSourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceDataSourceSettings, 'SourceDataSourceSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tableMappings)) {
+            $request->tableMappingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableMappings, 'TableMappings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->transformationRules)) {
+            $request->transformationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transformationRules, 'TransformationRules', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->systemDebug)) {
+            $query['SystemDebug'] = $request->systemDebug;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destinationDataSourceSettingsShrink)) {
+            $body['DestinationDataSourceSettings'] = $request->destinationDataSourceSettingsShrink;
+        }
+        if (!Utils::isUnset($request->destinationDataSourceType)) {
+            $body['DestinationDataSourceType'] = $request->destinationDataSourceType;
+        }
+        if (!Utils::isUnset($request->jobName)) {
+            $body['JobName'] = $request->jobName;
+        }
+        if (!Utils::isUnset($request->jobSettingsShrink)) {
+            $body['JobSettings'] = $request->jobSettingsShrink;
+        }
+        if (!Utils::isUnset($request->migrationType)) {
+            $body['MigrationType'] = $request->migrationType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resourceSettingsShrink)) {
+            $body['ResourceSettings'] = $request->resourceSettingsShrink;
+        }
+        if (!Utils::isUnset($request->sourceDataSourceSettingsShrink)) {
+            $body['SourceDataSourceSettings'] = $request->sourceDataSourceSettingsShrink;
+        }
+        if (!Utils::isUnset($request->sourceDataSourceType)) {
+            $body['SourceDataSourceType'] = $request->sourceDataSourceType;
+        }
+        if (!Utils::isUnset($request->tableMappingsShrink)) {
+            $body['TableMappings'] = $request->tableMappingsShrink;
+        }
+        if (!Utils::isUnset($request->transformationRulesShrink)) {
+            $body['TransformationRules'] = $request->transformationRulesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDIJob',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDIJobRequest $request
+     *
+     * @return CreateDIJobResponse
+     */
+    public function createDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDIJobWithOptions($request, $runtime);
     }
 
     /**
@@ -3505,6 +3701,92 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param DeleteDIAlarmRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteDIAlarmRuleResponse
+     */
+    public function deleteDIAlarmRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DIAlarmRuleId)) {
+            $body['DIAlarmRuleId'] = $request->DIAlarmRuleId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDIAlarmRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDIAlarmRuleRequest $request
+     *
+     * @return DeleteDIAlarmRuleResponse
+     */
+    public function deleteDIAlarmRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDIAlarmRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDIJobRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteDIJobResponse
+     */
+    public function deleteDIJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DIJobId)) {
+            $body['DIJobId'] = $request->DIJobId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDIJob',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDIJobRequest $request
+     *
+     * @return DeleteDIJobResponse
+     */
+    public function deleteDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDIJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDISyncTaskRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -5101,6 +5383,95 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDDLJobStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDIAlarmRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetDIAlarmRuleResponse
+     */
+    public function getDIAlarmRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DIAlarmRuleId)) {
+            $body['DIAlarmRuleId'] = $request->DIAlarmRuleId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDIAlarmRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDIAlarmRuleRequest $request
+     *
+     * @return GetDIAlarmRuleResponse
+     */
+    public function getDIAlarmRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDIAlarmRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDIJobRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetDIJobResponse
+     */
+    public function getDIJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DIJobId)) {
+            $body['DIJobId'] = $request->DIJobId;
+        }
+        if (!Utils::isUnset($request->withDetails)) {
+            $body['WithDetails'] = $request->withDetails;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDIJob',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDIJobRequest $request
+     *
+     * @return GetDIJobResponse
+     */
+    public function getDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDIJobWithOptions($request, $runtime);
     }
 
     /**
@@ -8720,6 +9091,113 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDIAlarmRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDIAlarmRulesResponse
+     */
+    public function listDIAlarmRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DIJobId)) {
+            $body['DIJobId'] = $request->DIJobId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDIAlarmRules',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDIAlarmRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDIAlarmRulesRequest $request
+     *
+     * @return ListDIAlarmRulesResponse
+     */
+    public function listDIAlarmRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDIAlarmRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDIJobsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListDIJobsResponse
+     */
+    public function listDIJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->destinationDataSourceType)) {
+            $body['DestinationDataSourceType'] = $request->destinationDataSourceType;
+        }
+        if (!Utils::isUnset($request->jobName)) {
+            $body['JobName'] = $request->jobName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sourceDataSourceType)) {
+            $body['SourceDataSourceType'] = $request->sourceDataSourceType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDIJobs',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDIJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDIJobsRequest $request
+     *
+     * @return ListDIJobsResponse
+     */
+    public function listDIJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDIJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -12849,6 +13327,60 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param StartDIJobRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return StartDIJobResponse
+     */
+    public function startDIJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StartDIJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->realtimeStartSettings)) {
+            $request->realtimeStartSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->realtimeStartSettings, 'RealtimeStartSettings', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->DIJobId)) {
+            $body['DIJobId'] = $request->DIJobId;
+        }
+        if (!Utils::isUnset($request->forceToRerun)) {
+            $body['ForceToRerun'] = $request->forceToRerun;
+        }
+        if (!Utils::isUnset($request->realtimeStartSettingsShrink)) {
+            $body['RealtimeStartSettings'] = $request->realtimeStartSettingsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartDIJob',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartDIJobRequest $request
+     *
+     * @return StartDIJobResponse
+     */
+    public function startDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startDIJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StartDISyncInstanceRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -12944,6 +13476,49 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startMigrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopDIJobRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return StopDIJobResponse
+     */
+    public function stopDIJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DIJobId)) {
+            $body['DIJobId'] = $request->DIJobId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopDIJob',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopDIJobRequest $request
+     *
+     * @return StopDIJobResponse
+     */
+    public function stopDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDIJobWithOptions($request, $runtime);
     }
 
     /**
@@ -13693,6 +14268,144 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDIAlarmRuleRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateDIAlarmRuleResponse
+     */
+    public function updateDIAlarmRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDIAlarmRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notificationSettings)) {
+            $request->notificationSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notificationSettings, 'NotificationSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->triggerConditions)) {
+            $request->triggerConditionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->triggerConditions, 'TriggerConditions', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->DIAlarmRuleId)) {
+            $body['DIAlarmRuleId'] = $request->DIAlarmRuleId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $body['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $body['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->notificationSettingsShrink)) {
+            $body['NotificationSettings'] = $request->notificationSettingsShrink;
+        }
+        if (!Utils::isUnset($request->triggerConditionsShrink)) {
+            $body['TriggerConditions'] = $request->triggerConditionsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDIAlarmRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDIAlarmRuleRequest $request
+     *
+     * @return UpdateDIAlarmRuleResponse
+     */
+    public function updateDIAlarmRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDIAlarmRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDIJobRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateDIJobResponse
+     */
+    public function updateDIJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDIJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->jobSettings)) {
+            $request->jobSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSettings, 'JobSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->resourceSettings)) {
+            $request->resourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSettings, 'ResourceSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tableMappings)) {
+            $request->tableMappingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableMappings, 'TableMappings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->transformationRules)) {
+            $request->transformationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transformationRules, 'TransformationRules', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->DIJobId)) {
+            $body['DIJobId'] = $request->DIJobId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->jobSettingsShrink)) {
+            $body['JobSettings'] = $request->jobSettingsShrink;
+        }
+        if (!Utils::isUnset($request->resourceSettingsShrink)) {
+            $body['ResourceSettings'] = $request->resourceSettingsShrink;
+        }
+        if (!Utils::isUnset($request->tableMappingsShrink)) {
+            $body['TableMappings'] = $request->tableMappingsShrink;
+        }
+        if (!Utils::isUnset($request->transformationRulesShrink)) {
+            $body['TransformationRules'] = $request->transformationRulesShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDIJob',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDIJobRequest $request
+     *
+     * @return UpdateDIJobResponse
+     */
+    public function updateDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDIJobWithOptions($request, $runtime);
     }
 
     /**
