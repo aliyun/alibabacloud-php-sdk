@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePushRuleRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePushRuleResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryRequest;
@@ -92,6 +94,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProtectedBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProtectedBranchResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePushRuleRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePushRuleResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryMemberRequest;
@@ -128,6 +132,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileBlobsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileLastCommitRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileLastCommitResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFlowTagGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetGroupByPathRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetGroupByPathResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetGroupDetailRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetGroupDetailResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetHostGroupResponse;
@@ -146,6 +152,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineScanReportUrlResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetPushRuleRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetPushRuleResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryCommitRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryCommitResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryRequest;
@@ -213,6 +221,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectWorkitemTypesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectWorkitemTypesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProtectedBranchesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProtectedBranchesResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListPushRulesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListPushRulesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoriesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoriesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryBranchesRequest;
@@ -321,6 +331,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePushReviewOnOffRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePushReviewOnOffResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePushRuleRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePushRuleResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryRequest;
@@ -1416,6 +1428,62 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->createProtectdBranchWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $repositoryId
+     * @param CreatePushRuleRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePushRuleResponse
+     */
+    public function createPushRuleWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ruleInfos)) {
+            $body['ruleInfos'] = $request->ruleInfos;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePushRule',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/push_rule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $repositoryId
+     * @param CreatePushRuleRequest $request
+     *
+     * @return CreatePushRuleResponse
+     */
+    public function createPushRule($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPushRuleWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -3131,6 +3199,59 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                $repositoryId
+     * @param string                $pushRuleId
+     * @param DeletePushRuleRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeletePushRuleResponse
+     */
+    public function deletePushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePushRule',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/push_rule/' . OpenApiUtilClient::getEncodeParam($pushRuleId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $repositoryId
+     * @param string                $pushRuleId
+     * @param DeletePushRuleRequest $request
+     *
+     * @return DeletePushRuleResponse
+     */
+    public function deletePushRule($repositoryId, $pushRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deletePushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                  $repositoryId
      * @param DeleteRepositoryRequest $request
      * @param string[]                $headers
@@ -4173,6 +4294,55 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param GetGroupByPathRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetGroupByPathResponse
+     */
+    public function getGroupByPathWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identity)) {
+            $query['identity'] = $request->identity;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGroupByPath',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/4/groups/find_by_path',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetGroupByPathResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetGroupByPathRequest $request
+     *
+     * @return GetGroupByPathResponse
+     */
+    public function getGroupByPath($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGroupByPathWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetGroupDetailRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
@@ -4737,6 +4907,59 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->getProjectMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $repositoryId
+     * @param string             $pushRuleId
+     * @param GetPushRuleRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetPushRuleResponse
+     */
+    public function getPushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPushRule',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/push_rule/' . OpenApiUtilClient::getEncodeParam($pushRuleId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $repositoryId
+     * @param string             $pushRuleId
+     * @param GetPushRuleRequest $request
+     *
+     * @return GetPushRuleResponse
+     */
+    public function getPushRule($repositoryId, $pushRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime);
     }
 
     /**
@@ -6760,6 +6983,57 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listProtectedBranchesWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $repositoryId
+     * @param ListPushRulesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListPushRulesResponse
+     */
+    public function listPushRulesWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPushRules',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/push_rule/push_rules/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPushRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $repositoryId
+     * @param ListPushRulesRequest $request
+     *
+     * @return ListPushRulesResponse
+     */
+    public function listPushRules($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPushRulesWithOptions($repositoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -10232,6 +10506,64 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updatePushReviewOnOffWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $repositoryId
+     * @param string                $pushRuleId
+     * @param UpdatePushRuleRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdatePushRuleResponse
+     */
+    public function updatePushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ruleInfos)) {
+            $body['ruleInfos'] = $request->ruleInfos;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePushRule',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/push_rule/' . OpenApiUtilClient::getEncodeParam($pushRuleId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $repositoryId
+     * @param string                $pushRuleId
+     * @param UpdatePushRuleRequest $request
+     *
+     * @return UpdatePushRuleResponse
+     */
+    public function updatePushRule($repositoryId, $pushRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updatePushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime);
     }
 
     /**
