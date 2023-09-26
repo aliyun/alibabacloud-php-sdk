@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceProperties extends Model
 {
     /**
+     * @example commodity_type。
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class instanceProperties extends Model
     public $name;
 
     /**
+     * @example oss。
+     *
      * @var string
      */
     public $value;

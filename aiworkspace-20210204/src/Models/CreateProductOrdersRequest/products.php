@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class products extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example POSTPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
@@ -30,16 +36,22 @@ class products extends Model
     public $instanceProperties;
 
     /**
+     * @example BUY
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example DataWorks_share
+     *
      * @var string
      */
     public $productCode;

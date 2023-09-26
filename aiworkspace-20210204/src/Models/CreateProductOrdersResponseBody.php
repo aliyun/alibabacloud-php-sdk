@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateProductOrdersResponseBody extends Model
 {
     /**
+     * @example 3ed6a882-0d85-4dd8-ad36-cd8d74ab9fdb
+     *
      * @var string
      */
     public $buyProductRequestId;
@@ -19,11 +21,15 @@ class CreateProductOrdersResponseBody extends Model
     public $message;
 
     /**
+     * @example 210292536260646
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example ksdjf-jksd-*****slkdjf
+     *
      * @var string
      */
     public $requestId;

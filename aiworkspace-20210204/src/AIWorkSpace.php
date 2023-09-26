@@ -1609,6 +1609,9 @@ class AIWorkSpace extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;
         }

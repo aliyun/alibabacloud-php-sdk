@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetMemberRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $memberId;
+
+    /**
      * @example 21513926******88039
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'userId' => 'UserId',
+        'memberId' => 'MemberId',
+        'userId'   => 'UserId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class GetMemberRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->memberId) {
+            $res['MemberId'] = $this->memberId;
+        }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -40,6 +49,9 @@ class GetMemberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MemberId'])) {
+            $model->memberId = $map['MemberId'];
+        }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
