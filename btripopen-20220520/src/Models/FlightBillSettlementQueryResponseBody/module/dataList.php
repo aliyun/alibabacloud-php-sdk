@@ -150,6 +150,11 @@ class dataList extends Model
     public $buildFee;
 
     /**
+     * @var string
+     */
+    public $businessTripResult;
+
+    /**
      * @example R
      *
      * @var string
@@ -181,11 +186,21 @@ class dataList extends Model
     public $changeFee;
 
     /**
+     * @var string
+     */
+    public $changeResult;
+
+    /**
      * @example 460
      *
      * @var float
      */
     public $corpPayOrderFee;
+
+    /**
+     * @var float
+     */
+    public $corpSettlePrice;
 
     /**
      * @var string
@@ -260,6 +275,11 @@ class dataList extends Model
     public $discount;
 
     /**
+     * @var string
+     */
+    public $exceedReason;
+
+    /**
      * @example 10101
      *
      * @var string
@@ -281,11 +301,21 @@ class dataList extends Model
     public $index;
 
     /**
+     * @var string
+     */
+    public $insOrderId;
+
+    /**
      * @example 23.9
      *
      * @var float
      */
     public $insuranceFee;
+
+    /**
+     * @var string
+     */
+    public $insuranceNumber;
 
     /**
      * @var string
@@ -305,6 +335,11 @@ class dataList extends Model
      * @var float
      */
     public $itineraryPrice;
+
+    /**
+     * @var string
+     */
+    public $mileage;
 
     /**
      * @example 2021-10-01 00:17:13
@@ -373,6 +408,16 @@ class dataList extends Model
      * @var string
      */
     public $overApplyId;
+
+    /**
+     * @var float
+     */
+    public $personSettlePrice;
+
+    /**
+     * @var string
+     */
+    public $preBookTip;
 
     /**
      * @example 4564547
@@ -495,6 +540,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $trade;
+
+    /**
+     * @var string
+     */
     public $travelerId;
 
     /**
@@ -546,12 +596,15 @@ class dataList extends Model
         'bookerName'             => 'booker_name',
         'btripCouponFee'         => 'btrip_coupon_fee',
         'buildFee'               => 'build_fee',
+        'businessTripResult'     => 'business_trip_result',
         'cabin'                  => 'cabin',
         'cabinClass'             => 'cabin_class',
         'capitalDirection'       => 'capital_direction',
         'cascadeDepartment'      => 'cascade_department',
         'changeFee'              => 'change_fee',
+        'changeResult'           => 'change_result',
         'corpPayOrderFee'        => 'corp_pay_order_fee',
+        'corpSettlePrice'        => 'corp_settle_price',
         'costCenter'             => 'cost_center',
         'costCenterNumber'       => 'cost_center_number',
         'coupon'                 => 'coupon',
@@ -564,13 +617,17 @@ class dataList extends Model
         'deptStation'            => 'dept_station',
         'deptTime'               => 'dept_time',
         'discount'               => 'discount',
+        'exceedReason'           => 'exceed_reason',
         'feeType'                => 'fee_type',
         'flightNo'               => 'flight_no',
         'index'                  => 'index',
+        'insOrderId'             => 'ins_order_id',
         'insuranceFee'           => 'insurance_fee',
+        'insuranceNumber'        => 'insurance_number',
         'invoiceTitle'           => 'invoice_title',
         'itineraryNum'           => 'itinerary_num',
         'itineraryPrice'         => 'itinerary_price',
+        'mileage'                => 'mileage',
         'mostDifferenceDeptTime' => 'most_difference_dept_time',
         'mostDifferenceDiscount' => 'most_difference_discount',
         'mostDifferenceFlightNo' => 'most_difference_flight_no',
@@ -581,6 +638,8 @@ class dataList extends Model
         'oilFee'                 => 'oil_fee',
         'orderId'                => 'order_id',
         'overApplyId'            => 'over_apply_id',
+        'personSettlePrice'      => 'person_settle_price',
+        'preBookTip'             => 'pre_book_tip',
         'primaryId'              => 'primary_id',
         'projectCode'            => 'project_code',
         'projectName'            => 'project_name',
@@ -599,6 +658,7 @@ class dataList extends Model
         'taxRate'                => 'tax_rate',
         'thirdItineraryId'       => 'third_itinerary_id',
         'ticketId'               => 'ticket_id',
+        'trade'                  => 'trade',
         'travelerId'             => 'traveler_id',
         'travelerJobNo'          => 'traveler_job_no',
         'travelerName'           => 'traveler_name',
@@ -682,6 +742,9 @@ class dataList extends Model
         if (null !== $this->buildFee) {
             $res['build_fee'] = $this->buildFee;
         }
+        if (null !== $this->businessTripResult) {
+            $res['business_trip_result'] = $this->businessTripResult;
+        }
         if (null !== $this->cabin) {
             $res['cabin'] = $this->cabin;
         }
@@ -697,8 +760,14 @@ class dataList extends Model
         if (null !== $this->changeFee) {
             $res['change_fee'] = $this->changeFee;
         }
+        if (null !== $this->changeResult) {
+            $res['change_result'] = $this->changeResult;
+        }
         if (null !== $this->corpPayOrderFee) {
             $res['corp_pay_order_fee'] = $this->corpPayOrderFee;
+        }
+        if (null !== $this->corpSettlePrice) {
+            $res['corp_settle_price'] = $this->corpSettlePrice;
         }
         if (null !== $this->costCenter) {
             $res['cost_center'] = $this->costCenter;
@@ -736,6 +805,9 @@ class dataList extends Model
         if (null !== $this->discount) {
             $res['discount'] = $this->discount;
         }
+        if (null !== $this->exceedReason) {
+            $res['exceed_reason'] = $this->exceedReason;
+        }
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
         }
@@ -745,8 +817,14 @@ class dataList extends Model
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
+        if (null !== $this->insOrderId) {
+            $res['ins_order_id'] = $this->insOrderId;
+        }
         if (null !== $this->insuranceFee) {
             $res['insurance_fee'] = $this->insuranceFee;
+        }
+        if (null !== $this->insuranceNumber) {
+            $res['insurance_number'] = $this->insuranceNumber;
         }
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
@@ -756,6 +834,9 @@ class dataList extends Model
         }
         if (null !== $this->itineraryPrice) {
             $res['itinerary_price'] = $this->itineraryPrice;
+        }
+        if (null !== $this->mileage) {
+            $res['mileage'] = $this->mileage;
         }
         if (null !== $this->mostDifferenceDeptTime) {
             $res['most_difference_dept_time'] = $this->mostDifferenceDeptTime;
@@ -786,6 +867,12 @@ class dataList extends Model
         }
         if (null !== $this->overApplyId) {
             $res['over_apply_id'] = $this->overApplyId;
+        }
+        if (null !== $this->personSettlePrice) {
+            $res['person_settle_price'] = $this->personSettlePrice;
+        }
+        if (null !== $this->preBookTip) {
+            $res['pre_book_tip'] = $this->preBookTip;
         }
         if (null !== $this->primaryId) {
             $res['primary_id'] = $this->primaryId;
@@ -840,6 +927,9 @@ class dataList extends Model
         }
         if (null !== $this->ticketId) {
             $res['ticket_id'] = $this->ticketId;
+        }
+        if (null !== $this->trade) {
+            $res['trade'] = $this->trade;
         }
         if (null !== $this->travelerId) {
             $res['traveler_id'] = $this->travelerId;
@@ -937,6 +1027,9 @@ class dataList extends Model
         if (isset($map['build_fee'])) {
             $model->buildFee = $map['build_fee'];
         }
+        if (isset($map['business_trip_result'])) {
+            $model->businessTripResult = $map['business_trip_result'];
+        }
         if (isset($map['cabin'])) {
             $model->cabin = $map['cabin'];
         }
@@ -952,8 +1045,14 @@ class dataList extends Model
         if (isset($map['change_fee'])) {
             $model->changeFee = $map['change_fee'];
         }
+        if (isset($map['change_result'])) {
+            $model->changeResult = $map['change_result'];
+        }
         if (isset($map['corp_pay_order_fee'])) {
             $model->corpPayOrderFee = $map['corp_pay_order_fee'];
+        }
+        if (isset($map['corp_settle_price'])) {
+            $model->corpSettlePrice = $map['corp_settle_price'];
         }
         if (isset($map['cost_center'])) {
             $model->costCenter = $map['cost_center'];
@@ -991,6 +1090,9 @@ class dataList extends Model
         if (isset($map['discount'])) {
             $model->discount = $map['discount'];
         }
+        if (isset($map['exceed_reason'])) {
+            $model->exceedReason = $map['exceed_reason'];
+        }
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
         }
@@ -1000,8 +1102,14 @@ class dataList extends Model
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
+        if (isset($map['ins_order_id'])) {
+            $model->insOrderId = $map['ins_order_id'];
+        }
         if (isset($map['insurance_fee'])) {
             $model->insuranceFee = $map['insurance_fee'];
+        }
+        if (isset($map['insurance_number'])) {
+            $model->insuranceNumber = $map['insurance_number'];
         }
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
@@ -1011,6 +1119,9 @@ class dataList extends Model
         }
         if (isset($map['itinerary_price'])) {
             $model->itineraryPrice = $map['itinerary_price'];
+        }
+        if (isset($map['mileage'])) {
+            $model->mileage = $map['mileage'];
         }
         if (isset($map['most_difference_dept_time'])) {
             $model->mostDifferenceDeptTime = $map['most_difference_dept_time'];
@@ -1041,6 +1152,12 @@ class dataList extends Model
         }
         if (isset($map['over_apply_id'])) {
             $model->overApplyId = $map['over_apply_id'];
+        }
+        if (isset($map['person_settle_price'])) {
+            $model->personSettlePrice = $map['person_settle_price'];
+        }
+        if (isset($map['pre_book_tip'])) {
+            $model->preBookTip = $map['pre_book_tip'];
         }
         if (isset($map['primary_id'])) {
             $model->primaryId = $map['primary_id'];
@@ -1095,6 +1212,9 @@ class dataList extends Model
         }
         if (isset($map['ticket_id'])) {
             $model->ticketId = $map['ticket_id'];
+        }
+        if (isset($map['trade'])) {
+            $model->trade = $map['trade'];
         }
         if (isset($map['traveler_id'])) {
             $model->travelerId = $map['traveler_id'];

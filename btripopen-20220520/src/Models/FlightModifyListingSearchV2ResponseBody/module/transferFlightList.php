@@ -36,6 +36,16 @@ class transferFlightList extends Model
     public $arrTime;
 
     /**
+     * @var string
+     */
+    public $cabinClass;
+
+    /**
+     * @var string
+     */
+    public $cabinClassName;
+
+    /**
      * @var depAirportInfo
      */
     public $depAirportInfo;
@@ -158,6 +168,8 @@ class transferFlightList extends Model
         'arrAirportInfo'     => 'arr_airport_info',
         'arrCityCode'        => 'arr_city_code',
         'arrTime'            => 'arr_time',
+        'cabinClass'         => 'cabinClass',
+        'cabinClassName'     => 'cabinClassName',
         'depAirportInfo'     => 'dep_airport_info',
         'depCityCode'        => 'dep_city_code',
         'depTime'            => 'dep_time',
@@ -199,6 +211,12 @@ class transferFlightList extends Model
         }
         if (null !== $this->arrTime) {
             $res['arr_time'] = $this->arrTime;
+        }
+        if (null !== $this->cabinClass) {
+            $res['cabinClass'] = $this->cabinClass;
+        }
+        if (null !== $this->cabinClassName) {
+            $res['cabinClassName'] = $this->cabinClassName;
         }
         if (null !== $this->depAirportInfo) {
             $res['dep_airport_info'] = null !== $this->depAirportInfo ? $this->depAirportInfo->toMap() : null;
@@ -286,6 +304,12 @@ class transferFlightList extends Model
         }
         if (isset($map['arr_time'])) {
             $model->arrTime = $map['arr_time'];
+        }
+        if (isset($map['cabinClass'])) {
+            $model->cabinClass = $map['cabinClass'];
+        }
+        if (isset($map['cabinClassName'])) {
+            $model->cabinClassName = $map['cabinClassName'];
         }
         if (isset($map['dep_airport_info'])) {
             $model->depAirportInfo = depAirportInfo::fromMap($map['dep_airport_info']);

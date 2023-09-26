@@ -150,6 +150,11 @@ class dataList extends Model
     public $btripCouponFee;
 
     /**
+     * @var string
+     */
+    public $businessTripResult;
+
+    /**
      * @example R
      *
      * @var string
@@ -179,6 +184,11 @@ class dataList extends Model
      * @var float
      */
     public $changeFee;
+
+    /**
+     * @var string
+     */
+    public $changeResult;
 
     /**
      * @example 460
@@ -260,6 +270,11 @@ class dataList extends Model
      * @var string
      */
     public $discount;
+
+    /**
+     * @var string
+     */
+    public $exceedReason;
 
     /**
      * @example 20101
@@ -394,6 +409,11 @@ class dataList extends Model
      * @var float
      */
     public $refundFee;
+
+    /**
+     * @var string
+     */
+    public $refundResult;
 
     /**
      * @var string
@@ -550,11 +570,13 @@ class dataList extends Model
         'bookerJobNo'            => 'booker_job_no',
         'bookerName'             => 'booker_name',
         'btripCouponFee'         => 'btrip_coupon_fee',
+        'businessTripResult'     => 'business_trip_result',
         'cabin'                  => 'cabin',
         'cabinClass'             => 'cabin_class',
         'capitalDirection'       => 'capital_direction',
         'cascadeDepartment'      => 'cascade_department',
         'changeFee'              => 'change_fee',
+        'changeResult'           => 'change_result',
         'corpPayOrderFee'        => 'corp_pay_order_fee',
         'costCenter'             => 'cost_center',
         'costCenterNumber'       => 'cost_center_number',
@@ -568,6 +590,7 @@ class dataList extends Model
         'deptStation'            => 'dept_station',
         'deptTime'               => 'dept_time',
         'discount'               => 'discount',
+        'exceedReason'           => 'exceed_reason',
         'feeType'                => 'fee_type',
         'flightNo'               => 'flight_no',
         'index'                  => 'index',
@@ -588,6 +611,7 @@ class dataList extends Model
         'projectCode'            => 'project_code',
         'projectName'            => 'project_name',
         'refundFee'              => 'refund_fee',
+        'refundResult'           => 'refund_result',
         'remark'                 => 'remark',
         'repeatRefund'           => 'repeat_refund',
         'sealPrice'              => 'seal_price',
@@ -686,6 +710,9 @@ class dataList extends Model
         if (null !== $this->btripCouponFee) {
             $res['btrip_coupon_fee'] = $this->btripCouponFee;
         }
+        if (null !== $this->businessTripResult) {
+            $res['business_trip_result'] = $this->businessTripResult;
+        }
         if (null !== $this->cabin) {
             $res['cabin'] = $this->cabin;
         }
@@ -700,6 +727,9 @@ class dataList extends Model
         }
         if (null !== $this->changeFee) {
             $res['change_fee'] = $this->changeFee;
+        }
+        if (null !== $this->changeResult) {
+            $res['change_result'] = $this->changeResult;
         }
         if (null !== $this->corpPayOrderFee) {
             $res['corp_pay_order_fee'] = $this->corpPayOrderFee;
@@ -739,6 +769,9 @@ class dataList extends Model
         }
         if (null !== $this->discount) {
             $res['discount'] = $this->discount;
+        }
+        if (null !== $this->exceedReason) {
+            $res['exceed_reason'] = $this->exceedReason;
         }
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
@@ -799,6 +832,9 @@ class dataList extends Model
         }
         if (null !== $this->refundFee) {
             $res['refund_fee'] = $this->refundFee;
+        }
+        if (null !== $this->refundResult) {
+            $res['refund_result'] = $this->refundResult;
         }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
@@ -941,6 +977,9 @@ class dataList extends Model
         if (isset($map['btrip_coupon_fee'])) {
             $model->btripCouponFee = $map['btrip_coupon_fee'];
         }
+        if (isset($map['business_trip_result'])) {
+            $model->businessTripResult = $map['business_trip_result'];
+        }
         if (isset($map['cabin'])) {
             $model->cabin = $map['cabin'];
         }
@@ -955,6 +994,9 @@ class dataList extends Model
         }
         if (isset($map['change_fee'])) {
             $model->changeFee = $map['change_fee'];
+        }
+        if (isset($map['change_result'])) {
+            $model->changeResult = $map['change_result'];
         }
         if (isset($map['corp_pay_order_fee'])) {
             $model->corpPayOrderFee = $map['corp_pay_order_fee'];
@@ -994,6 +1036,9 @@ class dataList extends Model
         }
         if (isset($map['discount'])) {
             $model->discount = $map['discount'];
+        }
+        if (isset($map['exceed_reason'])) {
+            $model->exceedReason = $map['exceed_reason'];
         }
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
@@ -1054,6 +1099,9 @@ class dataList extends Model
         }
         if (isset($map['refund_fee'])) {
             $model->refundFee = $map['refund_fee'];
+        }
+        if (isset($map['refund_result'])) {
+            $model->refundResult = $map['refund_result'];
         }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];

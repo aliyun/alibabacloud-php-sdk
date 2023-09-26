@@ -200,6 +200,16 @@ class dataList extends Model
     public $deptTime;
 
     /**
+     * @var string
+     */
+    public $driverAddDetail;
+
+    /**
+     * @var float
+     */
+    public $driverAddFee;
+
+    /**
      * @example 29.07
      *
      * @var string
@@ -231,6 +241,11 @@ class dataList extends Model
      * @var string
      */
     public $invoiceTitle;
+
+    /**
+     * @var string
+     */
+    public $levelName;
 
     /**
      * @var string
@@ -371,6 +386,11 @@ class dataList extends Model
     public $subOrderId;
 
     /**
+     * @var string
+     */
+    public $supplementApplyId;
+
+    /**
      * @description 税率
      *
      * @example 6%
@@ -451,11 +471,14 @@ class dataList extends Model
         'deptDate'              => 'dept_date',
         'deptLocation'          => 'dept_location',
         'deptTime'              => 'dept_time',
+        'driverAddDetail'       => 'driver_add_detail',
+        'driverAddFee'          => 'driver_add_fee',
         'estimateDriveDistance' => 'estimate_drive_distance',
         'estimatePrice'         => 'estimate_price',
         'feeType'               => 'fee_type',
         'index'                 => 'index',
         'invoiceTitle'          => 'invoice_title',
+        'levelName'             => 'level_name',
         'memo'                  => 'memo',
         'orderId'               => 'order_id',
         'orderPrice'            => 'order_price',
@@ -478,6 +501,7 @@ class dataList extends Model
         'specialReason'         => 'special_reason',
         'status'                => 'status',
         'subOrderId'            => 'sub_order_id',
+        'supplementApplyId'     => 'supplement_apply_id',
         'taxRate'               => 'tax_rate',
         'thirdItineraryId'      => 'third_itinerary_id',
         'timeType'              => 'time_type',
@@ -594,6 +618,12 @@ class dataList extends Model
         if (null !== $this->deptTime) {
             $res['dept_time'] = $this->deptTime;
         }
+        if (null !== $this->driverAddDetail) {
+            $res['driver_add_detail'] = $this->driverAddDetail;
+        }
+        if (null !== $this->driverAddFee) {
+            $res['driver_add_fee'] = $this->driverAddFee;
+        }
         if (null !== $this->estimateDriveDistance) {
             $res['estimate_drive_distance'] = $this->estimateDriveDistance;
         }
@@ -608,6 +638,9 @@ class dataList extends Model
         }
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
+        }
+        if (null !== $this->levelName) {
+            $res['level_name'] = $this->levelName;
         }
         if (null !== $this->memo) {
             $res['memo'] = $this->memo;
@@ -674,6 +707,9 @@ class dataList extends Model
         }
         if (null !== $this->subOrderId) {
             $res['sub_order_id'] = $this->subOrderId;
+        }
+        if (null !== $this->supplementApplyId) {
+            $res['supplement_apply_id'] = $this->supplementApplyId;
         }
         if (null !== $this->taxRate) {
             $res['tax_rate'] = $this->taxRate;
@@ -810,6 +846,12 @@ class dataList extends Model
         if (isset($map['dept_time'])) {
             $model->deptTime = $map['dept_time'];
         }
+        if (isset($map['driver_add_detail'])) {
+            $model->driverAddDetail = $map['driver_add_detail'];
+        }
+        if (isset($map['driver_add_fee'])) {
+            $model->driverAddFee = $map['driver_add_fee'];
+        }
         if (isset($map['estimate_drive_distance'])) {
             $model->estimateDriveDistance = $map['estimate_drive_distance'];
         }
@@ -824,6 +866,9 @@ class dataList extends Model
         }
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
+        }
+        if (isset($map['level_name'])) {
+            $model->levelName = $map['level_name'];
         }
         if (isset($map['memo'])) {
             $model->memo = $map['memo'];
@@ -890,6 +935,9 @@ class dataList extends Model
         }
         if (isset($map['sub_order_id'])) {
             $model->subOrderId = $map['sub_order_id'];
+        }
+        if (isset($map['supplement_apply_id'])) {
+            $model->supplementApplyId = $map['supplement_apply_id'];
         }
         if (isset($map['tax_rate'])) {
             $model->taxRate = $map['tax_rate'];

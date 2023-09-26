@@ -55,6 +55,11 @@ class dataList extends Model
     public $arrCityCode;
 
     /**
+     * @var string
+     */
+    public $arrCityName;
+
+    /**
      * @example 2021-10-13
      *
      * @var string
@@ -105,6 +110,11 @@ class dataList extends Model
     public $bookerName;
 
     /**
+     * @var string
+     */
+    public $businessTripResult;
+
+    /**
      * @example 1
      *
      * @var string
@@ -122,6 +132,11 @@ class dataList extends Model
      * @var float
      */
     public $changeFee;
+
+    /**
+     * @var string
+     */
+    public $changeResult;
 
     /**
      * @var string
@@ -155,6 +170,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $depCityName;
+
+    /**
+     * @var string
+     */
     public $department;
 
     /**
@@ -182,6 +202,11 @@ class dataList extends Model
     public $deptTime;
 
     /**
+     * @var string
+     */
+    public $exceedReason;
+
+    /**
      * @example 6001
      *
      * @var string
@@ -199,6 +224,11 @@ class dataList extends Model
      * @var string
      */
     public $invoiceTitle;
+
+    /**
+     * @var string
+     */
+    public $isTransferOrder;
 
     /**
      * @example 23432692343243432
@@ -250,7 +280,17 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $refundReason;
+
+    /**
+     * @var string
+     */
     public $remark;
+
+    /**
+     * @var string
+     */
+    public $reserveMode;
 
     /**
      * @var string
@@ -331,11 +371,21 @@ class dataList extends Model
     public $thirdItineraryId;
 
     /**
+     * @var string
+     */
+    public $ticketCorpPayPrice;
+
+    /**
      * @example 2115242342342424067354
      *
      * @var string
      */
     public $ticketNo;
+
+    /**
+     * @var string
+     */
+    public $ticketPersonPayPrice;
 
     /**
      * @example 350
@@ -378,66 +428,76 @@ class dataList extends Model
      */
     public $voucherType;
     protected $_name = [
-        'alipayTradeNo'      => 'alipay_trade_no',
-        'applyArrCityCode'   => 'apply_arr_city_code',
-        'applyArrCityName'   => 'apply_arr_city_name',
-        'applyDepCityCode'   => 'apply_dep_city_code',
-        'applyDepCityName'   => 'apply_dep_city_name',
-        'applyExtendField'   => 'apply_extend_field',
-        'applyId'            => 'apply_id',
-        'arrCityCode'        => 'arr_city_code',
-        'arrDate'            => 'arr_date',
-        'arrStation'         => 'arr_station',
-        'arrTime'            => 'arr_time',
-        'billRecordTime'     => 'bill_record_time',
-        'bookTime'           => 'book_time',
-        'bookerId'           => 'booker_id',
-        'bookerJobNo'        => 'booker_job_no',
-        'bookerName'         => 'booker_name',
-        'capitalDirection'   => 'capital_direction',
-        'cascadeDepartment'  => 'cascade_department',
-        'changeFee'          => 'change_fee',
-        'coachNo'            => 'coach_no',
-        'costCenter'         => 'cost_center',
-        'costCenterNumber'   => 'cost_center_number',
-        'coupon'             => 'coupon',
-        'depCityCode'        => 'dep_city_code',
-        'department'         => 'department',
-        'departmentId'       => 'department_id',
-        'deptDate'           => 'dept_date',
-        'deptStation'        => 'dept_station',
-        'deptTime'           => 'dept_time',
-        'feeType'            => 'fee_type',
-        'index'              => 'index',
-        'invoiceTitle'       => 'invoice_title',
-        'orderId'            => 'order_id',
-        'orderPrice'         => 'order_price',
-        'overApplyId'        => 'over_apply_id',
-        'primaryId'          => 'primary_id',
-        'projectCode'        => 'project_code',
-        'projectName'        => 'project_name',
-        'refundFee'          => 'refund_fee',
-        'remark'             => 'remark',
-        'runTime'            => 'run_time',
-        'seatNo'             => 'seat_no',
-        'seatType'           => 'seat_type',
-        'serviceFee'         => 'service_fee',
-        'settlementFee'      => 'settlement_fee',
-        'settlementGrantFee' => 'settlement_grant_fee',
-        'settlementTime'     => 'settlement_time',
-        'settlementType'     => 'settlement_type',
-        'shortTicketNo'      => 'short_ticket_no',
-        'status'             => 'status',
-        'taxRate'            => 'tax_rate',
-        'thirdItineraryId'   => 'third_itinerary_id',
-        'ticketNo'           => 'ticket_no',
-        'ticketPrice'        => 'ticket_price',
-        'trainNo'            => 'train_no',
-        'trainType'          => 'train_type',
-        'travelerId'         => 'traveler_id',
-        'travelerJobNo'      => 'traveler_job_no',
-        'travelerName'       => 'traveler_name',
-        'voucherType'        => 'voucher_type',
+        'alipayTradeNo'        => 'alipay_trade_no',
+        'applyArrCityCode'     => 'apply_arr_city_code',
+        'applyArrCityName'     => 'apply_arr_city_name',
+        'applyDepCityCode'     => 'apply_dep_city_code',
+        'applyDepCityName'     => 'apply_dep_city_name',
+        'applyExtendField'     => 'apply_extend_field',
+        'applyId'              => 'apply_id',
+        'arrCityCode'          => 'arr_city_code',
+        'arrCityName'          => 'arr_city_name',
+        'arrDate'              => 'arr_date',
+        'arrStation'           => 'arr_station',
+        'arrTime'              => 'arr_time',
+        'billRecordTime'       => 'bill_record_time',
+        'bookTime'             => 'book_time',
+        'bookerId'             => 'booker_id',
+        'bookerJobNo'          => 'booker_job_no',
+        'bookerName'           => 'booker_name',
+        'businessTripResult'   => 'business_trip_result',
+        'capitalDirection'     => 'capital_direction',
+        'cascadeDepartment'    => 'cascade_department',
+        'changeFee'            => 'change_fee',
+        'changeResult'         => 'change_result',
+        'coachNo'              => 'coach_no',
+        'costCenter'           => 'cost_center',
+        'costCenterNumber'     => 'cost_center_number',
+        'coupon'               => 'coupon',
+        'depCityCode'          => 'dep_city_code',
+        'depCityName'          => 'dep_city_name',
+        'department'           => 'department',
+        'departmentId'         => 'department_id',
+        'deptDate'             => 'dept_date',
+        'deptStation'          => 'dept_station',
+        'deptTime'             => 'dept_time',
+        'exceedReason'         => 'exceed_reason',
+        'feeType'              => 'fee_type',
+        'index'                => 'index',
+        'invoiceTitle'         => 'invoice_title',
+        'isTransferOrder'      => 'is_transfer_order',
+        'orderId'              => 'order_id',
+        'orderPrice'           => 'order_price',
+        'overApplyId'          => 'over_apply_id',
+        'primaryId'            => 'primary_id',
+        'projectCode'          => 'project_code',
+        'projectName'          => 'project_name',
+        'refundFee'            => 'refund_fee',
+        'refundReason'         => 'refund_reason',
+        'remark'               => 'remark',
+        'reserveMode'          => 'reserve_mode',
+        'runTime'              => 'run_time',
+        'seatNo'               => 'seat_no',
+        'seatType'             => 'seat_type',
+        'serviceFee'           => 'service_fee',
+        'settlementFee'        => 'settlement_fee',
+        'settlementGrantFee'   => 'settlement_grant_fee',
+        'settlementTime'       => 'settlement_time',
+        'settlementType'       => 'settlement_type',
+        'shortTicketNo'        => 'short_ticket_no',
+        'status'               => 'status',
+        'taxRate'              => 'tax_rate',
+        'thirdItineraryId'     => 'third_itinerary_id',
+        'ticketCorpPayPrice'   => 'ticket_corp_pay_price',
+        'ticketNo'             => 'ticket_no',
+        'ticketPersonPayPrice' => 'ticket_person_pay_price',
+        'ticketPrice'          => 'ticket_price',
+        'trainNo'              => 'train_no',
+        'trainType'            => 'train_type',
+        'travelerId'           => 'traveler_id',
+        'travelerJobNo'        => 'traveler_job_no',
+        'travelerName'         => 'traveler_name',
+        'voucherType'          => 'voucher_type',
     ];
 
     public function validate()
@@ -471,6 +531,9 @@ class dataList extends Model
         if (null !== $this->arrCityCode) {
             $res['arr_city_code'] = $this->arrCityCode;
         }
+        if (null !== $this->arrCityName) {
+            $res['arr_city_name'] = $this->arrCityName;
+        }
         if (null !== $this->arrDate) {
             $res['arr_date'] = $this->arrDate;
         }
@@ -495,6 +558,9 @@ class dataList extends Model
         if (null !== $this->bookerName) {
             $res['booker_name'] = $this->bookerName;
         }
+        if (null !== $this->businessTripResult) {
+            $res['business_trip_result'] = $this->businessTripResult;
+        }
         if (null !== $this->capitalDirection) {
             $res['capital_direction'] = $this->capitalDirection;
         }
@@ -503,6 +569,9 @@ class dataList extends Model
         }
         if (null !== $this->changeFee) {
             $res['change_fee'] = $this->changeFee;
+        }
+        if (null !== $this->changeResult) {
+            $res['change_result'] = $this->changeResult;
         }
         if (null !== $this->coachNo) {
             $res['coach_no'] = $this->coachNo;
@@ -519,6 +588,9 @@ class dataList extends Model
         if (null !== $this->depCityCode) {
             $res['dep_city_code'] = $this->depCityCode;
         }
+        if (null !== $this->depCityName) {
+            $res['dep_city_name'] = $this->depCityName;
+        }
         if (null !== $this->department) {
             $res['department'] = $this->department;
         }
@@ -534,6 +606,9 @@ class dataList extends Model
         if (null !== $this->deptTime) {
             $res['dept_time'] = $this->deptTime;
         }
+        if (null !== $this->exceedReason) {
+            $res['exceed_reason'] = $this->exceedReason;
+        }
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
         }
@@ -542,6 +617,9 @@ class dataList extends Model
         }
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
+        }
+        if (null !== $this->isTransferOrder) {
+            $res['is_transfer_order'] = $this->isTransferOrder;
         }
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
@@ -564,8 +642,14 @@ class dataList extends Model
         if (null !== $this->refundFee) {
             $res['refund_fee'] = $this->refundFee;
         }
+        if (null !== $this->refundReason) {
+            $res['refund_reason'] = $this->refundReason;
+        }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
+        }
+        if (null !== $this->reserveMode) {
+            $res['reserve_mode'] = $this->reserveMode;
         }
         if (null !== $this->runTime) {
             $res['run_time'] = $this->runTime;
@@ -603,8 +687,14 @@ class dataList extends Model
         if (null !== $this->thirdItineraryId) {
             $res['third_itinerary_id'] = $this->thirdItineraryId;
         }
+        if (null !== $this->ticketCorpPayPrice) {
+            $res['ticket_corp_pay_price'] = $this->ticketCorpPayPrice;
+        }
         if (null !== $this->ticketNo) {
             $res['ticket_no'] = $this->ticketNo;
+        }
+        if (null !== $this->ticketPersonPayPrice) {
+            $res['ticket_person_pay_price'] = $this->ticketPersonPayPrice;
         }
         if (null !== $this->ticketPrice) {
             $res['ticket_price'] = $this->ticketPrice;
@@ -663,6 +753,9 @@ class dataList extends Model
         if (isset($map['arr_city_code'])) {
             $model->arrCityCode = $map['arr_city_code'];
         }
+        if (isset($map['arr_city_name'])) {
+            $model->arrCityName = $map['arr_city_name'];
+        }
         if (isset($map['arr_date'])) {
             $model->arrDate = $map['arr_date'];
         }
@@ -687,6 +780,9 @@ class dataList extends Model
         if (isset($map['booker_name'])) {
             $model->bookerName = $map['booker_name'];
         }
+        if (isset($map['business_trip_result'])) {
+            $model->businessTripResult = $map['business_trip_result'];
+        }
         if (isset($map['capital_direction'])) {
             $model->capitalDirection = $map['capital_direction'];
         }
@@ -695,6 +791,9 @@ class dataList extends Model
         }
         if (isset($map['change_fee'])) {
             $model->changeFee = $map['change_fee'];
+        }
+        if (isset($map['change_result'])) {
+            $model->changeResult = $map['change_result'];
         }
         if (isset($map['coach_no'])) {
             $model->coachNo = $map['coach_no'];
@@ -711,6 +810,9 @@ class dataList extends Model
         if (isset($map['dep_city_code'])) {
             $model->depCityCode = $map['dep_city_code'];
         }
+        if (isset($map['dep_city_name'])) {
+            $model->depCityName = $map['dep_city_name'];
+        }
         if (isset($map['department'])) {
             $model->department = $map['department'];
         }
@@ -726,6 +828,9 @@ class dataList extends Model
         if (isset($map['dept_time'])) {
             $model->deptTime = $map['dept_time'];
         }
+        if (isset($map['exceed_reason'])) {
+            $model->exceedReason = $map['exceed_reason'];
+        }
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
         }
@@ -734,6 +839,9 @@ class dataList extends Model
         }
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
+        }
+        if (isset($map['is_transfer_order'])) {
+            $model->isTransferOrder = $map['is_transfer_order'];
         }
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
@@ -756,8 +864,14 @@ class dataList extends Model
         if (isset($map['refund_fee'])) {
             $model->refundFee = $map['refund_fee'];
         }
+        if (isset($map['refund_reason'])) {
+            $model->refundReason = $map['refund_reason'];
+        }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
+        }
+        if (isset($map['reserve_mode'])) {
+            $model->reserveMode = $map['reserve_mode'];
         }
         if (isset($map['run_time'])) {
             $model->runTime = $map['run_time'];
@@ -795,8 +909,14 @@ class dataList extends Model
         if (isset($map['third_itinerary_id'])) {
             $model->thirdItineraryId = $map['third_itinerary_id'];
         }
+        if (isset($map['ticket_corp_pay_price'])) {
+            $model->ticketCorpPayPrice = $map['ticket_corp_pay_price'];
+        }
         if (isset($map['ticket_no'])) {
             $model->ticketNo = $map['ticket_no'];
+        }
+        if (isset($map['ticket_person_pay_price'])) {
+            $model->ticketPersonPayPrice = $map['ticket_person_pay_price'];
         }
         if (isset($map['ticket_price'])) {
             $model->ticketPrice = $map['ticket_price'];

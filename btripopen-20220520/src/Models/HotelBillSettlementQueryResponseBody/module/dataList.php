@@ -62,6 +62,11 @@ class dataList extends Model
     public $billRecordTime;
 
     /**
+     * @var string
+     */
+    public $bookReason;
+
+    /**
      * @example 2021-10-12 23:58:48
      *
      * @var string
@@ -82,6 +87,21 @@ class dataList extends Model
      * @var string
      */
     public $bookerName;
+
+    /**
+     * @var string
+     */
+    public $brandGroup;
+
+    /**
+     * @var string
+     */
+    public $brandName;
+
+    /**
+     * @var string
+     */
+    public $businessTripResult;
 
     /**
      * @example 1
@@ -122,6 +142,16 @@ class dataList extends Model
     public $cityCode;
 
     /**
+     * @var string
+     */
+    public $cityCounty;
+
+    /**
+     * @var string
+     */
+    public $cityCountyCode;
+
+    /**
      * @example 12
      *
      * @var float
@@ -156,6 +186,11 @@ class dataList extends Model
      * @var string
      */
     public $departmentId;
+
+    /**
+     * @var string
+     */
+    public $exceedReason;
 
     /**
      * @example 20101
@@ -418,22 +453,29 @@ class dataList extends Model
         'applyId'            => 'apply_id',
         'averageNights'      => 'average_nights',
         'billRecordTime'     => 'bill_record_time',
+        'bookReason'         => 'book_reason',
         'bookTime'           => 'book_time',
         'bookerId'           => 'booker_id',
         'bookerJobNo'        => 'booker_job_no',
         'bookerName'         => 'booker_name',
+        'brandGroup'         => 'brand_group',
+        'brandName'          => 'brand_name',
+        'businessTripResult' => 'business_trip_result',
         'capitalDirection'   => 'capital_direction',
         'cascadeDepartment'  => 'cascade_department',
         'checkInDate'        => 'check_in_date',
         'checkoutDate'       => 'checkout_date',
         'city'               => 'city',
         'cityCode'           => 'city_code',
+        'cityCounty'         => 'city_county',
+        'cityCountyCode'     => 'city_county_code',
         'corpRefundFee'      => 'corp_refund_fee',
         'corpTotalFee'       => 'corp_total_fee',
         'costCenter'         => 'cost_center',
         'costCenterNumber'   => 'cost_center_number',
         'department'         => 'department',
         'departmentId'       => 'department_id',
+        'exceedReason'       => 'exceed_reason',
         'feeType'            => 'fee_type',
         'fees'               => 'fees',
         'fines'              => 'fines',
@@ -510,6 +552,9 @@ class dataList extends Model
         if (null !== $this->billRecordTime) {
             $res['bill_record_time'] = $this->billRecordTime;
         }
+        if (null !== $this->bookReason) {
+            $res['book_reason'] = $this->bookReason;
+        }
         if (null !== $this->bookTime) {
             $res['book_time'] = $this->bookTime;
         }
@@ -521,6 +566,15 @@ class dataList extends Model
         }
         if (null !== $this->bookerName) {
             $res['booker_name'] = $this->bookerName;
+        }
+        if (null !== $this->brandGroup) {
+            $res['brand_group'] = $this->brandGroup;
+        }
+        if (null !== $this->brandName) {
+            $res['brand_name'] = $this->brandName;
+        }
+        if (null !== $this->businessTripResult) {
+            $res['business_trip_result'] = $this->businessTripResult;
         }
         if (null !== $this->capitalDirection) {
             $res['capital_direction'] = $this->capitalDirection;
@@ -540,6 +594,12 @@ class dataList extends Model
         if (null !== $this->cityCode) {
             $res['city_code'] = $this->cityCode;
         }
+        if (null !== $this->cityCounty) {
+            $res['city_county'] = $this->cityCounty;
+        }
+        if (null !== $this->cityCountyCode) {
+            $res['city_county_code'] = $this->cityCountyCode;
+        }
         if (null !== $this->corpRefundFee) {
             $res['corp_refund_fee'] = $this->corpRefundFee;
         }
@@ -557,6 +617,9 @@ class dataList extends Model
         }
         if (null !== $this->departmentId) {
             $res['department_id'] = $this->departmentId;
+        }
+        if (null !== $this->exceedReason) {
+            $res['exceed_reason'] = $this->exceedReason;
         }
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
@@ -717,6 +780,9 @@ class dataList extends Model
         if (isset($map['bill_record_time'])) {
             $model->billRecordTime = $map['bill_record_time'];
         }
+        if (isset($map['book_reason'])) {
+            $model->bookReason = $map['book_reason'];
+        }
         if (isset($map['book_time'])) {
             $model->bookTime = $map['book_time'];
         }
@@ -728,6 +794,15 @@ class dataList extends Model
         }
         if (isset($map['booker_name'])) {
             $model->bookerName = $map['booker_name'];
+        }
+        if (isset($map['brand_group'])) {
+            $model->brandGroup = $map['brand_group'];
+        }
+        if (isset($map['brand_name'])) {
+            $model->brandName = $map['brand_name'];
+        }
+        if (isset($map['business_trip_result'])) {
+            $model->businessTripResult = $map['business_trip_result'];
         }
         if (isset($map['capital_direction'])) {
             $model->capitalDirection = $map['capital_direction'];
@@ -747,6 +822,12 @@ class dataList extends Model
         if (isset($map['city_code'])) {
             $model->cityCode = $map['city_code'];
         }
+        if (isset($map['city_county'])) {
+            $model->cityCounty = $map['city_county'];
+        }
+        if (isset($map['city_county_code'])) {
+            $model->cityCountyCode = $map['city_county_code'];
+        }
         if (isset($map['corp_refund_fee'])) {
             $model->corpRefundFee = $map['corp_refund_fee'];
         }
@@ -764,6 +845,9 @@ class dataList extends Model
         }
         if (isset($map['department_id'])) {
             $model->departmentId = $map['department_id'];
+        }
+        if (isset($map['exceed_reason'])) {
+            $model->exceedReason = $map['exceed_reason'];
         }
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
