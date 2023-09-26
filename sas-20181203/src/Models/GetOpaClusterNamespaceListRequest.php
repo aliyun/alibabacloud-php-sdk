@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetOpaClusterNamespaceListRequest extends Model
 {
     /**
+     * @description The ID of the cluster that you want to query.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
      * @example ca0faf43e33904ecbb6c695df7906****
      *
      * @var string
@@ -16,6 +19,8 @@ class GetOpaClusterNamespaceListRequest extends Model
     public $clusterId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +28,8 @@ class GetOpaClusterNamespaceListRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example sit
      *
      * @var string
@@ -30,6 +37,8 @@ class GetOpaClusterNamespaceListRequest extends Model
     public $nameSpaceName;
 
     /**
+     * @description The number of entries per page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int

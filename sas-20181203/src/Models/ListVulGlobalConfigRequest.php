@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteServiceTrailResponseBody extends Model
+class ListVulGlobalConfigRequest extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 20456DD5-5CBF-5015-9173-12CA4246B***
+     * @example vul_scan_ip_list
      *
      * @var string
      */
-    public $requestId;
+    public $configKey;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'configKey' => 'ConfigKey',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class DeleteServiceTrailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->configKey) {
+            $res['ConfigKey'] = $this->configKey;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class DeleteServiceTrailResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteServiceTrailResponseBody
+     * @return ListVulGlobalConfigRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ConfigKey'])) {
+            $model->configKey = $map['ConfigKey'];
         }
 
         return $model;

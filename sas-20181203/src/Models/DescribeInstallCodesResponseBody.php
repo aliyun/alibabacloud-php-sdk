@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstallCodesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about the installation command.
+     * @description The information about the installation commands.
      *
      * @var installCodes[]
      */

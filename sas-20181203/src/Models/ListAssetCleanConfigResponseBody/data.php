@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of days before hosts whose provider cannot be identified are automatically cleaned after they enter the offline state. Valid value: an integer that ranges from 1 to 30.
+     *
      * @example 7
      *
      * @var int
@@ -16,6 +18,11 @@ class data extends Model
     public $cleanDays;
 
     /**
+     * @description Indicates whether the configuration takes effect. Valid values:
+     *
+     *   **0**: The configuration does not take effect.
+     *   **1**: The configuration takes effect.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,10 @@ class data extends Model
     public $status;
 
     /**
+     * @description The type of hosts that are cleaned.
+     *
+     *   The value is set to **1**, which indicates hosts whose provider cannot be identified.
+     *
      * @example 1
      *
      * @var int

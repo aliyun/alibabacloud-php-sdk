@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetServiceTrailRequest extends Model
 {
     /**
+     * @description The ID of the region in which the instance resides. Valid value:
+     *
+     *   **cn-hangzhou**: center.
+     *   **ap-southeast-1**: Singapore.
+     *
      * @example cn-hangzhou
      *
      * @var string

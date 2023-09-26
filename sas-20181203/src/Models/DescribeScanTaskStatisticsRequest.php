@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskStatisticsRequest extends Model
 {
     /**
+     * @description The severities of the alert events handled by the virus detection task. Separate multiple severities with commas (,). The severities decrease in descending order. Valid values:
+     *
+     *   **serious**
+     *   **suspicious**
+     *   **remind**
+     *
      * @example serious,suspicious,remind
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the tag that is added to the container.
+     *
      * @example test
      *
      * @var string

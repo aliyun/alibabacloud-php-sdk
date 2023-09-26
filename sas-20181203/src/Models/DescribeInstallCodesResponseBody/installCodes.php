@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class installCodes extends Model
 {
     /**
-     * @description The installation verification code for you to manually install the Security Center agent.
+     * @description The verification code for you to manually install the Security Center agent.
      *
      * @example 15v02r
      *
@@ -18,7 +18,7 @@ class installCodes extends Model
     public $captchaCode;
 
     /**
-     * @description The timestamp when the installation command expires. Unit: milliseconds.
+     * @description The timestamp generated when the commands used to install the Security Center agent expire. Unit: milliseconds.
      *
      * @example 1637810007000
      *
@@ -47,8 +47,8 @@ class installCodes extends Model
     /**
      * @description Indicates whether an image is used to install the Security Center agent. Valid values:
      *
-     *   **true**: An image is used to install the Security Center agent.
-     *   **false**: An image is not used to install the Security Center agent.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -58,8 +58,9 @@ class installCodes extends Model
 
     /**
      * @description The operating system of the server. Valid values:
-     *   **linux**: Linux.
-     *   **windows**: Windows.
+     *
+     *   **linux**
+     *   **windows**
      *
      * @example linux
      *
@@ -68,6 +69,8 @@ class installCodes extends Model
     public $os;
 
     /**
+     * @description The name of the proxy cluster.
+     *
      * @example proxy_test
      *
      * @var string

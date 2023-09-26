@@ -30,7 +30,7 @@ class instances extends Model
     public $assetSubType;
 
     /**
-     * @description The subtype name of the cloud asset.
+     * @description The name of the cloud asset subtype.
      *
      * @example INSTANCE
      *
@@ -41,31 +41,31 @@ class instances extends Model
     /**
      * @description The type of the cloud asset. Valid values:
      *
-     *   **0**: ECS
-     *   **1**: SLB
-     *   **3**: ApsaraDB RDS
-     *   **4**: MongoDB
-     *   **5**: Redis
-     *   **6**: Container Registry
-     *   **8**: ACK
-     *   **9**: VPC
-     *   **11**: ActionTrail
-     *   **12**: CDN
-     *   **13**: Certificate Management Service (formerly SSL Certificates Service)
-     *   **14**: Apsara Devops
-     *   **15**: RAM
-     *   **16**: Anti-DDoS
-     *   **17**: WAF
-     *   **18**: OSS
-     *   **19**: PolarDB
-     *   **20**: ApsaraDB RDS for PostgreSQL
-     *   **21**: MSE
-     *   **22**: NAS
-     *   **23**: DSC
-     *   **24**: EIP
-     *   **25**: IDaaS EIAM
-     *   **26**: PolarDB-X
-     *   **27**: Elasticsearch
+     *   **0**: ECS.
+     *   **1**: SLB.
+     *   **3**: ApsaraDB RDS.
+     *   **4**: ApsaraDB for MongoDB.
+     *   **5**: ApsaraDB for Redis.
+     *   **6**: Container Registry.
+     *   **8**: Container Service for Kubernetes.
+     *   **9**: VPC.
+     *   **11**: ActionTrail.
+     *   **12**: CDN.
+     *   **13**: Certificate Management Service.
+     *   **14**: Apsara Devops.
+     *   **15**: RAM.
+     *   **16**: Anti-DDoS.
+     *   **17**: WAF.
+     *   **18**: OSS.
+     *   **19**: PolarDB.
+     *   **20**: ApsaraDB RDS for PostgreSQL.
+     *   **21**: MSE.
+     *   **22**: NAS.
+     *   **23**: DSC.
+     *   **24**: EIP.
+     *   **25**: IDaaS-EIAM.
+     *   **26**: PolarDB-X.
+     *   **27**: Elasticsearch.
      *
      * @example 3
      *
@@ -74,7 +74,7 @@ class instances extends Model
     public $assetType;
 
     /**
-     * @description The type name of the cloud asset.
+     * @description The name of the cloud asset type.
      *
      * @example RDS
      *
@@ -128,7 +128,7 @@ class instances extends Model
     public $internetIp;
 
     /**
-     * @description The region where the cloud asset resides.
+     * @description The region in which the cloud asset resides.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hanghzou
@@ -161,11 +161,11 @@ class instances extends Model
     /**
      * @description The service provider of the cloud asset. Valid values:
      *
-     *   **0**: The asset is provided by Alibaba Cloud.
-     *   **1**: The asset is not provided by Alibaba Cloud.
-     *   **2**: The asset resides in a data center.
-     *   **3**, **4**, **5**, and **7**: other cloud asset.
-     *   **8**: The asset is a simple application server.
+     *   **0**: Alibaba Cloud.
+     *   **1**: service provider that is unrecognized.
+     *   **2**: data center.
+     *   **3**, **4**, **5**, and **7**: third-party service provider.
+     *   **8**: simple application server.
      *
      * @example 0
      *

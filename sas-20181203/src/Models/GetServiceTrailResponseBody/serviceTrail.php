@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class serviceTrail extends Model
 {
     /**
+     * @description The status of the service trail. Valid values:
+     *
+     *   **on:**
+     *   **off:**
+     *
      * @example on
      *
      * @var string
@@ -16,6 +21,8 @@ class serviceTrail extends Model
     public $config;
 
     /**
+     * @description The timestamp generated when the service trail was created. Unit: milliseconds.
+     *
      * @example 1687250241000
      *
      * @var int
@@ -23,6 +30,8 @@ class serviceTrail extends Model
     public $createTime;
 
     /**
+     * @description The timestamp generated when the service trail was last updated. Unit: milliseconds.
+     *
      * @example 1687250241000
      *
      * @var int

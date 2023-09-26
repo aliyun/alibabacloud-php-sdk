@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of times that the template is used.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $count;
 
     /**
+     * @description The description of the template.
+     *
      * @example Custom defense configuration
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $description;
 
     /**
+     * @description The ID of the template.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $templateId;
 
     /**
+     * @description The name of the template.
+     *
      * @example Blank template
      *
      * @var string

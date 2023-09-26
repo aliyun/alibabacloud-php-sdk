@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class installStatus extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example c60b77fe62093480db6164a3c2fa****
      *
      * @var string
@@ -16,6 +18,11 @@ class installStatus extends Model
     public $clusterId;
 
     /**
+     * @description Indicates whether the component is installed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

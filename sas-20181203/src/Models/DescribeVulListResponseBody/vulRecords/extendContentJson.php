@@ -38,6 +38,11 @@ class extendContentJson extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $emgProof;
+
+    /**
      * @description The public IP address of the asset that is associated with the vulnerability.
      *
      * @example 1.2.XX.XX
@@ -129,6 +134,11 @@ class extendContentJson extends Model
     public $tag;
 
     /**
+     * @var string
+     */
+    public $target;
+
+    /**
      * @description The CVE list.
      *
      * @var string[]
@@ -138,6 +148,7 @@ class extendContentJson extends Model
         'absolutePath'  => 'AbsolutePath',
         'aliasName'     => 'AliasName',
         'description'   => 'Description',
+        'emgProof'      => 'EmgProof',
         'ip'            => 'Ip',
         'lastTs'        => 'LastTs',
         'necessity'     => 'Necessity',
@@ -147,6 +158,7 @@ class extendContentJson extends Model
         'rpmEntityList' => 'RpmEntityList',
         'status'        => 'Status',
         'tag'           => 'Tag',
+        'target'        => 'Target',
         'cveList'       => 'cveList',
     ];
 
@@ -165,6 +177,9 @@ class extendContentJson extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->emgProof) {
+            $res['EmgProof'] = $this->emgProof;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -199,6 +214,9 @@ class extendContentJson extends Model
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
+        if (null !== $this->target) {
+            $res['Target'] = $this->target;
+        }
         if (null !== $this->cveList) {
             $res['cveList'] = $this->cveList;
         }
@@ -222,6 +240,9 @@ class extendContentJson extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EmgProof'])) {
+            $model->emgProof = $map['EmgProof'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
@@ -255,6 +276,9 @@ class extendContentJson extends Model
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+        if (isset($map['Target'])) {
+            $model->target = $map['Target'];
         }
         if (isset($map['cveList'])) {
             if (!empty($map['cveList'])) {

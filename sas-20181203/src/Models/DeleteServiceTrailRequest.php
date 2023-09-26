@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceTrailRequest extends Model
 {
     /**
+     * @description The region in which your Security Center service is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: center.
+     *   **ap-southeast-1**: Singapore.
+     *
      * @example cn-hangzhou
      *
      * @var string

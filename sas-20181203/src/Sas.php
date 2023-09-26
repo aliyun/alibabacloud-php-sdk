@@ -863,6 +863,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListUuidsByWebPathRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUuidsByWebPathResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListVulAutoRepairConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListVulAutoRepairConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListVulGlobalConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListVulGlobalConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAccessKeyLeakDealRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAccessKeyLeakDealResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleRequest;
@@ -7510,7 +7512,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can search for assets by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
+     * You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
      *   *
      * @param DescribeCloudCenterInstancesRequest $request DescribeCloudCenterInstancesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -7576,7 +7578,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can search for assets by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
+     * You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
      *   *
      * @param DescribeCloudCenterInstancesRequest $request DescribeCloudCenterInstancesRequest
      *
@@ -11457,9 +11459,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeInstallCodes operation to query the commands that are used to manually install the Security Center agent. The returned results contain the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
-     *   * # Limits
-     *   * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
+     *   * ### QPS limit
+     *   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -11484,9 +11486,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeInstallCodes operation to query the commands that are used to manually install the Security Center agent. The returned results contain the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
-     *   * # Limits
-     *   * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
+     *   * ### QPS limit
+     *   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
      *   *
      * @return DescribeInstallCodesResponse DescribeInstallCodesResponse
      */
@@ -24302,6 +24304,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listVulAutoRepairConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVulGlobalConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListVulGlobalConfigResponse
+     */
+    public function listVulGlobalConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configKey)) {
+            $query['ConfigKey'] = $request->configKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVulGlobalConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListVulGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListVulGlobalConfigRequest $request
+     *
+     * @return ListVulGlobalConfigResponse
+     */
+    public function listVulGlobalConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVulGlobalConfigWithOptions($request, $runtime);
     }
 
     /**

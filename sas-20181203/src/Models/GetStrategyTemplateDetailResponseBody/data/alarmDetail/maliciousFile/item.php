@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The unique identifier of the malicious sample.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class item extends Model
     public $id;
 
     /**
+     * @description The name of the malicious sample.
+     *
      * @example test
      *
      * @var string

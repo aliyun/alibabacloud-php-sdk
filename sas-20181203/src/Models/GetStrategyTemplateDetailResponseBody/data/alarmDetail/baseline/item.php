@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The unique identifier of the baseline check item.
+     *
      * @example ak_leak
      *
      * @var string
@@ -16,6 +18,8 @@ class item extends Model
     public $id;
 
     /**
+     * @description The name of the baseline check item.
+     *
      * @example Access Key plaintext storage
      *
      * @var string

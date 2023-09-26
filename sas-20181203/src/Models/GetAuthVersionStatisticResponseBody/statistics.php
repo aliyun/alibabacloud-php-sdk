@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
+     * @description The edition of Security Center. Valid values:
+     *
+     *   **1**: Basic edition (Unauthorized)
+     *   **6**: Anti-virus edition
+     *   **5**: Advanced edition
+     *   **3**: Enterprise edition
+     *   **7**: Ultimate edition
+     *   **10**: Value-added Plan edition
+     *
      * @example 6
      *
      * @var int
@@ -16,6 +25,8 @@ class statistics extends Model
     public $authVersion;
 
     /**
+     * @description The number of authorized servers.
+     *
      * @example 1
      *
      * @var int

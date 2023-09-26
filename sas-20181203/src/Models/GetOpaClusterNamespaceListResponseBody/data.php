@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the namespace.
+     *
      * @example testNameSpace
      *
      * @var string

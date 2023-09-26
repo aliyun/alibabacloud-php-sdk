@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetServiceTrailResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example C699E4E4-F2F4-58FC-A949-457FFE59****
      *
      * @var string
@@ -17,6 +19,8 @@ class GetServiceTrailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The configurations of the service trail.
+     *
      * @var serviceTrail
      */
     public $serviceTrail;

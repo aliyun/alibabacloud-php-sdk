@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class baseline extends Model
 {
     /**
+     * @description The baseline items.
+     *
      * @var item[]
      */
     public $item;
 
     /**
+     * @description The severities of the baselines. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @var string[]
      */
     public $riskLevel;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyCycleTaskRequest extends Model
 {
     /**
+     * @description The ID of the task configuration.
+     *
+     * >  You can call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to query the IDs of task configurations.
      * @example 00cfa8161da093089e6804ba6a33****
      *
      * @var string
@@ -16,6 +19,11 @@ class ModifyCycleTaskRequest extends Model
     public $configId;
 
     /**
+     * @description Specifies whether to enable the task. Valid values:
+     *
+     *   **1**: enables the task.
+     *   **0**: disables the task.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +31,8 @@ class ModifyCycleTaskRequest extends Model
     public $enable;
 
     /**
+     * @description The time when the task first started.
+     *
      * @example 1664380800000
      *
      * @var int
@@ -30,6 +40,8 @@ class ModifyCycleTaskRequest extends Model
     public $firstDateStr;
 
     /**
+     * @description The interval at which the task is run.
+     *
      * @example 14
      *
      * @var int
@@ -37,6 +49,8 @@ class ModifyCycleTaskRequest extends Model
     public $intervalPeriod;
 
     /**
+     * @description The additional information.
+     *
      * @example {
      * "name": "TI HOST",
      * "target": 10597***
@@ -48,6 +62,11 @@ class ModifyCycleTaskRequest extends Model
     public $param;
 
     /**
+     * @description The unit of the scan interval. Valid values:
+     *
+     *   **day**
+     *   **hour**
+     *
      * @example day
      *
      * @var string
@@ -55,6 +74,8 @@ class ModifyCycleTaskRequest extends Model
     public $periodUnit;
 
     /**
+     * @description The end time of the task. The time must be a time frame.
+     *
      * @example 6
      *
      * @var int
@@ -62,6 +83,8 @@ class ModifyCycleTaskRequest extends Model
     public $targetEndTime;
 
     /**
+     * @description The start time of the task. The start time must be a time frame.
+     *
      * @example 0
      *
      * @var int
@@ -69,6 +92,25 @@ class ModifyCycleTaskRequest extends Model
     public $targetStartTime;
 
     /**
+     * @description The name of the task. Valid values:
+     *
+     *   **VIRUS_VUL_SCHEDULE_SCAN**: virus detection task
+     *   **IMAGE_SCAN**: image scan task
+     *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
+     *
+     * Valid values:
+     *
+     *   VIRUS_VUL_SCHEDULE_SCAN
+     *
+     * <!-- -->
+     *
+     *   IMAGE_SCAN
+     *
+     * <!-- -->
+     *
+     *   EMG_VUL_SCHEDULE_SCAN
+     *
+     * <!-- -->
      * @example EMG_VUL_SCHEDULE_SCAN
      *
      * @var string
@@ -76,6 +118,25 @@ class ModifyCycleTaskRequest extends Model
     public $taskName;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **VIRUS_VUL_SCHEDULE_SCAN**: virus detection task
+     *   **IMAGE_SCAN**: image scan task
+     *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
+     *
+     * Valid values:
+     *
+     *   VIRUS_VUL_SCHEDULE_SCAN
+     *
+     * <!-- -->
+     *
+     *   IMAGE_SCAN
+     *
+     * <!-- -->
+     *
+     *   EMG_VUL_SCHEDULE_SCAN
+     *
+     * <!-- -->
      * @example VIRUS_VUL_SCHEDULE_SCAN
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The configuration of the rule.
+     *
      * @var alarmDetail
      */
     public $alarmDetail;
 
     /**
+     * @description The cluster ID.
+     *
      * @example c8ca91e0907d94efaba7fb0827eb9****
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example hhht-cluster-02
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $clusterName;
 
     /**
+     * @description The description of the rule.
+     *
      * @example Custom defense configuration
      *
      * @var string
@@ -36,16 +44,25 @@ class data extends Model
     public $description;
 
     /**
+     * @description The names of images.
+     *
      * @var string[]
      */
     public $imageName;
 
     /**
+     * @description The tags that are added to the containers.
+     *
      * @var string[]
      */
     public $label;
 
     /**
+     * @description Indicates whether the rule supports malicious Internet images. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -53,11 +70,19 @@ class data extends Model
     public $maliciousImage;
 
     /**
+     * @description The namespaces.
+     *
      * @var string[]
      */
     public $namespace;
 
     /**
+     * @description The action on requests. Valid values:
+     *
+     *   **1**: trigger alerts
+     *   **2**: block
+     *   **3**: allow
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +90,8 @@ class data extends Model
     public $ruleAction;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 1005
      *
      * @var int
@@ -72,6 +99,8 @@ class data extends Model
     public $strategyId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example Blank template
      *
      * @var string
@@ -79,6 +108,8 @@ class data extends Model
     public $strategyName;
 
     /**
+     * @description The ID of the template.
+     *
      * @example 1204
      *
      * @var int
@@ -86,6 +117,11 @@ class data extends Model
     public $strategyTemplateId;
 
     /**
+     * @description Indicates whether the rule supports unscanned images. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -93,6 +129,8 @@ class data extends Model
     public $unScanedImage;
 
     /**
+     * @description The whitelists of tags that are added to images.
+     *
      * @var string[]
      */
     public $whiteList;

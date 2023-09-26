@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskStatisticsResponseBody extends Model
 {
     /**
+     * @description The number of risks that are handled for the user.
+     *
      * @example 11
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeScanTaskStatisticsResponseBody extends Model
     public $dealedRiskNum;
 
     /**
+     * @description The total number of tasks that are created for the user.
+     *
      * @example 11
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeScanTaskStatisticsResponseBody extends Model
     public $personalTaskNum;
 
     /**
+     * @description The request ID.
+     *
      * @example 765EDBDE-1686-5DBA-B76F-2E0XXXXXXX
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeScanTaskStatisticsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of virus detection tasks.
+     *
      * @example 11
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeScanTaskStatisticsResponseBody extends Model
     public $totalTaskNum;
 
     /**
+     * @description The number of risks that are detected for the user.
+     *
      * @example 11
      *
      * @var int

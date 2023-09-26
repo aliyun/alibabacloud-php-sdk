@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The alias of the baseline.
+     *
      * @example Make sure there are no duplicate usernames or UIDs
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $alias;
 
     /**
+     * @description The key of the baseline type.
+     *
      * @example identification
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $classKey;
 
     /**
+     * @description The key of the name for the baseline check item.
+     *
      * @example duplicate_uid
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $itemKey;
 
     /**
+     * @description The key of the name for the baseline.
+     *
      * @example identification
      *
      * @var string

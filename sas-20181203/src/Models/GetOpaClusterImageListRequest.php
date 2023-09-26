@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetOpaClusterImageListRequest extends Model
 {
     /**
+     * @description The ID of the cluster to which the container belongs.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
      * @example c4af4fdf38a98496a9b63c2be5dae****
      *
      * @var string
@@ -16,6 +19,8 @@ class GetOpaClusterImageListRequest extends Model
     public $clusterId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +28,8 @@ class GetOpaClusterImageListRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the image.
+     *
      * @example testImage
      *
      * @var string
@@ -30,6 +37,8 @@ class GetOpaClusterImageListRequest extends Model
     public $imageName;
 
     /**
+     * @description The number of entries per page. Default value: **20**.
+     *
      * @example 1
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListCriteriaStrategyResponseBody extends Model
 {
     /**
+     * @description The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class ListCriteriaStrategyResponseBody extends Model
     public $code;
 
     /**
+     * @description The IDs and names of the rules.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class ListCriteriaStrategyResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 835851E3-AFA2-5EA7-93E9-4FC9BCF3F973
      *
      * @var string
@@ -36,6 +44,11 @@ class ListCriteriaStrategyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

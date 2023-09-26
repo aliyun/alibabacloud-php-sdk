@@ -25,21 +25,21 @@ class instances extends Model
      *
      *   **0**: an ECS instance
      *   **1**: a Server Load Balancer (SLB) instance
-     *   **2**: a NAT gateway
+     *   **2**: a Network Address Translation (NAT) gateway
      *   **3**: an ApsaraDB RDS instance
      *   **4**: an ApsaraDB for MongoDB instance
      *   **5**: an ApsaraDB for Redis instance
      *   **6**: a container image
      *   **7**: a container
      *
-     * @example 0
+     * @example ecs
      *
      * @var string
      */
     public $assetType;
 
     /**
-     * @description The timestamp when Security Center is authorized to scan the asset. Unit: milliseconds.
+     * @description The timestamp when Security Center is authorized to scan the asset.
      *
      * @example 1627974044000
      *
@@ -48,15 +48,16 @@ class instances extends Model
     public $authModifyTime;
 
     /**
-     * @description The edition of Security Center that is authorized to protect the asset. Valid values:
+     * @description The edition of Security Center that is authorized to scan the asset. Valid values:
      *
      *   **1**: Basic edition
      *   **6**: Anti-virus edition
      *   **5**: Advanced edition
      *   **3**: Enterprise edition
      *   **7**: Ultimate edition
+     *   **10**: Value-added Plan edition
      *
-     * @example 1
+     * @example 3
      *
      * @var int
      */
@@ -79,10 +80,10 @@ class instances extends Model
     public $authVersionName;
 
     /**
-     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
+     * @description Indicates whether Security Center is authorized to scan the asset. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**: Security Center is authorized to scan the asset.
+     *   **false**: Security Center is not authorized to scan the asset.
      *
      * @example true
      *
@@ -122,7 +123,7 @@ class instances extends Model
     public $clusterName;
 
     /**
-     * @description The number of the CPU cores for the asset.
+     * @description The number of the CPU cores used by the asset.
      *
      * @example 4
      *
@@ -151,8 +152,8 @@ class instances extends Model
     /**
      * @description Indicates whether the asset is exposed. Valid values:
      *
-     *   **0**: no
-     *   **1**: yes
+     *   **0**: The asset is not exposed.
+     *   **1**: The asset is exposed.
      *
      * @example 0
      *
@@ -163,8 +164,8 @@ class instances extends Model
     /**
      * @description Indicates whether the asset is an Alibaba Cloud asset. Valid values:
      *
-     *   **0**: yes
-     *   **1**: no
+     *   **0**: The asset is an Alibaba Cloud asset.
+     *   **1**: The asset is not an Alibaba Cloud asset.
      *
      * @example 0
      *
@@ -191,7 +192,7 @@ class instances extends Model
     public $groupTrace;
 
     /**
-     * @description Indicates whether baseline risk items are detected on the asset. Valid values:
+     * @description Indicates whether baseline risks are detected on the asset. Valid values:
      *
      *   **YES**
      *   **NO**
@@ -212,7 +213,7 @@ class instances extends Model
     public $healthCheckCount;
 
     /**
-     * @description The importance level of the asset. Valid values:
+     * @description The importance of the asset. Valid values:
      *
      *   **2**: an important asset
      *   **1**: a common asset
@@ -297,7 +298,7 @@ class instances extends Model
     public $lastLoginTimestamp;
 
     /**
-     * @description The MAC address of the system.
+     * @description The MAC addresses of the system.
      *
      * @example 00:13:3e:31:13:39,02:12:67:b8:**:**
      *
@@ -306,7 +307,7 @@ class instances extends Model
     public $macListString;
 
     /**
-     * @description The memory size. Unit: MB.
+     * @description The size of the memory. Unit: MB.
      *
      * @example 1024
      *
@@ -324,7 +325,7 @@ class instances extends Model
     public $os;
 
     /**
-     * @description The version of the operating system that the asset runs.
+     * @description The kernel version of the asset.
      *
      * @example -
      *
@@ -369,25 +370,25 @@ class instances extends Model
     public $regionName;
 
     /**
-     * @description The statistics about baseline risks that are detected on the asset. The value of this parameter is in the JSON format and contains the following fields:
+     * @description The total number of baseline risks that are detected on the asset. The value of this parameter is in the JSON format and contains the following fields:
      *
      *   **account**: the number of accounts that are used to log on from unapproved logon locations and whose passwords are cracked
      *   **appNum**: the number of scanners
-     *   **asapVulCount**: the total number of high-risk vulnerabilities
+     *   **asapVulCount**: the total number of high-severity vulnerabilities
      *   **baselineHigh**: the number of high-risk baseline risks
      *   **baselineLow**: the number of low-risk baseline risks
      *   **baselineMedium**: the number of medium-risk baseline risks
      *   **baselineNum**: the total number of baseline risks
      *   **cmsNum**: the number of Web-CMS vulnerabilities
-     *   **containerAsap**: the number of high-risk vulnerabilities that are detected on containers
-     *   **containerLater**: the number of medium-risk vulnerabilities that are detected on containers
-     *   **containerNntf**: the number of low-risk vulnerabilities that are detected on containers
+     *   **containerAsap**: the number of high-severity vulnerabilities that are detected on containers
+     *   **containerLater**: the number of medium-severity vulnerabilities that are detected on containers
+     *   **containerNntf**: the number of low-severity vulnerabilities that are detected on containers
      *   **containerRemind**: the number of alerts whose Emergency level is Reminder on containers
-     *   **containerSerious**: the number of alerts whose Emergency level is Urgent on containers
+     *   **containerSerious**: the number of alerts Emergency level is Urgent on containers
      *   **containerSuspicious**: the number of alerts whose Emergency level is Suspicious on containers
      *   **cveNum**: the number of Linux software vulnerabilities
      *   **emgNum**: the number of urgent vulnerabilities
-     *   **health**: the number of baseline risks that are unhandled
+     *   **health**: the number of baseline alerts that are unhandled
      *   **imageBaselineHigh**: the number of high-risk baseline risks that are detected on images
      *   **imageBaselineLow**: the number of low-risk baseline risks that are detected on images
      *   **imageBaselineMedium**: the number of medium-risk baseline risks that are detected on images
@@ -395,12 +396,12 @@ class instances extends Model
      *   **imageMaliciousFileRemind**: the number of malicious files that are detected on images and have the Emergency level of Reminder
      *   **imageMaliciousFileSerious**: the number of malicious files that are detected on images and have the Emergency level of Urgent
      *   **imageMaliciousFileSuspicious**: the number of malicious files that are detected on images and have the Emergency level of Suspicious
-     *   **imageVulAsap**: the number of high-risk vulnerabilities that are detected on images
-     *   **imageVulLater**: the number of medium-risk vulnerabilities that are detected on an image
-     *   **imageVulNntf**: the number of low-risk vulnerabilities that are detected on an image
-     *   **laterVulCount**: the number of medium-risk vulnerabilities
+     *   **imageVulAsap**: the number of high-severity vulnerabilities that are detected on images
+     *   **imageVulLater**: the number of medium-severity vulnerabilities that are detected on an image
+     *   **imageVulNntf**: the number of low-severity vulnerabilities that are detected on an image
+     *   **laterVulCount**: the number of medium-severity vulnerabilities
      *   **newSuspicious**: the number of alerts
-     *   **nntfVulCount**: the number of low-risk vulnerabilities
+     *   **nntfVulCount**: the number of low-severity vulnerabilities.
      *   **remindNum**: the number of alerts whose Emergency level is Reminder
      *   **scaNum**: the number of vulnerabilities that are detected based on software component analysis
      *   **seriousNum**: the number of alerts whose Emergency level is Urgent
@@ -408,7 +409,7 @@ class instances extends Model
      *   **suspicious**: the total number of alerts
      *   **sysNum**: the number of Windows system vulnerabilities
      *   **trojan**: the number of trojans
-     *   **uuid**: the UUID of the asset
+     *   **uuid**: the UUIDs of assets
      *   **vul**: the number of vulnerabilities
      *   **weakPWNum**: the number of weak passwords
      *
@@ -479,13 +480,12 @@ class instances extends Model
     public $uuid;
 
     /**
-     * @description The category of the service provider (SP) for the asset. Valid values:
+     * @description The type of the asset by source. Valid values:
      *
-     *   **0**: The asset is provided by Alibaba Cloud.
-     *   **1**: The asset is not provided by Alibaba Cloud.
-     *   **2**: The asset resides in a data center.
-     *   **3**, **4**, **5**, and **7**: other cloud asset.
-     *   **8**: a light-weight asset.
+     *   **0**: an ECS instance.
+     *   **1**: a third-party cloud server.
+     *   **2**: a server in a data center.
+     *   **3**: a server deployed on Tencent Cloud. This value is returned only after the asset is protected by Security Center.
      *
      * @example 0
      *
@@ -494,20 +494,14 @@ class instances extends Model
     public $vendor;
 
     /**
-     * @description The name of the SP for the asset.
+     * @description The name of the service provider (SP) for the asset.
      *
      * Valid values:
      *
-     *   **ALIYUN**: Alibaba Cloud
-     *   **OUT**: a third-party service provider
-     *   **IDC**: a data center
      *   **TENCENT**: Tencent Cloud
-     *   **HUAWEICLOUD**: HUAWEI CLOUD
-     *   **Microsoft**: Microsoft Azure
-     *   **AWS**: Amazon Web Services (AWS)
-     *   **TRIPARTITE**: a lightweight server
+     *   **ALIYUN**: Alibaba Cloud
      *
-     * @example IDC
+     * @example Tencent
      *
      * @var string
      */

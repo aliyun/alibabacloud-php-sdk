@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetOpaClusterLabelListRequest extends Model
 {
     /**
+     * @description The ID of the cluster to which the container belongs.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of clusters.
      * @example c556c8133b5ad4378b7fc533ddbda****
      *
      * @var string
@@ -16,6 +19,8 @@ class GetOpaClusterLabelListRequest extends Model
     public $clusterId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +28,9 @@ class GetOpaClusterLabelListRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries per page. Default value: 200. If you leave the PageSize parameter empty, 200 entries are returned by default. Maximum value: 200.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -30,6 +38,8 @@ class GetOpaClusterLabelListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the tag.
+     *
      * @example test
      *
      * @var string

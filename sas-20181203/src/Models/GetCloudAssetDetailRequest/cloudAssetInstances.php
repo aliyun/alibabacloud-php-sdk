@@ -18,9 +18,9 @@ class cloudAssetInstances extends Model
     public $instanceId;
 
     /**
-     * @description The region where the cloud asset resides.
+     * @description The region in which the cloud asset resides.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

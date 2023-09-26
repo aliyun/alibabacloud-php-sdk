@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAssetCleanConfigResponseBody extends Model
 {
     /**
+     * @description The number of cleanup configurations.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class ListAssetCleanConfigResponseBody extends Model
     public $count;
 
     /**
+     * @description The asset cleanup configurations.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 20456DD5-5CBF-5015-9173-12CA4246B***
      *
      * @var string

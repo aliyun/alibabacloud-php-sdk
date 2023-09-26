@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetAuthVersionStatisticResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 2CA2BDF6-F3BD-51A4-BAAC-30B02F7A3FBB
      *
      * @var string
@@ -17,6 +19,8 @@ class GetAuthVersionStatisticResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The statistics about the numbers of assets protected by each edition of Security Center.
+     *
      * @var statistics[]
      */
     public $statistics;

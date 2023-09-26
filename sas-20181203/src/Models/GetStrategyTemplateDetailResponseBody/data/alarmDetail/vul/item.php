@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The ID of the vulnerability.
+     *
      * @example AVD-2023-1680169
      *
      * @var string
@@ -16,6 +18,8 @@ class item extends Model
     public $id;
 
     /**
+     * @description The alias of the vulnerability.
+     *
      * @example ezOffice evoInterfaceServlet Info Leak
      *
      * @var string

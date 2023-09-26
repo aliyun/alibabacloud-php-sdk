@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetOpaPluginStatusResponseBody extends Model
 {
     /**
+     * @description The installation status of the components that are required for clusters protected by proactive defense for containers.
+     *
      * @var installStatus[]
      */
     public $installStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8BF6F
      *
      * @var string

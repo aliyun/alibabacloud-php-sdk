@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetOpaClusterLabelListResponseBody extends Model
 {
     /**
+     * @description The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +19,8 @@ class GetOpaClusterLabelListResponseBody extends Model
     public $code;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
      * @example 2
      *
      * @var int
@@ -24,11 +28,15 @@ class GetOpaClusterLabelListResponseBody extends Model
     public $count;
 
     /**
+     * @description The information about the tags that are added to containers.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -36,6 +44,8 @@ class GetOpaClusterLabelListResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 95D35EB3-1F8E-5E07-A68E-BE018C9B80CB
      *
      * @var string
@@ -43,6 +53,11 @@ class GetOpaClusterLabelListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

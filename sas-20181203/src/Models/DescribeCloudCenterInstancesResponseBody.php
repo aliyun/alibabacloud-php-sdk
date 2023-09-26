@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudCenterInstancesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about the assets.
+     * @description An array that consists of the details about the asset.
      *
      * @var instances[]
      */
@@ -34,10 +34,10 @@ class DescribeCloudCenterInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Indicates whether the call is successful. Valid values:
      *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
+     *   **true**: The call is successful.
+     *   **false**: The call fails.
      *
      * @example true
      *

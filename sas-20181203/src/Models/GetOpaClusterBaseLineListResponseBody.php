@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetOpaClusterBaseLineListResponseBody extends Model
 {
     /**
+     * @description The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetOpaClusterBaseLineListResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about baselines.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class GetOpaClusterBaseLineListResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example C2F2A020-1CAB-5F52-8CAF-B2ACDDFAC247
      *
      * @var string
@@ -36,6 +44,11 @@ class GetOpaClusterBaseLineListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
