@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRecordRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRecordResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateChainRequest;
@@ -72,6 +74,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTagRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTagResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTriggerResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetAuthorizationTokenRequest;
@@ -415,6 +419,55 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createArtifactBuildRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBuildRecordByRecordRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateBuildRecordByRecordResponse
+     */
+    public function createBuildRecordByRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->buildRecordId)) {
+            $query['BuildRecordId'] = $request->buildRecordId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBuildRecordByRecord',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBuildRecordByRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBuildRecordByRecordRequest $request
+     *
+     * @return CreateBuildRecordByRecordResponse
+     */
+    public function createBuildRecordByRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBuildRecordByRecordWithOptions($request, $runtime);
     }
 
     /**
@@ -2005,6 +2058,46 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRepositoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetArtifactBuildRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetArtifactBuildRuleResponse
+     */
+    public function getArtifactBuildRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetArtifactBuildRule',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetArtifactBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetArtifactBuildRuleRequest $request
+     *
+     * @return GetArtifactBuildRuleResponse
+     */
+    public function getArtifactBuildRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getArtifactBuildRuleWithOptions($request, $runtime);
     }
 
     /**
