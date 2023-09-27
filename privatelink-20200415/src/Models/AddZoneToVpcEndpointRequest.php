@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddZoneToVpcEndpointRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -16,6 +19,11 @@ class AddZoneToVpcEndpointRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +31,8 @@ class AddZoneToVpcEndpointRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the endpoint to which you want to add the zone.
+     *
      * @example ep-hp33b2e43fays7s8****
      *
      * @var string
@@ -30,6 +40,9 @@ class AddZoneToVpcEndpointRequest extends Model
     public $endpointId;
 
     /**
+     * @description The region ID of the endpoint.
+     *
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +50,8 @@ class AddZoneToVpcEndpointRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the vSwitch in the zone that you want to add. The system automatically creates an endpoint ENI in the vSwitch.
+     *
      * @example vsw-hjkshjvdkdvd****
      *
      * @var string
@@ -44,6 +59,8 @@ class AddZoneToVpcEndpointRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the zone that you want to add.
+     *
      * @example cn-hangzhou-b
      *
      * @var string
@@ -51,6 +68,8 @@ class AddZoneToVpcEndpointRequest extends Model
     public $zoneId;
 
     /**
+     * @description The IP address of the endpoint ENI in the zone that you want to add.
+     *
      * @example 192.XX.XX.32
      *
      * @var string

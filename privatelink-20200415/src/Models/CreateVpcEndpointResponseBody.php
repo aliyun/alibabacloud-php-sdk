@@ -9,59 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointResponseBody extends Model
 {
     /**
-     * @description The endpoint ID.
+     * @description The bandwidth of the endpoint connection. Unit: Mbit/s.
      *
      * @example 200
      *
      * @var int
      */
     public $bandwidth;
-
-    /**
-     * @example Disconnected
-     *
-     * @var string
-     */
-    public $connectionStatus;
-
-    /**
-     * @description The service state of the endpoint. Valid values:
-     *
-     *   **Normal**: The endpoint runs as expected.
-     *   **FinacialLocked**: The endpoint is locked due to overdue payments.
-     *
-     * @example 2022-01-02T19:11:12Z
-     *
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @description The description of the endpoint.
-     *
-     * @example Normal
-     *
-     * @var string
-     */
-    public $endpointBusinessStatus;
-
-    /**
-     * @description The ID of the endpoint service with which the endpoint is associated.
-     *
-     * @example This is my Endpoint.
-     *
-     * @var string
-     */
-    public $endpointDescription;
-
-    /**
-     * @description The request ID.
-     *
-     * @example ep-hp33b2e43fays7s8****.epsrv-hp3xdsq46ael67lo****.cn-huhehaote.privatelink.aliyuncs.com
-     *
-     * @var string
-     */
-    public $endpointDomain;
 
     /**
      * @description The state of the endpoint connection. Valid values:
@@ -73,6 +27,54 @@ class CreateVpcEndpointResponseBody extends Model
      *   **Disconnected**: The endpoint is disconnected from the endpoint service.
      *   **Deleting**: The connection is being deleted.
      *
+     * @example Disconnected
+     *
+     * @var string
+     */
+    public $connectionStatus;
+
+    /**
+     * @description The time when the endpoint was created.
+     *
+     * @example 2022-01-02T19:11:12Z
+     *
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @description The service state of the endpoint. Valid values:
+     *
+     *   **Normal**: The endpoint runs as expected.
+     *   **FinacialLocked**: The endpoint is locked due to overdue payments.
+     *
+     * @example Normal
+     *
+     * @var string
+     */
+    public $endpointBusinessStatus;
+
+    /**
+     * @description The description of the endpoint.
+     *
+     * @example This is my Endpoint.
+     *
+     * @var string
+     */
+    public $endpointDescription;
+
+    /**
+     * @description The domain name of the endpoint.
+     *
+     * @example ep-hp33b2e43fays7s8****.epsrv-hp3xdsq46ael67lo****.cn-huhehaote.privatelink.aliyuncs.com
+     *
+     * @var string
+     */
+    public $endpointDomain;
+
+    /**
+     * @description The endpoint ID.
+     *
      * @example ep-hp33b2e43fays7s8****
      *
      * @var string
@@ -80,31 +82,13 @@ class CreateVpcEndpointResponseBody extends Model
     public $endpointId;
 
     /**
-     * @description The name of the endpoint service with which the endpoint is associated.
+     * @description The name of the endpoint.
      *
      * @example test
      *
      * @var string
      */
     public $endpointName;
-
-    /**
-     * @description The ID of the VPC to which the endpoint belongs.
-     *
-     * @example Active
-     *
-     * @var string
-     */
-    public $endpointStatus;
-
-    /**
-     * @description The time when the endpoint was created.
-     *
-     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
-     *
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @description The state of the endpoint. Valid values:
@@ -114,6 +98,24 @@ class CreateVpcEndpointResponseBody extends Model
      *   **Pending**: The endpoint is being modified.
      *   **Deleting**: The endpoint is being deleted.
      *
+     * @example Active
+     *
+     * @var string
+     */
+    public $endpointStatus;
+
+    /**
+     * @description The request ID.
+     *
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description The ID of the endpoint service with which the endpoint is associated.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -121,7 +123,7 @@ class CreateVpcEndpointResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description The bandwidth of the endpoint connection. Unit: Mbit/s.
+     * @description The name of the endpoint service with which the endpoint is associated.
      *
      * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
      *
@@ -130,7 +132,7 @@ class CreateVpcEndpointResponseBody extends Model
     public $serviceName;
 
     /**
-     * @description The name of the endpoint.
+     * @description The ID of the VPC to which the endpoint belongs.
      *
      * @example vpc-hp356stwkxg3fn2xe****
      *

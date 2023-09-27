@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The list of regions.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

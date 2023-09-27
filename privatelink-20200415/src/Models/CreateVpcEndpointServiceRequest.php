@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointServiceRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically accept endpoint connection requests. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example false
      *
      * @var bool
@@ -18,6 +23,9 @@ class CreateVpcEndpointServiceRequest extends Model
     public $autoAcceptEnabled;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -25,6 +33,11 @@ class CreateVpcEndpointServiceRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request.
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -32,6 +45,12 @@ class CreateVpcEndpointServiceRequest extends Model
     public $dryRun;
 
     /**
+     * @description The payer of the endpoint service. Valid values:
+     *
+     *   **Endpoint**: the service consumer
+     *   **EndpointService**: the service provider
+     *
+     * > By default, the feature of allowing the service provider to pay is unavailable. To use this feature, log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/privatelink/quotas) and click Privileges in the left-side navigation pane. On the **Privileges** page, enter the quota ID `privatelink_whitelist/epsvc_payer_mode`, and click Apply in the Actions column.
      * @example Endpoint
      *
      * @var string
@@ -39,6 +58,9 @@ class CreateVpcEndpointServiceRequest extends Model
     public $payer;
 
     /**
+     * @description The region ID of the endpoint service.
+     *
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      * @example cn-huhehaote
      *
      * @var string
@@ -46,11 +68,15 @@ class CreateVpcEndpointServiceRequest extends Model
     public $regionId;
 
     /**
+     * @description The service resources of the endpoint service.
+     *
      * @var resource[]
      */
     public $resource;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmy*****
      *
      * @var string
@@ -58,6 +84,8 @@ class CreateVpcEndpointServiceRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The description of the endpoint service.
+     *
      * @example This is my EndpointService.
      *
      * @var string
@@ -65,6 +93,12 @@ class CreateVpcEndpointServiceRequest extends Model
     public $serviceDescription;
 
     /**
+     * @description The type of the service resource. Valid values:
+     *
+     *   **slb**: a Classic Load Balancer (CLB) instance
+     *   **alb**: an Application Load Balancer (ALB) instance
+     *   **nlb**: a Network Load Balancer (NLB) instance
+     *
      * @example slb
      *
      * @var string
@@ -72,6 +106,11 @@ class CreateVpcEndpointServiceRequest extends Model
     public $serviceResourceType;
 
     /**
+     * @description Specifies whether to enable IPv6 for the endpoint service. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example false
      *
      * @var bool
@@ -79,11 +118,18 @@ class CreateVpcEndpointServiceRequest extends Model
     public $serviceSupportIPv6;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description Specifies whether to first resolve the domain name of the nearest endpoint that is associated with the endpoint service. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example false
      *
      * @var bool

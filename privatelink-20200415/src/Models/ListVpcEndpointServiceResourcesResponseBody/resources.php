@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description Indicates whether automatic resource allocation is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -16,7 +21,7 @@ class resources extends Model
     public $autoAllocatedEnabled;
 
     /**
-     * @description The ID of the endpoint service.
+     * @description The IP address of the service resource.
      *
      * @example 192.168.10.23
      *
@@ -25,6 +30,8 @@ class resources extends Model
     public $ip;
 
     /**
+     * @description The ID of the region where the service resource is deployed.
+     *
      * @example cn-huhehaote
      *
      * @var string
@@ -32,6 +39,8 @@ class resources extends Model
     public $regionId;
 
     /**
+     * @description The number of endpoints that are associated with the service resource that is smoothly migrated.
+     *
      * @example 10
      *
      * @var int
@@ -39,6 +48,8 @@ class resources extends Model
     public $relatedDeprecatedEndpointCount;
 
     /**
+     * @description The number of endpoints that are associated with the service resource.
+     *
      * @example 10
      *
      * @var int
@@ -46,7 +57,7 @@ class resources extends Model
     public $relatedEndpointCount;
 
     /**
-     * @description The ID of the request.
+     * @description The service resource ID.
      *
      * @example lb-hp32z1wp5peaoox2q****
      *
@@ -55,6 +66,11 @@ class resources extends Model
     public $resourceId;
 
     /**
+     * @description Indicates whether IPv6 is enabled for the endpoint service. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -62,8 +78,9 @@ class resources extends Model
     public $resourceSupportIPv6;
 
     /**
-     * @description The number of replaced connections to the endpoint associated with the endpoint service in smooth migration scenarios.
+     * @description The type of the service resource.
      *
+     * Only **slb** is returned. This value indicates a Classic Load Balancer (CLB) instance.
      * @example slb
      *
      * @var string
@@ -71,10 +88,7 @@ class resources extends Model
     public $resourceType;
 
     /**
-     * @description Indicates whether automatic resource allocation is allowed. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The ID of the vSwitch to which the service resource belongs.
      *
      * @example vsw-hp3uf6045ljdhd5zr****
      *
@@ -83,7 +97,7 @@ class resources extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the region where the service resource is deployed.
+     * @description The ID of the virtual private cloud (VPC) to which the service resource belongs.
      *
      * @example vpc-hp356stwkxg3fn2xe****
      *
@@ -92,7 +106,7 @@ class resources extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone where the service resource is deployed.
+     * @description The ID of the zone to which the service resource belongs.
      *
      * @example cn-huhehaote-b
      *

@@ -36,20 +36,6 @@ class zones extends Model
     public $regionId;
 
     /**
-     * @description The state of the endpoint service. Valid values:
-     *
-     *   **Creating**: The endpoint service is being created.
-     *   **Pending**: The endpoint service is being modified.
-     *   **Active**: The endpoint service is available.
-     *   **Deleting**: The endpoint service is being deleted.
-     *
-     * @example Active
-     *
-     * @var string
-     */
-    public $serviceStatus;
-
-    /**
      * @description The ID of the vSwitch in the zone. The system automatically creates an endpoint elastic network interface (ENI) in the vSwitch.
      *
      * @example vsw-hjkshjvdkdvd****
@@ -109,7 +95,6 @@ class zones extends Model
         'eniId'           => 'EniId',
         'eniIp'           => 'EniIp',
         'regionId'        => 'RegionId',
-        'serviceStatus'   => 'ServiceStatus',
         'vSwitchId'       => 'VSwitchId',
         'zoneDomain'      => 'ZoneDomain',
         'zoneId'          => 'ZoneId',
@@ -132,9 +117,6 @@ class zones extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->serviceStatus) {
-            $res['ServiceStatus'] = $this->serviceStatus;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -171,9 +153,6 @@ class zones extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ServiceStatus'])) {
-            $model->serviceStatus = $map['ServiceStatus'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

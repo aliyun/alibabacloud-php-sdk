@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServiceResourcesRequest extends Model
 {
     /**
-     * @description The virtual private cloud (VPC) to which the service resource belongs.
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **50**.
      *
      * @example 50
      *
@@ -18,7 +18,10 @@ class ListVpcEndpointServiceResourcesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **50**.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
+     *   If a next request is to be performed, set the parameter to the value of NextToken that is returned from the last call.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -27,8 +30,9 @@ class ListVpcEndpointServiceResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the service resource.
+     * @description The region ID of the service resource.
      *
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      * @example cn-huhehaote
      *
      * @var string
@@ -36,10 +40,7 @@ class ListVpcEndpointServiceResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description Indicates whether the endpoint service supports IPv6. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The endpoint service ID.
      *
      * @example epsrv-hp3vpx8yqxblby3i****
      *

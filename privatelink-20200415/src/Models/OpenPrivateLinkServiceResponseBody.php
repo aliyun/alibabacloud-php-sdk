@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OpenPrivateLinkServiceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The order ID.
      *
      * @example 3245****
      *
@@ -18,7 +18,7 @@ class OpenPrivateLinkServiceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the order.
+     * @description The request ID.
      *
      * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
      *

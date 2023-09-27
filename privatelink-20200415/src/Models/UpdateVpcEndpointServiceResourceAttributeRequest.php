@@ -71,6 +71,10 @@ class UpdateVpcEndpointServiceResourceAttributeRequest extends Model
     public $serviceId;
 
     /**
+     * @description The zone ID of the service resource.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

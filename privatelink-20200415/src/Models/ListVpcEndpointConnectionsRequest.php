@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointConnectionsRequest extends Model
 {
     /**
-     * @description The ID of the endpoint connection.
-     *
-     * > This parameter is required only when a gateway is used for load balancing.
-     * @example 123
-     *
-     * @var int
-     */
-    public $connectionId;
-
-    /**
      * @description The state of the endpoint connection. Valid values:
      *
      *   **Pending**: The endpoint connection is being modified.
@@ -129,7 +119,6 @@ class ListVpcEndpointConnectionsRequest extends Model
      */
     public $serviceId;
     protected $_name = [
-        'connectionId'       => 'ConnectionId',
         'connectionStatus'   => 'ConnectionStatus',
         'endpointId'         => 'EndpointId',
         'endpointOwnerId'    => 'EndpointOwnerId',
@@ -150,9 +139,6 @@ class ListVpcEndpointConnectionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->connectionId) {
-            $res['ConnectionId'] = $this->connectionId;
-        }
         if (null !== $this->connectionStatus) {
             $res['ConnectionStatus'] = $this->connectionStatus;
         }
@@ -198,9 +184,6 @@ class ListVpcEndpointConnectionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConnectionId'])) {
-            $model->connectionId = $map['ConnectionId'];
-        }
         if (isset($map['ConnectionStatus'])) {
             $model->connectionStatus = $map['ConnectionStatus'];
         }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The ID of the service resource that is added to the endpoint service. You can specify up to 20 service resource IDs.
+     *
      * @example lb-hp32z1wp5peaoox2q****
      *
      * @var string
@@ -16,6 +18,13 @@ class resource extends Model
     public $resourceId;
 
     /**
+     * @description The type of the service resource that is added to the endpoint service. You can add up to 20 service resources to the endpoint service. Valid values:
+     *
+     *   **slb**: a CLB instance
+     *   **alb**: an ALB instance
+     *   **nlb**: a NLB instance
+     *
+     * >  In regions where PrivateLink is supported, CLB instances deployed in virtual private clouds (VPCs) can serve as service resources of the endpoint service.
      * @example slb
      *
      * @var string
@@ -23,6 +32,8 @@ class resource extends Model
     public $resourceType;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-huhehaote-a
      *
      * @var string

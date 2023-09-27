@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AttachResourceToVpcEndpointServiceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -16,6 +19,11 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +31,9 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
     public $dryRun;
 
     /**
+     * @description The region ID of the endpoint service to which you want to add the service resource.
+     *
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +41,8 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
     public $regionId;
 
     /**
+     * @description The service resource ID.
+     *
      * @example lb-hp32z1wp5peaoox2q****
      *
      * @var string
@@ -37,6 +50,11 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the service resource. Valid values:
+     *
+     *   **slb**: a Classic Load Balancer (CLB) instance that supports PrivateLink. In addition, the CLB instance is deployed in a virtual private cloud (VPC).
+     *   **alb**: an Application Load Balancer (ALB) instance that supports PrivateLink. In addition, the ALB instance is deployed in a VPC.
+     *
      * @example slb
      *
      * @var string
@@ -44,6 +62,8 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the endpoint service to which you want to add the service resource.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string

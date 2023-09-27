@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServiceResourcesResponseBody extends Model
 {
     /**
-     * @description The vSwitch to which the service resource belongs.
+     * @description The number of entries returned on each page.
      *
      * @example 50
      *
@@ -19,9 +19,11 @@ class ListVpcEndpointServiceResourcesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The type of the service resource.
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
      *
-     * The value is set to **slb**, which indicates Classic Load Balancer (CLB).
+     *   If no value is returned for **NextToken**, no next requests are performed.
+     *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -29,7 +31,7 @@ class ListVpcEndpointServiceResourcesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListVpcEndpointServiceResources**.
+     * @description The request ID.
      *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
@@ -38,7 +40,7 @@ class ListVpcEndpointServiceResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of service resources.
+     * @description The service resources.
      *
      * @var resources[]
      */

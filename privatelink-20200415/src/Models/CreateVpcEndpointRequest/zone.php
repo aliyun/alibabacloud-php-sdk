@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
-     * @description The ID of the zone in which the endpoint is deployed.
+     * @description The ID of the vSwitch where you want to create the endpoint ENI in the zone. You can specify up to 10 vSwitch IDs.
      *
-     * You can specify up to 10 zone IDs.
      * @example vsw-hp3uf6045ljdhd5zr****
      *
      * @var string
@@ -19,9 +18,9 @@ class zone extends Model
     public $vSwitchId;
 
     /**
-     * @description The IP address of the zone in which the endpoint is deployed.
+     * @description The ID of the zone in which the endpoint is deployed.
      *
-     * You can specify up to 10 IP addresses.
+     * You can specify up to 10 zone IDs.
      * @example cn-huhehaote-b
      *
      * @var string
@@ -29,9 +28,9 @@ class zone extends Model
     public $zoneId;
 
     /**
-     * @description The ID of the security group that is associated with the endpoint ENI. The security group can be used to control data transfer between the VPC and the endpoint ENI.
+     * @description The IP address of the zone in which the endpoint is deployed.
      *
-     * The endpoint can be associated with up to 10 security groups.
+     * You can specify up to 10 IP addresses.
      * @example 192.168.XX.XX
      *
      * @var string

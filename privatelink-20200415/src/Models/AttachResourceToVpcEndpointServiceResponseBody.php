@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachResourceToVpcEndpointServiceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string

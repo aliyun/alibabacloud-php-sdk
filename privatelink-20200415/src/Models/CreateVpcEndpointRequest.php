@@ -11,11 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointRequest extends Model
 {
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
-     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -23,9 +21,11 @@ class CreateVpcEndpointRequest extends Model
     public $clientToken;
 
     /**
-     * @description The name of the endpoint.
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     * The name must be 2 to 128 characters in length, and can contain digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -33,8 +33,9 @@ class CreateVpcEndpointRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the endpoint belongs.
+     * @description The description of the endpoint.
      *
+     * The description must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example This is my Endpoint.
      *
      * @var string
@@ -42,9 +43,9 @@ class CreateVpcEndpointRequest extends Model
     public $endpointDescription;
 
     /**
-     * @description The type of the endpoint.
+     * @description The name of the endpoint.
      *
-     * Set the value to **Interface**. Then, you can specify Application Load Balancer (ALB) and Classic Load Balancer (CLB) instances as service resources for the endpoint service.
+     * The name must be 2 to 128 characters in length, and can contain digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string
@@ -52,8 +53,9 @@ class CreateVpcEndpointRequest extends Model
     public $endpointName;
 
     /**
-     * @description The number of private IP addresses that are assigned to an elastic network interface (ENI) in each zone. Set the value to **1**.
+     * @description The type of the endpoint.
      *
+     * Set the value to **Interface**. Then, you can specify Application Load Balancer (ALB) and Classic Load Balancer (CLB) instances as service resources for the endpoint service.
      * @example Interface
      *
      * @var string
@@ -61,7 +63,10 @@ class CreateVpcEndpointRequest extends Model
     public $endpointType;
 
     /**
-     * @description The list of tags.
+     * @description Specifies whether to enable user authentication. This parameter is available in Security Token Service (STS) mode. Valid values:
+     *
+     *   **true**: enables user authentication. After user authentication is enabled, only the user who creates the endpoint can modify or delete the endpoint in STS mode.
+     *   **false** (default): disables user authentication.
      *
      * @example false
      *
@@ -70,9 +75,9 @@ class CreateVpcEndpointRequest extends Model
     public $protectedEnabled;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The region ID of the endpoint.
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      * @example cn-huhehaote
      *
      * @var string
@@ -80,7 +85,7 @@ class CreateVpcEndpointRequest extends Model
     public $regionId;
 
     /**
-     * @description The domain name of the endpoint.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *
@@ -89,7 +94,7 @@ class CreateVpcEndpointRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The information about the array object.
+     * @description The ID of the security group that is associated with the endpoint ENI. The security group can be used to control data transfer between the VPC and the endpoint ENI.
      *
      * The endpoint can be associated with up to 10 security groups.
      * @example sg-hp33bw6ynvm2yb0e****
@@ -99,7 +104,7 @@ class CreateVpcEndpointRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The name of the endpoint service with which the endpoint is associated.
+     * @description The ID of the endpoint service with which the endpoint is associated.
      *
      * @example epsrv-hp3xdsq46ael67lo****
      *
@@ -108,7 +113,7 @@ class CreateVpcEndpointRequest extends Model
     public $serviceId;
 
     /**
-     * @description The zones where the endpoint is deployed.
+     * @description The name of the endpoint service with which the endpoint is associated.
      *
      * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
      *
@@ -117,14 +122,14 @@ class CreateVpcEndpointRequest extends Model
     public $serviceName;
 
     /**
-     * @description The key of the tag.
+     * @description The list of tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the endpoint service with which the endpoint is associated.
+     * @description The ID of the virtual private cloud (VPC) to which the endpoint belongs.
      *
      * @example vpc-hp356stwkxg3fn2xe****
      *
@@ -133,16 +138,15 @@ class CreateVpcEndpointRequest extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the vSwitch where you want to create the endpoint ENI in the zone. You can specify up to 10 vSwitch IDs.
+     * @description The zones where the endpoint is deployed.
      *
      * @var zone[]
      */
     public $zone;
 
     /**
-     * @description The description of the endpoint.
+     * @description The number of private IP addresses that are assigned to an elastic network interface (ENI) in each zone. Set the value to **1**.
      *
-     * The description must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example 1
      *
      * @var int

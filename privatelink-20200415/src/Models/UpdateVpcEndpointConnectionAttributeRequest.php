@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateVpcEndpointConnectionAttributeRequest extends Model
 {
     /**
-     * @description WB01218782
+     * @description The bandwidth of the endpoint connection that you want to modify. Unit: Mbit/s.
      *
      * @example 1000
      *
@@ -18,8 +18,9 @@ class UpdateVpcEndpointConnectionAttributeRequest extends Model
     public $bandwidth;
 
     /**
-     * @description The operation that you want to perform. Set the value to **UpdateVpcEndpointConnectionAttribute**.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -27,7 +28,10 @@ class UpdateVpcEndpointConnectionAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the endpoint.
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -36,7 +40,7 @@ class UpdateVpcEndpointConnectionAttributeRequest extends Model
     public $dryRun;
 
     /**
-     * @description UpdateVpcEndpointConnectionAttribute
+     * @description The endpoint ID.
      *
      * @example ep-hp33b2e43fays7s8****
      *
@@ -45,7 +49,7 @@ class UpdateVpcEndpointConnectionAttributeRequest extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the request.
+     * @description The region ID of the endpoint connection whose bandwidth you want to modify. You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      *
      * @example eu-west-1
      *
@@ -54,7 +58,7 @@ class UpdateVpcEndpointConnectionAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description Modifies the maximum bandwidth of an endpoint connection.
+     * @description The endpoint service ID.
      *
      * @example epsrv-hp3vpx8yqxblby3i****
      *

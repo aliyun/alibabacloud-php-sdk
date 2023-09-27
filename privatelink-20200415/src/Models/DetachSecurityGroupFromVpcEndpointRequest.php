@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetachSecurityGroupFromVpcEndpointRequest extends Model
 {
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     *   **true**: sends a request for check purpose only. If you select this option, the endpoint is still associated with the security group after the request passes the check. The system checks whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are set. If the request fails to pass the check, the corresponding error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends a common request. If the request passes the check, the 2xx HTTP status code is returned, and the operation is performed.
-     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -21,7 +19,10 @@ class DetachSecurityGroupFromVpcEndpointRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the endpoint that you want to disassociate from the security group.
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -30,7 +31,7 @@ class DetachSecurityGroupFromVpcEndpointRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the security group from which you want to disassociate the endpoint.
+     * @description The ID of the endpoint that you want to disassociate from the security group.
      *
      * @example ep-hp33b2e43fays7s8****
      *
@@ -39,12 +40,7 @@ class DetachSecurityGroupFromVpcEndpointRequest extends Model
     public $endpointId;
 
     /**
-     * @description *   **DetachSecurityGroupFromVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListVpcEndpoints](~~183558#doc-api-Privatelink-ListVpcEndpoints~~) operation to query whether the endpoint is disassociated from the security group.
-     *
-     *   If the endpoint is in the **Pending** state, it indicates that the endpoint is being disassociated from the security group.
-     *   If the endpoint is in the **Active** state, it indicates that the endpoint is disassociated from the security group.
-     *
-     *   You cannot use the **DetachSecurityGroupFromVpcEndpoint** operation to disassociate an endpoint from multiple security groups at the same time.
+     * @description The region ID of the endpoint that you want to disassociate from the security group. You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      *
      * @example eu-west-1
      *
@@ -53,7 +49,7 @@ class DetachSecurityGroupFromVpcEndpointRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the region to which the endpoint belongs. You can call the [DescribeRegions](~~120468#doc-api-Privatelink-DescribeRegions~~) operation to query the most recent region list.
+     * @description The ID of the security group from which you want to disassociate the endpoint.
      *
      * @example sg-hp3c8qj1tyct90ej****
      *

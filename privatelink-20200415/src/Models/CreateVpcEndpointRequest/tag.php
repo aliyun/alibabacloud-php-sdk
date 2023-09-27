@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The value of the tag.
+     * @description The key of the tag.
      *
      * @example env
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The resource group ID.
+     * @description The value of the tag.
      *
      * @example prod
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DetachSecurityGroupFromVpcEndpointResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8D778FF9-7640-4C13-BCD6-9265CA9A2F81
      *

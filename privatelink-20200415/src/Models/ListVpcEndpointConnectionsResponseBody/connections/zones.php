@@ -9,26 +9,6 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
-     * @description The endpoint connection ID.
-     *
-     * > This parameter is returned only when a gateway is used for load balancing.
-     * @example 123
-     *
-     * @var int
-     */
-    public $connectionId;
-
-    /**
-     * @description The endpoint connection ID.
-     *
-     * > This parameter is returned only when a gateway is used for load balancing. The value of this parameter is the value of the **ConnectionId** parameter in **string** format.
-     * @example 12345
-     *
-     * @var string
-     */
-    public $connectionStringId;
-
-    /**
      * @description The endpoint ENI ID.
      *
      * @example eni-hp32lk0pyv6o94hs****
@@ -110,8 +90,6 @@ class zones extends Model
      */
     public $zoneStatus;
     protected $_name = [
-        'connectionId'       => 'ConnectionId',
-        'connectionStringId' => 'ConnectionStringId',
         'eniId'              => 'EniId',
         'replacedEniId'      => 'ReplacedEniId',
         'replacedResourceId' => 'ReplacedResourceId',
@@ -129,12 +107,6 @@ class zones extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->connectionId) {
-            $res['ConnectionId'] = $this->connectionId;
-        }
-        if (null !== $this->connectionStringId) {
-            $res['ConnectionStringId'] = $this->connectionStringId;
-        }
         if (null !== $this->eniId) {
             $res['EniId'] = $this->eniId;
         }
@@ -171,12 +143,6 @@ class zones extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConnectionId'])) {
-            $model->connectionId = $map['ConnectionId'];
-        }
-        if (isset($map['ConnectionStringId'])) {
-            $model->connectionStringId = $map['ConnectionStringId'];
-        }
         if (isset($map['EniId'])) {
             $model->eniId = $map['EniId'];
         }

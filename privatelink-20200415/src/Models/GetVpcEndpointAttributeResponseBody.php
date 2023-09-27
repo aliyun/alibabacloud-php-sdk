@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetVpcEndpointAttributeResponseBody extends Model
 {
     /**
-     * @description The description of the endpoint.
+     * @description The bandwidth of the endpoint connection. Unit: Mbit/s.
      *
      * @example 1024
      *
@@ -18,7 +18,14 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $bandwidth;
 
     /**
-     * @description The ID of the endpoint.
+     * @description The state of the endpoint connection. Valid values:
+     *
+     *   **Pending**: The connection is being modified.
+     *   **Connecting**: The connection is being established.
+     *   **Connected**: The connection is established.
+     *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
+     *   **Disconnected**: The endpoint is disconnected from the endpoint service.
+     *   **Deleting**: The connection is being deleted.
      *
      * @example Connected
      *
@@ -27,7 +34,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $connectionStatus;
 
     /**
-     * @description The ID of the endpoint service with which the endpoint is associated.
+     * @description The time when the endpoint was created.
      *
      * @example 2021-09-24T18:00:07Z
      *
@@ -36,10 +43,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The business status of the endpoint. Valid values:
+     * @description The service state of the endpoint. Valid values:
      *
-     *   **Normal**: normal
-     *   **FinacialLocked**: locked due to overdue payments
+     *   **Normal**: The endpoint runs as expected.
+     *   **FinacialLocked**: The endpoint is locked due to overdue payments.
      *
      * @example Normal
      *
@@ -48,7 +55,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $endpointBusinessStatus;
 
     /**
-     * @description The name of the endpoint.
+     * @description The description of the endpoint.
      *
      * @example This is my Endpoint.
      *
@@ -57,7 +64,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $endpointDescription;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the endpoint belongs.
+     * @description The domain name of the endpoint.
      *
      * @example ep-hp33b2e43fays7s8****.epsrv-hp3xdsq46ael67lo****.cn-huhehaote.privatelink.aliyuncs.com
      *
@@ -66,7 +73,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $endpointDomain;
 
     /**
-     * @description The bandwidth of the endpoint connection. Unit: Mbit/s.
+     * @description The endpoint ID.
      *
      * @example ep-hp33b2e43fays7s8****
      *
@@ -75,7 +82,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $endpointId;
 
     /**
-     * @description The time when the endpoint was created.
+     * @description The name of the endpoint.
      *
      * @example test
      *
@@ -84,7 +91,12 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $endpointName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetVpcEndpointAttribute**.
+     * @description The state of the endpoint. Valid values:
+     *
+     *   **Creating**: The endpoint is being created.
+     *   **Active**: The endpoint is available.
+     *   **Pending**: The endpoint is being modified.
+     *   **Deleting**: The endpoint is being deleted.
      *
      * @example Active
      *
@@ -93,10 +105,9 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $endpointStatus;
 
     /**
-     * @description The payer. Valid values:
+     * @description The type of the endpoint.
      *
-     *   **Endpoint**: the service consumer
-     *   **EndpointService**: the service provider
+     **Interface** is returned. The value indicates the interface endpoint with which the Classic Load Balancer (CLB) instances are associated.
      *
      * @example Interface
      *
@@ -105,7 +116,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $endpointType;
 
     /**
-     * @description The name of the endpoint service that is associated with the endpoint.
+     * @description The payer. Valid values:
+     *
+     *   **Endpoint**: the service consumer.
+     *   **EndpointService**: the service provider.
      *
      * @example Endpoint
      *
@@ -114,7 +128,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $payer;
 
     /**
-     * @description The number of private IP addresses that can be used by an elastic network interface (ENI) in each zone. The value is set to **1**.
+     * @description The region ID of the endpoint.
      *
      * @example cn-huhehaote
      *
@@ -123,9 +137,8 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The type of the endpoint.
+     * @description The request ID.
      *
-     * The value is set to **Interface**, which indicates that the resource type of **ServiceId** is Classic Load Balancer (CLB).
      * @example 8D8992C1-6712-423C-BAC5-E5E817484C6B
      *
      * @var string
@@ -133,7 +146,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Queries the details about a specified endpoint.
+     * @description The resource group ID.
      *
      * @example rg-acfmz7nocpei***
      *
@@ -142,7 +155,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description The region ID of the endpoint.
+     * @description Indicates whether the endpoint and the endpoint service belong to the same Alibaba Cloud account. Valid values:
+     *
+     *   **true**: The endpoint and the endpoint service belong to the same Alibaba Cloud account.
+     *   **false**: The endpoint and the endpoint service do not belong to the same Alibaba Cloud account.
      *
      * @example true
      *
@@ -151,10 +167,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $resourceOwner;
 
     /**
-     * @description Indicates whether zone affinity is enabled. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The ID of the endpoint service with which the endpoint is associated.
      *
      * @example epsrv-hp3vpx8yqxblby3i****
      *
@@ -163,14 +176,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description The status of the endpoint connection. Valid values:
-     *
-     *   **Pending**: being modified
-     *   **Connecting**: connecting
-     *   **Connected**: connected
-     *   **Disconnecting**: disconnecting
-     *   **Disconnected**: disconnected
-     *   **Deleting**: being deleted
+     * @description The name of the endpoint service with which the endpoint is associated.
      *
      * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
      *
@@ -179,7 +185,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $serviceName;
 
     /**
-     * @description The domain name of the endpoint.
+     * @description The ID of the virtual private cloud (VPC) to which the endpoint belongs.
      *
      * @example vpc-fdfhkjafhjvcvdjf****
      *
@@ -188,7 +194,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the request.
+     * @description Indicates whether zone affinity is enabled. Valid values:
+     *
+     *   **true**: Zone affinity is enabled.
+     *   **false**: Zone affinity is disabled.
      *
      * @example true
      *
@@ -197,9 +206,8 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $zoneAffinityEnabled;
 
     /**
-     * @description The region ID of the endpoint.
+     * @description The number of private IP addresses that are assigned to an elastic network interface (ENI) in each zone. Only **1** is returned.
      *
-     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      * @example 1
      *
      * @var int

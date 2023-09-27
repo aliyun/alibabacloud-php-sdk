@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointServiceResponseBody extends Model
 {
     /**
+     * @description Indicates whether the endpoint service automatically accepts endpoint connection requests. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $autoAcceptEnabled;
 
     /**
+     * @description The time when the endpoint service was created.
+     *
      * @example 2022-01-02T19:11:12Z
      *
      * @var string
@@ -23,6 +30,8 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The request ID.
+     *
      * @example 8D8992C1-6712-423C-BAC5-E5E817484C6B
      *
      * @var string
@@ -30,6 +39,8 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmy*****
      *
      * @var string
@@ -37,6 +48,11 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The service state of the endpoint service. Valid values:
+     *
+     *   **Normal**: The endpoint service runs as expected.
+     *   **FinacialLocked**: The endpoint service is locked due to overdue payments.
+     *
      * @example Normal
      *
      * @var string
@@ -44,6 +60,8 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $serviceBusinessStatus;
 
     /**
+     * @description The description of the endpoint service.
+     *
      * @example This is my EndpointService.
      *
      * @var string
@@ -51,6 +69,8 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $serviceDescription;
 
     /**
+     * @description The domain name of the endpoint service.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****.cn-huhehaote.privatelink.aliyuncs.com
      *
      * @var string
@@ -58,6 +78,8 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $serviceDomain;
 
     /**
+     * @description The endpoint service ID.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -65,6 +87,8 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $serviceId;
 
     /**
+     * @description The name of the endpoint service.
+     *
      * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -72,6 +96,14 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $serviceName;
 
     /**
+     * @description The state of the endpoint service. Valid values:
+     *
+     *   **Creating**: The endpoint service is being created.
+     *   **Pending**: The endpoint service is being modified.
+     *   **Active**: The endpoint service is available.
+     *   **Deleting**: The endpoint service is being deleted.
+     *   **Inactive**: The endpoint service is unavailable.
+     *
      * @example Active
      *
      * @var string
@@ -79,6 +111,11 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $serviceStatus;
 
     /**
+     * @description Indicates whether IPv6 was enabled for the endpoint service. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -86,6 +123,11 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $serviceSupportIPv6;
 
     /**
+     * @description Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool

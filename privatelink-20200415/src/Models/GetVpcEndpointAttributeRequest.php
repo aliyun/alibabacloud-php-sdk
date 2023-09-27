@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetVpcEndpointAttributeRequest extends Model
 {
     /**
-     * @description The ID of the endpoint that you want to query.
+     * @description The ID of the endpoint whose attributes you want to query.
      *
      * @example ep-hp33b2e43fays7s8****
      *
@@ -18,13 +18,9 @@ class GetVpcEndpointAttributeRequest extends Model
     public $endpointId;
 
     /**
-     * @description The status of the endpoint. Valid values:
+     * @description The region ID of the endpoint whose attributes you want to query.
      *
-     *   **Creating**: being created
-     *   **Active**: available
-     *   **Pending**: being modified
-     *   **Deleting**: being deleted
-     *
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      * @example cn-huhehaote
      *
      * @var string
