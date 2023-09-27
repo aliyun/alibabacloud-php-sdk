@@ -4,14 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyTwoElementsVerificationResponseBody;
 
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyTwoElementsVerificationResponseBody\data\detailInfo;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @var mixed[]
+     * @var detailInfo
      */
     public $detailInfo;
+
+    /**
+     * @var string[]
+     */
+    public $inconsistentData;
 
     /**
      * @example 0
@@ -27,9 +33,10 @@ class data extends Model
      */
     public $verifyResult;
     protected $_name = [
-        'detailInfo'   => 'DetailInfo',
-        'reasonCode'   => 'ReasonCode',
-        'verifyResult' => 'VerifyResult',
+        'detailInfo'       => 'DetailInfo',
+        'inconsistentData' => 'InconsistentData',
+        'reasonCode'       => 'ReasonCode',
+        'verifyResult'     => 'VerifyResult',
     ];
 
     public function validate()
@@ -40,7 +47,10 @@ class data extends Model
     {
         $res = [];
         if (null !== $this->detailInfo) {
-            $res['DetailInfo'] = $this->detailInfo;
+            $res['DetailInfo'] = null !== $this->detailInfo ? $this->detailInfo->toMap() : null;
+        }
+        if (null !== $this->inconsistentData) {
+            $res['InconsistentData'] = $this->inconsistentData;
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -61,7 +71,12 @@ class data extends Model
     {
         $model = new self();
         if (isset($map['DetailInfo'])) {
-            $model->detailInfo = $map['DetailInfo'];
+            $model->detailInfo = detailInfo::fromMap($map['DetailInfo']);
+        }
+        if (isset($map['InconsistentData'])) {
+            if (!empty($map['InconsistentData'])) {
+                $model->inconsistentData = $map['InconsistentData'];
+            }
         }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
