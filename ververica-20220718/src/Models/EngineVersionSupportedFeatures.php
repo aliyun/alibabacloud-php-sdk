@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EngineVersionSupportedFeatures extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportNativeSavepoint;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useForSqlDeployments;

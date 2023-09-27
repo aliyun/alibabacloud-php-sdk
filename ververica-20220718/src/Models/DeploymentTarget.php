@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeploymentTarget extends Model
 {
     /**
+     * @example deployment target
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example namespace
+     *
      * @var string
      */
     public $namespace;

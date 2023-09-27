@@ -19,6 +19,8 @@ class StreamingResourceSetting extends Model
     public $expertResourceSetting;
 
     /**
+     * @example EXPERT
+     *
      * @var string
      */
     public $resourceSettingMode;

@@ -14,26 +14,36 @@ class CreateVariableResponseBody extends Model
     public $data;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @example CBC799F0-ABCD-1D30-8A4F-882ED4DD****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

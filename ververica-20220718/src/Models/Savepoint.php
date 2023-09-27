@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class Savepoint extends Model
 {
     /**
+     * @example 1659066711
+     *
      * @var int
      */
     public $createdAt;
 
     /**
+     * @example 1d716b22-6aad-4be2-85c2-50cfc757****
+     *
      * @var string
      */
     public $deploymentId;
@@ -24,36 +28,50 @@ class Savepoint extends Model
     public $description;
 
     /**
+     * @example 5af678c0-7db0-4650-94c2-d2604f0a****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 1659069473
+     *
      * @var int
      */
     public $modifiedAt;
 
     /**
+     * @example namespacetest
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example TRUE
+     *
      * @var bool
      */
     public $nativeFormat;
 
     /**
+     * @example 354dde66-a3ae-463e-967a-0b4107fd****
+     *
      * @var string
      */
     public $savepointId;
 
     /**
+     * @example https://oss/bucket/flink/flink-jobs/namespaces/vvp-team/deployments/5a19a71b-1c42-4f34-94fd-86cf60782c81/checkpoints/sp-3285
+     *
      * @var string
      */
     public $savepointLocation;
 
     /**
+     * @example USER_REQUEST
+     *
      * @var string
      */
     public $savepointOrigin;
@@ -64,6 +82,8 @@ class Savepoint extends Model
     public $status;
 
     /**
+     * @example TRUE
+     *
      * @var bool
      */
     public $stopWithDrainEnabled;

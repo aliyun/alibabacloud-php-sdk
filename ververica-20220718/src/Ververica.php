@@ -57,6 +57,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\ListVariablesResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobWithParamsHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobWithParamsRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobWithParamsResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobResponse;
@@ -105,20 +108,6 @@ class Ververica extends OpenApiClient
     /**
      * @param string                  $namespace
      * @param CreateDeploymentRequest $request
-     *
-     * @return CreateDeploymentResponse
-     */
-    public function createDeployment($namespace, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = new CreateDeploymentHeaders([]);
-
-        return $this->createDeploymentWithOptions($namespace, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                  $namespace
-     * @param CreateDeploymentRequest $request
      * @param CreateDeploymentHeaders $headers
      * @param RuntimeOptions          $runtime
      *
@@ -154,17 +143,17 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string                 $namespace
-     * @param CreateSavepointRequest $request
+     * @param string                  $namespace
+     * @param CreateDeploymentRequest $request
      *
-     * @return CreateSavepointResponse
+     * @return CreateDeploymentResponse
      */
-    public function createSavepoint($namespace, $request)
+    public function createDeployment($namespace, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateSavepointHeaders([]);
+        $headers = new CreateDeploymentHeaders([]);
 
-        return $this->createSavepointWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createDeploymentWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -215,17 +204,17 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string                $namespace
-     * @param CreateVariableRequest $request
+     * @param string                 $namespace
+     * @param CreateSavepointRequest $request
      *
-     * @return CreateVariableResponse
+     * @return CreateSavepointResponse
      */
-    public function createVariable($namespace, $request)
+    public function createSavepoint($namespace, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateVariableHeaders([]);
+        $headers = new CreateSavepointHeaders([]);
 
-        return $this->createVariableWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createSavepointWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -266,17 +255,17 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string $namespace
-     * @param string $deploymentId
+     * @param string                $namespace
+     * @param CreateVariableRequest $request
      *
-     * @return DeleteDeploymentResponse
+     * @return CreateVariableResponse
      */
-    public function deleteDeployment($namespace, $deploymentId)
+    public function createVariable($namespace, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteDeploymentHeaders([]);
+        $headers = new CreateVariableHeaders([]);
 
-        return $this->deleteDeploymentWithOptions($namespace, $deploymentId, $headers, $runtime);
+        return $this->createVariableWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -316,16 +305,16 @@ class Ververica extends OpenApiClient
 
     /**
      * @param string $namespace
-     * @param string $jobId
+     * @param string $deploymentId
      *
-     * @return DeleteJobResponse
+     * @return DeleteDeploymentResponse
      */
-    public function deleteJob($namespace, $jobId)
+    public function deleteDeployment($namespace, $deploymentId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteJobHeaders([]);
+        $headers = new DeleteDeploymentHeaders([]);
 
-        return $this->deleteJobWithOptions($namespace, $jobId, $headers, $runtime);
+        return $this->deleteDeploymentWithOptions($namespace, $deploymentId, $headers, $runtime);
     }
 
     /**
@@ -365,16 +354,16 @@ class Ververica extends OpenApiClient
 
     /**
      * @param string $namespace
-     * @param string $savepointId
+     * @param string $jobId
      *
-     * @return DeleteSavepointResponse
+     * @return DeleteJobResponse
      */
-    public function deleteSavepoint($namespace, $savepointId)
+    public function deleteJob($namespace, $jobId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteSavepointHeaders([]);
+        $headers = new DeleteJobHeaders([]);
 
-        return $this->deleteSavepointWithOptions($namespace, $savepointId, $headers, $runtime);
+        return $this->deleteJobWithOptions($namespace, $jobId, $headers, $runtime);
     }
 
     /**
@@ -414,16 +403,16 @@ class Ververica extends OpenApiClient
 
     /**
      * @param string $namespace
-     * @param string $name
+     * @param string $savepointId
      *
-     * @return DeleteVariableResponse
+     * @return DeleteSavepointResponse
      */
-    public function deleteVariable($namespace, $name)
+    public function deleteSavepoint($namespace, $savepointId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteVariableHeaders([]);
+        $headers = new DeleteSavepointHeaders([]);
 
-        return $this->deleteVariableWithOptions($namespace, $name, $headers, $runtime);
+        return $this->deleteSavepointWithOptions($namespace, $savepointId, $headers, $runtime);
     }
 
     /**
@@ -462,16 +451,17 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param FlinkApiProxyRequest $request
+     * @param string $namespace
+     * @param string $name
      *
-     * @return FlinkApiProxyResponse
+     * @return DeleteVariableResponse
      */
-    public function flinkApiProxy($request)
+    public function deleteVariable($namespace, $name)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new FlinkApiProxyHeaders([]);
+        $headers = new DeleteVariableHeaders([]);
 
-        return $this->flinkApiProxyWithOptions($request, $headers, $runtime);
+        return $this->deleteVariableWithOptions($namespace, $name, $headers, $runtime);
     }
 
     /**
@@ -524,18 +514,16 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string                                        $namespace
-     * @param string                                        $deploymentId
-     * @param GenerateResourcePlanWithFlinkConfAsyncRequest $request
+     * @param FlinkApiProxyRequest $request
      *
-     * @return GenerateResourcePlanWithFlinkConfAsyncResponse
+     * @return FlinkApiProxyResponse
      */
-    public function generateResourcePlanWithFlinkConfAsync($namespace, $deploymentId, $request)
+    public function flinkApiProxy($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GenerateResourcePlanWithFlinkConfAsyncHeaders([]);
+        $headers = new FlinkApiProxyHeaders([]);
 
-        return $this->generateResourcePlanWithFlinkConfAsyncWithOptions($namespace, $deploymentId, $request, $headers, $runtime);
+        return $this->flinkApiProxyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -577,17 +565,18 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string $namespace
-     * @param string $deploymentId
+     * @param string                                        $namespace
+     * @param string                                        $deploymentId
+     * @param GenerateResourcePlanWithFlinkConfAsyncRequest $request
      *
-     * @return GetDeploymentResponse
+     * @return GenerateResourcePlanWithFlinkConfAsyncResponse
      */
-    public function getDeployment($namespace, $deploymentId)
+    public function generateResourcePlanWithFlinkConfAsync($namespace, $deploymentId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetDeploymentHeaders([]);
+        $headers = new GenerateResourcePlanWithFlinkConfAsyncHeaders([]);
 
-        return $this->getDeploymentWithOptions($namespace, $deploymentId, $headers, $runtime);
+        return $this->generateResourcePlanWithFlinkConfAsyncWithOptions($namespace, $deploymentId, $request, $headers, $runtime);
     }
 
     /**
@@ -627,16 +616,16 @@ class Ververica extends OpenApiClient
 
     /**
      * @param string $namespace
-     * @param string $ticketId
+     * @param string $deploymentId
      *
-     * @return GetGenerateResourcePlanResultResponse
+     * @return GetDeploymentResponse
      */
-    public function getGenerateResourcePlanResult($namespace, $ticketId)
+    public function getDeployment($namespace, $deploymentId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetGenerateResourcePlanResultHeaders([]);
+        $headers = new GetDeploymentHeaders([]);
 
-        return $this->getGenerateResourcePlanResultWithOptions($namespace, $ticketId, $headers, $runtime);
+        return $this->getDeploymentWithOptions($namespace, $deploymentId, $headers, $runtime);
     }
 
     /**
@@ -676,16 +665,16 @@ class Ververica extends OpenApiClient
 
     /**
      * @param string $namespace
-     * @param string $jobId
+     * @param string $ticketId
      *
-     * @return GetJobResponse
+     * @return GetGenerateResourcePlanResultResponse
      */
-    public function getJob($namespace, $jobId)
+    public function getGenerateResourcePlanResult($namespace, $ticketId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetJobHeaders([]);
+        $headers = new GetGenerateResourcePlanResultHeaders([]);
 
-        return $this->getJobWithOptions($namespace, $jobId, $headers, $runtime);
+        return $this->getGenerateResourcePlanResultWithOptions($namespace, $ticketId, $headers, $runtime);
     }
 
     /**
@@ -725,16 +714,16 @@ class Ververica extends OpenApiClient
 
     /**
      * @param string $namespace
-     * @param string $savepointId
+     * @param string $jobId
      *
-     * @return GetSavepointResponse
+     * @return GetJobResponse
      */
-    public function getSavepoint($namespace, $savepointId)
+    public function getJob($namespace, $jobId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetSavepointHeaders([]);
+        $headers = new GetJobHeaders([]);
 
-        return $this->getSavepointWithOptions($namespace, $savepointId, $headers, $runtime);
+        return $this->getJobWithOptions($namespace, $jobId, $headers, $runtime);
     }
 
     /**
@@ -773,17 +762,17 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string                       $namespace
-     * @param ListDeploymentTargetsRequest $request
+     * @param string $namespace
+     * @param string $savepointId
      *
-     * @return ListDeploymentTargetsResponse
+     * @return GetSavepointResponse
      */
-    public function listDeploymentTargets($namespace, $request)
+    public function getSavepoint($namespace, $savepointId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListDeploymentTargetsHeaders([]);
+        $headers = new GetSavepointHeaders([]);
 
-        return $this->listDeploymentTargetsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->getSavepointWithOptions($namespace, $savepointId, $headers, $runtime);
     }
 
     /**
@@ -831,17 +820,17 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string                 $namespace
-     * @param ListDeploymentsRequest $request
+     * @param string                       $namespace
+     * @param ListDeploymentTargetsRequest $request
      *
-     * @return ListDeploymentsResponse
+     * @return ListDeploymentTargetsResponse
      */
-    public function listDeployments($namespace, $request)
+    public function listDeploymentTargets($namespace, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListDeploymentsHeaders([]);
+        $headers = new ListDeploymentTargetsHeaders([]);
 
-        return $this->listDeploymentsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listDeploymentTargetsWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -856,6 +845,12 @@ class Ververica extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->executionMode)) {
+            $query['executionMode'] = $request->executionMode;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
         if (!Utils::isUnset($request->pageIndex)) {
             $query['pageIndex'] = $request->pageIndex;
         }
@@ -889,14 +884,17 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @return ListEngineVersionMetadataResponse
+     * @param string                 $namespace
+     * @param ListDeploymentsRequest $request
+     *
+     * @return ListDeploymentsResponse
      */
-    public function listEngineVersionMetadata()
+    public function listDeployments($namespace, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListEngineVersionMetadataHeaders([]);
+        $headers = new ListDeploymentsHeaders([]);
 
-        return $this->listEngineVersionMetadataWithOptions($headers, $runtime);
+        return $this->listDeploymentsWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -933,17 +931,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string          $namespace
-     * @param ListJobsRequest $request
-     *
-     * @return ListJobsResponse
+     * @return ListEngineVersionMetadataResponse
      */
-    public function listJobs($namespace, $request)
+    public function listEngineVersionMetadata()
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListJobsHeaders([]);
+        $headers = new ListEngineVersionMetadataHeaders([]);
 
-        return $this->listJobsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listEngineVersionMetadataWithOptions($headers, $runtime);
     }
 
     /**
@@ -994,17 +989,17 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string                $namespace
-     * @param ListSavepointsRequest $request
+     * @param string          $namespace
+     * @param ListJobsRequest $request
      *
-     * @return ListSavepointsResponse
+     * @return ListJobsResponse
      */
-    public function listSavepoints($namespace, $request)
+    public function listJobs($namespace, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListSavepointsHeaders([]);
+        $headers = new ListJobsHeaders([]);
 
-        return $this->listSavepointsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listJobsWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -1058,17 +1053,17 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string               $namespace
-     * @param ListVariablesRequest $request
+     * @param string                $namespace
+     * @param ListSavepointsRequest $request
      *
-     * @return ListVariablesResponse
+     * @return ListSavepointsResponse
      */
-    public function listVariables($namespace, $request)
+    public function listSavepoints($namespace, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListVariablesHeaders([]);
+        $headers = new ListSavepointsHeaders([]);
 
-        return $this->listVariablesWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listSavepointsWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -1116,26 +1111,30 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string          $namespace
-     * @param StartJobRequest $request
+     * @param string               $namespace
+     * @param ListVariablesRequest $request
      *
-     * @return StartJobResponse
+     * @return ListVariablesResponse
      */
-    public function startJob($namespace, $request)
+    public function listVariables($namespace, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new StartJobHeaders([]);
+        $headers = new ListVariablesHeaders([]);
 
-        return $this->startJobWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listVariablesWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
-     * @param string          $namespace
-     * @param StartJobRequest $request
-     * @param StartJobHeaders $headers
-     * @param RuntimeOptions  $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return StartJobResponse
+     * @param string          $namespace
+     * @param StartJobRequest $request   StartJobRequest
+     * @param StartJobHeaders $headers   StartJobHeaders
+     * @param RuntimeOptions  $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return StartJobResponse StartJobResponse
      */
     public function startJobWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -1167,18 +1166,72 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string         $namespace
-     * @param string         $jobId
-     * @param StopJobRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return StopJobResponse
+     * @param string          $namespace
+     * @param StartJobRequest $request   StartJobRequest
+     *
+     * @return StartJobResponse StartJobResponse
      */
-    public function stopJob($namespace, $jobId, $request)
+    public function startJob($namespace, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new StopJobHeaders([]);
+        $headers = new StartJobHeaders([]);
 
-        return $this->stopJobWithOptions($namespace, $jobId, $request, $headers, $runtime);
+        return $this->startJobWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $namespace
+     * @param StartJobWithParamsRequest $request
+     * @param StartJobWithParamsHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StartJobWithParamsResponse
+     */
+    public function startJobWithParamsWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartJobWithParams',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/jobs%3Astart',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartJobWithParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $namespace
+     * @param StartJobWithParamsRequest $request
+     *
+     * @return StartJobWithParamsResponse
+     */
+    public function startJobWithParams($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StartJobWithParamsHeaders([]);
+
+        return $this->startJobWithParamsWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -1220,18 +1273,18 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param string                  $namespace
-     * @param string                  $deploymentId
-     * @param UpdateDeploymentRequest $request
+     * @param string         $namespace
+     * @param string         $jobId
+     * @param StopJobRequest $request
      *
-     * @return UpdateDeploymentResponse
+     * @return StopJobResponse
      */
-    public function updateDeployment($namespace, $deploymentId, $request)
+    public function stopJob($namespace, $jobId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UpdateDeploymentHeaders([]);
+        $headers = new StopJobHeaders([]);
 
-        return $this->updateDeploymentWithOptions($namespace, $deploymentId, $request, $headers, $runtime);
+        return $this->stopJobWithOptions($namespace, $jobId, $request, $headers, $runtime);
     }
 
     /**
@@ -1270,5 +1323,20 @@ class Ververica extends OpenApiClient
         ]);
 
         return UpdateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $namespace
+     * @param string                  $deploymentId
+     * @param UpdateDeploymentRequest $request
+     *
+     * @return UpdateDeploymentResponse
+     */
+    public function updateDeployment($namespace, $deploymentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateDeploymentHeaders([]);
+
+        return $this->updateDeploymentWithOptions($namespace, $deploymentId, $request, $headers, $runtime);
     }
 }

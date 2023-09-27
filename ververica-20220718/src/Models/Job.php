@@ -19,26 +19,50 @@ class Job extends Model
     public $batchResourceSetting;
 
     /**
+     * @example 27846363877456****
+     *
+     * @var string
+     */
+    public $creator;
+
+    /**
+     * @example ****@streamcompute.onaliyun.com
+     *
+     * @var string
+     */
+    public $creatorName;
+
+    /**
+     * @example 354dde66-a3ae-463e-967a-0b4107fd****
+     *
      * @var string
      */
     public $deploymentId;
 
     /**
+     * @example flinktest
+     *
      * @var string
      */
     public $deploymentName;
 
     /**
+     * @example 1660277235
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example vvr-4.0.14-flink-1.13
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example BATCH
+     *
      * @var string
      */
     public $executionMode;
@@ -49,6 +73,8 @@ class Job extends Model
     public $flinkConf;
 
     /**
+     * @example 354dde66-a3ae-463e-967a-0b4107fd****
+     *
      * @var string
      */
     public $jobId;
@@ -64,6 +90,22 @@ class Job extends Model
     public $metric;
 
     /**
+     * @example 27846363877456****
+     *
+     * @var string
+     */
+    public $modifier;
+
+    /**
+     * @example ****@streamcompute.onaliyun.com
+     *
+     * @var string
+     */
+    public $modifierName;
+
+    /**
+     * @example namespacetest
+     *
      * @var string
      */
     public $namespace;
@@ -74,11 +116,15 @@ class Job extends Model
     public $restoreStrategy;
 
     /**
+     * @example preview
+     *
      * @var string
      */
     public $sessionClusterName;
 
     /**
+     * @example 1660190835
+     *
      * @var int
      */
     public $startTime;
@@ -92,9 +138,16 @@ class Job extends Model
      * @var StreamingResourceSetting
      */
     public $streamingResourceSetting;
+
+    /**
+     * @var mixed[]
+     */
+    public $userFlinkConf;
     protected $_name = [
         'artifact'                 => 'artifact',
         'batchResourceSetting'     => 'batchResourceSetting',
+        'creator'                  => 'creator',
+        'creatorName'              => 'creatorName',
         'deploymentId'             => 'deploymentId',
         'deploymentName'           => 'deploymentName',
         'endTime'                  => 'endTime',
@@ -104,12 +157,15 @@ class Job extends Model
         'jobId'                    => 'jobId',
         'logging'                  => 'logging',
         'metric'                   => 'metric',
+        'modifier'                 => 'modifier',
+        'modifierName'             => 'modifierName',
         'namespace'                => 'namespace',
         'restoreStrategy'          => 'restoreStrategy',
         'sessionClusterName'       => 'sessionClusterName',
         'startTime'                => 'startTime',
         'status'                   => 'status',
         'streamingResourceSetting' => 'streamingResourceSetting',
+        'userFlinkConf'            => 'userFlinkConf',
     ];
 
     public function validate()
@@ -124,6 +180,12 @@ class Job extends Model
         }
         if (null !== $this->batchResourceSetting) {
             $res['batchResourceSetting'] = null !== $this->batchResourceSetting ? $this->batchResourceSetting->toMap() : null;
+        }
+        if (null !== $this->creator) {
+            $res['creator'] = $this->creator;
+        }
+        if (null !== $this->creatorName) {
+            $res['creatorName'] = $this->creatorName;
         }
         if (null !== $this->deploymentId) {
             $res['deploymentId'] = $this->deploymentId;
@@ -152,6 +214,12 @@ class Job extends Model
         if (null !== $this->metric) {
             $res['metric'] = null !== $this->metric ? $this->metric->toMap() : null;
         }
+        if (null !== $this->modifier) {
+            $res['modifier'] = $this->modifier;
+        }
+        if (null !== $this->modifierName) {
+            $res['modifierName'] = $this->modifierName;
+        }
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
@@ -170,6 +238,9 @@ class Job extends Model
         if (null !== $this->streamingResourceSetting) {
             $res['streamingResourceSetting'] = null !== $this->streamingResourceSetting ? $this->streamingResourceSetting->toMap() : null;
         }
+        if (null !== $this->userFlinkConf) {
+            $res['userFlinkConf'] = $this->userFlinkConf;
+        }
 
         return $res;
     }
@@ -187,6 +258,12 @@ class Job extends Model
         }
         if (isset($map['batchResourceSetting'])) {
             $model->batchResourceSetting = BatchResourceSetting::fromMap($map['batchResourceSetting']);
+        }
+        if (isset($map['creator'])) {
+            $model->creator = $map['creator'];
+        }
+        if (isset($map['creatorName'])) {
+            $model->creatorName = $map['creatorName'];
         }
         if (isset($map['deploymentId'])) {
             $model->deploymentId = $map['deploymentId'];
@@ -215,6 +292,12 @@ class Job extends Model
         if (isset($map['metric'])) {
             $model->metric = JobMetric::fromMap($map['metric']);
         }
+        if (isset($map['modifier'])) {
+            $model->modifier = $map['modifier'];
+        }
+        if (isset($map['modifierName'])) {
+            $model->modifierName = $map['modifierName'];
+        }
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
@@ -232,6 +315,9 @@ class Job extends Model
         }
         if (isset($map['streamingResourceSetting'])) {
             $model->streamingResourceSetting = StreamingResourceSetting::fromMap($map['streamingResourceSetting']);
+        }
+        if (isset($map['userFlinkConf'])) {
+            $model->userFlinkConf = $map['userFlinkConf'];
         }
 
         return $model;

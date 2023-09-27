@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example b3dcdb25-bf36-457d-92ba-a36077e8****
+     *
      * @var string
      */
     public $ticketId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class Variable extends Model
 {
     /**
+     * @example This is a variable description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Plain
+     *
      * @var string
      */
     public $kind;
 
     /**
+     * @example variableName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example variableValue
+     *
      * @var string
      */
     public $value;

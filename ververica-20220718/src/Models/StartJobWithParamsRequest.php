@@ -6,16 +6,14 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopJobRequestBody extends Model
+class StartJobWithParamsRequest extends Model
 {
     /**
-     * @example NONE
-     *
-     * @var string
+     * @var JobStartParameters
      */
-    public $stopStrategy;
+    public $body;
     protected $_name = [
-        'stopStrategy' => 'stopStrategy',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class StopJobRequestBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stopStrategy) {
-            $res['stopStrategy'] = $this->stopStrategy;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class StopJobRequestBody extends Model
     /**
      * @param array $map
      *
-     * @return StopJobRequestBody
+     * @return StartJobWithParamsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['stopStrategy'])) {
-            $model->stopStrategy = $map['stopStrategy'];
+        if (isset($map['body'])) {
+            $model->body = JobStartParameters::fromMap($map['body']);
         }
 
         return $model;

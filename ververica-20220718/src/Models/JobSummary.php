@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class JobSummary extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cancelled;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cancelling;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $failed;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $finished;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $running;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $starting;

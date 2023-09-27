@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class Logging extends Model
 {
     /**
+     * @example xml格式文本
+     *
      * @var string
      */
     public $log4j2ConfigurationTemplate;
@@ -24,6 +26,8 @@ class Logging extends Model
     public $logReservePolicy;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $loggingProfile;

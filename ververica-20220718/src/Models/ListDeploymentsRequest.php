@@ -9,17 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ListDeploymentsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $executionMode;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'pageIndex' => 'pageIndex',
-        'pageSize'  => 'pageSize',
+        'executionMode' => 'executionMode',
+        'name'          => 'name',
+        'pageIndex'     => 'pageIndex',
+        'pageSize'      => 'pageSize',
     ];
 
     public function validate()
@@ -29,6 +45,12 @@ class ListDeploymentsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->executionMode) {
+            $res['executionMode'] = $this->executionMode;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
         if (null !== $this->pageIndex) {
             $res['pageIndex'] = $this->pageIndex;
         }
@@ -47,6 +69,12 @@ class ListDeploymentsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['executionMode'])) {
+            $model->executionMode = $map['executionMode'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
         if (isset($map['pageIndex'])) {
             $model->pageIndex = $map['pageIndex'];
         }

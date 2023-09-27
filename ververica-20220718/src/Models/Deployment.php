@@ -14,11 +14,34 @@ class Deployment extends Model
     public $artifact;
 
     /**
+     * @var BatchResourceSetting
+     */
+    public $batchResourceSetting;
+
+    /**
+     * @example 27846363877456****
+     *
+     * @var string
+     */
+    public $creator;
+
+    /**
+     * @example ****@streamcompute.onaliyun.com
+     *
+     * @var string
+     */
+    public $creatorName;
+
+    /**
+     * @example true
+     *
      * @var bool
      */
     public $deploymentHasChanged;
 
     /**
+     * @example 00000000-0000-0000-0000-000000000001
+     *
      * @var string
      */
     public $deploymentId;
@@ -29,21 +52,29 @@ class Deployment extends Model
     public $deploymentTarget;
 
     /**
+     * @example this is a deployment description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example vvr-6.0.0-flink-1.15
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example STREAMING | BATCH
+     *
      * @var string
      */
     public $executionMode;
 
     /**
+     * @example {"taskmanager.numberOfTaskSlots":"1"}
+     *
      * @var mixed[]
      */
     public $flinkConf;
@@ -59,27 +90,56 @@ class Deployment extends Model
     public $logging;
 
     /**
+     * @example 27846363877456****
+     *
+     * @var string
+     */
+    public $modifier;
+
+    /**
+     * @example ****@streamcompute.onaliyun.com
+     *
+     * @var string
+     */
+    public $modifierName;
+
+    /**
+     * @example deploymentName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example default-namespace
+     *
      * @var string
      */
     public $namespace;
+
+    /**
+     * @var StreamingResourceSetting
+     */
+    public $streamingResourceSetting;
     protected $_name = [
-        'artifact'             => 'artifact',
-        'deploymentHasChanged' => 'deploymentHasChanged',
-        'deploymentId'         => 'deploymentId',
-        'deploymentTarget'     => 'deploymentTarget',
-        'description'          => 'description',
-        'engineVersion'        => 'engineVersion',
-        'executionMode'        => 'executionMode',
-        'flinkConf'            => 'flinkConf',
-        'jobSummary'           => 'jobSummary',
-        'logging'              => 'logging',
-        'name'                 => 'name',
-        'namespace'            => 'namespace',
+        'artifact'                 => 'artifact',
+        'batchResourceSetting'     => 'batchResourceSetting',
+        'creator'                  => 'creator',
+        'creatorName'              => 'creatorName',
+        'deploymentHasChanged'     => 'deploymentHasChanged',
+        'deploymentId'             => 'deploymentId',
+        'deploymentTarget'         => 'deploymentTarget',
+        'description'              => 'description',
+        'engineVersion'            => 'engineVersion',
+        'executionMode'            => 'executionMode',
+        'flinkConf'                => 'flinkConf',
+        'jobSummary'               => 'jobSummary',
+        'logging'                  => 'logging',
+        'modifier'                 => 'modifier',
+        'modifierName'             => 'modifierName',
+        'name'                     => 'name',
+        'namespace'                => 'namespace',
+        'streamingResourceSetting' => 'streamingResourceSetting',
     ];
 
     public function validate()
@@ -91,6 +151,15 @@ class Deployment extends Model
         $res = [];
         if (null !== $this->artifact) {
             $res['artifact'] = null !== $this->artifact ? $this->artifact->toMap() : null;
+        }
+        if (null !== $this->batchResourceSetting) {
+            $res['batchResourceSetting'] = null !== $this->batchResourceSetting ? $this->batchResourceSetting->toMap() : null;
+        }
+        if (null !== $this->creator) {
+            $res['creator'] = $this->creator;
+        }
+        if (null !== $this->creatorName) {
+            $res['creatorName'] = $this->creatorName;
         }
         if (null !== $this->deploymentHasChanged) {
             $res['deploymentHasChanged'] = $this->deploymentHasChanged;
@@ -119,11 +188,20 @@ class Deployment extends Model
         if (null !== $this->logging) {
             $res['logging'] = null !== $this->logging ? $this->logging->toMap() : null;
         }
+        if (null !== $this->modifier) {
+            $res['modifier'] = $this->modifier;
+        }
+        if (null !== $this->modifierName) {
+            $res['modifierName'] = $this->modifierName;
+        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
+        }
+        if (null !== $this->streamingResourceSetting) {
+            $res['streamingResourceSetting'] = null !== $this->streamingResourceSetting ? $this->streamingResourceSetting->toMap() : null;
         }
 
         return $res;
@@ -139,6 +217,15 @@ class Deployment extends Model
         $model = new self();
         if (isset($map['artifact'])) {
             $model->artifact = Artifact::fromMap($map['artifact']);
+        }
+        if (isset($map['batchResourceSetting'])) {
+            $model->batchResourceSetting = BatchResourceSetting::fromMap($map['batchResourceSetting']);
+        }
+        if (isset($map['creator'])) {
+            $model->creator = $map['creator'];
+        }
+        if (isset($map['creatorName'])) {
+            $model->creatorName = $map['creatorName'];
         }
         if (isset($map['deploymentHasChanged'])) {
             $model->deploymentHasChanged = $map['deploymentHasChanged'];
@@ -167,11 +254,20 @@ class Deployment extends Model
         if (isset($map['logging'])) {
             $model->logging = Logging::fromMap($map['logging']);
         }
+        if (isset($map['modifier'])) {
+            $model->modifier = $map['modifier'];
+        }
+        if (isset($map['modifierName'])) {
+            $model->modifierName = $map['modifierName'];
+        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
+        }
+        if (isset($map['streamingResourceSetting'])) {
+            $model->streamingResourceSetting = StreamingResourceSetting::fromMap($map['streamingResourceSetting']);
         }
 
         return $model;

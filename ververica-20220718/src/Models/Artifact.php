@@ -14,6 +14,8 @@ class Artifact extends Model
     public $jarArtifact;
 
     /**
+     * @example SQLSCRIPT
+     *
      * @var string
      */
     public $kind;

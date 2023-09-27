@@ -11,6 +11,8 @@ class ListVariablesHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example a14bda1c4a****
+     *
      * @var string
      */
     public $workspace;

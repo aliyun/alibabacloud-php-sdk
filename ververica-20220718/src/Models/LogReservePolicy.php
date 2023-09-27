@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class LogReservePolicy extends Model
 {
     /**
+     * @example 7
+     *
      * @var int
      */
     public $expirationDays;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $openHistory;

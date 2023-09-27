@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListDeploymentsHeaders extends Model
+class StartJobWithParamsHeaders extends Model
 {
     public $commonHeaders;
 
@@ -40,7 +40,7 @@ class ListDeploymentsHeaders extends Model
     /**
      * @param array $map
      *
-     * @return ListDeploymentsHeaders
+     * @return StartJobWithParamsHeaders
      */
     public static function fromMap($map = [])
     {

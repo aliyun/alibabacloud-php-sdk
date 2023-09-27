@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartJobRequestBody extends Model
 {
     /**
+     * @example 5a19a71b-1c42-4f34-94fd-86cf60782c81
+     *
      * @var string
      */
     public $deploymentId;

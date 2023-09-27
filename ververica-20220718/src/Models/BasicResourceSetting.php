@@ -14,6 +14,8 @@ class BasicResourceSetting extends Model
     public $jobmanagerResourceSettingSpec;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $parallelism;

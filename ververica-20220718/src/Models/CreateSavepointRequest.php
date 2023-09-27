@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSavepointRequest extends Model
 {
     /**
+     * @example 58718c99-3b29-4c5e-93bb-c9fc4ec6****
+     *
      * @var string
      */
     public $deploymentId;
@@ -19,6 +21,8 @@ class CreateSavepointRequest extends Model
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $nativeFormat;

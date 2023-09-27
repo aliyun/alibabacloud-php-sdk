@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BasicResourceSettingSpec extends Model
 {
     /**
+     * @example 2.0
+     *
      * @var float
      */
     public $cpu;
 
     /**
+     * @example 4Gi
+     *
      * @var string
      */
     public $memory;

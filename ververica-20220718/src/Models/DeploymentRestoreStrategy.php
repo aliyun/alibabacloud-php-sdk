@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeploymentRestoreStrategy extends Model
 {
     /**
+     * @example TRUE
+     *
      * @var bool
      */
     public $allowNonRestoredState;
 
     /**
+     * @example 1660293803155
+     *
      * @var int
      */
     public $jobStartTimeInMs;
 
     /**
+     * @example LATEST_STATE
+     *
      * @var string
      */
     public $kind;
 
     /**
+     * @example 354dde66-a3ae-463e-967a-0b4107fd****
+     *
      * @var string
      */
     public $savepointId;

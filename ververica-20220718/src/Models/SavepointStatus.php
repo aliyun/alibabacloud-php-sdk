@@ -14,6 +14,8 @@ class SavepointStatus extends Model
     public $failure;
 
     /**
+     * @example COMPLETED
+     *
      * @var string
      */
     public $state;

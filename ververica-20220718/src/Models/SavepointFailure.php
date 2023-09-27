@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SavepointFailure extends Model
 {
     /**
+     * @example 1655006835
+     *
      * @var int
      */
     public $failedAt;

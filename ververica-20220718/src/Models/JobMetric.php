@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class JobMetric extends Model
 {
     /**
+     * @example 2
+     *
      * @var float
      */
     public $totalCpu;
 
     /**
+     * @example 4096
+     *
      * @var int
      */
     public $totalMemoryByte;

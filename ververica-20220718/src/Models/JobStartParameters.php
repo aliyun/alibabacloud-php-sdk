@@ -6,32 +6,20 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListJobsRequest extends Model
+class JobStartParameters extends Model
 {
     /**
-     * @example 58718c99-3b29-4c5e-93bb-c9fc4ec6****
-     *
      * @var string
      */
     public $deploymentId;
 
     /**
-     * @example 1
-     *
-     * @var int
+     * @var DeploymentRestoreStrategy
      */
-    public $pageIndex;
-
-    /**
-     * @example 10
-     *
-     * @var int
-     */
-    public $pageSize;
+    public $restoreStrategy;
     protected $_name = [
-        'deploymentId' => 'deploymentId',
-        'pageIndex'    => 'pageIndex',
-        'pageSize'     => 'pageSize',
+        'deploymentId'    => 'deploymentId',
+        'restoreStrategy' => 'restoreStrategy',
     ];
 
     public function validate()
@@ -44,11 +32,8 @@ class ListJobsRequest extends Model
         if (null !== $this->deploymentId) {
             $res['deploymentId'] = $this->deploymentId;
         }
-        if (null !== $this->pageIndex) {
-            $res['pageIndex'] = $this->pageIndex;
-        }
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
+        if (null !== $this->restoreStrategy) {
+            $res['restoreStrategy'] = null !== $this->restoreStrategy ? $this->restoreStrategy->toMap() : null;
         }
 
         return $res;
@@ -57,7 +42,7 @@ class ListJobsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListJobsRequest
+     * @return JobStartParameters
      */
     public static function fromMap($map = [])
     {
@@ -65,11 +50,8 @@ class ListJobsRequest extends Model
         if (isset($map['deploymentId'])) {
             $model->deploymentId = $map['deploymentId'];
         }
-        if (isset($map['pageIndex'])) {
-            $model->pageIndex = $map['pageIndex'];
-        }
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
+        if (isset($map['restoreStrategy'])) {
+            $model->restoreStrategy = DeploymentRestoreStrategy::fromMap($map['restoreStrategy']);
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class JobFailure extends Model
 {
     /**
+     * @example 1660120062
+     *
      * @var int
      */
     public $failedAt;

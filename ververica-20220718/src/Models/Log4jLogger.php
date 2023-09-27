@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class Log4jLogger extends Model
 {
     /**
+     * @example ERROR
+     *
      * @var string
      */
     public $loggerLevel;
 
     /**
+     * @example StdOutErrConsoleAppender
+     *
      * @var string
      */
     public $loggerName;

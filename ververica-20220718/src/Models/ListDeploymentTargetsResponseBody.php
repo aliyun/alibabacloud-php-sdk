@@ -14,41 +14,57 @@ class ListDeploymentTargetsResponseBody extends Model
     public $data;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalSize;

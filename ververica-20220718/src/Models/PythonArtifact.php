@@ -34,6 +34,8 @@ class PythonArtifact extends Model
     public $mainArgs;
 
     /**
+     * @example https://oss//bucket//test.py
+     *
      * @var string
      */
     public $pythonArtifactUri;

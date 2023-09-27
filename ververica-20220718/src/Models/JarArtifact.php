@@ -14,11 +14,15 @@ class JarArtifact extends Model
     public $additionalDependencies;
 
     /**
+     * @example org.apapche.flink.test
+     *
      * @var string
      */
     public $entryClass;
 
     /**
+     * @example https://oss//bucket//test.jar
+     *
      * @var string
      */
     public $jarUri;

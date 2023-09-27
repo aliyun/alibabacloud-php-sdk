@@ -11,6 +11,8 @@ class ListEngineVersionMetadataHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example a14bd5d90a****
+     *
      * @var string
      */
     public $workspace;

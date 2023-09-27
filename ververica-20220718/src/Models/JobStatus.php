@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class JobStatus extends Model
 {
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $currentJobStatus;

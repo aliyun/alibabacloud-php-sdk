@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class JobStatusRunning extends Model
 {
     /**
+     * @example 4
+     *
      * @var int
      */
     public $observedFlinkJobRestarts;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $observedFlinkJobStatus;

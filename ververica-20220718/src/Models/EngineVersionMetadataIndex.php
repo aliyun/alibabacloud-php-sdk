@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EngineVersionMetadataIndex extends Model
 {
     /**
+     * @example vvr-6.0.1-flink-1.15
+     *
      * @var string
      */
     public $defaultEngineVersion;

@@ -14,6 +14,8 @@ class BatchResourceSetting extends Model
     public $basicResourceSetting;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxSlot;
