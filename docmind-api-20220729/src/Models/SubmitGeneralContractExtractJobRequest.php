@@ -11,6 +11,11 @@ class SubmitGeneralContractExtractJobRequest extends Model
     /**
      * @var string
      */
+    public $contractModel;
+
+    /**
+     * @var string
+     */
     public $fileName;
 
     /**
@@ -27,6 +32,7 @@ class SubmitGeneralContractExtractJobRequest extends Model
      */
     public $fileUrl;
     protected $_name = [
+        'contractModel'     => 'ContractModel',
         'fileName'          => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
         'fileUrl'           => 'FileUrl',
@@ -39,6 +45,9 @@ class SubmitGeneralContractExtractJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contractModel) {
+            $res['ContractModel'] = $this->contractModel;
+        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -60,6 +69,9 @@ class SubmitGeneralContractExtractJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContractModel'])) {
+            $model->contractModel = $map['ContractModel'];
+        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }

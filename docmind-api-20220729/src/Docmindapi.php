@@ -1209,6 +1209,9 @@ class Docmindapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->contractModel)) {
+            $query['ContractModel'] = $request->contractModel;
+        }
         if (!Utils::isUnset($request->fileName)) {
             $query['FileName'] = $request->fileName;
         }
