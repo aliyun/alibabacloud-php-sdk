@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateTopicRequest extends Model
 {
     /**
+     * @description The type of messages in the topic that you want to create.
+     *
+     * Valid values:
+     *
+     *   TRANSACTION: transactional messages
+     *   FIFO: ordered messages
+     *   DELAY: scheduled messages or delayed Message
+     *   NORMAL: normal messages
+     *
+     * > The type of messages in the topic must be the same as the type of messages that you want to send. For example, if you create a topic whose message type is ordered messages, the topic can be used to send and receive only ordered messages.
      * @example NORMAL
      *
      * @var string
@@ -16,6 +26,8 @@ class CreateTopicRequest extends Model
     public $messageType;
 
     /**
+     * @description The description of the topic that you want to create.
+     *
      * @example This is the remark for test.
      *
      * @var string

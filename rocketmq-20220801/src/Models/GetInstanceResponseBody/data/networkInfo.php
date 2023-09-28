@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class networkInfo extends Model
 {
     /**
+     * @description The information about endpoints.
+     *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
+     * @description The information about the Internet.
+     *
      * @var internetInfo
      */
     public $internetInfo;
 
     /**
+     * @description The information about the VPC.
+     *
      * @var vpcInfo
      */
     public $vpcInfo;

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class networkInfo extends Model
 {
     /**
+     * @description The Internet-related configurations.
+     *
      * @var internetInfo
      */
     public $internetInfo;
 
     /**
+     * @description The virtual private cloud (VPC)-related configurations.
+     *
      * @var vpcInfo
      */
     public $vpcInfo;

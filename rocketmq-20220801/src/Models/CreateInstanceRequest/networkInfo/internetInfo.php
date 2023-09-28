@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class internetInfo extends Model
 {
     /**
+     * @description The Internet bandwidth. Unit: MB/s.
+     *
+     * Valid values: 1 to 1000.
      * @example 100
      *
      * @var int
@@ -16,6 +19,13 @@ class internetInfo extends Model
     public $flowOutBandwidth;
 
     /**
+     * @description The metering method for Internet usage.
+     *
+     * Valid values:
+     *
+     *   payByBandwidth: pay-by-bandwidth. If the Internet access feature is enabled, specify this value for the parameter.
+     *   uninvolved: N/A. If the Internet access feature is disabled, specify this value for the parameter.
+     *
      * @example uninvolved
      *
      * @var string
@@ -23,6 +33,14 @@ class internetInfo extends Model
     public $flowOutType;
 
     /**
+     * @description Specifies whether to enable the Internet access feature.
+     *
+     * Valid values:
+     *
+     *   enable
+     *   disable
+     *
+     * By default, ApsaraMQ for RocketMQ instances are accessed in VPCs. If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fee](~~427240~~).
      * @example disable
      *
      * @var string
@@ -30,6 +48,11 @@ class internetInfo extends Model
     public $internetSpec;
 
     /**
+     * @description The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only when you use a public endpoint to access the ApsaraMQ for RocketMQ broker.
+     *
+     *   If this parameter is not configured, all IP addresses are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+     *   If this parameter is configured, only the IP addresses that are included in the whitelist can access the ApsaraMQ for RocketMQ broker over the Internet.
+     *
      * @var string[]
      */
     public $ipWhitelist;

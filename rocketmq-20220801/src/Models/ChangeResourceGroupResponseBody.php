@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
      * @example Instance.NotFound
      *
      * @var string
@@ -16,6 +18,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned result.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -30,6 +36,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -37,6 +45,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 400
      *
      * @var int
@@ -44,6 +54,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example The instance cannot be found.
      *
      * @var string
@@ -51,6 +63,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
      * @example AF9A8B10-C426-530F-A0DD-96320B39****
      *
      * @var string
@@ -58,6 +72,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

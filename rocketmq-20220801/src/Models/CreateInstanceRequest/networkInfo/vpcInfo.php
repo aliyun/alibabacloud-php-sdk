@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class vpcInfo extends Model
 {
     /**
+     * @description The ID of the vSwitch with which the instance is associated.
+     *
+     * > After you create a ApsaraMQ for RocketMQ instance, you cannot change the vSwitch to which the instance is connected. If you want to change the vSwitch with which a ApsaraMQ for RocketMQ is associated, you must release the instance and purchase a new instance.
      * @example vsw-uf6gwtbn6etadpv*******
      *
      * @var string
@@ -16,6 +19,9 @@ class vpcInfo extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC with which the instance that you want to create is associated.
+     *
+     * > After you create a ApsaraMQ for RocketMQ instance, you cannot change the VPC in which the instance is created. If you want to change the VPC with which a ApsaraMQ for RocketMQ is associated, you must release the instance and purchase a new instance.
      * @example vpc-wz9qt50xhtj9krb******
      *
      * @var string

@@ -6,22 +6,20 @@ namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\dat
 
 use AlibabaCloud\Tea\Model;
 
-class aclInfo extends Model
+class tags extends Model
 {
     /**
-     * @description The authentication type of the instance.
-     *
-     * Valid values:
-     *
-     *   default: intelligent authentication
-     *
-     * @example default
-     *
      * @var string
      */
-    public $aclType;
+    public $key;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'aclType' => 'aclType',
+        'key'   => 'key',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -31,8 +29,11 @@ class aclInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclType) {
-            $res['aclType'] = $this->aclType;
+        if (null !== $this->key) {
+            $res['key'] = $this->key;
+        }
+        if (null !== $this->value) {
+            $res['value'] = $this->value;
         }
 
         return $res;
@@ -41,13 +42,16 @@ class aclInfo extends Model
     /**
      * @param array $map
      *
-     * @return aclInfo
+     * @return tags
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['aclType'])) {
-            $model->aclType = $map['aclType'];
+        if (isset($map['key'])) {
+            $model->key = $map['key'];
+        }
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;

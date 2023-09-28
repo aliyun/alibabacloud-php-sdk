@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accountInfo extends Model
 {
     /**
+     * @description The username of the instance. If you access a ApsaraMQ for RocketMQ instance over the Internet, you must configure the username and password of the instance in the SDK code for authentication.
+     *
      * @example 6W0xz2uPfiwp****
      *
      * @var string

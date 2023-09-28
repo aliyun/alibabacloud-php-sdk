@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListConsumerGroupsRequest extends Model
 {
     /**
+     * @description The condition that you want to use to filter consumer groups in the instance. If you leave this parameter empty, all consumer groups in the instance are queried.
+     *
      * @example CID-TEST
      *
      * @var string
@@ -16,6 +18,8 @@ class ListConsumerGroupsRequest extends Model
     public $filter;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListConsumerGroupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int

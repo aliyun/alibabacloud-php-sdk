@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTopicsShrinkRequest extends Model
 {
     /**
+     * @description The condition that you want to use to filter topics in the instance. If you leave this parameter empty, all topics in the instance are queried.
+     *
      * @example topic_test
      *
      * @var string
@@ -16,11 +18,15 @@ class ListTopicsShrinkRequest extends Model
     public $filter;
 
     /**
+     * @description The message types of the topics.
+     *
      * @var string
      */
     public $messageTypesShrink;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +34,8 @@ class ListTopicsShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 3
      *
      * @var int

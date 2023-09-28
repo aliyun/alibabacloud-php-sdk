@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
+     * @description Specifies whether to enable burst scaling for the instance.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * > Only specific types of instances support burst scaling. For more information, see [Instance specifications](~~444715~~).
+     * @example true
+     *
      * @var bool
      */
     public $autoScaling;
 
     /**
+     * @description The retention period of messages. Unit: hours.
+     *
+     * The storage of ApsaraMQ for RocketMQ messages is in serverless scaling mode. You are charged based on the actual used storage. You can adjust the storage retention period to reduce storage usage and costs. For more information, see [Storage fees](~~427238~~).
+     * @example 72
+     *
      * @var int
      */
     public $messageRetentionTime;
 
     /**
+     * @description The ratio of the number of messages that you can send to the number of messages that you can receive in the instance.
+     *
+     * Value values: 0.25 to 1.
+     * @example 0.5
+     *
      * @var float
      */
     public $sendReceiveRatio;

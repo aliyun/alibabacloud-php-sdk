@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class extConfig extends Model
 {
     /**
+     * @description The authentication type of the instance.
+     *
+     * Valid values:
+     *
+     *   default: intelligent authentication
+     *
      * @example default
      *
      * @var string
@@ -16,6 +22,14 @@ class extConfig extends Model
     public $aclType;
 
     /**
+     * @description Specifies whether to enable the elastic TPS feature for the instance.
+     *
+     * Valid values:
+     *
+     *   true: enable
+     *   false: disable
+     *
+     * This parameter is valid only when the supportAutoScaling parameter is set to enable.
      * @example true
      *
      * @var bool
@@ -23,6 +37,8 @@ class extConfig extends Model
     public $autoScaling;
 
     /**
+     * @description The Internet bandwidth. Unit: MB/s.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +46,14 @@ class extConfig extends Model
     public $flowOutBandwidth;
 
     /**
+     * @description The metering method for Internet usage.
+     *
+     * Valid values:
+     *
+     *   PayByTraffic: pay-by-traffic
+     *   paybybandwidth: pay-by-bandwidth
+     *   uninvolved: N/A
+     *
      * @example payByBandwidth
      *
      * @var string
@@ -37,6 +61,14 @@ class extConfig extends Model
     public $flowOutType;
 
     /**
+     * @description Specifies whether to enable the Internet access feature.
+     *
+     * Valid values:
+     *
+     *   enable
+     *   disable
+     *
+     * By default, ApsaraMQ for RocketMQ instances are accessed in virtual private clouds (VPCs). If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fee](~~427240~~).
      * @example enable
      *
      * @var string
@@ -44,6 +76,9 @@ class extConfig extends Model
     public $internetSpec;
 
     /**
+     * @description The retention period of messages. Unit: hours.
+     *
+     * The storage of messages in ApsaraMQ for RocketMQ is serverless and scalable. You are charged for message storage based on your actual usage. You can change the retention period of messages to adjust storage capacity. For more information, see [Storage fee](~~427238~~).
      * @example 72
      *
      * @var int
@@ -51,6 +86,8 @@ class extConfig extends Model
     public $messageRetentionTime;
 
     /**
+     * @description The computing specification that is used to send and receive messages. For information about the upper limit of TPS, see [Instance specifications](~~444715~~).
+     *
      * @example rmq.s2.2xlarge
      *
      * @var string
@@ -58,6 +95,8 @@ class extConfig extends Model
     public $msgProcessSpec;
 
     /**
+     * @description The ratio between sent messages and received messages in the instance.
+     *
      * @example 0.5
      *
      * @var float
@@ -65,6 +104,14 @@ class extConfig extends Model
     public $sendReceiveRatio;
 
     /**
+     * @description Specifies whether the elastic TPS feature is supported by the instance.
+     *
+     * Valid values:
+     *
+     *   true: enable
+     *   false: disable
+     *
+     * > The elastic TPS feature is supported only by specific instance editions. For more information, see [Instance specifications](~~444715~~).
      * @example true
      *
      * @var bool

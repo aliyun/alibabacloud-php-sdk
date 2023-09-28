@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class consumeRetryPolicy extends Model
 {
     /**
+     * @description The dead-letter topic.
+     *
+     * If a consumer still fails to consume a message after the message is retried for a specified number of times, the message is delivered to a dead-letter topic for subsequent business recovery or troubleshooting. For more information, see [Consumption retry and dead-letter messages](~~440356~~).
      * @example DLQ_mqtest
      *
      * @var string
@@ -16,6 +19,8 @@ class consumeRetryPolicy extends Model
     public $deadLetterTargetTopic;
 
     /**
+     * @description The maximum number of retries.
+     *
      * @example 16
      *
      * @var int
@@ -23,6 +28,13 @@ class consumeRetryPolicy extends Model
     public $maxRetryTimes;
 
     /**
+     * @description The retry policy. For more information, see [Message retry](~~440356~~).
+     *
+     * Valid values:
+     *
+     *   FixedRetryPolicy: Failed messages are retried at a fixed interval.
+     *   DefaultRetryPolicy: Failed messages are retried at incremental intervals as the number of retries increases.
+     *
      * @example DefaultRetryPolicy
      *
      * @var string

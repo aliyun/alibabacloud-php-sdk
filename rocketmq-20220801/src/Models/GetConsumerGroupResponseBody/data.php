@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](~~440356~~).
+     *
      * @var consumeRetryPolicy
      */
     public $consumeRetryPolicy;
 
     /**
+     * @description The ID of the consumer group.
+     *
      * @example CID-TEST
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $consumerGroupId;
 
     /**
+     * @description The time when the consumer group was created.
+     *
      * @example 2022-08-01 20:05:50
      *
      * @var string
@@ -29,6 +35,17 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The message delivery order of the consumer group.
+     *
+     * Valid values:
+     *
+     *   Concurrently
+     *
+     * <!-- -->
+     *
+     *   Orderly
+     *
+     * <!-- -->
      * @example Concurrently
      *
      * @var string
@@ -36,6 +53,8 @@ class data extends Model
     public $deliveryOrderType;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -43,6 +62,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +71,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The remarks on the consumer group.
+     *
      * @example This is the remark for test.
      *
      * @var string
@@ -57,6 +80,17 @@ class data extends Model
     public $remark;
 
     /**
+     * @description The state of the consumer group.
+     *
+     * Valid values:
+     *
+     *   RUNNING
+     *
+     * .
+     *
+     *   CREATING
+     *
+     * .
      * @example RUNNING
      *
      * @var string
@@ -64,6 +98,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The time when the consumer group was last updated.
+     *
      * @example 2022-08-01 20:05:50
      *
      * @var string

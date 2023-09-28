@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class UpdateConsumerGroupRequest extends Model
 {
     /**
+     * @description The new consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](~~440356~~).
+     *
      * @var consumeRetryPolicy
      */
     public $consumeRetryPolicy;
 
     /**
+     * @description The new message delivery order of the consumer group.
+     *
+     * Valid values:
+     *
+     *   Concurrently: concurrent delivery
+     *   Orderly: ordered delivery
+     *
      * @example Concurrently
      *
      * @var string
@@ -22,6 +31,8 @@ class UpdateConsumerGroupRequest extends Model
     public $deliveryOrderType;
 
     /**
+     * @description The new remarks on the consumer group.
+     *
      * @example This is the remark for test.
      *
      * @var string

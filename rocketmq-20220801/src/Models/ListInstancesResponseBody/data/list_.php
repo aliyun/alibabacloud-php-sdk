@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesResponseBody\data;
 
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesResponseBody\data\list_\tags;
 use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @description The commodity code of the instance. The commodity code of a ApsaraMQ for RocketMQ 5.0 instance has a similar format as ons_rmqsub_public_cn.
+     *
      * @example ons_rmqsub_public_cn
      *
      * @var string
@@ -16,6 +19,8 @@ class list_ extends Model
     public $commodityCode;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @example 2022-08-01 00:00:00
      *
      * @var string
@@ -23,6 +28,8 @@ class list_ extends Model
     public $createTime;
 
     /**
+     * @description The time when the instance expires.
+     *
      * @example 2022-09-01 00:00:00
      *
      * @var string
@@ -30,6 +37,8 @@ class list_ extends Model
     public $expireTime;
 
     /**
+     * @description The number of consumer groups created in the instance.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +46,8 @@ class list_ extends Model
     public $groupCount;
 
     /**
+     * @description The ID of the instance
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -44,6 +55,8 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
      * @example test instance
      *
      * @var string
@@ -51,6 +64,13 @@ class list_ extends Model
     public $instanceName;
 
     /**
+     * @description The billing method of the instance.
+     *
+     * Valid values:
+     *
+     *   PayAsYouGo: pay-as-you-go
+     *   Subscription
+     *
      * @example Subscription
      *
      * @var string
@@ -58,6 +78,8 @@ class list_ extends Model
     public $paymentType;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +87,8 @@ class list_ extends Model
     public $regionId;
 
     /**
+     * @description The time when the instance was released.
+     *
      * @example 2022-09-07 00:00:00
      *
      * @var string
@@ -72,6 +96,8 @@ class list_ extends Model
     public $releaseTime;
 
     /**
+     * @description The description of the instance.
+     *
      * @example This is remark for instance.
      *
      * @var string
@@ -79,11 +105,23 @@ class list_ extends Model
     public $remark;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-acfmx7caj******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The primary edition of the instance.
+     *
+     * Valid values:
+     *
+     *   standard: Standard Edition
+     *   ultimate: Enterprise Platinum Edition
+     *   professional: Professional Edition
+     *
      * @example standard
      *
      * @var string
@@ -91,6 +129,8 @@ class list_ extends Model
     public $seriesCode;
 
     /**
+     * @description The code of the service to which the instance belongs. The service code of ApsaraMQ for RocketMQ is rmq.
+     *
      * @example rmq
      *
      * @var string
@@ -98,6 +138,8 @@ class list_ extends Model
     public $serviceCode;
 
     /**
+     * @description The time when the instance was started.
+     *
      * @example 2022-08-01 00:00:00
      *
      * @var string
@@ -105,6 +147,16 @@ class list_ extends Model
     public $startTime;
 
     /**
+     * @description The status of the instance.
+     *
+     * Valid values:
+     *
+     *   RELEASED
+     *   RUNNING
+     *   STOPPED
+     *   CHANGING
+     *   CREATING
+     *
      * @example RUNNING
      *
      * @var string
@@ -112,6 +164,13 @@ class list_ extends Model
     public $status;
 
     /**
+     * @description The sub-category edition of the instance.
+     *
+     * Valid values:
+     *
+     *   cluster_ha: Cluster High-availability Edition
+     *   single_node: Standalone Edition
+     *
      * @example cluster_ha
      *
      * @var string
@@ -119,6 +178,13 @@ class list_ extends Model
     public $subSeriesCode;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description The number of topics created in the instance.
+     *
      * @example 20
      *
      * @var int
@@ -126,6 +192,8 @@ class list_ extends Model
     public $topicCount;
 
     /**
+     * @description The time when the instance was last modified.
+     *
      * @example 2022-08-02 00:00:00
      *
      * @var string
@@ -133,6 +201,8 @@ class list_ extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the user who owns the instance.
+     *
      * @example 6W0xz2uPfiwp****
      *
      * @var string
@@ -155,6 +225,7 @@ class list_ extends Model
         'startTime'       => 'startTime',
         'status'          => 'status',
         'subSeriesCode'   => 'subSeriesCode',
+        'tags'            => 'tags',
         'topicCount'      => 'topicCount',
         'updateTime'      => 'updateTime',
         'userId'          => 'userId',
@@ -214,6 +285,15 @@ class list_ extends Model
         }
         if (null !== $this->subSeriesCode) {
             $res['subSeriesCode'] = $this->subSeriesCode;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->topicCount) {
             $res['topicCount'] = $this->topicCount;
@@ -283,6 +363,15 @@ class list_ extends Model
         }
         if (isset($map['subSeriesCode'])) {
             $model->subSeriesCode = $map['subSeriesCode'];
+        }
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['topicCount'])) {
             $model->topicCount = $map['topicCount'];

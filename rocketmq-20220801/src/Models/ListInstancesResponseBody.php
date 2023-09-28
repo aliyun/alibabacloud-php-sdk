@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
      * @example MissingPageNumber
      *
      * @var string
@@ -17,11 +19,15 @@ class ListInstancesResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example PageNumber
      *
      * @var string
@@ -29,6 +35,8 @@ class ListInstancesResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example pageNumber
      *
      * @var string
@@ -36,6 +44,8 @@ class ListInstancesResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 400
      *
      * @var int
@@ -43,6 +53,8 @@ class ListInstancesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example Parameter pageNumber is mandatory for this action .
      *
      * @var string
@@ -50,6 +62,8 @@ class ListInstancesResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
      * @example 84445A20-2B50-5306-A3C0-AF99FC1833C6
      *
      * @var string
@@ -57,6 +71,8 @@ class ListInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

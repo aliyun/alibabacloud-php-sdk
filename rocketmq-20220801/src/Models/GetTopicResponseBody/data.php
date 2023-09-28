@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the topic was created.
+     *
      * @example 2022-08-01 20:05:50
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -23,6 +27,15 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The message type of the topic.
+     *
+     * Valid values:
+     *
+     *   TRANSACTION: transactional message
+     *   FIFO: ordered message
+     *   DELAY: scheduled or delayed message
+     *   NORMAL: normal message
+     *
      * @example NORMAL
      *
      * @var string
@@ -30,6 +43,8 @@ class data extends Model
     public $messageType;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +52,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The remarks on the topic.
+     *
      * @example This is the remark for test.
      *
      * @var string
@@ -44,6 +61,13 @@ class data extends Model
     public $remark;
 
     /**
+     * @description The state of the topic.
+     *
+     * Valid values:
+     *
+     *   RUNNING: The topic is running.
+     *   CREATING: The topic is being created.
+     *
      * @example RUNNING
      *
      * @var string
@@ -51,6 +75,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The name of the topic.
+     *
      * @example topic_test
      *
      * @var string
@@ -58,6 +84,8 @@ class data extends Model
     public $topicName;
 
     /**
+     * @description The time when the topic was last updated.
+     *
      * @example 2022-08-01 20:05:50
      *
      * @var string

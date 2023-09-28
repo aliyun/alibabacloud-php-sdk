@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The ID of the consumer group.
+     *
      * @example GID-TEST
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $consumerGroupId;
 
     /**
+     * @description The time when the consumer group was created.
+     *
      * @example 2022-08-01 20:05:50
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $createTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $regionId;
 
     /**
+     * @description The remarks on the consumer group.
+     *
      * @example This is the remark for test.
      *
      * @var string
@@ -44,6 +54,17 @@ class list_ extends Model
     public $remark;
 
     /**
+     * @description The state of the consumer group.
+     *
+     * Valid values:
+     *
+     *   RUNNING
+     *
+     * .
+     *
+     *   CREATING
+     *
+     * .
      * @example RUNNING
      *
      * @var string
@@ -51,6 +72,8 @@ class list_ extends Model
     public $status;
 
     /**
+     * @description The time when the consumer group was last updated.
+     *
      * @example 2022-08-01 20:05:50
      *
      * @var string

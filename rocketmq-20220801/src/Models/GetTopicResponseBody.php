@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTopicResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example Topic.NotFound
      *
      * @var string
@@ -17,11 +19,15 @@ class GetTopicResponseBody extends Model
     public $code;
 
     /**
+     * @description The result data that is returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example TopicName
      *
      * @var string
@@ -29,6 +35,8 @@ class GetTopicResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example topicName
      *
      * @var string
@@ -36,6 +44,8 @@ class GetTopicResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 400
      *
      * @var int
@@ -43,6 +53,8 @@ class GetTopicResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example The topic cannot be found.
      *
      * @var string
@@ -50,6 +62,8 @@ class GetTopicResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+     *
      * @example AF9A8B10-C426-530F-A0DD-96320B39****
      *
      * @var string
@@ -57,6 +71,8 @@ class GetTopicResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful.
+     *
      * @example true
      *
      * @var bool

@@ -11,22 +11,27 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\inst
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\productInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\software;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\tags;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The account information.
+     *
      * @var accountInfo
      */
     public $accountInfo;
 
     /**
+     * @description The information about access control.
+     *
      * @var aclInfo
      */
     public $aclInfo;
 
     /**
-     * @description BID
+     * @description The business ID (BID) of the commodity.
      *
      * @example 26842
      *
@@ -35,6 +40,8 @@ class data extends Model
     public $bid;
 
     /**
+     * @description The commodity code of the instance. The commodity code of a ApsaraMQ for RocketMQ 5.0 instance has a similar format as ons_rmqsub_public_cn.
+     *
      * @example ons_rmqsub_public_cn
      *
      * @var string
@@ -42,6 +49,8 @@ class data extends Model
     public $commodityCode;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @example 2022-08-01 00:00:00
      *
      * @var string
@@ -49,6 +58,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The time when the instance expires.
+     *
      * @example 2022-09-01 00:00:00
      *
      * @var string
@@ -56,18 +67,20 @@ class data extends Model
     public $expireTime;
 
     /**
+     * @description The extended configurations. We recommend you configure the productInfo, internetInfo, or aclInfo parameter instead of this parameter.
+     *
      * @var extConfig
      */
     public $extConfig;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $groupCount;
 
     /**
+     * @description The ID of the instance
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -75,6 +88,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
      * @example test instance
      *
      * @var string
@@ -82,16 +97,27 @@ class data extends Model
     public $instanceName;
 
     /**
+     * @description The quotas in the instance.
+     *
      * @var instanceQuotas[]
      */
     public $instanceQuotas;
 
     /**
+     * @description The network information.
+     *
      * @var networkInfo
      */
     public $networkInfo;
 
     /**
+     * @description The billing method of the instance.
+     *
+     * Valid values:
+     *
+     *   PayAsYouGo: pay-as-you-go
+     *   Subscription
+     *
      * @example Subscription
      *
      * @var string
@@ -99,11 +125,15 @@ class data extends Model
     public $paymentType;
 
     /**
+     * @description The extended configurations of the instance.
+     *
      * @var productInfo
      */
     public $productInfo;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -111,6 +141,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The time when the instance was released.
+     *
      * @example 2022-09-07 00:00:00
      *
      * @var string
@@ -118,6 +150,8 @@ class data extends Model
     public $releaseTime;
 
     /**
+     * @description The description of the instance.
+     *
      * @example This is remark for instance.
      *
      * @var string
@@ -125,11 +159,23 @@ class data extends Model
     public $remark;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm3tmjruyribi
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The primary edition of the instance. For information about the differences between primary edition instances, see [Instance selection](~~444722~~).
+     *
+     * Valid values:
+     *
+     *   standard: Standard Edition
+     *   ultimate: Enterprise Platinum Edition
+     *   professional: Professional Edition
+     *
      * @example standard
      *
      * @var string
@@ -137,6 +183,8 @@ class data extends Model
     public $seriesCode;
 
     /**
+     * @description The code of the service to which the instance belongs. The service code of ApsaraMQ for RocketMQ is rmq.
+     *
      * @example rmq
      *
      * @var string
@@ -149,6 +197,8 @@ class data extends Model
     public $software;
 
     /**
+     * @description The time when the instance was started.
+     *
      * @example 2022-08-01 00:00:00
      *
      * @var string
@@ -156,6 +206,16 @@ class data extends Model
     public $startTime;
 
     /**
+     * @description The status of the instance.
+     *
+     * Valid values:
+     *
+     *   RELEASED
+     *   RUNNING
+     *   STOPPED
+     *   CHANGING
+     *   CREATING
+     *
      * @example RUNNING
      *
      * @var string
@@ -163,6 +223,13 @@ class data extends Model
     public $status;
 
     /**
+     * @description The sub-category edition of the instance. For information about the differences between sub-category edition instances, see [Instance selection](~~444722~~).
+     *
+     * Valid values:
+     *
+     *   cluster_ha: Cluster High-availability Edition
+     *   single_node: Standalone Edition
+     *
      * @example cluster_ha
      *
      * @var string
@@ -170,13 +237,18 @@ class data extends Model
     public $subSeriesCode;
 
     /**
-     * @example 5
-     *
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $topicCount;
 
     /**
+     * @description The time when the instance was last modified.
+     *
      * @example 2022-08-02 00:00:00
      *
      * @var string
@@ -184,6 +256,8 @@ class data extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the user who owns the instance.
+     *
      * @example 111111111111111
      *
      * @var string
@@ -214,6 +288,7 @@ class data extends Model
         'startTime'       => 'startTime',
         'status'          => 'status',
         'subSeriesCode'   => 'subSeriesCode',
+        'tags'            => 'tags',
         'topicCount'      => 'topicCount',
         'updateTime'      => 'updateTime',
         'userId'          => 'userId',
@@ -303,6 +378,15 @@ class data extends Model
         }
         if (null !== $this->subSeriesCode) {
             $res['subSeriesCode'] = $this->subSeriesCode;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->topicCount) {
             $res['topicCount'] = $this->topicCount;
@@ -402,6 +486,15 @@ class data extends Model
         }
         if (isset($map['subSeriesCode'])) {
             $model->subSeriesCode = $map['subSeriesCode'];
+        }
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['topicCount'])) {
             $model->topicCount = $map['topicCount'];

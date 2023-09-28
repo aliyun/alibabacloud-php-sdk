@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example MissingInstanceId
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The result data that is returned.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class UpdateInstanceResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateInstanceResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateInstanceResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 400
      *
      * @var int
@@ -44,6 +54,8 @@ class UpdateInstanceResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example Parameter instanceId is mandatory for this action .
      *
      * @var string
@@ -51,6 +63,8 @@ class UpdateInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+     *
      * @example AA87DE09-DA44-52F4-9515-78B1B607****
      *
      * @var string
@@ -58,6 +72,8 @@ class UpdateInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful.
+     *
      * @example true
      *
      * @var bool

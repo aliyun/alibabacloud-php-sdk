@@ -9,20 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
-     * @example OrderType.NotSupport
+     * @description The error code returned if the call failed.
+     *
+     * @example 200
      *
      * @var string
      */
     public $code;
 
     /**
-     * @example true
+     * @description The ID of the created instance.
+     *
+     * @example rmq-cn-7e22ody****
      *
      * @var string
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateInstanceResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -37,20 +45,26 @@ class CreateInstanceResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @example 400
+     * @description The HTTP status code returned.
+     *
+     * @example 200
      *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example The order type not supported.
+     * @description The error message.
+     *
+     * @example Success
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
      * @example AF9A8B10-C426-530F-A0DD-96320B39****
      *
      * @var string
@@ -58,6 +72,8 @@ class CreateInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

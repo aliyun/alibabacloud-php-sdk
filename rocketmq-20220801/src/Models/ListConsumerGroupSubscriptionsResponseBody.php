@@ -4,75 +4,59 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupResponseBody\data;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupSubscriptionsResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetConsumerGroupResponseBody extends Model
+class ListConsumerGroupSubscriptionsResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
-     * @example InvalidConsumerGroupId
+     * @example MissingInstanceId
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description The result data that is returned.
-     *
-     * @var data
+     * @var data[]
      */
     public $data;
 
     /**
-     * @description The dynamic error code.
-     *
-     * @example ConsumerGroupId
+     * @example InstanceId
      *
      * @var string
      */
     public $dynamicCode;
 
     /**
-     * @description The dynamic error message.
-     *
-     * @example consumerGroupId
+     * @example InstanceId
      *
      * @var string
      */
     public $dynamicMessage;
 
     /**
-     * @description The HTTP status code.
-     *
-     * @example 400
+     * @example 200
      *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description The error message.
-     *
-     * @example Parameter consumerGroupId is invalid.
+     * @example Parameter instanceId is mandatory for this action .
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-     *
-     * @example C7F94090-3358-506A-97DC-34BC803C****
+     * @example 5F4D9D5F-625B-59FF-BD4F-DA8284575DB4
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
-     *
      * @example true
      *
      * @var bool
@@ -100,7 +84,13 @@ class GetConsumerGroupResponseBody extends Model
             $res['code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->dynamicCode) {
             $res['dynamicCode'] = $this->dynamicCode;
@@ -127,7 +117,7 @@ class GetConsumerGroupResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetConsumerGroupResponseBody
+     * @return ListConsumerGroupSubscriptionsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -136,7 +126,13 @@ class GetConsumerGroupResponseBody extends Model
             $model->code = $map['code'];
         }
         if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
+            if (!empty($map['data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['dynamicCode'])) {
             $model->dynamicCode = $map['dynamicCode'];

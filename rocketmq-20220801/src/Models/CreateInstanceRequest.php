@@ -11,13 +11,24 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
-     * @example enable
+     * @description Specifies whether to enable auto-renewal. This parameter takes effect only when the PaymentType parameter is set to Subscription.
+     *
+     *   true: enable
+     *   false: disable
+     *
+     * @example true
      *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description The auto-renewal cycle of the instance. This parameter takes effect only when the autoRenew parameter is set to true. Unit: months.
+     *
+     * Valid values:
+     *
+     *   Monthly renewal: 1, 2, 3, 6, and 12
+     *
      * @example 3
      *
      * @var int
@@ -25,6 +36,9 @@ class CreateInstanceRequest extends Model
     public $autoRenewPeriod;
 
     /**
+     * @description The name of the instance that you want to create.
+     *
+     * If you do not configure this parameter, the instance ID is used as the instance name.
      * @example rmq-cn-72u3048uxxx
      *
      * @var string
@@ -32,18 +46,35 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
+     * @description The information about the network.
+     *
      * @var networkInfo
      */
     public $networkInfo;
 
     /**
-     * @example PayAsYouGo
+     * @description The billing method of the instance. ApsaraMQ for RocketMQ supports the subscription and pay-as-you-go billing methods.
+     *
+     * Valid values:
+     *
+     *   PayAsYouGo: pay-as-you go. This billing method allows you to use resources before you pay for the resources.
+     *   Subscription: This billing method allows you to use resources after you pay for the resources.
+     *
+     * For more information, see [Billing methods](~~427234~~).
+     * @example Subscription
      *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @description The subscription duration of the instance. This parameter takes effect only when the PaymentType parameter is set to Subscription.
+     *
+     * Valid values:
+     *
+     *   Monthly subscription: 1, 2, 3, 4, 5, and 6
+     *   Yearly subscription: 1, 2, and 3
+     *
      * @example 3
      *
      * @var int
@@ -51,18 +82,29 @@ class CreateInstanceRequest extends Model
     public $period;
 
     /**
-     * @example Year
+     * @description The unit of the subscription duration.
+     *
+     * Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * @example Month
      *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The information about the instance specification.
+     *
      * @var productInfo
      */
     public $productInfo;
 
     /**
+     * @description The description of the instance.
+     *
      * @example This is the remark for test.
      *
      * @var string
@@ -70,6 +112,8 @@ class CreateInstanceRequest extends Model
     public $remark;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-aekzy6pist7uuna
      *
      * @var string
@@ -77,6 +121,15 @@ class CreateInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The primary edition of the instance. For information about the differences between primary edition instances, see [Instance selection](~~444722~~).
+     *
+     * Valid values:
+     *
+     *   standard: Standard Edition
+     *   ultimate: Enterprise Platinum Edition
+     *   professional: Professional Edition
+     *
+     * > After you create a ApsaraMQ for RocketMQ instance, you can only upgrade the primary edition of the instance. The following editions are sorted in ascending order: Standard Edition, Professional Edition, and Platinum Edition. For example, an instance of Standard Edition can be upgraded to Professional Edition. However, an instance of Professional Edition cannot be downgraded to Standard Edition.
      * @example standard
      *
      * @var string
@@ -84,6 +137,8 @@ class CreateInstanceRequest extends Model
     public $seriesCode;
 
     /**
+     * @description The code of the service to which the instance belongs. The service code of ApsaraMQ for RocketMQ is rmq.
+     *
      * @example rmq
      *
      * @var string
@@ -91,6 +146,14 @@ class CreateInstanceRequest extends Model
     public $serviceCode;
 
     /**
+     * @description The sub-category edition of the instance. For information about the differences between sub-category edition instances, see [Instance selection](~~444722~~).
+     *
+     * Valid values:
+     *
+     *   cluster_ha: Cluster High-availability Edition
+     *   single_node: Standalone Edition
+     *
+     * > After you create a ApsaraMQ for RocketMQ instance, you cannot change the sub-category edition of the instance.
      * @example cluster_ha
      *
      * @var string
@@ -98,7 +161,9 @@ class CreateInstanceRequest extends Model
     public $subSeriesCode;
 
     /**
-     * @example c2c5d1274a8d4317a13bc5b0d4c888df
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value of this parameter, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example c2c5d1274a8d4317a13bc5b0d4******
      *
      * @var string
      */

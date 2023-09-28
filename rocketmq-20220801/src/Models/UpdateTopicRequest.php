@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTopicRequest extends Model
 {
     /**
+     * @description The new remarks on the topic.
+     *
      * @example This is the remark for test.
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class networkInfo extends Model
 {
     /**
+     * @description The Internet information about the instance. This parameter takes effect only when the Internet access feature is enabled for the instance.
+     *
      * @var internetInfo
      */
     public $internetInfo;

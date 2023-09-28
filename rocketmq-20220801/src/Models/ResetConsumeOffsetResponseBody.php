@@ -4,75 +4,53 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetConsumerGroupResponseBody extends Model
+class ResetConsumeOffsetResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
-     * @example InvalidConsumerGroupId
+     * @example MissingInstanceId
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description The result data that is returned.
-     *
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @description The dynamic error code.
-     *
-     * @example ConsumerGroupId
+     * @example InstanceId
      *
      * @var string
      */
     public $dynamicCode;
 
     /**
-     * @description The dynamic error message.
-     *
-     * @example consumerGroupId
+     * @example instanceId
      *
      * @var string
      */
     public $dynamicMessage;
 
     /**
-     * @description The HTTP status code.
-     *
-     * @example 400
+     * @example 200
      *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description The error message.
-     *
-     * @example Parameter consumerGroupId is invalid.
+     * @example The instance cannot be found.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-     *
-     * @example C7F94090-3358-506A-97DC-34BC803C****
+     * @example F9A95891-EAD4-5A2B-8A30-676CD18921AF
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
-     *
      * @example true
      *
      * @var bool
@@ -80,7 +58,6 @@ class GetConsumerGroupResponseBody extends Model
     public $success;
     protected $_name = [
         'code'           => 'code',
-        'data'           => 'data',
         'dynamicCode'    => 'dynamicCode',
         'dynamicMessage' => 'dynamicMessage',
         'httpStatusCode' => 'httpStatusCode',
@@ -98,9 +75,6 @@ class GetConsumerGroupResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
-        }
-        if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->dynamicCode) {
             $res['dynamicCode'] = $this->dynamicCode;
@@ -127,16 +101,13 @@ class GetConsumerGroupResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetConsumerGroupResponseBody
+     * @return ResetConsumeOffsetResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
-        }
-        if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
         }
         if (isset($map['dynamicCode'])) {
             $model->dynamicCode = $map['dynamicCode'];
