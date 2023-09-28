@@ -1,0 +1,118 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetTagOptionResponseBody;
+
+use AlibabaCloud\Tea\Model;
+
+class tagOptionDetail extends Model
+{
+    /**
+     * @description Indicates whether the tag option is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $active;
+
+    /**
+     * @description The key of the tag option.
+     *
+     * @example k1
+     *
+     * @var string
+     */
+    public $key;
+
+    /**
+     * @description The ID of the Alibaba Cloud account to which the tag option belongs.
+     *
+     * @example 133413081827****
+     *
+     * @var string
+     */
+    public $owner;
+
+    /**
+     * @description The ID of the tag option.
+     *
+     * @example tag-bp15qmwz3r****
+     *
+     * @var string
+     */
+    public $tagOptionId;
+
+    /**
+     * @description The value of the tag option.
+     *
+     * @example v1
+     *
+     * @var string
+     */
+    public $value;
+    protected $_name = [
+        'active'      => 'Active',
+        'key'         => 'Key',
+        'owner'       => 'Owner',
+        'tagOptionId' => 'TagOptionId',
+        'value'       => 'Value',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->active) {
+            $res['Active'] = $this->active;
+        }
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->tagOptionId) {
+            $res['TagOptionId'] = $this->tagOptionId;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return tagOptionDetail
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Active'])) {
+            $model->active = $map['Active'];
+        }
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
+        if (isset($map['TagOptionId'])) {
+            $model->tagOptionId = $map['TagOptionId'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
+        }
+
+        return $model;
+    }
+}
