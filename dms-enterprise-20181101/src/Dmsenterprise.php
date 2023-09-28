@@ -211,6 +211,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOrderBaseInfoRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOrderBaseInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOwnerApplyOrderDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOwnerApplyOrderDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPagedInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPagedInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseRequest;
@@ -371,6 +373,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PreviewWorkflowRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PreviewWorkflowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PublishAndDeployTaskFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PublishAndDeployTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\QueryDataTrackResultDownloadStatusRequest;
@@ -5481,6 +5485,46 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetPagedInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetPagedInstanceResponse
+     */
+    public function getPagedInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPagedInstance',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPagedInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPagedInstanceRequest $request
+     *
+     * @return GetPagedInstanceResponse
+     */
+    public function getPagedInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPagedInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
      *   *
      * @param GetPermApplyOrderDetailRequest $request GetPermApplyOrderDetailRequest
@@ -9602,6 +9646,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pauseDataCorrectSQLJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PreviewWorkflowRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PreviewWorkflowResponse
+     */
+    public function previewWorkflowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PreviewWorkflow',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PreviewWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PreviewWorkflowRequest $request
+     *
+     * @return PreviewWorkflowResponse
+     */
+    public function previewWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->previewWorkflowWithOptions($request, $runtime);
     }
 
     /**
