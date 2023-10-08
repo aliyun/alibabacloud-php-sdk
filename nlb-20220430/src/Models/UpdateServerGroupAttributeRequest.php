@@ -74,11 +74,6 @@ class UpdateServerGroupAttributeRequest extends Model
     public $preserveClientIpEnabled;
 
     /**
-     * @var string
-     */
-    public $quicVersion;
-
-    /**
      * @description The region ID of the NLB instance.
      *
      * You can call the [DescribeRegions](~~443657~~) operation to obtain the region ID.
@@ -128,7 +123,6 @@ class UpdateServerGroupAttributeRequest extends Model
         'dryRun'                  => 'DryRun',
         'healthCheckConfig'       => 'HealthCheckConfig',
         'preserveClientIpEnabled' => 'PreserveClientIpEnabled',
-        'quicVersion'             => 'QuicVersion',
         'regionId'                => 'RegionId',
         'scheduler'               => 'Scheduler',
         'serverGroupId'           => 'ServerGroupId',
@@ -159,9 +153,6 @@ class UpdateServerGroupAttributeRequest extends Model
         }
         if (null !== $this->preserveClientIpEnabled) {
             $res['PreserveClientIpEnabled'] = $this->preserveClientIpEnabled;
-        }
-        if (null !== $this->quicVersion) {
-            $res['QuicVersion'] = $this->quicVersion;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -204,9 +195,6 @@ class UpdateServerGroupAttributeRequest extends Model
         }
         if (isset($map['PreserveClientIpEnabled'])) {
             $model->preserveClientIpEnabled = $map['PreserveClientIpEnabled'];
-        }
-        if (isset($map['QuicVersion'])) {
-            $model->quicVersion = $map['QuicVersion'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

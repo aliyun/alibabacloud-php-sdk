@@ -198,10 +198,14 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param AssociateAdditionalCertificatesWithListenerRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
+     *   * *   If the listener is in the **Associating** state, the additional certificates are being associated.
+     *   * *   If the listener is in the **Associated** state, the additional certificates are associated.
+     *   *
+     * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateAdditionalCertificatesWithListenerResponse
+     * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
      */
     public function associateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
@@ -241,9 +245,13 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param AssociateAdditionalCertificatesWithListenerRequest $request
+     * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
+     *   * *   If the listener is in the **Associating** state, the additional certificates are being associated.
+     *   * *   If the listener is in the **Associated** state, the additional certificates are associated.
+     *   *
+     * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
      *
-     * @return AssociateAdditionalCertificatesWithListenerResponse
+     * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
      */
     public function associateAdditionalCertificatesWithListener($request)
     {
@@ -676,9 +684,6 @@ class Nlb extends OpenApiClient
         }
         if (!Utils::isUnset($request->protocol)) {
             $body['Protocol'] = $request->protocol;
-        }
-        if (!Utils::isUnset($request->quicVersion)) {
-            $body['QuicVersion'] = $request->quicVersion;
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
@@ -1161,10 +1166,14 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DisassociateAdditionalCertificatesWithListenerRequest $request
-     * @param RuntimeOptions                                        $runtime
+     * **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
+     *   * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
+     *   * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+     *   *
+     * @param DisassociateAdditionalCertificatesWithListenerRequest $request DisassociateAdditionalCertificatesWithListenerRequest
+     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisassociateAdditionalCertificatesWithListenerResponse
+     * @return DisassociateAdditionalCertificatesWithListenerResponse DisassociateAdditionalCertificatesWithListenerResponse
      */
     public function disassociateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
@@ -1204,9 +1213,13 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DisassociateAdditionalCertificatesWithListenerRequest $request
+     * **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
+     *   * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
+     *   * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+     *   *
+     * @param DisassociateAdditionalCertificatesWithListenerRequest $request DisassociateAdditionalCertificatesWithListenerRequest
      *
-     * @return DisassociateAdditionalCertificatesWithListenerResponse
+     * @return DisassociateAdditionalCertificatesWithListenerResponse DisassociateAdditionalCertificatesWithListenerResponse
      */
     public function disassociateAdditionalCertificatesWithListener($request)
     {
@@ -2941,9 +2954,6 @@ class Nlb extends OpenApiClient
         }
         if (!Utils::isUnset($request->preserveClientIpEnabled)) {
             $body['PreserveClientIpEnabled'] = $request->preserveClientIpEnabled;
-        }
-        if (!Utils::isUnset($request->quicVersion)) {
-            $body['QuicVersion'] = $request->quicVersion;
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;

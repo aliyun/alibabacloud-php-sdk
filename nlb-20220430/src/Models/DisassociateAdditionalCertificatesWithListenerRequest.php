@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisassociateAdditionalCertificatesWithListenerRequest extends Model
 {
     /**
+     * @description The additional certificates. You can disassociate up to 15 additional certificates from a listener in each request.
+     *
      * @var string[]
      */
     public $additionalCertificateIds;
@@ -26,10 +28,10 @@ class DisassociateAdditionalCertificatesWithListenerRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to only precheck this request. Valid values:
+     * @description Specifies whether to perform a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: prechecks the request without creating the resource. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example true
      *
@@ -38,7 +40,7 @@ class DisassociateAdditionalCertificatesWithListenerRequest extends Model
     public $dryRun;
 
     /**
-     * @description The listener ID.
+     * @description The listener ID. You must specify the ID of a listener that uses SSL over TCP.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -47,7 +49,7 @@ class DisassociateAdditionalCertificatesWithListenerRequest extends Model
     public $listenerId;
 
     /**
-     * @description The ID of the region where the NLB instance is deployed.
+     * @description The region ID of the Network Load Balancer (NLB) instance.
      *
      * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
      * @example cn-hangzhou

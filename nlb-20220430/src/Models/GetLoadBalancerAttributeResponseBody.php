@@ -15,6 +15,11 @@ use AlibabaCloud\Tea\Model;
 class GetLoadBalancerAttributeResponseBody extends Model
 {
     /**
+     * @description The protocol version. Valid values:
+     *
+     *   **ipv4**: IPv4
+     *   **DualStack**: dual stack
+     *
      * @example ipv4
      *
      * @var string
@@ -34,6 +39,8 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $addressType;
 
     /**
+     * @description The ID of the EIP bandwidth plan.
+     *
      * @example cbwp-bp1vevu8h3ieh****
      *
      * @var string
@@ -52,6 +59,9 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $cps;
 
     /**
+     * @description The time when the NLB instance was created. This value is a UNIX timestamp.
+     *
+     * Unit: milliseconds.
      * @example 2022-07-02T02:49:05Z
      *
      * @var string
@@ -71,6 +81,8 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $crossZoneEnabled;
 
     /**
+     * @description The domain name of the NLB instance.
+     *
      * @example nlb-wb7r6dlwetvt5j****.cn-hangzhou.nlb.aliyuncs.com
      *
      * @var string
@@ -78,6 +90,8 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $DNSName;
 
     /**
+     * @description The configuration of the deletion protection feature.
+     *
      * @var deletionProtectionConfig
      */
     public $deletionProtectionConfig;
@@ -148,6 +162,8 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $loadBalancerStatus;
 
     /**
+     * @description The type of the Server Load Balancer (SLB) instance. Set the value to **network**, which specifies NLB.
+     *
      * @example network
      *
      * @var string
@@ -155,6 +171,8 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $loadBalancerType;
 
     /**
+     * @description The configuration of the configuration read-only mode.
+     *
      * @var modificationProtectionConfig
      */
     public $modificationProtectionConfig;
@@ -176,6 +194,8 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
@@ -183,6 +203,8 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-atstuj3rtop****
      *
      * @var string

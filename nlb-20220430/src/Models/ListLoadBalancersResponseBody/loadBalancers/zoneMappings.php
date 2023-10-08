@@ -17,6 +17,11 @@ class zoneMappings extends Model
     public $loadBalancerAddresses;
 
     /**
+     * @description The state of the task. Valid values:
+     *
+     *   **Succeeded**: The task is successful.
+     *   **processing**: The ticket is being executed.
+     *
      * @example Active
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class deletionProtectionConfig extends Model
 {
     /**
+     * @description Specifies whether to enable deletion protection. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class deletionProtectionConfig extends Model
     public $enabled;
 
     /**
+     * @description The time when the deletion protection feature was enabled. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
      * @example 2022-11-02T02:49:05Z
      *
      * @var string
@@ -23,6 +30,10 @@ class deletionProtectionConfig extends Model
     public $enabledTime;
 
     /**
+     * @description The reason why the deletion protection feature is enabled or disabled. The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The value must start with a letter.
+     *
+     * @example create-by-mse-can-not-delete
+     *
      * @var string
      */
     public $reason;

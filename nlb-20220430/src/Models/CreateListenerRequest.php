@@ -231,6 +231,8 @@ class CreateListenerRequest extends Model
     public $startPort;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

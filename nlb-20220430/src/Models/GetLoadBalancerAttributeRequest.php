@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetLoadBalancerAttributeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +21,11 @@ class GetLoadBalancerAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether only to precheck the request. Valid values:
+     *
+     *   **true**: checks the request but does not query the listener details. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +33,8 @@ class GetLoadBalancerAttributeRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the NLB instance.
+     *
      * @example nlb-83ckzc8d4xlp8o****
      *
      * @var string
@@ -30,6 +42,9 @@ class GetLoadBalancerAttributeRequest extends Model
     public $loadBalancerId;
 
     /**
+     * @description The ID of the region where the NLB instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

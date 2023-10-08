@@ -18,7 +18,7 @@ class DisassociateAdditionalCertificatesWithListenerResponseBody extends Model
     public $jobId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *

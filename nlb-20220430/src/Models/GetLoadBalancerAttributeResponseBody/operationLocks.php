@@ -11,6 +11,8 @@ class operationLocks extends Model
     /**
      * @description The reason why the NLB instance is locked.
      *
+     * @example security
+     *
      * @var string
      */
     public $lockReason;

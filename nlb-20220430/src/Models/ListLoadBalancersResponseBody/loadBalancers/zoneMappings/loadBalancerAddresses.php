@@ -45,6 +45,8 @@ class loadBalancerAddresses extends Model
     public $privateIPv4Address;
 
     /**
+     * @description The health check status of the private IPv4 address.
+     *
      * @example Healthy
      *
      * @var string
@@ -52,6 +54,8 @@ class loadBalancerAddresses extends Model
     public $privateIPv4HcStatus;
 
     /**
+     * @description The health check status of the private IPv6 address.
+     *
      * @example Healthy
      *
      * @var string
