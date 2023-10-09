@@ -28,6 +28,11 @@ class CreateNetworkInterfaceRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $deleteOnRelease;
+
+    /**
      * @description The description of the ENI. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
      * This parameter is empty by default.
@@ -258,6 +263,7 @@ class CreateNetworkInterfaceRequest extends Model
     protected $_name = [
         'businessType'                   => 'BusinessType',
         'clientToken'                    => 'ClientToken',
+        'deleteOnRelease'                => 'DeleteOnRelease',
         'description'                    => 'Description',
         'instanceType'                   => 'InstanceType',
         'ipv4Prefix'                     => 'Ipv4Prefix',
@@ -298,6 +304,9 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deleteOnRelease) {
+            $res['DeleteOnRelease'] = $this->deleteOnRelease;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -400,6 +409,9 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeleteOnRelease'])) {
+            $model->deleteOnRelease = $map['DeleteOnRelease'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

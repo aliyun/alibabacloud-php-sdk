@@ -5791,6 +5791,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->deleteOnRelease)) {
+            $query['DeleteOnRelease'] = $request->deleteOnRelease;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -23859,6 +23862,9 @@ class Ecs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->deleteOnRelease)) {
+            $query['DeleteOnRelease'] = $request->deleteOnRelease;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }

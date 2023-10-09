@@ -40,6 +40,11 @@ class networkInterfaceSet extends Model
     public $creationTime;
 
     /**
+     * @var bool
+     */
+    public $deleteOnRelease;
+
+    /**
      * @description The description of the ENI.
      *
      * @example DescriptionTest
@@ -256,6 +261,7 @@ class networkInterfaceSet extends Model
         'associatedPublicIp'          => 'AssociatedPublicIp',
         'attachment'                  => 'Attachment',
         'creationTime'                => 'CreationTime',
+        'deleteOnRelease'             => 'DeleteOnRelease',
         'description'                 => 'Description',
         'instanceId'                  => 'InstanceId',
         'ipv4PrefixSets'              => 'Ipv4PrefixSets',
@@ -297,6 +303,9 @@ class networkInterfaceSet extends Model
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->deleteOnRelease) {
+            $res['DeleteOnRelease'] = $this->deleteOnRelease;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -390,6 +399,9 @@ class networkInterfaceSet extends Model
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['DeleteOnRelease'])) {
+            $model->deleteOnRelease = $map['DeleteOnRelease'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

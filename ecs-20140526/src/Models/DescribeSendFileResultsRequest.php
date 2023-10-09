@@ -19,6 +19,11 @@ class DescribeSendFileResultsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The overall sending state of the file. The overall sending state of the file depends on its sending state on all the destination instances. Valid values:
+     *
+     * - Terminated: The file sending task is terminated.
+     * @example Success
+     *
      * @var string
      */
     public $invocationStatus;

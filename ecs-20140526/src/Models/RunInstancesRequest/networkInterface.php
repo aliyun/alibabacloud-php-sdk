@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class networkInterface extends Model
 {
     /**
+     * @var bool
+     */
+    public $deleteOnRelease;
+
+    /**
      * @description The description of ENI N.
      *
      * Take note of the following items:
@@ -75,6 +80,11 @@ class networkInterface extends Model
      * @var int
      */
     public $networkCardIndex;
+
+    /**
+     * @var string
+     */
+    public $networkInterfaceId;
 
     /**
      * @description The name of ENI N.
@@ -200,11 +210,13 @@ class networkInterface extends Model
      */
     public $vSwitchId;
     protected $_name = [
+        'deleteOnRelease'             => 'DeleteOnRelease',
         'description'                 => 'Description',
         'instanceType'                => 'InstanceType',
         'ipv6Address'                 => 'Ipv6Address',
         'ipv6AddressCount'            => 'Ipv6AddressCount',
         'networkCardIndex'            => 'NetworkCardIndex',
+        'networkInterfaceId'          => 'NetworkInterfaceId',
         'networkInterfaceName'        => 'NetworkInterfaceName',
         'networkInterfaceTrafficMode' => 'NetworkInterfaceTrafficMode',
         'primaryIpAddress'            => 'PrimaryIpAddress',
@@ -222,6 +234,9 @@ class networkInterface extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deleteOnRelease) {
+            $res['DeleteOnRelease'] = $this->deleteOnRelease;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -236,6 +251,9 @@ class networkInterface extends Model
         }
         if (null !== $this->networkCardIndex) {
             $res['NetworkCardIndex'] = $this->networkCardIndex;
+        }
+        if (null !== $this->networkInterfaceId) {
+            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
@@ -273,6 +291,9 @@ class networkInterface extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeleteOnRelease'])) {
+            $model->deleteOnRelease = $map['DeleteOnRelease'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -289,6 +310,9 @@ class networkInterface extends Model
         }
         if (isset($map['NetworkCardIndex'])) {
             $model->networkCardIndex = $map['NetworkCardIndex'];
+        }
+        if (isset($map['NetworkInterfaceId'])) {
+            $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];
