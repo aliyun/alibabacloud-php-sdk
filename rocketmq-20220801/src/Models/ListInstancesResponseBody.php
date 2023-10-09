@@ -19,7 +19,7 @@ class ListInstancesResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned result.
+     * @description The returned data.
      *
      * @var data
      */

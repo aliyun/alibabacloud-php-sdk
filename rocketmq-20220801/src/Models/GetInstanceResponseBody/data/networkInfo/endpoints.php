@@ -13,9 +13,13 @@ class endpoints extends Model
      *
      * Valid values:
      *
-     *   TCP_VPC: VPC endpoint
-     *   TCP_INTERNET: public endpoint
+     *   TCP_VPC
      *
+     * <!-- -->
+     *
+     *   TCP_INTERNET
+     *
+     * <!-- -->
      * @example TCP_INTERNET
      *
      * @var string
@@ -32,12 +36,12 @@ class endpoints extends Model
     public $endpointUrl;
 
     /**
-     * @description The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only when you use a public endpoint to access the ApsaraMQ for RocketMQ broker.
+     * @description The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use a public endpoint to access the ApsaraMQ for RocketMQ broker.
      *
      *   If this parameter is not configured, all IP addresses are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
      *   If this parameter is configured, only the IP addresses that are included in the whitelist can access the ApsaraMQ for RocketMQ broker over the Internet.
      *
-     * We recommend that you configure the internetInfo.ipWhitelist parameter instead of this parameter.
+     * We recommend that you configure internetInfo.ipWhitelist instead of this parameter.
      * @example 192.168.x.x/24
      *
      * @var string[]

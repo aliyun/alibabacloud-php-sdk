@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceQuotas extends Model
 {
     /**
-     * @description The number of free topics in the instance.
+     * @description The number of topics that are free of charge on the instance.
      *
      * @example 20
      *
@@ -18,11 +18,11 @@ class instanceQuotas extends Model
     public $freeCount;
 
     /**
-     * @description The name of the quota.
+     * @description The quota name.
      *
-     * Valid values:
+     * Valid value:
      *
-     *   TOPIC_COUNT: the number of topics that you can create in the instance
+     *   TOPIC_COUNT: the number of topics that can be created on the instance
      *
      * @example TOPIC_COUNT
      *
@@ -31,7 +31,7 @@ class instanceQuotas extends Model
     public $quotaName;
 
     /**
-     * @description The total number of topics in the instance.
+     * @description The total number of topics on the instance.
      *
      * @example 100
      *
@@ -40,7 +40,7 @@ class instanceQuotas extends Model
     public $totalCount;
 
     /**
-     * @description The number of used topics in the instance.
+     * @description The number of used topics on the instance.
      *
      * @example 10
      *

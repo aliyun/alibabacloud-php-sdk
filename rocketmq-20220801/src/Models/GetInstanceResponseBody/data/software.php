@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class software extends Model
 {
     /**
+     * @description The period of upgrade time.
+     *
+     * @example 02:00-06:00
+     *
      * @var string
      */
     public $maintainTime;
 
     /**
+     * @description The version of software.
+     *
+     * @example 5.0-rmq-20230619-1
+     *
      * @var string
      */
     public $softwareVersion;
 
     /**
+     * @description The upgrade method.
+     *
+     * - Manual: manual upgrade
+     * @example auto
+     *
      * @var string
      */
     public $upgradeMethod;

@@ -74,6 +74,10 @@ class data extends Model
     public $extConfig;
 
     /**
+     * @description The number of groups.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $groupCount;
@@ -192,6 +196,8 @@ class data extends Model
     public $serviceCode;
 
     /**
+     * @description The instance software information.
+     *
      * @var software
      */
     public $software;
@@ -237,11 +243,17 @@ class data extends Model
     public $subSeriesCode;
 
     /**
+     * @description The resource tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The number of topics.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $topicCount;

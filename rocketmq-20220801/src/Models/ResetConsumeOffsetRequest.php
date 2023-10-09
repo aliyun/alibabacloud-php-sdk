@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetConsumeOffsetRequest extends Model
 {
     /**
+     * @description The time when the consumer offset is reset.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -16,6 +18,8 @@ class ResetConsumeOffsetRequest extends Model
     public $resetTime;
 
     /**
+     * @description The method that is used to reset the consumer offset. Valid values: LATEST_OFFSET and SPECIFIED_TIME.
+     *
      * @example LATEST_OFFSET
      *
      * @var string

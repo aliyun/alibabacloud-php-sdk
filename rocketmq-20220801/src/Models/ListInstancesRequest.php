@@ -47,6 +47,10 @@ class ListInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags that are used to filter instances.
+     *
+     * @example [{"key": "rmq-test", "value": "test"}]
+     *
      * @var string
      */
     public $tags;

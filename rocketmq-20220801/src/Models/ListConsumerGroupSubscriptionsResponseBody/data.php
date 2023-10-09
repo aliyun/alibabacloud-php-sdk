@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The consumer group ID.
+     *
      * @example CID-TEST
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $consumerGroupId;
 
     /**
+     * @description The filter expression.
+     *
      * @example *
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $filterExpression;
 
     /**
+     * @description The type of the filter expression. Valid values: SQL, TAG, and UNSPECIFIED.
+     *
      * @example SQL
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $filterExpressionType;
 
     /**
+     * @description The consumption mode. Valid values: BROADCASTING and CLUSTERING.
+     *
      * @example BROADCASTING
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $messageModel;
 
     /**
+     * @description The subscription status. Valid values: ONLINE and OFFLINE.
+     *
      * @example ONLINE
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $subscriptionStatus;
 
     /**
+     * @description Indicates whether the topic is created.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +63,8 @@ class data extends Model
     public $topicCreated;
 
     /**
+     * @description The topic to which the consumer group subscribes.
+     *
      * @example topic_test
      *
      * @var string

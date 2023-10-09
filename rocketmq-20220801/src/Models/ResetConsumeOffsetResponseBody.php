@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetConsumeOffsetResponseBody extends Model
 {
     /**
+     * @description The returned error code.
+     *
      * @example MissingInstanceId
      *
      * @var string
@@ -16,6 +18,8 @@ class ResetConsumeOffsetResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -23,6 +27,8 @@ class ResetConsumeOffsetResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The returned dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -30,6 +36,8 @@ class ResetConsumeOffsetResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class ResetConsumeOffsetResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned error message.
+     *
      * @example The instance cannot be found.
      *
      * @var string
@@ -44,6 +54,8 @@ class ResetConsumeOffsetResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example F9A95891-EAD4-5A2B-8A30-676CD18921AF
      *
      * @var string
@@ -51,6 +63,8 @@ class ResetConsumeOffsetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

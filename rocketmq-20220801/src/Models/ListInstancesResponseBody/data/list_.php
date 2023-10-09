@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The commodity code of the instance. The commodity code of a ApsaraMQ for RocketMQ 5.0 instance has a similar format as ons_rmqsub_public_cn.
+     * @description The commodity code of the instance. The commodity code of ApsaraMQ for RocketMQ 5.0 instances has a similar format to ons_rmqsub_public_cn.
      *
      * @example ons_rmqsub_public_cn
      *
@@ -37,7 +37,7 @@ class list_ extends Model
     public $expireTime;
 
     /**
-     * @description The number of consumer groups created in the instance.
+     * @description The number of consumer groups that are created on the instance.
      *
      * @example 10
      *
@@ -46,7 +46,7 @@ class list_ extends Model
     public $groupCount;
 
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
      * @example rmq-cn-7e22ody****
      *
@@ -55,7 +55,7 @@ class list_ extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example test instance
      *
@@ -68,7 +68,7 @@ class list_ extends Model
      *
      * Valid values:
      *
-     *   PayAsYouGo: pay-as-you-go
+     *   PayAsYouGo
      *   Subscription
      *
      * @example Subscription
@@ -96,7 +96,7 @@ class list_ extends Model
     public $releaseTime;
 
     /**
-     * @description The description of the instance.
+     * @description The instance description.
      *
      * @example This is remark for instance.
      *
@@ -147,7 +147,7 @@ class list_ extends Model
     public $startTime;
 
     /**
-     * @description The status of the instance.
+     * @description The instance status.
      *
      * Valid values:
      *
@@ -178,12 +178,14 @@ class list_ extends Model
     public $subSeriesCode;
 
     /**
+     * @description The resource tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The number of topics created in the instance.
+     * @description The number of topics that are created on the instance.
      *
      * @example 20
      *
