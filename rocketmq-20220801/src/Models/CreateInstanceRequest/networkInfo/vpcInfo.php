@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class vpcInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $securityGroupIds;
+
+    /**
      * @description The ID of the vSwitch with which the instance is associated.
      *
      * > After you create a ApsaraMQ for RocketMQ instance, you cannot change the vSwitch to which the instance is connected. If you want to change the vSwitch with which a ApsaraMQ for RocketMQ is associated, you must release the instance and purchase a new instance.
@@ -28,8 +33,9 @@ class vpcInfo extends Model
      */
     public $vpcId;
     protected $_name = [
-        'vSwitchId' => 'vSwitchId',
-        'vpcId'     => 'vpcId',
+        'securityGroupIds' => 'securityGroupIds',
+        'vSwitchId'        => 'vSwitchId',
+        'vpcId'            => 'vpcId',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class vpcInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->securityGroupIds) {
+            $res['securityGroupIds'] = $this->securityGroupIds;
+        }
         if (null !== $this->vSwitchId) {
             $res['vSwitchId'] = $this->vSwitchId;
         }
@@ -57,6 +66,9 @@ class vpcInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['securityGroupIds'])) {
+            $model->securityGroupIds = $map['securityGroupIds'];
+        }
         if (isset($map['vSwitchId'])) {
             $model->vSwitchId = $map['vSwitchId'];
         }

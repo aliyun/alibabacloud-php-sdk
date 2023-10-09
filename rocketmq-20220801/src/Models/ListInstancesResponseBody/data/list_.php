@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesResponseBody\data;
 
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesResponseBody\data\list_\productInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesResponseBody\data\list_\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -76,6 +77,11 @@ class list_ extends Model
      * @var string
      */
     public $paymentType;
+
+    /**
+     * @var productInfo
+     */
+    public $productInfo;
 
     /**
      * @description The ID of the region in which the instance resides.
@@ -218,6 +224,7 @@ class list_ extends Model
         'instanceId'      => 'instanceId',
         'instanceName'    => 'instanceName',
         'paymentType'     => 'paymentType',
+        'productInfo'     => 'productInfo',
         'regionId'        => 'regionId',
         'releaseTime'     => 'releaseTime',
         'remark'          => 'remark',
@@ -260,6 +267,9 @@ class list_ extends Model
         }
         if (null !== $this->paymentType) {
             $res['paymentType'] = $this->paymentType;
+        }
+        if (null !== $this->productInfo) {
+            $res['productInfo'] = null !== $this->productInfo ? $this->productInfo->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
@@ -338,6 +348,9 @@ class list_ extends Model
         }
         if (isset($map['paymentType'])) {
             $model->paymentType = $map['paymentType'];
+        }
+        if (isset($map['productInfo'])) {
+            $model->productInfo = productInfo::fromMap($map['productInfo']);
         }
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];

@@ -36,6 +36,11 @@ class CreateInstanceRequest extends Model
     public $autoRenewPeriod;
 
     /**
+     * @var string
+     */
+    public $commodityCode;
+
+    /**
      * @description The name of the instance that you want to create.
      *
      * If you do not configure this parameter, the instance ID is used as the instance name.
@@ -171,6 +176,7 @@ class CreateInstanceRequest extends Model
     protected $_name = [
         'autoRenew'       => 'autoRenew',
         'autoRenewPeriod' => 'autoRenewPeriod',
+        'commodityCode'   => 'commodityCode',
         'instanceName'    => 'instanceName',
         'networkInfo'     => 'networkInfo',
         'paymentType'     => 'paymentType',
@@ -197,6 +203,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->autoRenewPeriod) {
             $res['autoRenewPeriod'] = $this->autoRenewPeriod;
+        }
+        if (null !== $this->commodityCode) {
+            $res['commodityCode'] = $this->commodityCode;
         }
         if (null !== $this->instanceName) {
             $res['instanceName'] = $this->instanceName;
@@ -251,6 +260,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['autoRenewPeriod'])) {
             $model->autoRenewPeriod = $map['autoRenewPeriod'];
+        }
+        if (isset($map['commodityCode'])) {
+            $model->commodityCode = $map['commodityCode'];
         }
         if (isset($map['instanceName'])) {
             $model->instanceName = $map['instanceName'];

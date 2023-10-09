@@ -65,12 +65,18 @@ class productInfo extends Model
      * @var bool
      */
     public $supportAutoScaling;
+
+    /**
+     * @var bool
+     */
+    public $traceOn;
     protected $_name = [
         'autoScaling'          => 'autoScaling',
         'messageRetentionTime' => 'messageRetentionTime',
         'msgProcessSpec'       => 'msgProcessSpec',
         'sendReceiveRatio'     => 'sendReceiveRatio',
         'supportAutoScaling'   => 'supportAutoScaling',
+        'traceOn'              => 'traceOn',
     ];
 
     public function validate()
@@ -94,6 +100,9 @@ class productInfo extends Model
         }
         if (null !== $this->supportAutoScaling) {
             $res['supportAutoScaling'] = $this->supportAutoScaling;
+        }
+        if (null !== $this->traceOn) {
+            $res['traceOn'] = $this->traceOn;
         }
 
         return $res;
@@ -121,6 +130,9 @@ class productInfo extends Model
         }
         if (isset($map['supportAutoScaling'])) {
             $model->supportAutoScaling = $map['supportAutoScaling'];
+        }
+        if (isset($map['traceOn'])) {
+            $model->traceOn = $map['traceOn'];
         }
 
         return $model;

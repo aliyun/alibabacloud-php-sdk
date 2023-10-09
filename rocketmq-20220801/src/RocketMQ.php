@@ -213,6 +213,9 @@ class RocketMQ extends OpenApiClient
         if (!Utils::isUnset($request->autoRenewPeriod)) {
             $body['autoRenewPeriod'] = $request->autoRenewPeriod;
         }
+        if (!Utils::isUnset($request->commodityCode)) {
+            $body['commodityCode'] = $request->commodityCode;
+        }
         if (!Utils::isUnset($request->instanceName)) {
             $body['instanceName'] = $request->instanceName;
         }

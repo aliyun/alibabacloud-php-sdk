@@ -42,10 +42,16 @@ class productInfo extends Model
      * @var float
      */
     public $sendReceiveRatio;
+
+    /**
+     * @var bool
+     */
+    public $traceOn;
     protected $_name = [
         'autoScaling'          => 'autoScaling',
         'messageRetentionTime' => 'messageRetentionTime',
         'sendReceiveRatio'     => 'sendReceiveRatio',
+        'traceOn'              => 'traceOn',
     ];
 
     public function validate()
@@ -63,6 +69,9 @@ class productInfo extends Model
         }
         if (null !== $this->sendReceiveRatio) {
             $res['sendReceiveRatio'] = $this->sendReceiveRatio;
+        }
+        if (null !== $this->traceOn) {
+            $res['traceOn'] = $this->traceOn;
         }
 
         return $res;
@@ -84,6 +93,9 @@ class productInfo extends Model
         }
         if (isset($map['sendReceiveRatio'])) {
             $model->sendReceiveRatio = $map['sendReceiveRatio'];
+        }
+        if (isset($map['traceOn'])) {
+            $model->traceOn = $map['traceOn'];
         }
 
         return $model;

@@ -24,6 +24,16 @@ class productInfo extends Model
     public $autoScaling;
 
     /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
+    public $intranetSpec;
+
+    /**
      * @description The retention period of messages. Unit: hours.
      *
      * The storage of messages in ApsaraMQ for RocketMQ is serverless and scalable. You are charged for message storage based on your actual usage. You can change the retention period of messages to adjust storage capacity. For more information, see [Storage fee](~~427238~~).
@@ -53,6 +63,8 @@ class productInfo extends Model
     public $sendReceiveRatio;
     protected $_name = [
         'autoScaling'          => 'autoScaling',
+        'chargeType'           => 'chargeType',
+        'intranetSpec'         => 'intranetSpec',
         'messageRetentionTime' => 'messageRetentionTime',
         'msgProcessSpec'       => 'msgProcessSpec',
         'sendReceiveRatio'     => 'sendReceiveRatio',
@@ -67,6 +79,12 @@ class productInfo extends Model
         $res = [];
         if (null !== $this->autoScaling) {
             $res['autoScaling'] = $this->autoScaling;
+        }
+        if (null !== $this->chargeType) {
+            $res['chargeType'] = $this->chargeType;
+        }
+        if (null !== $this->intranetSpec) {
+            $res['intranetSpec'] = $this->intranetSpec;
         }
         if (null !== $this->messageRetentionTime) {
             $res['messageRetentionTime'] = $this->messageRetentionTime;
@@ -91,6 +109,12 @@ class productInfo extends Model
         $model = new self();
         if (isset($map['autoScaling'])) {
             $model->autoScaling = $map['autoScaling'];
+        }
+        if (isset($map['chargeType'])) {
+            $model->chargeType = $map['chargeType'];
+        }
+        if (isset($map['intranetSpec'])) {
+            $model->intranetSpec = $map['intranetSpec'];
         }
         if (isset($map['messageRetentionTime'])) {
             $model->messageRetentionTime = $map['messageRetentionTime'];

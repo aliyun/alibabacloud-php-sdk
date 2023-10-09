@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class vpcInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $securityGroupIds;
+
+    /**
      * @description The ID of the vSwitch with which the instance is associated.
      *
      * @example vsw-uf6gwtbn6etadpvz7****
@@ -26,8 +31,9 @@ class vpcInfo extends Model
      */
     public $vpcId;
     protected $_name = [
-        'vSwitchId' => 'vSwitchId',
-        'vpcId'     => 'vpcId',
+        'securityGroupIds' => 'securityGroupIds',
+        'vSwitchId'        => 'vSwitchId',
+        'vpcId'            => 'vpcId',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class vpcInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->securityGroupIds) {
+            $res['securityGroupIds'] = $this->securityGroupIds;
+        }
         if (null !== $this->vSwitchId) {
             $res['vSwitchId'] = $this->vSwitchId;
         }
@@ -55,6 +64,9 @@ class vpcInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['securityGroupIds'])) {
+            $model->securityGroupIds = $map['securityGroupIds'];
+        }
         if (isset($map['vSwitchId'])) {
             $model->vSwitchId = $map['vSwitchId'];
         }
