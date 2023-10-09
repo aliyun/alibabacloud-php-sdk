@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDIAlarmRuleResponseBody extends Model
 {
     /**
+     * @example 34988
+     *
      * @var int
      */
     public $DIAlarmRuleId;
 
     /**
+     * @example C636A747-7E4E-594D-94CD-2B4F8A9A9A63
+     *
      * @var string
      */
     public $requestId;

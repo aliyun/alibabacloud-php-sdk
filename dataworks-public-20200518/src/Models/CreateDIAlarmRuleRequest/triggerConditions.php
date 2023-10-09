@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class triggerConditions extends Model
 {
     /**
+     * @example 15
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example Warning
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $threshold;

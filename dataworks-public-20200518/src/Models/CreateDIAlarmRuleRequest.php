@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDIAlarmRuleRequest extends Model
 {
     /**
+     * @example 11265
+     *
      * @var int
      */
     public $DIJobId;
@@ -21,11 +23,15 @@ class CreateDIAlarmRuleRequest extends Model
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example Heartbeat
+     *
      * @var string
      */
     public $metricType;

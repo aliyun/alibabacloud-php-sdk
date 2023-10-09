@@ -14,6 +14,8 @@ class notificationChannels extends Model
     public $channels;
 
     /**
+     * @example Warning
+     *
      * @var string
      */
     public $severity;

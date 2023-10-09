@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class notificationSettings extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $inhibitionInterval;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class notificationReceivers extends Model
 {
     /**
+     * @example DingToken
+     *
      * @var string
      */
     public $receiverType;
