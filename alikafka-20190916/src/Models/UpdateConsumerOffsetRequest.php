@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class UpdateConsumerOffsetRequest extends Model
 {
     /**
+     * @description The name of the consumer group.
+     *
+     *   The name can contain letters, digits, hyphens (-), and underscores (\_).
+     *   The name must be **3 to 64** characters in length. If a name contains more than **64** characters, the name is automatically truncated.
+     *   The name of a consumer group cannot be changed after the consumer group is created.
+     *
      * @example kafka-test
      *
      * @var string
@@ -17,6 +23,8 @@ class UpdateConsumerOffsetRequest extends Model
     public $consumerId;
 
     /**
+     * @description The instance ID.
+     *
      * @example alikafka_post-cn-mp91inkw****
      *
      * @var string
@@ -24,11 +32,15 @@ class UpdateConsumerOffsetRequest extends Model
     public $instanceId;
 
     /**
+     * @description If you set resetType to offset, you can use this parameter to reset the consumer offset of each partition of a specific topic in the consumer group.
+     *
      * @var offsets[]
      */
     public $offsets;
 
     /**
+     * @description The region ID of the instance to which the consumer group belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +48,11 @@ class UpdateConsumerOffsetRequest extends Model
     public $regionId;
 
     /**
+     * @description The method that is used to reset the consumer offsets of the subscribed topics of a consumer group. Valid values:
+     *
+     *   **timestamp** (default)
+     *   **offset**
+     *
      * @example timestamp
      *
      * @var string
@@ -43,6 +60,10 @@ class UpdateConsumerOffsetRequest extends Model
     public $resetType;
 
     /**
+     * @description The point in time when message consumption starts. The value of this parameter is a UNIX timestamp. Unit: milliseconds. The value of this parameter must be **less than 0** or **within the retention period of the consumer offset**. This parameter takes effect only if you set resetType to timestamp.
+     *
+     **If you want to reset the consumer offset to the latest offset, specify a value that is less than 0. Recommended value: -1.
+     *
      * @example -1
      *
      * @var string
@@ -50,6 +71,14 @@ class UpdateConsumerOffsetRequest extends Model
     public $time;
 
     /**
+     * @description The topic name.
+     *
+     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The name must be **3 to 64** characters in length. If a name contains more than **64** characters, the name is automatically truncated.
+     *   The name of a topic cannot be changed after the topic is created.
+     *
+     **If you want to reset the consumer offsets of all topics to which the consumer subscribes, specify an empty string.
+     *
      * @example topic_name
      *
      * @var string

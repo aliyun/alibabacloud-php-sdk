@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ConvertPostPayOrderRequest extends Model
 {
     /**
+     * @description The subscription duration. Unit: months. Valid values:
+     *
+     *   **1~12**
+     *   **24**
+     *   **36**
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +22,8 @@ class ConvertPostPayOrderRequest extends Model
     public $duration;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string
@@ -23,6 +31,8 @@ class ConvertPostPayOrderRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string

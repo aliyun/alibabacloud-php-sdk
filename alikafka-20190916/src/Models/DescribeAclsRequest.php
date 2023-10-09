@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAclsRequest extends Model
 {
     /**
+     * @description The name or ID of the resource.
+     *
+     *   The value can be the name of a topic or a consumer group.
+     *   You can use an asterisk (\*) to represent the names of all topics or consumer groups.
+     *
      * @example demo
      *
      * @var string
@@ -16,6 +21,11 @@ class DescribeAclsRequest extends Model
     public $aclResourceName;
 
     /**
+     * @description The match mode. Valid values:
+     *
+     *   LITERAL: full-name match
+     *   PREFIXED: prefix match
+     *
      * @example LITERAL
      *
      * @var string
@@ -23,6 +33,11 @@ class DescribeAclsRequest extends Model
     public $aclResourcePatternType;
 
     /**
+     * @description The resource type. Valid values:
+     *
+     *   **Topic**
+     *   **Group**
+     *
      * @example Topic
      *
      * @var string
@@ -30,6 +45,8 @@ class DescribeAclsRequest extends Model
     public $aclResourceType;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example alikafka_pre-cn-v0h1cng****
      *
      * @var string
@@ -37,6 +54,8 @@ class DescribeAclsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +63,8 @@ class DescribeAclsRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the user.
+     *
      * @example test12****
      *
      * @var string

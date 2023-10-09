@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UpdateAllowedIpRequest extends Model
 {
     /**
+     * @description The IP addresses that you want to manage. You can specify a CIDR block. Example: **192.168.0.0/16**.
+     *
+     *   If the **UpdateType** parameter is set to **add**, specify one or more IP addresses for this parameter. Separate multiple IP addresses with commas (,).
+     *   If the **UpdateType** parameter is set to **delete**, specify only one IP address.
+     *   Exercise caution when you delete IP addresses.
+     *
      * @example 0.0.0.0/0
      *
      * @var string
@@ -16,6 +22,11 @@ class UpdateAllowedIpRequest extends Model
     public $allowedListIp;
 
     /**
+     * @description The type of the whitelist. Valid values:
+     *
+     *   **vpc**: a whitelist for access from a VPC.
+     *   **internet**: a whitelist for access from the Internet.
+     *
      * @example vpc
      *
      * @var string
@@ -23,6 +34,8 @@ class UpdateAllowedIpRequest extends Model
     public $allowedListType;
 
     /**
+     * @description The description of the whitelist.
+     *
      * @example tf-testAccEcsImageConfigBasic3549descriptionChange
      *
      * @var string
@@ -30,6 +43,8 @@ class UpdateAllowedIpRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example alikafka_pre-cn-0pp1cng20***
      *
      * @var string
@@ -37,6 +52,12 @@ class UpdateAllowedIpRequest extends Model
     public $instanceId;
 
     /**
+     * @description The port range. Valid values:
+     *
+     *   **9092/9092**: the port range for access from a virtual private cloud (VPC).
+     *   **9093/9093**: the port range for access from the Internet.
+     *
+     * The value of this parameter must match the value of the **AllowdedListType** parameter.
      * @example 9092/9092
      *
      * @var string
@@ -44,6 +65,8 @@ class UpdateAllowedIpRequest extends Model
     public $portRange;
 
     /**
+     * @description The ID of the region where the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +74,11 @@ class UpdateAllowedIpRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of configuration change. Valid values:
+     *
+     *   **add**
+     *   **delete**
+     *
      * @example add
      *
      * @var string

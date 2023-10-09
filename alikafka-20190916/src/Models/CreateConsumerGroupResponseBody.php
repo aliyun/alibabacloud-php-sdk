@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateConsumerGroupResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateConsumerGroupResponseBody extends Model
     public $code;
 
     /**
+     * @description The message returned.
+     *
      * @example operation success
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateConsumerGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E57A8862-DF68-4055-8E55-B80CB4****
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateConsumerGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetTopicListResponseBody extends Model
 {
     /**
-     * @description The number of topics.
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class GetTopicListResponseBody extends Model
     public $code;
 
     /**
-     * @description The HTTP status code returned. The HTTP status code 200 indicates that the call is successful.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class GetTopicListResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description The information about the topic.
+     * @description The message returned.
      *
      * @example operation success.
      *
@@ -37,11 +37,8 @@ class GetTopicListResponseBody extends Model
     public $message;
 
     /**
-     * @description The status of the topic. Valid values:
+     * @description The number of entries returned on each page.
      *
-     **0:** indicates that the topic is running.
-     *
-     * If the topic is deleted, this parameter is not returned.
      * @example 10
      *
      * @var int
@@ -49,7 +46,7 @@ class GetTopicListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The message returned.
+     * @description The ID of the request.
      *
      * @example C0D3DC5B-5C37-47AD-9F22-1F559880****
      *
@@ -58,7 +55,7 @@ class GetTopicListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *
@@ -67,17 +64,14 @@ class GetTopicListResponseBody extends Model
     public $success;
 
     /**
-     * @description The description. Valid values:
-     *
-     *   The description contains only letters, digits, hyphens (-), and underscores (\_).
-     *   The description is 3 to 64 characters in length.
+     * @description The information about the topic.
      *
      * @var topicList
      */
     public $topicList;
 
     /**
-     * @description The number of partitions in the topic.
+     * @description The number of topics.
      *
      * @example 1
      *

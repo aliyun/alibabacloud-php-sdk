@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class saslUserVO extends Model
 {
     /**
+     * @description The password that is used to access the Elasticsearch cluster.
+     *
      * @example ******
      *
      * @var string
@@ -16,6 +18,12 @@ class saslUserVO extends Model
     public $password;
 
     /**
+     * @description The request type. Valid values:
+     *
+     *   **plain**: a simple mechanism that uses usernames and passwords to verify user identities. Message Queue for Apache Kafka provides an optimized PLAIN mechanism that allows you to dynamically create SASL users for an instance without the need to restart the instance.
+     *   **scram**: a mechanism that uses usernames and passwords to verify user identities. This mechanism provides better security protection than the PLAIN mechanism. Message Queue for Apache Kafka uses SCRAM-SHA-256.
+     *
+     * Default value: **plain**.
      * @example scram
      *
      * @var string
@@ -23,6 +31,8 @@ class saslUserVO extends Model
     public $type;
 
     /**
+     * @description The name of the user.
+     *
      * @example test12***
      *
      * @var string

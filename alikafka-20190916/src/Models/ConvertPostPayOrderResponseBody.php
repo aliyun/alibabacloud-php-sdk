@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConvertPostPayOrderResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class ConvertPostPayOrderResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned.
+     *
      * @example operation success.
      *
      * @var string
@@ -23,6 +27,8 @@ class ConvertPostPayOrderResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 20497346575****
      *
      * @var string
@@ -30,6 +36,8 @@ class ConvertPostPayOrderResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 06084011-E093-46F3-A51F-4B19A8AD****
      *
      * @var string
@@ -37,6 +45,8 @@ class ConvertPostPayOrderResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

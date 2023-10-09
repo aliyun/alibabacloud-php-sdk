@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteTopicRequest extends Model
 {
     /**
-     * @description The name of the topic.
+     * @description The ID of the instance.
      *
      * @example alikafka_post-cn-v0h1fgs2****
      *
@@ -18,7 +18,7 @@ class DeleteTopicRequest extends Model
     public $instanceId;
 
     /**
-     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     * @description The region ID of the instance.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class DeleteTopicRequest extends Model
     public $regionId;
 
     /**
-     * @description The region ID of the instance.
+     * @description The name of the topic.
      *
      * @example test
      *

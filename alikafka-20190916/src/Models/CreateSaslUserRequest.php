@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSaslUserRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example alikafka_pre-cn-v0h1cng0****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSaslUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description The password of the SASL user.
+     *
      * @example 12***
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateSaslUserRequest extends Model
     public $password;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +36,12 @@ class CreateSaslUserRequest extends Model
     public $regionId;
 
     /**
+     * @description The SASL mechanism. Valid values:
+     *
+     *   **plain**: a simple mechanism that uses usernames and passwords to verify user identities. Message Queue for Apache Kafka provides an optimized PLAIN mechanism that allows you to dynamically create SASL users for an instance without the need to restart the instance.
+     *   **scram**: a mechanism that uses usernames and passwords to verify user identities. This mechanism provides better security protection than the PLAIN mechanism. Message Queue for Apache Kafka uses SCRAM-SHA-256.
+     *
+     * Default value: **plain**.
      * @example plain
      *
      * @var string
@@ -37,6 +49,8 @@ class CreateSaslUserRequest extends Model
     public $type;
 
     /**
+     * @description The name of the SASL user.
+     *
      * @example test***
      *
      * @var string

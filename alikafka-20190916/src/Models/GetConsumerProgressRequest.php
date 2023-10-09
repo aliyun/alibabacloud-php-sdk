@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetConsumerProgressRequest extends Model
 {
     /**
-     * @description The region ID of the instance.
+     * @description The name of the consumer group.
      *
      * @example kafka-test
      *
@@ -18,7 +18,7 @@ class GetConsumerProgressRequest extends Model
     public $consumerId;
 
     /**
-     * @description The name of the consumer group.
+     * @description The ID of the instance.
      *
      * @example alikafka_pre-cn-mp919o4v****
      *
@@ -27,7 +27,7 @@ class GetConsumerProgressRequest extends Model
     public $instanceId;
 
     /**
-     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     * @description The region ID of the instance.
      *
      * @example cn-hangzhou
      *

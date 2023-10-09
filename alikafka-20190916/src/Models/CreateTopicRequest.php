@@ -10,12 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateTopicRequest extends Model
 {
     /**
-     * @description The number of replicas for the topic.
+     * @description The log cleanup policy that is used for the topic. This parameter is available only when LocalTopic is set to true. Valid values:
      *
-     *   This parameter is available only when the **LocalTopic** parameter is set to **true**\<props="local_disk">, or the **edition of the instance** is **Open Source Edition (Local Disk)**.
-     *   Valid values: 1 to 3.
+     *   false: The topic uses the default log cleanup policy.
+     *   true: The topic uses the log compaction policy.
      *
-     * > If you set this parameter to **1**, the risk of data loss increases. Exercise caution when you configure this parameter.
      * @example false
      *
      * @var bool
@@ -23,8 +22,13 @@ class CreateTopicRequest extends Model
     public $compactTopic;
 
     /**
-     * @description The status code returned. The status code 200 indicates that the request is successful.
+     * @description The additional configurations.
      *
+     *   The value of this parameter must be in JSON format.
+     *   The key must be **replications**. The value indicates the number of replicas for the topic. The value must be an integer that ranges from 1 to 3.
+     *   This parameter is available only when **LocalTopic** is set to **true**, or the instance is of the **Open Source Edition (Local Disk)**.****
+     *
+     * > If you specify this parameter, **ReplicationFactor** does not take effect.
      * @example {"replications": 3}
      *
      * @var string
@@ -32,7 +36,7 @@ class CreateTopicRequest extends Model
     public $config;
 
     /**
-     * @description The region ID of the instance in which you want to create a topic.
+     * @description The instance ID.
      *
      * @example alikafka_pre-cn-mp919o4v****
      *
@@ -41,13 +45,11 @@ class CreateTopicRequest extends Model
     public $instanceId;
 
     /**
-     * @description Additional configurations.
+     * @description The type of storage that the topic uses. Valid values:
      *
-     *   The value of this parameter must be in JSON format.
-     *   The key must be **replications**. The value specifies the number of replicas for the topic. The value must be an integer that ranges from 1 to 3.
-     *   This parameter is available only when the **LocalTopic** parameter is set to **true**\<props="local_disk">, or the **edition of the instance** is **Open Source Edition (Local Disk)**.
+     *   false: The topic uses cloud storage.
+     *   true: The topic uses local storage.
      *
-     * > If you configure this parameter, the **ReplicationFactor** parameter does not take effect.
      * @example false
      *
      * @var bool
@@ -55,11 +57,11 @@ class CreateTopicRequest extends Model
     public $localTopic;
 
     /**
-     * @description The value of tag N to add to the resource.
+     * @description The minimum number of in-sync replicas (ISRs).
      *
-     *   Valid values of N: 1 to 20.
-     *   This parameter can be left empty.
-     *   A tag value can be 1 to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     *   This parameter is available only when **LocalTopic** is set to **true**, or the instance is of the **Open Source Edition (Local Disk)**.****
+     *   The value of this parameter must be smaller than the value of ReplicationFactor.
+     *   Valid values: 1 to 3.
      *
      * @example 1
      *
@@ -68,11 +70,10 @@ class CreateTopicRequest extends Model
     public $minInsyncReplicas;
 
     /**
-     * @description The minimum number of in-sync replicas (ISRs).
+     * @description The number of partitions in the topic.
      *
-     *   This parameter is available only when the **LocalTopic** parameter is set to **true**\<props="local_disk">, or the **edition of the instance** is **Open Source Edition (Local Disk)**.
-     *   The value of this parameter must be smaller than the value of the ReplicationFactor parameter.
-     *   Valid values: 1 to 3.
+     *   Valid values: 1 to 360.
+     *   The system recommends the number of partitions based on the specification of the instance. You can view the recommended number in the Message Queue for Apache Kafka console. We recommend that you specify the number that is recommended by the system as the value of this parameter to reduce the risk of data skew.
      *
      * @example 12
      *
@@ -81,10 +82,7 @@ class CreateTopicRequest extends Model
     public $partitionNum;
 
     /**
-     * @description Specifies whether the topic uses local storage. Valid values:
-     *
-     *   false: The topic uses cloud storage.
-     *   true: The topic uses local storage.
+     * @description The region ID of the instance in which you want to create a topic.
      *
      * @example cn-hangzhou
      *
@@ -93,10 +91,10 @@ class CreateTopicRequest extends Model
     public $regionId;
 
     /**
-     * @description The number of partitions in the topic.
+     * @description The description of the topic.
      *
-     *   Valid values: 1 to 360.
-     *   In the Message Queue for Apache Kafka console, you can view the number of partitions that the system recommends based on the specification of the instance. We recommend that you specify the number that is recommended by the system as the value of this parameter to reduce the risk of data skew.
+     *   The description can contain only letters, digits, hyphens (-), and underscores (\_).
+     *   The description must be 3 to 64 characters in length.
      *
      * @example alikafka_topic_test
      *
@@ -105,12 +103,12 @@ class CreateTopicRequest extends Model
     public $remark;
 
     /**
-     * @description The key of tag N to add to the resource.
+     * @description The number of replicas for the topic.
      *
-     *   Valid values of N: 1 to 20.
-     *   If this parameter is left empty, the keys of all tags are matched.
-     *   A tag key can be up to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     *   This parameter is available only when **LocalTopic** is set to **true**, or the instance is of the **Open Source Edition (Local Disk)**.****
+     *   Valid values: 1 to 3.
      *
+     * > If you set this parameter to **1**, data loss may occur. Exercise caution when you configure this parameter.
      * @example 3
      *
      * @var int
@@ -118,15 +116,18 @@ class CreateTopicRequest extends Model
     public $replicationFactor;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The log cleanup policy that is used for the topic. This parameter is available only when the LocalTopic parameter is set to true. Valid values:
+     * @description The topic name.
      *
-     *   false: The topic uses the delete policy.
-     *   true: The topic uses the compact policy.
+     *   The name can contain only letters, digits, hyphens (-), and underscores (\_).
+     *   The name must be 3 to 64 characters in length. If the name that you specify contains more than 64 characters, the system automatically truncates the name.
+     *   After a topic is created, you cannot change the name of the topic.
      *
      * @example alikafka_topic_test
      *

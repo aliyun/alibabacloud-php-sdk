@@ -31,7 +31,7 @@ class allowedList extends Model
     public $internetList;
 
     /**
-     * @description The whitelist for access from a VPC.
+     * @description The whitelist for access from a virtual private cloud (VPC).
      *
      * @var vpcList[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetConsumerListRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The name of the consumer group. If you do not configure this parameter, all consumer groups are queried.
      *
      * @example kafka-test
      *
@@ -18,7 +18,7 @@ class GetConsumerListRequest extends Model
     public $consumerId;
 
     /**
-     * @description The tags of the topic.
+     * @description The ID of the instance to which the consumer group belongs.
      *
      * @example alikafka_post-cn-v0h18sav****
      *
@@ -27,7 +27,7 @@ class GetConsumerListRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the consumer group. If you do not configure this parameter, all consumer groups are queried.
+     * @description The region ID of the instance to which the consumer group belongs.
      *
      * @example cn-hangzhou
      *

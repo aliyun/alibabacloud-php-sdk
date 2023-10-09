@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyPartitionNumRequest extends Model
 {
     /**
+     * @description The number of partitions that you want to add to the topic.
+     *
+     *   The value must be an integer that is greater than 0.
+     *   To reduce the risk of data skew, we recommend that you set the value to a multiple of 6.
+     *   The number of total partitions ranges from 1 to 360.
+     *
      * @example 6
      *
      * @var int
@@ -16,6 +22,8 @@ class ModifyPartitionNumRequest extends Model
     public $addPartitionNum;
 
     /**
+     * @description The instance ID.
+     *
      * @example alikafka_post-cn-0pp1l9z****
      *
      * @var string
@@ -23,6 +31,8 @@ class ModifyPartitionNumRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +40,8 @@ class ModifyPartitionNumRequest extends Model
     public $regionId;
 
     /**
+     * @description The topic name.
+     *
      * @example TopicPartitionNum
      *
      * @var string

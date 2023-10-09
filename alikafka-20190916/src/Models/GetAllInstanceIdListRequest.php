@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAllInstanceIdListRequest extends Model
 {
     /**
+     * @description The region ID of the instance. This parameter is reserved.
+     *
      * @example cn-hangzhou
      *
      * @var string

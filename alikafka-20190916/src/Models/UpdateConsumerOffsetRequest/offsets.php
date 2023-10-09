@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class offsets extends Model
 {
     /**
+     * @description The consumer offset of the partition.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class offsets extends Model
     public $offset;
 
     /**
+     * @description The partition ID.
+     *
      * @example 0
      *
      * @var int

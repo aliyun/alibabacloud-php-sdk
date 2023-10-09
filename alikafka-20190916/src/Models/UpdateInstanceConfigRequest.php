@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceConfigRequest extends Model
 {
     /**
-     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     * @description The configuration of the instance that you want to update. The value must be a valid JSON string.
      *
      * @example {"kafka.log.retention.hours":"33"}
      *
@@ -18,7 +18,7 @@ class UpdateInstanceConfigRequest extends Model
     public $config;
 
     /**
-     * @description The ID of the request.
+     * @description The instance ID.
      *
      * @example alikafka_post-cn-v0h1fgs2****
      *
@@ -27,7 +27,7 @@ class UpdateInstanceConfigRequest extends Model
     public $instanceId;
 
     /**
-     * @description The message returned.
+     * @description The region ID of the instance.
      *
      * @example cn-hangzhou
      *

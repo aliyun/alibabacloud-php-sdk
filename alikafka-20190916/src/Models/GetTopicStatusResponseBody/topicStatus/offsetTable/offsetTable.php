@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class offsetTable extends Model
 {
     /**
+     * @description The last time when the partition was modified.
+     *
      * @example 1566470063547
      *
      * @var int
@@ -16,6 +18,8 @@ class offsetTable extends Model
     public $lastUpdateTimestamp;
 
     /**
+     * @description The latest offset in the partition of the topic.
+     *
      * @example 76
      *
      * @var int
@@ -23,6 +27,8 @@ class offsetTable extends Model
     public $maxOffset;
 
     /**
+     * @description The earliest offset in the partition of the topic.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class offsetTable extends Model
     public $minOffset;
 
     /**
+     * @description The ID of the partition.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class offsetTable extends Model
     public $partition;
 
     /**
+     * @description The name of the topic.
+     *
      * @example testkafka
      *
      * @var string

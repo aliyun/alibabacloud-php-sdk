@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSaslUserResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class DeleteSaslUserResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example operation success
      *
@@ -27,7 +27,7 @@ class DeleteSaslUserResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The ID of the request.
      *
      * @example 3CB89F5C-CD97-4C1D-BC7C-FEDEC2F4****
      *
@@ -36,7 +36,7 @@ class DeleteSaslUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Deletes a Simple Authentication and Security Layer (SASL) user.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *

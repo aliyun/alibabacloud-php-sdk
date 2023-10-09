@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetConsumerListResponseBody extends Model
 {
     /**
-     * @description The name of the consumer group.
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
      *
      * @example 200
      *
@@ -19,14 +19,14 @@ class GetConsumerListResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned message.
+     * @description The consumer groups.
      *
      * @var consumerList
      */
     public $consumerList;
 
     /**
-     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     * @description The returned message.
      *
      * @example operation success.
      *
@@ -35,7 +35,7 @@ class GetConsumerListResponseBody extends Model
     public $message;
 
     /**
-     * @description The key of the tag.
+     * @description The ID of the request.
      *
      * @example 808F042B-CB9A-4FBC-9009-00E7DDB6****
      *
@@ -44,7 +44,7 @@ class GetConsumerListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the consumer groups.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *

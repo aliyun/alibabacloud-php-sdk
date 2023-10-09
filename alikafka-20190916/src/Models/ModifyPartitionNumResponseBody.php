@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyPartitionNumResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class ModifyPartitionNumResponseBody extends Model
     public $code;
 
     /**
+     * @description The message returned.
+     *
      * @example operation success
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyPartitionNumResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B7A39AE5-0B36-4442-A304-E088526****
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyPartitionNumResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

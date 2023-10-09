@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class consumerProgress extends Model
 {
     /**
-     * @description The number of messages that were not consumed in all topics. This is also known as the number of accumulated messages in all topics.
+     * @description The time when the last message consumed by the consumer group was generated.
      *
      * @example 1566874931671
      *
@@ -19,14 +19,14 @@ class consumerProgress extends Model
     public $lastTimestamp;
 
     /**
-     * @description The number of messages that were not consumed in the topic. This is also known as the number of accumulated messages in the topic.
+     * @description The consumption progress of each topic to which the consumer group is subscribed.
      *
      * @var topicList
      */
     public $topicList;
 
     /**
-     * @description The consumption progress of each topic to which the consumer group is subscribed.
+     * @description The number of messages that were not consumed in all topics. This is also known as the number of accumulated messages in all topics.
      *
      * @example 0
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTopicListRequest extends Model
 {
     /**
-     * @description The name of the topic that you want to query.
+     * @description The page number of the page to return. Default value: 1.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class GetTopicListRequest extends Model
     public $currentPage;
 
     /**
-     * @description The region ID of the instance whose topics you want to query.
+     * @description The ID of the instance.
      *
      * @example alikafka_pre-cn-0pp1954n****
      *
@@ -27,7 +27,7 @@ class GetTopicListRequest extends Model
     public $instanceId;
 
     /**
-     * @description The number of the returned page.
+     * @description The number of entries to return on each page. Default value: 10
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class GetTopicListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The region ID of the instance to which the topics that you want to query belong.
      *
      * @example cn-hangzhou
      *
@@ -45,7 +45,7 @@ class GetTopicListRequest extends Model
     public $regionId;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description The name of the topic that you want to query.
      *
      * @example topic_name
      *

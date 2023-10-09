@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class ReleaseInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The returned message.
      *
      * @example operation success.
      *
@@ -27,7 +27,7 @@ class ReleaseInstanceResponseBody extends Model
     public $message;
 
     /**
-     * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+     * @description The ID of the request.
      *
      * @example ABA4A7FD-E10F-45C7-9774-A5236015A***
      *
@@ -36,7 +36,7 @@ class ReleaseInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Releases a pay-as-you-go Message Queue for Apache Kafka instance.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *

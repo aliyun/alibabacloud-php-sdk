@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class topicStatus extends Model
 {
     /**
+     * @description The time when the last consumed message was generated.
+     *
      * @example 1566470063575
      *
      * @var int
@@ -17,11 +19,15 @@ class topicStatus extends Model
     public $lastTimeStamp;
 
     /**
+     * @description The information about offsets in the topic.
+     *
      * @var offsetTable
      */
     public $offsetTable;
 
     /**
+     * @description The number of messages in the topic.
+     *
      * @example 423
      *
      * @var int

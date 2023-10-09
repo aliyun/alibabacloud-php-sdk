@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class vpcList extends Model
 {
     /**
+     * @description The group to which the IP address whitelist belongs.
+     *
      * @var string[]
      */
     public $allowedIpGroup;
 
     /**
+     * @description The information about the IP address whitelist.
+     *
      * @var string[]
      */
     public $allowedIpList;
 
     /**
-     * @description The port range. Valid values:
+     * @description The port range. Valid value:
      *
      **9092/9092**.
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class topicList extends Model
 {
     /**
-     * @description The name of the topic.
+     * @description The time when the last consumed message in the topic was generated.
      *
      * @example 1566874931649
      *
@@ -19,14 +19,14 @@ class topicList extends Model
     public $lastTimestamp;
 
     /**
-     * @description The ID of the partition.
+     * @description The information about offsets in the topic.
      *
      * @var offsetList
      */
     public $offsetList;
 
     /**
-     * @description The information about offsets in the topic.
+     * @description The name of the topic.
      *
      * @example kafka-test
      *
@@ -35,7 +35,7 @@ class topicList extends Model
     public $topic;
 
     /**
-     * @description The time when the last consumed message in the topic was generated.
+     * @description The number of messages that were not consumed in the topic. This is also known as the number of accumulated messages in the topic.
      *
      * @example 0
      *

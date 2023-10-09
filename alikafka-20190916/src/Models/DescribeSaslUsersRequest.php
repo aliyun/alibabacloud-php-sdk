@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSaslUsersRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example alikafka_pre-cn-v0h1cng0****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeSaslUsersRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

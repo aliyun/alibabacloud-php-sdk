@@ -13,8 +13,8 @@ class CreateAclRequest extends Model
      *
      *   **Write**: data writes.
      *   **Read**: data reads.
-     *   **Describe**: reads of transaction IDs.****
-     *   **IdempotentWrite**: idempotent data writes to clusters.
+     *   **Describe**: reads of **transaction IDs**.
+     *   **IdempotentWrite**: idempotent data writes to **clusters**.
      *
      * @example Read
      *
@@ -35,7 +35,7 @@ class CreateAclRequest extends Model
     public $aclResourceName;
 
     /**
-     * @description The mode that is used to match resources. Valid values:
+     * @description The matching mode. Valid values:
      *
      *   **LITERAL**: exact match
      *   **PREFIXED**: prefix match
@@ -49,10 +49,10 @@ class CreateAclRequest extends Model
     /**
      * @description The resource type. Valid values:
      *
-     *   **Topic**: specifies topics.
-     *   **Group**: specifies consumer groups.
-     *   **Cluster**: specifies instances.
-     *   **TransactionalId**: specifies transactions.
+     *   **Topic**: topic
+     *   **Group**: consumer group
+     *   **Cluster**: cluster
+     *   **TransactionalId**: transaction
      *
      * @example Group
      *

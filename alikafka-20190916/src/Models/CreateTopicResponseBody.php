@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTopicResponseBody extends Model
 {
     /**
-     * @description The message returned.
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the call is successful.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class CreateTopicResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The message returned.
      *
      * @example operation success
      *
@@ -27,7 +27,7 @@ class CreateTopicResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The request ID.
      *
      * @example 9C0F207C-77A6-43E5-991C-9D98510A****
      *
@@ -36,8 +36,7 @@ class CreateTopicResponseBody extends Model
     public $requestId;
 
     /**
-     * @description *   Each Alibaba Cloud account can call this operation up to once per second.
-     *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+     * @description Indicates whether the call was successful.
      *
      * @example true
      *

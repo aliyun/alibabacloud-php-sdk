@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceConfigResponseBody extends Model
 {
     /**
-     * @description Indicates whether the request is successful.
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
      *
      * @example 200
      *
@@ -18,12 +18,8 @@ class UpdateInstanceConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description ## **Permissions**
+     * @description The message returned.
      *
-     * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](~~185815~~).
-     *
-     * |---|---|---|
-     * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
      * @example operation success.
      *
      * @var string
@@ -31,9 +27,8 @@ class UpdateInstanceConfigResponseBody extends Model
     public $message;
 
     /**
-     * @description ### Config parameters
+     * @description The ID of the request.
      *
-     * |kafka.message.max.bytes|Integer|1048576~10485760|1048576|The maximum size of a message. Unit: bytes.|
      * @example 4B6D821D-7F67-4CAA-9E13-A5A997C35***
      *
      * @var string
@@ -41,7 +36,7 @@ class UpdateInstanceConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Modifies the configuration of a Message Queue for Apache Kafka instance.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *

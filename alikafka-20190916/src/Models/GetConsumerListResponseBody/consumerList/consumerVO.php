@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class consumerVO extends Model
 {
     /**
-     * @description 自动创建的Group
+     * @description The consumer group that is automatically created by the system.
      *
      * @var bool
      */
     public $automaticallyCreatedGroup;
 
     /**
-     * @description The ID of the instance to which the consumer group belongs.
+     * @description The ID of the consumer group.
      *
      * @example kafka-test
      *
@@ -26,7 +26,7 @@ class consumerVO extends Model
     public $consumerId;
 
     /**
-     * @description The value of the tag.
+     * @description The instance ID.
      *
      * @example alikafka_post-cn-v0h18sav****
      *
@@ -35,7 +35,7 @@ class consumerVO extends Model
     public $instanceId;
 
     /**
-     * @description The description of the consumer group.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -44,7 +44,7 @@ class consumerVO extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The description of the consumer group.
      *
      * @example test
      *
@@ -53,7 +53,7 @@ class consumerVO extends Model
     public $remark;
 
     /**
-     * @description Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
+     * @description The tags.
      *
      * @var tags
      */

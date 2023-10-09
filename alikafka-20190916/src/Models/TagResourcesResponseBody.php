@@ -9,11 +9,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
-     * @description The key of the tag that is attached to the resource.
-     *
-     *   If you want to configure this parameter, specify at least one tag key and at most 20 tag keys.
-     *   This parameter is required.
-     *   The tag key can be up to 128 characters in length. The tag key cannot start with acs: or aliyun or contain [http:// or https://.](http://或者https://。)
+     * @description The ID of the request.
      *
      * @example C46FF5A8-C5F0-4024-8262-B16B6392****
      *

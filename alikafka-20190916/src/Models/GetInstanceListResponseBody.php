@@ -19,7 +19,7 @@ class GetInstanceListResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the instances.
+     * @description The information about the instance.
      *
      * @var instanceList
      */

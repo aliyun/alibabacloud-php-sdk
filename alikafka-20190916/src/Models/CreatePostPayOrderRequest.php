@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreatePostPayOrderRequest extends Model
 {
     /**
+     * @description The deployment mode of the instance. Valid values:
+     *
+     *   **4**: deploys the instance that allows access from the Internet and a VPC.
+     *   **5**: deploys the instance that allows access only from a VPC.
+     *
      * @example 5
      *
      * @var int
@@ -17,6 +22,9 @@ class CreatePostPayOrderRequest extends Model
     public $deployType;
 
     /**
+     * @description The disk size.
+     *
+     * For more information about the valid values, see [Billing](~~84737~~).
      * @example 500
      *
      * @var int
@@ -24,6 +32,11 @@ class CreatePostPayOrderRequest extends Model
     public $diskSize;
 
     /**
+     * @description The disk type. Valid values:
+     *
+     *   **0**: ultra disk
+     *   **1**: standard SSD
+     *
      * @example 0
      *
      * @var string
@@ -31,6 +44,11 @@ class CreatePostPayOrderRequest extends Model
     public $diskType;
 
     /**
+     * @description The Internet traffic for the instance.
+     *
+     *   This parameter is required if the **DeployType** parameter is set to **4**.
+     *   For more information about the valid values, see [Billing](~~84737~~).
+     *
      * @example 0
      *
      * @var int
@@ -38,6 +56,11 @@ class CreatePostPayOrderRequest extends Model
     public $eipMax;
 
     /**
+     * @description The maximum traffic for the instance. We recommend that you do not configure this parameter.
+     *
+     *   You must specify at least one of the IoMax and IoMaxSpec parameters. If you configure both parameters, the value of the IoMaxSpec parameter takes effect. We recommend that you specify only the IoMaxSpec parameter.
+     *   For more information about the valid values, see [Billing](~~84737~~).
+     *
      * @example 20
      *
      * @var int
@@ -45,6 +68,11 @@ class CreatePostPayOrderRequest extends Model
     public $ioMax;
 
     /**
+     * @description The traffic specification of the instance. We recommend that you configure this parameter.
+     *
+     *   You must specify at least one of the IoMax and IoMaxSpec parameters. If you configure both parameters, the value of the IoMaxSpec parameter takes effect. We recommend that you specify only the IoMaxSpec parameter.
+     *   For more information about the valid values, see [Billing](~~84737~~).
+     *
      * @example alikafka.hw.2xlarge
      *
      * @var string
@@ -52,6 +80,12 @@ class CreatePostPayOrderRequest extends Model
     public $ioMaxSpec;
 
     /**
+     * @description The number of partitions. We recommend that you configure this parameter.
+     *
+     *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
+     *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
+     *   For more information about the valid values, see [Billing](~~84737~~).
+     *
      * @example 50
      *
      * @var int
@@ -59,6 +93,8 @@ class CreatePostPayOrderRequest extends Model
     public $partitionNum;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -66,6 +102,9 @@ class CreatePostPayOrderRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * If this parameter is left empty, the default resource group is used. You can view the resource group ID on the Resource Group page in the Resource Management console.
      * @example rg-ac***********7q
      *
      * @var string
@@ -73,6 +112,13 @@ class CreatePostPayOrderRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The edition of the instance. Valid values:
+     *
+     *   **normal**: Standard Edition (High Write)
+     *   **professional**: Professional Edition (High Write)
+     *   **professionalForHighRead**: Professional Edition (High Read)
+     *
+     * For more information about these instance editions, see [Billing](~~84737~~).
      * @example normal
      *
      * @var string
@@ -80,11 +126,20 @@ class CreatePostPayOrderRequest extends Model
     public $specType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The number of topics. We recommend that you do not configure this parameter.
+     *
+     *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
+     *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
+     *   The default value of the TopicQuota parameter varies based on the value of the IoMaxSpec parameter. If the number of topics that you consume exceeds the default value, you are charged additional fees.
+     *   For more information about the valid values, see [Billing](~~84737~~).
+     *
      * @example 50
      *
      * @var int

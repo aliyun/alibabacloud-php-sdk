@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTopicStatusResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,6 +19,8 @@ class GetTopicStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -24,6 +28,8 @@ class GetTopicStatusResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E475C7E2-8C35-46EF-BE7D-5D2A9F5D****
      *
      * @var string
@@ -31,6 +37,8 @@ class GetTopicStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -38,6 +46,8 @@ class GetTopicStatusResponseBody extends Model
     public $success;
 
     /**
+     * @description The status information about messages in the topic.
+     *
      * @var topicStatus
      */
     public $topicStatus;

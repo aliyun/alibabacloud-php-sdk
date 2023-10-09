@@ -17,7 +17,10 @@ class topicVO extends Model
     public $autoCreate;
 
     /**
-     * @description The region ID of the instance whose topics were queried.
+     * @description The log cleanup policy that is used for the topic. This parameter is returned when the **LocalTopic** parameter is set to **true**. Valid values:
+     *
+     *   false: The topic uses the default log cleanup policy.
+     *   true: The topic uses the log compaction policy.
      *
      * @example false
      *
@@ -26,7 +29,7 @@ class topicVO extends Model
     public $compactTopic;
 
     /**
-     * @description Running
+     * @description The timestamp that indicates when the topic was created. Unit: milliseconds.
      *
      * @example 1576563109000
      *
@@ -35,7 +38,7 @@ class topicVO extends Model
     public $createTime;
 
     /**
-     * @description The tags.
+     * @description The ID of the instance
      *
      * @example alikafka_pre-cn-0pp1954n****
      *
@@ -44,7 +47,10 @@ class topicVO extends Model
     public $instanceId;
 
     /**
-     * @description The key of the tag.
+     * @description The type of storage used by the topic. Valid values:
+     *
+     *   false: The topic uses cloud storage.
+     *   true: The topic uses local storage.
      *
      * @example false
      *
@@ -53,10 +59,7 @@ class topicVO extends Model
     public $localTopic;
 
     /**
-     * @description The name of the topic. Valid values:
-     *
-     *   The name contains only letters, digits, hyphens (-), and underscores (\_).
-     *   The name is 3 to 64 characters in length. If the name that you specified contains more than 64 characters, the returned name is automatically truncated.
+     * @description The number of partitions in the topic.
      *
      * @example 6
      *
@@ -65,7 +68,7 @@ class topicVO extends Model
     public $partitionNum;
 
     /**
-     * @description The value of the tag.
+     * @description The region ID of the instance to which the topics that you want to query belong.
      *
      * @example cn-hangzhou
      *
@@ -74,11 +77,11 @@ class topicVO extends Model
     public $regionId;
 
     /**
-     * @description The status of the topic. Valid values:
+     * @description The description of the topic. Valid values:
      *
-     **Running**
+     *   The description contains only letters, digits, hyphens (-), and underscores (\_).
+     *   The description is 3 to 64 characters in length.
      *
-     * If the topic is deleted, this parameter is not returned.
      * @example test
      *
      * @var string
@@ -86,8 +89,11 @@ class topicVO extends Model
     public $remark;
 
     /**
-     * @description The timestamp that indicates when the topic was created. Unit: milliseconds.
+     * @description The status of the topic. Valid values:
      *
+     **0:** indicates that the topic is running.
+     *
+     * If the topic is deleted, this parameter is not returned.
      * @example 0
      *
      * @var int
@@ -95,29 +101,29 @@ class topicVO extends Model
     public $status;
 
     /**
-     * @description The ID of the instance
+     * @description The status of the topic. Valid values:
      *
-     * @example The storage type used by the topic. Valid values:
+     **Running**
      *
-     *   false: The topic uses cloud storage.
-     *   true: The topic uses local storage.
+     * If the topic is deleted, this parameter is not returned.
+     * @example Running
      *
      * @var string
      */
     public $statusName;
 
     /**
-     * @description Indicates whether the topic was automatically created.
+     * @description The tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The log cleanup policy that is used for the topic. This parameter is returned when the **LocalTopic** parameter is set to **true**. Valid values:
+     * @description The name of the topic. Valid values:
      *
-     *   false: The topic uses the delete policy.
-     *   true: The topic uses the compact policy.
+     *   The name contains only letters, digits, hyphens (-), and underscores (\_).
+     *   The name is 3 to 64 characters in length. If the name that you specified contains more than 64 characters, the returned name is automatically truncated.
      *
      * @example topic_name
      *

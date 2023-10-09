@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSaslUserResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateSaslUserResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateSaslUserResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C5CA600C-7D5A-45B5-B6DB-44FAC2C****
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateSaslUserResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

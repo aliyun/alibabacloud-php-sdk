@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateConsumerOffsetResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned. The status code **200** indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateConsumerOffsetResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateConsumerOffsetResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 56729737-C428-4E1B-AC68-7A8C2D5****
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateConsumerOffsetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

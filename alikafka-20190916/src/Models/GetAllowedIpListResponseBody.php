@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetAllowedIpListResponseBody extends Model
 {
     /**
-     * @description The IP address whitelist of the instance.
+     * @description The IP address whitelist.
      *
      * @var allowedList
      */

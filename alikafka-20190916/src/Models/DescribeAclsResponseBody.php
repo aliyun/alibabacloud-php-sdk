@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAclsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeAclsResponseBody extends Model
     public $code;
 
     /**
+     * @description The ACLs.
+     *
      * @var kafkaAclList
      */
     public $kafkaAclList;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeAclsResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 46496E38-881E-4719-A2F3-F3DA6AE****
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeAclsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

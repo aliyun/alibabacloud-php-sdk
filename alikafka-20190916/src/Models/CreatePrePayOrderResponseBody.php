@@ -9,11 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreatePrePayOrderResponseBody extends Model
 {
     /**
-     * @description The number of partitions. We recommend that you configure this parameter.
-     *
-     *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
-     *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
-     *   For more information about the valid values, see [Billing](~~84737~~).
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
      *
      * @example 200
      *
@@ -22,7 +18,7 @@ class CreatePrePayOrderResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The message returned.
      *
      * @example operation success.
      *
@@ -31,6 +27,8 @@ class CreatePrePayOrderResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 20497346575****
      *
      * @var string
@@ -38,7 +36,7 @@ class CreatePrePayOrderResponseBody extends Model
     public $orderId;
 
     /**
-     * @description Creates a subscription Message Queue for Apache Kafka instance.
+     * @description The ID of the request.
      *
      * @example 06084011-E093-46F3-A51F-4B19A8AD****
      *
@@ -47,6 +45,8 @@ class CreatePrePayOrderResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

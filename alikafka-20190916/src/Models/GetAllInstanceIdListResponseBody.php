@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAllInstanceIdListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class GetAllInstanceIdListResponseBody extends Model
     public $code;
 
     /**
+     * @description The IDs of instances that are managed by the Alibaba Cloud account in all the regions.
+     *
      * @example [{"cn-shenzhen": ["alikafka_post-cn-7pp2btvo****"],"us-west-1": ["alikafka_pre-cn-i7m2lxid****"],"cn-hangzhou": ["alikafka_pre-cn-i7m2hflj****","alikafka_pre-cn-zvp2hsje****","alikafka_pre-cn-zvp2kvc9****"]}]
      *
      * @var mixed[]
@@ -23,6 +27,8 @@ class GetAllInstanceIdListResponseBody extends Model
     public $instanceIds;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -30,6 +36,8 @@ class GetAllInstanceIdListResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ABA4A7FD-E10F-45C7-9774-A5236015****
      *
      * @var string
@@ -37,6 +45,8 @@ class GetAllInstanceIdListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

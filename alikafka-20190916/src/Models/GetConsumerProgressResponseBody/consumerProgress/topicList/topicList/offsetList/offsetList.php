@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class offsetList extends Model
 {
     /**
-     * @description The consumer offset in the partition of the topic.
+     * @description The latest offset in the partition of the topic.
      *
      * @example 9
      *
@@ -18,7 +18,7 @@ class offsetList extends Model
     public $brokerOffset;
 
     /**
-     * @description The time when the last consumed message in the partition was generated.
+     * @description The consumer offset in the partition of the topic.
      *
      * @example 9
      *
@@ -27,7 +27,7 @@ class offsetList extends Model
     public $consumerOffset;
 
     /**
-     * @description Queries the consumption status of a specified consumer group.
+     * @description The time when the last consumed message in the partition was generated.
      *
      * @example 1566874931649
      *
@@ -36,7 +36,7 @@ class offsetList extends Model
     public $lastTimestamp;
 
     /**
-     * @description The latest offset in the partition of the topic.
+     * @description The ID of the partition.
      *
      * @example 0
      *

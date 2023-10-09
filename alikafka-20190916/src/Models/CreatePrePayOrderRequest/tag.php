@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The region ID of the instance.
+     * @description The key of tag N.
+     *
+     *   Valid values of N: 1 to 20.
+     *   If this parameter is left empty, the keys of all tags are matched.
+     *   The tag key can be up to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
      *
      * @example FinanceDept
      *
@@ -18,11 +22,11 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value.
+     * @description The value of tag N.
      *
      *   Valid values of N: 1 to 20.
-     *   This parameter is optional.
-     *   The tag value can be 1 to 128 characters in length. The tag value cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     *   This parameter can be left empty.
+     *   The tag value can be 1 to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
      *
      * @example FinanceJoshua
      *
