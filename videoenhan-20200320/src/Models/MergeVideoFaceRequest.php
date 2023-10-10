@@ -31,11 +31,17 @@ class MergeVideoFaceRequest extends Model
      * @var string
      */
     public $videoURL;
+
+    /**
+     * @var string
+     */
+    public $watermarkType;
     protected $_name = [
-        'addWatermark' => 'AddWatermark',
-        'enhance'      => 'Enhance',
-        'referenceURL' => 'ReferenceURL',
-        'videoURL'     => 'VideoURL',
+        'addWatermark'  => 'AddWatermark',
+        'enhance'       => 'Enhance',
+        'referenceURL'  => 'ReferenceURL',
+        'videoURL'      => 'VideoURL',
+        'watermarkType' => 'WatermarkType',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class MergeVideoFaceRequest extends Model
         }
         if (null !== $this->videoURL) {
             $res['VideoURL'] = $this->videoURL;
+        }
+        if (null !== $this->watermarkType) {
+            $res['WatermarkType'] = $this->watermarkType;
         }
 
         return $res;
@@ -80,6 +89,9 @@ class MergeVideoFaceRequest extends Model
         }
         if (isset($map['VideoURL'])) {
             $model->videoURL = $map['VideoURL'];
+        }
+        if (isset($map['WatermarkType'])) {
+            $model->watermarkType = $map['WatermarkType'];
         }
 
         return $model;

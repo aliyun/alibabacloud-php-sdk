@@ -1933,6 +1933,9 @@ class Videoenhan extends OpenApiClient
         if (!Utils::isUnset($request->videoURL)) {
             $body['VideoURL'] = $request->videoURL;
         }
+        if (!Utils::isUnset($request->watermarkType)) {
+            $body['WatermarkType'] = $request->watermarkType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -2090,6 +2093,9 @@ class Videoenhan extends OpenApiClient
         }
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->watermarkType)) {
+            $body['WatermarkType'] = $request->watermarkType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
