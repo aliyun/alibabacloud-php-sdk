@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAntChainAccountWithKeyPairAutoCreationResponseBody extends Model
 {
     /**
+     * @example 5F058BB4-3043-4638-86D4-EED84AD1AE54
+     *
      * @var string
      */
     public $requestId;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainContractProjectContentTreeV2ResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example D68D66B6-1964-4073-8714-B49F5EF1AEFC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example "{"description":"","projectId":"","projectName":"","treeContractContent":[{"content":"","fileName":"","id":"","isDir":false,"parentId\":""}],"type":"","version":""}"
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $resultMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

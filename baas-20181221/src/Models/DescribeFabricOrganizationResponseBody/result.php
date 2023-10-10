@@ -10,91 +10,127 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example client
+     *
      * @var string
      */
     public $CANAME;
 
     /**
+     * @example https://ca1.org1.alibabacloudbaas.com:31154
+     *
      * @var string
      */
     public $CAUrl;
 
     /**
+     * @example org1
+     *
      * @var string
      */
     public $codeName;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $consortiumCount;
 
     /**
+     * @example 1533025590
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example org1.alibabacloudbaas.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example org1MSP
+     *
      * @var string
      */
     public $MSP;
 
     /**
+     * @example This is org1
+     *
      * @var string
      */
     public $organizationDescription;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example org1
+     *
      * @var string
      */
     public $organizationName;
 
     /**
+     * @example 2544
+     *
      * @var string
      */
     public $ownerBid;
 
     /**
+     * @example uid-23434
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @example 23434
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $peerCount;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1890FA4F-067A-4CE9-AC9B-2BD2E58FB5D3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example basic
+     *
      * @var string
      */
     public $specName;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $state;
@@ -105,11 +141,15 @@ class result extends Model
     public $tags;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $userCount;
 
     /**
+     * @example cn-hangzhou-1a
+     *
      * @var string
      */
     public $zoneId;

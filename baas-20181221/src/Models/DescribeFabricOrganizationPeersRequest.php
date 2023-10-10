@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricOrganizationPeersRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w****
+     *
      * @var string
      */
     public $organizationId;

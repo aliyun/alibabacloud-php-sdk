@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteAntChainMiniAppQRCodeAuthorizedUserRequest extends Model
 {
     /**
+     * @example bDXK6boZ
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example 1380013****
+     *
      * @var string
      */
     public $phone;

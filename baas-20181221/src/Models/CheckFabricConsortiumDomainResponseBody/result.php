@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example bank
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $prompt;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $valid;

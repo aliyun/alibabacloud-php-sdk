@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainTransactionV2Request extends Model
 {
     /**
+     * @example 8bd720bde18c4b37b0f4a1c7834db163
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example M8GaMEyX
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example 227072dcd1a5d78098da99ccc8024304b9fb54fc6b65e37ef919d7f2da080061
+     *
      * @var string
      */
     public $hash;

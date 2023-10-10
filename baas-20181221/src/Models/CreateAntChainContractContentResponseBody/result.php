@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example R6XMn59e
+     *
      * @var string
      */
     public $contentId;
 
     /**
+     * @example newFile
+     *
      * @var string
      */
     public $contentName;
 
     /**
+     * @example 1564024964404
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDirectory;
 
     /**
+     * @example R38DYDop
+     *
      * @var string
      */
     public $parentContentId;
 
     /**
+     * @example bDXK1b8Z
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example 1564024964404
+     *
      * @var string
      */
     public $updateTime;

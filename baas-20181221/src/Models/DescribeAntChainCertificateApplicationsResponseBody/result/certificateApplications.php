@@ -9,31 +9,45 @@ use AlibabaCloud\Tea\Model;
 class certificateApplications extends Model
 {
     /**
+     * @example 1q8B5R9p
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @description Bid
+     *
+     * @example 26842
+     *
      * @var string
      */
     public $bid;
 
     /**
+     * @example 1563949275000
+     *
      * @var int
      */
     public $createtime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1563949275000
+     *
      * @var int
      */
     public $updatetime;
 
     /**
+     * @example uid-128712635330****
+     *
      * @var string
      */
     public $username;

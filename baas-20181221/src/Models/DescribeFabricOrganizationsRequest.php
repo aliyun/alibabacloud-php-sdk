@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricOrganizationsRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;

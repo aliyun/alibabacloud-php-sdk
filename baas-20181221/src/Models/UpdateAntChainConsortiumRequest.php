@@ -14,6 +14,8 @@ class UpdateAntChainConsortiumRequest extends Model
     public $consortiumDescription;
 
     /**
+     * @example q0oWq92P
+     *
      * @var string
      */
     public $consortiumId;

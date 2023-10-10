@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpgradeFabricChaincodeDefinitionRequest extends Model
 {
     /**
+     * @example code-sacc-jbkuldd3i7ad
+     *
      * @var string
      */
     public $chaincodeId;
 
     /**
+     * @example sacc_v1.0:698d4e73c5f1d0239fbf0313ac79ddfaf44d5a803ecb02a4d1983cca4a706860
+     *
      * @var string
      */
     public $chaincodePackageId;
 
     /**
+     * @example 1.1
+     *
      * @var string
      */
     public $chaincodeVersion;
 
     /**
+     * @example collectionconfig
+     *
      * @var string
      */
     public $collectionConfig;
 
     /**
+     * @example OR ("perf9141MSP.member")
+     *
      * @var string
      */
     public $endorsePolicy;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $initRequired;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
+     *
      * @var string
      */
     public $organizationId;

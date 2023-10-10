@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ResetAntChainUserCertificateResponseBody extends Model
 {
     /**
+     * @example 3EB828D1-1E9D-4EC2-A002-139FE998D674
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $result;

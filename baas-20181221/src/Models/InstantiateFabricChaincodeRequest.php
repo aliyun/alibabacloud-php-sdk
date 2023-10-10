@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class InstantiateFabricChaincodeRequest extends Model
 {
     /**
+     * @example cc-198jejf8f8****
+     *
      * @var string
      */
     public $chaincodeId;
 
     /**
+     * @example [{"requiredPeerCount":0,"name":"collectionName","maxPeerCount":3,"blockToLive":0,"policy":"OR(\"Org1MSP.peer\")"}]
+     *
      * @var string
      */
     public $collectionConfig;
 
     /**
+     * @example OR (&#39;perf9141MSP.member&#39;)
+     *
      * @var string
      */
     public $endorsePolicy;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w****
+     *
      * @var string
      */
     public $organizationId;

@@ -9,147 +9,147 @@ use AlibabaCloud\Tea\Model;
 class ChaincodeVO extends Model
 {
     /**
-     * @description 链码定义ID
+     * @example a5f04baed775b016e8dc386783f40a2c8b13823cac22bc5fd11846cca4a13a9a
      *
      * @var string
      */
     public $chaincodeDefinitionId;
 
     /**
-     * @description 链码ID
+     * @example code-sacc-jbkuldd3i7ad
      *
      * @var string
      */
     public $chaincodeId;
 
     /**
-     * @description 链码包ID
+     * @example sacc_v1.0:698d4e73c5f1d0239fbf0313ac79ddfaf44d5a803ecb02a4d1983cca4a706860
      *
      * @var string
      */
     public $chaincodePackageId;
 
     /**
-     * @description 通道ID
+     * @example chan-test-b0wx5suhgyb9p
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 通道名称
+     * @example f100
      *
      * @var string
      */
     public $channelName;
 
     /**
-     * @description 联盟ID
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
      *
      * @var string
      */
     public $consortiumId;
 
     /**
-     * @description 创建时间
+     * @example 1533025590
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 安装部署时间
+     * @example 1533025590
      *
      * @var string
      */
     public $deployTime;
 
     /**
-     * @description 背书策略
+     * @example OR ("perf9141MSP.member")
      *
      * @var string
      */
     public $endorsePolicy;
 
     /**
-     * @description 是否需要初始化
+     * @example false
      *
      * @var bool
      */
     public $initRequired;
 
     /**
-     * @description 链码初始化参数
+     * @example args:"key" args:"val"
      *
      * @var string
      */
     public $input;
 
     /**
-     * @description 链码是否安装
+     * @example true
      *
      * @var bool
      */
     public $install;
 
     /**
-     * @description 是否是管理链码
+     * @example false
      *
      * @var bool
      */
     public $management;
 
     /**
-     * @description 信息
+     * @example ok
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description 链码包名称
+     * @example sacc
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 链码路径
+     * @example chaincode/sacc
      *
      * @var string
      */
     public $path;
 
     /**
-     * @description 上传者ID
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
      *
      * @var string
      */
     public $providerId;
 
     /**
-     * @description 链码上传者
+     * @example perf9141
      *
      * @var string
      */
     public $providerName;
 
     /**
-     * @description 链码状态
+     * @example Pending
      *
      * @var string
      */
     public $state;
 
     /**
-     * @description 链码类型
+     * @example 0
      *
      * @var int
      */
     public $type;
 
     /**
-     * @description 链码包版本
+     * @example 1.1
      *
      * @var string
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyAntChainCertificateWithKeyAutoCreationResponseBody extends Model
 {
     /**
+     * @example 3E1894AF-FEE7-4C6C-8C2A-2B3EE0105B07
+     *
      * @var string
      */
     public $requestId;

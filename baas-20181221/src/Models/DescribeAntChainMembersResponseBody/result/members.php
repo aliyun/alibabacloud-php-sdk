@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
+     * @example 1557477823000
+     *
      * @var int
      */
     public $joinTime;
 
     /**
+     * @example uid-1388601577407805
+     *
      * @var string
      */
     public $memberId;
 
     /**
+     * @example uid-1562589998337656
+     *
      * @var string
      */
     public $memberName;
 
     /**
+     * @example Member
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example AllianceNotJoined
+     *
      * @var string
      */
     public $status;

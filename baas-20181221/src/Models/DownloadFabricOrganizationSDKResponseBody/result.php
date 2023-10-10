@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example base64string
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example dir/file
+     *
      * @var string
      */
     public $path;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example action
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $handled;
 
     /**
+     * @example type
+     *
      * @var string
      */
     public $operationType;
 
     /**
+     * @example 1533025590
+     *
      * @var int
      */
     public $requestTime;
 
     /**
+     * @example 1533025590
+     *
      * @var string
      */
     public $responseTime;
 
     /**
+     * @example result
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example sender
+     *
      * @var string
      */
     public $sender;
 
     /**
+     * @example target
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example 33
+     *
      * @var int
      */
     public $taskId;

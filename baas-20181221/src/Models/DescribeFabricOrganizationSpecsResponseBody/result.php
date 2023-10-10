@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @example basic
+     *
      * @var string
      */
     public $organizationSpecsName;

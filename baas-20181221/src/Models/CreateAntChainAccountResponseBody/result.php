@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example bDXK6boZ
+     *
      * @var string
      */
     public $antChainId;

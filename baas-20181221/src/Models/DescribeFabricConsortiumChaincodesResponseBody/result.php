@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example code-sacc-1pr09q7jmo0np
+     *
      * @var string
      */
     public $chaincodeId;
 
     /**
+     * @example sacc
+     *
      * @var string
      */
     public $chaincodeName;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $chaincodeVersion;
 
     /**
+     * @example chan-channelx-1l1hmckuuisxo
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example cname
+     *
      * @var string
      */
     public $channelName;
 
     /**
+     * @example consortium-lianmenyumingyi-hc5d1bwlulg7
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $deployTime;
 
     /**
+     * @example OR (\"aaaaaa1MSP.peer\")
+     *
      * @var string
      */
     public $endorsePolicy;
 
     /**
+     * @example input
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $install;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example go-sdk-demo/chaincode/src
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
+     *
      * @var string
      */
     public $providerId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $providerName;
 
     /**
+     * @example Instantiatable
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

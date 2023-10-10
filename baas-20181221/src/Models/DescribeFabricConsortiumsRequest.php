@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricConsortiumsRequest extends Model
 {
     /**
+     * @example consortium-lianmenyumingyi-hc5d1bwl****
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;

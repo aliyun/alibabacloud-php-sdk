@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAntChainConsortiumRequest extends Model
 {
     /**
+     * @example q0oWq92P
+     *
      * @var string
      */
     public $consortiumId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 8bd720bde18c4b37b0f4a1c7834db163
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example ALL_USER_AUTHORIZATION
+     *
      * @var string
      */
     public $authorizationType;
 
     /**
+     * @example MINI_APP_BROWSER_TRANSACTION
+     *
      * @var string
      */
     public $QRCodeType;

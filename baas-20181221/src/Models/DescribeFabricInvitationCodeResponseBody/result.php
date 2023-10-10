@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $accepted;
 
     /**
+     * @example code
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example consortium-lianmenyumingyi-hc5d1bwlulg7
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example abc@126.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $invitationId;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $sendTime;
 
     /**
+     * @example 27534
+     *
      * @var string
      */
     public $senderBid;
 
     /**
+     * @example 26345345
+     *
      * @var int
      */
     public $senderId;
 
     /**
+     * @example uid-35324
+     *
      * @var string
      */
     public $senderName;
 
     /**
+     * @example http://baas.console.aliyun.test/invite?code=92e7ef1934892
+     *
      * @var string
      */
     public $url;

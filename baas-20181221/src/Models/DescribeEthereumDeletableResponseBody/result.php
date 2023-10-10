@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deletable;
 
     /**
+     * @example eth-1ilrhcav4ibdl
+     *
      * @var string
      */
     public $ethereumId;

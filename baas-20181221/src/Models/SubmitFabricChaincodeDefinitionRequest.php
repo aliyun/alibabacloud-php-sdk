@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class SubmitFabricChaincodeDefinitionRequest extends Model
 {
     /**
+     * @example sacc_v1.0:698d4e73c5f1d0239fbf0313ac79ddfaf44d5a803ecb02a4d1983cca4a706860
+     *
      * @var string
      */
     public $chaincodePackageId;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $chaincodeVersion;
 
     /**
+     * @example chan-channelx-1l1hmckuuisxo
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example collectionconfig
+     *
      * @var string
      */
     public $collectionConfig;
 
     /**
+     * @example OR ("perf9141MSP.member")
+     *
      * @var string
      */
     public $endorsePolicy;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $initRequired;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example sacc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
+     *
      * @var string
      */
     public $organizationId;

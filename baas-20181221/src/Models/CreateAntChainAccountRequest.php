@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateAntChainAccountRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example AEDC32...
+     *
      * @var string
      */
     public $accountPubKey;
 
     /**
+     * @example AEDC32...
+     *
      * @var string
      */
     public $accountRecoverPubKey;
 
     /**
+     * @example bDXK6boZ
+     *
      * @var string
      */
     public $antChainId;

@@ -15,6 +15,8 @@ class result extends Model
     public $approvers;
 
     /**
+     * @example f100
+     *
      * @var string
      */
     public $channelName;
@@ -25,31 +27,43 @@ class result extends Model
     public $content;
 
     /**
+     * @example 1533025590
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example perf9141MSP
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Pending
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1890FA4F-067A-4CE9-AC9B-2BD2E58FB5D3
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example ChaincodeDefinition
+     *
      * @var string
      */
     public $type;

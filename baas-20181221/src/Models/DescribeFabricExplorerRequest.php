@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricExplorerRequest extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
     public $exBody;
 
     /**
+     * @example GET
+     *
      * @var string
      */
     public $exMethod;
 
     /**
+     * @example /api/v1/channel
+     *
      * @var string
      */
     public $exUrl;
 
     /**
+     * @example peers-test11-tzwny25vqicq
+     *
      * @var string
      */
     public $organizationId;

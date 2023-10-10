@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricInviterResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example C445762C-8909-4BD8-A2BD-BB45BF2441D8
+     *
      * @var string
      */
     public $requestId;
@@ -25,6 +29,8 @@ class DescribeFabricInviterResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

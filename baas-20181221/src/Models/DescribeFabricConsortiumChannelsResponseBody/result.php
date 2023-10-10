@@ -9,116 +9,162 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $batchTimeout;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $blockCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $chaincodeCount;
 
     /**
+     * @example chan-channelx-1l1hmckuuisxo
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example mychammel
+     *
      * @var string
      */
     public $channelName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $consortiumChannelId;
 
     /**
+     * @example consortium-lianmenyumingyi-hc5d1bwlulg7
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $consortiumName;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $deleteTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deleted;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $maxMessageCount;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $memberCount;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $memberJoinedCount;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needJoined;
 
     /**
+     * @example 26842
+     *
      * @var string
      */
     public $ownerBid;
 
     /**
+     * @example uid-*
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @example 212
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example 102410241
+     *
      * @var int
      */
     public $preferredMaxBytes;
 
     /**
+     * @example 1890FA4F-067A-4CE9-AC9B-2BD2E58FB5D3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportChannelConfig;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $updateTime;

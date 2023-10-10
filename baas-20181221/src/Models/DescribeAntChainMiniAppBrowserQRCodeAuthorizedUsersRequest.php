@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest extends Model
 {
     /**
+     * @example bDXK6boZ
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example MINI_APP_BROWSER_TRANSACTION
+     *
      * @var string
      */
     public $QRCodeType;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricOrdererLogsRequest extends Model
 {
     /**
+     * @example consortium-test-iyuso3g773ki
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $lines;
 
     /**
+     * @example orderer1
+     *
      * @var string
      */
     public $ordererName;

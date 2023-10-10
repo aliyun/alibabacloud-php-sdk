@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 1168bc5dd0b78d15446b15ea5a7f7822a7d07c007dd3a50becf98da220fc08f6
+     *
      * @var string
      */
     public $blockHash;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $blockHeight;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $blockVersion;
 
     /**
+     * @example 1563954336850
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example b3b0d2db83d3e670449d1e2a39d1d13b7e0e6080b0f9c6945f79eca68d1dd2ca
+     *
      * @var string
      */
     public $hash;

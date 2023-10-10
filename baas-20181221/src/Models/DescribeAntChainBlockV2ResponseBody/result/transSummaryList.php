@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class transSummaryList extends Model
 {
     /**
+     * @example 8bd720bde18c4b37b0f4a1c7834db163
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example 5abf96debc87f1b64dcbaf4fa57fd46f2a06acdb5de0ba91ef9718d81aebafc7
+     *
      * @var string
      */
     public $blockHash;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $category;
 
     /**
+     * @example 1609223363570
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example e7d3e769f3f593dadcb8634cc5b09fc90dd3a61c4a06a79cb0923662fe6fae6b
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example 4000000
+     *
      * @var int
      */
     public $gasUsed;
 
     /**
+     * @example 076bba1b726b3bcb958cba6fffc03eaa5cbed59320271dcbc0e05648a18a94f2
+     *
      * @var string
      */
     public $hash;
 
     /**
+     * @example 254761
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $referenceCount;
 
     /**
+     * @example e93372533f323b2f12783aa3a586135cf421486439c2cdcde47411b78f9839ec
+     *
      * @var string
      */
     public $to;
 
     /**
+     * @example CALL_CONTRACT
+     *
      * @var string
      */
     public $transTypeV10;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $transTypeV6;

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 8bd720bde18c4b37b0f4a1c7834db163
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example b21baa257788d97eb0006672ccc5008f465365e1dec88d0bbd833e150414b3d5
+     *
      * @var string
      */
     public $bizData;
 
     /**
+     * @example b21baa257788d97eb0006672ccc5008f465365e1dec88d0bbd833e150414b3d5
+     *
      * @var string
      */
     public $blockHash;
 
     /**
+     * @example 1610002621000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 259808
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example f208834bdc72bd6bb05c5ef1a35abbc8295a16deda9526b7b78c69ec24591b9f
+     *
      * @var string
      */
     public $previousHash;
 
     /**
+     * @example 0000000000000000000000000000000000000000000000000000000000000000
+     *
      * @var string
      */
     public $rootTxHash;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $transactionSize;
 
     /**
+     * @example 33556226
+     *
      * @var int
      */
     public $version;

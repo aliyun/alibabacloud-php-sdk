@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CheckFabricOrganizationDomainResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example C30A14C7-800E-468B-9EB2-C704DA49295E
+     *
      * @var string
      */
     public $requestId;
@@ -25,6 +29,8 @@ class CheckFabricOrganizationDomainResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

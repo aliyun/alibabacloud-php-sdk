@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ResetFabricOrganizationUserPasswordRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w****
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example pwd
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example username
+     *
      * @var string
      */
     public $username;

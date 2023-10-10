@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckFabricOrganizationDomainRequest extends Model
 {
     /**
+     * @example bank
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example bank
+     *
      * @var string
      */
     public $domainCode;

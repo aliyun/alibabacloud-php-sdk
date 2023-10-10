@@ -14,16 +14,22 @@ class DescribeAntChainAccountsV2Request extends Model
     public $antChainId;
 
     /**
+     * @example M8GaMEyX
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

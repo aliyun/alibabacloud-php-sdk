@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateAntChainContractContentRequest extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example newFile
+     *
      * @var string
      */
     public $contentName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDirectory;
 
     /**
+     * @example R38DYDop
+     *
      * @var string
      */
     public $parentContentId;
 
     /**
+     * @example bDXK1b8Z
+     *
      * @var string
      */
     public $projectId;

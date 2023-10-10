@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example http://***ca.crt
+     *
      * @var string
      */
     public $caCrtUrl;
 
     /**
+     * @example http://***client.crt
+     *
      * @var string
      */
     public $clientCrtUrl;
 
     /**
+     * @example http://***
+     *
      * @var string
      */
     public $sdkUrl;
 
     /**
+     * @example http://***trustCa
+     *
      * @var string
      */
     public $trustCaUrl;

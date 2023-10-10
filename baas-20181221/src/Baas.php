@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\Baas\V20181221\Models\CreateAntChainContractContentRequest;
 use AlibabaCloud\SDK\Baas\V20181221\Models\CreateAntChainContractContentResponse;
 use AlibabaCloud\SDK\Baas\V20181221\Models\CreateAntChainContractProjectRequest;
 use AlibabaCloud\SDK\Baas\V20181221\Models\CreateAntChainContractProjectResponse;
+use AlibabaCloud\SDK\Baas\V20181221\Models\CreateAntChainKmsAccountNewRequest;
+use AlibabaCloud\SDK\Baas\V20181221\Models\CreateAntChainKmsAccountNewResponse;
 use AlibabaCloud\SDK\Baas\V20181221\Models\CreateFabricChaincodePackageRequest;
 use AlibabaCloud\SDK\Baas\V20181221\Models\CreateFabricChaincodePackageResponse;
 use AlibabaCloud\SDK\Baas\V20181221\Models\CreateFabricChaincodeRequest;
@@ -1007,6 +1009,52 @@ class Baas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAntChainContractProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAntChainKmsAccountNewRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateAntChainKmsAccountNewResponse
+     */
+    public function createAntChainKmsAccountNewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->account)) {
+            $body['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->antChainId)) {
+            $body['AntChainId'] = $request->antChainId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAntChainKmsAccountNew',
+            'version'     => '2018-12-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAntChainKmsAccountNewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAntChainKmsAccountNewRequest $request
+     *
+     * @return CreateAntChainKmsAccountNewResponse
+     */
+    public function createAntChainKmsAccountNew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAntChainKmsAccountNewWithOptions($request, $runtime);
     }
 
     /**
@@ -6107,10 +6155,12 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpgradeFabricChaincodeRequest $request
-     * @param RuntimeOptions                $runtime
+     * ****
+     *   *
+     * @param UpgradeFabricChaincodeRequest $request UpgradeFabricChaincodeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeFabricChaincodeResponse
+     * @return UpgradeFabricChaincodeResponse UpgradeFabricChaincodeResponse
      */
     public function upgradeFabricChaincodeWithOptions($request, $runtime)
     {
@@ -6150,9 +6200,11 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpgradeFabricChaincodeRequest $request
+     * ****
+     *   *
+     * @param UpgradeFabricChaincodeRequest $request UpgradeFabricChaincodeRequest
      *
-     * @return UpgradeFabricChaincodeResponse
+     * @return UpgradeFabricChaincodeResponse UpgradeFabricChaincodeResponse
      */
     public function upgradeFabricChaincode($request)
     {

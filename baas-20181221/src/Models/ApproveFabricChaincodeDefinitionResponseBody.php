@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ApproveFabricChaincodeDefinitionResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1890FA4F-067A-4CE9-AC9B-2BD2E58FB5D3
+     *
      * @var string
      */
     public $requestId;
@@ -29,6 +35,8 @@ class ApproveFabricChaincodeDefinitionResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

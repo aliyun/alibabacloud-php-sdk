@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example Running
+     *
      * @var string
      */
     public $clusterState;
 
     /**
+     * @example peers-1oxw31d04****
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example org1
+     *
      * @var string
      */
     public $organizationName;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $serviceState;

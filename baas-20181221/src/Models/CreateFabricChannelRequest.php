@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CreateFabricChannelRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $batchTimeout;
 
     /**
+     * @example channelx
+     *
      * @var string
      */
     public $channelName;
 
     /**
+     * @example consortium-aaaaaa-akpcsjjac2jd
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxMessageCount;
@@ -35,6 +43,8 @@ class CreateFabricChannelRequest extends Model
     public $organization;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $preferredMaxBytes;

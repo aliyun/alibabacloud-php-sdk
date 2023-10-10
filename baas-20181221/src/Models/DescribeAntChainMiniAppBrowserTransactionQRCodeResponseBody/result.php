@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example bDXK6boZ
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example iVBORw0KGgo......ABJRU5ErkJggg==
+     *
      * @var string
      */
     public $base64QRCodePNG;
 
     /**
+     * @example https://render.antfin.com/p/s/miniapp-web/?type=trans&from=aliyun&bizid=bDXK6boZ&hash=10692388f8b729cbb42d2985eebd3567812def357eb826a7ec810ce97e1f295e
+     *
      * @var string
      */
     public $QRCodeContent;
 
     /**
+     * @example 10692388f8b729cbb42d2985eebd3567812def357eb826a7ec810ce97e1f295e
+     *
      * @var string
      */
     public $transactionHash;

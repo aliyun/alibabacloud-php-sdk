@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class chaincodeDefinition extends Model
 {
     /**
+     * @example sacc_v1.0:698d4e73c5f1d0239fbf0313ac79ddfaf44d5a803ecb02a4d1983cca4a706860
+     *
      * @var string
      */
     public $chaincodePackageId;
 
     /**
+     * @example collectionconfig
+     *
      * @var string
      */
     public $collectionConfig;
 
     /**
+     * @example OR ("perf9141MSP.member")
+     *
      * @var string
      */
     public $endorsementPolicy;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $initRequired;
 
     /**
+     * @example sacc
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sequence;
 
     /**
+     * @example 698d4e73c5f1d0239fbf0313ac79ddfaf44d5a803ecb02a4d1983cca4a706860
+     *
      * @var string
      */
     public $uid;
 
     /**
+     * @example 1.1
+     *
      * @var string
      */
     public $version;

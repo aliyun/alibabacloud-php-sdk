@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class organization extends Model
 {
     /**
+     * @example peers-yidio-1tuigx42b1goc
+     *
      * @var string
      */
     public $organizationId;

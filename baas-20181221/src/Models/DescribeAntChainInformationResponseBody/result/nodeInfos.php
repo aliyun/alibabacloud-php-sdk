@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class nodeInfos extends Model
 {
     /**
+     * @example 365216
+     *
      * @var int
      */
     public $blockHeight;
 
     /**
+     * @example 121.199.195.8 18130
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $status;
 
     /**
+     * @example 0.10
+     *
      * @var string
      */
     public $version;

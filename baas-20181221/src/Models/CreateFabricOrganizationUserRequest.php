@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateFabricOrganizationUserRequest extends Model
 {
     /**
+     * @example foo=foo1,bar=bar1
+     *
      * @var string
      */
     public $attrs;
 
     /**
+     * @example peers-yidio-1tuigx42b****
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example password
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example username
+     *
      * @var string
      */
     public $username;

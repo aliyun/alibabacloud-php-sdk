@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example pYogqb9v
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example 1563294007000
+     *
      * @var int
      */
     public $creatTime;
 
     /**
+     * @example 2019-07-16
+     *
      * @var string
      */
     public $dt;
 
     /**
+     * @example 148018
+     *
      * @var int
      */
     public $lastSumBlockHeight;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $transCount;

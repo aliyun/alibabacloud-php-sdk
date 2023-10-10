@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class antChains extends Model
 {
     /**
+     * @example 8bd720bde18c4b37b0f4a1c7834db163
+     *
      * @var string
      */
     public $antChainId;
@@ -19,81 +21,113 @@ class antChains extends Model
     public $antChainName;
 
     /**
+     * @example Contract
+     *
      * @var string
      */
     public $chainType;
 
     /**
+     * @example classic
+     *
      * @var string
      */
     public $cipherSuit;
 
     /**
+     * @example 1609221924000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1672329600000
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example ALIYUN202012291405173265824745109
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isAdmin;
 
     /**
+     * @example ChainApplied
+     *
      * @var string
      */
     public $memberStatus;
 
     /**
+     * @example fdmt
+     *
      * @var string
      */
     public $merkleTreeSuit;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $monitorStatus;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $network;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $nodeNum;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Basic
+     *
      * @var string
      */
     public $resourceSize;
 
     /**
+     * @example CREATE
+     *
      * @var string
      */
     public $restStatus;
 
     /**
+     * @example rsa
+     *
      * @var string
      */
     public $tlsAlgo;
 
     /**
+     * @example 2.19.1
+     *
      * @var string
      */
     public $version;

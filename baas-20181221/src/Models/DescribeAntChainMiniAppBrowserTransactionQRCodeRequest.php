@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainMiniAppBrowserTransactionQRCodeRequest extends Model
 {
     /**
+     * @example bDXK6boZ
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example 4a1f1371012cf840a9e4c6bde430d5ba600e422e592d153bd2689783cd1f87d0
+     *
      * @var string
      */
     public $transactionHash;

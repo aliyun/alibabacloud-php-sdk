@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFabricChannelMemberRequest extends Model
 {
     /**
+     * @example chan-channelx-1l1hmckuuisxo
+     *
      * @var string
      */
     public $channelId;

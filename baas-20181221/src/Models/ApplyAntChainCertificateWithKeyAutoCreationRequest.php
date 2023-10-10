@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
 {
     /**
+     * @example 1q8B5R9p
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example commonName
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @example DV80nJXq
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example countryName
+     *
      * @var string
      */
     public $countryName;
 
     /**
+     * @example localityName
+     *
      * @var string
      */
     public $localityName;
 
     /**
+     * @example organizationName
+     *
      * @var string
      */
     public $organizationName;
 
     /**
+     * @example organizationUnitName
+     *
      * @var string
      */
     public $organizationUnitName;
 
     /**
+     * @example password
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example stateOrProvinceName
+     *
      * @var string
      */
     public $stateOrProvinceName;

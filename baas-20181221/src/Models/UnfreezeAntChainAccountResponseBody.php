@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UnfreezeAntChainAccountResponseBody extends Model
 {
     /**
+     * @example 6ED983D3-C131-4104-8BDD-1F37992258E1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $result;

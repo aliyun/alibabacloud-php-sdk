@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CopyAntChainContractProjectRequest extends Model
 {
     /**
+     * @example copy project description
+     *
      * @var string
      */
     public $projectDescription;
 
     /**
+     * @example 2L9VK68g
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example copyproject
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example v1.0.1
+     *
      * @var string
      */
     public $projectVersion;

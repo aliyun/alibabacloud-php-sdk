@@ -10,86 +10,125 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $channelCount;
 
     /**
+     * @example Any
+     *
      * @var string
      */
     public $channelPolicy;
 
     /**
+     * @example code
+     *
      * @var string
      */
     public $codeName;
 
     /**
+     * @example consortium-lianmenyumingyi-hc5d1bwl****
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $consortiumName;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example domain
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @var string
+     */
+    public $majorVersion;
+
+    /**
+     * @example 2
+     *
      * @var int
      */
     public $organizationCount;
 
     /**
+     * @example 26842
+     *
      * @var string
      */
     public $ownerBid;
 
     /**
+     * @example uid-125566
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @example 12042815
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 3A929FAC-A82D-4EAB-A0FF-D867426D8B23
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example basic
+     *
      * @var string
      */
     public $specName;
 
     /**
+     * @example Pending
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportChannelConfig;
@@ -107,6 +146,7 @@ class result extends Model
         'createTime'           => 'CreateTime',
         'domain'               => 'Domain',
         'expiredTime'          => 'ExpiredTime',
+        'majorVersion'         => 'MajorVersion',
         'organizationCount'    => 'OrganizationCount',
         'ownerBid'             => 'OwnerBid',
         'ownerName'            => 'OwnerName',
@@ -149,6 +189,9 @@ class result extends Model
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->majorVersion) {
+            $res['MajorVersion'] = $this->majorVersion;
         }
         if (null !== $this->organizationCount) {
             $res['OrganizationCount'] = $this->organizationCount;
@@ -221,6 +264,9 @@ class result extends Model
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['MajorVersion'])) {
+            $model->majorVersion = $map['MajorVersion'];
         }
         if (isset($map['OrganizationCount'])) {
             $model->organizationCount = $map['OrganizationCount'];

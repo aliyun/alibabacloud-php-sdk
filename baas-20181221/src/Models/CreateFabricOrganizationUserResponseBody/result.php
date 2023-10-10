@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 1544086901984
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example fullname
+     *
      * @var string
      */
     public $fullname;
 
     /**
+     * @example peers-yidio-1tuigx42b****
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example password
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example username
+     *
      * @var string
      */
     public $username;

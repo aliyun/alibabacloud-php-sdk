@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainBlockRequest extends Model
 {
     /**
+     * @example pYogqb9v
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $height;

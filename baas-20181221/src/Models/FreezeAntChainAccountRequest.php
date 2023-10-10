@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class FreezeAntChainAccountRequest extends Model
 {
     /**
+     * @example accountname
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example 1q8B5R9p
+     *
      * @var string
      */
     public $antChainId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricOrdererLogsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example 508EA949-6349-4C86-B8E7-1D90669382B1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Kafka.Retry.Producer.RetryMax=3
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

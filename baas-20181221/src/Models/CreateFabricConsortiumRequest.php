@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class CreateFabricConsortiumRequest extends Model
 {
     /**
+     * @example all
+     *
      * @var string
      */
     public $channelPolicy;
 
     /**
+     * @example some
+     *
      * @var string
      */
     public $consortiumDescription;
 
     /**
+     * @example aaaaa
+     *
      * @var string
      */
     public $consortiumName;
 
     /**
+     * @example helloworld
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example etcdraft
+     *
      * @var string
      */
     public $ordererType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $orderersCount;
@@ -50,26 +64,36 @@ class CreateFabricConsortiumRequest extends Model
     public $organization;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $paymentDuration;
 
     /**
+     * @example month
+     *
      * @var string
      */
     public $paymentDurationUnit;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $peersCount;
 
     /**
+     * @example basic
+     *
      * @var string
      */
     public $specName;
 
     /**
+     * @example random
+     *
      * @var string
      */
     public $zoneId;

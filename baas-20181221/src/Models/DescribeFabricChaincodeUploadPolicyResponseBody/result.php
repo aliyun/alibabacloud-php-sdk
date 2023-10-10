@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example accessId
+     *
      * @var string
      */
     public $accessId;
 
     /**
+     * @example test3/4bd1de21-2fff-4405-a8e9-f864c4bee24f
+     *
      * @var string
      */
     public $dir;
 
     /**
+     * @example 1533025590
+     *
      * @var int
      */
     public $expire;
 
     /**
+     * @example https://chaincode.oss-cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example eyJleHBpcmF0aW9uIjoiMjAxOC0wNy0zMVQwODoyNjozMC40NzdaIiwiY29uZGl
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example signature
+     *
      * @var string
      */
     public $signature;

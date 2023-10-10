@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAntChainContractProjectRequest extends Model
 {
     /**
+     * @example AVXeKq8R
+     *
      * @var string
      */
     public $projectId;

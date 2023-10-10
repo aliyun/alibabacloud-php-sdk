@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example name
+     *
      * @var string
      */
     public $codeName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deletable;
 
     /**
+     * @example domain
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $organizationDescription;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w****
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example orgname
+     *
      * @var string
      */
     public $organizationName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example zone
+     *
      * @var string
      */
     public $zoneId;

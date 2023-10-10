@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AcceptFabricInvitationResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example 52CC8D5B-79A8-4769-BC7B-8940556ADA49
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEthereumDeletableRequest extends Model
 {
     /**
+     * @example eth-1ilrhcav4ibdl
+     *
      * @var string
      */
     public $ethereumId;

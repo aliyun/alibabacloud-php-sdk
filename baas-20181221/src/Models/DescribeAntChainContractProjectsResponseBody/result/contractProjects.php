@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class contractProjects extends Model
 {
     /**
+     * @example DV80nJXq
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example 1562847564000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $projectDescription;
 
     /**
+     * @example 2L9VK68g
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example projectname
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $projectVersion;
 
     /**
+     * @example 1563954499000
+     *
      * @var int
      */
     public $updateTime;

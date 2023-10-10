@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEthereumDeletableResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example D68D66B6-1964-4073-8714-B49F5EF1AEFC
+     *
      * @var string
      */
     public $requestId;
@@ -25,6 +29,8 @@ class DescribeEthereumDeletableResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponseBody extends Model
 {
     /**
+     * @example D68D66B6-1964-4073-8714-B49F5EF1AEFC
+     *
      * @var string
      */
     public $requestId;

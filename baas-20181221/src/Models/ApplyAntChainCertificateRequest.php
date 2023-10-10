@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ApplyAntChainCertificateRequest extends Model
 {
     /**
+     * @example bDXK6boZ
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example LS0tLS1...
+     *
      * @var string
      */
     public $uploadReq;

@@ -16,6 +16,8 @@ class result extends Model
     public $antChains;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isExist;

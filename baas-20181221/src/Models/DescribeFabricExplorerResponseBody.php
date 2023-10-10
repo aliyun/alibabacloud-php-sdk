@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricExplorerResponseBody extends Model
 {
     /**
+     * @example ExplorerException
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example An error in the monitoring service has occurred.
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example 19E91C1D-9BD0-468F-A7DA-915263C6689F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainContractProjectsRequest extends Model
 {
     /**
+     * @example DV80nJXq
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

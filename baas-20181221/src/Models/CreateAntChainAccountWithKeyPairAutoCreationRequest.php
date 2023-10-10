@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateAntChainAccountWithKeyPairAutoCreationRequest extends Model
 {
     /**
+     * @example accountname
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example 1q8B5R9p
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example password
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example ************
+     *
      * @var string
      */
     public $recoverPassword;

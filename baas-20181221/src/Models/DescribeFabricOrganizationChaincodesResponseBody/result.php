@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example code-sacc-1pr09q7jmo0np
+     *
      * @var string
      */
     public $chaincodeId;
 
     /**
+     * @example mycc
+     *
      * @var string
      */
     public $chaincodeName;
 
     /**
+     * @example 0.3
+     *
      * @var string
      */
     public $chaincodeVersion;
 
     /**
+     * @example chan-first-channel-31hlgpen5k5lig
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example first-channel
+     *
      * @var string
      */
     public $channelName;
 
     /**
+     * @example consortium-lianmenyumingyi-hc5d1bwlulg7
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example 1533025590
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example uid-23425
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @example 1533025590
+     *
      * @var string
      */
     public $deployTime;
 
     /**
+     * @example OR (&#39;perf9141MSP.member&#39;)
+     *
      * @var string
      */
     public $endorsePolicy;
 
     /**
+     * @example Installed
+     *
      * @var string
      */
     public $installed;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $state;

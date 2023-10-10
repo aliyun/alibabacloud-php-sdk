@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AcceptFabricInvitationRequest extends Model
 {
     /**
+     * @example secrettoken
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAccepted;

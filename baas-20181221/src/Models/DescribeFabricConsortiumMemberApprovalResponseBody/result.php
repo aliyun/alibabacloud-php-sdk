@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example Any
+     *
      * @var string
      */
     public $channelCreatePolicy;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $confirmTime;
 
     /**
+     * @example consortium-lianmenyumingyi-hc5d1bwlulg7
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $consortiumName;
 
     /**
+     * @example domain
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example orgname
+     *
      * @var string
      */
     public $organizationName;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $state;

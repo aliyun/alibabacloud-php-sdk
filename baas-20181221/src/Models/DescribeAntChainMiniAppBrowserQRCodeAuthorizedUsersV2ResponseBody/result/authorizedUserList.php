@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class authorizedUserList extends Model
 {
     /**
+     * @example 2021-01-07 10:55:42
+     *
      * @var string
      */
     public $gmtAuthorized;
 
     /**
+     * @example 1380013****
+     *
      * @var string
      */
     public $phone;

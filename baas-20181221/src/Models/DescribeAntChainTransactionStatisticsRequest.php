@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainTransactionStatisticsRequest extends Model
 {
     /**
+     * @example pYogqb9v
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example 1563897600000
+     *
      * @var int
      */
     public $end;
 
     /**
+     * @example 1563206400000
+     *
      * @var int
      */
     public $start;

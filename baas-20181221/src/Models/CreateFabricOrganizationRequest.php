@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateFabricOrganizationRequest extends Model
 {
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example domain
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $organizationName;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $paymentDuration;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $paymentDurationUnit;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $peersCount;
 
     /**
+     * @example basic
+     *
      * @var string
      */
     public $specName;

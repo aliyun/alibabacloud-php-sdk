@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 8bd720bde18c4b37b0f4a1c7834db163
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAIAAACxN37FAAAcb0lEQVR42u3dCZAc1XkAYGlPSRZIGIwEtos4tlM4lE05hhBsU
+     *
      * @var string
      */
     public $base64QRCodePNG;
 
     /**
+     * @example https://render.antfin.com/p/s/miniapp-web/?type=trans&from=aliyun&bizid=8bd720bde18c4b37b0f4a1c7834db163&hash=ac73c8fa158436513e0b398632d9a082e04cee3eac6f9fb50087a46d801bdfd1&contractId=
+     *
      * @var string
      */
     public $QRCodeContent;
 
     /**
+     * @example ac73c8fa158436513e0b398632d9a082e04cee3eac6f9fb50087a46d801bdfd1
+     *
      * @var string
      */
     public $transactionHash;

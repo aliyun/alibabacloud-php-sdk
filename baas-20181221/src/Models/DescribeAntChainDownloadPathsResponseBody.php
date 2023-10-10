@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainDownloadPathsResponseBody extends Model
 {
     /**
+     * @example E6F487D4-8606-41B5-B289-46D5EFBD3417
+     *
      * @var string
      */
     public $requestId;

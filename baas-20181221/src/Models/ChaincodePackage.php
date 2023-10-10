@@ -9,112 +9,112 @@ use AlibabaCloud\Tea\Model;
 class ChaincodePackage extends Model
 {
     /**
-     * @description 链码包ID
+     * @example cmcc-1.5:227c3cd472a8a2fcaa1c63f15812a1894348a985dc723006dd47d9f2848d10ed
      *
      * @var string
      */
     public $chaincodePackageId;
 
     /**
-     * @description 链码校验值
+     * @example 15bab12c29edbc095c33545b9867aec9be469c74a6dd5783df6ee74a24334c77
      *
      * @var string
      */
     public $checksum;
 
     /**
-     * @description 删除时间
+     * @example 1533025590
      *
      * @var string
      */
     public $deleteTime;
 
     /**
-     * @description 是否删除
+     * @example false
      *
      * @var bool
      */
     public $deleted;
 
     /**
-     * @description 安装时间
+     * @example 1533025590
      *
      * @var string
      */
     public $installTime;
 
     /**
-     * @description 链码label
+     * @example label
      *
      * @var string
      */
     public $label;
 
     /**
-     * @description 链码md5值
+     * @example N02eVKuRJDA2ODtieMUxVw==
      *
      * @var string
      */
     public $md5sum;
 
     /**
-     * @description 信息
+     * @example ok
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description 组织ID
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
      *
      * @var string
      */
     public $organizationId;
 
     /**
-     * @description 链码包存放bucket内路径
+     * @example hi003/7efbe860-1a40-42c9-9e6b-0bc08d7ee3a4/cmcc.tar.gz
      *
      * @var string
      */
     public $ossURL;
 
     /**
-     * @description 上传者Bid
+     * @example 26842
      *
      * @var string
      */
     public $providerBid;
 
     /**
-     * @description 上传者Uid
+     * @example 1313158505072210
      *
      * @var string
      */
     public $providerUid;
 
     /**
-     * @description 链码状态
+     * @example Running
      *
      * @var string
      */
     public $state;
 
     /**
-     * @description 链码类型
+     * @example 0
      *
      * @var int
      */
     public $type;
 
     /**
-     * @description 链码类型
+     * @example golang
      *
      * @var string
      */
     public $typeName;
 
     /**
-     * @description 上传时间
+     * @example 1533025590
      *
      * @var string
      */

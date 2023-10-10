@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainQRCodeAuthorizationV2ResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 980061FC-058D-4298-8598-D9DDB10D0ED4
+     *
      * @var string
      */
     public $requestId;
@@ -35,16 +43,22 @@ class DescribeAntChainQRCodeAuthorizationV2ResponseBody extends Model
     public $result;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $resultMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

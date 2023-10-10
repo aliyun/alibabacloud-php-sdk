@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteAntChainContractContentResponseBody extends Model
 {
     /**
+     * @example 7E54F588-39DE-446F-9A16-B9BB0B05DF44
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $result;

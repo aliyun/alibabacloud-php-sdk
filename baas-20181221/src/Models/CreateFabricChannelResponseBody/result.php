@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $batchTimeout;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $blockCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $chaincodeCount;
 
     /**
+     * @example chan-channelx-1l1hmckuuisxo
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example channelx
+     *
      * @var string
      */
     public $channelName;
 
     /**
+     * @example consortium-aaaaaa-akpcsjjac2jd
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example aaaaaa
+     *
      * @var string
      */
     public $consortiumName;
 
     /**
+     * @example 1544768139624
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxMessageCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $memberCount;
 
     /**
+     * @example 26842
+     *
      * @var string
      */
     public $ownerBid;
 
     /**
+     * @example uid-
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $preferredMaxBytes;
 
     /**
+     * @example 1890FA4F-067A-4CE9-AC9B-2BD2E58FB5D3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportConfig;
 
     /**
+     * @example 1544768139624
+     *
      * @var string
      */
     public $updateTime;

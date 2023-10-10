@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainLatestTransactionDigestsV2ResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example D68D66B6-1964-4073-8714-B49F5EF1AEFC
+     *
      * @var string
      */
     public $requestId;
@@ -34,16 +42,22 @@ class DescribeAntChainLatestTransactionDigestsV2ResponseBody extends Model
     public $result;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $resultMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

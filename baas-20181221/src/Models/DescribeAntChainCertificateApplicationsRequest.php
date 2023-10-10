@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainCertificateApplicationsRequest extends Model
 {
     /**
+     * @example 1q8B5R9p
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $status;

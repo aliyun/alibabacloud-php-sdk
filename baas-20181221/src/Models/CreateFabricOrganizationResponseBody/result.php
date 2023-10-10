@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example Pending
+     *
      * @var string
      */
     public $clusterState;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $codeName;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $consortiumCount;
 
     /**
+     * @example 1544086901984
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example domain
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $organizationDescription;
 
     /**
+     * @example zuzhiyumingyi-hc5d1bwlulg7
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example zuzhiyumingyi
+     *
      * @var string
      */
     public $organizationName;
 
     /**
+     * @example 26842
+     *
      * @var string
      */
     public $ownerBid;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @example 1019556
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $peerCount;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1890FA4F-067A-4CE9-AC9B-2BD2E58FB5D3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Pending
+     *
      * @var string
      */
     public $serviceState;
 
     /**
+     * @example baisc
+     *
      * @var string
      */
     public $specName;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $userCount;
 
     /**
+     * @example zone
+     *
      * @var string
      */
     public $zoneId;

@@ -14,6 +14,8 @@ class UpdateAntChainContractProjectRequest extends Model
     public $projectDescription;
 
     /**
+     * @example bDXK1b8Z
+     *
      * @var string
      */
     public $projectId;
@@ -24,6 +26,8 @@ class UpdateAntChainContractProjectRequest extends Model
     public $projectName;
 
     /**
+     * @example v1.1.1
+     *
      * @var string
      */
     public $projectVersion;

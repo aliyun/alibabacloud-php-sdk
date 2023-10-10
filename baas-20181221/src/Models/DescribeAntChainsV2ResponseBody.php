@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainsV2ResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example DBD6C69E-22B9-419E-B072-7A715F3AA330
+     *
      * @var string
      */
     public $requestId;
@@ -35,16 +43,22 @@ class DescribeAntChainsV2ResponseBody extends Model
     public $result;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $resultMessage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

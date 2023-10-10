@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example A28nO1ow
+     *
      * @var string
      */
     public $consortiumId;

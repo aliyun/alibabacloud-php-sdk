@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateFabricChaincodePackageRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example hi003/7efbe860-1a40-42c9-9e6b-0bc08d7ee3a4/cmcc.tar.gz
+     *
      * @var string
      */
     public $ossUrl;

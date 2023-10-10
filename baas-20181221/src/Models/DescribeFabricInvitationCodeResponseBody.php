@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricInvitationCodeResponseBody extends Model
 {
     /**
+     * @example InvitationCodeNotFound
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example The invitation code could not found.
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example 77E25463-56CB-4F1C-8EB6-8ADDFE39EF0F
+     *
      * @var string
      */
     public $requestId;
@@ -35,6 +43,8 @@ class DescribeFabricInvitationCodeResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

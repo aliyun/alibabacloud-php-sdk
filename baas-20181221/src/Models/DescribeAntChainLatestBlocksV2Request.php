@@ -14,6 +14,8 @@ class DescribeAntChainLatestBlocksV2Request extends Model
     public $antChainId;
 
     /**
+     * @example M8GaMEyX
+     *
      * @var string
      */
     public $consortiumId;

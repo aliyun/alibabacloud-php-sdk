@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksResponseBody extends Model
 {
     /**
+     * @example code
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example msg
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example 1890FA4F-067A-4CE9-AC9B-2BD2E58FB5D3
+     *
      * @var string
      */
     public $requestId;
@@ -35,6 +43,8 @@ class DescribeTasksResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

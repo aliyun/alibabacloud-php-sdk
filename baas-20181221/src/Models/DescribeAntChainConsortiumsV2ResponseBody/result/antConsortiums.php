@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class antConsortiums extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $chainNum;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $consortiumDescription;
 
     /**
+     * @example M8GaMEyX
+     *
      * @var string
      */
     public $consortiumId;
@@ -29,26 +35,36 @@ class antConsortiums extends Model
     public $consortiumName;
 
     /**
+     * @example 1609745002000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isEmptyConsortium;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $memberNum;
 
     /**
+     * @example Member
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;

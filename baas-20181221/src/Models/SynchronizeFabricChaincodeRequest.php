@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SynchronizeFabricChaincodeRequest extends Model
 {
     /**
+     * @example code-sacc-1pr09q7jm****
+     *
      * @var string
      */
     public $chaincodeId;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w****
+     *
      * @var string
      */
     public $organizationId;

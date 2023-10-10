@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example name
+     *
      * @var string
      */
     public $codeName;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $consortiumCount;
 
     /**
+     * @example 1533025590
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example domain
+     *
      * @var string
      */
     public $domain;
@@ -32,54 +40,81 @@ class result extends Model
     /**
      * @var string
      */
+    public $majorVersion;
+
+    /**
+     * @example desc
+     *
+     * @var string
+     */
     public $organizationDescription;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $organizationName;
 
     /**
+     * @example bid
+     *
      * @var string
      */
     public $ownerBid;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @example 1232
+     *
      * @var int
      */
     public $ownerUid;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $peerCount;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1890FA4F-067A-4CE9-AC9B-2BD2E58FB5D3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example basic、
+     *
      * @var string
      */
     public $specName;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $state;
@@ -90,11 +125,15 @@ class result extends Model
     public $tags;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $userCount;
 
     /**
+     * @example zone
+     *
      * @var string
      */
     public $zoneId;
@@ -103,6 +142,7 @@ class result extends Model
         'consortiumCount'         => 'ConsortiumCount',
         'createTime'              => 'CreateTime',
         'domain'                  => 'Domain',
+        'majorVersion'            => 'MajorVersion',
         'organizationDescription' => 'OrganizationDescription',
         'organizationId'          => 'OrganizationId',
         'organizationName'        => 'OrganizationName',
@@ -137,6 +177,9 @@ class result extends Model
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->majorVersion) {
+            $res['MajorVersion'] = $this->majorVersion;
         }
         if (null !== $this->organizationDescription) {
             $res['OrganizationDescription'] = $this->organizationDescription;
@@ -209,6 +252,9 @@ class result extends Model
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['MajorVersion'])) {
+            $model->majorVersion = $map['MajorVersion'];
         }
         if (isset($map['OrganizationDescription'])) {
             $model->organizationDescription = $map['OrganizationDescription'];

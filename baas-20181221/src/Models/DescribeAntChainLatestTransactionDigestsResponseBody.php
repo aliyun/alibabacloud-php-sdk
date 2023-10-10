@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainLatestTransactionDigestsResponseBody extends Model
 {
     /**
+     * @example 3348160E-187B-47BD-B1B9-76AD4AFA4558
+     *
      * @var string
      */
     public $requestId;

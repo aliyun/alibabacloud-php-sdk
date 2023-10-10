@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAntChainConsortiumResponseBody extends Model
 {
     /**
+     * @example 87FAFC6B-E7AE-4626-B7F7-AE0B88E612D5
+     *
      * @var string
      */
     public $requestId;

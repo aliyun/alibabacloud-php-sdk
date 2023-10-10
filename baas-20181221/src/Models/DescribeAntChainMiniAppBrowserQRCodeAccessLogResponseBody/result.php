@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $accessAlipayAccountCount;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $accessCount;

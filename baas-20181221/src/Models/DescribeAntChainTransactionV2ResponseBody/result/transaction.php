@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class transaction extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $data;
@@ -19,26 +21,36 @@ class transaction extends Model
     public $extentions;
 
     /**
+     * @example e7d3e769f3f593dadcb8634cc5b09fc90dd3a61c4a06a79cb0923662fe6fae6b
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @example 4000000
+     *
      * @var string
      */
     public $gas;
 
     /**
+     * @example b3b0d2db83d3e670449d1e2a39d1d13b7e0e6080b0f9c6945f79eca68d1dd2ca
+     *
      * @var string
      */
     public $hash;
 
     /**
+     * @example 5675407026657953619
+     *
      * @var string
      */
     public $nonce;
 
     /**
+     * @example 1563954336850
+     *
      * @var int
      */
     public $period;
@@ -49,21 +61,29 @@ class transaction extends Model
     public $signatures;
 
     /**
+     * @example 1563954336850
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @example 961085f3c7ef705ad587d0cbe11d7863a5a11af7451f4e9b1edadd74402addf5
+     *
      * @var string
      */
     public $to;
 
     /**
+     * @example UNFREEZE_ACCOUNT_CONTRACT
+     *
      * @var string
      */
     public $txType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $value;

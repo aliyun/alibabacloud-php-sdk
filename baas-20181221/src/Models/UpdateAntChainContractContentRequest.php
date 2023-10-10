@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateAntChainContractContentRequest extends Model
 {
     /**
+     * @example update content
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example R6XMn59e
+     *
      * @var string
      */
     public $contentId;
 
     /**
+     * @example newFile
+     *
      * @var string
      */
     public $contentName;
 
     /**
+     * @example R38DYDop
+     *
      * @var string
      */
     public $parentContentId;

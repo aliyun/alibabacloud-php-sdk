@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest extends Model
 {
     /**
+     * @example bDXK6boZ
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example ["1380013****", "1380013****"]
+     *
      * @var mixed[]
      */
     public $phoneList;

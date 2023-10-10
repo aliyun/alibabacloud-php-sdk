@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainTransactionReceiptResponseBody extends Model
 {
     /**
+     * @example 9EC8FDC1-ED32-4EC0-AEC2-AFAA906ADBAB
+     *
      * @var string
      */
     public $requestId;

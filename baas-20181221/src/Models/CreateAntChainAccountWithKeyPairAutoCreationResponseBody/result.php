@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example accountname
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example -----BEGIN ENCRYPTED PRIVATE KEY-----\nM***8=\n-----END ENCRYPTED PRIVATE KEY-----\n
+     *
      * @var string
      */
     public $accountPrivateKey;
 
     /**
+     * @example b***7
+     *
      * @var string
      */
     public $accountPublicKey;
 
     /**
+     * @example -----BEGIN ENCRYPTED PRIVATE KEY-----\nM***Io=\n-----END ENCRYPTED PRIVATE KEY-----\n
+     *
      * @var string
      */
     public $accountRecoverPrivateKey;
 
     /**
+     * @example d***b
+     *
      * @var string
      */
     public $accountRecoverPublicKey;
 
     /**
+     * @example 1q8B5R9p
+     *
      * @var string
      */
     public $antChainId;

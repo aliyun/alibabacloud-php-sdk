@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricChaincodeDefinitionTaskRequest extends Model
 {
     /**
+     * @example code-sacc-jbkuldd3i7ad
+     *
      * @var string
      */
     public $chaincodeId;
 
     /**
+     * @example peers-aaaaaa2-1eqnj5o5w9dt3
+     *
      * @var string
      */
     public $organizationId;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example domain
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example ecs.n1.small
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example order1
+     *
      * @var string
      */
     public $ordererName;
 
     /**
+     * @example 7050
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $updateTime;

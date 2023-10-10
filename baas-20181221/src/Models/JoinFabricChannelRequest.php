@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class JoinFabricChannelRequest extends Model
 {
     /**
+     * @example chan-channelx-1l1hmckuu****
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example accept
+     *
      * @var string
      */
     public $do;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;

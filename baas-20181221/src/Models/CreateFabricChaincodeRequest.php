@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateFabricChaincodeRequest extends Model
 {
     /**
+     * @example chan-first-channel-1w55v3u39x2xz
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example consortium-aaaaaa-akpcsjjac2jd
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example OR (\"aaaaaa1MSP.peer\")
+     *
      * @var string
      */
     public $endorsePolicy;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example peers-aaaaaa1-1oxw31d046jtl
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example https://chaincode.oss-cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @example aaaaaa1/a0cf8729-7d47-44c9-9ed5-6d2fdfc8dc2c/sacc.cc
+     *
      * @var string
      */
     public $ossUrl;

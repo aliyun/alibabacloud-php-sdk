@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $abnormalNodes;
 
     /**
+     * @example 8bd720bde18c4b37b0f4a1c7834db163
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example 259988
+     *
      * @var int
      */
     public $blockHeight;
 
     /**
+     * @example 1609221924000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isRole;
@@ -40,21 +50,29 @@ class result extends Model
     public $nodeInfos;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $nodeNumber;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $normal;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $transactionSum;
 
     /**
+     * @example 0.10
+     *
      * @var string
      */
     public $version;

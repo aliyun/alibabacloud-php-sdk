@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpgradeFabricChaincodeRequest extends Model
 {
     /**
+     * @example code-sacc-fk9z4r97****
+     *
      * @var string
      */
     public $chaincodeId;
 
     /**
+     * @example [{"requiredPeerCount":0,"name":"collectionName","maxPeerCount":3,"blockToLive":0,"policy":"OR(\"Org1MSP.peer\")"}]
+     *
      * @var string
      */
     public $collectionConfig;
 
     /**
+     * @example OR ("wholesalerMSP.peer")
+     *
      * @var string
      */
     public $endorsePolicy;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example peers-wholesaler-15ix77tof****
+     *
      * @var string
      */
     public $organizationId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricPeerLogsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example 78A09CAF-4944-4CAE-B25D-F5B6BA27D9F5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

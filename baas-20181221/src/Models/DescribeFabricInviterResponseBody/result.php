@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example consortium-lianmenyumingyi-hc5d1bwl****
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $consortiumName;
 
     /**
+     * @example 1544411108000
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 3524234
+     *
      * @var int
      */
     public $inviterId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $inviterName;

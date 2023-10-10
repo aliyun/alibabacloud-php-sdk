@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @example MWJlMTY4ZmY4MzdmMDQzYmRlMTdjMDMxNDM0MWM4NDI3MTA0N2IzMQo=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example peers-tf000eihjli000shanghai-yqxvj52lruxx
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @example organization
+     *
      * @var string
      */
     public $resourceType;

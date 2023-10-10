@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ConfirmFabricConsortiumMemberResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example 50B3ACF3-CE12-433C-A834-9E8C657A4934
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

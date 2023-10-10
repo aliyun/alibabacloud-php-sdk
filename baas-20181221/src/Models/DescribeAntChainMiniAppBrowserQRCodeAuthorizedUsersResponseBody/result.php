@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example bDXK6boZ
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @example ALL_USER_AUTHORIZATION
+     *
      * @var string
      */
     public $authorizationType;
@@ -31,6 +35,8 @@ class result extends Model
     public $pagination;
 
     /**
+     * @example MINI_APP_BROWSER_TRANSACTION
+     *
      * @var string
      */
     public $QRCodeType;

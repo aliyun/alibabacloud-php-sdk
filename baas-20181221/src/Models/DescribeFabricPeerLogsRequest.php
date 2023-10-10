@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricPeerLogsRequest extends Model
 {
     /**
+     * @example 50
+     *
      * @var string
      */
     public $lines;
 
     /**
+     * @example peers-test11-tzwny25vqicq
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example peer1
+     *
      * @var string
      */
     public $peerName;
