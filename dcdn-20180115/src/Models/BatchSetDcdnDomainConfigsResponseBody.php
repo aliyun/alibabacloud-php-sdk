@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainConfigsResponseBody\domainConfigList;
 use AlibabaCloud\Tea\Model;
 
 class BatchSetDcdnDomainConfigsResponseBody extends Model
 {
+    /**
+     * @var domainConfigList
+     */
+    public $domainConfigList;
+
     /**
      * @description The ID of the request.
      *
@@ -17,7 +23,8 @@ class BatchSetDcdnDomainConfigsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'domainConfigList' => 'DomainConfigList',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +34,9 @@ class BatchSetDcdnDomainConfigsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainConfigList) {
+            $res['DomainConfigList'] = null !== $this->domainConfigList ? $this->domainConfigList->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,6 +52,9 @@ class BatchSetDcdnDomainConfigsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainConfigList'])) {
+            $model->domainConfigList = domainConfigList::fromMap($map['DomainConfigList']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -319,6 +319,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDdosAllEventListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeEncryptRoutineUidResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeHighlightInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeHighlightInfoResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeKvUsageDataRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeKvUsageDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRDDomainConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRDDomainConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRDDomainsRequest;
@@ -2976,8 +2978,11 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 30 times per second per account.
+     * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnCertificateList instead.
+     *   * > You can call this operation up to 30 times per second per account.
      *   *
+     * Deprecated
+     *
      * @param DescribeDcdnCertificateListRequest $request DescribeDcdnCertificateListRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -3015,8 +3020,11 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 30 times per second per account.
+     * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnCertificateList instead.
+     *   * > You can call this operation up to 30 times per second per account.
      *   *
+     * Deprecated
+     *
      * @param DescribeDcdnCertificateListRequest $request DescribeDcdnCertificateListRequest
      *
      * @return DescribeDcdnCertificateListResponse DescribeDcdnCertificateListResponse
@@ -9522,6 +9530,67 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHighlightInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeKvUsageDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeKvUsageDataResponse
+     */
+    public function describeKvUsageDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessType)) {
+            $query['AccessType'] = $request->accessType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->field)) {
+            $query['Field'] = $request->field;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->responseType)) {
+            $query['ResponseType'] = $request->responseType;
+        }
+        if (!Utils::isUnset($request->splitBy)) {
+            $query['SplitBy'] = $request->splitBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeKvUsageData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeKvUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeKvUsageDataRequest $request
+     *
+     * @return DescribeKvUsageDataResponse
+     */
+    public function describeKvUsageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKvUsageDataWithOptions($request, $runtime);
     }
 
     /**
