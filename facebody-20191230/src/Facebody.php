@@ -4375,6 +4375,9 @@ class Facebody extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;
         }
+        if (!Utils::isUnset($request->watermarkType)) {
+            $body['WatermarkType'] = $request->watermarkType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);

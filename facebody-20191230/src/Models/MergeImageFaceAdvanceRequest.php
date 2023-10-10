@@ -42,12 +42,18 @@ class MergeImageFaceAdvanceRequest extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $watermarkType;
     protected $_name = [
         'addWatermark'   => 'AddWatermark',
         'imageURLObject' => 'ImageURL',
         'mergeInfos'     => 'MergeInfos',
         'modelVersion'   => 'ModelVersion',
         'templateId'     => 'TemplateId',
+        'watermarkType'  => 'WatermarkType',
     ];
 
     public function validate()
@@ -77,6 +83,9 @@ class MergeImageFaceAdvanceRequest extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->watermarkType) {
+            $res['WatermarkType'] = $this->watermarkType;
         }
 
         return $res;
@@ -110,6 +119,9 @@ class MergeImageFaceAdvanceRequest extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['WatermarkType'])) {
+            $model->watermarkType = $map['WatermarkType'];
         }
 
         return $model;
