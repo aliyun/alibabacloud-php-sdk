@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ScaleK8sApplicationResponseBody extends Model
 {
     /**
+     * @description The ID of the change process. You can call the GetChangeOrderInfo operation to query the progress of this scaling operation. For more information, see [GetChangeOrderInfo](~~62072~~).
+     *
+     * @example 9d7232b2-****-****-b9d9-7e17695779ab
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example a5281053-08e4-47a5-b2ab-5c0323de7b5a
+     *
      * @var string
      */
     public $requestId;

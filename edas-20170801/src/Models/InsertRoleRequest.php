@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class InsertRoleRequest extends Model
 {
     /**
+     * @description The set of permissions to be granted to the role. The value is in the format of `Permission group ID 1:Permission serial number 1;...;Permission group ID n:Permission serial number n`. Example: `1:1;1:2;2:1;2:2`. For more information about permission groups and permission serial numbers, see [ListAuthority](~~149409~~).
+     *
+     * @example 15:1;14:2
+     *
      * @var string
      */
     public $actionData;
 
     /**
+     * @description The name of the role.
+     *
+     * @example testrole
+     *
      * @var string
      */
     public $roleName;

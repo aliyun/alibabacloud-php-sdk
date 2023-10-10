@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
+     * @description The ID of the component.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $componentId;
 
     /**
+     * @description The keyword that is included in the component name.
+     *
+     * @example Open JDK 8
+     *
      * @var string
      */
     public $componentKey;
 
     /**
+     * @description The type of the component. Valid values:
+     *
+     * @example JDK
+     *
      * @var string
      */
     public $type;

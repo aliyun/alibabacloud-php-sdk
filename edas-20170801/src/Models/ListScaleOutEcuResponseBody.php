@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListScaleOutEcuResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The ECUs.
+     *
      * @var ecuInfoList
      */
     public $ecuInfoList;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AF860D6C-ACE3-4429-9D54-3BD15A******
+     *
      * @var string
      */
     public $requestId;

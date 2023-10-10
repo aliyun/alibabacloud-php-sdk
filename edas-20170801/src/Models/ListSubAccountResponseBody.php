@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListSubAccountResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example message
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 57609587-DFA2-41EC-****-*********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The RAM users.
+     *
      * @var subAccountList
      */
     public $subAccountList;

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListK8sIngressRulesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data that is returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5C1C9DE7-88FF-4B56-A47B-3DBBCEB******
+     *
      * @var string
      */
     public $requestId;

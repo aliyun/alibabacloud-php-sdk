@@ -11,106 +11,195 @@ use AlibabaCloud\Tea\Model;
 class ecsEntity extends Model
 {
     /**
+     * @description The total number of CPU cores.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The description of the ECS instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The elastic compute unit (ECU) that corresponds to the ECS instance.
+     *
      * @var ecuEntity
      */
     public $ecuEntity;
 
     /**
+     * @description The elastic IP address (EIP).
+     *
+     * @example 192.168.xxx.xx
+     *
      * @var string
      */
     public $eip;
 
     /**
+     * @description Indicates whether the ECS instance has expired. Valid values:
+     *
+     *   true: The ECS instance has expired.
+     *   false: The ECS instance has not expired.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The ID of the resource group in Enterprise Distributed Application Service (EDAS).
+     *
+     * @example 64189****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the host.
+     *
+     * @example iZm5e853hvvrodnvqus****
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The private IP address.
+     *
+     * @example 192.168.xx.xxx
+     *
      * @var string
      */
     public $innerIp;
 
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example i-m5e853hvvrodnvqu****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the ECS instance.
+     *
+     * @example betabjmixcoud_01
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The total size of memory. Unit: MB.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $mem;
 
     /**
+     * @description The private IP address of the ECS instance.
+     *
+     * @example 192.168.xx.xxx
+     *
      * @var string
      */
     public $privateIp;
 
     /**
+     * @description The public IP address.
+     *
+     * @example 192.168.xx.xxx
+     *
      * @var string
      */
     public $publicIp;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example ch-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The serial number of the ECS instance.
+     *
+     * @example 98b480b8-458b-4ff3-84b9-cf7097c5****
+     *
      * @var string
      */
     public $serialNum;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-m5eajgzn6b8sg9mv****
+     *
      * @var string
      */
     public $sgId;
 
     /**
+     * @description The status of the ECS instance. Valid values:
+     *
+     *   Pending: The ECS instance is being created.
+     *   Running: The ECS instance is running.
+     *   Starting: The ECS instance is being started.
+     *   Stopping: The ECS instance is being stopped.
+     *   Stopped: The ECS instance is stopped.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the user account.
+     *
+     * @example ****_common_****@aliyun.com
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The VPCs.
+     *
      * @var vpcEntity
      */
     public $vpcEntity;
 
     /**
+     * @description The unique ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp13evu4aayj2t1er****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-qingdao-h
+     *
      * @var string
      */
     public $zoneId;

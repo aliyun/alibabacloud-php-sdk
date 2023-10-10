@@ -9,71 +9,133 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The number of CPU cores of the ECS instance.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The ID of the elastic compute units (ECU).
+     *
+     * @example b197-40ab-9155-7ca7
+     *
      * @var string
      */
     public $ecuId;
 
     /**
+     * @description The elastic IP address (EIP) associated with the ECS instance. The EIP can be changed.
+     *
+     * @example 13.xx.xxx.xx
+     *
      * @var string
      */
     public $eip;
 
     /**
+     * @description Indicates whether the ECS instance has expired.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The private IP address of the ECS instance. This parameter is valid only when the ECS instance is deployed in a VPC.
+     *
+     * @example 192.168.13.xx
+     *
      * @var string
      */
     public $innerIp;
 
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example i-2ze7s2v0b***********
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the ECS instance.
+     *
+     * @example worker-k8s
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The size of memory for the ECS instance.
+     *
+     * @example 4096
+     *
      * @var int
      */
     public $mem;
 
     /**
+     * @description The private IP address of the ECS instance. This parameter is valid only when the ECS instance is deployed in a VPC.
+     *
+     * @example 192.XX.XX.123
+     *
      * @var string
      */
     public $privateIp;
 
     /**
+     * @description The public IP address of the ECS instance. This IP address can be used only by the ECS instance.
+     *
+     * @example 13.xx.xx.xxx
+     *
      * @var string
      */
     public $publicIp;
 
     /**
+     * @description The ID of the region where the ECS instance is located.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The state of the instance. Valid values:
+     *
+     *   Pending: The instance is being created.
+     *   Running: The instance is running.
+     *   Starting: The instance is being started.
+     *   Stopping: The instance is being stopped.
+     *   Stopped: The instance is stopped.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-2zef6ob8m************
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example jianwei-test
+     *
      * @var string
      */
     public $vpcName;

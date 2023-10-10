@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class fileServerConfig extends Model
 {
     /**
+     * @description The Object Storage Service (OSS) bucket of the file server.
+     *
+     * @example edas-bj
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The internal endpoint of the file server.
+     *
+     * @example oss-cn-beijing-****.aliyuncs.com
+     *
      * @var string
      */
     public $internalUrl;
 
     /**
+     * @description The public endpoint of the file server.
+     *
+     * @example oss-cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $publicUrl;
 
     /**
+     * @description The virtual private cloud (VPC) endpoint of the file server.
+     *
+     * @example v*****-oss-cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $vpcUrl;

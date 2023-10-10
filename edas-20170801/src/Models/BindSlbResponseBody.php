@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class BindSlbResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data that is returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example bind slb success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 23DR4FDXXXXXXXXXX
+     *
      * @var string
      */
     public $requestId;

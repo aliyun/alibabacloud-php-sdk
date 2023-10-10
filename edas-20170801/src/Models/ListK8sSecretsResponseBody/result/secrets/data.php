@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The user-defined key of the Kubernetes Secret.
+     *
+     * @example name
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The user-defined value of the Kubernetes Secret.
+     *
+     * @example william
+     *
      * @var string
      */
     public $value;

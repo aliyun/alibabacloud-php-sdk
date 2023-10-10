@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class MigrateEcuRequest extends Model
 {
     /**
+     * @description The ID of the ECS instance. Separate multiple IDs with commas (,).
+     *
+     * @example i-2zej4i2jdf3ntwhj****
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @description The ID of the custom namespace.
+     *
+     *   The ID of a custom namespace is in the `region ID:custom namespace ID` format. Example: cn-beijing:tdy218.
+     *   The ID of the default namespace is in the `region ID` format. Example: cn-beijing.
+     *
+     * @example cn-hangzhou:test_region
+     *
      * @var string
      */
     public $logicalRegionId;

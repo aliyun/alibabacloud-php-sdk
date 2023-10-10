@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateIDCImportCommandResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The generated import command.
+     *
+     * @example wget -q -O /tmp/install.sh http://edas-hz.oss-cn-hangzhou-internal.aliyuncs.com/install.sh && sh /tmp/install.sh -idcToken xxxx-xxxxx-xxxxx-xxxxxxx -edasId xxxxxxxxxxxxxx
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example b197-40ab-9155-7ca7
+     *
      * @var string
      */
     public $requestId;

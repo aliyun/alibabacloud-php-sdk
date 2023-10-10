@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class GetK8sApplicationResponseBody extends Model
 {
     /**
+     * @description The details of the application.
+     *
      * @var applcation
      */
     public $applcation;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1053-08e4-47a5-b2ab-5c0323de7b5a
+     *
      * @var string
      */
     public $requestId;

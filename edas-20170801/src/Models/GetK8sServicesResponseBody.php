@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class GetK8sServicesResponseBody extends Model
 {
     /**
+     * @description The ID of the change process.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4823-bhjf-23u4-eiufh
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of services in the Kubernetes cluster.
+     *
      * @var services[]
      */
     public $services;

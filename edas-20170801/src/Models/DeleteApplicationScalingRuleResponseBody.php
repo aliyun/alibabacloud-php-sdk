@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationScalingRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5d6fa0bc-cc3**********
+     *
      * @var string
      */
     public $requestId;

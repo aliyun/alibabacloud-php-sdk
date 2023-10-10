@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserDefineRegionResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The custom namespace.
+     *
      * @var regionDefine
      */
     public $regionDefine;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1234-1sda-321d-****
+     *
      * @var string
      */
     public $requestId;

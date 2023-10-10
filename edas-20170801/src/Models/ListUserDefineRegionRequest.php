@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListUserDefineRegionRequest extends Model
 {
     /**
+     * @description Specifies whether remote debugging is allowed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $debugEnable;

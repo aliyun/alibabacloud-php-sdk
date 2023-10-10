@@ -11,16 +11,31 @@ use AlibabaCloud\Tea\Model;
 class listConsumedServices extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example a5281053-08e4-47a5-b2ab-5c0323de7b5a
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Indicates whether the application runs in a Docker container. Valid values:
+     *
+     *   true: The application runs in a Docker container.
+     *   false: The application does not run in a Docker container.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dockerApplication;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $group2Ip;
@@ -36,16 +51,28 @@ class listConsumedServices extends Model
     public $ips;
 
     /**
+     * @description The name of the consumed service.
+     *
+     * @example service
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the consumed service.
+     *
+     * @example HSF
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The version of the consumed service.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $version;

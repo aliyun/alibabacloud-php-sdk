@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class serviceStage extends Model
 {
     /**
+     * @description The execution result in the stage.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the stage.
+     *
+     * @example 358a143f-09a0-45e0-****-************
+     *
      * @var string
      */
     public $stageId;
 
     /**
+     * @description Phase Name
+     *
+     * @example Enable Tengine
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The running state. Valid values:
+     *
+     *   0: ready
+     *   1: in progress
+     *   2: successful
+     *   3: failed
+     *   6: terminated
+     *   8: wait for manual confirmation to trigger the next batch during a manual phased release
+     *   9: wait to trigger the next batch during an automatic phased release
+     *   10: failed due to a system exception
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;

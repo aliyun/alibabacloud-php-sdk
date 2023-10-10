@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example xxxxE654-xxxx-xxxx-xxxx-98F45996xxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about resource tags.
+     *
      * @var tagResources
      */
     public $tagResources;

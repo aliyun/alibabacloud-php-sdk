@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class envFroms extends Model
 {
     /**
-     * @description 配置项引用
-     *
      * @var string
      */
     public $configMapRef;
 
     /**
-     * @description 保密字典引用
-     *
      * @var string
      */
     public $secretRef;

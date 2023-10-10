@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetK8sServicesRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 5a166fbd-****-****-a286-781659d9f54c
+     *
      * @var string
      */
     public $appId;

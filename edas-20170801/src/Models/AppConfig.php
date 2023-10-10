@@ -20,211 +20,151 @@ use AlibabaCloud\Tea\Model;
 class AppConfig extends Model
 {
     /**
-     * @description 启动命令
-     *
      * @var string
      */
     public $command;
 
     /**
-     * @description 启动参数
-     *
      * @var string[]
      */
     public $commandArgs;
 
     /**
-     * @description 配置项挂载配置
-     *
      * @var configMountDescs[]
      */
     public $configMountDescs;
 
     /**
-     * @description 是否尽量多节点部署
-     *
      * @var bool
      */
     public $deployAcrossNodes;
 
     /**
-     * @description 是否尽量多可用区部署
-     *
      * @var bool
      */
     public $deployAcrossZones;
 
     /**
-     * @description EmptyDir挂载配置
-     *
      * @var emptyDirs[]
      */
     public $emptyDirs;
 
     /**
-     * @description 是否开启限流降级
-     *
      * @var bool
      */
     public $enableAhas;
 
     /**
-     * @description 环境变量引用
-     *
      * @var envFroms[]
      */
     public $envFroms;
 
     /**
-     * @description 环境变量
-     *
      * @var envs[]
      */
     public $envs;
 
     /**
-     * @description 镜像配置
-     *
      * @var imageConfig
      */
     public $imageConfig;
 
     /**
-     * @description 是否多语言应用
-     *
      * @var bool
      */
     public $isMultilingualApp;
 
     /**
-     * @description Java启动参数配置
-     *
      * @var string
      */
     public $javaStartUpConfig;
 
     /**
-     * @description CPU限制
-     *
      * @var string
      */
     public $limitCpu;
 
     /**
-     * @description 内存限制
-     *
      * @var string
      */
     public $limitMem;
 
     /**
-     * @description liveness探针配置
-     *
      * @var string
      */
     public $liveness;
 
     /**
-     * @description 本地磁盘挂载配置
-     *
      * @var localVolumes[]
      */
     public $localVolumes;
 
     /**
-     * @description NAS实例ID
-     *
      * @var string
      */
     public $nasId;
 
     /**
-     * @description NAS挂载配置
-     *
      * @var nasMountDescs[]
      */
     public $nasMountDescs;
 
     /**
-     * @description NAS存储类型
-     *
      * @var string
      */
     public $nasStorageType;
 
     /**
-     * @description 部署包配置
-     *
      * @var packageConfig
      */
     public $packageConfig;
 
     /**
-     * @description postStart挂钩配置
-     *
      * @var string
      */
     public $postStart;
 
     /**
-     * @description preStop挂钩配置
-     *
      * @var string
      */
     public $preStop;
 
     /**
-     * @description 持久化存储挂载配置
-     *
      * @var pvcMountDescs[]
      */
     public $pvcMountDescs;
 
     /**
-     * @description readiness探针配置
-     *
      * @var string
      */
     public $readiness;
 
     /**
-     * @description 应用实例数
-     *
      * @var int
      */
     public $replicas;
 
     /**
-     * @description CPU需求
-     *
      * @var string
      */
     public $requestCpu;
 
     /**
-     * @description 内存需求
-     *
      * @var string
      */
     public $requestMem;
 
     /**
-     * @description 运行时类型
-     *
      * @var string
      */
     public $runtimeClassName;
 
     /**
-     * @description 日志采集配置
-     *
      * @var slsConfigs[]
      */
     public $slsConfigs;
 
     /**
-     * @description Tomcat配置
-     *
      * @var webContainerConfig
      */
     public $webContainerConfig;

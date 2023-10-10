@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class GetClusterResponseBody extends Model
 {
     /**
+     * @description The information about the cluster.
+     *
      * @var cluster
      */
     public $cluster;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The detailed information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example d76db491
+     *
      * @var string
      */
     public $requestId;

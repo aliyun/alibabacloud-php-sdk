@@ -10,31 +10,62 @@ use AlibabaCloud\Tea\Model;
 class instanceDTO extends Model
 {
     /**
+     * @description The IP address of the ECS instance.
+     *
+     * @example 47.XX.XX.12 (Public)<br>***.**.*.*** (*******)
+     *
      * @var string
      */
     public $instanceIp;
 
     /**
+     * @description The name of the ECS instance.
+     *
+     * @example EDAS-scaled
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The results of the task executed on the ECS instance in each stage.
+     *
      * @var instanceStageDTOList
      */
     public $instanceStageDTOList;
 
     /**
+     * @description The name of the node.
+     *
+     * @example canary-test
+     *
      * @var string
      */
     public $podName;
 
     /**
+     * @description The state of the pod.
+     *
+     * @example In progress
+     *
      * @var string
      */
     public $podStatus;
 
     /**
+     * @description The running state. Valid values:
+     *
+     *   0: ready
+     *   1: in progress
+     *   2: successful
+     *   3: failed
+     *   6: terminated
+     *   8: wait for manual confirmation to trigger the next batch during a manual phased release
+     *   9: wait to trigger the next batch during an automatic phased release
+     *   10: failed due to a system exception
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;

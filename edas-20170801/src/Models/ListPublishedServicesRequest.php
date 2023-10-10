@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListPublishedServicesRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 1fbd8b72-****-****-bdfe-478dbc914121
+     *
      * @var string
      */
     public $appId;

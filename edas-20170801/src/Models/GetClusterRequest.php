@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetClusterRequest extends Model
 {
     /**
+     * @description The ID of the cluster in Enterprise Distributed Application Service (EDAS). You can call the ListCluster operation to query the cluster ID. For more information, see [ListCluster](~~154995~~).
+     *
+     * @example 5439271a-015b-433d-****-d76db49****
+     *
      * @var string
      */
     public $clusterId;

@@ -9,28 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListConfigTemplatesRequest extends Model
 {
     /**
-     * @description 页码
+     * @description The number of the page to return. Pages start from Page 1.
+     *
+     * @example 1
      *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description 配置模板ID
+     * @description The ID of the configuration template.
+     *
+     * @example 3d84efaf-37d9-49fb-a3a8-b38d5c******
      *
      * @var int
      */
     public $id;
 
     /**
-     * @description 配置模板名称
+     * @description The name of the configuration template.
+     *
+     * @example config-tmpl-1
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 页大小
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
      *
      * @var int
      */

@@ -9,46 +9,85 @@ use AlibabaCloud\Tea\Model;
 class vpcEntity extends Model
 {
     /**
+     * @description The IPv4 CIDR block of the vSwitch.
+     *
+     * @example 192.168.xx.xxx
+     *
      * @var string
      */
     public $cidrblock;
 
     /**
+     * @description The description of the VPC.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The number of ECS instances that run in the VPC.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ecsNum;
 
     /**
+     * @description Indicates whether the VPC has expired. Valid values:
+     *
+     *   true: The VPC has expired.
+     *   false: The VPC has not expired.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The status of the VPC.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example ****_common_****@aliyun.com
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The unique ID of the VPC.
+     *
+     * @example vpc-bp13evu42t1er****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example test
+     *
      * @var string
      */
     public $vpcName;

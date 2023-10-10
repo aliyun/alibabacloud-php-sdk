@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeployGroupRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 3616cdca-4f92-4413-b31*************
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the instance group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;

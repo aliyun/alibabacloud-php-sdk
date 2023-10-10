@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The namespaces of the Kubernetes cluster.
+     *
+     * @example development
+     *
      * @var string
      */
     public $namespace;

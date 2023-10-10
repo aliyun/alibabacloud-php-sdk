@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListHistoryDeployVersionResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The information about historical deployment packages.
+     *
      * @var packageVersionList
      */
     public $packageVersionList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D16979DC-4D42-************
+     *
      * @var string
      */
     public $requestId;

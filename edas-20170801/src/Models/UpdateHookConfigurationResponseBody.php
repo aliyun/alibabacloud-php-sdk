@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class UpdateHookConfigurationResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The information about the mounted script.
+     *
      * @var hooksConfiguration[]
      */
     public $hooksConfiguration;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example d498****-1dd8ec229862
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class InsertClusterMemberRequest extends Model
 {
     /**
+     * @description The ID of the cluster into which you want to import ECS instances.
+     *
+     * @example b3e3f77b-462e-****-****-bec8727a4dc8
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the ECS instance that you want to import into the cluster. Separate multiple IDs with commas (,).
+     *
+     * @example i-2ze7s2v0b789k60p****
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @description The logon password of the ECS instance that you want to import into the cluster.
+     *
+     * @example YourPassword
+     *
      * @var string
      */
     public $password;

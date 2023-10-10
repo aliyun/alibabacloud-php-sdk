@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListK8sSecretsRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example 7a953f9a-2946-4c7a-9d82-9939db******
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The filter conditions. Set this parameter to a JSON string in the format of {"field":"Name", "pattern":"configmap-"}.
+     *
+     * @example {\"field\":\"Name\",\"pattern\":\"product\"}
+     *
      * @var string
      */
     public $condition;
 
     /**
+     * @description The namespace of the Kubernetes cluster.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The number of the page to return. Pages start from Page 0.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page. The value 0 indicates that all entries are returned on one page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to return a list of applications that use a Secret.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $showRelatedApps;

@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class imageInfo extends Model
 {
     /**
+     * @description The URL of the image.
+     *
+     * @example registry.cn-beijing.aliyuncs.com/edas-serverless-****\/1314839****06888_shared_repo:5a166fbd-9d76-4f98-****-78165****c_1572***282
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @description The region ID of the image repository.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The name of the image repository.
+     *
+     * @example 131****067006888_shared_repo
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
+     * @example edas-server****-user
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @description The source type of the image repository.
+     *
+     * @example ALI_HUB
+     *
      * @var string
      */
     public $repoOriginType;
 
     /**
+     * @description The tag of the image.
+     *
+     * @example 5a166fbd-9d76-4f98-****-781659d9f54c_1572485443282
+     *
      * @var string
      */
     public $tag;

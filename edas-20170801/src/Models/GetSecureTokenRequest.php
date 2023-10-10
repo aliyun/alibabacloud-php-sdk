@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetSecureTokenRequest extends Model
 {
     /**
+     * @description The ID of the namespace, such as cn-beijing or cn-beijing:prod````.
+     *
+     * @example cn-shenzhen:x*****
+     *
      * @var string
      */
     public $namespaceId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryApplicationStatusRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 3616cdca-4f92-441**************
+     *
      * @var string
      */
     public $appId;

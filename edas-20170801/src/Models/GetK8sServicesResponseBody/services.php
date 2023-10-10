@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @description The IP address of the service in the Kubernetes cluster.
+     *
+     * @example 104.23.xx.xx
+     *
      * @var string
      */
     public $clusterIP;
 
     /**
+     * @description The name of the service.
+     *
+     * @example service-http
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The mapping of service ports.
+     *
      * @var servicePorts[]
      */
     public $servicePorts;
 
     /**
+     * @description The type of the service.
+     *
+     * @example ClusterIP
+     *
      * @var string
      */
     public $type;

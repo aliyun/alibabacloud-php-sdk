@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class InsertDeployGroupRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 3616cdca-4f92-4413-***********
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the instance group. The name can be up to 64 characters in length.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The version of the initial deployment package associated with the instance group. You can call the ListHistoryDeployVersion operation to query the version. For more information, see [ListHistoryDeployVersion](~~149392~~).
+     *
+     * @example 441beb18-da42-44dc-****-****
+     *
      * @var string
      */
     public $initPackageVersionId;

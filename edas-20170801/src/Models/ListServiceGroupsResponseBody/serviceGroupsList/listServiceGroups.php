@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class listServiceGroups extends Model
 {
     /**
+     * @description The time when the service group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1575357165770
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The ID of the service group.
+     *
+     * @example 789d9cda-74b1-****-****-05e21a0a7661
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the service group.
+     *
+     * @example edas-test-group
+     *
      * @var string
      */
     public $groupName;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class env extends Model
 {
     /**
+     * @description The name of the environment variable.
+     *
+     * @example CATALINA_OPTS
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the environment variable.
+     *
+     * @example -Xmx 1024m -Dhsf.default.tid=false $(EDAS_CATALINA_OPTS)
+     *
      * @var string
      */
     public $value;

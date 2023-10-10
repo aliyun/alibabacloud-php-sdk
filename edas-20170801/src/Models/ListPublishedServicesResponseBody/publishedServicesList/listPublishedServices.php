@@ -11,16 +11,31 @@ use AlibabaCloud\Tea\Model;
 class listPublishedServices extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example ECD1D6FC-4307-4583-BA6F-215F3857E****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Indicates whether the application runs in a Docker container. Valid values:
+     *
+     *   true: The application runs in a Docker container.
+     *   false: The application does not run in a Docker container.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dockerApplication;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $group2Ip;
@@ -36,16 +51,28 @@ class listPublishedServices extends Model
     public $ips;
 
     /**
+     * @description The name of the published service.
+     *
+     * @example providers:com.****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the published service.
+     *
+     * @example RESTful
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The version of the published services.
+     *
+     * @example --
+     *
      * @var string
      */
     public $version;

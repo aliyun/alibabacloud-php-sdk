@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateHealthCheckUrlResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The health check URL.
+     *
+     * @example http://127.0.0.1:8080/_ehc.html
+     *
      * @var string
      */
     public $healthCheckURL;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D16979DC-4D42-*****************
+     *
      * @var string
      */
     public $requestId;

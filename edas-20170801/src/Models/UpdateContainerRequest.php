@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateContainerRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example e83acea6-****-47e1-96ae-c0e953772cdc
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The build package number of EDAS Container. You can obtain the build package number in the Build package number column in the EDAS Container release notes table. For more information, see [Release notes for EDAS Container](~~92614~~).
+     *
+     * @example 59
+     *
      * @var int
      */
     public $buildPackId;

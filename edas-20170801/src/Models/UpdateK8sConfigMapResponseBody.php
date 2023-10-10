@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateK8sConfigMapResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example b197-40ab-9155-****
+     *
      * @var string
      */
     public $requestId;

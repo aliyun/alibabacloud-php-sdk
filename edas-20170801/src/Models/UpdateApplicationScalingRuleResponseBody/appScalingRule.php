@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\UpdateApplicationScalingRuleResponseBody;
 
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateApplicationScalingRuleResponseBody\appScalingRule\behaviour;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateApplicationScalingRuleResponseBody\appScalingRule\metric;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateApplicationScalingRuleResponseBody\appScalingRule\trigger;
 use AlibabaCloud\Tea\Model;
@@ -11,61 +12,110 @@ use AlibabaCloud\Tea\Model;
 class appScalingRule extends Model
 {
     /**
+     * @description The ID of the application to which the auto scaling policy belongs.
+     *
+     * @example 78194c76-3dca-418e-a263-cccd1ab4****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @var behaviour
+     */
+    public $behaviour;
+
+    /**
+     * @description The time when the auto scaling policy was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1574251601785
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The time when the auto scaling policy was last disabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1574251601785
+     *
      * @var int
      */
     public $lastDisableTime;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $maxReplicas;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @var metric
      */
     public $metric;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minReplicas;
 
     /**
+     * @description Indicates whether the auto scaling policy is enabled. Valid values:
+     *
+     *   **true**: The auto scaling policy is enabled.
+     *   **false**: The auto scaling policy is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $scaleRuleEnabled;
 
     /**
+     * @description The name of the auto scaling policy.
+     *
+     * @example cpu-trigger
+     *
      * @var string
      */
     public $scaleRuleName;
 
     /**
+     * @description The type of the auto scaling policy. The value is fixed to trigger.
+     *
+     * @example trigger
+     *
      * @var string
      */
     public $scaleRuleType;
 
     /**
+     * @description The configurations of the trigger.
+     *
      * @var trigger
      */
     public $trigger;
 
     /**
+     * @description The time when the auto scaling policy was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1574251601785
+     *
      * @var int
      */
     public $updateTime;
     protected $_name = [
         'appId'            => 'AppId',
+        'behaviour'        => 'Behaviour',
         'createTime'       => 'CreateTime',
         'lastDisableTime'  => 'LastDisableTime',
         'maxReplicas'      => 'MaxReplicas',
@@ -87,6 +137,9 @@ class appScalingRule extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->behaviour) {
+            $res['Behaviour'] = null !== $this->behaviour ? $this->behaviour->toMap() : null;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -132,6 +185,9 @@ class appScalingRule extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['Behaviour'])) {
+            $model->behaviour = behaviour::fromMap($map['Behaviour']);
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];

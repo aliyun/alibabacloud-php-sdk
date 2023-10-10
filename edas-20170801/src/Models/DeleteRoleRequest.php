@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoleRequest extends Model
 {
     /**
+     * @description The ID of the RAM role.
+     *
+     * @example 99999999
+     *
      * @var int
      */
     public $roleId;

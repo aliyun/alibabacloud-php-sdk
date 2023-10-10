@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteK8sConfigMapRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example 51e37e91-6403-423a-9913-f236aa7a6a50
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the ConfigMap. The name must start with a letter, and can contain digits, letters, and hyphens (-). It can be up to 63 characters in length.
+     *
+     * @example my-configmap
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace of the Kubernetes cluster.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;

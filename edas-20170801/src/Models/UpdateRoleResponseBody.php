@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateRoleResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example edit successfully
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4823-bhjf-23u4-****
+     *
      * @var string
      */
     public $requestId;

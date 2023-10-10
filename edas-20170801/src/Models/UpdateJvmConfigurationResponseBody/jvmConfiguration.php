@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class jvmConfiguration extends Model
 {
     /**
+     * @description The maximum size of the heap memory. Unit: MB.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $maxHeapSize;
 
     /**
+     * @description The size of the permanent generation heap memory. Unit: MB.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxPermSize;
 
     /**
+     * @description The initial size of the heap memory. Unit: MB.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $minHeapSize;
 
     /**
+     * @description The optional parameters.
+     *
+     * @example ”“
+     *
      * @var string
      */
     public $options;

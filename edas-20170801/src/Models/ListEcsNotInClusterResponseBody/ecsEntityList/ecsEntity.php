@@ -9,66 +9,127 @@ use AlibabaCloud\Tea\Model;
 class ecsEntity extends Model
 {
     /**
+     * @description The number of CPU cores.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The elastic IP address (EIP) associated with the ECS instance.
+     *
+     * @example 139.30.xxx.xx
+     *
      * @var string
      */
     public $eip;
 
     /**
+     * @description Indicates whether the ECS instance has expired. Valid values:
+     *
+     *   **true**: The ECS instance has expired.
+     *   **false**: The ECS instance has not expired.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The private IP address of the ECS instance.
+     *
+     * @example 192.168.20.113
+     *
      * @var string
      */
     public $innerIp;
 
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example i-2ze7s2v0b***********
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the ECS instance.
+     *
+     * @example worker-k8s-for-cs-c9dfa009a5e7c4faab2010b87cae4****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The size of memory. Unit: bytes.
+     *
+     * @example 4096
+     *
      * @var int
      */
     public $mem;
 
     /**
+     * @description The private IP address of the ECS instance.
+     *
+     * @example 192.168.*.**
+     *
      * @var string
      */
     public $privateIp;
 
     /**
+     * @description The public IP address of the ECS instance.
+     *
+     * @example 131.30.xxx.xx
+     *
      * @var string
      */
     public $publicIp;
 
     /**
+     * @description The ID of the region where the ECS instance is located.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The status of the ECS instance. Valid values:
+     *
+     *   **Pending**: The ECS instance is being created.
+     *   **Running**: The ECS instance is running.
+     *   **Starting**: The ECS instance is being started.
+     *   **Stopping**: The ECS instance is being stopped.
+     *   **Stopped**: The ECS instance is stopped.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-2zef6ob8mrlzv8x3q****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example test
+     *
      * @var string
      */
     public $vpcName;

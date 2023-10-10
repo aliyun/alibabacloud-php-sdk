@@ -9,31 +9,85 @@ use AlibabaCloud\Tea\Model;
 class UpdateJvmConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example c627c157-560d-*************
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the instance group where the application is deployed. You can call the ListDeployGroup operation to query the group ID. For more information, see [ListDeployGroup](~~62077~~).
+     *
+     * >
+     *
+     *   To configure the JVM parameters for an instance group, set this parameter to a specific ID.
+     *
+     *   To configure the JVM parameters for an application, leave this parameter empty.
+     *
+     * @example 0afc726e-077e-4357-98b2-db9f7145****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The maximum size of the heap memory. Unit: MB.
+     *
+     * >
+     *
+     *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+     *
+     *   If this parameter is not specified in the application configuration, the default value is used.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $maxHeapSize;
 
     /**
+     * @description The size of the permanent generation heap memory. Unit: MB.
+     *
+     * >
+     *
+     *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+     *
+     *   If this parameter is not specified in the application configuration, the default value is used.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxPermSize;
 
     /**
+     * @description The initial size of the heap memory. Unit: MB.
+     *
+     * >
+     *
+     *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+     *
+     *   If this parameter is not specified in the application configuration, the default value is used.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $minHeapSize;
 
     /**
+     * @description The custom JVM parameters.
+     *
+     * >
+     *
+     *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+     *
+     *   If this parameter is not specified in the application configuration, the default value is used.
+     *
+     * @example -Dproperty=value
+     *
      * @var string
      */
     public $options;

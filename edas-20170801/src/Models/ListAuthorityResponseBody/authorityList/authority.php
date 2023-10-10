@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class authority extends Model
 {
     /**
+     * @description The set of permissions.
+     *
      * @var actionList
      */
     public $actionList;
 
     /**
+     * @description The description of the permission group.
+     *
+     * @example Operations on applications
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the permission group.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the permission group.
+     *
+     * @example Application management
+     *
      * @var string
      */
     public $name;

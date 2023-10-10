@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListK8sNamespacesRequest extends Model
 {
     /**
-     * @description A short description of struct
+     * @description The ID of the cluster in Enterprise Distributed Application Service (EDAS).
+     *
+     * @example 5b2b4ab4-efbc-4a81-9c45-xxxxxxxxxxxxx
      *
      * @var string
      */

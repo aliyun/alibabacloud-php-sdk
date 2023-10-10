@@ -9,81 +9,145 @@ use AlibabaCloud\Tea\Model;
 class ecu extends Model
 {
     /**
+     * @description The number of available CPU cores.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $availableCpu;
 
     /**
+     * @description The size of the available memory.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $availableMem;
 
     /**
+     * @description The time when the ECU was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573626207270
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description Indicates whether Docker is installed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dockerEnv;
 
     /**
+     * @description The unique ID of the ECU. You can run the `dmidecode` command on the ECS instance to query the ECU ID.
+     *
+     * @example 07bd417a-b863-477d-****-************
+     *
      * @var string
      */
     public $ecuId;
 
     /**
+     * @description The ID of the group.
+     *
+     * @example 8123db90-880f-486f-****-************
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The time when the last heartbeat detection was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573635952012
+     *
      * @var int
      */
     public $heartbeatTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-wz9fp1ljg***********
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The private IP address of the ECU.
+     *
+     * @example 172.16.*.**
+     *
      * @var string
      */
     public $ipAddr;
 
     /**
+     * @description The name of the ECU.
+     *
+     * @example EDAS-scaled-cluster: default cluster
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Indicates whether the ECU is online.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $online;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-shen****-*
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The time when the ECU was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573635952012
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @description The ID of the user associated with the ECU.
+     *
+     * @example edas_com***_****@******-*****.***
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-wz9b246zg************
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-shen****-*
+     *
      * @var string
      */
     public $zoneId;

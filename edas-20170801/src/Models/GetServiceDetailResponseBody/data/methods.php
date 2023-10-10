@@ -10,61 +10,107 @@ use AlibabaCloud\Tea\Model;
 class methods extends Model
 {
     /**
+     * @description The controllers.
+     *
+     * @example com.aliware.edas.DemoController
+     *
      * @var string
      */
     public $methodController;
 
     /**
+     * @description The name.
+     *
+     * @example feign2
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The specific name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $nameDetail;
 
     /**
+     * @description The definition of the parameter.
+     *
+     * @example [{"description":"","name":"arg0","type":"java.lang.String"}]
+     *
      * @var string
      */
     public $parameterDefinitions;
 
     /**
+     * @description The details of the parameters.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $parameterDetails;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example test
+     *
      * @var string
      */
     public $parameterNames;
 
     /**
+     * @description The data type of the parameter.
+     *
+     * @example ["java.lang.String"]
+     *
      * @var string
      */
     public $parameterTypes;
 
     /**
+     * @description The method path.
+     *
+     * @example ["/consumer-echo/feign/{str}"]
+     *
      * @var string
      */
     public $paths;
 
     /**
+     * @description The request method.
+     *
+     * @example GET
+     *
      * @var string
      */
     public $requestMethods;
 
     /**
+     * @description The definition of the value returned by the method.
+     *
      * @var returnDefinition
      */
     public $returnDefinition;
 
     /**
+     * @description The details of the response.
+     *
+     * @example test
+     *
      * @var string
      */
     public $returnDetails;
 
     /**
+     * @description The data format of the response.
+     *
+     * @example java.lang.String
+     *
      * @var string
      */
     public $returnType;

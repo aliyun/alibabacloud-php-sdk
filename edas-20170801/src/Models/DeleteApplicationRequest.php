@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](~~149390~~).
+     *
+     * @example 3616cdca-*********
+     *
      * @var string
      */
     public $appId;

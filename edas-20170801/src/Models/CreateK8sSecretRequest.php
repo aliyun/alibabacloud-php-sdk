@@ -9,41 +9,79 @@ use AlibabaCloud\Tea\Model;
 class CreateK8sSecretRequest extends Model
 {
     /**
+     * @description Specifies whether the data has been encoded in Base64. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $base64Encoded;
 
     /**
+     * @description The certificate ID provided by Alibaba Cloud Certificate Management Service.
+     *
+     * @example 6651483
+     *
      * @var string
      */
     public $certId;
 
     /**
+     * @description The region in which the certificate is stored.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $certRegionId;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example 712082c3-****-****-9217-a947b5cde6ee
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The data of the Secret. The value must be a JSON array that contains the following information:
+     *
+     *   Key: Secret key
+     *   Value: Secret value
+     *
+     * @example [{"Key":"name","Value":"william"},{"Key":"age","Value":"12"}]
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The name of the Secret. The name must start with a letter, and can contain digits, letters, and hyphens (-). It can be up to 63 characters in length.
+     *
+     * @example my-secret
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace of the Kubernetes cluster.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The Secret type. Valid values:
+     *
+     *   Opaque: user-defined data
+     *   kubernetes.io/tls: Transport Layer Security (TLS) certificate
+     *
+     * @example Opaque
+     *
      * @var string
      */
     public $type;

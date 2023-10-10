@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class servicePorts extends Model
 {
     /**
+     * @description The port of the node.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $nodePort;
 
     /**
+     * @description The frontend service port.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The protocol of the service.
+     *
+     * @example TCP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The backend container port.
+     *
+     * @example 8080
+     *
      * @var string
      */
     public $targetPort;

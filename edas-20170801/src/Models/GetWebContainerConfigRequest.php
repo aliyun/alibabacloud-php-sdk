@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetWebContainerConfigRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 5a166fbd-****-****
+     *
      * @var string
      */
     public $appId;

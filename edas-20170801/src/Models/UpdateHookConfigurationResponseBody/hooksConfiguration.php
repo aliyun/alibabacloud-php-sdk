@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class hooksConfiguration extends Model
 {
     /**
+     * @description Indicates whether a mount failure is ignored. Valid values:
+     *
+     *   **true**: A mount failure is ignored.
+     *   **false**: A mount failure is not ignored.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ignoreFail;
 
     /**
+     * @description The name of the mounted script.
+     *
+     * @example postprepareInstanceEnvironmentOnScaleOut
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The content of the mounted script.
+     *
+     * @example ls
+     *
      * @var string
      */
     public $script;

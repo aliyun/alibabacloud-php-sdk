@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationResponseBody extends Model
 {
     /**
+     * @description The ID of the change process.
+     *
+     * @example 0b8e3c0b-5818-430*************
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 34DFE9FDV****************
+     *
      * @var string
      */
     public $requestId;

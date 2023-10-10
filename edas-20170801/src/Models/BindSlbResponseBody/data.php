@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the Internet-facing SLB instance.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $extSlbId;
 
     /**
+     * @description The IP address of the Internet-facing SLB instance.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $extSlbIp;
 
     /**
+     * @description The name of the Internet-facing SLB instance.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $extSlbName;
 
     /**
+     * @description The ID of the vServer group for the Internet-facing SLB instance.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $extVServerGroupId;
 
     /**
+     * @description The ID of the internal-facing SLB instance.
+     *
+     * @example lb-wz96ph63r************
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description The IP address of the internal-facing SLB instance.
+     *
+     * @example 192.16*.*.*
+     *
      * @var string
      */
     public $slbIp;
 
     /**
+     * @description The name of the internal-facing SLB instance.
+     *
+     * @example test**********
+     *
      * @var string
      */
     public $slbName;
 
     /**
+     * @description The listener port for the SLB instance.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $slbPort;
 
     /**
+     * @description The ID of the vServer group for the internal-facing SLB instance.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $VServerGroupId;

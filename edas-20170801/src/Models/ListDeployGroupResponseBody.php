@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListDeployGroupResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The information about the instance group in which the application is deployed.
+     *
      * @var deployGroupList
      */
     public $deployGroupList;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3FDE-DS9R-*********************
+     *
      * @var string
      */
     public $requestId;

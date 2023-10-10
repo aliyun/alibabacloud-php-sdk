@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class QuerySlsLogStoreListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example d6834ee9-5045-*************
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The configurations of Log Service for the application.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The number of log sources configured for the application.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalSize;

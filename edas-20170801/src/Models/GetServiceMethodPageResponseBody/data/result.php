@@ -10,61 +10,107 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The method.
+     *
+     * @example com.aliware.edas.EchoController
+     *
      * @var string
      */
     public $methodController;
 
     /**
+     * @description The name of the method.
+     *
+     * @example echo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The details of the method.
+     *
+     * @example name
+     *
      * @var string
      */
     public $nameDetail;
 
     /**
+     * @description The definition of the parameter.
+     *
+     * @example [{"description":"","name":"arg0","type":"java.lang.String"}]
+     *
      * @var string
      */
     public $parameterDefinitions;
 
     /**
+     * @description The details of the parameters.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $parameterDetails;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example echo
+     *
      * @var string
      */
     public $parameterNames;
 
     /**
+     * @description The data type of the parameter.
+     *
+     * @example java.lang.String
+     *
      * @var string
      */
     public $parameterTypes;
 
     /**
+     * @description The method path.
+     *
+     * @example /consumer/alive
+     *
      * @var string
      */
     public $paths;
 
     /**
+     * @description The request method.
+     *
+     * @example GET
+     *
      * @var string
      */
     public $requestMethods;
 
     /**
+     * @description The return value.
+     *
      * @var returnDefinition
      */
     public $returnDefinition;
 
     /**
+     * @description The details of the response.
+     *
+     * @example java.lang.String
+     *
      * @var string
      */
     public $returnDetails;
 
     /**
+     * @description The data format of the response.
+     *
+     * @example java.lang.String
+     *
      * @var string
      */
     public $returnType;

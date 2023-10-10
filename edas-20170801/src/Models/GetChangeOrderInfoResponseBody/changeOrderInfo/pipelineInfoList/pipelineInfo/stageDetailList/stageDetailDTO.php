@@ -10,21 +10,44 @@ use AlibabaCloud\Tea\Model;
 class stageDetailDTO extends Model
 {
     /**
+     * @description The ID of the stage.
+     *
+     * @example d7561440-10a6-452f-8a90-62f6e7ec****
+     *
      * @var string
      */
     public $stageId;
 
     /**
+     * @description The name of the stage.
+     *
+     * @example Process Start
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The status of the stage. Valid values:
+     *
+     *   0: ready
+     *   1: in progress
+     *   2: successful
+     *   3: failed
+     *   6: terminated
+     *   8: wait for manual confirmation to trigger the next batch during a manual phased release
+     *   9: wait to trigger the next batch during an automatic phased release
+     *   10: failed due to a system exception
+     *
+     * @example 2
+     *
      * @var int
      */
     public $stageStatus;
 
     /**
+     * @description The information about the task.
+     *
      * @var taskList
      */
     public $taskList;

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class pvcMountDescs extends Model
 {
     /**
-     * @description 持久化存储挂载路径列表
-     *
      * @var mountPaths[]
      */
     public $mountPaths;
 
     /**
-     * @description 持久化存储名称
-     *
      * @var string
      */
     public $pvcName;

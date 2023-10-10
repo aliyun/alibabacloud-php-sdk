@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class certDetail extends Model
 {
     /**
+     * @description Domain names that are associated with the SSL certificate.
+     *
      * @var string[]
      */
     public $domainNames;
 
     /**
+     * @description The time when the SSL certificate expired.
+     *
+     * @example 2022-02-22T02:32:41Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The certificate authority (CA) that issued the SSL certificate.
+     *
+     * @example CN=GlobalSign Root CA, OU=Root CA, O=GlobalSign nv-sa, C=BE
+     *
      * @var string
      */
     public $issuer;
 
     /**
+     * @description The time when the SSL certificate started to take effect.
+     *
+     * @example 2022-01-02T22:40:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The state of the SSL certificate. Valid values:
+     *
+     *   normal: The SSL certificate is valid.
+     *   invalid: The SSL certificate is invalid.
+     *   expired: The SSL certificate has expired.
+     *   not_yet_valid: The SSL certificate is currently invalid.
+     *   about_to_expire: The SSL certificate is about to expire.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $status;

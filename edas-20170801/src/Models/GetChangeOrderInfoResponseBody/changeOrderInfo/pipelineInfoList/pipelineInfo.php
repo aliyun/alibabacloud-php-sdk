@@ -11,36 +11,69 @@ use AlibabaCloud\Tea\Model;
 class pipelineInfo extends Model
 {
     /**
+     * @description The ID of each batch for the change during the phased release.
+     *
+     * @example 4c4ee320-5e47-4a48-****-************
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @description The name of the batch.
+     *
+     * @example Batch: 1
+     *
      * @var string
      */
     public $pipelineName;
 
     /**
+     * @description The state of the change task. Valid values:
+     *
+     *   0: ready
+     *   1: in progress
+     *   2: successful
+     *   3: failed
+     *   6: terminated
+     *   8: wait for manual confirmation to trigger the next batch during a manual phased release
+     *   9: wait to trigger the next batch during an automatic phased release
+     *   10: failed due to a system exception
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pipelineStatus;
 
     /**
+     * @description The execution results in each stage.
+     *
      * @var stageDetailList
      */
     public $stageDetailList;
 
     /**
+     * @description The stages of the change process.
+     *
      * @var stageList
      */
     public $stageList;
 
     /**
+     * @description The time when the change task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1583911702158
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The time when the change task was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1583911743633
+     *
      * @var string
      */
     public $updateTime;

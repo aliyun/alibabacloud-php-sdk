@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteConfigTemplateRequest extends Model
 {
     /**
-     * @description 配置模板ID
+     * @description The ID of the configuration template.
+     *
+     * @example 555
      *
      * @var int
      */

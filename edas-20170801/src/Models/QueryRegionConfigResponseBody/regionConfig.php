@@ -10,46 +10,80 @@ use AlibabaCloud\Tea\Model;
 class regionConfig extends Model
 {
     /**
+     * @description The domain name of Address Server.
+     *
+     * @example ****.edas.aliyun.com
+     *
      * @var string
      */
     public $addressServerHost;
 
     /**
+     * @description The installation path of the script for EDAS Agent.
+     *
+     * @example http://edas-qd.oss-cn-****-internal.aliyuncs.com/****sh
+     *
      * @var string
      */
     public $agentInstallScript;
 
     /**
+     * @description The information about the file server.
+     *
      * @var fileServerConfig
      */
     public $fileServerConfig;
 
     /**
+     * @description The type of the file server.
+     *
+     * @example oss
+     *
      * @var string
      */
     public $fileServerType;
 
     /**
+     * @description The configured ID of the region.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the official image.
+     *
+     * @example m-2zea4hx8f9zxqah2****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The configured name of the region.
+     *
+     * @example China (Beijing)
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The serial number of the region. This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $no;
 
     /**
+     * @description The tag of the region. The value is fixed to `ALIYUN_SHARE`.
+     *
+     * @example ALIYUN_SHARE
+     *
      * @var string
      */
     public $tag;

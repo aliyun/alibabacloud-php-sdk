@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class regionEntity extends Model
 {
     /**
+     * @description The name of the namespace.
+     *
+     * @example Beta
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example cn-beijing:beta
+     *
      * @var string
      */
     public $regionNo;

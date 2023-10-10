@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $metricTargetAverageUtilization;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example cpu
+     *
      * @var string
      */
     public $metricType;

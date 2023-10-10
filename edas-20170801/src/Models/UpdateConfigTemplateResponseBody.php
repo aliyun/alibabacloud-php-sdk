@@ -9,21 +9,27 @@ use AlibabaCloud\Tea\Model;
 class UpdateConfigTemplateResponseBody extends Model
 {
     /**
-     * @description 响应码
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
      *
      * @var int
      */
     public $code;
 
     /**
-     * @description 响应码文本描述
+     * @description The additional information that is returned.
+     *
+     * @example success
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID
+     * @description The ID of the request.
+     *
+     * @example D16979DC-4D42-*************
      *
      * @var string
      */

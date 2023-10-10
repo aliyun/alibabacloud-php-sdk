@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the resource group. You can call the ListResourceGroup operation to query the resource group ID. For more information, see [ListResourceGroup](~~62055~~).
+     *
+     * You can specify multiple resource group IDs. Separate multiple resource group IDs with semicolons (;).
+     * @example 461;462
+     *
      * @var string
      */
     public $resourceGroupIds;
 
     /**
+     * @description The ID of the RAM user to be authorized.
+     *
+     * @example test@13333********
+     *
      * @var string
      */
     public $targetUserId;

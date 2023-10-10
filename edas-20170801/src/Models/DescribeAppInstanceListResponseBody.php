@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppInstanceListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The application instances.
+     *
      * @var instanceList[]
      */
     public $instanceList;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 03FD1520-0FD6-436A-****-265318D7****
+     *
      * @var string
      */
     public $requestId;

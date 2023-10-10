@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class role extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example test**@aliyun.com
+     *
      * @var string
      */
     public $adminUserId;
 
     /**
+     * @description The timestamp when the role was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1542717260156
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The ID of the role.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Indicates whether the role is a default role.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @description The name of the role.
+     *
+     * @example Super Admin(All privileges)
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The timestamp when the role was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1542717260156
+     *
      * @var int
      */
     public $updateTime;

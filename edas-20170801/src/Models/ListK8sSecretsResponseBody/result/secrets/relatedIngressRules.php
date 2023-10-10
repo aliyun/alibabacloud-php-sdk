@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class relatedIngressRules extends Model
 {
     /**
+     * @description The name of the rule in the Ingress.
+     *
+     * @example testrulename
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespaces of the Kubernetes cluster.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description Aplications that are associated with the Ingress.
+     *
      * @var relatedApps[]
      */
     public $relatedApps;

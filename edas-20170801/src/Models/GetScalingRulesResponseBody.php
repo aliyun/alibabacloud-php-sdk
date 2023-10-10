@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class GetScalingRulesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data that is returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D16979DC-4D42-***********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The time when the scaling rule was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1574251601785
+     *
      * @var int
      */
     public $updateTime;

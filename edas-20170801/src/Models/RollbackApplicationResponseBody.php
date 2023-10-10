@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class RollbackApplicationResponseBody extends Model
 {
     /**
+     * @description The change process ID. You can call the GetChangeOrderInfo operation to query the progress of this rollback. For more information, see [GetChangeOrderInfo](~~423155~~).
+     *
+     * @example 921026b8-d1be-************
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example D16979DC-4D42-*********
+     *
      * @var string
      */
     public $requestId;

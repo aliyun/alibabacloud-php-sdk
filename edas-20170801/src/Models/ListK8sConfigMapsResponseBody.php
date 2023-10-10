@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListK8sConfigMapsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D16979DC-4D42-****************
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The query results that are returned.
+     *
      * @var result
      */
     public $result;

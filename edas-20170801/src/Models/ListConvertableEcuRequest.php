@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListConvertableEcuRequest extends Model
 {
     /**
+     * @description The ID of the cluster. You can call the ListCluster operation to query the cluster ID. For more information, see [ListCluster](~~154995~~).
+     *
+     * @example b3e3f77b-462e-****-****-bec8727a****
+     *
      * @var string
      */
     public $clusterId;

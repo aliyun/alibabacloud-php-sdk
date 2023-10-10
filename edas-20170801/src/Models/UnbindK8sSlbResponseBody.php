@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UnbindK8sSlbResponseBody extends Model
 {
     /**
+     * @description The ID of the change process.
+     *
+     * @example b0a8441e-****-4e8e-9874-b56dea02952f
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1234-1sda-321d-1234
+     *
      * @var string
      */
     public $requestId;

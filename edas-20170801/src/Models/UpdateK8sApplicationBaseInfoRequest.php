@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class UpdateK8sApplicationBaseInfoRequest extends Model
 {
     /**
+     * @description The ID of the application that you want to modify.
+     *
+     * @example 4f038ddf-b27b-****-****-88e44375****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The description of the application. The description can be up to 256 characters in length.
+     *
+     * @example app for pre-production
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The email address of the application owner.
+     *
+     * @example mymail@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The owner of the application. The value can be up to 128 characters in length.
+     *
+     * @example Tom
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The phone number of the application owner.
+     *
+     * @example 1361234xxxx
+     *
      * @var string
      */
     public $phoneNumber;

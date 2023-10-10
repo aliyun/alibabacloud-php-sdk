@@ -10,28 +10,34 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 当前分页
+     * @description The page number of the returned page.
+     *
+     * @example 1
      *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description 页大小
+     * @description The number of entries returned per page.
+     *
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 配置模板列表
+     * @description The configuration templates.
      *
      * @var result[]
      */
     public $result;
 
     /**
-     * @description 配置模板总数
+     * @description The total number of configuration templates.
+     *
+     * @example 100
      *
      * @var int
      */

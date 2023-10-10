@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListVpcResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The information about VPCs.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example b197-40ab-9155-7ca7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the VPC is available. Valid values:
+     * - false: The VPC is unavailable.
      * @var vpcList
      */
     public $vpcList;

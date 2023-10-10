@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryEccInfoRequest extends Model
 {
     /**
+     * @description The ID of the ECC.
+     *
+     * @example b197-40ab-9155-****
+     *
      * @var string
      */
     public $eccId;

@@ -9,71 +9,130 @@ use AlibabaCloud\Tea\Model;
 class GetServiceConsumersPageRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example efbda488-7b33-432f-a40d-****0047****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The service group.
+     *
+     * @example DUBBO
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The IP address of the service provider. Fuzzy searches are supported.
+     *
+     * @example 10.20.x.xx
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example cn-hangzhou:doc-test
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The source of the data. Valid values:
+     *
+     *   agent: Use this value if you use the service query feature of the latest version to pass the query result.
+     *   registry: Use this value if you use the service query feature of the earlier version to pass the query result.
+     *
+     * @example agent
+     *
      * @var string
      */
     public $origin;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The type of the service registry. This parameter is deprecated. You can ignore it.
+     *
+     * @example nacos
+     *
      * @var string
      */
     public $registryType;
 
     /**
+     * @description The ID of the service. This parameter is deprecated. You can ignore it.
+     *
+     * @example com.alibabacloud.hipstershop.CartService
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example com.alibabacloud.hipstershop.CartService
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The type of the service.
+     *
+     * @example dubbo
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @description The version of the service.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $serviceVersion;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The source of the service. Set the value to edas.
+     *
+     * @example edas
+     *
      * @var string
      */
     public $source;

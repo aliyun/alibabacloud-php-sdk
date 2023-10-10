@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class mountItems extends Model
 {
     /**
-     * @description 配置项
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description 路径
-     *
      * @var string
      */
     public $path;

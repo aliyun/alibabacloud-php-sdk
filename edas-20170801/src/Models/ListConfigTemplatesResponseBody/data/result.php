@@ -9,49 +9,63 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 模板内容
+     * @description The content of the configuration template.
+     *
+     * @example {"name":"William"}
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 模板描述
+     * @description The description of the configuration template.
+     *
+     * @example Test configuration template
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 模板数据格式
+     * @description The data format of the configuration template.
+     *
+     * @example JSON
      *
      * @var string
      */
     public $format;
 
     /**
-     * @description 创建时间
+     * @description The time when the configuration template was created.
+     *
+     * @example 1638171689626
      *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 更新时间
+     * @description The time when the configuration template was updated.
+     *
+     * @example 1638171689626
      *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 配置模板ID
+     * @description The ID of the configuration template.
+     *
+     * @example 3d84efaf-37d9-49fb-a3a8-b38d5c2b460c
      *
      * @var string
      */
     public $id;
 
     /**
-     * @description 配置模板名称
+     * @description The name of the configuration template.
+     *
+     * @example config-tmpl-1
      *
      * @var string
      */

@@ -11,56 +11,99 @@ use AlibabaCloud\Tea\Model;
 class appScalingRule extends Model
 {
     /**
+     * @description The ID of the application to which the auto scaling policy belongs.
+     *
+     * @example 78194c76-3dca-418e-a263-cccd1ab4****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The time when the auto scaling policy was created.
+     *
+     * @example 23212323123
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The time when the auto scaling policy was last disabled.
+     *
+     * @example 23212323123
+     *
      * @var int
      */
     public $lastDisableTime;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $maxReplicas;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @var metric
      */
     public $metric;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minReplicas;
 
     /**
+     * @description Indicates whether the auto scaling policy is enabled. Valid values:
+     *
+     *   **true**: The auto scaling policy is enabled.
+     *   **false**: The auto scaling policy is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $scaleRuleEnabled;
 
     /**
+     * @description The name of the auto scaling policy.
+     *
+     * @example cron-trigger
+     *
      * @var string
      */
     public $scaleRuleName;
 
     /**
+     * @description The type of the auto scaling policy. The value is fixed to trigger.
+     *
+     * @example trigger
+     *
      * @var string
      */
     public $scaleRuleType;
 
     /**
+     * @description The configurations of the trigger.
+     *
      * @var trigger
      */
     public $trigger;
 
     /**
+     * @description The time when the auto scaling policy was last modified.
+     *
+     * @example 23212323123
+     *
      * @var int
      */
     public $updateTime;

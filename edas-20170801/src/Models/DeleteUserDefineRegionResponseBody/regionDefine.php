@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class regionDefine extends Model
 {
     /**
+     * @description The ID of the region to which the custom namespace belongs.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $belongRegion;
 
     /**
+     * @description The description of the custom namespace.
+     *
+     * @example logic region
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The unique identifier of the custom namespace.
+     *
+     * @example 8848
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the custom namespace. The ID cannot be changed after the custom namespace is created. The format is `region ID:custom namespace ID`.
+     *
+     * @example cn-beijing:test
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the custom namespace.
+     *
+     * @example test_region
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the custom namespace belongs.
+     *
+     * @example 11727****22398
+     *
      * @var string
      */
     public $userId;

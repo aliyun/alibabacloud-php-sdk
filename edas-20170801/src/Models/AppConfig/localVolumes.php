@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class localVolumes extends Model
 {
     /**
-     * @description 容器挂载路径
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description 名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 节点路径
-     *
      * @var string
      */
     public $nodePath;
 
     /**
-     * @description 权限类型
-     *
      * @var int
      */
     public $opsAuth;
 
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $type;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateK8sServiceResponseBody extends Model
 {
     /**
+     * @description The change process ID.
+     *
+     * @example b4b37bde-a125-****-****-741f7f4a9ae3
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 4823-bhjf-23u4-eiufh
+     *
      * @var string
      */
     public $requestId;

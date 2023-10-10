@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class imageConfig extends Model
 {
     /**
-     * @description 镜像仓库实例ID
-     *
      * @var string
      */
     public $containerRegistryId;
 
     /**
-     * @description 镜像服务实例ID
-     *
      * @var string
      */
     public $crInstanceId;
 
     /**
-     * @description 镜像仓库Region
-     *
      * @var string
      */
     public $crRegionId;
 
     /**
-     * @description 镜像地址
-     *
      * @var string
      */
     public $imageUrl;

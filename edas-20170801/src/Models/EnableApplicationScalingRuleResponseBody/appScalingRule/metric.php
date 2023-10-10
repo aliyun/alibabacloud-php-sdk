@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class metric extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $maxReplicas;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @var metrics[]
      */
     public $metrics;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minReplicas;

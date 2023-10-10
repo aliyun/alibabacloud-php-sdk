@@ -9,41 +9,84 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
+     * @example 8705ad13-5d86-47fc-b68f-257b59ed****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example ****_product_test2
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The type of the cluster. Valid values:
+     *
+     *   2: ECS cluster
+     *   3: self-managed Kubernetes cluster in EDAS
+     *   5: Kubernetes cluster
+     *
+     * @example 2
+     *
      * @var int
      */
     public $clusterType;
 
     /**
+     * @description The provider of the IaaS resources that are used in the cluster.
+     *
+     * @example ALIYUN
+     *
      * @var string
      */
     public $iaasProvider;
 
     /**
+     * @description The network type of the cluster. Valid values:
+     *
+     *   1: classic network
+     *   2\. VPC
+     *
+     * @example 2
+     *
      * @var int
      */
     public $networkMode;
 
     /**
+     * @description **This parameter is deprecated.** The CPU overcommit ratio supported by the Docker cluster. Valid values:
+     *
+     *   2: 1:2, which means that resources are overcommitted by 1:2.
+     *   4: 1:4, which means that resources are overcommitted by 1:4.
+     *   8: 1:8, which means that resources are overcommitted by 1:8.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $oversoldFactor;
 
     /**
+     * @description The ID of the region in which the cluster resides.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-2zef6ob8mrlzv8x3q****
+     *
      * @var string
      */
     public $vpcId;

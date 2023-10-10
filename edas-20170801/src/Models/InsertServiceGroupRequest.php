@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class InsertServiceGroupRequest extends Model
 {
     /**
+     * @description The name of the service group that you want to create.
+     *
+     * @example edas-test-group
+     *
      * @var string
      */
     public $groupName;

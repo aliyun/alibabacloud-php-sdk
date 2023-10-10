@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class latestVersion extends Model
 {
     /**
+     * @description The version of the deployment package.
+     *
+     * @example 20200720
+     *
      * @var string
      */
     public $packageVersion;
 
     /**
+     * @description The URL of the deployment package. This parameter is required if you use a FatJar or WAR package to deploy the application.
+     *
+     * @example https://e***.oss-cn-beijing.aliyuncs.com/s***-1.0-SNAPSHOT-spring-boot.jar
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @description The URL of the deployment package. This parameter is required if you use a FatJar or WAR package to deploy the application.
+     *
+     * @example https://e***.oss-cn-beijing.aliyuncs.com/s***-1.0-SNAPSHOT-spring-boot.jar
+     *
      * @var string
      */
     public $warUrl;

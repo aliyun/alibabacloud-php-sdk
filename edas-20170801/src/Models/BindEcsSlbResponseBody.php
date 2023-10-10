@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class BindEcsSlbResponseBody extends Model
 {
     /**
+     * @description The change process ID for this operation.
+     *
+     * @example cd65b247-****-475b-ad4b-7039040d625c
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 03FD1520-0FD6-436A-****-265318D7****
+     *
      * @var string
      */
     public $requestId;

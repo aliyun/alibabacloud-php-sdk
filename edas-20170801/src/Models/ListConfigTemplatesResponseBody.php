@@ -10,28 +10,34 @@ use AlibabaCloud\Tea\Model;
 class ListConfigTemplatesResponseBody extends Model
 {
     /**
-     * @description 响应码
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
      *
      * @var int
      */
     public $code;
 
     /**
-     * @description 查询结果
+     * @description The result of the request.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description 响应码文本描述
+     * @description The additional information that is returned.
+     *
+     * @example success
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID
+     * @description The ID of the request.
+     *
+     * @example 4D9F-DR94-FD****************
      *
      * @var string
      */

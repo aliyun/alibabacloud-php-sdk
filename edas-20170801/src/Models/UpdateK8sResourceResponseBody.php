@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateK8sResourceResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7638276F-****-****-884F-54CC0BC84A8D
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description Indicates whether the cluster is deleted. Valid values:
+     *
+     *   true: The cluster is deleted.
+     *   false: The cluster is not deleted.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 856D4438-****-4EA9-****-894628C0434E
+     *
      * @var string
      */
     public $requestId;

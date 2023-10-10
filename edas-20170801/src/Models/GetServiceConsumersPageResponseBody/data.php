@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The data array that is returned.
+     *
      * @var content[]
      */
     public $content;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalElements;
 
     /**
+     * @description The total number of returned pages.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccountInfoRequest extends Model
 {
     /**
+     * @description The email address of the account.
+     *
+     * @example 1321234****@alibaba-inc.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The name of the account.
+     *
+     * @example edas-test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The contact information of the account.
+     *
+     * @example 1321234****
+     *
      * @var string
      */
     public $telephone;

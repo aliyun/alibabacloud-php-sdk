@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class packageConfig extends Model
 {
     /**
-     * @description Pandora版本
-     *
      * @var string
      */
     public $edasContainerVersion;
 
     /**
-     * @description JDK版本
-     *
      * @var string
      */
     public $jdk;
 
     /**
-     * @description 部署包类型
-     *
      * @var string
      */
     public $packageType;
 
     /**
-     * @description 部署包地址
-     *
      * @var string
      */
     public $packageUrl;
 
     /**
-     * @description 部署包版本
-     *
      * @var string
      */
     public $packageVersion;
 
     /**
-     * @description 时区
-     *
      * @var string
      */
     public $timezone;
 
     /**
-     * @description URI字符编码
-     *
      * @var string
      */
     public $uriEncoding;
 
     /**
-     * @description useBodyEncodingForURI是否启用
-     *
      * @var bool
      */
     public $useBodyEncoding;
 
     /**
-     * @description Tomcat版本
-     *
      * @var string
      */
     public $webContainer;

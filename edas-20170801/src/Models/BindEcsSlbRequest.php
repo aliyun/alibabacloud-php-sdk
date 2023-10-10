@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class BindEcsSlbRequest extends Model
 {
     /**
+     * @description The ID of the application. You can query the application ID by calling the ListApplication operation. For more information, see [ListApplication](~~149390~~).
+     *
+     * @example 93fdd228-*****-ed2ae98de18d
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the instance group whose application you want to bind. You can call the ListDeployGroup operation to query the group ID. For more information, see [ListDeployGroup](~~62077~~).
+     *
+     * @example 577f4c50-16ee-43d8-****-****
+     *
      * @var string
      */
     public $deployGroupId;
 
     /**
+     * @description The health check URL.
+     *
+     * @example /_ehc.html
+     *
      * @var string
      */
     public $listenerHealthCheckUrl;
 
     /**
+     * @description The listener port for the SLB instance.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The listener protocol for the SLB instance.
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example lb-uf6j54m3a****cj01jx8
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description The forwarding rule of the SLB listener.
+     *
+     * @example example.com/forwarding
+     *
      * @var string
      */
     public $VForwardingUrlRule;
 
     /**
+     * @description The ID of the vServer group for the SLB instance.
+     *
+     * @example rsp-2ze****6l*****
+     *
      * @var string
      */
     public $VServerGroupId;
 
     /**
+     * @description The name of the vServer group.
+     *
+     * @example ****\/31405/internet-test-ack-test****\/default/clusterid
+     *
      * @var string
      */
     public $VServerGroupName;

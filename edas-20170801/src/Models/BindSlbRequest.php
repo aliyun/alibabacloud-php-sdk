@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class BindSlbRequest extends Model
 {
     /**
+     * @description The ID of the EDAS application.
+     *
+     * @example 3616cdca-*********
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The listener port for the SLB instance.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example lb-wz96ph63r************
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description The IP address of the SLB instance.
+     *
+     * @example 192.16*.*.*
+     *
      * @var string
      */
     public $slbIp;
 
     /**
+     * @description The type of the SLB instance. Valid values:
+     *
+     *   internet: Internet-facing SLB instance
+     *   intranet: internal-facing SLB instance
+     *
+     * @example intranet
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the vServer group for the internal-facing SLB instance.
+     *
+     * @example rsp-cige6******
+     *
      * @var string
      */
     public $VServerGroupId;

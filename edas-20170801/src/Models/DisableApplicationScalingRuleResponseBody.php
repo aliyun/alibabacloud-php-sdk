@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DisableApplicationScalingRuleResponseBody extends Model
 {
     /**
+     * @description The information about the auto scaling policy.
+     *
      * @var appScalingRule
      */
     public $appScalingRule;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5d6fa0bc-cc3**********
+     *
      * @var string
      */
     public $requestId;

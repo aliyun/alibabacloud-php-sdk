@@ -9,41 +9,84 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationScalingRuleRequest extends Model
 {
     /**
+     * @description The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](~~149390~~).
+     *
+     * @example 78194c76-3dca-418e-a263-cccd1ab4****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The behavior of the auto scaling. See the example for the data structure.
+     *
+     * @example {"scaleUp":{"stabilizationWindowSeconds":"0","selectPolicy":"Max","policies":[{"type":"Pods","value":5,"periodSeconds":15}]},"scaleDown":{"stabilizationWindowSeconds":"300","selectPolicy":"Max","policies":[{"type":"Percent","value":200,"periodSeconds":15}]}}
+     *
+     * @var string
+     */
+    public $scalingBehaviour;
+
+    /**
+     * @description Specifies whether to enable the auto scaling policy. Valid values:
+     *
+     *   **true**: enables the auto scaling policy.
+     *   **false**: disables the auto scaling policy.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $scalingRuleEnable;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $scalingRuleMetric;
 
     /**
+     * @description The name of the auto scaling policy.
+     *
+     * @example cpu-trigger
+     *
      * @var string
      */
     public $scalingRuleName;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $scalingRuleTimer;
 
     /**
+     * @description The trigger policy for the auto scaling policy. Set this parameter in the JSON format by using the ScalingRuleTriggerDTO class. For more information, see Additional description of request parameters.
+     *
+     * @example ScalingRuleTriggerDTO{......}
+     *
      * @var string
      */
     public $scalingRuleTrigger;
 
     /**
+     * @description The type of the auto scaling policy.
+     *
+     *   Set the value to trigger.
+     *
+     * @example trigger
+     *
      * @var string
      */
     public $scalingRuleType;
     protected $_name = [
         'appId'              => 'AppId',
+        'scalingBehaviour'   => 'ScalingBehaviour',
         'scalingRuleEnable'  => 'ScalingRuleEnable',
         'scalingRuleMetric'  => 'ScalingRuleMetric',
         'scalingRuleName'    => 'ScalingRuleName',
@@ -61,6 +104,9 @@ class UpdateApplicationScalingRuleRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->scalingBehaviour) {
+            $res['ScalingBehaviour'] = $this->scalingBehaviour;
         }
         if (null !== $this->scalingRuleEnable) {
             $res['ScalingRuleEnable'] = $this->scalingRuleEnable;
@@ -94,6 +140,9 @@ class UpdateApplicationScalingRuleRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['ScalingBehaviour'])) {
+            $model->scalingBehaviour = $map['ScalingBehaviour'];
         }
         if (isset($map['ScalingRuleEnable'])) {
             $model->scalingRuleEnable = $map['ScalingRuleEnable'];

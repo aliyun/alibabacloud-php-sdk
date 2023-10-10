@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class clusterMemberPage extends Model
 {
     /**
+     * @description The list of ECS instances in the cluster.
+     *
      * @var clusterMemberList
      */
     public $clusterMemberList;
 
     /**
+     * @description The page number of the returned page. If this parameter is not returned, the first page is returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of ECS instances returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of pages returned when all ECS instances are returned based on the specified PageSize parameter.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $totalSize;

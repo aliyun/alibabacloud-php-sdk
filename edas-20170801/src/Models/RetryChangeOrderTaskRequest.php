@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RetryChangeOrderTaskRequest extends Model
 {
     /**
+     * @description The retry status.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $retryStatus;
 
     /**
+     * @description The ID of the process.
+     *
+     * @example 823-bhjf-23u4-eiuf*
+     *
      * @var string
      */
     public $taskId;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class QuerySlsLogStoreListRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example af58edcf-f7eb-****-****-db4e425f****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The number of the page to return. Pages start from Page 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The type of data that is collected by Log Service. Valid values:
+     *
+     *   file: the file type
+     *   stdout: the standard output type
+     *
+     * @example file
+     *
      * @var string
      */
     public $type;

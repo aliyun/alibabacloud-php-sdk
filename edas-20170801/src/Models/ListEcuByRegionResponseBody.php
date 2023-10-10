@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListEcuByRegionResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The information about ECUs.
+     *
      * @var ecuEntityList
      */
     public $ecuEntityList;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 00000000-0000-0000-****
+     *
      * @var string
      */
     public $requestId;

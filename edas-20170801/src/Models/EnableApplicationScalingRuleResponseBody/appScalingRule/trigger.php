@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class trigger extends Model
 {
     /**
+     * @description The maximum number of replicas. The upper limit is 1000.
+     *
+     * @example 122
+     *
      * @var int
      */
     public $maxReplicas;
 
     /**
+     * @description The minimum number of replicas. The lower limit is 0.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minReplicas;
 
     /**
+     * @description The list of triggers.
+     *
      * @var triggers[]
      */
     public $triggers;

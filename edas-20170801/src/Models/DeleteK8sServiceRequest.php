@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteK8sServiceRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 5a166fbd***a286-781659d9f54c
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example service-http
+     *
      * @var string
      */
     public $name;

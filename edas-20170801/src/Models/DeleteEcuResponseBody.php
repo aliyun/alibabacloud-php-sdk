@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteEcuResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned data that indicates whether the ECU is deleted. A value of `OK` indicates that the ECU is deleted.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example fb08fd29-b197-40ab-****-****
+     *
      * @var string
      */
     public $requestId;

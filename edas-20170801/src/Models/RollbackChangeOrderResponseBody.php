@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class RollbackChangeOrderResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The information about the change process.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B909AB1F-3763-4963-B1CE-0BDFA192****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the trace.
+     *
+     * @example 000000000000000000000000000000
+     *
      * @var string
      */
     public $traceId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateHookConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example d498****-1dd8ec229862
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the application instance group.
+     *
+     * @example d498****-1dd8ec229862
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The script to mount. Set the value in the JSON format. Example: `[{"ignoreFail":false,"name":"postprepareInstanceEnvironmentOnScaleOut","script":"ls"},{"ignoreFail":true,"name":"postdeleteInstanceDataOnScaleIn","script":""},{"ignoreFail":true,"name":"prestartInstance","script":""},{"ignoreFail":true,"name":"poststartInstance","script":""},{"ignoreFail":true,"name":"prestopInstance","script":""},{"ignoreFail":true,"name":"poststopInstance","script":""}]`
+     *
+     * @example [{"ignoreFail":false,"name":"postprepareInstanceEnvironmentOnScaleOut","script":"ls"}]
+     *
      * @var string
      */
     public $hooks;

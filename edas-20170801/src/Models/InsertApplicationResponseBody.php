@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class InsertApplicationResponseBody extends Model
 {
     /**
+     * @description The information about the created application.
+     *
      * @var applicationInfo
      */
     public $applicationInfo;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example The application name test-hsy-C5039-paas-6 had been created successfully.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4264F69C-686C-4107-B493-0599C8xxxxxx
+     *
      * @var string
      */
     public $requestId;

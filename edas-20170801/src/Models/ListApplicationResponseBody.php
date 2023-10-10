@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationResponseBody extends Model
 {
     /**
+     * @description The applications that are queried.
+     *
      * @var applicationList
      */
     public $applicationList;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 5d6fa0bc-cc3**********
+     *
      * @var string
      */
     public $requestId;

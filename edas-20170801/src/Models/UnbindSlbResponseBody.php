@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UnbindSlbResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description This parameter is left empty. It has no meaning.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example Unbind slb success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D16979DC-4D42-************
+     *
      * @var string
      */
     public $requestId;

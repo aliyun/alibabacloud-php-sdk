@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The ID of the resource.
+     *
+     * @example 000e5836-xxxx-xxxx-xxxx-0d6ab2ac4877
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example ALIYUN::EDAS::APPLICATION
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag key of the resource.
+     *
+     * @example key1
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value of the resource.
+     *
+     * @example value1
+     *
      * @var string
      */
     public $tagValue;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the change process.
+     *
+     * @example 4f40e616-cdcd-4250-a018-efd459******
+     *
      * @var string
      */
     public $changeOrderId;

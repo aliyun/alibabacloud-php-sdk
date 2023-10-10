@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ContinuePipelineRequest extends Model
 {
     /**
+     * @description Specifies whether to release the next batch. Valid values:
+     *
+     *   true: releases the next batch.
+     *   false: does not release the next batch.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $confirm;
 
     /**
+     * @description The ID of the change process. You can call the GetChangeOrderInfo operation to query the ID of the change process that corresponds to a specific batch. For more information, see [GetChangeOrderInfo](~~62072~~).
+     *
+     * @example 5648dbd7-df13********************
+     *
      * @var string
      */
     public $pipelineId;

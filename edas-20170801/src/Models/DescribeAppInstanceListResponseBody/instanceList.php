@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 93fdd228-*****-ed2ae98de18d
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Indicates whether the application was released in canary release mode.
+     *
+     *   `true`: The application was released in canary release mode.
+     *   `false`: The application was not released in canary release mode
+     *
+     * @example false
+     *
      * @var bool
      */
     public $canary;
 
     /**
+     * @description The ID of the instance group to which the application is deployed.
+     *
+     * @example 93fdd228-*****-ed2ae98de18d
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the instance group to which the application is deployed.
+     *
+     * @example _DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The labels of the node. The value is a JSON string.
+     *
+     * @example {"alibabacloud.com/nodepool-id":"np0*5b9377fa907","beta.kubernetes.io/arch":"amd64","beta.kubernetes.io/instance-type":"ecs.*","beta.kubernetes.io/os":"linux","failure-domain.beta.kubernetes.io/region":"cn-hangzhou","failure-domain.beta.kubernetes.io/zone":"cn-hangzhou-b","kubernetes.io/arch":"amd64","kubernetes.io/hostname":"cn-hangzhou*","kubernetes.io/os":"linux","node.kubernetes.io/instance-type":"ecs.*","topology.diskplugin.csi.alibabacloud.com/zone":"cn-hangzhou-b","topology.kubernetes.io/region":"cn-hangzhou","topology.kubernetes.io/zone":"cn-hangzhou-b"}
+     *
      * @var string
      */
     public $nodeLabels;
 
     /**
+     * @description The name of the node.
+     *
+     * @example cn-hangzhou.192.168.0.*
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The information about the pod. The value is a JSON string.
+     *
+     * @example {"metadata":{"name":"oambuild-group-1-*4xthz","generateName":"oambuild-group-*96-","namespace":"default","selfLink":"/api/v1/namespaces/default/pods/oambuild-grou*96-4xthz","uid":"7a23399c-*fe7ff4018","resourceVersion":"969614830","creationTimestamp":"2021-04-06T11:38:46Z","labels":{"ARMSApmAppId":"*","ARMSApmLicenseKey":"*"...
+     *
      * @var string
      */
     public $podRaw;
 
     /**
+     * @description The deployment package version of the node.
+     *
+     * @example 2021-04-06 19:37:42
+     *
      * @var string
      */
     public $version;

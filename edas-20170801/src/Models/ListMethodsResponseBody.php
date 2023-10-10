@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListMethodsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned message that indicates whether the request is successful.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 69AD2AA7-DB47-449B-941B-B14409DF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about service methods.
+     *
      * @var serviceMethodList
      */
     public $serviceMethodList;

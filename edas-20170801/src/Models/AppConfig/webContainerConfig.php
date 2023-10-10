@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class webContainerConfig extends Model
 {
     /**
-     * @description connector类型
-     *
      * @var string
      */
     public $connectorType;
 
     /**
-     * @description Context选择类型
-     *
      * @var string
      */
     public $contextInputType;
 
     /**
-     * @description Context路径
-     *
      * @var string
      */
     public $contextPath;
 
     /**
-     * @description 应用端口
-     *
      * @var int
      */
     public $httpPort;
 
     /**
-     * @description 最大线程数
-     *
      * @var int
      */
     public $maxThreads;
 
     /**
-     * @description 自定义配置
-     *
      * @var string
      */
     public $serverXml;
 
     /**
-     * @description URI字符编码
-     *
      * @var string
      */
     public $uriEncoding;
 
     /**
-     * @description 是否使用高级配置
-     *
      * @var bool
      */
     public $useAdvancedServerXml;
 
     /**
-     * @description useBodyEncodingForURI是否启用
-     *
      * @var bool
      */
     public $useBodyEncoding;
 
     /**
-     * @description 是否使用默认配置
-     *
      * @var bool
      */
     public $useDefaultConfig;

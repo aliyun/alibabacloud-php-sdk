@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class envs extends Model
 {
     /**
-     * @description 变量名
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 变量值
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description 变量引用
-     *
      * @var string
      */
     public $valueFrom;

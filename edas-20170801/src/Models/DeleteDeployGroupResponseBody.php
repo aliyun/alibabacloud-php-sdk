@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeployGroupResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data that is returned.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4D9F-DR94-FD****************
+     *
      * @var string
      */
     public $requestId;

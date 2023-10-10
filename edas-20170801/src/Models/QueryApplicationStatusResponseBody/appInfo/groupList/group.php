@@ -9,46 +9,86 @@ use AlibabaCloud\Tea\Model;
 class group extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 3616cdca-4f92-4413-****-************
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the change process for application deployment in the instance group.
+     *
+     * @example changeorder_a**_*******_**
+     *
      * @var string
      */
     public $appVersionId;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example 0d247b93-8d62-4e34-****-************
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The time when the instance group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573626155185
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The ID of the instance group.
+     *
+     * @example 8123db90-880f-486f-****-************
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the instance group.
+     *
+     * @example _DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The type of the instance group. Valid values:
+     *
+     *   0: default group
+     *   1: self-managed group
+     *   2: canary release group
+     *
+     * @example 0
+     *
      * @var int
      */
     public $groupType;
 
     /**
+     * @description The version of the deployment package that was used to deploy an application in the instance group.
+     *
+     * @example 441beb18-da42-44dc-****-************
+     *
      * @var string
      */
     public $packageVersionId;
 
     /**
+     * @description The time when the instance group was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573627441388
+     *
      * @var int
      */
     public $updateTime;

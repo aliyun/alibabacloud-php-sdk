@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application. You can specify multiple IDs. Separate multiple IDs with semicolons (;). If you leave this parameter empty, the permissions on the application are revoked.
+     *
+     * @example 5fdf50e8-*****;696-******
+     *
      * @var string
      */
     public $appIds;
 
     /**
+     * @description The ID of the RAM user to be authorized. The value of the parameter is in the `sub-account name@primary account UID` format.
+     *
+     * @example test@133434434****
+     *
      * @var string
      */
     public $targetUserId;

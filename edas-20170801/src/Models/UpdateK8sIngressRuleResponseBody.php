@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateK8sIngressRuleResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;

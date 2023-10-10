@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class triggers extends Model
 {
     /**
+     * @description The metadata of the trigger.
+     *
+     * @example {"dryRun":true}
+     *
      * @var string
      */
     public $metaData;
 
     /**
+     * @description The name of the trigger.
+     *
+     * @example cron-trigger
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the trigger. Valid values: cron and app_metric.
+     *
+     * @example cron
+     *
      * @var string
      */
     public $type;

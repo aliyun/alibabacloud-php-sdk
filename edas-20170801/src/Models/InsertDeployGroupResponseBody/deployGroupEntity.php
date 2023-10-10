@@ -9,46 +9,92 @@ use AlibabaCloud\Tea\Model;
 class deployGroupEntity extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 3616cdca-4f92-4413-***********
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The version of the deployment package for the application.
+     *
+     *   If the application is deployed, a string of random numbers is returned.
+     *   If the application is not deployed, the return value is empty.
+     *
+     * @example ****f4c50-16ee-a02b-667*****
+     *
      * @var string
      */
     public $appVersionId;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example 0d247b93-8d62-4e34***********
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The time when the instance group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573627695779
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The name of the instance group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The type of the instance group. Valid values:
+     *
+     *   0: the default group.
+     *   1: a group for which canary traffic management is not enabled.
+     *   2: a group for which canary traffic management is enabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $groupType;
 
     /**
+     * @description The ID of the instance group.
+     *
+     * @example 577f4c50-16ee-43d8-a02b-667*********
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The version of the deployment package that was used to deploy an application in the instance group.
+     *
+     *   If an application is deployed in the instance group, a string of random numbers is returned.
+     *   If no application is deployed in the instance group, the return value is empty.
+     *
+     * @example ****7b93-8d62-4e34***********
+     *
      * @var string
      */
     public $packageVersionId;
 
     /**
+     * @description The time when the instance group was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573627695779
+     *
      * @var int
      */
     public $updateTime;

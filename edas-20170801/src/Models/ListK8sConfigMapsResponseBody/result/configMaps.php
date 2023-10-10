@@ -11,36 +11,60 @@ use AlibabaCloud\Tea\Model;
 class configMaps extends Model
 {
     /**
+     * @description The ID of the Kubernetes cluster. You can obtain the cluster ID by calling the GetK8sCluster operation. For more information, see [GetK8sCluster](~~181437~~).
+     *
+     * @example d73918f4-3b08-4c17-bb07-eaf8********
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example my-cluster
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The time when the ConfigMaps were created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2022-01-31T02:46:14Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The information about ConfigMaps.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The name of the ConfigMap.
+     *
+     * @example my-config
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace of the Kubernetes cluster.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The related applications.
+     *
      * @var relatedApps[]
      */
     public $relatedApps;

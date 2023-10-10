@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ConvertK8sResourceRequest extends Model
 {
     /**
+     * @description The ID of the cluster. You can call the ListCluster operation to query the cluster ID. For more information, see [ListCluster](~~154995~~).
+     *
+     * @example b07c8192-****-adf4f7447720
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The name of the resource.
+     *
+     * @example deployment-to-convert
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The type of the resource that is used. Set the value to deployment.
+     *
+     * @example deployment
+     *
      * @var string
      */
     public $resourceType;

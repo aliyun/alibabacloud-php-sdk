@@ -9,86 +9,161 @@ use AlibabaCloud\Tea\Model;
 class GetServiceMethodPageRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 310b18c3-1dbe-4807-****-18d7d637****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The group to which the service belongs.
+     *
+     * @example DUBBO
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The IP address of the service.
+     *
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The controller method.
+     *
+     * @example com.aliware.edas.DemoController
+     *
      * @var string
      */
     public $methodController;
 
     /**
+     * @description The name of the method.
+     *
+     * @example echo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example cn-hangzhou:doc-test
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The source of the data. Valid values:
+     *
+     *   agent: Use this value if you use the service query feature of the latest version to pass the query result.
+     *   registry: Use this value if you use the service query feature of the earlier version to pass the query result.
+     *
+     * @example agent
+     *
      * @var string
      */
     public $origin;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request path.
+     *
+     * @example /echo/{str}
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The type of the service registry.
+     *
+     * @example nacos
+     *
      * @var string
      */
     public $registryType;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example edas.service.consumer
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example edas.service.consumer
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     *   dubbo: Dubbo service
+     *   springCloud: Spring Cloud service
+     *   hsf: High-speed Service Framework (HSF) service
+     *
+     * @example springCloud
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @description The version of the service.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $serviceVersion;
 
     /**
+     * @description The source of the service. Set the value to edas.
+     *
+     * @example edas
+     *
      * @var string
      */
     public $source;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class action extends Model
 {
     /**
+     * @description The serial number of the permission that is granted to the role.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The description of the permission to be granted to the role.
+     *
+     * @example Operations in operation records
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the permission group to which the permission that is granted to the role belongs.
+     *
+     * @example 31
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the permission to be granted to the role.
+     *
+     * @example Operation records
+     *
      * @var string
      */
     public $name;

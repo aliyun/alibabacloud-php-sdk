@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AbortChangeOrderRequest extends Model
 {
     /**
+     * @description The ID of the change process. You can call the [GetChangeOrderInfo](~~62072~~) operation to query the change process ID.
+     *
+     * @example 4f038ddf-b27b-****-****-88e44375****
+     *
      * @var string
      */
     public $changeOrderId;

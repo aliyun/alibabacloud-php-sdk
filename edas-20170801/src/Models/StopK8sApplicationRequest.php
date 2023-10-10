@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class StopK8sApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application. You can query the application ID by calling the ListApplication operation. For more information, see [ListApplication](~~149390~~).
+     *
+     * @example 93fdd228-d237-*******8de18d
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The timeout period of the change process. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $timeout;

@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class eccInfo extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example e809****-43d7-4c6b-8e01-b0d9d1db****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description ECC ID
+     *
+     * @example a5b9****-40b4-4d7b-9c2a-55d6c1c0****
+     *
      * @var string
      */
     public $eccId;
 
     /**
+     * @description ECU ID
+     *
+     * @example 0d4e****-6d87-401f-ba81-13df9877****
+     *
      * @var string
      */
     public $ecuId;
 
     /**
+     * @description The ID of the ECC group.
+     *
+     * @example 57cd****-2d3b-496f-bcce-646d0a4d****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the ECC group.
+     *
+     * @example _DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The MD5 hash value of the deployment package version.
+     *
+     * @example bab6****7a090e41ca9445c9b3cd****
+     *
      * @var string
      */
     public $packageMd5;
 
     /**
+     * @description The version of the deployment package.
+     *
+     * @example 20210209.153400
+     *
      * @var string
      */
     public $packageVersion;
 
     /**
+     * @description VPC ID
+     *
+     * @example vpc-23727****
+     *
      * @var string
      */
     public $vpcId;

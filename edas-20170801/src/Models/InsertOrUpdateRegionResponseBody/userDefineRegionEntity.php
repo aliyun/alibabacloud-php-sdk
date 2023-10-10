@@ -9,36 +9,70 @@ use AlibabaCloud\Tea\Model;
 class userDefineRegionEntity extends Model
 {
     /**
+     * @description The ID of the region to which the namespace belongs.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $belongRegion;
 
     /**
+     * @description Indicates whether remote debugging is enabled. Valid values:
+     *
+     *   true: Remote debugging is enabled.
+     *   false: Remote debugging is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $debugEnable;
 
     /**
+     * @description The description of the namespace.
+     *
+     * @example Logical region
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the namespace is created or modified. If this parameter is left empty or 0 is returned, the namespace is created. Otherwise, the namespace is modified.
+     *
+     * @example 15160
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the namespace.
+     *
+     *   The ID of a custom namespace is in the `region ID:namespace identifier` format. Example: cn-beijing:tdy218.
+     *   The ID of the default namespace is in the `region ID` format. Example: cn-beijing.
+     *
+     * @example cn-beijing:test
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test_region
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the custom namespace belongs.
+     *
+     * @example edas_****_test@aliyun-****.com
+     *
      * @var string
      */
     public $userId;

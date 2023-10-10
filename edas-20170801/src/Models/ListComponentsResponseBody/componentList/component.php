@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class component extends Model
 {
     /**
+     * @description The ID of the component.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $componentId;
 
     /**
+     * @description The key of the component.
+     *
+     * @example JDK 7
+     *
      * @var string
      */
     public $componentKey;
 
     /**
+     * @description The description of the component.
+     *
+     * @example JDK 7
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description Indicates whether the component has expired. Valid values:
+     *
+     *   false: The component has not expired.
+     *   true: The component has expired.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The type of the component. Valid values:
+     *
+     *   JDK
+     *   TOMCAT
+     *   TENGINE
+     *
+     * @example JDK
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The version of the component.
+     *
+     * @example oraclejdk7
+     *
      * @var string
      */
     public $version;

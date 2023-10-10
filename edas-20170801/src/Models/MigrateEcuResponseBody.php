@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class MigrateEcuResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
+     * @example true
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04B0ABAF-95F2-42B6-A7B1****
+     *
      * @var string
      */
     public $requestId;

@@ -12,56 +12,114 @@ use AlibabaCloud\Tea\Model;
 class changeOrderInfo extends Model
 {
     /**
+     * @description The number of batches for the change.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $batchCount;
 
     /**
+     * @description Indicates whether the change for the next batch is automatically or manually triggered when phased release is performed. Valid values:
+     *
+     *   Automatic: The change for the next batch is automatically triggered.
+     *   Manual: The change for the next batch is manually triggered.
+     *
+     * @example Automatic
+     *
      * @var string
      */
     public $batchType;
 
     /**
+     * @description The description of the change process.
+     *
+     * @example Application scale-out
+     *
      * @var string
      */
     public $changeOrderDescription;
 
     /**
+     * @description The ID of the change process.
+     *
+     * @example 1074f3e2-e974-4a0e-****-************
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The type of the change process.
+     *
+     * @example Application Scale Out
+     *
      * @var string
      */
     public $coType;
 
     /**
+     * @description The time when the change process is created.
+     *
+     * @example 2019-11-13 14:23:46
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The person in charge of the change process.
+     *
+     * @example edas_com***_****@******-*****.***
+     *
      * @var string
      */
     public $createUserId;
 
     /**
+     * @description The description of the change process.
+     *
+     * @example IP of Scale-Out Instance: 47.107.XX.XX
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The information about the batches of the change task.
+     *
      * @var pipelineInfoList
      */
     public $pipelineInfoList;
 
     /**
+     * @description The state of the change process. Valid values:
+     *
+     *   0: ready
+     *   1: in progress
+     *   2: successful
+     *   3: failed
+     *   6: terminated
+     *   7: partially executed
+     *   8: wait for manual confirmation to trigger the next batch during a manual phased release
+     *   9: wait to trigger the next batch during an automatic phased release
+     *   10: failed due to a system exception
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description Indicates whether rollbacks are allowed. Valid values:
+     *
+     *   true: Rollbacks are allowed.
+     *   false: Rollbacks are not allowed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $supportRollback;
@@ -72,6 +130,8 @@ class changeOrderInfo extends Model
     public $targets;
 
     /**
+     * @description The throttling rules.
+     *
      * @var trafficControl
      */
     public $trafficControl;

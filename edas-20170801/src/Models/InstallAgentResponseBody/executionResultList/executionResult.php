@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class executionResult extends Model
 {
     /**
+     * @description The time when the installation was complete.
+     *
+     * @example 20**-11-10T07:02:17Z
+     *
      * @var string
      */
     public $finishedTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-2ze7s2v0b789k*******
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The state of the installation.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $invokeRecordStatus;
 
     /**
+     * @description The state of the installation command.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates whether the installation was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

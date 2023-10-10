@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class GetJvmConfigurationResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The JVM configuration of the application or instance group.
+     *
      * @var jvmConfiguration
      */
     public $jvmConfiguration;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3F43-F34V-0VCD***********
+     *
      * @var string
      */
     public $requestId;

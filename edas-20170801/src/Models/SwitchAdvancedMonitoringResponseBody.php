@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class SwitchAdvancedMonitoringResponseBody extends Model
 {
     /**
+     * @description Indicates whether the advanced application monitoring feature is enabled. Valid values:
+     *
+     *   true: The advanced application monitoring feature is enabled.
+     *   false: The advanced application monitoring feature is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $advancedMonitoringEnabled;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example The advanced monitoring status is disabled already for application which app_id is 9e224bc6-a646-4484-ae31-e617b7e7****
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 577AED12-32D8-40B6-991F-17D7A601****
+     *
      * @var string
      */
     public $requestId;

@@ -12,8 +12,6 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\AbortChangeOrderRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AbortChangeOrderResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AddLogPathRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AddLogPathResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\AddMockRuleRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\AddMockRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AuthorizeApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AuthorizeApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AuthorizeResourceGroupRequest;
@@ -76,6 +74,8 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteRoleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteRoleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteServiceGroupRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteServiceGroupResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteSwimmingLaneRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteSwimmingLaneResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteUserDefineRegionRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeleteUserDefineRegionResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DeployApplicationRequest;
@@ -88,14 +88,8 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeApplicationScalingRulesReques
 use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeApplicationScalingRulesResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DisableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DisableApplicationScalingRuleResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DisableMockRuleRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\DisableMockRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\EnableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\EnableApplicationScalingRuleResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\EnableMockRuleRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\EnableMockRuleResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetAccountMockRuleRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetAccountMockRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetAppDeploymentRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetAppDeploymentResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetApplicationRequest;
@@ -112,14 +106,12 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\GetJvmConfigurationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetJvmConfigurationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sApplicationResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sAppPrecheckResultRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sAppPrecheckResultResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sClusterRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sClusterResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sServicesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sServicesResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetMockRuleByConsumerAppIdRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetMockRuleByConsumerAppIdResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetMockRuleByProviderAppIdRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\GetMockRuleByProviderAppIdResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetPackageStorageCredentialResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetScalingRulesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetScalingRulesResponse;
@@ -155,6 +147,10 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\InsertRoleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertRoleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertServiceGroupRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertServiceGroupResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\InsertSwimmingLaneGroupRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\InsertSwimmingLaneGroupResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\InsertSwimmingLaneRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\InsertSwimmingLaneResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InstallAgentRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InstallAgentResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListAliyunRegionResponse;
@@ -199,13 +195,16 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\ListRecentChangeOrderRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListRecentChangeOrderResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListResourceGroupResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListRoleResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListRootStacksRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\ListRootStacksResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListScaleOutEcuRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListScaleOutEcuResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListServiceGroupsResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListSlbRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListSlbResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListSubAccountResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListSwimmingLaneGroupRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListSwimmingLaneGroupResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListSwimmingLaneRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\ListSwimmingLaneResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListUserDefineRegionRequest;
@@ -226,8 +225,6 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\QueryMigrateRegionListResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryRegionConfigResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QuerySlsLogStoreListRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QuerySlsLogStoreListResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\RemoveMockRuleRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\RemoveMockRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ResetApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ResetApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\RestartApplicationRequest;
@@ -252,6 +249,8 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\StartApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\StartApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\StartK8sApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\StartK8sApplicationResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\StartK8sAppPrecheckRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\StartK8sAppPrecheckResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\StopApplicationRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\StopApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\StopK8sApplicationRequest;
@@ -304,12 +303,14 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sServiceRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sServiceResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sSlbRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateK8sSlbResponse;
-use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateMockRuleRequest;
-use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateMockRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateRoleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateRoleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSlsLogStoreRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSlsLogStoreResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSwimmingLaneGroupRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSwimmingLaneGroupResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSwimmingLaneRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSwimmingLaneResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -395,19 +396,6 @@ class Edas extends OpenApiClient
 
     /**
      * @param AbortAndRollbackChangeOrderRequest $request
-     *
-     * @return AbortAndRollbackChangeOrderResponse
-     */
-    public function abortAndRollbackChangeOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->abortAndRollbackChangeOrderWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param AbortAndRollbackChangeOrderRequest $request
      * @param string[]                           $headers
      * @param RuntimeOptions                     $runtime
      *
@@ -440,16 +428,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param AbortChangeOrderRequest $request
+     * @param AbortAndRollbackChangeOrderRequest $request
      *
-     * @return AbortChangeOrderResponse
+     * @return AbortAndRollbackChangeOrderResponse
      */
-    public function abortChangeOrder($request)
+    public function abortAndRollbackChangeOrder($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->abortChangeOrderWithOptions($request, $headers, $runtime);
+        return $this->abortAndRollbackChangeOrderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -486,16 +474,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param AddLogPathRequest $request
+     * @param AbortChangeOrderRequest $request
      *
-     * @return AddLogPathResponse
+     * @return AbortChangeOrderResponse
      */
-    public function addLogPath($request)
+    public function abortChangeOrder($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->addLogPathWithOptions($request, $headers, $runtime);
+        return $this->abortChangeOrderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -535,95 +523,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param AddMockRuleRequest $request
+     * @param AddLogPathRequest $request
      *
-     * @return AddMockRuleResponse
+     * @return AddLogPathResponse
      */
-    public function addMockRule($request)
+    public function addLogPath($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->addMockRuleWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param AddMockRuleRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
-     *
-     * @return AddMockRuleResponse
-     */
-    public function addMockRuleWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->consumerAppsJson)) {
-            $query['ConsumerAppsJson'] = $request->consumerAppsJson;
-        }
-        if (!Utils::isUnset($request->dubboMockItemJson)) {
-            $query['DubboMockItemJson'] = $request->dubboMockItemJson;
-        }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
-        }
-        if (!Utils::isUnset($request->extraJson)) {
-            $query['ExtraJson'] = $request->extraJson;
-        }
-        if (!Utils::isUnset($request->mockType)) {
-            $query['MockType'] = $request->mockType;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->providerAppId)) {
-            $query['ProviderAppId'] = $request->providerAppId;
-        }
-        if (!Utils::isUnset($request->providerAppName)) {
-            $query['ProviderAppName'] = $request->providerAppName;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->scMockItemJson)) {
-            $query['ScMockItemJson'] = $request->scMockItemJson;
-        }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddMockRule',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/sp/api/mock/addMockRule',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AuthorizeApplicationRequest $request
-     *
-     * @return AuthorizeApplicationResponse
-     */
-    public function authorizeApplication($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->authorizeApplicationWithOptions($request, $headers, $runtime);
+        return $this->addLogPathWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -663,16 +572,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeResourceGroupRequest $request
+     * @param AuthorizeApplicationRequest $request
      *
-     * @return AuthorizeResourceGroupResponse
+     * @return AuthorizeApplicationResponse
      */
-    public function authorizeResourceGroup($request)
+    public function authorizeApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->authorizeResourceGroupWithOptions($request, $headers, $runtime);
+        return $this->authorizeApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -712,16 +621,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeRoleRequest $request
+     * @param AuthorizeResourceGroupRequest $request
      *
-     * @return AuthorizeRoleResponse
+     * @return AuthorizeResourceGroupResponse
      */
-    public function authorizeRole($request)
+    public function authorizeResourceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->authorizeRoleWithOptions($request, $headers, $runtime);
+        return $this->authorizeResourceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -761,16 +670,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param BindEcsSlbRequest $request
+     * @param AuthorizeRoleRequest $request
      *
-     * @return BindEcsSlbResponse
+     * @return AuthorizeRoleResponse
      */
-    public function bindEcsSlb($request)
+    public function authorizeRole($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->bindEcsSlbWithOptions($request, $headers, $runtime);
+        return $this->authorizeRoleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -831,16 +740,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param BindK8sSlbRequest $request
+     * @param BindEcsSlbRequest $request
      *
-     * @return BindK8sSlbResponse
+     * @return BindEcsSlbResponse
      */
-    public function bindK8sSlb($request)
+    public function bindEcsSlb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->bindK8sSlbWithOptions($request, $headers, $runtime);
+        return $this->bindEcsSlbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -904,16 +813,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param BindSlbRequest $request
+     * @param BindK8sSlbRequest $request
      *
-     * @return BindSlbResponse
+     * @return BindK8sSlbResponse
      */
-    public function bindSlb($request)
+    public function bindK8sSlb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->bindSlbWithOptions($request, $headers, $runtime);
+        return $this->bindK8sSlbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -965,16 +874,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ChangeDeployGroupRequest $request
+     * @param BindSlbRequest $request
      *
-     * @return ChangeDeployGroupResponse
+     * @return BindSlbResponse
      */
-    public function changeDeployGroup($request)
+    public function bindSlb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->changeDeployGroupWithOptions($request, $headers, $runtime);
+        return $this->bindSlbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1020,16 +929,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ContinuePipelineRequest $request
+     * @param ChangeDeployGroupRequest $request
      *
-     * @return ContinuePipelineResponse
+     * @return ChangeDeployGroupResponse
      */
-    public function continuePipeline($request)
+    public function changeDeployGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->continuePipelineWithOptions($request, $headers, $runtime);
+        return $this->changeDeployGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1069,16 +978,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ConvertK8sResourceRequest $request
+     * @param ContinuePipelineRequest $request
      *
-     * @return ConvertK8sResourceResponse
+     * @return ContinuePipelineResponse
      */
-    public function convertK8sResource($request)
+    public function continuePipeline($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->convertK8sResourceWithOptions($request, $headers, $runtime);
+        return $this->continuePipelineWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1124,16 +1033,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationScalingRuleRequest $request
+     * @param ConvertK8sResourceRequest $request
      *
-     * @return CreateApplicationScalingRuleResponse
+     * @return ConvertK8sResourceResponse
      */
-    public function createApplicationScalingRule($request)
+    public function convertK8sResource($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->convertK8sResourceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1149,6 +1058,9 @@ class Edas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->scalingBehaviour)) {
+            $query['ScalingBehaviour'] = $request->scalingBehaviour;
         }
         if (!Utils::isUnset($request->scalingRuleEnable)) {
             $query['ScalingRuleEnable'] = $request->scalingRuleEnable;
@@ -1188,16 +1100,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param CreateConfigTemplateRequest $request
+     * @param CreateApplicationScalingRuleRequest $request
      *
-     * @return CreateConfigTemplateResponse
+     * @return CreateApplicationScalingRuleResponse
      */
-    public function createConfigTemplate($request)
+    public function createApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createConfigTemplateWithOptions($request, $headers, $runtime);
+        return $this->createApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1243,24 +1155,27 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param CreateIDCImportCommandRequest $request
+     * @param CreateConfigTemplateRequest $request
      *
-     * @return CreateIDCImportCommandResponse
+     * @return CreateConfigTemplateResponse
      */
-    public function createIDCImportCommand($request)
+    public function createConfigTemplate($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createIDCImportCommandWithOptions($request, $headers, $runtime);
+        return $this->createConfigTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param CreateIDCImportCommandRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * ## Description
+     *   * You must call the CreateIDCImportCommand operation first to generate a command used to import hybrid cloud ECS instances to a hybrid cloud ECS cluster. Then, run this command on the instances to import the instances to the cluster.
+     *   *
+     * @param CreateIDCImportCommandRequest $request CreateIDCImportCommandRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIDCImportCommandResponse
+     * @return CreateIDCImportCommandResponse CreateIDCImportCommandResponse
      */
     public function createIDCImportCommandWithOptions($request, $headers, $runtime)
     {
@@ -1289,16 +1204,19 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param CreateK8sConfigMapRequest $request
+     * ## Description
+     *   * You must call the CreateIDCImportCommand operation first to generate a command used to import hybrid cloud ECS instances to a hybrid cloud ECS cluster. Then, run this command on the instances to import the instances to the cluster.
+     *   *
+     * @param CreateIDCImportCommandRequest $request CreateIDCImportCommandRequest
      *
-     * @return CreateK8sConfigMapResponse
+     * @return CreateIDCImportCommandResponse CreateIDCImportCommandResponse
      */
-    public function createK8sConfigMap($request)
+    public function createIDCImportCommand($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createK8sConfigMapWithOptions($request, $headers, $runtime);
+        return $this->createIDCImportCommandWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1344,16 +1262,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param CreateK8sIngressRuleRequest $request
+     * @param CreateK8sConfigMapRequest $request
      *
-     * @return CreateK8sIngressRuleResponse
+     * @return CreateK8sConfigMapResponse
      */
-    public function createK8sIngressRule($request)
+    public function createK8sConfigMap($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createK8sIngressRuleWithOptions($request, $headers, $runtime);
+        return $this->createK8sConfigMapWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1367,11 +1285,17 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->annotations)) {
+            $query['Annotations'] = $request->annotations;
+        }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->ingressConf)) {
             $query['IngressConf'] = $request->ingressConf;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -1399,16 +1323,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param CreateK8sSecretRequest $request
+     * @param CreateK8sIngressRuleRequest $request
      *
-     * @return CreateK8sSecretResponse
+     * @return CreateK8sIngressRuleResponse
      */
-    public function createK8sSecret($request)
+    public function createK8sIngressRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createK8sSecretWithOptions($request, $headers, $runtime);
+        return $this->createK8sIngressRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1466,16 +1390,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param CreateK8sServiceRequest $request
+     * @param CreateK8sSecretRequest $request
      *
-     * @return CreateK8sServiceResponse
+     * @return CreateK8sSecretResponse
      */
-    public function createK8sService($request)
+    public function createK8sSecret($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createK8sServiceWithOptions($request, $headers, $runtime);
+        return $this->createK8sSecretWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1491,6 +1415,9 @@ class Edas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->externalTrafficPolicy)) {
+            $query['ExternalTrafficPolicy'] = $request->externalTrafficPolicy;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -1521,16 +1448,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationRequest $request
+     * @param CreateK8sServiceRequest $request
      *
-     * @return DeleteApplicationResponse
+     * @return CreateK8sServiceResponse
      */
-    public function deleteApplication($request)
+    public function createK8sService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteApplicationWithOptions($request, $headers, $runtime);
+        return $this->createK8sServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1567,16 +1494,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationScalingRuleRequest $request
+     * @param DeleteApplicationRequest $request
      *
-     * @return DeleteApplicationScalingRuleResponse
+     * @return DeleteApplicationResponse
      */
-    public function deleteApplicationScalingRule($request)
+    public function deleteApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->deleteApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1616,16 +1543,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
+     * @param DeleteApplicationScalingRuleRequest $request
      *
-     * @return DeleteClusterResponse
+     * @return DeleteApplicationScalingRuleResponse
      */
-    public function deleteCluster($request)
+    public function deleteApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteClusterWithOptions($request, $headers, $runtime);
+        return $this->deleteApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1665,16 +1592,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterMemberRequest $request
+     * @param DeleteClusterRequest $request
      *
-     * @return DeleteClusterMemberResponse
+     * @return DeleteClusterResponse
      */
-    public function deleteClusterMember($request)
+    public function deleteCluster($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteClusterMemberWithOptions($request, $headers, $runtime);
+        return $this->deleteClusterWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1714,16 +1641,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteConfigTemplateRequest $request
+     * @param DeleteClusterMemberRequest $request
      *
-     * @return DeleteConfigTemplateResponse
+     * @return DeleteClusterMemberResponse
      */
-    public function deleteConfigTemplate($request)
+    public function deleteClusterMember($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteConfigTemplateWithOptions($request, $headers, $runtime);
+        return $this->deleteClusterMemberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1760,16 +1687,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeployGroupRequest $request
+     * @param DeleteConfigTemplateRequest $request
      *
-     * @return DeleteDeployGroupResponse
+     * @return DeleteConfigTemplateResponse
      */
-    public function deleteDeployGroup($request)
+    public function deleteConfigTemplate($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDeployGroupWithOptions($request, $headers, $runtime);
+        return $this->deleteConfigTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1809,16 +1736,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteEcuRequest $request
+     * @param DeleteDeployGroupRequest $request
      *
-     * @return DeleteEcuResponse
+     * @return DeleteDeployGroupResponse
      */
-    public function deleteEcu($request)
+    public function deleteDeployGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteEcuWithOptions($request, $headers, $runtime);
+        return $this->deleteDeployGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1855,16 +1782,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteK8sApplicationRequest $request
+     * @param DeleteEcuRequest $request
      *
-     * @return DeleteK8sApplicationResponse
+     * @return DeleteEcuResponse
      */
-    public function deleteK8sApplication($request)
+    public function deleteEcu($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteK8sApplicationWithOptions($request, $headers, $runtime);
+        return $this->deleteEcuWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1880,6 +1807,9 @@ class Edas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1901,16 +1831,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteK8sConfigMapRequest $request
+     * @param DeleteK8sApplicationRequest $request
      *
-     * @return DeleteK8sConfigMapResponse
+     * @return DeleteK8sApplicationResponse
      */
-    public function deleteK8sConfigMap($request)
+    public function deleteK8sApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteK8sConfigMapWithOptions($request, $headers, $runtime);
+        return $this->deleteK8sApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1953,16 +1883,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteK8sIngressRuleRequest $request
+     * @param DeleteK8sConfigMapRequest $request
      *
-     * @return DeleteK8sIngressRuleResponse
+     * @return DeleteK8sConfigMapResponse
      */
-    public function deleteK8sIngressRule($request)
+    public function deleteK8sConfigMap($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteK8sIngressRuleWithOptions($request, $headers, $runtime);
+        return $this->deleteK8sConfigMapWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2005,16 +1935,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteK8sSecretRequest $request
+     * @param DeleteK8sIngressRuleRequest $request
      *
-     * @return DeleteK8sSecretResponse
+     * @return DeleteK8sIngressRuleResponse
      */
-    public function deleteK8sSecret($request)
+    public function deleteK8sIngressRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteK8sSecretWithOptions($request, $headers, $runtime);
+        return $this->deleteK8sIngressRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2057,16 +1987,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteK8sServiceRequest $request
+     * @param DeleteK8sSecretRequest $request
      *
-     * @return DeleteK8sServiceResponse
+     * @return DeleteK8sSecretResponse
      */
-    public function deleteK8sService($request)
+    public function deleteK8sSecret($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteK8sServiceWithOptions($request, $headers, $runtime);
+        return $this->deleteK8sSecretWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2106,16 +2036,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteLogPathRequest $request
+     * @param DeleteK8sServiceRequest $request
      *
-     * @return DeleteLogPathResponse
+     * @return DeleteK8sServiceResponse
      */
-    public function deleteLogPath($request)
+    public function deleteK8sService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteLogPathWithOptions($request, $headers, $runtime);
+        return $this->deleteK8sServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2155,16 +2085,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteRoleRequest $request
+     * @param DeleteLogPathRequest $request
      *
-     * @return DeleteRoleResponse
+     * @return DeleteLogPathResponse
      */
-    public function deleteRole($request)
+    public function deleteLogPath($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteRoleWithOptions($request, $headers, $runtime);
+        return $this->deleteLogPathWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2201,16 +2131,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceGroupRequest $request
+     * @param DeleteRoleRequest $request
      *
-     * @return DeleteServiceGroupResponse
+     * @return DeleteRoleResponse
      */
-    public function deleteServiceGroup($request)
+    public function deleteRole($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteServiceGroupWithOptions($request, $headers, $runtime);
+        return $this->deleteRoleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2247,16 +2177,62 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserDefineRegionRequest $request
+     * @param DeleteServiceGroupRequest $request
      *
-     * @return DeleteUserDefineRegionResponse
+     * @return DeleteServiceGroupResponse
      */
-    public function deleteUserDefineRegion($request)
+    public function deleteServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteUserDefineRegionWithOptions($request, $headers, $runtime);
+        return $this->deleteServiceGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteSwimmingLaneRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteSwimmingLaneResponse
+     */
+    public function deleteSwimmingLaneWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->laneId)) {
+            $query['LaneId'] = $request->laneId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSwimmingLane',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/trafficmgnt/swimming_lanes',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSwimmingLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSwimmingLaneRequest $request
+     *
+     * @return DeleteSwimmingLaneResponse
+     */
+    public function deleteSwimmingLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSwimmingLaneWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2296,24 +2272,26 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeployApplicationRequest $request
+     * @param DeleteUserDefineRegionRequest $request
      *
-     * @return DeployApplicationResponse
+     * @return DeleteUserDefineRegionResponse
      */
-    public function deployApplication($request)
+    public function deleteUserDefineRegion($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deployApplicationWithOptions($request, $headers, $runtime);
+        return $this->deleteUserDefineRegionWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param DeployApplicationRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * > To deploy an application in a Container Service for Kubernetes (ACK) cluster that is imported into Enterprise Distributed Application Service (EDAS), call the DeployK8sApplication operation provided by EDAS. For more information, see [](~~149420~~)DeployK8sApplication.
+     *   *
+     * @param DeployApplicationRequest $request DeployApplicationRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeployApplicationResponse
+     * @return DeployApplicationResponse DeployApplicationResponse
      */
     public function deployApplicationWithOptions($request, $headers, $runtime)
     {
@@ -2384,16 +2362,18 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DeployK8sApplicationRequest $request
+     * > To deploy an application in a Container Service for Kubernetes (ACK) cluster that is imported into Enterprise Distributed Application Service (EDAS), call the DeployK8sApplication operation provided by EDAS. For more information, see [](~~149420~~)DeployK8sApplication.
+     *   *
+     * @param DeployApplicationRequest $request DeployApplicationRequest
      *
-     * @return DeployK8sApplicationResponse
+     * @return DeployApplicationResponse DeployApplicationResponse
      */
-    public function deployK8sApplication($request)
+    public function deployApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deployK8sApplicationWithOptions($request, $headers, $runtime);
+        return $this->deployApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2424,6 +2404,9 @@ class Edas extends OpenApiClient
         }
         if (!Utils::isUnset($request->buildPackId)) {
             $query['BuildPackId'] = $request->buildPackId;
+        }
+        if (!Utils::isUnset($request->canaryRuleId)) {
+            $query['CanaryRuleId'] = $request->canaryRuleId;
         }
         if (!Utils::isUnset($request->changeOrderDesc)) {
             $query['ChangeOrderDesc'] = $request->changeOrderDesc;
@@ -2476,8 +2459,14 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->image)) {
             $query['Image'] = $request->image;
         }
+        if (!Utils::isUnset($request->imagePlatforms)) {
+            $query['ImagePlatforms'] = $request->imagePlatforms;
+        }
         if (!Utils::isUnset($request->imageTag)) {
             $query['ImageTag'] = $request->imageTag;
+        }
+        if (!Utils::isUnset($request->initContainers)) {
+            $query['InitContainers'] = $request->initContainers;
         }
         if (!Utils::isUnset($request->JDK)) {
             $query['JDK'] = $request->JDK;
@@ -2487,6 +2476,9 @@ class Edas extends OpenApiClient
         }
         if (!Utils::isUnset($request->labels)) {
             $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->limitEphemeralStorage)) {
+            $query['LimitEphemeralStorage'] = $request->limitEphemeralStorage;
         }
         if (!Utils::isUnset($request->liveness)) {
             $query['Liveness'] = $request->liveness;
@@ -2551,14 +2543,26 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->replicas)) {
             $query['Replicas'] = $request->replicas;
         }
+        if (!Utils::isUnset($request->requestsEphemeralStorage)) {
+            $query['RequestsEphemeralStorage'] = $request->requestsEphemeralStorage;
+        }
         if (!Utils::isUnset($request->runtimeClassName)) {
             $query['RuntimeClassName'] = $request->runtimeClassName;
+        }
+        if (!Utils::isUnset($request->sidecars)) {
+            $query['Sidecars'] = $request->sidecars;
         }
         if (!Utils::isUnset($request->slsConfigs)) {
             $query['SlsConfigs'] = $request->slsConfigs;
         }
+        if (!Utils::isUnset($request->startup)) {
+            $query['Startup'] = $request->startup;
+        }
         if (!Utils::isUnset($request->storageType)) {
             $query['StorageType'] = $request->storageType;
+        }
+        if (!Utils::isUnset($request->terminateGracePeriod)) {
+            $query['TerminateGracePeriod'] = $request->terminateGracePeriod;
         }
         if (!Utils::isUnset($request->trafficControlStrategy)) {
             $query['TrafficControlStrategy'] = $request->trafficControlStrategy;
@@ -2571,6 +2575,9 @@ class Edas extends OpenApiClient
         }
         if (!Utils::isUnset($request->useBodyEncoding)) {
             $query['UseBodyEncoding'] = $request->useBodyEncoding;
+        }
+        if (!Utils::isUnset($request->userBaseImageUrl)) {
+            $query['UserBaseImageUrl'] = $request->userBaseImageUrl;
         }
         if (!Utils::isUnset($request->volumesStr)) {
             $query['VolumesStr'] = $request->volumesStr;
@@ -2601,16 +2608,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppInstanceListRequest $request
+     * @param DeployK8sApplicationRequest $request
      *
-     * @return DescribeAppInstanceListResponse
+     * @return DeployK8sApplicationResponse
      */
-    public function describeAppInstanceList($request)
+    public function deployK8sApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeAppInstanceListWithOptions($request, $headers, $runtime);
+        return $this->deployK8sApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2650,16 +2657,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationScalingRulesRequest $request
+     * @param DescribeAppInstanceListRequest $request
      *
-     * @return DescribeApplicationScalingRulesResponse
+     * @return DescribeAppInstanceListResponse
      */
-    public function describeApplicationScalingRules($request)
+    public function describeAppInstanceList($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApplicationScalingRulesWithOptions($request, $headers, $runtime);
+        return $this->describeAppInstanceListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2696,16 +2703,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationScalingRuleRequest $request
+     * @param DescribeApplicationScalingRulesRequest $request
      *
-     * @return DisableApplicationScalingRuleResponse
+     * @return DescribeApplicationScalingRulesResponse
      */
-    public function disableApplicationScalingRule($request)
+    public function describeApplicationScalingRules($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->disableApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->describeApplicationScalingRulesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2745,62 +2752,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param DisableMockRuleRequest $request
+     * @param DisableApplicationScalingRuleRequest $request
      *
-     * @return DisableMockRuleResponse
+     * @return DisableApplicationScalingRuleResponse
      */
-    public function disableMockRule($request)
+    public function disableApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->disableMockRuleWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DisableMockRuleRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DisableMockRuleResponse
-     */
-    public function disableMockRuleWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DisableMockRule',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/sp/api/mock/disableMockRule',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DisableMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param EnableApplicationScalingRuleRequest $request
-     *
-     * @return EnableApplicationScalingRuleResponse
-     */
-    public function enableApplicationScalingRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->enableApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->disableApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2840,129 +2801,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param EnableMockRuleRequest $request
+     * @param EnableApplicationScalingRuleRequest $request
      *
-     * @return EnableMockRuleResponse
+     * @return EnableApplicationScalingRuleResponse
      */
-    public function enableMockRule($request)
+    public function enableApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->enableMockRuleWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param EnableMockRuleRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return EnableMockRuleResponse
-     */
-    public function enableMockRuleWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EnableMockRule',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/sp/api/mock/enableMockRule',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return EnableMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetAccountMockRuleRequest $request
-     *
-     * @return GetAccountMockRuleResponse
-     */
-    public function getAccountMockRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getAccountMockRuleWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetAccountMockRuleRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetAccountMockRuleResponse
-     */
-    public function getAccountMockRuleWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->consumerAppName)) {
-            $query['ConsumerAppName'] = $request->consumerAppName;
-        }
-        if (!Utils::isUnset($request->mockType)) {
-            $query['MockType'] = $request->mockType;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->providerAppName)) {
-            $query['ProviderAppName'] = $request->providerAppName;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetAccountMockRule',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/sp/api/mock/getAccountMockRule',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetAccountMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetAppDeploymentRequest $request
-     *
-     * @return GetAppDeploymentResponse
-     */
-    public function getAppDeployment($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getAppDeploymentWithOptions($request, $headers, $runtime);
+        return $this->enableApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2999,16 +2847,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationRequest $request
+     * @param GetAppDeploymentRequest $request
      *
-     * @return GetApplicationResponse
+     * @return GetAppDeploymentResponse
      */
-    public function getApplication($request)
+    public function getAppDeployment($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getApplicationWithOptions($request, $headers, $runtime);
+        return $this->getAppDeploymentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3045,16 +2893,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetChangeOrderInfoRequest $request
+     * @param GetApplicationRequest $request
      *
-     * @return GetChangeOrderInfoResponse
+     * @return GetApplicationResponse
      */
-    public function getChangeOrderInfo($request)
+    public function getApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getChangeOrderInfoWithOptions($request, $headers, $runtime);
+        return $this->getApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3091,16 +2939,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetClusterRequest $request
+     * @param GetChangeOrderInfoRequest $request
      *
-     * @return GetClusterResponse
+     * @return GetChangeOrderInfoResponse
      */
-    public function getCluster($request)
+    public function getChangeOrderInfo($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getClusterWithOptions($request, $headers, $runtime);
+        return $this->getChangeOrderInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3137,16 +2985,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetContainerConfigurationRequest $request
+     * @param GetClusterRequest $request
      *
-     * @return GetContainerConfigurationResponse
+     * @return GetClusterResponse
      */
-    public function getContainerConfiguration($request)
+    public function getCluster($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getContainerConfigurationWithOptions($request, $headers, $runtime);
+        return $this->getClusterWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3186,16 +3034,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetJavaStartUpConfigRequest $request
+     * @param GetContainerConfigurationRequest $request
      *
-     * @return GetJavaStartUpConfigResponse
+     * @return GetContainerConfigurationResponse
      */
-    public function getJavaStartUpConfig($request)
+    public function getContainerConfiguration($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getJavaStartUpConfigWithOptions($request, $headers, $runtime);
+        return $this->getContainerConfigurationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3232,16 +3080,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetJvmConfigurationRequest $request
+     * @param GetJavaStartUpConfigRequest $request
      *
-     * @return GetJvmConfigurationResponse
+     * @return GetJavaStartUpConfigResponse
      */
-    public function getJvmConfiguration($request)
+    public function getJavaStartUpConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getJvmConfigurationWithOptions($request, $headers, $runtime);
+        return $this->getJavaStartUpConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3281,16 +3129,68 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetK8sApplicationRequest $request
+     * @param GetJvmConfigurationRequest $request
      *
-     * @return GetK8sApplicationResponse
+     * @return GetJvmConfigurationResponse
      */
-    public function getK8sApplication($request)
+    public function getJvmConfiguration($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getK8sApplicationWithOptions($request, $headers, $runtime);
+        return $this->getJvmConfigurationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetK8sAppPrecheckResultRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetK8sAppPrecheckResultResponse
+     */
+    public function getK8sAppPrecheckResultWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetK8sAppPrecheckResult',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/app_precheck',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetK8sAppPrecheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetK8sAppPrecheckResultRequest $request
+     *
+     * @return GetK8sAppPrecheckResultResponse
+     */
+    public function getK8sAppPrecheckResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getK8sAppPrecheckResultWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3330,16 +3230,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetK8sClusterRequest $request
+     * @param GetK8sApplicationRequest $request
      *
-     * @return GetK8sClusterResponse
+     * @return GetK8sApplicationResponse
      */
-    public function getK8sCluster($request)
+    public function getK8sApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getK8sClusterWithOptions($request, $headers, $runtime);
+        return $this->getK8sApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3365,6 +3265,9 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->regionTag)) {
             $query['RegionTag'] = $request->regionTag;
         }
+        if (!Utils::isUnset($request->subClusterType)) {
+            $query['SubClusterType'] = $request->subClusterType;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -3385,16 +3288,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetK8sServicesRequest $request
+     * @param GetK8sClusterRequest $request
      *
-     * @return GetK8sServicesResponse
+     * @return GetK8sClusterResponse
      */
-    public function getK8sServices($request)
+    public function getK8sCluster($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getK8sServicesWithOptions($request, $headers, $runtime);
+        return $this->getK8sClusterWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3431,112 +3334,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetMockRuleByConsumerAppIdRequest $request
+     * @param GetK8sServicesRequest $request
      *
-     * @return GetMockRuleByConsumerAppIdResponse
+     * @return GetK8sServicesResponse
      */
-    public function getMockRuleByConsumerAppId($request)
+    public function getK8sServices($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getMockRuleByConsumerAppIdWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetMockRuleByConsumerAppIdRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetMockRuleByConsumerAppIdResponse
-     */
-    public function getMockRuleByConsumerAppIdWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->consumerAppId)) {
-            $query['ConsumerAppId'] = $request->consumerAppId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetMockRuleByConsumerAppId',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/sp/api/mock/getMockRuleByConsumerAppId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetMockRuleByConsumerAppIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetMockRuleByProviderAppIdRequest $request
-     *
-     * @return GetMockRuleByProviderAppIdResponse
-     */
-    public function getMockRuleByProviderAppId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getMockRuleByProviderAppIdWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetMockRuleByProviderAppIdRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetMockRuleByProviderAppIdResponse
-     */
-    public function getMockRuleByProviderAppIdWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->providerAppId)) {
-            $query['ProviderAppId'] = $request->providerAppId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetMockRuleByProviderAppId',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/sp/api/mock/getMockRuleByProviderAppId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetMockRuleByProviderAppIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @return GetPackageStorageCredentialResponse
-     */
-    public function getPackageStorageCredential()
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getPackageStorageCredentialWithOptions($headers, $runtime);
+        return $this->getK8sServicesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3566,16 +3373,14 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetScalingRulesRequest $request
-     *
-     * @return GetScalingRulesResponse
+     * @return GetPackageStorageCredentialResponse
      */
-    public function getScalingRules($request)
+    public function getPackageStorageCredential()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getScalingRulesWithOptions($request, $headers, $runtime);
+        return $this->getPackageStorageCredentialWithOptions($headers, $runtime);
     }
 
     /**
@@ -3618,16 +3423,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetSecureTokenRequest $request
+     * @param GetScalingRulesRequest $request
      *
-     * @return GetSecureTokenResponse
+     * @return GetScalingRulesResponse
      */
-    public function getSecureToken($request)
+    public function getScalingRules($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSecureTokenWithOptions($request, $headers, $runtime);
+        return $this->getScalingRulesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3664,16 +3469,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetServiceConsumersPageRequest $request
+     * @param GetSecureTokenRequest $request
      *
-     * @return GetServiceConsumersPageResponse
+     * @return GetSecureTokenResponse
      */
-    public function getServiceConsumersPage($request)
+    public function getSecureToken($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceConsumersPageWithOptions($request, $headers, $runtime);
+        return $this->getSecureTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3749,16 +3554,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetServiceDetailRequest $request
+     * @param GetServiceConsumersPageRequest $request
      *
-     * @return GetServiceDetailResponse
+     * @return GetServiceConsumersPageResponse
      */
-    public function getServiceDetail($request)
+    public function getServiceConsumersPage($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceDetailWithOptions($request, $headers, $runtime);
+        return $this->getServiceConsumersPageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3828,16 +3633,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetServiceListPageRequest $request
+     * @param GetServiceDetailRequest $request
      *
-     * @return GetServiceListPageResponse
+     * @return GetServiceDetailResponse
      */
-    public function getServiceListPage($request)
+    public function getServiceDetail($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceListPageWithOptions($request, $headers, $runtime);
+        return $this->getServiceDetailWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3898,16 +3703,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetServiceMethodPageRequest $request
+     * @param GetServiceListPageRequest $request
      *
-     * @return GetServiceMethodPageResponse
+     * @return GetServiceListPageResponse
      */
-    public function getServiceMethodPage($request)
+    public function getServiceListPage($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceMethodPageWithOptions($request, $headers, $runtime);
+        return $this->getServiceListPageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3992,16 +3797,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetServiceProvidersPageRequest $request
+     * @param GetServiceMethodPageRequest $request
      *
-     * @return GetServiceProvidersPageResponse
+     * @return GetServiceMethodPageResponse
      */
-    public function getServiceProvidersPage($request)
+    public function getServiceMethodPage($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceProvidersPageWithOptions($request, $headers, $runtime);
+        return $this->getServiceMethodPageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4077,24 +3882,26 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param GetWebContainerConfigRequest $request
+     * @param GetServiceProvidersPageRequest $request
      *
-     * @return GetWebContainerConfigResponse
+     * @return GetServiceProvidersPageResponse
      */
-    public function getWebContainerConfig($request)
+    public function getServiceProvidersPage($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWebContainerConfigWithOptions($request, $headers, $runtime);
+        return $this->getServiceProvidersPageWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param GetWebContainerConfigRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * ***
+     *   *
+     * @param GetWebContainerConfigRequest $request GetWebContainerConfigRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWebContainerConfigResponse
+     * @return GetWebContainerConfigResponse GetWebContainerConfigResponse
      */
     public function getWebContainerConfigWithOptions($request, $headers, $runtime)
     {
@@ -4123,16 +3930,18 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ImportK8sClusterRequest $request
+     * ***
+     *   *
+     * @param GetWebContainerConfigRequest $request GetWebContainerConfigRequest
      *
-     * @return ImportK8sClusterResponse
+     * @return GetWebContainerConfigResponse GetWebContainerConfigResponse
      */
-    public function importK8sCluster($request)
+    public function getWebContainerConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->importK8sClusterWithOptions($request, $headers, $runtime);
+        return $this->getWebContainerConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4178,24 +3987,26 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param InsertApplicationRequest $request
+     * @param ImportK8sClusterRequest $request
      *
-     * @return InsertApplicationResponse
+     * @return ImportK8sClusterResponse
      */
-    public function insertApplication($request)
+    public function importK8sCluster($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->insertApplicationWithOptions($request, $headers, $runtime);
+        return $this->importK8sClusterWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param InsertApplicationRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation provided by Enterprise Distributed Application Service (EDAS).
+     *   *
+     * @param InsertApplicationRequest $request InsertApplicationRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsertApplicationResponse
+     * @return InsertApplicationResponse InsertApplicationResponse
      */
     public function insertApplicationWithOptions($request, $headers, $runtime)
     {
@@ -4290,16 +4101,18 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param InsertClusterRequest $request
+     * > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation provided by Enterprise Distributed Application Service (EDAS).
+     *   *
+     * @param InsertApplicationRequest $request InsertApplicationRequest
      *
-     * @return InsertClusterResponse
+     * @return InsertApplicationResponse InsertApplicationResponse
      */
-    public function insertCluster($request)
+    public function insertApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->insertClusterWithOptions($request, $headers, $runtime);
+        return $this->insertApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4354,24 +4167,28 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param InsertClusterMemberRequest $request
+     * @param InsertClusterRequest $request
      *
-     * @return InsertClusterMemberResponse
+     * @return InsertClusterResponse
      */
-    public function insertClusterMember($request)
+    public function insertCluster($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->insertClusterMemberWithOptions($request, $headers, $runtime);
+        return $this->insertClusterWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param InsertClusterMemberRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * ##
+     *   * If you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all original data of the ECS instance is deleted. In addition, you must set a logon password for the ECS instance. Make sure that no important data exists on the ECS instance that you want to import or data has been backed up for the ECS instance.
+     *   * > We recommend that you call the InstallAgent operation instead of this operation. For more information, see [InstallAgent](~~127023~~).
+     *   *
+     * @param InsertClusterMemberRequest $request InsertClusterMemberRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsertClusterMemberResponse
+     * @return InsertClusterMemberResponse InsertClusterMemberResponse
      */
     public function insertClusterMemberWithOptions($request, $headers, $runtime)
     {
@@ -4406,16 +4223,20 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param InsertDeployGroupRequest $request
+     * ##
+     *   * If you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all original data of the ECS instance is deleted. In addition, you must set a logon password for the ECS instance. Make sure that no important data exists on the ECS instance that you want to import or data has been backed up for the ECS instance.
+     *   * > We recommend that you call the InstallAgent operation instead of this operation. For more information, see [InstallAgent](~~127023~~).
+     *   *
+     * @param InsertClusterMemberRequest $request InsertClusterMemberRequest
      *
-     * @return InsertDeployGroupResponse
+     * @return InsertClusterMemberResponse InsertClusterMemberResponse
      */
-    public function insertDeployGroup($request)
+    public function insertClusterMember($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->insertDeployGroupWithOptions($request, $headers, $runtime);
+        return $this->insertClusterMemberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4458,16 +4279,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param InsertK8sApplicationRequest $request
+     * @param InsertDeployGroupRequest $request
      *
-     * @return InsertK8sApplicationResponse
+     * @return InsertDeployGroupResponse
      */
-    public function insertK8sApplication($request)
+    public function insertDeployGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->insertK8sApplicationWithOptions($request, $headers, $runtime);
+        return $this->insertDeployGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4484,8 +4305,14 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->annotations)) {
             $query['Annotations'] = $request->annotations;
         }
+        if (!Utils::isUnset($request->appConfig)) {
+            $query['AppConfig'] = $request->appConfig;
+        }
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appTemplateName)) {
+            $query['AppTemplateName'] = $request->appTemplateName;
         }
         if (!Utils::isUnset($request->applicationDescription)) {
             $query['ApplicationDescription'] = $request->applicationDescription;
@@ -4504,6 +4331,9 @@ class Edas extends OpenApiClient
         }
         if (!Utils::isUnset($request->configMountDescs)) {
             $query['ConfigMountDescs'] = $request->configMountDescs;
+        }
+        if (!Utils::isUnset($request->containerRegistryId)) {
+            $query['ContainerRegistryId'] = $request->containerRegistryId;
         }
         if (!Utils::isUnset($request->csClusterId)) {
             $query['CsClusterId'] = $request->csClusterId;
@@ -4544,8 +4374,14 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->envs)) {
             $query['Envs'] = $request->envs;
         }
+        if (!Utils::isUnset($request->imagePlatforms)) {
+            $query['ImagePlatforms'] = $request->imagePlatforms;
+        }
         if (!Utils::isUnset($request->imageUrl)) {
             $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->initContainers)) {
+            $query['InitContainers'] = $request->initContainers;
         }
         if (!Utils::isUnset($request->internetSlbId)) {
             $query['InternetSlbId'] = $request->internetSlbId;
@@ -4585,6 +4421,9 @@ class Edas extends OpenApiClient
         }
         if (!Utils::isUnset($request->limitCpu)) {
             $query['LimitCpu'] = $request->limitCpu;
+        }
+        if (!Utils::isUnset($request->limitEphemeralStorage)) {
+            $query['LimitEphemeralStorage'] = $request->limitEphemeralStorage;
         }
         if (!Utils::isUnset($request->limitMem)) {
             $query['LimitMem'] = $request->limitMem;
@@ -4655,6 +4494,9 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->requestsCpu)) {
             $query['RequestsCpu'] = $request->requestsCpu;
         }
+        if (!Utils::isUnset($request->requestsEphemeralStorage)) {
+            $query['RequestsEphemeralStorage'] = $request->requestsEphemeralStorage;
+        }
         if (!Utils::isUnset($request->requestsMem)) {
             $query['RequestsMem'] = $request->requestsMem;
         }
@@ -4667,11 +4509,26 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->runtimeClassName)) {
             $query['RuntimeClassName'] = $request->runtimeClassName;
         }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->serviceConfigs)) {
+            $query['ServiceConfigs'] = $request->serviceConfigs;
+        }
+        if (!Utils::isUnset($request->sidecars)) {
+            $query['Sidecars'] = $request->sidecars;
+        }
         if (!Utils::isUnset($request->slsConfigs)) {
             $query['SlsConfigs'] = $request->slsConfigs;
         }
+        if (!Utils::isUnset($request->startup)) {
+            $query['Startup'] = $request->startup;
+        }
         if (!Utils::isUnset($request->storageType)) {
             $query['StorageType'] = $request->storageType;
+        }
+        if (!Utils::isUnset($request->terminateGracePeriod)) {
+            $query['TerminateGracePeriod'] = $request->terminateGracePeriod;
         }
         if (!Utils::isUnset($request->timeout)) {
             $query['Timeout'] = $request->timeout;
@@ -4682,11 +4539,17 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->useBodyEncoding)) {
             $query['UseBodyEncoding'] = $request->useBodyEncoding;
         }
+        if (!Utils::isUnset($request->userBaseImageUrl)) {
+            $query['UserBaseImageUrl'] = $request->userBaseImageUrl;
+        }
         if (!Utils::isUnset($request->webContainer)) {
             $query['WebContainer'] = $request->webContainer;
         }
         if (!Utils::isUnset($request->webContainerConfig)) {
             $query['WebContainerConfig'] = $request->webContainerConfig;
+        }
+        if (!Utils::isUnset($request->workloadType)) {
+            $query['WorkloadType'] = $request->workloadType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4708,16 +4571,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param InsertOrUpdateRegionRequest $request
+     * @param InsertK8sApplicationRequest $request
      *
-     * @return InsertOrUpdateRegionResponse
+     * @return InsertK8sApplicationResponse
      */
-    public function insertOrUpdateRegion($request)
+    public function insertK8sApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->insertOrUpdateRegionWithOptions($request, $headers, $runtime);
+        return $this->insertK8sApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4740,11 +4603,17 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
+        if (!Utils::isUnset($request->mseInstanceId)) {
+            $query['MseInstanceId'] = $request->mseInstanceId;
+        }
         if (!Utils::isUnset($request->regionName)) {
             $query['RegionName'] = $request->regionName;
         }
         if (!Utils::isUnset($request->regionTag)) {
             $query['RegionTag'] = $request->regionTag;
+        }
+        if (!Utils::isUnset($request->registryType)) {
+            $query['RegistryType'] = $request->registryType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4766,16 +4635,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param InsertRoleRequest $request
+     * @param InsertOrUpdateRegionRequest $request
      *
-     * @return InsertRoleResponse
+     * @return InsertOrUpdateRegionResponse
      */
-    public function insertRole($request)
+    public function insertOrUpdateRegion($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->insertRoleWithOptions($request, $headers, $runtime);
+        return $this->insertOrUpdateRegionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4815,16 +4684,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param InsertServiceGroupRequest $request
+     * @param InsertRoleRequest $request
      *
-     * @return InsertServiceGroupResponse
+     * @return InsertRoleResponse
      */
-    public function insertServiceGroup($request)
+    public function insertRole($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->insertServiceGroupWithOptions($request, $headers, $runtime);
+        return $this->insertRoleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4861,24 +4730,145 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param InstallAgentRequest $request
+     * @param InsertServiceGroupRequest $request
      *
-     * @return InstallAgentResponse
+     * @return InsertServiceGroupResponse
      */
-    public function installAgent($request)
+    public function insertServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->installAgentWithOptions($request, $headers, $runtime);
+        return $this->insertServiceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param InstallAgentRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param InsertSwimmingLaneRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return InstallAgentResponse
+     * @return InsertSwimmingLaneResponse
+     */
+    public function insertSwimmingLaneWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appInfos)) {
+            $query['AppInfos'] = $request->appInfos;
+        }
+        if (!Utils::isUnset($request->enableRules)) {
+            $query['EnableRules'] = $request->enableRules;
+        }
+        if (!Utils::isUnset($request->entryRules)) {
+            $query['EntryRules'] = $request->entryRules;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->logicalRegionId)) {
+            $query['LogicalRegionId'] = $request->logicalRegionId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InsertSwimmingLane',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/trafficmgnt/swimming_lanes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsertSwimmingLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InsertSwimmingLaneRequest $request
+     *
+     * @return InsertSwimmingLaneResponse
+     */
+    public function insertSwimmingLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->insertSwimmingLaneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param InsertSwimmingLaneGroupRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return InsertSwimmingLaneGroupResponse
+     */
+    public function insertSwimmingLaneGroupWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
+        }
+        if (!Utils::isUnset($request->entryApp)) {
+            $query['EntryApp'] = $request->entryApp;
+        }
+        if (!Utils::isUnset($request->logicalRegionId)) {
+            $query['LogicalRegionId'] = $request->logicalRegionId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InsertSwimmingLaneGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/trafficmgnt/swimming_lane_groups',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsertSwimmingLaneGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InsertSwimmingLaneGroupRequest $request
+     *
+     * @return InsertSwimmingLaneGroupResponse
+     */
+    public function insertSwimmingLaneGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->insertSwimmingLaneGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * If you call this operation to import an ECS instance into EDAS, the operating system of the ECS instance is not reinstalled. We recommend that you call this operation to import ECS instances into EDAS.
+     *   *
+     * @param InstallAgentRequest $request InstallAgentRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return InstallAgentResponse InstallAgentResponse
      */
     public function installAgentWithOptions($request, $headers, $runtime)
     {
@@ -4913,14 +4903,18 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return ListAliyunRegionResponse
+     * If you call this operation to import an ECS instance into EDAS, the operating system of the ECS instance is not reinstalled. We recommend that you call this operation to import ECS instances into EDAS.
+     *   *
+     * @param InstallAgentRequest $request InstallAgentRequest
+     *
+     * @return InstallAgentResponse InstallAgentResponse
      */
-    public function listAliyunRegion()
+    public function installAgent($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAliyunRegionWithOptions($headers, $runtime);
+        return $this->installAgentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4950,16 +4944,14 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationRequest $request
-     *
-     * @return ListApplicationResponse
+     * @return ListAliyunRegionResponse
      */
-    public function listApplication($request)
+    public function listAliyunRegion()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listApplicationWithOptions($request, $headers, $runtime);
+        return $this->listAliyunRegionWithOptions($headers, $runtime);
     }
 
     /**
@@ -4973,17 +4965,26 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
+        }
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
         }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
         if (!Utils::isUnset($request->logicalRegionId)) {
             $query['LogicalRegionId'] = $request->logicalRegionId;
         }
         if (!Utils::isUnset($request->logicalRegionIdFilter)) {
             $query['LogicalRegionIdFilter'] = $request->logicalRegionIdFilter;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
@@ -5008,16 +5009,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationEcuRequest $request
+     * @param ListApplicationRequest $request
      *
-     * @return ListApplicationEcuResponse
+     * @return ListApplicationResponse
      */
-    public function listApplicationEcu($request)
+    public function listApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listApplicationEcuWithOptions($request, $headers, $runtime);
+        return $this->listApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5057,14 +5058,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return ListAuthorityResponse
+     * @param ListApplicationEcuRequest $request
+     *
+     * @return ListApplicationEcuResponse
      */
-    public function listAuthority()
+    public function listApplicationEcu($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAuthorityWithOptions($headers, $runtime);
+        return $this->listApplicationEcuWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5094,14 +5097,14 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return ListBuildPackResponse
+     * @return ListAuthorityResponse
      */
-    public function listBuildPack()
+    public function listAuthority()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listBuildPackWithOptions($headers, $runtime);
+        return $this->listAuthorityWithOptions($headers, $runtime);
     }
 
     /**
@@ -5131,16 +5134,14 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListClusterRequest $request
-     *
-     * @return ListClusterResponse
+     * @return ListBuildPackResponse
      */
-    public function listCluster($request)
+    public function listBuildPack()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listClusterWithOptions($request, $headers, $runtime);
+        return $this->listBuildPackWithOptions($headers, $runtime);
     }
 
     /**
@@ -5180,16 +5181,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListClusterMembersRequest $request
+     * @param ListClusterRequest $request
      *
-     * @return ListClusterMembersResponse
+     * @return ListClusterResponse
      */
-    public function listClusterMembers($request)
+    public function listCluster($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listClusterMembersWithOptions($request, $headers, $runtime);
+        return $this->listClusterWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5235,14 +5236,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return ListComponentsResponse
+     * @param ListClusterMembersRequest $request
+     *
+     * @return ListClusterMembersResponse
      */
-    public function listComponents()
+    public function listClusterMembers($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listComponentsWithOptions($headers, $runtime);
+        return $this->listClusterMembersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5272,16 +5275,14 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListConfigTemplatesRequest $request
-     *
-     * @return ListConfigTemplatesResponse
+     * @return ListComponentsResponse
      */
-    public function listConfigTemplates($request)
+    public function listComponents()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConfigTemplatesWithOptions($request, $headers, $runtime);
+        return $this->listComponentsWithOptions($headers, $runtime);
     }
 
     /**
@@ -5327,16 +5328,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListConsumedServicesRequest $request
+     * @param ListConfigTemplatesRequest $request
      *
-     * @return ListConsumedServicesResponse
+     * @return ListConfigTemplatesResponse
      */
-    public function listConsumedServices($request)
+    public function listConfigTemplates($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConsumedServicesWithOptions($request, $headers, $runtime);
+        return $this->listConfigTemplatesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5373,16 +5374,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListConvertableEcuRequest $request
+     * @param ListConsumedServicesRequest $request
      *
-     * @return ListConvertableEcuResponse
+     * @return ListConsumedServicesResponse
      */
-    public function listConvertableEcu($request)
+    public function listConsumedServices($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConvertableEcuWithOptions($request, $headers, $runtime);
+        return $this->listConsumedServicesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5419,16 +5420,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListDeployGroupRequest $request
+     * @param ListConvertableEcuRequest $request
      *
-     * @return ListDeployGroupResponse
+     * @return ListConvertableEcuResponse
      */
-    public function listDeployGroup($request)
+    public function listConvertableEcu($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDeployGroupWithOptions($request, $headers, $runtime);
+        return $this->listConvertableEcuWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5465,16 +5466,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListEcsNotInClusterRequest $request
+     * @param ListDeployGroupRequest $request
      *
-     * @return ListEcsNotInClusterResponse
+     * @return ListDeployGroupResponse
      */
-    public function listEcsNotInCluster($request)
+    public function listDeployGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listEcsNotInClusterWithOptions($request, $headers, $runtime);
+        return $this->listDeployGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5514,24 +5515,29 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListEcuByRegionRequest $request
+     * @param ListEcsNotInClusterRequest $request
      *
-     * @return ListEcuByRegionResponse
+     * @return ListEcsNotInClusterResponse
      */
-    public function listEcuByRegion($request)
+    public function listEcsNotInCluster($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listEcuByRegionWithOptions($request, $headers, $runtime);
+        return $this->listEcsNotInClusterWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListEcuByRegionRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * ## Terms
+     *   * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+     *   * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+     *   * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     *   *
+     * @param ListEcuByRegionRequest $request ListEcuByRegionRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEcuByRegionResponse
+     * @return ListEcuByRegionResponse ListEcuByRegionResponse
      */
     public function listEcuByRegionWithOptions($request, $headers, $runtime)
     {
@@ -5563,16 +5569,21 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListHistoryDeployVersionRequest $request
+     * ## Terms
+     *   * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+     *   * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+     *   * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     *   *
+     * @param ListEcuByRegionRequest $request ListEcuByRegionRequest
      *
-     * @return ListHistoryDeployVersionResponse
+     * @return ListEcuByRegionResponse ListEcuByRegionResponse
      */
-    public function listHistoryDeployVersion($request)
+    public function listEcuByRegion($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listHistoryDeployVersionWithOptions($request, $headers, $runtime);
+        return $this->listEcuByRegionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5609,16 +5620,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListK8sConfigMapsRequest $request
+     * @param ListHistoryDeployVersionRequest $request
      *
-     * @return ListK8sConfigMapsResponse
+     * @return ListHistoryDeployVersionResponse
      */
-    public function listK8sConfigMaps($request)
+    public function listHistoryDeployVersion($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listK8sConfigMapsWithOptions($request, $headers, $runtime);
+        return $this->listHistoryDeployVersionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5673,16 +5684,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListK8sIngressRulesRequest $request
+     * @param ListK8sConfigMapsRequest $request
      *
-     * @return ListK8sIngressRulesResponse
+     * @return ListK8sConfigMapsResponse
      */
-    public function listK8sIngressRules($request)
+    public function listK8sConfigMaps($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listK8sIngressRulesWithOptions($request, $headers, $runtime);
+        return $this->listK8sConfigMapsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5728,16 +5739,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListK8sNamespacesRequest $request
+     * @param ListK8sIngressRulesRequest $request
      *
-     * @return ListK8sNamespacesResponse
+     * @return ListK8sIngressRulesResponse
      */
-    public function listK8sNamespaces($request)
+    public function listK8sIngressRules($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listK8sNamespacesWithOptions($request, $headers, $runtime);
+        return $this->listK8sIngressRulesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5774,16 +5785,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListK8sSecretsRequest $request
+     * @param ListK8sNamespacesRequest $request
      *
-     * @return ListK8sSecretsResponse
+     * @return ListK8sNamespacesResponse
      */
-    public function listK8sSecrets($request)
+    public function listK8sNamespaces($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listK8sSecretsWithOptions($request, $headers, $runtime);
+        return $this->listK8sNamespacesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5838,16 +5849,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListMethodsRequest $request
+     * @param ListK8sSecretsRequest $request
      *
-     * @return ListMethodsResponse
+     * @return ListK8sSecretsResponse
      */
-    public function listMethods($request)
+    public function listK8sSecrets($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listMethodsWithOptions($request, $headers, $runtime);
+        return $this->listK8sSecretsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5887,16 +5898,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListPublishedServicesRequest $request
+     * @param ListMethodsRequest $request
      *
-     * @return ListPublishedServicesResponse
+     * @return ListMethodsResponse
      */
-    public function listPublishedServices($request)
+    public function listMethods($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPublishedServicesWithOptions($request, $headers, $runtime);
+        return $this->listMethodsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5933,16 +5944,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListRecentChangeOrderRequest $request
+     * @param ListPublishedServicesRequest $request
      *
-     * @return ListRecentChangeOrderResponse
+     * @return ListPublishedServicesResponse
      */
-    public function listRecentChangeOrder($request)
+    public function listPublishedServices($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRecentChangeOrderWithOptions($request, $headers, $runtime);
+        return $this->listPublishedServicesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5979,14 +5990,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return ListResourceGroupResponse
+     * @param ListRecentChangeOrderRequest $request
+     *
+     * @return ListRecentChangeOrderResponse
      */
-    public function listResourceGroup()
+    public function listRecentChangeOrder($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listResourceGroupWithOptions($headers, $runtime);
+        return $this->listRecentChangeOrderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6016,14 +6029,14 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return ListRoleResponse
+     * @return ListResourceGroupResponse
      */
-    public function listRole()
+    public function listResourceGroup()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRoleWithOptions($headers, $runtime);
+        return $this->listResourceGroupWithOptions($headers, $runtime);
     }
 
     /**
@@ -6053,73 +6066,27 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListRootStacksRequest $request
-     *
-     * @return ListRootStacksResponse
+     * @return ListRoleResponse
      */
-    public function listRootStacks($request)
+    public function listRole()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listRootStacksWithOptions($request, $headers, $runtime);
+        return $this->listRoleWithOptions($headers, $runtime);
     }
 
     /**
-     * @param ListRootStacksRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * ## Terms
+     *   * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+     *   * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+     *   * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     *   *
+     * @param ListScaleOutEcuRequest $request ListScaleOutEcuRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRootStacksResponse
-     */
-    public function listRootStacksWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListRootStacks',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/v5/s2i/list_root_stack',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListRootStacksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListScaleOutEcuRequest $request
-     *
-     * @return ListScaleOutEcuResponse
-     */
-    public function listScaleOutEcu($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listScaleOutEcuWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListScaleOutEcuRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListScaleOutEcuResponse
+     * @return ListScaleOutEcuResponse ListScaleOutEcuResponse
      */
     public function listScaleOutEcuWithOptions($request, $headers, $runtime)
     {
@@ -6166,14 +6133,21 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return ListServiceGroupsResponse
+     * ## Terms
+     *   * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+     *   * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+     *   * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     *   *
+     * @param ListScaleOutEcuRequest $request ListScaleOutEcuRequest
+     *
+     * @return ListScaleOutEcuResponse ListScaleOutEcuResponse
      */
-    public function listServiceGroups()
+    public function listScaleOutEcu($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listServiceGroupsWithOptions($headers, $runtime);
+        return $this->listScaleOutEcuWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6203,26 +6177,39 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return ListSlbResponse
+     * @return ListServiceGroupsResponse
      */
-    public function listSlb()
+    public function listServiceGroups()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSlbWithOptions($headers, $runtime);
+        return $this->listServiceGroupsWithOptions($headers, $runtime);
     }
 
     /**
+     * @param ListSlbRequest $request
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
      * @return ListSlbResponse
      */
-    public function listSlbWithOptions($headers, $runtime)
+    public function listSlbWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->slbType)) {
+            $query['SlbType'] = $request->slbType;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSlb',
@@ -6240,14 +6227,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return ListSubAccountResponse
+     * @param ListSlbRequest $request
+     *
+     * @return ListSlbResponse
      */
-    public function listSubAccount()
+    public function listSlb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSubAccountWithOptions($headers, $runtime);
+        return $this->listSlbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6277,16 +6266,109 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListSubAccountResponse
      */
-    public function listTagResources($request)
+    public function listSubAccount()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+        return $this->listSubAccountWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param ListSwimmingLaneRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListSwimmingLaneResponse
+     */
+    public function listSwimmingLaneWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSwimmingLane',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/trafficmgnt/swimming_lanes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSwimmingLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSwimmingLaneRequest $request
+     *
+     * @return ListSwimmingLaneResponse
+     */
+    public function listSwimmingLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSwimmingLaneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListSwimmingLaneGroupRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListSwimmingLaneGroupResponse
+     */
+    public function listSwimmingLaneGroupWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->logicalRegionId)) {
+            $query['LogicalRegionId'] = $request->logicalRegionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSwimmingLaneGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/trafficmgnt/swimming_lane_groups',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSwimmingLaneGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSwimmingLaneGroupRequest $request
+     *
+     * @return ListSwimmingLaneGroupResponse
+     */
+    public function listSwimmingLaneGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSwimmingLaneGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6332,16 +6414,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ListUserDefineRegionRequest $request
+     * @param ListTagResourcesRequest $request
      *
-     * @return ListUserDefineRegionResponse
+     * @return ListTagResourcesResponse
      */
-    public function listUserDefineRegion($request)
+    public function listTagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listUserDefineRegionWithOptions($request, $headers, $runtime);
+        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6378,14 +6460,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return ListVpcResponse
+     * @param ListUserDefineRegionRequest $request
+     *
+     * @return ListUserDefineRegionResponse
      */
-    public function listVpc()
+    public function listUserDefineRegion($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listVpcWithOptions($headers, $runtime);
+        return $this->listUserDefineRegionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6415,24 +6499,30 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param MigrateEcuRequest $request
-     *
-     * @return MigrateEcuResponse
+     * @return ListVpcResponse
      */
-    public function migrateEcu($request)
+    public function listVpc()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->migrateEcuWithOptions($request, $headers, $runtime);
+        return $this->listVpcWithOptions($headers, $runtime);
     }
 
     /**
-     * @param MigrateEcuRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * ## Limits
+     *   * We recommend that you do not call this operation. Instead, we recommend that you call the TransformClusterMember operation. For more information, see [TransformClusterMember](~~71514~~).
+     *   * When you call this operation to import an Elastic Compute Service (ECS) instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+     *   * ## Terms
+     *   * *   **Namespace**: the logical concept that is used to isolate resources and microservices in Enterprise Distributed Application Service (EDAS). The resources include clusters, ECS instances, and applications. You can use a default or custom namespace. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources or microservices.
+     *   * *   **ECU**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+     *   * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     *   *
+     * @param MigrateEcuRequest $request MigrateEcuRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return MigrateEcuResponse
+     * @return MigrateEcuResponse MigrateEcuResponse
      */
     public function migrateEcuWithOptions($request, $headers, $runtime)
     {
@@ -6464,16 +6554,24 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ModifyScalingRuleRequest $request
+     * ## Limits
+     *   * We recommend that you do not call this operation. Instead, we recommend that you call the TransformClusterMember operation. For more information, see [TransformClusterMember](~~71514~~).
+     *   * When you call this operation to import an Elastic Compute Service (ECS) instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+     *   * ## Terms
+     *   * *   **Namespace**: the logical concept that is used to isolate resources and microservices in Enterprise Distributed Application Service (EDAS). The resources include clusters, ECS instances, and applications. You can use a default or custom namespace. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources or microservices.
+     *   * *   **ECU**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+     *   * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     *   *
+     * @param MigrateEcuRequest $request MigrateEcuRequest
      *
-     * @return ModifyScalingRuleResponse
+     * @return MigrateEcuResponse MigrateEcuResponse
      */
-    public function modifyScalingRule($request)
+    public function migrateEcu($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->migrateEcuWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6597,16 +6695,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param QueryApplicationStatusRequest $request
+     * @param ModifyScalingRuleRequest $request
      *
-     * @return QueryApplicationStatusResponse
+     * @return ModifyScalingRuleResponse
      */
-    public function queryApplicationStatus($request)
+    public function modifyScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryApplicationStatusWithOptions($request, $headers, $runtime);
+        return $this->modifyScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6643,16 +6741,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param QueryEccInfoRequest $request
+     * @param QueryApplicationStatusRequest $request
      *
-     * @return QueryEccInfoResponse
+     * @return QueryApplicationStatusResponse
      */
-    public function queryEccInfo($request)
+    public function queryApplicationStatus($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryEccInfoWithOptions($request, $headers, $runtime);
+        return $this->queryApplicationStatusWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6689,16 +6787,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param QueryMigrateEcuListRequest $request
+     * @param QueryEccInfoRequest $request
      *
-     * @return QueryMigrateEcuListResponse
+     * @return QueryEccInfoResponse
      */
-    public function queryMigrateEcuList($request)
+    public function queryEccInfo($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryMigrateEcuListWithOptions($request, $headers, $runtime);
+        return $this->queryEccInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6735,16 +6833,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param QueryMigrateRegionListRequest $request
+     * @param QueryMigrateEcuListRequest $request
      *
-     * @return QueryMigrateRegionListResponse
+     * @return QueryMigrateEcuListResponse
      */
-    public function queryMigrateRegionList($request)
+    public function queryMigrateEcuList($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryMigrateRegionListWithOptions($request, $headers, $runtime);
+        return $this->queryMigrateEcuListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6781,14 +6879,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @return QueryRegionConfigResponse
+     * @param QueryMigrateRegionListRequest $request
+     *
+     * @return QueryMigrateRegionListResponse
      */
-    public function queryRegionConfig()
+    public function queryMigrateRegionList($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryRegionConfigWithOptions($headers, $runtime);
+        return $this->queryMigrateRegionListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6818,16 +6918,14 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param QuerySlsLogStoreListRequest $request
-     *
-     * @return QuerySlsLogStoreListResponse
+     * @return QueryRegionConfigResponse
      */
-    public function querySlsLogStoreList($request)
+    public function queryRegionConfig()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->querySlsLogStoreListWithOptions($request, $headers, $runtime);
+        return $this->queryRegionConfigWithOptions($headers, $runtime);
     }
 
     /**
@@ -6873,62 +6971,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param RemoveMockRuleRequest $request
+     * @param QuerySlsLogStoreListRequest $request
      *
-     * @return RemoveMockRuleResponse
+     * @return QuerySlsLogStoreListResponse
      */
-    public function removeMockRule($request)
+    public function querySlsLogStoreList($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeMockRuleWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param RemoveMockRuleRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return RemoveMockRuleResponse
-     */
-    public function removeMockRuleWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveMockRule',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/sp/api/mock/removeMockRule',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return RemoveMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ResetApplicationRequest $request
-     *
-     * @return ResetApplicationResponse
-     */
-    public function resetApplication($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->resetApplicationWithOptions($request, $headers, $runtime);
+        return $this->querySlsLogStoreListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6968,16 +7020,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param RestartApplicationRequest $request
+     * @param ResetApplicationRequest $request
      *
-     * @return RestartApplicationResponse
+     * @return ResetApplicationResponse
      */
-    public function restartApplication($request)
+    public function resetApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->restartApplicationWithOptions($request, $headers, $runtime);
+        return $this->resetApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7017,16 +7069,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param RestartK8sApplicationRequest $request
+     * @param RestartApplicationRequest $request
      *
-     * @return RestartK8sApplicationResponse
+     * @return RestartApplicationResponse
      */
-    public function restartK8sApplication($request)
+    public function restartApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->restartK8sApplicationWithOptions($request, $headers, $runtime);
+        return $this->restartApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7066,16 +7118,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param RetryChangeOrderTaskRequest $request
+     * @param RestartK8sApplicationRequest $request
      *
-     * @return RetryChangeOrderTaskResponse
+     * @return RestartK8sApplicationResponse
      */
-    public function retryChangeOrderTask($request)
+    public function restartK8sApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->retryChangeOrderTaskWithOptions($request, $headers, $runtime);
+        return $this->restartK8sApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7115,16 +7167,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param RollbackApplicationRequest $request
+     * @param RetryChangeOrderTaskRequest $request
      *
-     * @return RollbackApplicationResponse
+     * @return RetryChangeOrderTaskResponse
      */
-    public function rollbackApplication($request)
+    public function retryChangeOrderTask($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->rollbackApplicationWithOptions($request, $headers, $runtime);
+        return $this->retryChangeOrderTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7173,16 +7225,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param RollbackChangeOrderRequest $request
+     * @param RollbackApplicationRequest $request
      *
-     * @return RollbackChangeOrderResponse
+     * @return RollbackApplicationResponse
      */
-    public function rollbackChangeOrder($request)
+    public function rollbackApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->rollbackChangeOrderWithOptions($request, $headers, $runtime);
+        return $this->rollbackApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7219,16 +7271,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ScaleInApplicationRequest $request
+     * @param RollbackChangeOrderRequest $request
      *
-     * @return ScaleInApplicationResponse
+     * @return RollbackChangeOrderResponse
      */
-    public function scaleInApplication($request)
+    public function rollbackChangeOrder($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->scaleInApplicationWithOptions($request, $headers, $runtime);
+        return $this->rollbackChangeOrderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7271,16 +7323,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ScaleK8sApplicationRequest $request
+     * @param ScaleInApplicationRequest $request
      *
-     * @return ScaleK8sApplicationResponse
+     * @return ScaleInApplicationResponse
      */
-    public function scaleK8sApplication($request)
+    public function scaleInApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->scaleK8sApplicationWithOptions($request, $headers, $runtime);
+        return $this->scaleInApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7323,16 +7375,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ScaleOutApplicationRequest $request
+     * @param ScaleK8sApplicationRequest $request
      *
-     * @return ScaleOutApplicationResponse
+     * @return ScaleK8sApplicationResponse
      */
-    public function scaleOutApplication($request)
+    public function scaleK8sApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->scaleOutApplicationWithOptions($request, $headers, $runtime);
+        return $this->scaleK8sApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7375,24 +7427,27 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param ScaleoutApplicationWithNewInstancesRequest $request
+     * @param ScaleOutApplicationRequest $request
      *
-     * @return ScaleoutApplicationWithNewInstancesResponse
+     * @return ScaleOutApplicationResponse
      */
-    public function scaleoutApplicationWithNewInstances($request)
+    public function scaleOutApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->scaleoutApplicationWithNewInstancesWithOptions($request, $headers, $runtime);
+        return $this->scaleOutApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ScaleoutApplicationWithNewInstancesRequest $request
-     * @param string[]                                   $headers
-     * @param RuntimeOptions                             $runtime
+     * ## Limits
+     *   * Assume that the auto scaling feature is configured and enabled for an application. When an auto scale-in is triggered for the application, the ECS instances that are purchased by calling this operation are removed first.
+     *   *
+     * @param ScaleoutApplicationWithNewInstancesRequest $request ScaleoutApplicationWithNewInstancesRequest
+     * @param string[]                                   $headers map
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ScaleoutApplicationWithNewInstancesResponse
+     * @return ScaleoutApplicationWithNewInstancesResponse ScaleoutApplicationWithNewInstancesResponse
      */
     public function scaleoutApplicationWithNewInstancesWithOptions($request, $headers, $runtime)
     {
@@ -7457,16 +7512,19 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param StartApplicationRequest $request
+     * ## Limits
+     *   * Assume that the auto scaling feature is configured and enabled for an application. When an auto scale-in is triggered for the application, the ECS instances that are purchased by calling this operation are removed first.
+     *   *
+     * @param ScaleoutApplicationWithNewInstancesRequest $request ScaleoutApplicationWithNewInstancesRequest
      *
-     * @return StartApplicationResponse
+     * @return ScaleoutApplicationWithNewInstancesResponse ScaleoutApplicationWithNewInstancesResponse
      */
-    public function startApplication($request)
+    public function scaleoutApplicationWithNewInstances($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startApplicationWithOptions($request, $headers, $runtime);
+        return $this->scaleoutApplicationWithNewInstancesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7506,16 +7564,131 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param StartK8sApplicationRequest $request
+     * @param StartApplicationRequest $request
      *
-     * @return StartK8sApplicationResponse
+     * @return StartApplicationResponse
      */
-    public function startK8sApplication($request)
+    public function startApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startK8sApplicationWithOptions($request, $headers, $runtime);
+        return $this->startApplicationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param StartK8sAppPrecheckRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartK8sAppPrecheckResponse
+     */
+    public function startK8sAppPrecheckWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->annotations)) {
+            $query['Annotations'] = $request->annotations;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->componentIds)) {
+            $query['ComponentIds'] = $request->componentIds;
+        }
+        if (!Utils::isUnset($request->configMountDescs)) {
+            $query['ConfigMountDescs'] = $request->configMountDescs;
+        }
+        if (!Utils::isUnset($request->emptyDirs)) {
+            $query['EmptyDirs'] = $request->emptyDirs;
+        }
+        if (!Utils::isUnset($request->envFroms)) {
+            $query['EnvFroms'] = $request->envFroms;
+        }
+        if (!Utils::isUnset($request->envs)) {
+            $query['Envs'] = $request->envs;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->javaStartUpConfig)) {
+            $query['JavaStartUpConfig'] = $request->javaStartUpConfig;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->limitEphemeralStorage)) {
+            $query['LimitEphemeralStorage'] = $request->limitEphemeralStorage;
+        }
+        if (!Utils::isUnset($request->limitMem)) {
+            $query['LimitMem'] = $request->limitMem;
+        }
+        if (!Utils::isUnset($request->limitmCpu)) {
+            $query['LimitmCpu'] = $request->limitmCpu;
+        }
+        if (!Utils::isUnset($request->localVolume)) {
+            $query['LocalVolume'] = $request->localVolume;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->packageUrl)) {
+            $query['PackageUrl'] = $request->packageUrl;
+        }
+        if (!Utils::isUnset($request->pvcMountDescs)) {
+            $query['PvcMountDescs'] = $request->pvcMountDescs;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $query['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->requestsEphemeralStorage)) {
+            $query['RequestsEphemeralStorage'] = $request->requestsEphemeralStorage;
+        }
+        if (!Utils::isUnset($request->requestsMem)) {
+            $query['RequestsMem'] = $request->requestsMem;
+        }
+        if (!Utils::isUnset($request->requestsmCpu)) {
+            $query['RequestsmCpu'] = $request->requestsmCpu;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartK8sAppPrecheck',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/k8s/app_precheck',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartK8sAppPrecheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartK8sAppPrecheckRequest $request
+     *
+     * @return StartK8sAppPrecheckResponse
+     */
+    public function startK8sAppPrecheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startK8sAppPrecheckWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7558,16 +7731,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param StopApplicationRequest $request
+     * @param StartK8sApplicationRequest $request
      *
-     * @return StopApplicationResponse
+     * @return StartK8sApplicationResponse
      */
-    public function stopApplication($request)
+    public function startK8sApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopApplicationWithOptions($request, $headers, $runtime);
+        return $this->startK8sApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7607,16 +7780,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param StopK8sApplicationRequest $request
+     * @param StopApplicationRequest $request
      *
-     * @return StopK8sApplicationResponse
+     * @return StopApplicationResponse
      */
-    public function stopK8sApplication($request)
+    public function stopApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopK8sApplicationWithOptions($request, $headers, $runtime);
+        return $this->stopApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7656,24 +7829,26 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param SwitchAdvancedMonitoringRequest $request
+     * @param StopK8sApplicationRequest $request
      *
-     * @return SwitchAdvancedMonitoringResponse
+     * @return StopK8sApplicationResponse
      */
-    public function switchAdvancedMonitoring($request)
+    public function stopK8sApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->switchAdvancedMonitoringWithOptions($request, $headers, $runtime);
+        return $this->stopK8sApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param SwitchAdvancedMonitoringRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * To call the SwitchAdvancedMonitoring operation, you must make sure that the version of Enterprise Distributed Application Service (EDAS) SDK for Java or Python is 3.15.2 or later.
+     *   *
+     * @param SwitchAdvancedMonitoringRequest $request SwitchAdvancedMonitoringRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchAdvancedMonitoringResponse
+     * @return SwitchAdvancedMonitoringResponse SwitchAdvancedMonitoringResponse
      */
     public function switchAdvancedMonitoringWithOptions($request, $headers, $runtime)
     {
@@ -7705,24 +7880,28 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param SynchronizeResourceRequest $request
+     * To call the SwitchAdvancedMonitoring operation, you must make sure that the version of Enterprise Distributed Application Service (EDAS) SDK for Java or Python is 3.15.2 or later.
+     *   *
+     * @param SwitchAdvancedMonitoringRequest $request SwitchAdvancedMonitoringRequest
      *
-     * @return SynchronizeResourceResponse
+     * @return SwitchAdvancedMonitoringResponse SwitchAdvancedMonitoringResponse
      */
-    public function synchronizeResource($request)
+    public function switchAdvancedMonitoring($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->synchronizeResourceWithOptions($request, $headers, $runtime);
+        return $this->switchAdvancedMonitoringWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param SynchronizeResourceRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * If you call this operation to synchronize ECS resource information, all instance data is synchronized from ECS. If you have more than 100 ECS instances, we recommend that you do not frequently call this operation.
+     *   *
+     * @param SynchronizeResourceRequest $request SynchronizeResourceRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SynchronizeResourceResponse
+     * @return SynchronizeResourceResponse SynchronizeResourceResponse
      */
     public function synchronizeResourceWithOptions($request, $headers, $runtime)
     {
@@ -7754,16 +7933,18 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * If you call this operation to synchronize ECS resource information, all instance data is synchronized from ECS. If you have more than 100 ECS instances, we recommend that you do not frequently call this operation.
+     *   *
+     * @param SynchronizeResourceRequest $request SynchronizeResourceRequest
      *
-     * @return TagResourcesResponse
+     * @return SynchronizeResourceResponse SynchronizeResourceResponse
      */
-    public function tagResources($request)
+    public function synchronizeResource($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+        return $this->synchronizeResourceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7809,24 +7990,27 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param TransformClusterMemberRequest $request
+     * @param TagResourcesRequest $request
      *
-     * @return TransformClusterMemberResponse
+     * @return TagResourcesResponse
      */
-    public function transformClusterMember($request)
+    public function tagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->transformClusterMemberWithOptions($request, $headers, $runtime);
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param TransformClusterMemberRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * ## Limits
+     *   * When you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+     *   *
+     * @param TransformClusterMemberRequest $request TransformClusterMemberRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransformClusterMemberResponse
+     * @return TransformClusterMemberResponse TransformClusterMemberResponse
      */
     public function transformClusterMemberWithOptions($request, $headers, $runtime)
     {
@@ -7861,16 +8045,19 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UnbindK8sSlbRequest $request
+     * ## Limits
+     *   * When you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+     *   *
+     * @param TransformClusterMemberRequest $request TransformClusterMemberRequest
      *
-     * @return UnbindK8sSlbResponse
+     * @return TransformClusterMemberResponse TransformClusterMemberResponse
      */
-    public function unbindK8sSlb($request)
+    public function transformClusterMember($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->unbindK8sSlbWithOptions($request, $headers, $runtime);
+        return $this->transformClusterMemberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7916,16 +8103,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UnbindSlbRequest $request
+     * @param UnbindK8sSlbRequest $request
      *
-     * @return UnbindSlbResponse
+     * @return UnbindK8sSlbResponse
      */
-    public function unbindSlb($request)
+    public function unbindK8sSlb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->unbindSlbWithOptions($request, $headers, $runtime);
+        return $this->unbindK8sSlbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7971,16 +8158,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param UnbindSlbRequest $request
      *
-     * @return UntagResourcesResponse
+     * @return UnbindSlbResponse
      */
-    public function untagResources($request)
+    public function unbindSlb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->untagResourcesWithOptions($request, $headers, $runtime);
+        return $this->unbindSlbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8029,16 +8216,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccountInfoRequest $request
+     * @param UntagResourcesRequest $request
      *
-     * @return UpdateAccountInfoResponse
+     * @return UntagResourcesResponse
      */
-    public function updateAccountInfo($request)
+    public function untagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateAccountInfoWithOptions($request, $headers, $runtime);
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8081,16 +8268,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationBaseInfoRequest $request
+     * @param UpdateAccountInfoRequest $request
      *
-     * @return UpdateApplicationBaseInfoResponse
+     * @return UpdateAccountInfoResponse
      */
-    public function updateApplicationBaseInfo($request)
+    public function updateAccountInfo($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateApplicationBaseInfoWithOptions($request, $headers, $runtime);
+        return $this->updateAccountInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8136,16 +8323,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationScalingRuleRequest $request
+     * @param UpdateApplicationBaseInfoRequest $request
      *
-     * @return UpdateApplicationScalingRuleResponse
+     * @return UpdateApplicationBaseInfoResponse
      */
-    public function updateApplicationScalingRule($request)
+    public function updateApplicationBaseInfo($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->updateApplicationBaseInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8161,6 +8348,9 @@ class Edas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->scalingBehaviour)) {
+            $query['ScalingBehaviour'] = $request->scalingBehaviour;
         }
         if (!Utils::isUnset($request->scalingRuleEnable)) {
             $query['ScalingRuleEnable'] = $request->scalingRuleEnable;
@@ -8200,16 +8390,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateConfigTemplateRequest $request
+     * @param UpdateApplicationScalingRuleRequest $request
      *
-     * @return UpdateConfigTemplateResponse
+     * @return UpdateApplicationScalingRuleResponse
      */
-    public function updateConfigTemplate($request)
+    public function updateApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateConfigTemplateWithOptions($request, $headers, $runtime);
+        return $this->updateApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8258,16 +8448,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateContainerRequest $request
+     * @param UpdateConfigTemplateRequest $request
      *
-     * @return UpdateContainerResponse
+     * @return UpdateConfigTemplateResponse
      */
-    public function updateContainer($request)
+    public function updateConfigTemplate($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateContainerWithOptions($request, $headers, $runtime);
+        return $this->updateConfigTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8307,16 +8497,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateContainerConfigurationRequest $request
+     * @param UpdateContainerRequest $request
      *
-     * @return UpdateContainerConfigurationResponse
+     * @return UpdateContainerResponse
      */
-    public function updateContainerConfiguration($request)
+    public function updateContainer($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateContainerConfigurationWithOptions($request, $headers, $runtime);
+        return $this->updateContainerWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8371,16 +8561,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHealthCheckUrlRequest $request
+     * @param UpdateContainerConfigurationRequest $request
      *
-     * @return UpdateHealthCheckUrlResponse
+     * @return UpdateContainerConfigurationResponse
      */
-    public function updateHealthCheckUrl($request)
+    public function updateContainerConfiguration($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateHealthCheckUrlWithOptions($request, $headers, $runtime);
+        return $this->updateContainerConfigurationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8420,16 +8610,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHookConfigurationRequest $request
+     * @param UpdateHealthCheckUrlRequest $request
      *
-     * @return UpdateHookConfigurationResponse
+     * @return UpdateHealthCheckUrlResponse
      */
-    public function updateHookConfiguration($request)
+    public function updateHealthCheckUrl($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateHookConfigurationWithOptions($request, $headers, $runtime);
+        return $this->updateHealthCheckUrlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8472,16 +8662,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateJvmConfigurationRequest $request
+     * @param UpdateHookConfigurationRequest $request
      *
-     * @return UpdateJvmConfigurationResponse
+     * @return UpdateHookConfigurationResponse
      */
-    public function updateJvmConfiguration($request)
+    public function updateHookConfiguration($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateJvmConfigurationWithOptions($request, $headers, $runtime);
+        return $this->updateHookConfigurationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8533,16 +8723,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateK8sApplicationBaseInfoRequest $request
+     * @param UpdateJvmConfigurationRequest $request
      *
-     * @return UpdateK8sApplicationBaseInfoResponse
+     * @return UpdateJvmConfigurationResponse
      */
-    public function updateK8sApplicationBaseInfo($request)
+    public function updateJvmConfiguration($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateK8sApplicationBaseInfoWithOptions($request, $headers, $runtime);
+        return $this->updateJvmConfigurationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8591,16 +8781,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateK8sApplicationConfigRequest $request
+     * @param UpdateK8sApplicationBaseInfoRequest $request
      *
-     * @return UpdateK8sApplicationConfigResponse
+     * @return UpdateK8sApplicationBaseInfoResponse
      */
-    public function updateK8sApplicationConfig($request)
+    public function updateK8sApplicationBaseInfo($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateK8sApplicationConfigWithOptions($request, $headers, $runtime);
+        return $this->updateK8sApplicationBaseInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8625,6 +8815,12 @@ class Edas extends OpenApiClient
         }
         if (!Utils::isUnset($request->cpuRequest)) {
             $query['CpuRequest'] = $request->cpuRequest;
+        }
+        if (!Utils::isUnset($request->ephemeralStorageLimit)) {
+            $query['EphemeralStorageLimit'] = $request->ephemeralStorageLimit;
+        }
+        if (!Utils::isUnset($request->ephemeralStorageRequest)) {
+            $query['EphemeralStorageRequest'] = $request->ephemeralStorageRequest;
         }
         if (!Utils::isUnset($request->mcpuLimit)) {
             $query['McpuLimit'] = $request->mcpuLimit;
@@ -8661,16 +8857,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateK8sConfigMapRequest $request
+     * @param UpdateK8sApplicationConfigRequest $request
      *
-     * @return UpdateK8sConfigMapResponse
+     * @return UpdateK8sApplicationConfigResponse
      */
-    public function updateK8sConfigMap($request)
+    public function updateK8sApplicationConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateK8sConfigMapWithOptions($request, $headers, $runtime);
+        return $this->updateK8sApplicationConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8716,16 +8912,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateK8sIngressRuleRequest $request
+     * @param UpdateK8sConfigMapRequest $request
      *
-     * @return UpdateK8sIngressRuleResponse
+     * @return UpdateK8sConfigMapResponse
      */
-    public function updateK8sIngressRule($request)
+    public function updateK8sConfigMap($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateK8sIngressRuleWithOptions($request, $headers, $runtime);
+        return $this->updateK8sConfigMapWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8739,11 +8935,17 @@ class Edas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->annotations)) {
+            $query['Annotations'] = $request->annotations;
+        }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->ingressConf)) {
             $query['IngressConf'] = $request->ingressConf;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -8771,24 +8973,26 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateK8sResourceRequest $request
+     * @param UpdateK8sIngressRuleRequest $request
      *
-     * @return UpdateK8sResourceResponse
+     * @return UpdateK8sIngressRuleResponse
      */
-    public function updateK8sResource($request)
+    public function updateK8sIngressRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateK8sResourceWithOptions($request, $headers, $runtime);
+        return $this->updateK8sIngressRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param UpdateK8sResourceRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * > You can update only Deployments.
+     *   *
+     * @param UpdateK8sResourceRequest $request UpdateK8sResourceRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateK8sResourceResponse
+     * @return UpdateK8sResourceResponse UpdateK8sResourceResponse
      */
     public function updateK8sResourceWithOptions($request, $headers, $runtime)
     {
@@ -8823,16 +9027,18 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateK8sSecretRequest $request
+     * > You can update only Deployments.
+     *   *
+     * @param UpdateK8sResourceRequest $request UpdateK8sResourceRequest
      *
-     * @return UpdateK8sSecretResponse
+     * @return UpdateK8sResourceResponse UpdateK8sResourceResponse
      */
-    public function updateK8sSecret($request)
+    public function updateK8sResource($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateK8sSecretWithOptions($request, $headers, $runtime);
+        return $this->updateK8sResourceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8890,16 +9096,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateK8sServiceRequest $request
+     * @param UpdateK8sSecretRequest $request
      *
-     * @return UpdateK8sServiceResponse
+     * @return UpdateK8sSecretResponse
      */
-    public function updateK8sService($request)
+    public function updateK8sSecret($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateK8sServiceWithOptions($request, $headers, $runtime);
+        return $this->updateK8sSecretWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8915,6 +9121,9 @@ class Edas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->externalTrafficPolicy)) {
+            $query['ExternalTrafficPolicy'] = $request->externalTrafficPolicy;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -8945,16 +9154,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateK8sSlbRequest $request
+     * @param UpdateK8sServiceRequest $request
      *
-     * @return UpdateK8sSlbResponse
+     * @return UpdateK8sServiceResponse
      */
-    public function updateK8sSlb($request)
+    public function updateK8sService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateK8sSlbWithOptions($request, $headers, $runtime);
+        return $this->updateK8sServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9021,77 +9230,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateMockRuleRequest $request
+     * @param UpdateK8sSlbRequest $request
      *
-     * @return UpdateMockRuleResponse
+     * @return UpdateK8sSlbResponse
      */
-    public function updateMockRule($request)
+    public function updateK8sSlb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateMockRuleWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param UpdateMockRuleRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateMockRuleResponse
-     */
-    public function updateMockRuleWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dubboMockItemJson)) {
-            $query['DubboMockItemJson'] = $request->dubboMockItemJson;
-        }
-        if (!Utils::isUnset($request->extraJson)) {
-            $query['ExtraJson'] = $request->extraJson;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->scMockItemJson)) {
-            $query['ScMockItemJson'] = $request->scMockItemJson;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateMockRule',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pop/sp/api/mock/updateMockRule',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateRoleRequest $request
-     *
-     * @return UpdateRoleResponse
-     */
-    public function updateRole($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateRoleWithOptions($request, $headers, $runtime);
+        return $this->updateK8sSlbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9131,16 +9279,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * @param UpdateSlsLogStoreRequest $request
+     * @param UpdateRoleRequest $request
      *
-     * @return UpdateSlsLogStoreResponse
+     * @return UpdateRoleResponse
      */
-    public function updateSlsLogStore($request)
+    public function updateRole($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateSlsLogStoreWithOptions($request, $headers, $runtime);
+        return $this->updateRoleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9177,5 +9325,131 @@ class Edas extends OpenApiClient
         ]);
 
         return UpdateSlsLogStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSlsLogStoreRequest $request
+     *
+     * @return UpdateSlsLogStoreResponse
+     */
+    public function updateSlsLogStore($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSlsLogStoreWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateSwimmingLaneRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateSwimmingLaneResponse
+     */
+    public function updateSwimmingLaneWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appInfos)) {
+            $query['AppInfos'] = $request->appInfos;
+        }
+        if (!Utils::isUnset($request->enableRules)) {
+            $query['EnableRules'] = $request->enableRules;
+        }
+        if (!Utils::isUnset($request->entryRules)) {
+            $query['EntryRules'] = $request->entryRules;
+        }
+        if (!Utils::isUnset($request->laneId)) {
+            $query['LaneId'] = $request->laneId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSwimmingLane',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/trafficmgnt/swimming_lanes',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSwimmingLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSwimmingLaneRequest $request
+     *
+     * @return UpdateSwimmingLaneResponse
+     */
+    public function updateSwimmingLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSwimmingLaneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateSwimmingLaneGroupRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateSwimmingLaneGroupResponse
+     */
+    public function updateSwimmingLaneGroupWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
+        }
+        if (!Utils::isUnset($request->entryApp)) {
+            $query['EntryApp'] = $request->entryApp;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSwimmingLaneGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v5/trafficmgnt/swimming_lane_groups',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSwimmingLaneGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSwimmingLaneGroupRequest $request
+     *
+     * @return UpdateSwimmingLaneGroupResponse
+     */
+    public function updateSwimmingLaneGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSwimmingLaneGroupWithOptions($request, $headers, $runtime);
     }
 }

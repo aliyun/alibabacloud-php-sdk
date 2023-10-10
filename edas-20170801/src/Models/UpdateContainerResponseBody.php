@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateContainerResponseBody extends Model
 {
     /**
+     * @description The ID of the change process.
+     *
+     * @example eb1b9862-****-476f-9e78-d6aa0842835a
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example a5281053-08e4-47a5-b2ab-5c0323******
+     *
      * @var string
      */
     public $requestId;

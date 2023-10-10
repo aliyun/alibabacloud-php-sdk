@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class configMountDescs extends Model
 {
     /**
-     * @description 挂载条目
-     *
      * @var mountItems[]
      */
     public $mountItems;
 
     /**
-     * @description 挂载路径
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description 名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $type;

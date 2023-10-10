@@ -9,36 +9,76 @@ use AlibabaCloud\Tea\Model;
 class InsertClusterRequest extends Model
 {
     /**
+     * @description The name of the cluster.
+     *
+     * @example ****_product_test2
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The type of the cluster. Valid values:
+     *
+     *   2: Elastic Compute Service (ECS) cluster
+     *   3: self-managed Kubernetes cluster in Enterprise Distributed Application Service (EDAS)
+     *   5: Kubernetes cluster
+     *
+     * @example 2
+     *
      * @var int
      */
     public $clusterType;
 
     /**
+     * @description The provider of Infrastructure as a Service (IaaS) resources that are used in the cluster.
+     *
+     * When you use Alibaba Cloud, set the value to `ALIYUN`. The value is case-sensitive.
+     * @example ALIYUN
+     *
      * @var string
      */
     public $iaasProvider;
 
     /**
+     * @description The ID of the custom namespace. The ID is in the `physical region ID:custom namespace identifier` format. Example: `cn-hangzhou:test`.
+     *
+     * @example cn-beijing:td****
+     *
      * @var string
      */
     public $logicalRegionId;
 
     /**
+     * @description The network type of the cluster. Valid values:
+     *
+     *   1: classic network
+     *   2: virtual private cloud (VPC)
+     *
+     * @example 2
+     *
      * @var int
      */
     public $networkMode;
 
     /**
+     * @description **This parameter is deprecated.** The CPU overcommit ratio supported by a Docker cluster. Valid values:
+     *
+     *   2: 1:2, which means that resources are overcommitted by 1:2.
+     *   4: 1:4, which means that resources are overcommitted by 1:4.
+     *   8: 1:8, which means that resources are overcommitted by 1:8.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $oversoldFactor;
 
     /**
+     * @description The ID of the VPC. This parameter is required if you set the NetworkMode parameter to 2.
+     *
+     * @example vpc-2zef6ob8mrlzv8x3q****
+     *
      * @var string
      */
     public $vpcId;

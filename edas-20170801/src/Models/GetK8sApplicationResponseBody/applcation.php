@@ -14,31 +14,45 @@ use AlibabaCloud\Tea\Model;
 class applcation extends Model
 {
     /**
+     * @description The basic information about the application.
+     *
      * @var app
      */
     public $app;
 
     /**
+     * @description The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](~~149390~~).
+     *
+     * @example a5281053-****-47a5-b2ab-5c0323de****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The configurations.
+     *
      * @var conf
      */
     public $conf;
 
     /**
+     * @description The information about the instance group in which the application is deployed.
+     *
      * @var deployGroups
      */
     public $deployGroups;
 
     /**
+     * @description The information about the image.
+     *
      * @var imageInfo
      */
     public $imageInfo;
 
     /**
+     * @description The information about the latest version.
+     *
      * @var latestVersion
      */
     public $latestVersion;

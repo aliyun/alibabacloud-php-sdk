@@ -9,28 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigTemplateRequest extends Model
 {
     /**
-     * @description 模板内容
+     * @description The content of the configuration template. The value must be in the format that is specified by the Format parameter.
+     *
+     * @example [{"Key":"name","Value":"william"},{"Key":"age","Value":"12"}]
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 模板描述
+     * @description The description of the configuration template. The description can be up to 255 characters in length.
+     *
+     * @example My configuration template
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 模板数据格式
+     * @description The data format of the configuration template. Valid values:
+     *
+     *   JSON: JSON format
+     *   XML: XML format
+     *   YAML: YAML format
+     *   Properties: .properties format
+     *   KeyValue: key-value pairs
+     *   Custom: custom format
+     *
+     * @example JSON
      *
      * @var string
      */
     public $format;
 
     /**
-     * @description 配置模板名称
+     * @description The name of the configuration template. The name can be up to 64 characters in length.
+     *
+     * @example my-template
      *
      * @var string
      */

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListAliyunRegionResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The details of the regions.
+     *
      * @var regionEntityList
      */
     public $regionEntityList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example b197-40ab-9155-7ca7
+     *
      * @var string
      */
     public $requestId;

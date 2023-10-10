@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetAppDeploymentRequest extends Model
 {
     /**
+     * @description The ID of the application. You can call the ListApplication operation to query the application ID.
+     *
+     * @example 93fdd228-*****-ed2ae98de18d
+     *
      * @var string
      */
     public $appId;

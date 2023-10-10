@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetJvmConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 3616cdca-4f92-4***************
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the instance group.
+     *
+     *   If an ID is specified, this operation queries the JVM configuration information of the instance group.
+     *   If an ID is not specified, this operation queries the JVM configuration information of the application.
+     *
+     * @example 8123db90-880f-48**************
+     *
      * @var string
      */
     public $groupId;

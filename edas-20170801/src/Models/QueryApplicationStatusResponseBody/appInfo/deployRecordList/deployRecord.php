@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class deployRecord extends Model
 {
     /**
+     * @description The time when the deployment record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573626226691
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The ID of the deployment record.
+     *
+     * @example bbc6c0d5-d792-4907-****-************
+     *
      * @var string
      */
     public $deployRecordId;
 
     /**
+     * @description The unique ID of the ECC.
+     *
+     * @example 0cf49a6c-95a8-4aa8-****-************
+     *
      * @var string
      */
     public $eccId;
 
     /**
+     * @description The unique ID of the ECU.
+     *
+     * @example 07bd417a-b863-477d-****-************
+     *
      * @var string
      */
     public $ecuId;
 
     /**
+     * @description The MD5 hash value of the deployment package.
+     *
+     * @example d0db5bcb442e492104d0f00e10a03dd9
+     *
      * @var string
      */
     public $packageMd5;
 
     /**
+     * @description The version of the deployment package that was used to deploy an application in the instance group.
+     *
+     * @example 441beb18-da42-44dc-****-************
+     *
      * @var string
      */
     public $packageVersionId;

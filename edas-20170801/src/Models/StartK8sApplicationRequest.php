@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class StartK8sApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application. You can query the application ID by calling the ListApplication operation. For more information, see [ListApplication](~~149390~~).
+     *
+     * @example 93fdd228-*******-ed2ae98de18d
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The number of instances on which you want to start the application.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $replicas;
 
     /**
+     * @description The timeout period of the change process. Valid values: 1 to 1800. Default value: 600. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $timeout;

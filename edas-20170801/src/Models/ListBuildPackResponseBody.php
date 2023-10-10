@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListBuildPackResponseBody extends Model
 {
     /**
+     * @description The returned versions of EDAS Container.
+     *
      * @var buildPackList
      */
     public $buildPackList;
 
     /**
+     * @description code
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4FD4-*************
+     *
      * @var string
      */
     public $requestId;

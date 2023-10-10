@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class slsConfigs extends Model
 {
     /**
-     * @description 日志目录
-     *
      * @var string
      */
     public $logDir;
 
     /**
-     * @description 日志存储
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @description 日志项目
-     *
      * @var string
      */
     public $project;
 
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $type;

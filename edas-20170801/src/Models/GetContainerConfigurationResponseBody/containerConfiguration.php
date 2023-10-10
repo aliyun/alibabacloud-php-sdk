@@ -9,26 +9,55 @@ use AlibabaCloud\Tea\Model;
 class containerConfiguration extends Model
 {
     /**
+     * @description The context path of the Tomcat container.
+     *
+     * @example /
+     *
      * @var string
      */
     public $contextPath;
 
     /**
+     * @description The application port number for the Tomcat container. The value specified in the application configuration is returned.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $httpPort;
 
     /**
+     * @description The maximum number of threads in the Tomcat container.
+     *
+     *   If no instance group is specified, the configuration of the application is returned.
+     *   If no application is specified, the default configuration is returned.
+     *
+     * @example 400
+     *
      * @var int
      */
     public $maxThreads;
 
     /**
+     * @description The Uniform Resource Identifier (URI) encoding scheme. Valid values: ISO-8859-1, GBK, GB2312, and UTF-8.
+     *
+     *   If no instance group is specified, the configuration of the application is returned.
+     *   If no application is specified, the default configuration is returned.
+     *
+     * @example ISO-8859-1
+     *
      * @var string
      */
     public $URIEncoding;
 
     /**
+     * @description Indicates whether useBodyEncodingForURI is enabled in the Tomcat container.
+     *
+     *   If no instance group is specified, the configuration of the application is returned.
+     *   If no application is specified, the default configuration is returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $useBodyEncoding;

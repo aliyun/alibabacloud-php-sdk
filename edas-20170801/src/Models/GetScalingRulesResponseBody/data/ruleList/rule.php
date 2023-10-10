@@ -9,106 +9,206 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 33e39be9-3e5f-*********
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The relationship among the conditions that trigger the scaling rule.
+     *
+     *   OR: one of the conditions
+     *   AND: all conditions
+     *
+     * @example OR
+     *
      * @var string
      */
     public $cond;
 
     /**
+     * @description The minimum CPU utilization that triggers the scaling rule.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The time when the scaling rule was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1574251601801
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The duration of the scaling rule. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1574251601
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description Indicates whether scale-ins or scale-outs are allowed. Valid values:
+     *
+     *   true: Scale-ins or scale-outs are allowed.
+     *   false: Scale-ins or scale-outs are disallowed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The ID of the instance group to which the application is deployed.
+     *
+     * @example d8bb9d60-91b5-4cdf-****-************
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The maximum number of instances in the group when a scale-out is performed, or the minimum number of instances in the group when a scale-in is performed.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $instNum;
 
     /**
+     * @description The system load that triggers the scaling rule. The system load is evaluated based on the number of processes that are being executed by CPUs and the number of processes that wait to be executed by CPUs.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $loadNum;
 
     /**
+     * @description The type of the metric.
+     *
+     * @example HSF
+     *
      * @var string
      */
     public $metricType;
 
     /**
+     * @description The type of the scaling rule. Valid values:
+     *
+     *   SCALE_IN: scale-in rules
+     *   SCALE_OUT: scale-out rules
+     *
+     * @example SCALE_OUT
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The policy of auto scaling across multiple zones. Valid values:
+     *
+     *   PRIORITY: The vSwitch that is first selected has the highest priority.
+     *   BALANCE: This policy evenly distributes instances across zones in which the vSwitches reside.
+     *
+     * @example PRIORITY
+     *
      * @var string
      */
     public $multiAzPolicy;
 
     /**
+     * @description The source of the instance that you want to add during a scale-out. Valid values:
+     *
+     *   NEW: Elastic resources are used.
+     *   AVAILABLE: The existing resources are used.
+     *   AVAILABLE_FIRST: The existing resources are used first.
+     *
+     * @example AVAILABLE
+     *
      * @var string
      */
     public $resourceFrom;
 
     /**
+     * @description The service latency that triggers the scaling rule. Unit: milliseconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $rt;
 
     /**
+     * @description The ID of the specification.
+     *
+     * @example 03f493c0-xxxx-xxxx-xxxx-12e85cadeb41
+     *
      * @var string
      */
     public $specId;
 
     /**
+     * @description The number of instances that are added during each scale-out or removed during each scale-in.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $step;
 
     /**
+     * @description The ID of the launch template.
+     *
+     * @example lt-bp1xxxxn73pxxxxf83l
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The version of the launch template.
+     *
+     * @example 1143542
+     *
      * @var int
      */
     public $templateVersion;
 
     /**
+     * @description The time when the scaling rule was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1574251601785
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @description The IDs of the vSwitches. The IDs of multiple vSwitches are separated by commas (,).
+     *
+     * @example vsw-mxxxxkxxxx4xxxxwbionj
+     *
      * @var string
      */
     public $vSwitchIds;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-wz9b246z******
+     *
      * @var string
      */
     public $vpcId;

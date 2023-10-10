@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class backend extends Model
 {
     /**
+     * @description The name of the backend service.
+     *
+     * @example http-service
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The port of the backend service.
+     *
+     * @example 8080
+     *
      * @var string
      */
     public $servicePort;

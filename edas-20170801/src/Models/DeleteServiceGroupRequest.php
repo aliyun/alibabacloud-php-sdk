@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceGroupRequest extends Model
 {
     /**
+     * @description The ID of the service group that you want to delete.
+     *
+     * @example 789d9cda-74b1-****-****-05e21a0a7661
+     *
      * @var string
      */
     public $groupId;

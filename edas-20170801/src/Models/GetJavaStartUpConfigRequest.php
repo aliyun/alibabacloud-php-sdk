@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetJavaStartUpConfigRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 5fdf50e8-*
+     *
      * @var string
      */
     public $appId;

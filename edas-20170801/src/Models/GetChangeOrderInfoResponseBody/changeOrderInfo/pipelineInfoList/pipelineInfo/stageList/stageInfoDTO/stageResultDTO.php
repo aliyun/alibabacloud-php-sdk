@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class stageResultDTO extends Model
 {
     /**
+     * @description The results of the task executed on each Elastic Compute Service (ECS) instance in each stage.
+     *
      * @var instanceDTOList
      */
     public $instanceDTOList;
 
     /**
+     * @description The results of tasks executed in each service-oriented stage.
+     *
      * @var serviceStage
      */
     public $serviceStage;

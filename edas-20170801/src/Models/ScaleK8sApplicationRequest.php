@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ScaleK8sApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](~~149390~~).
+     *
+     * @example 23bf94d9-****-4994-****-616a827aa777
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The expected number of application instances after the scale-out or scale-in. The minimum number is 0.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $replicas;
 
     /**
+     * @description The timeout period of the change process. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $timeout;

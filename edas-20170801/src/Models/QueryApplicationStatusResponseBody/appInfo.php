@@ -14,26 +14,36 @@ use AlibabaCloud\Tea\Model;
 class appInfo extends Model
 {
     /**
+     * @description The basic information about the application.
+     *
      * @var application
      */
     public $application;
 
     /**
+     * @description The information about deployment records.
+     *
      * @var deployRecordList
      */
     public $deployRecordList;
 
     /**
+     * @description The information about elastic compute containers (ECCs).
+     *
      * @var eccList
      */
     public $eccList;
 
     /**
+     * @description The information about elastic compute units (ECUs).
+     *
      * @var ecuList
      */
     public $ecuList;
 
     /**
+     * @description The information about the instance groups.
+     *
      * @var groupList
      */
     public $groupList;

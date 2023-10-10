@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateIDCImportCommandRequest extends Model
 {
     /**
+     * @description The cluster ID. You can call the ListCluster operation to query the cluster ID. For more information, see [ListCluster](~~154995~~).
+     *
+     * @example 7246cxxx-53xx-xxxx-xxxx-xxxxxxxx
+     *
      * @var string
      */
     public $clusterId;

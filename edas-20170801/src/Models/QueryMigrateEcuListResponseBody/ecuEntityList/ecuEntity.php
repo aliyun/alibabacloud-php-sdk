@@ -9,86 +9,160 @@ use AlibabaCloud\Tea\Model;
 class ecuEntity extends Model
 {
     /**
+     * @description The number of available CPUs. Unit: cores.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $availableCpu;
 
     /**
+     * @description The size of available memory. Unit: MB.
+     *
+     * @example 2048
+     *
      * @var int
      */
     public $availableMem;
 
     /**
+     * @description The CPU quota set by the system. Unit: cores. The value 0 indicates that no quota is set by the system.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The time when the ECU was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573281041101
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description Indicates whether Docker is installed. Valid values:
+     *
+     *   true: Docker is installed.
+     *   false: Docker is not installed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dockerEnv;
 
     /**
+     * @description The unique ID of the ECU. To query the ID, you can run the `dmidecode` command on the ECS instance that corresponds to the ECU.
+     *
+     * @example 70ed3f59-b476-49aa-****-************
+     *
      * @var string
      */
     public $ecuId;
 
     /**
+     * @description The time when the last heartbeat detection was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573281041101
+     *
      * @var int
      */
     public $heartbeatTime;
 
     /**
+     * @description The ID of the ECU.
+     *
+     * @example i-2zej4i2jd***********
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The private IP address of the ECU.
+     *
+     * @example 192.168.0.150
+     *
      * @var string
      */
     public $ipAddr;
 
     /**
+     * @description The total size of memory.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $mem;
 
     /**
+     * @description The name of the ECU.
+     *
+     * @example product_test003
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Indicates whether the ECU is online. Valid values:
+     *
+     *   true: The ECU is online.
+     *   false: The ECU is offline.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $online;
 
     /**
+     * @description The ID of the region where the ECU resides.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The time when the ECU was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573281041109
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the ECU belongs.
+     *
+     * @example edas_com***_****@******-*****.***
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description VPC ID
+     *
+     * @example vpc-2zef6ob8m************
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone where the ECU resides.
+     *
+     * @example cn-bei****-*
+     *
      * @var string
      */
     public $zoneId;

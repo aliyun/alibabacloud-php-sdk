@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class applicationInfo extends Model
 {
     /**
+     * @description The ID of the application. The ID is the unique identifier of the application in EDAS.
+     *
+     * @example 6c733bcd-6efb-47a1-8226-cf722c******
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example hello-edas-test-1
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ID of the change process.
+     *
+     * @example d0cf569e-dce3-4efb-****-08b70021****
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description Indicates whether the application is a Docker application. Valid values:
+     *
+     *   **true**: The application is a Docker application.
+     *   **false**: The application is not a Docker application.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dockerize;
 
     /**
+     * @description The owner of the application. The owner is the user who created the application.
+     *
+     * @example 249763358688********
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The port used by the created application. Default value: 8080. You can call the UpdateContainerConfiguration operation to change the port. For more information, see [UpdateContainerConfiguration](~~149403~~).
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The name of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @description The ID of the user who created the application.
+     *
+     * @example tdy218@1362469756xxxxxx
+     *
      * @var string
      */
     public $userId;

@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The type of the logging service.
+     *
+     * @example Log Service
+     *
      * @var string
      */
     public $consumerSide;
 
     /**
+     * @description The time when the logging service was created.
+     *
+     * @example 2020-05-18 22:08:46
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The URL of the logging service.
+     *
+     * @example https://sls.console.aliyun.com/lognext/project/k8s-log-c846f28edbd1d4c6aa9d78c0e********\/logsearch/thisisiss
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @description The name of the Logstore.
+     *
+     * @example thisisatestlogstore
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @description The name of the project.
+     *
+     * @example k8s-log-c846f28edbd1d4c6aa9d78c0e********
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @description The source of logs. Valid values:
+     *
+     *   Standard output: stdout.log
+     *   File log: the directory that stores logs
+     *
+     * @example /var/log/*
+     *
      * @var string
      */
     public $source;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class action extends Model
 {
     /**
+     * @description The code of the permission.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The description of the permission.
+     *
+     * @example Create an application
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the permission group.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the permission.
+     *
+     * @example Create an application
+     *
      * @var string
      */
     public $name;

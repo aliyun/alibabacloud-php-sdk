@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListK8sConfigMapsRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c0830281-366c-41b6-80fb-542e76******
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The filter conditions. Set this parameter to a JSON string in the format of {"field":"Name", "pattern":"configmap-"}.
+     *
+     * @example {"field":"Name", "pattern":"configmap-"}
+     *
      * @var mixed[]
      */
     public $condition;
 
     /**
+     * @description The namespace of the Kubernetes cluster.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The number of the page to return. Pages start from Page 0.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to return a list of applications that use a ConfigMap. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $showRelatedApps;

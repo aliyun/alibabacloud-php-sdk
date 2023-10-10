@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UnbindSlbRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example c627c157-560d-********************
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Specifies whether to remove the configured listeners. Valid values:
+     *
+     *   true: removes the configured listeners.
+     *   false: does not remove the configured listeners.
+     *
+     * @example false
+     *
      * @var string
      */
     public $deleteListener;
 
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example lb-wz9vo49****************
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description The network type of the SLB instance. Valid values:
+     *
+     *   **internet**: Internet-facing SLB instance
+     *   **intranet**: internal-facing SLB instance
+     *
+     * @example internet
+     *
      * @var string
      */
     public $type;

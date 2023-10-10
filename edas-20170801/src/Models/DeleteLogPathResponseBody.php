@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteLogPathResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3616cdca-4f92-4413**********
+     *
      * @var string
      */
     public $requestId;

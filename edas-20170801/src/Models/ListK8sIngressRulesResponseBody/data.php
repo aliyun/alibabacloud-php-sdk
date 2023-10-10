@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the Kubernetes cluster.
+     *
+     * @example 5b2b4ab4-efbc-4a81-9c45-a5942881****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the Kubernetes cluster.
+     *
+     * @example my-dev-cluster
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The Ingresses.
+     *
      * @var ingressConfs[]
      */
     public $ingressConfs;
 
     /**
+     * @description The ID of the region where the cluster resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

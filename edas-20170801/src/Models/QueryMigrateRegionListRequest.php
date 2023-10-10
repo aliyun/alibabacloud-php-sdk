@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryMigrateRegionListRequest extends Model
 {
     /**
+     * @description The ID of the namespace.
+     *
+     * @example cn-hangzhou:test
+     *
      * @var string
      */
     public $logicalRegionId;

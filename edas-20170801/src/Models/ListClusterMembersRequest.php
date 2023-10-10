@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListClusterMembersRequest extends Model
 {
     /**
+     * @description The ID of the cluster. You can call the ListCluster operation to query the cluster ID. For more information, see [ListCluster](~~154995~~).
+     *
+     * @example 52984524-6d48-4bbd-85f2-a34b0e5b****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of the page to return. If you do not specify this parameter, the first page is returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of ECS instances.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $ecsList;
 
     /**
+     * @description The number of ECS instances to return on each page. If you do not specify this parameter, all ECS instances in the specified cluster are returned on one page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;

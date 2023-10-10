@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListMethodsRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example be213a4a-c7e4-473b-ab0****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example Method
+     *
      * @var string
      */
     public $serviceName;

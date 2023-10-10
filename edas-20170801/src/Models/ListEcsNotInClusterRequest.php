@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListEcsNotInClusterRequest extends Model
 {
     /**
+     * @description The network type. Valid values:
+     *
+     *   1: classic network
+     *   2: virtual private cloud (VPC)
+     *
+     * @example 2
+     *
      * @var int
      */
     public $networkMode;
 
     /**
+     * @description The ID of the VPC. This parameter is required if the NetworkMode parameter is set to 2.
+     *
+     * @example vpc-2zef6ob8****v8x3q46kp
+     *
      * @var string
      */
     public $vpcId;

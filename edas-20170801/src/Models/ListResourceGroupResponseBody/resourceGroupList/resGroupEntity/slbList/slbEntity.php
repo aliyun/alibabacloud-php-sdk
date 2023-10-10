@@ -9,61 +9,118 @@ use AlibabaCloud\Tea\Model;
 class slbEntity extends Model
 {
     /**
+     * @description The IP address of the SLB instance.
+     *
+     * @example 192.168.xxx.xx
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The type of the IP address of the SLB instance. Valid values:
+     *
+     *   Internet: Users can connect to the SLB instance over the Internet.
+     *   Intranet: Users can connect to the SLB instance over the internal network.
+     *
+     * @example Intranet
+     *
      * @var string
      */
     public $addressType;
 
     /**
+     * @description Indicates whether the SLB instance has expired. Valid values:
+     *
+     *   true: The SLB instance has expired.
+     *   false: The SLB instance has not expired.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The ID of the group to which the SLB instance belongs.
+     *
+     * @example 64189****
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The network type of the SLB instance. Valid values:
+     *
+     *   Classic network
+     *   VPC
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The unique ID of the SLB instance.
+     *
+     * @example lb-2zebf1fpbpkc7dnro****
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description The name of the SLB instance.
+     *
+     * @example a9315af59b4cd11e9a18c00163e1****
+     *
      * @var string
      */
     public $slbName;
 
     /**
+     * @description The status of the SLB instance.
+     *
+     * @example active
+     *
      * @var string
      */
     public $slbStatus;
 
     /**
+     * @description The UID of the Alibaba Cloud account.
+     *
+     * @example ****@aliyun.com
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-m5e666n89m2bx8jar****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-mktkxkhah14****
+     *
      * @var string
      */
     public $vswitchId;

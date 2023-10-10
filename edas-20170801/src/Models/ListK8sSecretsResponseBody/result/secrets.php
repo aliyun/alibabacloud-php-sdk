@@ -13,66 +13,116 @@ use AlibabaCloud\Tea\Model;
 class secrets extends Model
 {
     /**
+     * @description Indicates whether the data is Base64-encoded. Valid values:
+     *
+     *   true: The data is Base64-encoded.
+     *   false: The data is not Base64-encoded.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $base64Encoded;
 
     /**
+     * @description The details of the Secure Sockets Layer (SSL) certificate.
+     *
      * @var certDetail
      */
     public $certDetail;
 
     /**
+     * @description The ID of the certificate provided by Alibaba Cloud Certificate Management Service.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $certId;
 
     /**
+     * @description The region in which the certificate is stored.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $certRegionId;
 
     /**
+     * @description The ID of the cluster in Enterprise Distributed Application Service (EDAS).
+     *
+     * @example 4472a6d3-f01d-4087-85a7-3dc52********
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example test-cluster
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The time when the Secret was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2022-05-26T02:57:02Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The data of the Kubernetes Secret.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The name of the Secret. The name must start with a letter, and can contain digits, letters, and hyphens (-). It can be up to 63 characters in length.
+     *
+     * @example my-secret
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace of the Kubernetes cluster.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description Applications that use the Secret.
+     *
      * @var relatedApps[]
      */
     public $relatedApps;
 
     /**
+     * @description Rules in the Ingress that is associated with the Secret.
+     *
      * @var relatedIngressRules[]
      */
     public $relatedIngressRules;
 
     /**
+     * @description The type of the Secret. Valid values:
+     *
+     *   Opaque: user-defined data
+     *   kubernetes.io/tls: Transport Layer Security (TLS) certificate
+     *
+     * @example Opaque
+     *
      * @var string
      */
     public $type;

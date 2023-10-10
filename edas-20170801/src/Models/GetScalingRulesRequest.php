@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetScalingRulesRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 33e39be9-3e5f-*********
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the instance group to which the application is deployed.
+     *
+     * @example d8bb9d60-9**************
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The type of the scaling rule. You can leave this parameter empty. Valid values:
+     *
+     *   SCALE_IN: scale-in rules
+     *   SCALE_OUT: scale-out rules
+     *
+     * @example SCALE_IN
+     *
      * @var string
      */
     public $mode;

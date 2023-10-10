@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class javaStartUpConfig extends Model
 {
     /**
+     * @description The displayed startup parameter configuration.
+     *
+     * @example -Xms512m
+     *
      * @var string
      */
     public $originalConfigs;
 
     /**
+     * @description The effective startup parameter configuration.
+     *
+     * @example -Xms512m
+     *
      * @var string
      */
     public $startUpArgs;

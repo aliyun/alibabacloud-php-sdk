@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class roleItem extends Model
 {
     /**
+     * @description The set of permissions to be granted to the role.
+     *
      * @var actionList
      */
     public $actionList;
 
     /**
+     * @description The roles.
+     *
      * @var role
      */
     public $role;

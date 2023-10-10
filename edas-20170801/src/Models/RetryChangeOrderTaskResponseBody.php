@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class RetryChangeOrderTaskResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The retry information.
+     *
+     * @example success retry task
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4823-bhjf-23u4-eiufh
+     *
      * @var string
      */
     public $requestId;

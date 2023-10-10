@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetContainerConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 3616cdca-4f92-**************
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the instance group.
+     *
+     *   If this parameter is specified, this operation queries the Tomcat configuration of the instance group.
+     *   If this parameter is not specified, this operation queries the Tomcat configuration of the application.
+     *
+     * @example 8123db90-880f-**************
+     *
      * @var string
      */
     public $groupId;

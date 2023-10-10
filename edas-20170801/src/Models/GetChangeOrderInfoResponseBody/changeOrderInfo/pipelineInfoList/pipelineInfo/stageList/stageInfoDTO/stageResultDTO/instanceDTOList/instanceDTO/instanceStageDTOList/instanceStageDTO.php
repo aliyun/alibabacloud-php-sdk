@@ -9,31 +9,64 @@ use AlibabaCloud\Tea\Model;
 class instanceStageDTO extends Model
 {
     /**
+     * @description The time when the execution stopped.
+     *
+     * @example 2020-03-11T07:28:52Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The ID of the stage.
+     *
+     * @example 5dd4c0f2-d81a-406f-****-************
+     *
      * @var string
      */
     public $stageId;
 
     /**
+     * @description The information about the stage.
+     *
+     * @example Pulling image \"registry-vpc.cn-hangzhou.aliyuncs.com****-user/1172745****_shared_repo:428084d6-265f-****-911a-7eb0d2c3****_15839117****\
+     *
      * @var string
      */
     public $stageMessage;
 
     /**
+     * @description The name of the stage.
+     *
+     * @example scale out
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The time when the execution was started.
+     *
+     * @example 2020-03-11T07:28:49Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The state of the stage. Valid values:
+     *
+     *   0: ready
+     *   1: in progress
+     *   2: successful
+     *   3: failed
+     *   6: terminated
+     *   8: wait for manual confirmation to trigger the next batch during a manual phased release
+     *   9: wait to trigger the next batch during an automatic phased release
+     *   10: failed due to a system exception
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;

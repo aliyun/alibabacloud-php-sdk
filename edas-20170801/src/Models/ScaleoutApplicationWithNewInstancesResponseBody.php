@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ScaleoutApplicationWithNewInstancesResponseBody extends Model
 {
     /**
+     * @description The ID of the change process for the scale-out.
+     *
+     * @example e370c17f-*****-3df0721a327
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The IDs of ECS instances.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example e370c17f-*****-3df0721a327
+     *
      * @var string
      */
     public $requestId;

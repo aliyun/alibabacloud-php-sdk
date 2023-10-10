@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class AbortAndRollbackChangeOrderResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The information about the change process.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 81E0B333-2871-****-****-B8F5FF43****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the trace.
+     *
+     * @example 210f07bf1640239405712621******
+     *
      * @var string
      */
     public $traceId;

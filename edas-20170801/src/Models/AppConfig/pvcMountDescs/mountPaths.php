@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class mountPaths extends Model
 {
     /**
-     * @description 挂载路径
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description 是否只读
-     *
      * @var bool
      */
     public $readOnly;
 
     /**
-     * @description 子路径表达式
-     *
      * @var string
      */
     public $subPathExpr;

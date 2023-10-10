@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class InstallAgentRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example b3e3f77b-462e-****-****-bec8727a4dc8
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $doAsync;
 
     /**
+     * @description The ID of the ECS instance. Separate multiple IDs with commas (,). Example: instanceId1,instanceId2.
+     *
+     * @example 2ze7s2v0b789k60pk1af
+     *
      * @var string
      */
     public $instanceIds;

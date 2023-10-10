@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description Indicates whether TLS is enabled. Valid values:
+     *
+     *   true: TLS is enabled.
+     *   false: TLS is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableTls;
 
     /**
+     * @description The domain name to be accessed.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The list of paths to be accessed.
+     *
      * @var paths[]
      */
     public $paths;
 
     /**
+     * @description The name of the Secret that stores the information about the Transport Layer Security (TLS) certificate.
+     *
+     * @example my-secret
+     *
      * @var string
      */
     public $secretName;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationEcuRequest extends Model
 {
     /**
+     * @description The ID of the application whose ECUs you want to query. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](~~149390~~).
+     *
+     * @example e809****-43d7-4c6b-8e01-b0d9d1db****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the microservices namespace.
+     *
+     * @example cn-hangzhou:***wei
+     *
      * @var string
      */
     public $logicalRegionId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ResetApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](~~149390~~).
+     *
+     * @example 3616cdca-4f92*********
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the elastic compute container (ECC) for which you want to reset the application. Separate multiple ECC IDs with commas (,). You can call the QueryApplicationStatus operation to query the ECC ID. For more information, see [QueryApplicationStatus](~~149394~~).
+     *
+     * @example 0cf49a6c-***********
+     *
      * @var string
      */
     public $eccInfo;

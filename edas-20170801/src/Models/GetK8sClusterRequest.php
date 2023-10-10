@@ -9,29 +9,61 @@ use AlibabaCloud\Tea\Model;
 class GetK8sClusterRequest extends Model
 {
     /**
+     * @description The type of the Kubernetes cluster. Valid values:
+     *
+     *   5: ACK cluster
+     *   7: self-managed Kubernetes cluster
+     *
+     * @example 5
+     *
      * @var int
      */
     public $clusterType;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Default value: 1000.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionTag;
+
+    /**
+     * @description The subtype of the cluster. Valid values:
+     *
+     *   Ask: Serverless Kubernetes cluster
+     *   ManagedKubernetes: ACK cluster
+     *
+     * @example Ask
+     *
+     * @var string
+     */
+    public $subClusterType;
     protected $_name = [
-        'clusterType' => 'ClusterType',
-        'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'regionTag'   => 'RegionTag',
+        'clusterType'    => 'ClusterType',
+        'currentPage'    => 'CurrentPage',
+        'pageSize'       => 'PageSize',
+        'regionTag'      => 'RegionTag',
+        'subClusterType' => 'SubClusterType',
     ];
 
     public function validate()
@@ -52,6 +84,9 @@ class GetK8sClusterRequest extends Model
         }
         if (null !== $this->regionTag) {
             $res['RegionTag'] = $this->regionTag;
+        }
+        if (null !== $this->subClusterType) {
+            $res['SubClusterType'] = $this->subClusterType;
         }
 
         return $res;
@@ -76,6 +111,9 @@ class GetK8sClusterRequest extends Model
         }
         if (isset($map['RegionTag'])) {
             $model->regionTag = $map['RegionTag'];
+        }
+        if (isset($map['SubClusterType'])) {
+            $model->subClusterType = $map['SubClusterType'];
         }
 
         return $model;

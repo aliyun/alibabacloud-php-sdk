@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class nasMountDescs extends Model
 {
     /**
-     * @description NAS挂载路径
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description NAS文件路径
-     *
      * @var string
      */
     public $nasPath;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class vpcEntity extends Model
 {
     /**
+     * @description This operation uses only common request headers. For more information, see [Common parameters for API calls](~~123488~~).
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ecsNum;
 
     /**
+     * @description The region ID of the VPC.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description No request parameters.
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description GET /pop/v5/vpc_list HTTP/1.1
+     * Common request headers
+     * @example edas_****_test@aliyun-****.com
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
+     *
+     * @example vpc-wz9pcq3jofczwpujq****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The number of ECS instances associated with the VPC.
+     *
+     * @example edas-default-vpc4
+     *
      * @var string
      */
     public $vpcName;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteEcuRequest extends Model
 {
     /**
+     * @description The unique ID of the ECU to be deleted.
+     *
+     * @example 5c0b8c82-4ba9-****-****-130a34ffa534
+     *
      * @var string
      */
     public $ecuId;

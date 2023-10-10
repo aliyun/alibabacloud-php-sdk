@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The information about Kubernetes Secrets.
+     *
      * @var secrets[]
      */
     public $secrets;
 
     /**
+     * @description The total number of entries that are returned.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $total;

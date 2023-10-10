@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListConsumedServicesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The information about consumed services.
+     *
      * @var consumedServicesList
      */
     public $consumedServicesList;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example a5281053-08e4-47a5-b2ab-5c0323de7b5a
+     *
      * @var string
      */
     public $requestId;

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class UpdateContainerConfigurationResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The configuration of the Tomcat container.
+     *
      * @var containerConfiguration
      */
     public $containerConfiguration;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D16979DC-4D42-***************
+     *
      * @var string
      */
     public $requestId;

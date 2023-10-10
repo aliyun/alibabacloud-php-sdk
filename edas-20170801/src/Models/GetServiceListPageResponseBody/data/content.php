@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example efbda488-7b33-432f-****-36530047****
+     *
      * @var string
      */
     public $edasAppId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example k8s-lq-cartservice
+     *
      * @var string
      */
     public $edasAppName;
 
     /**
+     * @description The service group.
+     *
+     * @example DUBBO
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceNum;
 
     /**
+     * @description The type of the service registry.
+     *
+     * @example xx
+     *
      * @var string
      */
     public $registerType;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example xx
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example com.alibabacloud.hipstershop.CartService
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The version number.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $version;

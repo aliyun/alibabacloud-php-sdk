@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class trafficControl extends Model
 {
     /**
+     * @description The route forwarding policy.
+     *
+     * @example [{"app":"9c8247da-91b6-42bb-8f99-92a0b9c6f****","type":"GROUP"}]
+     *
      * @var string
      */
     public $routes;
 
     /**
+     * @description The traffic routing rules.
+     *
+     * @example [{"conditionType":"content","conditions":[{"key":"name","operator":"EQ","strategy":"PARAM","values":["jim"]},{"key":"name","operator":"EQ","strategy":"COOKIE","values":["jim"]}],"percent":100,"protocol":"SPRINGCLOUD","triggerPolicy":"AND"}]
+     *
      * @var string
      */
     public $rules;
 
     /**
+     * @description The description of throttling rules.
+     *
+     * @example This canary release batch is complete, and the user has confirmed to proceed to the next batch.
+     *
      * @var string
      */
     public $tips;

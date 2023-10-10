@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ChangeDeployGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the change process.
+     *
+     * @example 435f-regfr4********************
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F9E4-FDS4-****************
+     *
      * @var string
      */
     public $requestId;

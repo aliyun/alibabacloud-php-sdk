@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserDefineRegionRequest extends Model
 {
     /**
+     * @description The unique ID of the custom namespace. You can call the ListUserDefineRegion operation to query the ID. For more information, see [ListUserDefineRegion](~~149377~~).
+     *
+     * @example 2564
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The tag of the custom namespace.
+     *
+     * @example regiontag
+     *
      * @var string
      */
     public $regionTag;

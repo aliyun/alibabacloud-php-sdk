@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ImportK8sClusterResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The ID of the cluster in EDAS.
+     *
+     * @example cf96d49a-6be2-4b6d-****-75c7fb86****
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example a5281053-08e4-47a5-b2ab-5c0323de7b5a
+     *
      * @var string
      */
     public $requestId;

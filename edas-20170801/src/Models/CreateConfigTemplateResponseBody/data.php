@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 模板ID
+     * @description The ID of the template.
+     *
+     * @example 125122
      *
      * @var int
      */

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class GetJavaStartUpConfigResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The configuration of Java startup parameters.
+     *
      * @var javaStartUpConfig
      */
     public $javaStartUpConfig;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4823-bhjf-23u4-eiufh
+     *
      * @var string
      */
     public $requestId;

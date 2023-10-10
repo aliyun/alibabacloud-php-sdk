@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccountInfoResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example edit successfully
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ECD1D6FC-4307-4583-BA6F-215F3857EAF4
+     *
      * @var string
      */
     public $requestId;

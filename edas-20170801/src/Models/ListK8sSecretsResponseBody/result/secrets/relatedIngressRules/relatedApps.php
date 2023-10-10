@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class relatedApps extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 6dc74432-5a35-4e68-8aaa-3700********
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the EDAS application.
+     *
+     * @example app-test
+     *
      * @var string
      */
     public $appName;

@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class SynchronizeResourceResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The data returned for the request.
+     *
+     * @example PopSyncResource success
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F8DFGED-K98***************
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the resources are synchronized. Valid values:
+     *
+     *   **true**: The resources are synchronized.
+     *   **false**: The resources fail to be synchronized.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

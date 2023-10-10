@@ -9,91 +9,163 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 3616cdca-4f92-4413-****-************
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description The build package number of Enterprise Distributed Application Service (EDAS) Container.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $buildPackageId;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example 0d247b93-8d62-4e34-****-************
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of CPU cores used by the application.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The time when the application was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1573626207270
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description Indicates whether the application is a Docker application.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dockerize;
 
     /**
+     * @description The email address of the user who created the application.
+     *
+     * @example 1234567@qq.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The health check URL.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $healthCheckUrl;
 
     /**
+     * @description The number of application instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @description The time when the application was launched. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $launchTime;
 
     /**
+     * @description The memory size.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description The name of the application.
+     *
+     * @example EDAS-scaled-cluster:default cluster
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the user who created the application.
+     *
+     * @example edas_com***_****@******-*****.***
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The mobile number of the user who created the application.
+     *
+     * @example 1886666****
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @description The port used by the application.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example cn-shenzhen:test
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of application instances that are running.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $runningInstanceCount;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example edas_com***_****@******-*****.***
+     *
      * @var string
      */
     public $userId;

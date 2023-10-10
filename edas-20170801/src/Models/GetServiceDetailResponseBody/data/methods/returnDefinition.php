@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class returnDefinition extends Model
 {
     /**
+     * @description The ID of the return value.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The type.
+     *
+     * @example foo
+     *
      * @var string
      */
     public $type;

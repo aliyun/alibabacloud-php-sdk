@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class serviceMethod extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example App
+     *
      * @var string
      */
     public $appName;
@@ -21,11 +25,19 @@ class serviceMethod extends Model
     public $inputParams;
 
     /**
+     * @description The name of the service method.
+     *
+     * @example echo
+     *
      * @var string
      */
     public $methodName;
 
     /**
+     * @description The return type of the service method.
+     *
+     * @example java.lang.string
+     *
      * @var string
      */
     public $output;
@@ -36,6 +48,10 @@ class serviceMethod extends Model
     public $paramTypes;
 
     /**
+     * @description The name of the service.
+     *
+     * @example com.alibaba.edas.demo.EchoService
+     *
      * @var string
      */
     public $serviceName;

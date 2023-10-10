@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The name of the service consumer.
+     *
+     * @example k8s-lq-cartservice
+     *
      * @var string
      */
     public $edasAppName;
 
     /**
+     * @description The ID of the service consumer.
+     *
+     * @example efbda488-7b33-432f-a40d-****0047****
+     *
      * @var string
      */
     public $edassAppId;
 
     /**
+     * @description The IP address of the service consumer.
+     *
+     * @example 10.20.x.xx
+     *
      * @var string
      */
     public $ip;

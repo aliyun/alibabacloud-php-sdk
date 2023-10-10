@@ -9,66 +9,172 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example cfac****-847e-4325-ad56-b5c2bc54****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The current status of the Kubernetes application, which is used to determine whether the application is in a stable state. If the application is in an unstable state, related configuration operations are prohibited. Valid values:
+     *
+     *   ready: The application is in the ready state and can be changed.
+     *   progressive: The application is being changed.
+     *   pending: The application change is blocked.
+     *   failed: The application fails to be changed.
+     *
+     * In these states, ready is a stable state and other states are unstable.
+     * @example ready
+     *
+     * @var string
+     */
+    public $appPhase;
+
+    /**
+     * @description The deployment type of the application. Valid values:
+     *
+     *   War: The application is deployed by using a WAR package.
+     *   FatJar: The application is deployed by using a JAR package.
+     *   Empty: The application is not deployed.
+     *
+     * @example FatJar
+     *
      * @var string
      */
     public $applicationType;
 
     /**
+     * @description The build package number of Enterprise Distributed Application Service (EDAS) Container.
+     *
+     * @example 59
+     *
      * @var int
      */
     public $buildPackageId;
 
     /**
+     * @description The ID of the ECS cluster in which the application is deployed.
+     *
+     * @example 5ffc5895-****-b03a-c223c6c3****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The type of the cluster. Valid values:
+     *
+     *   0: regular Docker cluster
+     *   1: Swarm cluster
+     *   2: ECS cluster
+     *   3: Kubernetes cluster
+     *   4: cluster in which Pandora automatically registers applications
+     *
+     * @example 2
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The number of CPU cores.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The time when the application was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1610550324226
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The description of the application.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the application is a Docker application. Valid values:
+     *
+     *   false: The application is not a Docker application.
+     *   true: The application is a Docker application.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dockerize;
 
     /**
+     * @description The email address of the account.
+     *
+     * @example xxxx@gmail.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description Indicates whether the port health check is enabled. Valid values:
+     *
+     *   true: The port health check is enabled.
+     *   false: The port health check is disabled.
+     *
+     * If the port health check is enabled, EDAS checks whether a port exists during application startup. If the port exists, the application is considered to have started.
+     * @example false
+     *
+     * @var bool
+     */
+    public $enablePortCheck;
+
+    /**
+     * @description Indicates whether the URL health check is enabled. Valid values:
+     *
+     *   true: The URL health check is enabled.
+     *   false: The URL health check is disabled.
+     *
+     * If the URL health check is enabled, EDAS attempts to detect the specified URL during application startup. If EDAS detects the specified URL, the application is considered to have started.
+     * @example false
+     *
+     * @var bool
+     */
+    public $enableUrlCheck;
+
+    /**
+     * @description The ID of the Internet-facing SLB instance that is bound to the application.
+     *
+     * @example lb-bp1vceck3s3b9xs6x****
+     *
      * @var string
      */
     public $extSlbId;
 
     /**
+     * @description The IP address of the Internet-facing Server Load Balancer (SLB) instance that is bound to the application.
+     *
+     * @example 47.114.xxx.xx
+     *
      * @var string
      */
     public $extSlbIp;
 
     /**
+     * @description The name of the Internet-facing SLB instance that is bound to the application.
+     *
+     * @example aa8eee383db084f42aebc4d9f52c****
+     *
      * @var string
      */
     public $extSlbName;
@@ -76,79 +182,155 @@ class application extends Model
     /**
      * @var string
      */
+    public $haveManageAccess;
+
+    /**
+     * @description The health check URL of the application.
+     *
+     * @example http://127.0.0.1:8080/xyz.html
+     *
+     * @var string
+     */
     public $healthCheckUrl;
 
     /**
+     * @description The number of instances deployed with the application.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @description The memory size of the application instance. Unit: MB.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description The name of the application.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace to which the application belongs.
+     *
+     * @example doc-test
+     *
      * @var string
      */
     public $nameSpace;
 
     /**
+     * @description The ID of the user who created the application.
+     *
+     * @example ouou@117274586608****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The service port of the application.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The ID of the region in which the application is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The number of running instances for the application.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $runningInstanceCount;
 
     /**
+     * @description The ID of the internal-facing SLB instance that is bound to the application.
+     *
+     * @example lb-bp****ck3s3b9xs6x****
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description The information about the internal-facing SLB instance that is bound to the application.
+     *
+     * @example test
+     *
      * @var string
      */
     public $slbInfo;
 
     /**
+     * @description The IP address of the internal-facing SLB instance that is bound to the application.
+     *
+     * @example 192.168.0.100
+     *
      * @var string
      */
     public $slbIp;
 
     /**
+     * @description The name of the internal-facing SLB instance that is bound to the application.
+     *
+     * @example test
+     *
      * @var string
      */
     public $slbName;
 
     /**
+     * @description The port of the internal-facing SLB instance that is bound to the application.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $slbPort;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example test@dd******
+     *
      * @var string
      */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $workloadType;
     protected $_name = [
         'appId'                => 'AppId',
+        'appPhase'             => 'AppPhase',
         'applicationType'      => 'ApplicationType',
         'buildPackageId'       => 'BuildPackageId',
         'clusterId'            => 'ClusterId',
@@ -158,9 +340,12 @@ class application extends Model
         'description'          => 'Description',
         'dockerize'            => 'Dockerize',
         'email'                => 'Email',
+        'enablePortCheck'      => 'EnablePortCheck',
+        'enableUrlCheck'       => 'EnableUrlCheck',
         'extSlbId'             => 'ExtSlbId',
         'extSlbIp'             => 'ExtSlbIp',
         'extSlbName'           => 'ExtSlbName',
+        'haveManageAccess'     => 'HaveManageAccess',
         'healthCheckUrl'       => 'HealthCheckUrl',
         'instanceCount'        => 'InstanceCount',
         'memory'               => 'Memory',
@@ -169,6 +354,7 @@ class application extends Model
         'owner'                => 'Owner',
         'port'                 => 'Port',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'runningInstanceCount' => 'RunningInstanceCount',
         'slbId'                => 'SlbId',
         'slbInfo'              => 'SlbInfo',
@@ -176,6 +362,7 @@ class application extends Model
         'slbName'              => 'SlbName',
         'slbPort'              => 'SlbPort',
         'userId'               => 'UserId',
+        'workloadType'         => 'WorkloadType',
     ];
 
     public function validate()
@@ -187,6 +374,9 @@ class application extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->appPhase) {
+            $res['AppPhase'] = $this->appPhase;
         }
         if (null !== $this->applicationType) {
             $res['ApplicationType'] = $this->applicationType;
@@ -215,6 +405,12 @@ class application extends Model
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+        if (null !== $this->enablePortCheck) {
+            $res['EnablePortCheck'] = $this->enablePortCheck;
+        }
+        if (null !== $this->enableUrlCheck) {
+            $res['EnableUrlCheck'] = $this->enableUrlCheck;
+        }
         if (null !== $this->extSlbId) {
             $res['ExtSlbId'] = $this->extSlbId;
         }
@@ -223,6 +419,9 @@ class application extends Model
         }
         if (null !== $this->extSlbName) {
             $res['ExtSlbName'] = $this->extSlbName;
+        }
+        if (null !== $this->haveManageAccess) {
+            $res['HaveManageAccess'] = $this->haveManageAccess;
         }
         if (null !== $this->healthCheckUrl) {
             $res['HealthCheckUrl'] = $this->healthCheckUrl;
@@ -248,6 +447,9 @@ class application extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->runningInstanceCount) {
             $res['RunningInstanceCount'] = $this->runningInstanceCount;
         }
@@ -269,6 +471,9 @@ class application extends Model
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+        if (null !== $this->workloadType) {
+            $res['WorkloadType'] = $this->workloadType;
+        }
 
         return $res;
     }
@@ -283,6 +488,9 @@ class application extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['AppPhase'])) {
+            $model->appPhase = $map['AppPhase'];
         }
         if (isset($map['ApplicationType'])) {
             $model->applicationType = $map['ApplicationType'];
@@ -311,6 +519,12 @@ class application extends Model
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+        if (isset($map['EnablePortCheck'])) {
+            $model->enablePortCheck = $map['EnablePortCheck'];
+        }
+        if (isset($map['EnableUrlCheck'])) {
+            $model->enableUrlCheck = $map['EnableUrlCheck'];
+        }
         if (isset($map['ExtSlbId'])) {
             $model->extSlbId = $map['ExtSlbId'];
         }
@@ -319,6 +533,9 @@ class application extends Model
         }
         if (isset($map['ExtSlbName'])) {
             $model->extSlbName = $map['ExtSlbName'];
+        }
+        if (isset($map['HaveManageAccess'])) {
+            $model->haveManageAccess = $map['HaveManageAccess'];
         }
         if (isset($map['HealthCheckUrl'])) {
             $model->healthCheckUrl = $map['HealthCheckUrl'];
@@ -344,6 +561,9 @@ class application extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['RunningInstanceCount'])) {
             $model->runningInstanceCount = $map['RunningInstanceCount'];
         }
@@ -364,6 +584,9 @@ class application extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['WorkloadType'])) {
+            $model->workloadType = $map['WorkloadType'];
         }
 
         return $model;

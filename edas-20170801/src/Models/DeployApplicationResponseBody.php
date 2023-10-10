@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeployApplicationResponseBody extends Model
 {
     /**
+     * @description The change process ID of the application deployment.
+     *
+     * @example adf86823-055b-48a4-a59f-fa5582******
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message returned for the request.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example d6834ee9-5045-*************
+     *
      * @var string
      */
     public $requestId;

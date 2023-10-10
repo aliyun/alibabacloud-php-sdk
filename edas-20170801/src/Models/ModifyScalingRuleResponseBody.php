@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyScalingRuleResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CB36E997-FE54-476C-8C0D-********
+     *
      * @var string
      */
     public $requestId;

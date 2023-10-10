@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class InsertOrUpdateRegionResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 37793352-C568-4A5A-BF69-4DC853******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the custom namespace.
+     *
      * @var userDefineRegionEntity
      */
     public $userDefineRegionEntity;

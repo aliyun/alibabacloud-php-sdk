@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The user-defined key that is stored in the ConfigMap.
+     *
+     * @example name
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The user-defined value that is stored in the ConfigMap.
+     *
+     * @example william
+     *
      * @var string
      */
     public $value;
