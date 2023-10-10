@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PckCrlRequest extends Model
+class GetQeIdentityRequest extends Model
 {
     /**
      * @var string
@@ -17,17 +17,9 @@ class PckCrlRequest extends Model
      * @var string
      */
     public $clientVpcId;
-
-    /**
-     * @example platform
-     *
-     * @var string
-     */
-    public $ca;
     protected $_name = [
         'acsHost'     => 'AcsHost',
         'clientVpcId' => 'ClientVpcId',
-        'ca'          => 'ca',
     ];
 
     public function validate()
@@ -43,9 +35,6 @@ class PckCrlRequest extends Model
         if (null !== $this->clientVpcId) {
             $res['ClientVpcId'] = $this->clientVpcId;
         }
-        if (null !== $this->ca) {
-            $res['ca'] = $this->ca;
-        }
 
         return $res;
     }
@@ -53,7 +42,7 @@ class PckCrlRequest extends Model
     /**
      * @param array $map
      *
-     * @return PckCrlRequest
+     * @return GetQeIdentityRequest
      */
     public static function fromMap($map = [])
     {
@@ -63,9 +52,6 @@ class PckCrlRequest extends Model
         }
         if (isset($map['ClientVpcId'])) {
             $model->clientVpcId = $map['ClientVpcId'];
-        }
-        if (isset($map['ca'])) {
-            $model->ca = $map['ca'];
         }
 
         return $model;

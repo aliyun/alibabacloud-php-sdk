@@ -6,12 +6,15 @@ namespace AlibabaCloud\SDK\Sgxdcapserver\V20200726;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\GetQeIdentityRequest;
 use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\GetQeIdentityResponse;
+use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\GetQveIdentityRequest;
 use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\GetQveIdentityResponse;
 use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\GetTcbInfoRequest;
 use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\GetTcbInfoResponse;
 use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\PckCrlRequest;
 use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\PckCrlResponse;
+use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\RootCaCrlRequest;
 use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\RootCaCrlResponse;
 use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\SimplePackagePckCertRequest;
 use AlibabaCloud\SDK\Sgxdcapserver\V20200726\Models\SimplePackagePckCertResponse;
@@ -56,15 +59,25 @@ class Sgxdcapserver extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param GetQeIdentityRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return GetQeIdentityResponse
      */
-    public function getQeIdentityWithOptions($headers, $runtime)
+    public function getQeIdentityWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acsHost)) {
+            $query['AcsHost'] = $request->acsHost;
+        }
+        if (!Utils::isUnset($request->clientVpcId)) {
+            $query['ClientVpcId'] = $request->clientVpcId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQeIdentity',
@@ -82,26 +95,38 @@ class Sgxdcapserver extends OpenApiClient
     }
 
     /**
+     * @param GetQeIdentityRequest $request
+     *
      * @return GetQeIdentityResponse
      */
-    public function getQeIdentity()
+    public function getQeIdentity($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getQeIdentityWithOptions($headers, $runtime);
+        return $this->getQeIdentityWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param GetQveIdentityRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
      * @return GetQveIdentityResponse
      */
-    public function getQveIdentityWithOptions($headers, $runtime)
+    public function getQveIdentityWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acsHost)) {
+            $query['AcsHost'] = $request->acsHost;
+        }
+        if (!Utils::isUnset($request->clientVpcId)) {
+            $query['ClientVpcId'] = $request->clientVpcId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQveIdentity',
@@ -119,14 +144,16 @@ class Sgxdcapserver extends OpenApiClient
     }
 
     /**
+     * @param GetQveIdentityRequest $request
+     *
      * @return GetQveIdentityResponse
      */
-    public function getQveIdentity()
+    public function getQveIdentity($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getQveIdentityWithOptions($headers, $runtime);
+        return $this->getQveIdentityWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -140,6 +167,12 @@ class Sgxdcapserver extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->acsHost)) {
+            $query['AcsHost'] = $request->acsHost;
+        }
+        if (!Utils::isUnset($request->clientVpcId)) {
+            $query['ClientVpcId'] = $request->clientVpcId;
+        }
         if (!Utils::isUnset($request->fmspc)) {
             $query['fmspc'] = $request->fmspc;
         }
@@ -186,6 +219,12 @@ class Sgxdcapserver extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->acsHost)) {
+            $query['AcsHost'] = $request->acsHost;
+        }
+        if (!Utils::isUnset($request->clientVpcId)) {
+            $query['ClientVpcId'] = $request->clientVpcId;
+        }
         if (!Utils::isUnset($request->ca)) {
             $query['ca'] = $request->ca;
         }
@@ -222,15 +261,25 @@ class Sgxdcapserver extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param RootCaCrlRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return RootCaCrlResponse
      */
-    public function rootCaCrlWithOptions($headers, $runtime)
+    public function rootCaCrlWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acsHost)) {
+            $query['AcsHost'] = $request->acsHost;
+        }
+        if (!Utils::isUnset($request->clientVpcId)) {
+            $query['ClientVpcId'] = $request->clientVpcId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RootCaCrl',
@@ -248,14 +297,16 @@ class Sgxdcapserver extends OpenApiClient
     }
 
     /**
+     * @param RootCaCrlRequest $request
+     *
      * @return RootCaCrlResponse
      */
-    public function rootCaCrl()
+    public function rootCaCrl($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->rootCaCrlWithOptions($headers, $runtime);
+        return $this->rootCaCrlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -269,6 +320,12 @@ class Sgxdcapserver extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->acsHost)) {
+            $query['AcsHost'] = $request->acsHost;
+        }
+        if (!Utils::isUnset($request->clientVpcId)) {
+            $query['ClientVpcId'] = $request->clientVpcId;
+        }
         if (!Utils::isUnset($request->cpusvn)) {
             $query['cpusvn'] = $request->cpusvn;
         }

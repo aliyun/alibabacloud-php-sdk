@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SimplePackagePckCertRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acsHost;
+
+    /**
+     * @var string
+     */
+    public $clientVpcId;
+
+    /**
      * @example 05050809FFFF00000000000000000000
      *
      * @var string
@@ -43,6 +53,8 @@ class SimplePackagePckCertRequest extends Model
      */
     public $qeid;
     protected $_name = [
+        'acsHost'       => 'AcsHost',
+        'clientVpcId'   => 'ClientVpcId',
         'cpusvn'        => 'cpusvn',
         'encryptedPpid' => 'encrypted_ppid',
         'pceid'         => 'pceid',
@@ -57,6 +69,12 @@ class SimplePackagePckCertRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acsHost) {
+            $res['AcsHost'] = $this->acsHost;
+        }
+        if (null !== $this->clientVpcId) {
+            $res['ClientVpcId'] = $this->clientVpcId;
+        }
         if (null !== $this->cpusvn) {
             $res['cpusvn'] = $this->cpusvn;
         }
@@ -84,6 +102,12 @@ class SimplePackagePckCertRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcsHost'])) {
+            $model->acsHost = $map['AcsHost'];
+        }
+        if (isset($map['ClientVpcId'])) {
+            $model->clientVpcId = $map['ClientVpcId'];
+        }
         if (isset($map['cpusvn'])) {
             $model->cpusvn = $map['cpusvn'];
         }

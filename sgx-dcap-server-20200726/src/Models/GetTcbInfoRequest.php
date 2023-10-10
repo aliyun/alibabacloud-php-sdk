@@ -9,13 +9,25 @@ use AlibabaCloud\Tea\Model;
 class GetTcbInfoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acsHost;
+
+    /**
+     * @var string
+     */
+    public $clientVpcId;
+
+    /**
      * @example 00706a100000
      *
      * @var string
      */
     public $fmspc;
     protected $_name = [
-        'fmspc' => 'fmspc',
+        'acsHost'     => 'AcsHost',
+        'clientVpcId' => 'ClientVpcId',
+        'fmspc'       => 'fmspc',
     ];
 
     public function validate()
@@ -25,6 +37,12 @@ class GetTcbInfoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acsHost) {
+            $res['AcsHost'] = $this->acsHost;
+        }
+        if (null !== $this->clientVpcId) {
+            $res['ClientVpcId'] = $this->clientVpcId;
+        }
         if (null !== $this->fmspc) {
             $res['fmspc'] = $this->fmspc;
         }
@@ -40,6 +58,12 @@ class GetTcbInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcsHost'])) {
+            $model->acsHost = $map['AcsHost'];
+        }
+        if (isset($map['ClientVpcId'])) {
+            $model->clientVpcId = $map['ClientVpcId'];
+        }
         if (isset($map['fmspc'])) {
             $model->fmspc = $map['fmspc'];
         }
