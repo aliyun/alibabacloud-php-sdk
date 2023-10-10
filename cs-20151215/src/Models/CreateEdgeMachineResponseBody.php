@@ -18,7 +18,7 @@ class CreateEdgeMachineResponseBody extends Model
     public $edgeMachineId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example "request_id": "6e7b377a-c5ed-4388-8026-689e1b34****",
      *

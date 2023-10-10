@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterEventsRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeClusterEventsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 50. Default value: 50.
+     *
      * @example 50
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeClusterEventsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the query task.
+     *
      * @example T-xascadasd*****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The region ID of the resource.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,11 +18,15 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the resources that you want to label.
+     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
+     * @description The type of resource that you want to label. Set the value to `CLUSTER`.
+     *
      * @example CLUSTER
      *
      * @var string
@@ -28,6 +34,12 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The labels that you want to add to the resources in key-value pairs. You can add up to 20 labels. Note:
+     *
+     *   A value cannot be empty and can contain up to 128 characters.
+     *   A key or value must not start with `aliyun` or `acs:`.
+     *   A key or value must not contain `http://` or `https://`.
+     *
      * @var Tag[]
      */
     public $tags;

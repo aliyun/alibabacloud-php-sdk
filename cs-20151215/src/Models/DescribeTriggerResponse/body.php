@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The ID of the trigger.
+     *
      * @example 1234
      *
      * @var string
@@ -16,6 +18,8 @@ class body extends Model
     public $id;
 
     /**
+     * @description The name of the trigger.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class body extends Model
     public $name;
 
     /**
+     * @description The ID of the associated cluster.
+     *
      * @example c259f563386444ebb8d7****
      *
      * @var string
@@ -30,6 +36,9 @@ class body extends Model
     public $clusterId;
 
     /**
+     * @description The name of the project.
+     *
+     * The name consists of the namespace where the application is deployed and the name of the application. The format is `${namespace}/${name}`. Example: default/test-app.
      * @example default/test-app
      *
      * @var string
@@ -37,6 +46,14 @@ class body extends Model
     public $projectId;
 
     /**
+     * @description The type of trigger.
+     *
+     * Valid values:
+     *
+     *   `deployment`: performs actions on Deployments.
+     *   `application`: performs actions on applications that are deployed in Application Center.
+     *
+     * Default value: `deployment`.
      * @example deployment
      *
      * @var string
@@ -44,6 +61,9 @@ class body extends Model
     public $type;
 
     /**
+     * @description The action that the trigger performs. The value is set to redeploy.
+     *
+     * `redeploy`: redeploys the resource specified by project_id.
      * @example redeploy
      *
      * @var string
@@ -51,6 +71,8 @@ class body extends Model
     public $action;
 
     /**
+     * @description The token information.
+     *
      * @example eyJhbGci***
      *
      * @var string

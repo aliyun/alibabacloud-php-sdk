@@ -27,7 +27,7 @@ class DescirbeWorkflowResponseBody extends Model
     public $duration;
 
     /**
-     * @description The time when the workflow ended.
+     * @description The end time of the task.
      *
      * @example 0001-01-01 00:00:00 +0000 UTC
      *

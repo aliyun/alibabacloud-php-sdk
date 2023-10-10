@@ -13,6 +13,12 @@ use AlibabaCloud\Tea\Model;
 class scalingGroup extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal for the nodes in the node pool. This parameter takes effect only when you set `instance_charge_type` to `PrePaid`. Valid values:
+     *
+     *   `true`: enables auto-renewal.
+     *   `false`: disables auto-renewal.
+     *
+     * Default value: `true`.
      * @example true
      *
      * @var bool
@@ -20,6 +26,9 @@ class scalingGroup extends Model
     public $autoRenew;
 
     /**
+     * @description The duration of the auto-renewal. This parameter takes effect and is required only when you set `instance_charge_type` to `PrePaid`.
+     *
+     * If you specify `PeriodUnit=Month`, the valid values are 1, 2, 3, 6, and 12.
      * @example 1
      *
      * @var int
@@ -27,6 +36,11 @@ class scalingGroup extends Model
     public $autoRenewPeriod;
 
     /**
+     * @description Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as the cost or insufficient inventory. This parameter takes effect when you set `multi_az_policy` to `COST_OPTIMIZED`. Valid values:
+     *
+     *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
+     *   `false`: does not create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
+     *
      * @example true
      *
      * @var bool
@@ -34,11 +48,15 @@ class scalingGroup extends Model
     public $compensateWithOnDemand;
 
     /**
+     * @description The configurations of the data disks that are mounted to the nodes in the node pool. You can mount 0 to 10 data disks. You can mount at most 10 data disks to the nodes in the node pool.
+     *
      * @var DataDisk[]
      */
     public $dataDisks;
 
     /**
+     * @description The expected number of nodes in the node pool.
+     *
      * @example 2
      *
      * @var int
@@ -46,6 +64,8 @@ class scalingGroup extends Model
     public $desiredSize;
 
     /**
+     * @description The ID of the custom image. You can call the `DescribeKubernetesVersionMetadata` operation to query the supported images. By default, the latest image is used.
+     *
      * @example aliyun_2_1903_x64_20G_alibase_20200904.vhd
      *
      * @var string
@@ -53,6 +73,12 @@ class scalingGroup extends Model
     public $imageId;
 
     /**
+     * @description The billing method of the nodes in the node pool. Valid values:
+     *
+     *   `PrePaid`: subscription.
+     *   `PostPaid`: pay-as-you-go.
+     *
+     * Default value: `PostPaid`.
      * @example PostPaid
      *
      * @var string
@@ -60,11 +86,18 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
+     * @description A list of instance types. You can select multiple instance types. When the system needs to create a node, it starts from the first instance type until the node is created. The instance type that is used to create the node varies based on the actual instance stock.
+     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
+     * @description The metering method of the public IP address. Valid values:
+     *
+     *   `PayByBandwidth`: pay-by-bandwidth.
+     *   `PayByTraffic`: pay-by-data-transfer.
+     *
      * @example PayByBandwidth
      *
      * @var string
@@ -72,6 +105,8 @@ class scalingGroup extends Model
     public $internetChargeType;
 
     /**
+     * @description The maximum outbound bandwidth of the public IP address of the node. Unit: Mbit/s. Valid values: 1 to 100.
+     *
      * @example 5
      *
      * @var int
@@ -79,6 +114,8 @@ class scalingGroup extends Model
     public $internetMaxBandwidthOut;
 
     /**
+     * @description The name of the key pair. You must set this parameter or the `login_password` parameter. You must set `key_pair` if the node pool is a managed node pool.
+     *
      * @example pro-nodepool
      *
      * @var string
@@ -86,6 +123,8 @@ class scalingGroup extends Model
     public $keyPair;
 
     /**
+     * @description The password for SSH logon. You must set this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     *
      * @example Hello1234
      *
      * @var string
@@ -93,6 +132,19 @@ class scalingGroup extends Model
     public $loginPassword;
 
     /**
+     * @description The ECS instance scaling policy for a multi-zone scaling group. Valid values:
+     *
+     *   `PRIORITY`: The scaling group is scaled based on the VSwitchIds.N parameter. If an ECS instance cannot be created in the zone where the vSwitch that has the highest priority resides, Auto Scaling creates the ECS instance in the zone where the vSwitch that has the next highest priority resides.
+     *
+     *   `COST_OPTIMIZED`: ECS instances are created based on the vCPU unit price in ascending order. Preemptible instances are preferably created when preemptible instance types are specified in the scaling configuration. You can set the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when preemptible instances cannot be created due to insufficient resources.
+     *
+     **
+     *
+     **Note**The `COST_OPTIMIZED` setting takes effect only when multiple instance types are specified or at least one instance type is specified for preemptible instances.
+     *
+     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](~~71516~~).
+     *
+     * Default value: `PRIORITY`.
      * @example BALANCE
      *
      * @var string
@@ -100,6 +152,8 @@ class scalingGroup extends Model
     public $multiAzPolicy;
 
     /**
+     * @description The minimum number of pay-as-you-go instances that must be kept in the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is less than the value of this parameter, Auto Scaling preferably creates pay-as-you-go instances.
+     *
      * @example 0
      *
      * @var int
@@ -107,6 +161,8 @@ class scalingGroup extends Model
     public $onDemandBaseCapacity;
 
     /**
+     * @description The percentage of pay-as-you-go instances among the extra instances that exceed the number specified by `on_demand_base_capacity`. Valid values: 0 to 100.
+     *
      * @example 20
      *
      * @var int
@@ -114,6 +170,9 @@ class scalingGroup extends Model
     public $onDemandPercentageAboveBaseCapacity;
 
     /**
+     * @description The subscription duration of worker nodes. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
+     *
+     * If `PeriodUnit=Month` is specified, the valid values are 1, 2, 3, 6, 12, 24, 36, 48, and 60.
      * @example 1
      *
      * @var int
@@ -121,6 +180,9 @@ class scalingGroup extends Model
     public $period;
 
     /**
+     * @description The billing cycle of the nodes in the node pool. This parameter is required if you set `instance_charge_type` to `PrePaid`.
+     *
+     * Default value: `Month`.
      * @example Month
      *
      * @var string
@@ -128,6 +190,13 @@ class scalingGroup extends Model
     public $periodUnit;
 
     /**
+     * @description The OS platform. Valid values:
+     *
+     *   `AliyunLinux`
+     *   `CentOS`
+     *   `Windows`
+     *   `WindowsCore`
+     *
      * @example AliyunLinux
      *
      * @var string
@@ -135,16 +204,25 @@ class scalingGroup extends Model
     public $platform;
 
     /**
+     * @description The configurations of the private node pool.
+     *
      * @var privatePoolOptions
      */
     public $privatePoolOptions;
 
     /**
+     * @description A list of ApsaraDB RDS instances.
+     *
      * @var string[]
      */
     public $rdsInstances;
 
     /**
+     * @description The scaling mode of the scaling group. Valid values:
+     *
+     *   `release`: the standard mode. ECS instances are created and released based on resource usage.
+     *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances that are attached with local disks.
+     *
      * @example release
      *
      * @var string
@@ -152,6 +230,8 @@ class scalingGroup extends Model
     public $scalingPolicy;
 
     /**
+     * @description The number of instance types that are available for creating preemptible instances. Auto Scaling creates preemptible instances of multiple instance types that are available at the lowest cost. Valid values: 1 to 10.
+     *
      * @example 5
      *
      * @var int
@@ -159,6 +239,11 @@ class scalingGroup extends Model
     public $spotInstancePools;
 
     /**
+     * @description Specifies whether to supplement preemptible instances. If this parameter is set to true, when the scaling group receives a system message that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace this instance. Valid values:
+     *
+     *   `true`: enables the supplementation of preemptible instances.
+     *   `false`: disables the supplementation of preemptible instances.
+     *
      * @example false
      *
      * @var bool
@@ -166,11 +251,20 @@ class scalingGroup extends Model
     public $spotInstanceRemedy;
 
     /**
+     * @description The bid configurations of preemptible instances.
+     *
      * @var spotPriceLimit[]
      */
     public $spotPriceLimit;
 
     /**
+     * @description The bidding policy of preemptible instances. Valid values:
+     *
+     *   `NoSpot`: non-preemptible instance.
+     *   `SpotWithPriceLimit`: specifies the highest bid for the preemptible instance.
+     *   `SpotAsPriceGo`: automatically submits bids based on the up-to-date market price.
+     *
+     * For more information, see [Preemptible instances](~~157759~~).
      * @example SpotWithPriceLimit
      *
      * @var string
@@ -178,6 +272,12 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
+     * @description The type of system disk. Valid values:
+     *
+     *   `cloud_efficiency`: ultra disk.
+     *   `cloud_ssd`: standard SSD.
+     *
+     * Default value: `cloud_ssd`.
      * @example cloud_efficiency
      *
      * @var string
@@ -185,6 +285,8 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
+     * @description The performance level (PL) of the system disk that you want to use for the node. This parameter takes effect only for enhanced SSDs. You can specify a higher PL if you increase the size of the system disk. For more information, see [ESSDs](~~122389~~).
+     *
      * @example PL1
      *
      * @var string
@@ -192,6 +294,9 @@ class scalingGroup extends Model
     public $systemDiskPerformanceLevel;
 
     /**
+     * @description The system disk size of a node. Unit: GiB.
+     *
+     * The default value is the greater one between 40 and the image size.
      * @example 120
      *
      * @var int
@@ -199,11 +304,17 @@ class scalingGroup extends Model
     public $systemDiskSize;
 
     /**
+     * @description The labels that you want to add to the ECS instances.
+     *
+     * A key must be unique and cannot exceed 128 characters in length. Neither keys nor values can start with aliyun or acs:. Neither keys nor values can contain https:// or http://.
      * @var Tag[]
      */
     public $tags;
 
     /**
+     * @description The IDs of vSwitches. You can specify 1 to 20 vSwitches.
+     *
+     * > We recommend that you select vSwitches in different zones to ensure high availability.
      * @var string[]
      */
     public $vswitchIds;

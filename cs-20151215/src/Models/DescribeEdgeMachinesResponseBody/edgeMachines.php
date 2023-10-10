@@ -27,7 +27,7 @@ class edgeMachines extends Model
     public $created;
 
     /**
-     * @description The ID of the cloud-native box.
+     * @description The device ID.
      *
      * @example c61083909b13f4a95b8554bda9577****
      *
@@ -45,7 +45,7 @@ class edgeMachines extends Model
     public $hostname;
 
     /**
-     * @description The lifecycle status of the cloud-native box.
+     * @description The lifecycle of the cloud-native box.
      *
      * @example activated
      *
@@ -63,7 +63,7 @@ class edgeMachines extends Model
     public $model;
 
     /**
-     * @description The name of the cloud-native box.
+     * @description The machine name.
      *
      * @example ack-v-b010-ssdfw****
      *
@@ -72,7 +72,7 @@ class edgeMachines extends Model
     public $name;
 
     /**
-     * @description The online status of the cloud-native box.
+     * @description The status of the cloud-native box.
      *
      * @example online
      *
@@ -81,7 +81,7 @@ class edgeMachines extends Model
     public $onlineState;
 
     /**
-     * @description The serial number of the cloud-native box.
+     * @description The serial number.
      *
      * @example ACK9GBL31SXX****
      *

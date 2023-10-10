@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class customizeConfig extends Model
 {
     /**
+     * @description The custom configuration.
+     *
      * @var configs[]
      */
     public $configs;
 
     /**
+     * @description The name of the component.
+     *
      * @example kube-apiserver
      *
      * @var string

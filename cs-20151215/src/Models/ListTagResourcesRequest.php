@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example ***
      *
      * @var string
@@ -16,6 +18,8 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -23,6 +27,8 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The list of cluster IDs.
+     *
      * @example ["xxxxx","xxxxxx"]
      *
      * @var string[]
@@ -30,6 +36,8 @@ class ListTagResourcesRequest extends Model
     public $resourceIds;
 
     /**
+     * @description The resource type. Set the value to `CLUSTER`.
+     *
      * @example CLUSTER
      *
      * @var string
@@ -37,6 +45,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The list of labels that you want to query. You can specify at most 20 labels.
+     *
      * @example [{\"key\":\"env\",\"value\",\"dev\"},{\"key\":\"dev\", \"value\":\"IT\"}]
      *
      * @var Tag[]

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckControlPlaneLogEnableResponseBody extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
      * @example 162981*****
      *
      * @var string
@@ -16,11 +18,16 @@ class CheckControlPlaneLogEnableResponseBody extends Model
     public $aliuid;
 
     /**
+     * @description The control plane components for which log collection is enabled.
+     *
      * @var string[]
      */
     public $components;
 
     /**
+     * @description The name of the Simple Log Service project that you want to use to store the logs of control plane components.
+     *
+     * Default value: k8s-log-$Cluster ID.
      * @example k8s-log-c5b5e80b0b64a4bf6939d2d8fbbc5****
      *
      * @var string
@@ -28,6 +35,9 @@ class CheckControlPlaneLogEnableResponseBody extends Model
     public $logProject;
 
     /**
+     * @description The retention period of the log data stored in the Logstore. Valid values: 1 to 3000. Unit: days.
+     *
+     * Default value: 30.
      * @example 30
      *
      * @var string

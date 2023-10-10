@@ -26,7 +26,7 @@ class events extends Model
     public $data;
 
     /**
-     * @description The ID of the event.
+     * @description The event ID.
      *
      * @example A234-1234-1234
      *
@@ -62,22 +62,22 @@ class events extends Model
     public $time;
 
     /**
-     * @description The type of the event. Valid values:
+     * @description The event type. Valid values:
      *
      *   `cluster_create`: cluster creation.
      *   `cluster_scaleout`: cluster scale-out.
-     *   `cluster_attach`: adding existing nodes.
+     *   `cluster_attach`: node addition.
      *   `cluster_delete`: cluster deletion.
      *   `cluster_upgrade`: cluster upgrades.
      *   `cluster_migrate`: cluster migration.
      *   `cluster_node_delete`: node removal.
      *   `cluster_node_drain`: node draining.
      *   `cluster_modify`: cluster modifications.
-     *   `cluster_configuration_modify`: modifications to cluster control configurations.
+     *   `cluster_configuration_modify`: modifications of control plane configurations.
      *   `cluster_addon_install`: component installation.
-     *   `cluster_addon_upgrade`: component upgrades.
+     *   `cluster_addon_upgrade`: component updates.
      *   `cluster_addon_uninstall`: component uninstallation.
-     *   `runtime_upgrade`: runtime upgrades.
+     *   `runtime_upgrade`: runtime updates.
      *   `nodepool_upgrade`: node pool upgrades.
      *   `nodepool_update`: node pool updates.
      *

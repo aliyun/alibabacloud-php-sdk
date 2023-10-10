@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateRequest extends Model
 {
     /**
+     * @description The description of the template.
+     *
      * @example this is test
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateTemplateRequest extends Model
     public $description;
 
     /**
+     * @description The name of the orchestration template.
+     *
+     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). It cannot start with a hyphen (-).
      * @example service-account-template
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateTemplateRequest extends Model
     public $name;
 
     /**
+     * @description The label of the template.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +37,8 @@ class CreateTemplateRequest extends Model
     public $tags;
 
     /**
+     * @description The template content in the YAML format.
+     *
      * @example apiVersion: v1\nkind: ServiceAccount\nmetadata:\n  name: test-sa
      *
      * @var string
@@ -37,6 +46,12 @@ class CreateTemplateRequest extends Model
     public $template;
 
     /**
+     * @description The type of template. You can set the parameter to a custom value.
+     *
+     *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
+     *   If you set the parameter to `compose`, the template is not displayed in the console.
+     *
+     * Default value: `compose`.
      * @example kubernetes
      *
      * @var string

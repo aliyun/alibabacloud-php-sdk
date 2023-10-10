@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class nodepoolInfo extends Model
 {
     /**
+     * @description The name of the node pool.
+     *
+     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). It cannot start with a hyphen (-).
      * @example default-nodepool
      *
      * @var string
@@ -16,6 +19,8 @@ class nodepoolInfo extends Model
     public $name;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmyvw3wjm****
      *
      * @var string

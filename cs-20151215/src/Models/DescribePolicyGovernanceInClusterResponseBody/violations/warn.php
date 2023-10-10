@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class warn extends Model
 {
     /**
+     * @description The policy description.
+     *
      * @example Controls Linux capabilities.
      *
      * @var string
@@ -16,6 +18,8 @@ class warn extends Model
     public $policyDescription;
 
     /**
+     * @description The policy name.
+     *
      * @example policy-gatekeeper-ackpspcapabilities
      *
      * @var string
@@ -23,6 +27,8 @@ class warn extends Model
     public $policyName;
 
     /**
+     * @description The severity level of the policy.
+     *
      * @example high
      *
      * @var string
@@ -30,6 +36,8 @@ class warn extends Model
     public $severity;
 
     /**
+     * @description The total number of alerting events that are triggered by the policy.
+     *
      * @example 81
      *
      * @var int

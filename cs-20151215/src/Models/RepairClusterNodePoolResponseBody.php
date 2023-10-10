@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RepairClusterNodePoolResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example db82195b-75a8-40e5-9be4-16f1829dc624
      *

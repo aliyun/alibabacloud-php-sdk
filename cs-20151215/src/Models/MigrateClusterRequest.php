@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MigrateClusterRequest extends Model
 {
     /**
+     * @description The endpoint of the OSS bucket.
+     *
      * @example *******.oss-cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class MigrateClusterRequest extends Model
     public $ossBucketEndpoint;
 
     /**
+     * @description The name of the Object Storage Service (OSS) bucket.
+     *
      * @example bucket-****
      *
      * @var string

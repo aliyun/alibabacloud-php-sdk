@@ -16,11 +16,16 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterNodePoolRequest extends Model
 {
     /**
+     * @description The configuration about auto scaling.
+     *
      * @var autoScaling
      */
     public $autoScaling;
 
     /**
+     * @description This parameter is deprecated. Use the desired_size parameter instead.
+     *
+     * The number of nodes in the node pool.
      * @example 1
      *
      * @var int
@@ -28,11 +33,20 @@ class CreateClusterNodePoolRequest extends Model
     public $count;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * The configurations of the edge node pool.
      * @var interconnectConfig
      */
     public $interconnectConfig;
 
     /**
+     * @description The network type of the edge node pool. This parameter takes effect only when you set the `type` parameter of the node pool to `edge`. Valid values:
+     *
+     *   `basic`: basic
+     *   `improved`: enhanced
+     *   `private`: dedicated Only Kubernetes 1.22 and later support this parameter.
+     *
      * @example basic
      *
      * @var string
@@ -40,16 +54,22 @@ class CreateClusterNodePoolRequest extends Model
     public $interconnectMode;
 
     /**
+     * @description The configurations about the cluster.
+     *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
+     * @description The configurations about the managed node pool feature.
+     *
      * @var management
      */
     public $management;
 
     /**
+     * @description The maximum number of nodes that can be created in the edge node pool. You must specify a value that is equal to or larger than 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools of the ess type or default edge node pools.
+     *
      * @example 10
      *
      * @var int
@@ -57,16 +77,22 @@ class CreateClusterNodePoolRequest extends Model
     public $maxNodes;
 
     /**
+     * @description The configurations of the node pool.
+     *
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
 
     /**
+     * @description The configuration of the scaling group that is used by the node pool.
+     *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
+     * @description The configurations about confidential computing for the cluster.
+     *
      * @var teeConfig
      */
     public $teeConfig;

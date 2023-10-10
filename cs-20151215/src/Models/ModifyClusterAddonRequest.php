@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterAddonRequest extends Model
 {
     /**
+     * @description The custom parameter settings that you want to use.
+     *
      * @example {"CpuRequest":"800m"}
      *
      * @var string

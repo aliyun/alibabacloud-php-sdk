@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetKubernetesTriggerRequest extends Model
 {
     /**
+     * @description The application name.
+     *
      * @example web-server
      *
      * @var string
@@ -16,6 +18,8 @@ class GetKubernetesTriggerRequest extends Model
     public $name;
 
     /**
+     * @description The namespace name.
+     *
      * @example default
      *
      * @var string
@@ -23,6 +27,12 @@ class GetKubernetesTriggerRequest extends Model
     public $namespace;
 
     /**
+     * @description The type of trigger. Valid values:
+     *
+     *   `deployment`: performs actions on Deployments.
+     *   `application`: performs actions on applications that are deployed in Application Center.
+     *
+     * If you do not set this parameter, triggers are not filtered by type.
      * @example deployment
      *
      * @var string
@@ -30,6 +40,9 @@ class GetKubernetesTriggerRequest extends Model
     public $type;
 
     /**
+     * @description The action that the trigger performs. Set the value to redeploy.
+     *
+     * If you do not specify this parameter, triggers are not filtered by action.
      * @example redeploy
      *
      * @var string

@@ -9,7 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeMachineRequest extends Model
 {
     /**
-     * @example True/False
+     * @description Specifies whether to forcefully delete the cloud-native box. Valid values:
+     *
+     *   `true`: forcefully deletes the cloud-native box.
+     *   `false`: does not forcefully delete the cloud-native box.
+     *
+     * Default value: `false`.
+     * @example true/false
      *
      * @var string
      */

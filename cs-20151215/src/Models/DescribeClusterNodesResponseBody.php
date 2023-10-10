@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodesResponseBody extends Model
 {
     /**
-     * @description The details of the nodes that are returned.
+     * @description The details of the nodes in the cluster.
      *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description The pagination details.
+     * @description The pagination information.
      *
      * @var page
      */

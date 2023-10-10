@@ -2,12 +2,31 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyNodePoolNodeConfigRequest;
+namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class kubeletConfig extends Model
+class KubeletConfig extends Model
 {
+    /**
+     * @var string[]
+     */
+    public $allowedUnsafeSysctls;
+
+    /**
+     * @example 5
+     *
+     * @var int
+     */
+    public $containerLogMaxFiles;
+
+    /**
+     * @example 10Mi
+     *
+     * @var string
+     */
+    public $containerLogMaxSize;
+
     /**
      * @example none
      *
@@ -45,6 +64,11 @@ class kubeletConfig extends Model
     public $evictionSoftGracePeriod;
 
     /**
+     * @var mixed[]
+     */
+    public $featureGates;
+
+    /**
      * @example 10
      *
      * @var int
@@ -62,6 +86,20 @@ class kubeletConfig extends Model
      * @var mixed[]
      */
     public $kubeReserved;
+
+    /**
+     * @example 110
+     *
+     * @var int
+     */
+    public $maxPods;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $readOnlyPort;
 
     /**
      * @example 10
@@ -89,15 +127,21 @@ class kubeletConfig extends Model
      */
     public $systemReserved;
     protected $_name = [
+        'allowedUnsafeSysctls'    => 'allowedUnsafeSysctls',
+        'containerLogMaxFiles'    => 'containerLogMaxFiles',
+        'containerLogMaxSize'     => 'containerLogMaxSize',
         'cpuManagerPolicy'        => 'cpuManagerPolicy',
         'eventBurst'              => 'eventBurst',
         'eventRecordQPS'          => 'eventRecordQPS',
         'evictionHard'            => 'evictionHard',
         'evictionSoft'            => 'evictionSoft',
         'evictionSoftGracePeriod' => 'evictionSoftGracePeriod',
+        'featureGates'            => 'featureGates',
         'kubeAPIBurst'            => 'kubeAPIBurst',
         'kubeAPIQPS'              => 'kubeAPIQPS',
         'kubeReserved'            => 'kubeReserved',
+        'maxPods'                 => 'maxPods',
+        'readOnlyPort'            => 'readOnlyPort',
         'registryBurst'           => 'registryBurst',
         'registryPullQPS'         => 'registryPullQPS',
         'serializeImagePulls'     => 'serializeImagePulls',
@@ -111,6 +155,15 @@ class kubeletConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowedUnsafeSysctls) {
+            $res['allowedUnsafeSysctls'] = $this->allowedUnsafeSysctls;
+        }
+        if (null !== $this->containerLogMaxFiles) {
+            $res['containerLogMaxFiles'] = $this->containerLogMaxFiles;
+        }
+        if (null !== $this->containerLogMaxSize) {
+            $res['containerLogMaxSize'] = $this->containerLogMaxSize;
+        }
         if (null !== $this->cpuManagerPolicy) {
             $res['cpuManagerPolicy'] = $this->cpuManagerPolicy;
         }
@@ -129,6 +182,9 @@ class kubeletConfig extends Model
         if (null !== $this->evictionSoftGracePeriod) {
             $res['evictionSoftGracePeriod'] = $this->evictionSoftGracePeriod;
         }
+        if (null !== $this->featureGates) {
+            $res['featureGates'] = $this->featureGates;
+        }
         if (null !== $this->kubeAPIBurst) {
             $res['kubeAPIBurst'] = $this->kubeAPIBurst;
         }
@@ -137,6 +193,12 @@ class kubeletConfig extends Model
         }
         if (null !== $this->kubeReserved) {
             $res['kubeReserved'] = $this->kubeReserved;
+        }
+        if (null !== $this->maxPods) {
+            $res['maxPods'] = $this->maxPods;
+        }
+        if (null !== $this->readOnlyPort) {
+            $res['readOnlyPort'] = $this->readOnlyPort;
         }
         if (null !== $this->registryBurst) {
             $res['registryBurst'] = $this->registryBurst;
@@ -157,11 +219,22 @@ class kubeletConfig extends Model
     /**
      * @param array $map
      *
-     * @return kubeletConfig
+     * @return KubeletConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['allowedUnsafeSysctls'])) {
+            if (!empty($map['allowedUnsafeSysctls'])) {
+                $model->allowedUnsafeSysctls = $map['allowedUnsafeSysctls'];
+            }
+        }
+        if (isset($map['containerLogMaxFiles'])) {
+            $model->containerLogMaxFiles = $map['containerLogMaxFiles'];
+        }
+        if (isset($map['containerLogMaxSize'])) {
+            $model->containerLogMaxSize = $map['containerLogMaxSize'];
+        }
         if (isset($map['cpuManagerPolicy'])) {
             $model->cpuManagerPolicy = $map['cpuManagerPolicy'];
         }
@@ -180,6 +253,9 @@ class kubeletConfig extends Model
         if (isset($map['evictionSoftGracePeriod'])) {
             $model->evictionSoftGracePeriod = $map['evictionSoftGracePeriod'];
         }
+        if (isset($map['featureGates'])) {
+            $model->featureGates = $map['featureGates'];
+        }
         if (isset($map['kubeAPIBurst'])) {
             $model->kubeAPIBurst = $map['kubeAPIBurst'];
         }
@@ -188,6 +264,12 @@ class kubeletConfig extends Model
         }
         if (isset($map['kubeReserved'])) {
             $model->kubeReserved = $map['kubeReserved'];
+        }
+        if (isset($map['maxPods'])) {
+            $model->maxPods = $map['maxPods'];
+        }
+        if (isset($map['readOnlyPort'])) {
+            $model->readOnlyPort = $map['readOnlyPort'];
         }
         if (isset($map['registryBurst'])) {
             $model->registryBurst = $map['registryBurst'];

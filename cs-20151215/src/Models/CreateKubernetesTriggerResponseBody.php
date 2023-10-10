@@ -18,7 +18,7 @@ class CreateKubernetesTriggerResponseBody extends Model
     public $action;
 
     /**
-     * @description The ID of the ACK cluster.
+     * @description The ID of the cluster.
      *
      * @example c5cdf7e3938bc4f8eb0e44b21a80f****
      *
@@ -36,7 +36,7 @@ class CreateKubernetesTriggerResponseBody extends Model
     public $id;
 
     /**
-     * @description The name of the project.
+     * @description The name of the trigger project.
      *
      * @example default/test-app
      *

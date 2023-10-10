@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example cb95aa626a47740afbf6aa099b65****
      *
      * @var string
@@ -16,6 +18,8 @@ class body extends Model
     public $clusterId;
 
     /**
+     * @description The time when the resource was created.
+     *
      * @example 2020-09-11T10:11:54+08:00
      *
      * @var string
@@ -23,6 +27,8 @@ class body extends Model
     public $created;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example lb-wz9poz4r0ymh8u0uf****
      *
      * @var string
@@ -30,6 +36,8 @@ class body extends Model
     public $instanceId;
 
     /**
+     * @description The information about the resource. For more information about how to query the source information about a resource, see [ListStackResources](~~133836~~).
+     *
      * @example {\"Id\":\"k8s_master_slb\",\"Name\":\"k8s_master_slb\",\"Type\":\"ALIYUN::SLB::LoadBalancer\",\"Status\":\"CREATE_COMPLETE\",\"StatusReason\":\"state changed\",\"Updated\":\"2020-05-21T13:25:02\",\"PhysicalId\":\"lb-wz9poz4r0ymh8u0uf****\"}
      *
      * @var string
@@ -37,6 +45,8 @@ class body extends Model
     public $resourceInfo;
 
     /**
+     * @description The type of resource.
+     *
      * @example ALIYUN::SLB::LoadBalancer
      *
      * @var string
@@ -44,6 +54,17 @@ class body extends Model
     public $resourceType;
 
     /**
+     * @description The status of the resource. Valid values:
+     *
+     *   `CREATE_COMPLETE`: The resource is created.
+     *   `CREATE_FAILED`: The resource failed to be created.
+     *   `CREATE_IN_PROGRESS`: The resource is being created.
+     *   `DELETE_FAILED`: The resource failed to be deleted.
+     *   `DELETE_IN_PROGRESS`: The resource is being deleted.
+     *   `ROLLBACK_COMPLETE`: The resource is rolled back.
+     *   `ROLLBACK_FAILED`: The resource failed to be rolled back.
+     *   `ROLLBACK_IN_PROGRESS`: The resource is being rolled back.
+     *
      * @example CREATE_COMPLETE
      *
      * @var string
@@ -51,6 +72,11 @@ class body extends Model
     public $state;
 
     /**
+     * @description Indicates whether the resource is created by Container Service for Kubernetes (ACK). Valid values:
+     *
+     *   1: The resource is created by ACK.
+     *   0: The resource is an existing resource.
+     *
      * @example 1
      *
      * @var int

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
-     * @description The labels of the resource.
+     * @description The resource and label.
      *
      * @var tagResource[]
      */

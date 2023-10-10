@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The authorization setting. Valid values:
+     *
+     *   `{cluster_id}` is returned if the permissions are scoped to a cluster.
+     *   `{cluster_id}/{namespace}` is returned if the permissions are scoped to a namespace of a cluster.
+     *   `all-clusters` is returned if the permissions are scoped to all clusters.
+     *
      * @example c1b542****
      *
      * @var string
@@ -16,6 +22,12 @@ class body extends Model
     public $resourceId;
 
     /**
+     * @description The authorization type. Valid values:
+     *
+     *   `cluster`: indicates that the permissions are scoped to a cluster.
+     *   `namespace`: indicates that the permissions are scoped to a namespace of a cluster.
+     *   `console`: indicates that the permissions are scoped to all clusters. This value was displayed only in the console.
+     *
      * @example cluster
      *
      * @var string
@@ -23,6 +35,8 @@ class body extends Model
     public $resourceType;
 
     /**
+     * @description The name of the custom role. If a custom role is assigned, the value is the name of the assigned custom role.
+     *
      * @example view
      *
      * @var string
@@ -30,6 +44,14 @@ class body extends Model
     public $roleName;
 
     /**
+     * @description The type of predefined role. Valid values:
+     *
+     *   `admin`: administrator
+     *   `ops`: O\&M engineer
+     *   `dev`: developer
+     *   `restricted`: restricted user
+     *   `custom`: custom role
+     *
      * @example admin
      *
      * @var string
@@ -37,6 +59,11 @@ class body extends Model
     public $roleType;
 
     /**
+     * @description Indicates whether the permissions are granted to the cluster owner.
+     *
+     *   `0`: indicates that the permissions are not granted to the cluster owner.
+     *   `1`: indicates that the permissions are granted to the cluster owner. The cluster owner is the administrator.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +71,11 @@ class body extends Model
     public $isOwner;
 
     /**
+     * @description Indicates whether the permissions are granted to the RAM role. Valid values:
+     *
+     *   `0`: indicates that the permissions are not granted to the RAM role.
+     *   `1`: indicates that the permissions are granted to the RAM role.
+     *
      * @example 1
      *
      * @var int

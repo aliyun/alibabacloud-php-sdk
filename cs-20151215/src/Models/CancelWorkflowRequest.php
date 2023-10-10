@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelWorkflowRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to cancel.
+     *
      * @example cancel
      *
      * @var string

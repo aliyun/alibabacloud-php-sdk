@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The ID of the log entry.
+     *
      * @example 590749245
      *
      * @var int
@@ -16,6 +18,8 @@ class body extends Model
     public $ID;
 
     /**
+     * @description The cluster ID.
+     *
      * @example c23421cfa74454bc8b37163fd19af***
      *
      * @var string
@@ -23,6 +27,8 @@ class body extends Model
     public $clusterId;
 
     /**
+     * @description The log content.
+     *
      * @example start to update cluster status to CREATE_COMPLETE
      *
      * @var string
@@ -30,6 +36,8 @@ class body extends Model
     public $clusterLog;
 
     /**
+     * @description The time when the log entry was generated.
+     *
      * @example 2020-09-11T10:11:51+08:00
      *
      * @var string
@@ -37,6 +45,8 @@ class body extends Model
     public $created;
 
     /**
+     * @description The time when the log entry was updated.
+     *
      * @example 2020-09-11T10:11:51+08:00
      *
      * @var string

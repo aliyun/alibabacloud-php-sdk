@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class OpenAckServiceRequest extends Model
 {
     /**
+     * @description The type of ACK service that you want to activate. Valid values:
+     *
+     *   `propayasgo`: ACK Pro
+     *   `edgepayasgo`: ACK Edge
+     *   `gspayasgo`: ACK for Alibaba Cloud Genomics Service (AGS)
+     *
      * @example propayasgo
      *
      * @var string

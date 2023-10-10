@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyInstanceResponseBody extends Model
 {
     /**
-     * @description The policy instances that are deleted.
+     * @description A list of policy instances.
      *
      * @var string[]
      */

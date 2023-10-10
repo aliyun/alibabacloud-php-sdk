@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodesRequest extends Model
 {
     /**
+     * @description The IDs of the nodes that you want to query. Separate multiple node IDs with commas (,).
+     *
      * @example "i-bp11xjhwkj8k966u****,i-bp1dmhc2bu5igkyq****"
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeClusterNodesRequest extends Model
     public $instanceIds;
 
     /**
+     * @description The node pool ID.
+     *
      * @example np****
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeClusterNodesRequest extends Model
     public $nodepoolId;
 
     /**
+     * @description The page number.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var string
@@ -30,6 +37,9 @@ class DescribeClusterNodesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var string
@@ -37,6 +47,15 @@ class DescribeClusterNodesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The node state that you want to use to filter nodes. Valid values:
+     *
+     *   `all`: query nodes in the following four states.
+     *   `running`: query nodes in the running state.
+     *   `removing`: query nodes that are being removed.
+     *   `initial`: query nodes that are being initialized.
+     *   `failed`: query nodes that fail to be created.
+     *
+     * Default value: `all`.
      * @example running
      *
      * @var string

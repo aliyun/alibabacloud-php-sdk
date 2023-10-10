@@ -18,7 +18,7 @@ class list_ extends Model
     public $code;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the ECS instance.
      *
      * @example i-2ze0lgm3y6iylcbt****
      *
@@ -27,7 +27,7 @@ class list_ extends Model
     public $instanceId;
 
     /**
-     * @description Indicates whether the ECS instances are successfully added to the ACK cluster.
+     * @description Indicates whether the ECS instance is successfully added to the ACK cluster.
      *
      * @example successful
      *

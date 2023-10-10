@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
      * @example 2022-08-03T10:11:33+08:00
      *
      * @var string
@@ -17,11 +19,15 @@ class tasks extends Model
     public $created;
 
     /**
+     * @description The error returned for the task.
+     *
      * @var error
      */
     public $error;
 
     /**
+     * @description The status of the task.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class tasks extends Model
     public $state;
 
     /**
+     * @description The task ID.
+     *
      * @example install-addons-c3xxxxxx
      *
      * @var string
@@ -36,6 +44,8 @@ class tasks extends Model
     public $taskId;
 
     /**
+     * @description The type of task.
+     *
      * @example cluster_addon_install
      *
      * @var string
@@ -43,6 +53,8 @@ class tasks extends Model
     public $taskType;
 
     /**
+     * @description The time when the task was updated.
+     *
      * @example 2022-08-03T10:12:03.482+08:00
      *
      * @var string

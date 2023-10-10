@@ -11,6 +11,12 @@ use AlibabaCloud\Tea\Model;
 class kubernetesConfig extends Model
 {
     /**
+     * @description Specifies whether to install the CloudMonitor agent on ECS nodes. After the CloudMonitor agent is installed on ECS nodes, you can view monitoring information about the instances in the CloudMonitor console. We recommend that you install the CloudMonitor agent. Valid values:
+     *
+     *   `true`: installs the CloudMonitor agent on ECS nodes.
+     *   `false`: does not install the CloudMonitor agent on ECS nodes.
+     *
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -18,6 +24,12 @@ class kubernetesConfig extends Model
     public $cmsEnabled;
 
     /**
+     * @description The CPU management policy. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
+     *
+     *   `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
+     *   `none`: specifies that the default CPU affinity is used.
+     *
+     * Default value: `none`.
      * @example none
      *
      * @var string
@@ -25,11 +37,19 @@ class kubernetesConfig extends Model
     public $cpuPolicy;
 
     /**
+     * @description The labels that you want to add to the nodes in the cluster.
+     *
      * @var Tag[]
      */
     public $labels;
 
     /**
+     * @description A custom node name consists of a prefix, a node IP address, and a suffix.
+     *
+     *   The prefix and suffix can contain multiple parts that are separated by periods (.). Each part can contain lowercase letters, digits, and hyphens (-). A custom node name must start and end with a digit or lowercase letter.
+     *   The node IP address in a custom node name is the private IP address of the node.
+     *
+     * Set the value in the customized,aliyun,ip,com format. The value consists of four parts that are separated by commas (,). customized and ip are fixed content. aliyun is the prefix and com is the suffix. Example: aliyun.192.168.xxx.xxx.com.
      * @example customized,aliyun,ip,com
      *
      * @var string
@@ -37,6 +57,8 @@ class kubernetesConfig extends Model
     public $nodeNameMode;
 
     /**
+     * @description The container runtime.
+     *
      * @example docker
      *
      * @var string
@@ -44,6 +66,8 @@ class kubernetesConfig extends Model
     public $runtime;
 
     /**
+     * @description The version of the container runtime.
+     *
      * @example 19.03.5
      *
      * @var string
@@ -51,11 +75,15 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
+     * @description The configurations of the taints.
+     *
      * @var Taint[]
      */
     public $taints;
 
     /**
+     * @description The user data on the node.
+     *
      * @example dGhpcyBpcyBhIGV4YW1wbGU=
      *
      * @var string

@@ -17,7 +17,7 @@ class AttachInstancesResponseBody extends Model
     public $list;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example T-5a544aff80282e39ea000039
      *

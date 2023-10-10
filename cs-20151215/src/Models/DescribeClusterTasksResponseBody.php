@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterTasksResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 0527ac9a-c899-4341-a21a-xxxxxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeClusterTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the tasks.
+     *
      * @var tasks[]
      */
     public $tasks;

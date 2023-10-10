@@ -11,6 +11,12 @@ use AlibabaCloud\Tea\Model;
 class kubernetesConfig extends Model
 {
     /**
+     * @description Specifies whether to install the CloudMonitor agent on ECS nodes. After the CloudMonitor agent is installed on ECS nodes, you can view monitoring information about the instances in the CloudMonitor console. We recommend that you install the CloudMonitor agent. Valid values:
+     *
+     *   `true`: installs the CloudMonitor agent on ECS nodes.
+     *   `false`: does not install the CloudMonitor agent on ECS nodes.
+     *
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -18,6 +24,12 @@ class kubernetesConfig extends Model
     public $cmsEnabled;
 
     /**
+     * @description The CPU management policy. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
+     *
+     *   `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
+     *   `none`: specifies that the default CPU affinity is used.
+     *
+     * Default value: `none`.
      * @example none
      *
      * @var string
@@ -25,11 +37,18 @@ class kubernetesConfig extends Model
     public $cpuPolicy;
 
     /**
+     * @description The labels that you want to add to the nodes in the cluster. You must add labels based on the following rules:
+     *
+     *   Each label is a case-sensitive key-value pair. You can add up to 20 labels.
+     *   A key must be unique and cannot exceed 64 characters in length. A value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
+     *
      * @var Tag[]
      */
     public $labels;
 
     /**
+     * @description The name of the container runtime.
+     *
      * @example docker
      *
      * @var string
@@ -37,6 +56,8 @@ class kubernetesConfig extends Model
     public $runtime;
 
     /**
+     * @description The version of the container runtime.
+     *
      * @example 19.03.5
      *
      * @var string
@@ -44,11 +65,15 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
+     * @description The configurations of node taints.
+     *
      * @var Taint[]
      */
     public $taints;
 
     /**
+     * @description The user-defined data of the node pool. For more information, see [Prepare user data](~~49121~~).
+     *
      * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
      *
      * @var string

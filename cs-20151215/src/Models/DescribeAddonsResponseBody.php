@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonsResponseBody extends Model
 {
     /**
-     * @description The details of the returned components.
+     * @description The list of the returned components.
      *
      * @var componentGroups[]
      */
     public $componentGroups;
 
     /**
+     * @description Standard components.
+     *
      * @var StandardComponentsValue[]
      */
     public $standardComponents;

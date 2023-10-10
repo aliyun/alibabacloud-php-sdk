@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The name of the component.
+     *
      * @example coredns
      *
      * @var string
@@ -16,6 +18,8 @@ class body extends Model
     public $componentName;
 
     /**
+     * @description The custom component settings that you want to use. The value is a JSON string.
+     *
      * @example {\"CpuRequest\":\"800m\"}
      *
      * @var string
@@ -23,6 +27,8 @@ class body extends Model
     public $config;
 
     /**
+     * @description The version to which the component can be updated. You can call the `DescribeClusterAddonsVersion` operation to query the version to which the component can be updated.
+     *
      * @example 1.6.7
      *
      * @var string
@@ -30,11 +36,20 @@ class body extends Model
     public $nextVersion;
 
     /**
+     * @description The update policy. Valid values:
+     *
+     *   overwrite
+     *   canary
+     *
+     * @example canary
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description The current version of the component.
+     *
      * @example v1.6.2
      *
      * @var string

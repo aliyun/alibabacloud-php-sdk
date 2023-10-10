@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodepoolInfo extends Model
 {
     /**
+     * @description The name of the node pool.
+     *
      * @example cluster-demo
      *
      * @var string
@@ -16,6 +18,8 @@ class nodepoolInfo extends Model
     public $name;
 
     /**
+     * @description The ID of the resource group to which the node pool belongs.
+     *
      * @example rg-acfmyvw3wjmb****
      *
      * @var string
@@ -23,6 +27,11 @@ class nodepoolInfo extends Model
     public $resourceGroupId;
 
     /**
+     * @description The type of node pool. Valid values:
+     *
+     *   `ess`: node pool
+     *   `edge`: edge node pool
+     *
      * @example ess
      *
      * @var string

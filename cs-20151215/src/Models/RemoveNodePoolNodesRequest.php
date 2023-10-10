@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RemoveNodePoolNodesRequest extends Model
 {
     /**
-     * @description true
+     * @description Specifies whether to drain the nodes that you want to remove. Valid values:
+     *
+     *   true: drain the nodes that you want to remove.
+     *   false: do not drain the nodes that you want to remove.
      *
      * @example true
      *
@@ -18,21 +21,24 @@ class RemoveNodePoolNodesRequest extends Model
     public $drainNode;
 
     /**
-     * @description i-bp1c70fqbv1nlu9xxxxx
+     * @description A list of instances that you want to remove.
      *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description cn-hangzhou.172.16.xxx.xxx
+     * @description A list of nodes that you want to remove.
      *
      * @var string[]
      */
     public $nodes;
 
     /**
-     * @description true
+     * @description Specifies whether to release the nodes after they are removed. Valid values:
+     *
+     *   true: release the nodes after they are removed.
+     *   false: do not release the nodes after they are removed.
      *
      * @example true
      *

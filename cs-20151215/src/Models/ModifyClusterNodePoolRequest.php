@@ -15,36 +15,50 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterNodePoolRequest extends Model
 {
     /**
+     * @description The configurations about auto scaling.
+     *
      * @var autoScaling
      */
     public $autoScaling;
 
     /**
+     * @description The configurations about the cluster.
+     *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
+     * @description The configurations about the managed node pool feature.
+     *
      * @var management
      */
     public $management;
 
     /**
+     * @description The configurations of the node pool.
+     *
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
 
     /**
+     * @description The configurations of the scaling group.
+     *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
+     * @description The configurations about confidential computing for the cluster.
+     *
      * @var teeConfig
      */
     public $teeConfig;
 
     /**
+     * @description Specifies whether to update node information, such as labels and taints.
+     *
      * @example true
      *
      * @var bool

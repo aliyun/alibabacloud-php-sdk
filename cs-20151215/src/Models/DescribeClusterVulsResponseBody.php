@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterVulsResponseBody extends Model
 {
     /**
+     * @description An array of vulnerabilities.
+     *
      * @var vulRecords[]
      */
     public $vulRecords;

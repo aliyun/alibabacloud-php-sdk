@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyInstanceResponseBody extends Model
 {
     /**
-     * @description The policy instance that is updated.
+     * @description The list of policy instances that are updated.
      *
      * @var string[]
      */

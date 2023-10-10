@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodePoolNodeConfigResponseBody extends Model
 {
     /**
+     * @description The node pool ID.
+     *
      * @example np737c3ac1ac684703b9e10673aa2c****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyNodePoolNodeConfigResponseBody extends Model
     public $nodepoolId;
 
     /**
+     * @description The request ID.
+     *
      * @example D7631D83-6E98-1949-B665-766A62xxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyNodePoolNodeConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example T-5fd211e924e1d00787xxxxxx
      *
      * @var string

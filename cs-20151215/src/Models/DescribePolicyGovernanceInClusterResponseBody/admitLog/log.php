@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class log extends Model
 {
     /**
-     * @description The ID of the cluster that you want to query.
+     * @description The cluster ID.
      *
      * @example c8155823d057948c69a****
      *
@@ -18,7 +18,7 @@ class log extends Model
     public $clusterId;
 
     /**
-     * @description The type of the policy.
+     * @description The policy type.
      *
      * @example ACKAllowedRepos
      *
@@ -36,7 +36,7 @@ class log extends Model
     public $msg;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
      * @example Pod
      *
@@ -45,7 +45,7 @@ class log extends Model
     public $resourceKind;
 
     /**
-     * @description The name of the resource.
+     * @description The resource name.
      *
      * @example nginx-deployment-basic2-84ccb74bfc-df22p
      *

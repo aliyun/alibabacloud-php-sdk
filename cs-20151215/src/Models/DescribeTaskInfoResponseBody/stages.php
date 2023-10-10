@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class stages extends Model
 {
     /**
+     * @description The end time of the stage.
+     *
      * @example 2022-12-15 23:00:00
      *
      * @var string
@@ -16,6 +18,8 @@ class stages extends Model
     public $endTime;
 
     /**
+     * @description The message about the stage.
+     *
      * @example success to xxxxx
      *
      * @var string
@@ -23,11 +27,15 @@ class stages extends Model
     public $message;
 
     /**
+     * @description The output generated at the stage.
+     *
      * @var mixed[]
      */
     public $outputs;
 
     /**
+     * @description The start time of the stage.
+     *
      * @example 2022-12-15 23:00:00
      *
      * @var string
@@ -35,6 +43,8 @@ class stages extends Model
     public $startTime;
 
     /**
+     * @description The status of the stage.
+     *
      * @example running
      *
      * @var string

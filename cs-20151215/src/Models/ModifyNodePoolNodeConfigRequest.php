@@ -4,18 +4,21 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\ModifyNodePoolNodeConfigRequest\kubeletConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyNodePoolNodeConfigRequest\rollingPolicy;
 use AlibabaCloud\Tea\Model;
 
 class ModifyNodePoolNodeConfigRequest extends Model
 {
     /**
-     * @var kubeletConfig
+     * @description The kubelet configuration.
+     *
+     * @var KubeletConfig
      */
     public $kubeletConfig;
 
     /**
+     * @description The rotation configuration.
+     *
      * @var rollingPolicy
      */
     public $rollingPolicy;
@@ -50,7 +53,7 @@ class ModifyNodePoolNodeConfigRequest extends Model
     {
         $model = new self();
         if (isset($map['kubelet_config'])) {
-            $model->kubeletConfig = kubeletConfig::fromMap($map['kubelet_config']);
+            $model->kubeletConfig = KubeletConfig::fromMap($map['kubelet_config']);
         }
         if (isset($map['rolling_policy'])) {
             $model->rollingPolicy = rollingPolicy::fromMap($map['rolling_policy']);

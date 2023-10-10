@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterShrinkRequest extends Model
 {
     /**
+     * @description Specifies whether to retain the Server Load Balancer (SLB) resources that are created by the cluster.
+     *
+     *   `true`: retains the SLB resources that are created by the cluster.
+     *   `false`: does not retain the SLB resources that are created by the cluster.
+     *
+     * Default value: `false`.
      * @example false
      *
      * @var bool
@@ -16,6 +22,12 @@ class DeleteClusterShrinkRequest extends Model
     public $keepSlb;
 
     /**
+     * @description Specifies whether to retain all resources. If you set the parameter to `true`, the `retain_resources` parameter is ignored.
+     *
+     *   `true`: retains all resources.
+     *   `false`: does not retain all resources.
+     *
+     * Default value: `false`.
      * @example false
      *
      * @var bool
@@ -23,6 +35,8 @@ class DeleteClusterShrinkRequest extends Model
     public $retainAllResources;
 
     /**
+     * @description The list of resources. To retain resources when you delete a cluster, you need to specify the IDs of the resources to be retained.
+     *
      * @var string
      */
     public $retainResourcesShrink;

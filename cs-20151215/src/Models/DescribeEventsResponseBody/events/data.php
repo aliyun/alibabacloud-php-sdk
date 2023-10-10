@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The level of the event.
+     * @description The severity level of the event.
      *
      * @example info
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $message;
 
     /**
-     * @description The state of the event.
+     * @description The status of the event.
      *
      * @example Started
      *

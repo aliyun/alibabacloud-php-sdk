@@ -18,7 +18,7 @@ class nodes extends Model
     public $creationTime;
 
     /**
-     * @description The error message that was generated when the node was created.
+     * @description The error message generated when the node was created.
      *
      * @example error***
      *
@@ -27,7 +27,7 @@ class nodes extends Model
     public $errorMessage;
 
     /**
-     * @description The expiration time of the node.
+     * @description The expiration date of the node.
      *
      * @example 2099-12-31T23:59:00+08:00
      *
@@ -54,7 +54,7 @@ class nodes extends Model
     public $imageId;
 
     /**
-     * @description The billing method of the instance on which the node is deployed. Valid values:
+     * @description The billing method of the node. Valid values:
      *
      *   `PrePaid`: the subscription billing method. If the value is PrePaid, make sure that you have a sufficient balance or credit in your account. Otherwise, an `InvalidPayMethod` error is returned.
      *   `PostPaid`: the pay-as-you-go billing method.
@@ -66,7 +66,7 @@ class nodes extends Model
     public $instanceChargeType;
 
     /**
-     * @description The ID of the instance on which the node is deployed.
+     * @description The ID of the instance.
      *
      * @example i-2vcckdmxp7u0urj2****
      *
@@ -105,7 +105,7 @@ class nodes extends Model
     public $instanceStatus;
 
     /**
-     * @description The instance type of the node.
+     * @description The type of the node.
      *
      * @example ecs.c5.xlarge
      *
@@ -114,7 +114,7 @@ class nodes extends Model
     public $instanceType;
 
     /**
-     * @description The Elastic Compute Service (ECS) instance family of the node.
+     * @description The ECS instance family of the node.
      *
      * @example ecs.c5
      *
@@ -165,7 +165,7 @@ class nodes extends Model
     public $nodeStatus;
 
     /**
-     * @description The ID of the node pool.
+     * @description The node pool ID.
      *
      * @example np0794239424a84eb7a95327369d56****
      *
@@ -183,7 +183,7 @@ class nodes extends Model
     public $source;
 
     /**
-     * @description The type of the preemptible instance. Valid values:
+     * @description The type of preemptible instance. Valid values:
      *
      *   NoSpot: a non-preemptible instance.
      *   SpotWithPriceLimit: a preemptible instance that is configured with the highest bid price.

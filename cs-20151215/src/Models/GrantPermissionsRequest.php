@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GrantPermissionsRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var body[]
      */
     public $body;

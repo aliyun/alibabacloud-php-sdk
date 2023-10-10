@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @description The name of the configuration item.
+     *
      * @example MaxRequestsInflight
      *
      * @var string
@@ -16,6 +18,8 @@ class configs extends Model
     public $key;
 
     /**
+     * @description The value of the configuration item.
+     *
      * @example 100
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterNodesResponseBody extends Model
 {
     /**
-     * @description The ID of the ACK cluster.
+     * @description The cluster ID.
      *
      * @example c104d5d5f301c4e2a8ee578c37bc****
      *
@@ -18,7 +18,7 @@ class DeleteClusterNodesResponseBody extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A9891419-D125-4D89-AFCA-68846675E2F7
      *
@@ -27,7 +27,7 @@ class DeleteClusterNodesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example T-60fea8ad2e277f0879000ae9
      *

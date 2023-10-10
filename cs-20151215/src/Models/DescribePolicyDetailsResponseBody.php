@@ -51,7 +51,7 @@ class DescribePolicyDetailsResponseBody extends Model
     public $isDeleted;
 
     /**
-     * @description The name of the policy that is returned.
+     * @description The name of the policy.
      *
      * @example ACKAllowedRepos
      *
@@ -72,11 +72,7 @@ class DescribePolicyDetailsResponseBody extends Model
     public $noConfig;
 
     /**
-     * @description The severity level of the policy. Valid values:
-     *
-     *   `high`
-     *   `medium`
-     *   `low`
+     * @description The severity level of the policy.
      *
      * @example high
      *
@@ -86,6 +82,8 @@ class DescribePolicyDetailsResponseBody extends Model
 
     /**
      * @description The content of the policy.
+     *
+     * @example For more information, see sample requests.
      *
      * @var string
      */

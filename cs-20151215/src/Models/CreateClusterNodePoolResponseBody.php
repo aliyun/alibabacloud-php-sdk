@@ -9,15 +9,25 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterNodePoolResponseBody extends Model
 {
     /**
-     * @description The ID of the node pool that is created.
+     * @description The node pool ID.
      *
      * @example np31da1b38983f4511b490fc62108a****
      *
      * @var string
      */
     public $nodepoolId;
+
+    /**
+     * @description 任务ID
+     *
+     * @example T-613b19bbd160ad492800****
+     *
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'nodepoolId' => 'nodepool_id',
+        'taskId'     => 'task_id',
     ];
 
     public function validate()
@@ -29,6 +39,9 @@ class CreateClusterNodePoolResponseBody extends Model
         $res = [];
         if (null !== $this->nodepoolId) {
             $res['nodepool_id'] = $this->nodepoolId;
+        }
+        if (null !== $this->taskId) {
+            $res['task_id'] = $this->taskId;
         }
 
         return $res;
@@ -44,6 +57,9 @@ class CreateClusterNodePoolResponseBody extends Model
         $model = new self();
         if (isset($map['nodepool_id'])) {
             $model->nodepoolId = $map['nodepool_id'];
+        }
+        if (isset($map['task_id'])) {
+            $model->taskId = $map['task_id'];
         }
 
         return $model;

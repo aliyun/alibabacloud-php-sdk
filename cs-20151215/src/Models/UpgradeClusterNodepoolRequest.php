@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterNodepoolRequest extends Model
 {
     /**
+     * @description The ID of the OS image that is used by the nodes.
+     *
      * @example aliyun_2_1903_x64_20G_alibase_20200529.vhd
      *
      * @var string
@@ -16,6 +18,8 @@ class UpgradeClusterNodepoolRequest extends Model
     public $imageId;
 
     /**
+     * @description The Kubernetes version that is used by the nodes.
+     *
      * @example 1.22.15-aliyun.1
      *
      * @var string
@@ -23,11 +27,17 @@ class UpgradeClusterNodepoolRequest extends Model
     public $kubernetesVersion;
 
     /**
+     * @description The runtime type. Valid values: containerd and docker.
+     *
+     * @example containerd
+     *
      * @var string
      */
     public $runtimeType;
 
     /**
+     * @description The version of the container runtime that is used by the nodes.
+     *
      * @example 1.5.10
      *
      * @var string

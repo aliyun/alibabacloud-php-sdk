@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserQuotaResponseBody extends Model
 {
     /**
-     * @description The quota of Container Service for Kubernetes (ACK) managed clusters. Default value: 20. To increase the quota, [go to the Quota Center page to submit a ticket](https://quotas.console.aliyun.com/products/csk/quotas).
+     * @description The quota of Container Service for Kubernetes (ACK) managed clusters. Default value: 20. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
      *
      * @example 20
      *
@@ -19,7 +19,7 @@ class DescribeUserQuotaResponseBody extends Model
     public $amkClusterQuota;
 
     /**
-     * @description The quota of serverless Kubernetes (ASK) clusters. Default value: 20. To increase the quota, [go to the Quota Center page to submit a ticket](https://quotas.console.aliyun.com/products/csk/quotas).
+     * @description The quota of ACK Serverless clusters. Default value: 20. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
      *
      * @example 3
      *
@@ -28,7 +28,7 @@ class DescribeUserQuotaResponseBody extends Model
     public $askClusterQuota;
 
     /**
-     * @description The quota of node pools in an ACK cluster. Default value: 20. To increase the quota, [go to the Quota Center page to submit a ticket](https://quotas.console.aliyun.com/products/csk/quotas).
+     * @description The quota of node pools in an ACK cluster. Default value: 20. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
      *
      * @example 10
      *
@@ -37,7 +37,7 @@ class DescribeUserQuotaResponseBody extends Model
     public $clusterNodepoolQuota;
 
     /**
-     * @description The quota of clusters within an Alibaba Cloud account. Default value: 50. To increase the quota, [go to the Quota Center page to submit a ticket](https://quotas.console.aliyun.com/products/csk/quotas).
+     * @description The quota of clusters that belong to an Alibaba Cloud account. Default value: 50. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
      *
      * @example 50
      *
@@ -53,7 +53,7 @@ class DescribeUserQuotaResponseBody extends Model
     public $edgeImprovedNodepoolQuota;
 
     /**
-     * @description The quota of nodes in an ACK cluster. Default value: 100. To increase the quota, [go to the Quota Center page to submit a ticket](https://quotas.console.aliyun.com/products/csk/quotas).
+     * @description The quota of nodes in an ACK cluster. Default value: 100. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
      *
      * @example 100
      *
@@ -62,6 +62,8 @@ class DescribeUserQuotaResponseBody extends Model
     public $nodeQuota;
 
     /**
+     * @description Information about the new quota.
+     *
      * @var QuotasValue[]
      */
     public $quotas;

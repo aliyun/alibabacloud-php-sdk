@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyInstanceRequest extends Model
 {
     /**
+     * @description The ID of the policy instance.
+     *
      * @example allowed-repos-mqdsf
      *
      * @var string

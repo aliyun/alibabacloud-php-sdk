@@ -9,11 +9,28 @@ use AlibabaCloud\Tea\Model;
 class vulRecords extends Model
 {
     /**
+     * @description The CVE list.
+     *
      * @var string[]
      */
     public $cveList;
 
     /**
+     * @description The severity level of the vulnerability.
+     *
+     * Valid values:
+     *
+     *   nntf
+     *
+     * <!-- -->
+     *
+     *   later
+     *
+     * <!-- -->
+     *
+     *   asap
+     *
+     * <!-- -->
      * @example asap
      *
      * @var string
@@ -21,6 +38,8 @@ class vulRecords extends Model
     public $necessity;
 
     /**
+     * @description The number of nodes that have the vulnerability.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +47,8 @@ class vulRecords extends Model
     public $nodeCount;
 
     /**
+     * @description The node pool ID.
+     *
      * @example np0156da1082b54fa987e32618dd45f5d3
      *
      * @var string
@@ -35,6 +56,8 @@ class vulRecords extends Model
     public $nodepoolId;
 
     /**
+     * @description The name of the node pool.
+     *
      * @example test
      *
      * @var string
@@ -42,11 +65,17 @@ class vulRecords extends Model
     public $nodepoolName;
 
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example CVE-2022-xxxx:rsync Security vulnerabilities
+     *
      * @var string
      */
     public $vulAliasName;
 
     /**
+     * @description The name of the vulnerability.
+     *
      * @example oval:com.redhat.rhsa:def:xxxxxxx
      *
      * @var string
@@ -54,6 +83,33 @@ class vulRecords extends Model
     public $vulName;
 
     /**
+     * @description The type of vulnerability.
+     *
+     * Valid values:
+     *
+     *   app
+     *
+     * <!-- -->
+     *
+     *   sca
+     *
+     * <!-- -->
+     *
+     *   cve
+     *
+     * <!-- -->
+     *
+     *   cms
+     *
+     * <!-- -->
+     *
+     *   sys
+     *
+     * <!-- -->
+     *
+     *   emg
+     *
+     * <!-- -->
      * @example cve
      *
      * @var string

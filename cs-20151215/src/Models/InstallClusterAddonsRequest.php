@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class InstallClusterAddonsRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @example ags-metrics-collector
      *
      * @var body[]

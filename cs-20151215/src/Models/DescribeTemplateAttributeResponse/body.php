@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The ID of the template. When you update a template, a new template ID is generated.
+     *
      * @example 72d20cf8-a533-4ea9-a10d-e7630d3d****
      *
      * @var string
@@ -16,6 +18,8 @@ class body extends Model
     public $id;
 
     /**
+     * @description The access control policy of the template.
+     *
      * @example private
      *
      * @var string
@@ -23,6 +27,8 @@ class body extends Model
     public $acl;
 
     /**
+     * @description The name of the template.
+     *
      * @example web
      *
      * @var string
@@ -30,6 +36,8 @@ class body extends Model
     public $name;
 
     /**
+     * @description The template content in the YAML format.
+     *
      * @example apiVersion: V1\n***
      *
      * @var string
@@ -37,6 +45,13 @@ class body extends Model
     public $template;
 
     /**
+     * @description The type of template. The value can be a custom value.
+     *
+     *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
+     *   If the parameter is set to `compose`, the template is displayed on the Container Service - Swarm page in the console. Container Service for Swarm is deprecated.
+     *   If the value of the parameter is not `kubernetes`, the template is not displayed on the Templates page in the console. We recommend that you set the parameter to `kubernetes`.
+     *
+     * Default value: `kubernetes`.
      * @example kubernetes
      *
      * @var string
@@ -44,6 +59,8 @@ class body extends Model
     public $templateType;
 
     /**
+     * @description The description of the template.
+     *
      * @example test template
      *
      * @var string
@@ -51,6 +68,8 @@ class body extends Model
     public $description;
 
     /**
+     * @description The label of the template.
+     *
      * @example sa
      *
      * @var string
@@ -58,6 +77,8 @@ class body extends Model
     public $tags;
 
     /**
+     * @description The unique ID of the template. The value remains unchanged after the template is updated.
+     *
      * @example 874ec485-e7e6-4373-8a3b-47bde8ae****
      *
      * @var string
@@ -65,6 +86,8 @@ class body extends Model
     public $templateWithHistId;
 
     /**
+     * @description The time when the template was created.
+     *
      * @example 2020-09-16T19:21:29+08:00
      *
      * @var string
@@ -72,6 +95,8 @@ class body extends Model
     public $created;
 
     /**
+     * @description The time when the template was updated.
+     *
      * @example 2020-09-16T19:21:29+08:00
      *
      * @var string

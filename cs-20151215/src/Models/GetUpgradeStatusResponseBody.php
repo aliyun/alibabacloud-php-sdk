@@ -46,7 +46,7 @@ class GetUpgradeStatusResponseBody extends Model
      *
      *   `not_start`: The update is not started.
      *   `prechecking`: The precheck is in progress.
-     *   `upgrading`: The update is in progress.
+     *   `upgrading`: The cluster is being updated.
      *   `pause`: The update is paused.
      *   `success`: The update is successful.
      *

@@ -11,26 +11,36 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description Features of the queried Kubernetes version.
+     *
      * @var mixed[]
      */
     public $capabilities;
 
     /**
+     * @description The OS images that are returned.
+     *
      * @var images[]
      */
     public $images;
 
     /**
+     * @description The metadata of the Kubernetes version.
+     *
      * @var mixed[]
      */
     public $metaData;
 
     /**
+     * @description Details of the supported container runtimes.
+     *
      * @var Runtime[]
      */
     public $runtimes;
 
     /**
+     * @description The Kubernetes version that is supported by ACK. For more information, see [Release notes for Kubernetes versions](~~185269~~).
+     *
      * @example 1.16.9-aliyun.1
      *
      * @var string
@@ -38,6 +48,8 @@ class body extends Model
     public $version;
 
     /**
+     * @description The release date of the Kubernetes version.
+     *
      * @example 2023-04-30T00:00:00Z
      *
      * @var string
@@ -45,6 +57,8 @@ class body extends Model
     public $releaseDate;
 
     /**
+     * @description The expiration date of the Kubernetes version.
+     *
      * @example 2025-04-30T00:00:00Z
      *
      * @var string
@@ -52,6 +66,10 @@ class body extends Model
     public $expirationDate;
 
     /**
+     * @description Indicates whether you can create clusters that run the Kubernetes version.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $creatable;

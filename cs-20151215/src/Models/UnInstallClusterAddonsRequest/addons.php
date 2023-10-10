@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class addons extends Model
 {
     /**
+     * @var bool
+     */
+    public $cleanupCloudResources;
+
+    /**
      * @example ack-node-problem-detector
      *
      * @var string
      */
     public $name;
     protected $_name = [
-        'name' => 'name',
+        'cleanupCloudResources' => 'cleanup_cloud_resources',
+        'name'                  => 'name',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class addons extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cleanupCloudResources) {
+            $res['cleanup_cloud_resources'] = $this->cleanupCloudResources;
+        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -40,6 +49,9 @@ class addons extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cleanup_cloud_resources'])) {
+            $model->cleanupCloudResources = $map['cleanup_cloud_resources'];
+        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

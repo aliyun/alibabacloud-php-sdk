@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @description The action of the event.
+     *
      * @example start
      *
      * @var string
@@ -16,6 +18,8 @@ class events extends Model
     public $action;
 
     /**
+     * @description The severity level of the event.
+     *
      * @example Normal
      *
      * @var string
@@ -23,6 +27,8 @@ class events extends Model
     public $level;
 
     /**
+     * @description The message about the event.
+     *
      * @example start to xxx
      *
      * @var string
@@ -30,6 +36,8 @@ class events extends Model
     public $message;
 
     /**
+     * @description The cause of the event.
+     *
      * @example NodePoolUpgradeStart
      *
      * @var string
@@ -37,6 +45,8 @@ class events extends Model
     public $reason;
 
     /**
+     * @description The source of the event.
+     *
      * @example ACK
      *
      * @var string
@@ -44,6 +54,8 @@ class events extends Model
     public $source;
 
     /**
+     * @description The timestamp when the event was generated.
+     *
      * @example 1669706229286
      *
      * @var string

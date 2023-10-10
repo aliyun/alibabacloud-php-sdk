@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachinesRequest extends Model
 {
     /**
+     * @description The `hostname` of the cloud-native box.
+     *
      * @example ack-v-b010-ssdfw****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeEdgeMachinesRequest extends Model
     public $hostname;
 
     /**
+     * @description The lifecycle status.
+     *
      * @example activated/waitOnline/deleting
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeEdgeMachinesRequest extends Model
     public $lifeState;
 
     /**
+     * @description The type of cloud-native box.
+     *
      * @example ACK-V-B010
      *
      * @var string
@@ -30,6 +36,11 @@ class DescribeEdgeMachinesRequest extends Model
     public $model;
 
     /**
+     * @description The status of the cloud-native box. Valid values:
+     *
+     *   `offline`
+     *   `online`
+     *
      * @example offline/online
      *
      * @var string
@@ -37,6 +48,8 @@ class DescribeEdgeMachinesRequest extends Model
     public $onlineState;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +57,8 @@ class DescribeEdgeMachinesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int

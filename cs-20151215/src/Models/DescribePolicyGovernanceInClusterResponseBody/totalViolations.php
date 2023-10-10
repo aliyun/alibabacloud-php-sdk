@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class totalViolations extends Model
 {
     /**
+     * @description Details about the blocking events that are triggered by the policies of each severity level.
+     *
      * @var deny
      */
     public $deny;
 
     /**
+     * @description Details about the alerting events that are triggered by the policies of each severity level.
+     *
      * @var warn
      */
     public $warn;

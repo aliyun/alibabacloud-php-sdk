@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cf62854ac2130470897be7a27ed1f****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeEventsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeEventsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 50
      *
      * @var int
@@ -30,6 +36,25 @@ class DescribeEventsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The event type. Valid values:
+     *
+     *   `cluster_create`: cluster creation.
+     *   `cluster_scaleout`: cluster scale-out.
+     *   `cluster_attach`: node addition.
+     *   `cluster_delete`: cluster deletion.
+     *   `cluster_upgrade`: cluster upgrades.
+     *   `cluster_migrate`: cluster migration.
+     *   `cluster_node_delete`: node removal.
+     *   `cluster_node_drain`: node draining.
+     *   `cluster_modify`: cluster modifications.
+     *   `cluster_configuration_modify`: modifications of control plane configurations.
+     *   `cluster_addon_install`: component installation.
+     *   `cluster_addon_upgrade`: component updates.
+     *   `cluster_addon_uninstall`: component uninstallation.
+     *   `runtime_upgrade`: runtime updates.
+     *   `nodepool_upgrade`: node pool upgrades.
+     *   `nodepool_update`: node pool updates.
+     *
      * @example nodepool_upgrade
      *
      * @var string

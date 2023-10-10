@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterDetailResponseBody extends Model
 {
     /**
-     * @description The ID of the queried ACK cluster.
+     * @description The cluster ID.
      *
      * @example c82e6987e2961451182edacd74faf****
      *
@@ -18,10 +18,10 @@ class DescribeClusterDetailResponseBody extends Model
     public $clusterId;
 
     /**
-     * @description The type of the managed Kubernetes cluster. This parameter is returned for a managed Kubernetes cluster. Valid values:
+     * @description The edition of the cluster if the cluster is an ACK managed cluster. Valid values:
      *
-     *   `ack.pro.small`: professional managed Kubernetes cluster.
-     *   `ack.standard`: standard managed Kubernetes cluster.
+     *   `ack.pro.small`: ACK Pro
+     *   `ack.standard`: ACK Basic
      *
      * @example ack.pro.small
      *
@@ -30,12 +30,12 @@ class DescribeClusterDetailResponseBody extends Model
     public $clusterSpec;
 
     /**
-     * @description The type of the cluster. Valid values:
+     * @description The type of cluster. Valid values:
      *
-     *   `Kubernetes`: dedicated Kubernetes cluster
-     *   `ManagedKubernetes`: managed Kubernetes cluster
-     *   `Ask`: ASK cluster
-     *   `ExternalKubernetes`: registered external Kubernetes cluster
+     *   `Kubernetes`: ACK dedicated cluster
+     *   `ManagedKubernetes`: ACK managed cluster
+     *   `Ask`: ACK Serverless cluster
+     *   `ExternalKubernetes`: registered cluster
      *
      * @example Kubernetes
      *
@@ -62,10 +62,10 @@ class DescribeClusterDetailResponseBody extends Model
     public $currentVersion;
 
     /**
-     * @description Indicates whether deletion protection is enabled. If deletion protection is enabled, the cluster cannot be deleted in the ACK console or by calling the API. Valid values:
+     * @description Indicates whether deletion protection is enabled for the cluster. If deletion protection is enabled, the cluster cannot be deleted in the Container Service console or by calling API operations. Valid values:
      *
-     *   `true`: Deletion protection is enabled. You cannot delete the cluster in the ACK console or by calling the API.
-     *   `false`: Deletion protection is not enabled. You can delete the cluster in the ACK console or by calling the API.
+     *   `true`: deletion protection is enabled for the cluster. This way, the cluster cannot be deleted in the Container Service console or by calling API operations.
+     *   `false`: deletion protection is disabled for the cluster. This way, the cluster can be deleted in the Container Service console or by calling API operations.
      *
      * @example true
      *
@@ -92,7 +92,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $externalLoadbalancerId;
 
     /**
-     * @description The Kubernetes version that is initially used by the cluster.
+     * @description The initial Kubernetes version of the cluster.
      *
      * @example 1.16.6-aliyun.1
      *
@@ -101,14 +101,14 @@ class DescribeClusterDetailResponseBody extends Model
     public $initVersion;
 
     /**
-     * @description The maintenance window of the cluster. This feature is available in only professional managed Kubernetes clusters.
+     * @description The maintenance window of the cluster. This feature is available only in ACK Pro clusters.
      *
      * @var MaintenanceWindow
      */
     public $maintenanceWindow;
 
     /**
-     * @description The address of the cluster. It includes an internal endpoint and a public endpoint.
+     * @description The endpoints of the cluster, including an internal endpoint and a public endpoint.
      *
      * @example {\"intranet_api_server_endpoint\":\"https://192.168.0.251:6443\"***}
      *
@@ -128,7 +128,7 @@ class DescribeClusterDetailResponseBody extends Model
     /**
      * @description The name of the cluster.
      *
-     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). It cannot start with a hyphen (-).
+     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
      * @example cluster-demo
      *
      * @var string
@@ -138,12 +138,12 @@ class DescribeClusterDetailResponseBody extends Model
     /**
      * @description The network mode of the cluster. Valid values:
      *
-     *   `classic`: the classic network
+     *   `classic`: classic network
      *   `vpc`: virtual private cloud (VPC)
      *   `overlay`: overlay network
      *   `calico`: network powered by Calico
      *
-     * Default value`: vpc`.
+     * Default value: `vpc`.
      * @example vpc
      *
      * @var string
@@ -151,7 +151,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $networkMode;
 
     /**
-     * @description The Kubernetes version to which the cluster can be upgraded.
+     * @description The Kubernetes version to which the cluster can be updated.
      *
      * @example 1.18.8-aliyun.1
      *
@@ -160,6 +160,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $nextVersion;
 
     /**
+     * @description The ROS parameters of the cluster.
+     *
      * @var string[]
      */
     public $parameters;
@@ -167,8 +169,8 @@ class DescribeClusterDetailResponseBody extends Model
     /**
      * @description Indicates whether Alibaba Cloud DNS PrivateZone is enabled.
      *
-     *   `true`: indicates that Alibaba Cloud DNS PrivateZone is enabled.
-     *   `false`: indicates that Alibaba Cloud DNS PrivateZone is not enabled.
+     *   `true`: Alibaba Cloud DNS PrivateZone is enabled.
+     *   `false`: Alibaba Cloud DNS PrivateZone is disabled.
      *
      * @example false
      *
@@ -179,8 +181,8 @@ class DescribeClusterDetailResponseBody extends Model
     /**
      * @description Indicates the scenario in which the cluster is used. Valid values:
      *
-     *   `Default`: indicates that the cluster is used in non-edge computing scenarios.
-     *   `Edge`: indicates that the ACK cluster is used in edge computing scenarios.
+     *   `Default`: non-edge computing scenarios
+     *   `Edge`: edge computing scenarios
      *
      * @example Default
      *
@@ -189,7 +191,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $profile;
 
     /**
-     * @description The ID of the region where the cluster is deployed.
+     * @description The region ID of the cluster.
      *
      * @example cn-beijing
      *
@@ -207,7 +209,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the security group to which the instances of the cluster belong.
+     * @description The ID of the security group to which the cluster belongs.
      *
      * @example sg-25yq****
      *
@@ -225,16 +227,16 @@ class DescribeClusterDetailResponseBody extends Model
     public $size;
 
     /**
-     * @description The state of the cluster. Valid values:
+     * @description The status of the cluster. Valid values:
      *
      *   `initial`: The cluster is being created.
      *   `failed`: The cluster failed to be created.
      *   `running`: The cluster is running.
-     *   `updating`: The cluster is being upgraded.
-     *   `updating_failed`: The cluster failed to be upgraded.
+     *   `updating`: The cluster is being updated.
+     *   `updating_failed`: The cluster failed to be updated.
      *   `scaling`: The cluster is being scaled.
-     *   `waiting`: The registered cluster is waiting for connecting.
-     *   `disconnected`: The registeredcluster is disconnected.
+     *   `waiting`: The cluster is waiting for connection requests.
+     *   `disconnected`: The cluster is disconnected.
      *   `stopped`: The cluster is stopped.
      *   `deleting`: The cluster is being deleted.
      *   `deleted`: The cluster is deleted.
@@ -253,7 +255,7 @@ class DescribeClusterDetailResponseBody extends Model
      *   172.16-31.0.0/12-16
      *   192.168.0.0/16
      *
-     * For more information about the network segmentation of ACK clusters, see [Plan CIDR blocks for ACK clusters in a VPC](~~186964~~).
+     * For more information, see [Plan CIDR blocks for an ACK cluster](~~186964~~).
      * @example 172.20.0.0/16
      *
      * @var string
@@ -261,7 +263,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $subnetCidr;
 
     /**
-     * @description The labels of the cluster.
+     * @description The resource labels of the cluster.
      *
      * @var Tag[]
      */
@@ -277,7 +279,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $updated;
 
     /**
-     * @description The ID of the VPC where the cluster is deployed. This parameter is required when you create an ACK cluster.
+     * @description The ID of the VPC where the cluster is deployed. This parameter is required when you create a cluster.
      *
      * @example vpc-2zecuu62b9zw7a7qn****
      *
@@ -286,7 +288,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description The IDs of the vSwitches. You can select one to three vSwitches when you create an ACK cluster. vSwitches in different zones are recommended to ensure high availability.
+     * @description The IDs of the vSwitches. You can select one to three vSwitches when you create a cluster. We recommend that you select vSwitches in different zones to ensure high availability.
      *
      * @example vsw-2zete8s4qocqg0mf6****,vsw-2zete8s4qocqg0mf6****
      *
@@ -295,7 +297,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $vswitchId;
 
     /**
-     * @description The name of the worker RAM role. The RAM role is assigned to the worker nodes of the cluster and allows the worker nodes to manage Elastic Compute Service (ECS) instances.
+     * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage Elastic Compute Service (ECS) instances.
      *
      * @example KubernetesWorkerRole-ec87d15b-edca-4302-933f-c8a16bf0****
      *

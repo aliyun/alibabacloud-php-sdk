@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachineTunnelConfigDetailResponseBody extends Model
 {
     /**
-     * @description The name of the cloud-native box.
+     * @description The device name.
      *
      * @example TEST0621N0FF****
      *
@@ -27,7 +27,7 @@ class DescribeEdgeMachineTunnelConfigDetailResponseBody extends Model
     public $model;
 
     /**
-     * @description The product key.
+     * @description Product Key
      *
      * @example a11rXul****
      *
@@ -36,7 +36,7 @@ class DescribeEdgeMachineTunnelConfigDetailResponseBody extends Model
     public $productKey;
 
     /**
-     * @description The ID of the request.
+     * @description Request ID
      *
      * @example bfd12953-31cb-42f1-8a36-7b80ec345094
      *
@@ -54,7 +54,7 @@ class DescribeEdgeMachineTunnelConfigDetailResponseBody extends Model
     public $sn;
 
     /**
-     * @description The token.
+     * @description Token
      *
      * @example abcd****
      *
@@ -63,7 +63,7 @@ class DescribeEdgeMachineTunnelConfigDetailResponseBody extends Model
     public $token;
 
     /**
-     * @description The backend endpoint of the tunnel.
+     * @description The tunnel endpoint.
      *
      * @example wss://frontend-iotx-r-debug.aliyun-inc.test
      *

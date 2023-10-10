@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonsRequest extends Model
 {
     /**
+     * @description The type of cluster. Valid values:
+     *
+     *   `Default`: ACK managed cluster
+     *   `Serverless`: ACK Serverless cluster
+     *   `Edge`: ACK Edge cluster
+     *
      * @example Default
      *
      * @var string
@@ -16,6 +22,12 @@ class DescribeAddonsRequest extends Model
     public $clusterProfile;
 
     /**
+     * @description The edition of the cluster. If you set the cluster type to `ManagedKubernetes`, the following editions are supported:
+     *
+     *   `ack.pro.small`: ACK Pro cluster
+     *   `ack.standard`: ACK Basic cluster
+     *
+     * By default, this parameter is left empty. If you leave this parameter empty, clusters are not filtered by edition.
      * @example ack.pro.small
      *
      * @var string
@@ -23,6 +35,13 @@ class DescribeAddonsRequest extends Model
     public $clusterSpec;
 
     /**
+     * @description The type of cluster. Valid values:
+     *
+     *   `Kubernetes`: ACK dedicated cluster
+     *   `ManagedKubernetes`: ACK managed cluster
+     *   `Ask`: ACK Serverless cluster
+     *   `ExternalKubernetes`: registered cluster
+     *
      * @example kubernetes
      *
      * @var string
@@ -30,6 +49,8 @@ class DescribeAddonsRequest extends Model
     public $clusterType;
 
     /**
+     * @description The cluster version.
+     *
      * @example 1.24.6-aliyun.1
      *
      * @var string
@@ -37,6 +58,8 @@ class DescribeAddonsRequest extends Model
     public $clusterVersion;
 
     /**
+     * @description The region ID of the cluster.
+     *
      * @example cn-beijing
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterAddonsRequest extends Model
 {
     /**
+     * @description The request parameters.
+     *
      * @var body[]
      */
     public $body;

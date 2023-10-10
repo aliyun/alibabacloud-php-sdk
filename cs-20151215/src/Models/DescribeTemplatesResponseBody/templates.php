@@ -59,7 +59,7 @@ class templates extends Model
     public $name;
 
     /**
-     * @description The tag of the template. By default, the value is the name of the template.
+     * @description The label of the template. By default, the value is the name of the template.
      *
      * @example kubernetes
      *
@@ -68,7 +68,7 @@ class templates extends Model
     public $tags;
 
     /**
-     * @description The template content in YAML format.
+     * @description The template content in the YAML format.
      *
      * @example apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: nginx-deployment-basic\n  labels:\n    app: nginx\nspec:\n  replicas: 2\n  selector:\n    matchLabels:\n      app: nginx\n  template:\n    metadata:\n      labels:\n        app: nginx\n    spec:\n      containers:\n      - name: nginx\n        image: busybox:latest\n        ports:\n        - containerPort: 80
      *
@@ -77,10 +77,10 @@ class templates extends Model
     public $template;
 
     /**
-     * @description The type of the template. The value can be a custom value.
+     * @description The type of template. This parameter can be set to a custom value.
      *
-     *   If the value is `kubernetes`, it indicates that the template is displayed on the Templates page in the ACK console.
-     *   If the value is `compose`, it indicates that the template is displayed on the Container Service - Swarm page in the console. However, Container Service for Swarm is deprecated.
+     *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
+     *   If the parameter is set to `compose`, the template is displayed on the Container Service - Swarm page in the console. However, Container Service for Swarm is deprecated.
      *
      * @example kubernetes
      *

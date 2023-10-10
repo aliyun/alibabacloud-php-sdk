@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class spotPriceLimit extends Model
 {
     /**
+     * @description The instance type of the preemptible instances.
+     *
      * @example ecs.c6.large
      *
      * @var string
@@ -16,6 +18,9 @@ class spotPriceLimit extends Model
     public $instanceType;
 
     /**
+     * @description The maximum bid price of a preemptible instance.
+     *
+     * Unit: USD/hour.
      * @example 0.39
      *
      * @var string

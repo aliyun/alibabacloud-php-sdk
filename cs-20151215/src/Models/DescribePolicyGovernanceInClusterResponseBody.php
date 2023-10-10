@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyGovernanceInClusterResponseBody extends Model
 {
     /**
-     * @description The audit logs of policies in the cluster.
+     * @description The audit logs of the policies in the cluster.
      *
      * @var admitLog
      */
@@ -27,11 +27,15 @@ class DescribePolicyGovernanceInClusterResponseBody extends Model
     public $onState;
 
     /**
+     * @description Details about the blocking and alerting events that are triggered by policies of different severity levels.
+     *
      * @var totalViolations
      */
     public $totalViolations;
 
     /**
+     * @description Details about the blocking and alerting events that are triggered by different policies.
+     *
      * @var violations
      */
     public $violations;

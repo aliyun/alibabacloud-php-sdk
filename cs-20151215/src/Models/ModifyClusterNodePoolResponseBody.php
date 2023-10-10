@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterNodePoolResponseBody extends Model
 {
     /**
-     * @description The ID of the node pool.
+     * @description The node pool ID.
      *
      * @example np737c3ac1ac684703b9e10673aa2c****
      *
@@ -18,7 +18,7 @@ class ModifyClusterNodePoolResponseBody extends Model
     public $nodepoolId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example T-5fd211e924e1d00787000293
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterNodepoolResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2D69A58F-345C-4FDE-88E4-BF518944****
      *
@@ -18,6 +18,8 @@ class UpgradeClusterNodepoolResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example T-5fd211e924e1d0078700xxxx
      *
      * @var string

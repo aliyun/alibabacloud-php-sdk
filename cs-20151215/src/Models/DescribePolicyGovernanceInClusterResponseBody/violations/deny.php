@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deny extends Model
 {
     /**
+     * @description The policy description.
+     *
      * @example Requires container images to begin with a repo string from a specified list.
      *
      * @var string
@@ -16,6 +18,8 @@ class deny extends Model
     public $policyDescription;
 
     /**
+     * @description The policy name.
+     *
      * @example policy-gatekeeper-ackallowedrepos
      *
      * @var string
@@ -23,6 +27,8 @@ class deny extends Model
     public $policyName;
 
     /**
+     * @description The severity level of the policy.
+     *
      * @example high
      *
      * @var string
@@ -30,6 +36,8 @@ class deny extends Model
     public $severity;
 
     /**
+     * @description The total number of blocking events that are triggered by the policy.
+     *
      * @example 11
      *
      * @var int

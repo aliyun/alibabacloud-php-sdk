@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubaccountK8sClusterUserConfigResponseBody extends Model
 {
     /**
-     * @description The content of the KubeConfig file. For more information about the content of the KubeConfig file, see [Configure cluster credentials](~~86494~~).
+     * @description The cluster kubeconfig file. For more information about the content of the kubeconfig file, see [Configure cluster credentials](~~86494~~).
      *
      * @example apiVersion: v1****
      *
@@ -18,7 +18,7 @@ class DescribeSubaccountK8sClusterUserConfigResponseBody extends Model
     public $config;
 
     /**
-     * @description The expiration time of the KubeConfig file. The value is the UTC time displayed in RFC3339 format.
+     * @description The expiration date of the kubeconfig file. The value is the UTC time displayed in RFC3339 format.
      *
      * @example 2024-03-10T09:56:17Z
      *

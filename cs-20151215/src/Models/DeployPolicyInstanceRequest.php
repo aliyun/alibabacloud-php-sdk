@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeployPolicyInstanceRequest extends Model
 {
     /**
+     * @description The action of the policy. Valid values:
+     *
+     *   `deny`: Deployments that match the policy are denied.
+     *   `warn`: Alerts are generated for Deployments that match the policy.
+     *
      * @example deny
      *
      * @var string
@@ -16,11 +21,15 @@ class DeployPolicyInstanceRequest extends Model
     public $action;
 
     /**
+     * @description The applicable scope of the policy instance. If you leave this parameter empty, the policy instance is applicable to all namespaces.
+     *
      * @var string[]
      */
     public $namespaces;
 
     /**
+     * @description The parameters of the policy instance.
+     *
      * @example {"restrictedNamespaces": [ "test" ]}
      *
      * @var mixed[]

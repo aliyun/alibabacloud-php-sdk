@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyInstanceRequest extends Model
 {
     /**
+     * @description The action of the policy. Valid values:
+     *
+     *   `deny`: Deployments that match the policy are denied.
+     *   `warn`: Alerts are generated for deployments that match the policy.
+     *
      * @example deny
      *
      * @var string
@@ -16,6 +21,8 @@ class ModifyPolicyInstanceRequest extends Model
     public $action;
 
     /**
+     * @description The ID of the policy instance.
+     *
      * @example allowed-repos-cbhhb
      *
      * @var string
@@ -23,11 +30,15 @@ class ModifyPolicyInstanceRequest extends Model
     public $instanceName;
 
     /**
+     * @description The namespaces to which the policy is applied. The policy is applied to all namespaces if this parameter is left empty.
+     *
      * @var string[]
      */
     public $namespaces;
 
     /**
+     * @description The parameters of the policy instance. For more information, see [Predefined security policies of ACK](~~359819~~).
+     *
      * @example "restrictedNamespaces": [ "test" ]
      *
      * @var mixed[]

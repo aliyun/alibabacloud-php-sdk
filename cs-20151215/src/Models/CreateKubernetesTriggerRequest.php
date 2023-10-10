@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateKubernetesTriggerRequest extends Model
 {
     /**
+     * @description The action that the trigger performs. Set the value to redeploy.
+     *
+     * `redeploy`: redeploys the resources specified by `project_id`.
      * @example redeploy
      *
      * @var string
@@ -16,6 +19,8 @@ class CreateKubernetesTriggerRequest extends Model
     public $action;
 
     /**
+     * @description The cluster ID.
+     *
      * @example c5cdf7e3938bc4f8eb0e44b21a80f****
      *
      * @var string
@@ -23,6 +28,9 @@ class CreateKubernetesTriggerRequest extends Model
     public $clusterId;
 
     /**
+     * @description The name of the trigger project.
+     *
+     * Example: `default/test-app`.
      * @example default/test-app
      *
      * @var string
@@ -30,6 +38,12 @@ class CreateKubernetesTriggerRequest extends Model
     public $projectId;
 
     /**
+     * @description The type of trigger. Valid values:
+     *
+     *   `deployment`: performs actions on Deployments.
+     *   `application`: performs actions on applications that are deployed in Application Center.
+     *
+     * Default value: `deployment`.
      * @example deployment
      *
      * @var string

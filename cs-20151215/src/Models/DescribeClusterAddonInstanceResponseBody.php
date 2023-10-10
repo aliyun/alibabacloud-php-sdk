@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterAddonInstanceResponseBody extends Model
 {
     /**
+     * @description The configuration of the component.
+     *
      * @example {"NetworkPolicy":"true"}
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeClusterAddonInstanceResponseBody extends Model
     public $config;
 
     /**
+     * @description The name of the component.
+     *
      * @example terway-eniip
      *
      * @var string
@@ -23,6 +27,16 @@ class DescribeClusterAddonInstanceResponseBody extends Model
     public $name;
 
     /**
+     * @description The status of the component. Valid values:
+     *
+     *   initial: The component is being installed.
+     *   active: The component is installed.
+     *   unhealthy: The component is in an abnormal state.
+     *   upgrading: The component is being updated.
+     *   updating: The component is being modified.
+     *   deleting: The component is being uninstalled.
+     *   deleted: The component is deleted.
+     *
      * @example active
      *
      * @var string
@@ -30,6 +44,8 @@ class DescribeClusterAddonInstanceResponseBody extends Model
     public $state;
 
     /**
+     * @description The version of the component.
+     *
      * @example v1.4.3
      *
      * @var string

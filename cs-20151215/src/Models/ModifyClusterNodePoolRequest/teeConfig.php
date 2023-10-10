@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class teeConfig extends Model
 {
     /**
+     * @description Specifies whether to enable confidential computing for the cluster. Valid values:
+     *
+     *   `true`: enables confidential computing for the cluster.
+     *   `false`: disables confidential computing for the cluster.
+     *
+     * Default value: `false`.
      * @example false
      *
      * @var bool

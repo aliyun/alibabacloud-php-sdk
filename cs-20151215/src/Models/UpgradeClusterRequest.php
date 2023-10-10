@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterRequest extends Model
 {
     /**
+     * @description The name of the component. Set the value to `k8s`.
+     *
      * @example k8s
      *
      * @deprecated
@@ -18,11 +20,20 @@ class UpgradeClusterRequest extends Model
     public $componentName;
 
     /**
+     * @description Specifies whether to upgrade only master nodes. Valid values:
+     *
+     *   true: upgrade only master nodes.
+     *   false: upgrade master and worker nodes.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $masterOnly;
 
     /**
+     * @description The Kubernetes version to which the cluster can be upgraded.
+     *
      * @example 1.16.9-aliyun.1
      *
      * @var string
@@ -30,6 +41,8 @@ class UpgradeClusterRequest extends Model
     public $nextVersion;
 
     /**
+     * @description The current Kubernetes version of the cluster. For more information, see [Kubernetes versions](~~185269~~).
+     *
      * @example 1.14.8-aliyun.1
      *
      * @deprecated

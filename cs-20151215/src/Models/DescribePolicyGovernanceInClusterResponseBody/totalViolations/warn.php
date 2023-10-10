@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class warn extends Model
 {
     /**
+     * @description The severity level of the policy.
+     *
      * @example low
      *
      * @var string
@@ -16,6 +18,8 @@ class warn extends Model
     public $severity;
 
     /**
+     * @description The number of alerting events that are triggered.
+     *
      * @example 5
      *
      * @var int

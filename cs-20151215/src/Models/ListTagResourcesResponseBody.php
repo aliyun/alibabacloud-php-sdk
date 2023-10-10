@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description The token that is used to start the next query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * @example c374bf4864448****
      *
@@ -19,7 +19,7 @@ class ListTagResourcesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E368C761-F8F6-4A36-9B58-BD53D5CD0CEB
      *

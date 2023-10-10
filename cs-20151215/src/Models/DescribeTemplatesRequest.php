@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplatesRequest extends Model
 {
     /**
+     * @description The page number.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -16,6 +19,9 @@ class DescribeTemplatesRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -23,6 +29,12 @@ class DescribeTemplatesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of template. This parameter can be set to a custom value.
+     *
+     *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
+     *   If you set the parameter to `compose`, the template is not displayed on the Templates page in the console.
+     *
+     * Default value: `kubernetes`.
      * @example kubernetes
      *
      * @var string

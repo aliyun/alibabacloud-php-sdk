@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterTagsRequest extends Model
 {
     /**
+     * @description The data of the labels that you want to modify.
+     *
      * @var Tag[]
      */
     public $body;

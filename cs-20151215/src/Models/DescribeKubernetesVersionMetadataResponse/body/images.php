@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description The image ID.
+     *
      * @example centos_7_7_x64_20G_alibase_20200426.vhd
      *
      * @var string
@@ -16,6 +18,8 @@ class images extends Model
     public $imageId;
 
     /**
+     * @description The image name.
+     *
      * @example CentOS 7.7
      *
      * @var string
@@ -23,6 +27,13 @@ class images extends Model
     public $imageName;
 
     /**
+     * @description The OS platform. Valid values:
+     *
+     *   `AliyunLinux`
+     *   `CentOS`
+     *   `Windows`
+     *   `WindowsCore`
+     *
      * @example CentOS
      *
      * @var string
@@ -30,6 +41,8 @@ class images extends Model
     public $platform;
 
     /**
+     * @description The version of the image.
+     *
      * @example 7.7
      *
      * @var string
@@ -37,6 +50,18 @@ class images extends Model
     public $osVersion;
 
     /**
+     * @description The type of OS distribution that you want to use. To specify the node OS, we recommend that you use this parameter. Valid values:
+     *
+     *   `CentOS`
+     *   `AliyunLinux`
+     *   `AliyunLinux Qboot`
+     *   `AliyunLinuxUEFI`
+     *   `AliyunLinux3`
+     *   `Windows`
+     *   `WindowsCore`
+     *   `AliyunLinux3Arm64`
+     *   `ContainerOS`
+     *
      * @example centos_7_7_20
      *
      * @var string
@@ -44,6 +69,11 @@ class images extends Model
     public $imageType;
 
     /**
+     * @description The type of operating system. Examples:
+     *
+     *   `Windows`
+     *   `Linux`
+     *
      * @example Linux
      *
      * @var string
@@ -51,6 +81,13 @@ class images extends Model
     public $osType;
 
     /**
+     * @description The type of image. Valid values:
+     *
+     *   `system`: public image
+     *   `self`: custom image
+     *   `others`: shared image from other Alibaba Cloud accounts
+     *   `marketplace`: image from the marketplace
+     *
      * @example system
      *
      * @var string
@@ -58,6 +95,8 @@ class images extends Model
     public $imageCategory;
 
     /**
+     * @description The architecture of the image.
+     *
      * @example x86_64
      *
      * @var string

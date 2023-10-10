@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesShrinkRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all custom labels. This parameter takes effect only when `tag_keys` is left empty. Valid values:
+     *
+     *   `true`: Remove all custom labels.
+     *   `false`: Do not remove all custom labels.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class UntagResourcesShrinkRequest extends Model
     public $all;
 
     /**
+     * @description The region ID of the resources.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,11 +30,15 @@ class UntagResourcesShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The list of resource IDs.
+     *
      * @var string
      */
     public $resourceIdsShrink;
 
     /**
+     * @description The type of resource. Set the value to `CLUSTER`.
+     *
      * @example CLUSTER
      *
      * @var string
@@ -35,6 +46,8 @@ class UntagResourcesShrinkRequest extends Model
     public $resourceType;
 
     /**
+     * @description The list of keys of the labels that you want to remove.
+     *
      * @var string
      */
     public $tagKeysShrink;

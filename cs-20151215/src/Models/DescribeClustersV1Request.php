@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersV1Request extends Model
 {
     /**
+     * @description The cluster type, which is available only when the cluster type is set to `ManagedKubernetes`. Valid values:
+     *
+     *   `ack.pro.small`: ACK Pro cluster
+     *   `ack.standard`: ACK Basic cluster
+     *
+     * By default, this parameter is left empty, which means that ACK clusters are not filtered by this parameter.
      * @example ack.pro.small
      *
      * @var string
@@ -16,6 +22,14 @@ class DescribeClustersV1Request extends Model
     public $clusterSpec;
 
     /**
+     * @description The type of cluster. Valid values:
+     *
+     *   `Kubernetes`: ACK dedicated cluster
+     *   `ManagedKubernetes`: ACK managed cluster, ACK Serverless cluster, or ACK Edge cluster
+     *   `Ask`: ACK Serverless cluster
+     *   `ExternalKubernetes`: registered cluster
+     *
+     * If you want to query ACK Serverless clusters, specify ManagedKubernetes or Ask based on the value that you specified when you created the ACK Serverless clusters.
      * @example Kubernetes
      *
      * @var string
@@ -23,6 +37,9 @@ class DescribeClustersV1Request extends Model
     public $clusterType;
 
     /**
+     * @description The cluster name.
+     *
+     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
      * @example cluster-demo
      *
      * @var string
@@ -30,6 +47,8 @@ class DescribeClustersV1Request extends Model
     public $name;
 
     /**
+     * @description The page number.
+     *
      * @example 3
      *
      * @var int
@@ -37,6 +56,8 @@ class DescribeClustersV1Request extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +65,13 @@ class DescribeClustersV1Request extends Model
     public $pageSize;
 
     /**
+     * @description The cluster identifier, which is available only when the cluster type is set to `ManagedKubernetes`. Valid values:
+     *
+     *   `Default`: ACK managed cluster
+     *   `Serverless`: ACK Serverless cluster
+     *   `Edge`: ACK Edge cluster
+     *
+     * By default, this parameter is left empty, which means that ACK clusters are not filtered by this parameter.
      * @example Default
      *
      * @var string
@@ -51,6 +79,8 @@ class DescribeClustersV1Request extends Model
     public $profile;
 
     /**
+     * @description The region ID of the clusters. You can use this parameter to query all clusters in the specified region.
+     *
      * @example cn-hangzhou
      *
      * @var string

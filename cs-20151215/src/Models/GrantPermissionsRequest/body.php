@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The ID of the cluster that you want to manage.
+     *
+     *   When the `role_type` parameter is set to `all-clusters`, this parameter is set to an empty string.
+     *
      * @example c796c60***
      *
      * @var string
@@ -16,6 +20,8 @@ class body extends Model
     public $cluster;
 
     /**
+     * @description Specifies whether to perform a custom authorization. To perform a custom authorization, set `role_name` to a custom cluster role.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +29,8 @@ class body extends Model
     public $isCustom;
 
     /**
+     * @description Specifies whether the permissions are granted to a RAM role.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +38,8 @@ class body extends Model
     public $isRamRole;
 
     /**
+     * @description The namespace to which the permissions are scoped. This parameter is required only if you set role_type to namespace.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +47,14 @@ class body extends Model
     public $namespace;
 
     /**
+     * @description The predefined role name. Valid values:
+     *
+     *   `admin`: administrator
+     *   `ops`: O\&M engineer
+     *   `dev`: developer
+     *   `restricted`: restricted user
+     *   The custom cluster role.
+     *
      * @example ops
      *
      * @var string
@@ -44,6 +62,12 @@ class body extends Model
     public $roleName;
 
     /**
+     * @description The authorization type. Valid values:
+     *
+     *   `cluster`: indicates that the permissions are scoped to a cluster.
+     *   `namespace`: specifies that the permissions are scoped to a namespace of a cluster.
+     *   `all-clusters`: specifies that the permissions are scoped to all clusters.
+     *
      * @example cluster
      *
      * @var string

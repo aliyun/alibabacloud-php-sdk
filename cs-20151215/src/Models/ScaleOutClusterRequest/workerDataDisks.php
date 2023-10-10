@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class workerDataDisks extends Model
 {
     /**
+     * @description The ID of an automatic snapshot policy. Automatic backup is performed for a disk based on the specified automatic snapshot policy.
+     *
+     * By default, this parameter is empty. This indicates that automatic backup is disabled.
      * @example sp-bp14yziiuvu3s6jn****
      *
      * @var string
@@ -16,6 +19,8 @@ class workerDataDisks extends Model
     public $autoSnapshotPolicyId;
 
     /**
+     * @description The data disk type.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -23,6 +28,12 @@ class workerDataDisks extends Model
     public $category;
 
     /**
+     * @description Specifies whether to encrypt the data disks. Valid values:
+     *
+     *   `true`: encrypts data disks.
+     *   `false`: does not encrypt data disks.
+     *
+     * Default value: `false`.
      * @example true
      *
      * @var string
@@ -30,6 +41,8 @@ class workerDataDisks extends Model
     public $encrypted;
 
     /**
+     * @description The size of the data disk. Valid values: 40 to 32767.
+     *
      * @example 120
      *
      * @var string

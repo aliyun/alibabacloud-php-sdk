@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class workerDataDisks extends Model
 {
     /**
+     * @description The data disk type.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -16,6 +18,12 @@ class workerDataDisks extends Model
     public $category;
 
     /**
+     * @description Specifies whether to encrypt the data disks. Valid values:
+     *
+     *   `true`: encrypts a data disk.
+     *   `false`: does not encrypt a data disk.
+     *
+     * Default value: `false`.
      * @example true
      *
      * @var string
@@ -23,6 +31,8 @@ class workerDataDisks extends Model
     public $encrypted;
 
     /**
+     * @description The PL of a data disk. This parameter takes effect only for ESSDs. You can specify a higher PL if you increase the size of a data disk. For more information, see [ESSDs](~~122389~~).
+     *
      * @example PL1
      *
      * @var string
@@ -30,6 +40,8 @@ class workerDataDisks extends Model
     public $performanceLevel;
 
     /**
+     * @description The size of the data disk. Valid values: 40 to 32767.
+     *
      * @example 120
      *
      * @var string

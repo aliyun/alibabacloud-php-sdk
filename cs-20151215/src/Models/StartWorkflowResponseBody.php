@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartWorkflowResponseBody extends Model
 {
     /**
-     * @description The name of the workflow that is created.
+     * @description The name of the workflow.
      *
      * @example mapping-gpu-66xv7
      *

@@ -36,7 +36,7 @@ class CreateTriggerResponseBody extends Model
     public $id;
 
     /**
-     * @description The name of the project.
+     * @description The name of the trigger project.
      *
      * @example default/test-app
      *

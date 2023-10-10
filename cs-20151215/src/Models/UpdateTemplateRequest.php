@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
+     * @description The description of the template.
+     *
      * @example web server cluster
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateTemplateRequest extends Model
     public $description;
 
     /**
+     * @description The name of the template.
+     *
      * @example webserver01
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateTemplateRequest extends Model
     public $name;
 
     /**
+     * @description The label of the template.
+     *
      * @example web
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateTemplateRequest extends Model
     public $tags;
 
     /**
+     * @description The YAML content of the template.
+     *
      * @example apiVersion: apps/v1\\nkind: Deployment\\nmetadata:\\n  name: nginx-deployment-basic\\n  labels:\\n    app: nginx\\nspec:\\n  replicas: 2\\n  selector:\\n    matchLabels:\\n      app: nginx\\n  template:\\n    metadata:\\n      labels:\\n        app: nginx\\n    spec:\\n      containers:\\n      - name: nginx\\n        image: busybox:latest\\n        ports:\\n        - containerPort: 8080
      *
      * @var string
@@ -37,6 +45,11 @@ class UpdateTemplateRequest extends Model
     public $template;
 
     /**
+     * @description The type of template. This parameter can be set to a custom value.
+     *
+     *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
+     *   If the parameter is set to `compose`, the template is displayed on the Container Service - Swarm page in the console. Container Service for Swarm is deprecated.
+     *
      * @example kubernetes
      *
      * @var string

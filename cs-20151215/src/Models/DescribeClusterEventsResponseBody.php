@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterEventsResponseBody extends Model
 {
     /**
+     * @description The list of events.
+     *
      * @var events[]
      */
     public $events;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;

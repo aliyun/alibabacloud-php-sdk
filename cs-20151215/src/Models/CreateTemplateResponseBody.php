@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the template.
+     * @description The ID of the orchestration template.
      *
      * @example ba1fe77b-b01e-4640-b77e-8f1b80e3e3cf
      *

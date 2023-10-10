@@ -18,6 +18,8 @@ class DescribeEventsResponseBody extends Model
     public $events;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;

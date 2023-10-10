@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example c82e6987e2961451182edacd74faf****
      *
      * @var string
@@ -17,11 +19,15 @@ class events extends Model
     public $clusterId;
 
     /**
+     * @description The description of the event.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The event ID.
+     *
      * @example e-9ad04f72-8ee7-46bf-a02c-e4a06b39****
      *
      * @var string
@@ -29,6 +35,8 @@ class events extends Model
     public $eventId;
 
     /**
+     * @description The event source.
+     *
      * @example cluster
      *
      * @var string
@@ -36,6 +44,8 @@ class events extends Model
     public $source;
 
     /**
+     * @description The subject related to the event.
+     *
      * @example npdd89dc2b76c04f14b06774883b******
      *
      * @var string
@@ -43,6 +53,8 @@ class events extends Model
     public $subject;
 
     /**
+     * @description The time when the event started.
+     *
      * @example 2020-12-01T17:31:00Z
      *
      * @var string
@@ -50,6 +62,8 @@ class events extends Model
     public $time;
 
     /**
+     * @description The type of event. Valid values:
+     *
      * @example nodepool_update
      *
      * @var string

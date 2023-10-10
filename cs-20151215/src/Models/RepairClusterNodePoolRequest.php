@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RepairClusterNodePoolRequest extends Model
 {
     /**
+     * @description The list of nodes. If you do not specify nodes, all nodes in the node pool are selected.
+     *
      * @var string[]
      */
     public $nodes;

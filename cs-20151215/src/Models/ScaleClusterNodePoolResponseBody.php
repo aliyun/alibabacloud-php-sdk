@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ScaleClusterNodePoolResponseBody extends Model
 {
     /**
-     * @description The ID of the scaling task.
+     * @description The task ID.
      *
      * @example T-5faa48fb31b6b8078d00****
      *

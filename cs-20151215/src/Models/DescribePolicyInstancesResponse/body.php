@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The UID of the Alibaba Cloud account that is used to deploy the policy instance.
+     *
      * @example 16298168****
      *
      * @var string
@@ -16,6 +18,8 @@ class body extends Model
     public $aliUid;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example c8155823d057948c69a****
      *
      * @var string
@@ -23,6 +27,8 @@ class body extends Model
     public $clusterId;
 
     /**
+     * @description The name of the policy instance.
+     *
      * @example no-env-var-secrets-****
      *
      * @var string
@@ -30,6 +36,8 @@ class body extends Model
     public $instanceName;
 
     /**
+     * @description The name of the policy.
+     *
      * @example ACKPSPCapabilities
      *
      * @var string
@@ -37,6 +45,8 @@ class body extends Model
     public $policyName;
 
     /**
+     * @description The type of policy.
+     *
      * @example k8s-general
      *
      * @var string
@@ -44,6 +54,8 @@ class body extends Model
     public $policyCategory;
 
     /**
+     * @description The description of the policy template.
+     *
      * @example Restricts secrets used in pod envs
      *
      * @var string
@@ -51,6 +63,8 @@ class body extends Model
     public $policyDescription;
 
     /**
+     * @description The parameters of the policy instance.
+     *
      * @example "restrictedNamespaces": [ "test" ]
      *
      * @var string
@@ -58,6 +72,8 @@ class body extends Model
     public $policyParameters;
 
     /**
+     * @description The severity level of the policy instance.
+     *
      * @example low
      *
      * @var string
@@ -65,6 +81,11 @@ class body extends Model
     public $policySeverity;
 
     /**
+     * @description The applicable scope of the policy instance.
+     *
+     * A value of \* indicates all namespaces in the cluster. This is the default value.
+     *
+     * Multiple namespaces are separated by commas (,).
      * @example *
      *
      * @var string
@@ -72,6 +93,11 @@ class body extends Model
     public $policyScope;
 
     /**
+     * @description The action of the policy. Valid values:
+     *
+     *   `deny`: Deployments that match the policy are denied.
+     *   `warn`: Alerts are generated for deployments that match the policy.
+     *
      * @example deny
      *
      * @var string

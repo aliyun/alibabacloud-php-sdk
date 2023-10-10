@@ -18,7 +18,7 @@ class edgeImprovedNodepoolQuota extends Model
     public $bandwidth;
 
     /**
-     * @description The quota of enhanced edge node pools within an Alibaba Cloud account.
+     * @description The quota of enhanced edge node pools that belong to an Alibaba Cloud account.
      *
      * @example 3
      *
@@ -29,7 +29,7 @@ class edgeImprovedNodepoolQuota extends Model
     /**
      * @description The maximum subscription duration of an enhanced edge node pool. Unit: months.
      *
-     * >  Enhanced node pools use the pay-as-you-go billing method. Therefore, this parameter is not required.
+     * > You can ignore this parameter because enhanced edge node pools are pay-as-you-go resources.
      * @example 3
      *
      * @var int

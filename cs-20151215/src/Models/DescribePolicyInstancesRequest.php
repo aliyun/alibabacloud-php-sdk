@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyInstancesRequest extends Model
 {
     /**
+     * @description The name of the policy instance that you want to query.
+     *
      * @example allowed-repos-cz4s2
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribePolicyInstancesRequest extends Model
     public $instanceName;
 
     /**
+     * @description The name of the policy that you want to query.
+     *
      * @example ACKPSPCapabilities
      *
      * @var string

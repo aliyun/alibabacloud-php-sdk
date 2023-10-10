@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartWorkflowRequest extends Model
 {
     /**
+     * @description The name of the output BAM file.
+     *
      * @example abc.bam
      *
      * @var string
@@ -16,6 +18,8 @@ class StartWorkflowRequest extends Model
     public $mappingBamOutFilename;
 
     /**
+     * @description The output path of the Binary Alignment Map (BAM) file.
+     *
      * @example output/bamDirName
      *
      * @var string
@@ -23,6 +27,8 @@ class StartWorkflowRequest extends Model
     public $mappingBamOutPath;
 
     /**
+     * @description The name of the OSS bucket that stores the data of the mapping workflow.
+     *
      * @example gene-shenzhen
      *
      * @var string
@@ -30,6 +36,8 @@ class StartWorkflowRequest extends Model
     public $mappingBucketName;
 
     /**
+     * @description The name of the first FASTQ file of the mapping workflow.
+     *
      * @example MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_1.fq.gz
      *
      * @var string
@@ -37,6 +45,8 @@ class StartWorkflowRequest extends Model
     public $mappingFastqFirstFilename;
 
     /**
+     * @description The path of the FASTQ files of the mapping workflow.
+     *
      * @example fastq/MGISEQ2000
      *
      * @var string
@@ -44,6 +54,8 @@ class StartWorkflowRequest extends Model
     public $mappingFastqPath;
 
     /**
+     * @description The name of the second FASTQ file of the mapping workflow.
+     *
      * @example MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_2.fq.gz
      *
      * @var string
@@ -51,6 +63,8 @@ class StartWorkflowRequest extends Model
     public $mappingFastqSecondFilename;
 
     /**
+     * @description Specifies whether to mark duplicate values.
+     *
      * @example true
      *
      * @var string
@@ -58,6 +72,8 @@ class StartWorkflowRequest extends Model
     public $mappingIsMarkDup;
 
     /**
+     * @description The region where the Object Storage Service (OSS) bucket that stores the data of the mapping workflow is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +81,8 @@ class StartWorkflowRequest extends Model
     public $mappingOssRegion;
 
     /**
+     * @description The path of the reference files of the mapping workflow.
+     *
      * @example reference/hg19
      *
      * @var string
@@ -72,6 +90,12 @@ class StartWorkflowRequest extends Model
     public $mappingReferencePath;
 
     /**
+     * @description The type of service-level agreement (SLA). Valid values:
+     *
+     *   s: the silver level (S-level). It requires 1 extra minute to process every 1.5 billion base pairs beyond the limit of 90 billion base pairs.
+     *   g: the gold level (G-level). It requires 1 extra minute to process every 2 billion base pairs beyond the limit of 90 billion base pairs.
+     *   p: the platinum level (P-level). It requires 1 extra minute to process every 3 billion base pairs beyond the limit of 90 billion base pairs.
+     *
      * @example s
      *
      * @var string
@@ -79,6 +103,8 @@ class StartWorkflowRequest extends Model
     public $service;
 
     /**
+     * @description The name of the OSS bucket that stores the data of the WGS workflow.
+     *
      * @example gene-shenzhen
      *
      * @var string
@@ -86,6 +112,8 @@ class StartWorkflowRequest extends Model
     public $wgsBucketName;
 
     /**
+     * @description The name of the first FASTQ file of the WGS workflow.
+     *
      * @example MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_1.fq.gz
      *
      * @var string
@@ -93,6 +121,8 @@ class StartWorkflowRequest extends Model
     public $wgsFastqFirstFilename;
 
     /**
+     * @description The path of the FASTQ files of the WGS workflow.
+     *
      * @example fastq/MGISEQ2000
      *
      * @var string
@@ -100,6 +130,8 @@ class StartWorkflowRequest extends Model
     public $wgsFastqPath;
 
     /**
+     * @description The name of the second FASTQ file of the WGS workflow.
+     *
      * @example MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_2.fq.gz
      *
      * @var string
@@ -107,6 +139,8 @@ class StartWorkflowRequest extends Model
     public $wgsFastqSecondFilename;
 
     /**
+     * @description The region where the OSS bucket that stores the data of the whole genome sequencing (WGS) workflow is deployed.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -114,6 +148,8 @@ class StartWorkflowRequest extends Model
     public $wgsOssRegion;
 
     /**
+     * @description The path of the reference files of the WGS workflow.
+     *
      * @example reference/hg19
      *
      * @var string
@@ -121,6 +157,8 @@ class StartWorkflowRequest extends Model
     public $wgsReferencePath;
 
     /**
+     * @description The name of the output VCF file.
+     *
      * @example abc.vcf
      *
      * @var string
@@ -128,6 +166,8 @@ class StartWorkflowRequest extends Model
     public $wgsVcfOutFilename;
 
     /**
+     * @description The output path of the Variant Call Format (VCF) file.
+     *
      * @example output/vcf
      *
      * @var string
@@ -135,6 +175,8 @@ class StartWorkflowRequest extends Model
     public $wgsVcfOutPath;
 
     /**
+     * @description The type of workflow. Valid values: wgs and mapping.
+     *
      * @example mapping
      *
      * @var string

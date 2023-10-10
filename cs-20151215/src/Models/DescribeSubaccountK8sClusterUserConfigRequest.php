@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubaccountK8sClusterUserConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to obtain the kubeconfig file used to connect to the cluster over the internal network. Valid values:
+     *
+     *   `true`: Obtain the kubeconfig file used to connect to the cluster over the internal network.
+     *   `false`: Obtain the kubeconfig file used to connect to the cluster over the Internet.
+     *
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -16,6 +22,9 @@ class DescribeSubaccountK8sClusterUserConfigRequest extends Model
     public $privateIpAddress;
 
     /**
+     * @description The validity period of the temporary kubeconfig file. Unit: minutes.
+     *
+     * > If you leave this parameter empty, the system sets a longer validity period and returns the value in the expiration parameter of the response.
      * @example 15
      *
      * @var int

@@ -9,6 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterRequest extends Model
 {
     /**
+     * @description 注册集群 API Server SLB 访问控制列表。
+     *
+     * @var string[]
+     */
+    public $accessControlList;
+
+    /**
+     * @description Specifies whether to associate an elastic IP address (EIP) with the cluster API server. This enables Internet access for the cluster. Valid values:
+     *
+     *   `true`: associates an EIP with the cluster API server.
+     *   `false`: does not associate an EIP with the cluster API server.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +28,8 @@ class ModifyClusterRequest extends Model
     public $apiServerEip;
 
     /**
+     * @description The ID of the EIP that you want to associate with the cluster API server. The parameter takes effect only if `api_server_eip` is set to `true`.
+     *
      * @example eip-wz9fnasl6dsfhmvci****
      *
      * @var string
@@ -23,6 +37,17 @@ class ModifyClusterRequest extends Model
     public $apiServerEipId;
 
     /**
+     * @var string
+     */
+    public $clusterName;
+
+    /**
+     * @description Specifies whether to enable deletion protection for the cluster. If deletion protection is enabled, the cluster cannot be deleted in the ACK console or by calling API operations. Valid values:
+     *
+     *   `true`: enables deletion protection for the cluster. This way, the cluster cannot be deleted in the ACK console or by calling API operations.
+     *   `false`: disables deletion protection for the cluster. This way, the cluster can be deleted in the ACK console or by calling API operations.
+     *
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -30,6 +55,11 @@ class ModifyClusterRequest extends Model
     public $deletionProtection;
 
     /**
+     * @description Specifies whether to enable the RAM Roles for Service Accounts (RRSA) feature. Valid values:
+     *
+     *   `true`: enables the RRSA feature.
+     *   `false`: disables the RRSA feature.
+     *
      * @example true
      *
      * @var bool
@@ -37,13 +67,21 @@ class ModifyClusterRequest extends Model
     public $enableRrsa;
 
     /**
+     * @description Specifies whether to remap the test domain name of the cluster. Valid values:
+     *
+     *   `true`: remaps the test domain name of the cluster.
+     *   `false`: does not remap the test domain name of the cluster.
+     *
+     * Default value: `false`.
      * @example true
      *
-     * @var string
+     * @var bool
      */
     public $ingressDomainRebinding;
 
     /**
+     * @description The ID of the Server Load Balancer (SLB) instance that is associated with the cluster.
+     *
      * @example lb-wz97kes8tnndkpodw****
      *
      * @var string
@@ -51,6 +89,12 @@ class ModifyClusterRequest extends Model
     public $ingressLoadbalancerId;
 
     /**
+     * @description Specifies whether to enable deletion protection for the instances in the cluster. If deletion protection is enabled, the instances in the cluster cannot be deleted in the console or by calling the API. Valid values:
+     *
+     *   `true`: enables deletion protection for the instances in the cluster. You cannot delete the instances in the cluster in the console or by calling the API.
+     *   `false`: disables deletion protection for the instances in the cluster. You can delete the instances in the cluster in the console or by calling the API.
+     *
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -58,19 +102,25 @@ class ModifyClusterRequest extends Model
     public $instanceDeletionProtection;
 
     /**
+     * @description The maintenance window of the cluster. This parameter takes effect only in ACK Pro clusters.
+     *
      * @var MaintenanceWindow
      */
     public $maintenanceWindow;
 
     /**
+     * @description The ID of the resource group to which the cluster belongs.
+     *
      * @example rg-acfmyvw3wjm****
      *
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
+        'accessControlList'          => 'access_control_list',
         'apiServerEip'               => 'api_server_eip',
         'apiServerEipId'             => 'api_server_eip_id',
+        'clusterName'                => 'cluster_name',
         'deletionProtection'         => 'deletion_protection',
         'enableRrsa'                 => 'enable_rrsa',
         'ingressDomainRebinding'     => 'ingress_domain_rebinding',
@@ -87,11 +137,17 @@ class ModifyClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessControlList) {
+            $res['access_control_list'] = $this->accessControlList;
+        }
         if (null !== $this->apiServerEip) {
             $res['api_server_eip'] = $this->apiServerEip;
         }
         if (null !== $this->apiServerEipId) {
             $res['api_server_eip_id'] = $this->apiServerEipId;
+        }
+        if (null !== $this->clusterName) {
+            $res['cluster_name'] = $this->clusterName;
         }
         if (null !== $this->deletionProtection) {
             $res['deletion_protection'] = $this->deletionProtection;
@@ -126,11 +182,19 @@ class ModifyClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['access_control_list'])) {
+            if (!empty($map['access_control_list'])) {
+                $model->accessControlList = $map['access_control_list'];
+            }
+        }
         if (isset($map['api_server_eip'])) {
             $model->apiServerEip = $map['api_server_eip'];
         }
         if (isset($map['api_server_eip_id'])) {
             $model->apiServerEipId = $map['api_server_eip_id'];
+        }
+        if (isset($map['cluster_name'])) {
+            $model->clusterName = $map['cluster_name'];
         }
         if (isset($map['deletion_protection'])) {
             $model->deletionProtection = $map['deletion_protection'];
