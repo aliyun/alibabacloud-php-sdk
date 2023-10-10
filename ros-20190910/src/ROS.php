@@ -951,6 +951,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->sourceResourceGroupShrink)) {
             $query['SourceResourceGroup'] = $request->sourceResourceGroupShrink;
         }
@@ -1355,10 +1358,16 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DeregisterResourceTypeRequest $request
-     * @param RuntimeOptions                $runtime
+     * *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
+     *   * *   If you delete a version of a resource type, you can no longer use the version in ROS.
+     *   * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
+     *   * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
+     *   * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
+     *   *
+     * @param DeregisterResourceTypeRequest $request DeregisterResourceTypeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeregisterResourceTypeResponse
+     * @return DeregisterResourceTypeResponse DeregisterResourceTypeResponse
      */
     public function deregisterResourceTypeWithOptions($request, $runtime)
     {
@@ -1389,9 +1398,15 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DeregisterResourceTypeRequest $request
+     * *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
+     *   * *   If you delete a version of a resource type, you can no longer use the version in ROS.
+     *   * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
+     *   * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
+     *   * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
+     *   *
+     * @param DeregisterResourceTypeRequest $request DeregisterResourceTypeRequest
      *
-     * @return DeregisterResourceTypeResponse
+     * @return DeregisterResourceTypeResponse DeregisterResourceTypeResponse
      */
     public function deregisterResourceType($request)
     {
@@ -3931,6 +3946,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
@@ -4237,10 +4255,13 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param RegisterResourceTypeRequest $request
-     * @param RuntimeOptions              $runtime
+     * *   Versions increase from v1.
+     *   * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
+     *   *
+     * @param RegisterResourceTypeRequest $request RegisterResourceTypeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterResourceTypeResponse
+     * @return RegisterResourceTypeResponse RegisterResourceTypeResponse
      */
     public function registerResourceTypeWithOptions($request, $runtime)
     {
@@ -4285,9 +4306,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param RegisterResourceTypeRequest $request
+     * *   Versions increase from v1.
+     *   * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
+     *   *
+     * @param RegisterResourceTypeRequest $request RegisterResourceTypeRequest
      *
-     * @return RegisterResourceTypeResponse
+     * @return RegisterResourceTypeResponse RegisterResourceTypeResponse
      */
     public function registerResourceType($request)
     {
@@ -5233,6 +5257,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->sourceResourceGroupShrink)) {
             $query['SourceResourceGroup'] = $request->sourceResourceGroupShrink;

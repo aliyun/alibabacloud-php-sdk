@@ -38,6 +38,8 @@ class GenerateTemplateByScratchRequest extends Model
     public $templateScratchId;
 
     /**
+     * @description The type of the template that Resource Orchestration Service (ROS) generates. ROS can generate templates of the ROS and Terraform types. Default value: ROS.
+     *
      * @example ROS
      *
      * @var string

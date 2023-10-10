@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description The name of the stack.
+     * @description The time when the resource was created. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
      *
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example 2019-08-01T06:01:23
      *
      * @var string
@@ -20,7 +19,7 @@ class resources extends Model
     public $createTime;
 
     /**
-     * @description The type of the resource.
+     * @description The time when the most recent successful drift detection was performed on the stack.
      *
      * @example 2020-02-27T07:47:47
      *
@@ -29,7 +28,7 @@ class resources extends Model
     public $driftDetectionTime;
 
     /**
-     * @description The time when the resource was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The logical ID of the resource. The logical ID is the resource name that is defined in the template.
      *
      * @example dummy
      *
@@ -38,12 +37,14 @@ class resources extends Model
     public $logicalResourceId;
 
     /**
+     * @description The information about the modules from which the resource is created. This parameter is returned only if the resource is created from modules.
+     *
      * @var moduleInfo
      */
     public $moduleInfo;
 
     /**
-     * @description The most recent point in time when a successful drift detection operation was performed.
+     * @description The physical ID of the resource.
      *
      * @example d04af923-e6b7-4272-aeaa-47ec9777****
      *
@@ -52,7 +53,12 @@ class resources extends Model
     public $physicalResourceId;
 
     /**
-     * @description The reason why the resource is in a specific state.
+     * @description The drift state of the resource in the most recent successful drift detection. Valid values:
+     *
+     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
+     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
+     *   NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
+     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
      *
      * @example IN_SYNC
      *
@@ -61,12 +67,7 @@ class resources extends Model
     public $resourceDriftStatus;
 
     /**
-     * @description The drift status of the resource in the most recent successful drift detection. Valid values:
-     *
-     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
-     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
-     *   NOT_CHECKED: ROS did not check whether the actual configuration of the resource differs from its expected template configuration.
-     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+     * @description The resource type.
      *
      * @example ALIYUN::ROS::Stack
      *
@@ -75,7 +76,7 @@ class resources extends Model
     public $resourceType;
 
     /**
-     * @description The physical ID of the resource.
+     * @description The stack ID.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
@@ -84,6 +85,8 @@ class resources extends Model
     public $stackId;
 
     /**
+     * @description The stack name.\
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
      * @example test-describe-resource
      *
      * @var string
@@ -91,7 +94,24 @@ class resources extends Model
     public $stackName;
 
     /**
-     * @description The logical ID of the resource. The logical ID is the resource name that is defined in the template.
+     * @description The state of the resource. Valid values:
+     *
+     *   INIT_COMPLETE: The resource is pending to be created.
+     *   CREATE_COMPLETE: The resource is created.
+     *   CREATE_FAILED: The resource failed to be created.
+     *   CREATE_IN_PROGRESS: The resource is being created.
+     *   UPDATE_IN_PROGRESS: The resource is being updated.
+     *   UPDATE_FAILED: The resource failed to be updated.
+     *   UPDATE_COMPLETE: The resource is updated.
+     *   DELETE_IN_PROGRESS: The resource is being deleted.
+     *   DELETE_FAILED: The resource failed to be deleted.
+     *   DELETE_COMPLETE: The resource is deleted.
+     *   CHECK_IN_PROGRESS: The resource is being validated.
+     *   CHECK_FAILED: The resource failed to be validated.
+     *   CHECK_COMPLETE: The resource is validated.
+     *   IMPORT_IN_PROGRESS: The resource is being imported.
+     *   IMPORT_FAILED: The resource failed to be imported.
+     *   IMPORT_COMPLETE: The resource is imported.
      *
      * @example UPDATE_COMPLETE
      *
@@ -100,7 +120,7 @@ class resources extends Model
     public $status;
 
     /**
-     * @description The time when the resource was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The reason why the resource is in its current state.
      *
      * @example state changed
      *
@@ -109,7 +129,7 @@ class resources extends Model
     public $statusReason;
 
     /**
-     * @description The ID of the stack.
+     * @description The time when the resource was updated. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
      *
      * @example 2019-08-01T06:01:29
      *

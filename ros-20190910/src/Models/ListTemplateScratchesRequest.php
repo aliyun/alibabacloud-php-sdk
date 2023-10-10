@@ -40,6 +40,11 @@ class ListTemplateScratchesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The status of the scenario. Valid values:
      *
      *   GENERATE_IN_PROGRESS: The scenario is being created.
@@ -83,6 +88,7 @@ class ListTemplateScratchesRequest extends Model
         'pageNumber'          => 'PageNumber',
         'pageSize'            => 'PageSize',
         'regionId'            => 'RegionId',
+        'resourceGroupId'     => 'ResourceGroupId',
         'status'              => 'Status',
         'tags'                => 'Tags',
         'templateScratchId'   => 'TemplateScratchId',
@@ -104,6 +110,9 @@ class ListTemplateScratchesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -143,6 +152,9 @@ class ListTemplateScratchesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

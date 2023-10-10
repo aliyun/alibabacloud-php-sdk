@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class terraformLogs extends Model
 {
     /**
-     * @description The name of a Terraform command that is run. Valid values:
+     * @description The name of the Terraform command that is run. Valid values:
+     *
+     *   apply
+     *   plan
+     *   destroy
+     *   version
      *
      * For more information about Terraform commands, see [Basic CLI Features](https://www.terraform.io/cli/commands).
      * @example apply
@@ -30,7 +35,9 @@ class terraformLogs extends Model
     /**
      * @description The output stream. Valid values:
      *
-     * - stderr: the standard error stream.
+     *   stdout: standard output stream
+     *   stderr: standard error stream
+     *
      * @example stdout
      *
      * @var string

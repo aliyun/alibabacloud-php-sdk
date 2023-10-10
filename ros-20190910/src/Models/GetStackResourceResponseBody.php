@@ -56,6 +56,8 @@ class GetStackResourceResponseBody extends Model
     public $metadata;
 
     /**
+     * @description The information about the modules from which the resource is created. This parameter is returned only if the resource is created from modules.
+     *
      * @var moduleInfo
      */
     public $moduleInfo;

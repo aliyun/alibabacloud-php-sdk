@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class resourceDrifts extends Model
 {
     /**
+     * @description The actual JSON-formatted resource properties.
+     *
      * @example {"ScalingRuleName": "test1"}
      *
      * @var string
@@ -18,7 +20,7 @@ class resourceDrifts extends Model
     public $actualProperties;
 
     /**
-     * @description The expected value of the resource property as defined in the template.
+     * @description The time when the drift detection operation was performed on the resource.
      *
      * @example 2020-02-27T07:47:47
      *
@@ -27,7 +29,7 @@ class resourceDrifts extends Model
     public $driftDetectionTime;
 
     /**
-     * @description The query token value returned in this call.
+     * @description The JSON-formatted resource properties that are defined in the template.
      *
      * @example {"ScalingRuleName": "test2"}
      *
@@ -36,7 +38,7 @@ class resourceDrifts extends Model
     public $expectedProperties;
 
     /**
-     * @description The actual value of the resource property.
+     * @description The logical ID of the resource. The logical ID indicates the name of the resource that is defined in the template.
      *
      * @example ScalingRule
      *
@@ -45,12 +47,14 @@ class resourceDrifts extends Model
     public $logicalResourceId;
 
     /**
+     * @description The information about the modules from which the resource was created. This parameter is returned only if the resource is created from modules.
+     *
      * @var moduleInfo
      */
     public $moduleInfo;
 
     /**
-     * @description The path of the resource property.
+     * @description The physical ID of the resource.
      *
      * @example asr-2ze4zzc3kf9yz1kd****
      *
@@ -59,14 +63,19 @@ class resourceDrifts extends Model
     public $physicalResourceId;
 
     /**
-     * @description http://ros.aliyun-inc.com:8080/V2/ListStackResourceDrifts
+     * @description The property drifts of the resource.
      *
      * @var propertyDifferences[]
      */
     public $propertyDifferences;
 
     /**
-     * @description The ID of the request.
+     * @description The drift state of the resource. Valid values:
+     *
+     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
+     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
+     *   NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
+     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
      *
      * @example MODIFIED
      *
@@ -75,7 +84,7 @@ class resourceDrifts extends Model
     public $resourceDriftStatus;
 
     /**
-     * @description The actual resource properties in JSON format.
+     * @description The resource type.
      *
      * @example ALIYUN::ESS::ScalingRule
      *
@@ -84,11 +93,7 @@ class resourceDrifts extends Model
     public $resourceType;
 
     /**
-     * @description The drift type of the resource property. Valid values:
-     *
-     *   ADD: The value has been added to a resource property whose data type was Array or List.
-     *   REMOVE: The property has been deleted from the current resource configuration.
-     *   NOT_EQUAL: The current property value differs from the expected value defined in the stack template.
+     * @description The stack ID.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertyDifferences extends Model
 {
     /**
-     * @description __null__
+     * @description The actual value of the resource property.
      *
      * @example test1
      *
@@ -18,7 +18,11 @@ class propertyDifferences extends Model
     public $actualValue;
 
     /**
-     * @description __null__
+     * @description The drift type of the resource property. Valid values:
+     *
+     *   ADD: The value is added to a resource property whose data type is Array or List.
+     *   REMOVE: The property is deleted from the current resource configuration.
+     *   NOT_EQUAL: The current property value differs from the expected value that is defined in the stack template.
      *
      * @example NOT_EQUAL
      *
@@ -27,7 +31,7 @@ class propertyDifferences extends Model
     public $differenceType;
 
     /**
-     * @description ListStackResourceDrifts
+     * @description The expected value of the resource property that is defined in the template.
      *
      * @example test2
      *
@@ -36,7 +40,7 @@ class propertyDifferences extends Model
     public $expectedValue;
 
     /**
-     * @description __null__
+     * @description The path of the resource property.
      *
      * @example /ScalingRuleName
      *

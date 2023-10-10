@@ -18,6 +18,9 @@ class GetResourceTypeRequest extends Model
     public $resourceType;
 
     /**
+     * @description The version ID. If you want to query a specific version of the resource type, you must specify this parameter. If you do not specify this parameter, only the resource type is queried.
+     *
+     * > This parameter is supported only for modules.
      * @example v1
      *
      * @var string

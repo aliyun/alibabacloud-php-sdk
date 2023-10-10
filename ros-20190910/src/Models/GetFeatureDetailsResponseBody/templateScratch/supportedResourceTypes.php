@@ -56,12 +56,18 @@ class supportedResourceTypes extends Model
      * @var bool
      */
     public $sourceTagSupported;
+
+    /**
+     * @var string[]
+     */
+    public $supportedTemplateScratchTypes;
     protected $_name = [
-        'resourceType'                 => 'ResourceType',
-        'sourceResourceGroupSupported' => 'SourceResourceGroupSupported',
-        'sourceResourcesSupported'     => 'SourceResourcesSupported',
-        'sourceSupported'              => 'SourceSupported',
-        'sourceTagSupported'           => 'SourceTagSupported',
+        'resourceType'                  => 'ResourceType',
+        'sourceResourceGroupSupported'  => 'SourceResourceGroupSupported',
+        'sourceResourcesSupported'      => 'SourceResourcesSupported',
+        'sourceSupported'               => 'SourceSupported',
+        'sourceTagSupported'            => 'SourceTagSupported',
+        'supportedTemplateScratchTypes' => 'SupportedTemplateScratchTypes',
     ];
 
     public function validate()
@@ -85,6 +91,9 @@ class supportedResourceTypes extends Model
         }
         if (null !== $this->sourceTagSupported) {
             $res['SourceTagSupported'] = $this->sourceTagSupported;
+        }
+        if (null !== $this->supportedTemplateScratchTypes) {
+            $res['SupportedTemplateScratchTypes'] = $this->supportedTemplateScratchTypes;
         }
 
         return $res;
@@ -112,6 +121,11 @@ class supportedResourceTypes extends Model
         }
         if (isset($map['SourceTagSupported'])) {
             $model->sourceTagSupported = $map['SourceTagSupported'];
+        }
+        if (isset($map['SupportedTemplateScratchTypes'])) {
+            if (!empty($map['SupportedTemplateScratchTypes'])) {
+                $model->supportedTemplateScratchTypes = $map['SupportedTemplateScratchTypes'];
+            }
         }
 
         return $model;

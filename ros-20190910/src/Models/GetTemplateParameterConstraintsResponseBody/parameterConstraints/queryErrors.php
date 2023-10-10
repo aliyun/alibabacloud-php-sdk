@@ -18,7 +18,7 @@ class queryErrors extends Model
     public $errorMessage;
 
     /**
-     * @description The name of the resource.
+     * @description The resource name.
      *
      * @example MyECS
      *

@@ -32,7 +32,7 @@ class CreateStackGroupRequest extends Model
     public $autoDeployment;
 
     /**
-     * @description 资源栈组选项列表，最大长度为1。
+     * @description The options for the stack group. You can specify up to one option.
      *
      * @var string[]
      */

@@ -16,6 +16,10 @@ class statement extends Model
     public $action;
 
     /**
+     * @description The condition that is required for the policy to take effect.
+     *
+     * @example {
+     * }
      * @var mixed[]
      */
     public $condition;
@@ -33,7 +37,7 @@ class statement extends Model
     public $effect;
 
     /**
-     * @description The object that the statement covers. An asterisk (\*) indicates all resources.
+     * @description The objects that the statement covers. An asterisk (\*) indicates all resources.
      *
      * @example *
      *

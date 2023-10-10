@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceTypeVersionsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
      * @var string
@@ -17,6 +19,8 @@ class ListResourceTypeVersionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The versions of the resource types.
+     *
      * @var resourceTypeVersions[]
      */
     public $resourceTypeVersions;

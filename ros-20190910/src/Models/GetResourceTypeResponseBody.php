@@ -16,6 +16,8 @@ class GetResourceTypeResponseBody extends Model
     public $attributes;
 
     /**
+     * @description The creation time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2023-02-24T08:25:21
      *
      * @var string
@@ -23,6 +25,9 @@ class GetResourceTypeResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The default version ID.
+     *
+     * > This parameter is returned only if the resource type is queried.
      * @example v1
      *
      * @var string
@@ -30,6 +35,8 @@ class GetResourceTypeResponseBody extends Model
     public $defaultVersionId;
 
     /**
+     * @description The description of the resource type.
+     *
      * @example It is a demo.
      *
      * @var string
@@ -37,6 +44,12 @@ class GetResourceTypeResponseBody extends Model
     public $description;
 
     /**
+     * @description The entity type. Valid values:
+     *
+     *   Resource: regular resource. For more information, see [Resources](~~28863~~).
+     *   DataSource: DataSource resource. For more information, see [DataSource resources](~~404753~~).
+     *   module: module.
+     *
      * @example Resource
      *
      * @var string
@@ -44,6 +57,12 @@ class GetResourceTypeResponseBody extends Model
     public $entityType;
 
     /**
+     * @description Indicates whether the version is the default version. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * > This parameter is returned only if a specific version of the resource type is queried.
      * @example true
      *
      * @var bool
@@ -51,6 +70,9 @@ class GetResourceTypeResponseBody extends Model
     public $isDefaultVersion;
 
     /**
+     * @description The latest version ID.
+     *
+     * > This parameter is returned only if the resource type is queried.
      * @example v10
      *
      * @var string
@@ -68,6 +90,11 @@ class GetResourceTypeResponseBody extends Model
     public $properties;
 
     /**
+     * @description The provider of the resource type. Valid values:
+     *
+     *   ROS: The resource type is provided by Resource Orchestration Service (ROS).
+     *   Self: The resource type is provided by you.
+     *
      * @example ROS
      *
      * @var string
@@ -117,6 +144,9 @@ class GetResourceTypeResponseBody extends Model
     public $supportScratchDetection;
 
     /**
+     * @description The template content in the module.
+     *
+     * > This parameter is returned only if a specific version of the resource type is queried.
      * @example {"ROSTemplateFormatVersion":"2015-09-01"}
      *
      * @var string
@@ -124,6 +154,9 @@ class GetResourceTypeResponseBody extends Model
     public $templateBody;
 
     /**
+     * @description The total number of versions.
+     *
+     * > This parameter is returned only if the resource type is queried.
      * @example 10
      *
      * @var int
@@ -131,6 +164,8 @@ class GetResourceTypeResponseBody extends Model
     public $totalVersionCount;
 
     /**
+     * @description The update time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2023-02-24T08:25:21
      *
      * @var string

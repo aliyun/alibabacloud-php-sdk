@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class originalConstraints extends Model
 {
     /**
+     * @description The values of the parameter.
+     *
      * @var mixed[]
      */
     public $allowedValues;
 
     /**
+     * @description The name of the resource property.
+     *
+     * @example ZoneId
+     *
      * @var string
      */
     public $propertyName;
 
     /**
+     * @description The name of the resource that is defined in the template.
+     *
+     * @example MyECS
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The resource type.
+     *
+     * @example ALIYUN::ECS::InstanceGroup
+     *
      * @var string
      */
     public $resourceType;

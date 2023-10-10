@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceTypeRegistrationsRequest extends Model
 {
     /**
+     * @description The entity type. Set the value to Module.
+     *
      * @example Module
      *
      * @var string
@@ -16,6 +18,8 @@ class ListResourceTypeRegistrationsRequest extends Model
     public $entityType;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListResourceTypeRegistrationsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 50. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ListResourceTypeRegistrationsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the registration record.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -37,6 +45,8 @@ class ListResourceTypeRegistrationsRequest extends Model
     public $registrationId;
 
     /**
+     * @description The resource type. The resource type can contain letters, digits, colons (:), and asterisks (\*). You can use an asterisk (\*) to perform a fuzzy match.
+     *
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *
      * @var string
@@ -44,6 +54,12 @@ class ListResourceTypeRegistrationsRequest extends Model
     public $resourceType;
 
     /**
+     * @description The registration state. Valid values:
+     *
+     *   IN_PROGRESS
+     *   COMPLETE
+     *   FAILED
+     *
      * @example COMPLETE
      *
      * @var string

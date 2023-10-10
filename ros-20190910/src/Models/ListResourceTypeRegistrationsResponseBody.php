@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceTypeRegistrationsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class ListResourceTypeRegistrationsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The registration records.
+     *
      * @var registrations[]
      */
     public $registrations;
 
     /**
+     * @description The request ID.
+     *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *
      * @var string
@@ -29,6 +35,8 @@ class ListResourceTypeRegistrationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of registration records.
+     *
      * @example 1
      *
      * @var int

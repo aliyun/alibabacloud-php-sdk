@@ -19,24 +19,7 @@ class ListStackResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the resource. Valid values:
-     *
-     *   INIT_COMPLETE: The resource is in the pending creation state.
-     *   CREATE_COMPLETE: The resource is created.
-     *   CREATE_FAILED: The resource fails to be created.
-     *   CREATE_IN_PROGRESS: The resource is being created.
-     *   UPDATE_IN_PROGRESS: The resource is being updated.
-     *   UPDATE_FAILED: The resource fails to be updated.
-     *   UPDATE_COMPLETE: The resource is updated.
-     *   DELETE_IN_PROGRESS: The resource is being deleted.
-     *   DELETE_FAILED: The resource fails to be deleted.
-     *   DELETE_COMPLETE: The resource is deleted.
-     *   CHECK_IN_PROGRESS: The resource is being validated.
-     *   CHECK_FAILED: The resource fails to be validated.
-     *   CHECK_COMPLETE: The resource is validated.
-     *   IMPORT_IN_PROGRESS: The resource is being imported.
-     *   IMPORT_FAILED: The resource fails to be imported.
-     *   IMPORT_COMPLETE: The resource is imported.
+     * @description The resources.
      *
      * @var resources[]
      */

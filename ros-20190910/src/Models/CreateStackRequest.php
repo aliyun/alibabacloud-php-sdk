@@ -21,13 +21,14 @@ class CreateStackRequest extends Model
     public $clientToken;
 
     /**
-     * @description The option for the stack after the stack is created. Valid values:
+     * @description The creation option for the stack. Valid values:
      *
-     *   KeepStackOnCreationComplete (default): retains the stack and its resources after the stack is created. In this case, your stack quota in ROS is consumed.
-     *   AbandonStackOnCreationComplete: deletes the stack, but retains its resources after the stack is created. In this case, your stack quota in ROS is not consumed. If the stack fails to be created, the stack is retained.
-     *   AbandonStackOnCreationRollbackComplete: deletes the stack when its resources are rolled back after the stack fails to be created. In this case, your stack quota in ROS is not consumed. In other rollback scenarios, the stack is retained.
+     *   KeepStackOnCreationComplete (default): After the stack is created, the stack and its resources are retained. The quota for the maximum number of stacks that can be created in ROS is consumed.
+     *   AbandonStackOnCreationComplete: After the stack is created, the stack is deleted, but its resources are retained. The quota for the maximum number of stacks that can be created in ROS is not consumed. If the stack fails to be created, the stack is retained.
+     *   AbandonStackOnCreationRollbackComplete: When the resources of the stack are rolled back after the stack fails to be created, the stack is deleted. The quota for the maximum number of stacks that can be created in ROS is not consumed. In other rollback scenarios, the stack is retained.
+     *   ManuallyPay: When you create the stack, you must manually pay for the subscription resources that are used. The following resource types support manual payment: `ALIYUN::ECS::InstanceGroup`, `ALIYUN::RDS::DBInstance`, `ALIYUN::SLB::LoadBalancer`, `ALIYUN::VPC::EIP`, and `ALIYUN::VPC::VpnGateway`.
      *
-     * > You can specify only one of CreateOption and CreateOptions.
+     * >  You can specify only one of CreateOption and CreateOptions.
      * @example KeepStackOnCreationComplete
      *
      * @var string
@@ -35,7 +36,7 @@ class CreateStackRequest extends Model
     public $createOption;
 
     /**
-     * @description The options for the stack after the stack is created.
+     * @description The creation options for the stack.
      *
      * @var string[]
      */

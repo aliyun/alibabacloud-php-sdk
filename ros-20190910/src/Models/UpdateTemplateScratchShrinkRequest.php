@@ -71,6 +71,11 @@ class UpdateTemplateScratchShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The source resource group.
      *
      * @var string
@@ -106,6 +111,7 @@ class UpdateTemplateScratchShrinkRequest extends Model
         'logicalIdStrategy'          => 'LogicalIdStrategy',
         'preferenceParametersShrink' => 'PreferenceParameters',
         'regionId'                   => 'RegionId',
+        'resourceGroupId'            => 'ResourceGroupId',
         'sourceResourceGroupShrink'  => 'SourceResourceGroup',
         'sourceResourcesShrink'      => 'SourceResources',
         'sourceTagShrink'            => 'SourceTag',
@@ -136,6 +142,9 @@ class UpdateTemplateScratchShrinkRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sourceResourceGroupShrink) {
             $res['SourceResourceGroup'] = $this->sourceResourceGroupShrink;
@@ -178,6 +187,9 @@ class UpdateTemplateScratchShrinkRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SourceResourceGroup'])) {
             $model->sourceResourceGroupShrink = $map['SourceResourceGroup'];

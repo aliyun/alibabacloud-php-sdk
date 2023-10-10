@@ -17,6 +17,8 @@ class ListResourceTypesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resource type summaries.
+     *
      * @var resourceTypeSummaries[]
      */
     public $resourceTypeSummaries;

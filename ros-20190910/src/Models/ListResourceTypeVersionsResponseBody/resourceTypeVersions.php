@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceTypeVersions extends Model
 {
     /**
+     * @description The time when the version was created. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+     *
      * @example 2023-02-24T08:25:21
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceTypeVersions extends Model
     public $createTime;
 
     /**
+     * @description The description of the version.
+     *
      * @example It is a demo.
      *
      * @var string
@@ -23,6 +27,8 @@ class resourceTypeVersions extends Model
     public $description;
 
     /**
+     * @description The entity type. Only Module may be returned.
+     *
      * @example Module
      *
      * @var string
@@ -30,6 +36,11 @@ class resourceTypeVersions extends Model
     public $entityType;
 
     /**
+     * @description Indicates whether the version is the default version. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +48,11 @@ class resourceTypeVersions extends Model
     public $isDefaultVersion;
 
     /**
+     * @description The provider of the resource type. Valid values:
+     *
+     *   ROS: ROS
+     *   Self: yourself
+     *
      * @example ROS
      *
      * @var string
@@ -44,6 +60,8 @@ class resourceTypeVersions extends Model
     public $provider;
 
     /**
+     * @description The resource type.
+     *
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *
      * @var string
@@ -51,6 +69,8 @@ class resourceTypeVersions extends Model
     public $resourceType;
 
     /**
+     * @description The time when the version was updated. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+     *
      * @example 2023-02-24T08:25:21
      *
      * @var string
@@ -58,6 +78,8 @@ class resourceTypeVersions extends Model
     public $updateTime;
 
     /**
+     * @description The version ID.
+     *
      * @example v1
      *
      * @var string

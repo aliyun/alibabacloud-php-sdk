@@ -75,6 +75,11 @@ class UpdateTemplateScratchRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The source resource group.
      *
      * @var sourceResourceGroup
@@ -110,6 +115,7 @@ class UpdateTemplateScratchRequest extends Model
         'logicalIdStrategy'    => 'LogicalIdStrategy',
         'preferenceParameters' => 'PreferenceParameters',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'sourceResourceGroup'  => 'SourceResourceGroup',
         'sourceResources'      => 'SourceResources',
         'sourceTag'            => 'SourceTag',
@@ -146,6 +152,9 @@ class UpdateTemplateScratchRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sourceResourceGroup) {
             $res['SourceResourceGroup'] = null !== $this->sourceResourceGroup ? $this->sourceResourceGroup->toMap() : null;
@@ -200,6 +209,9 @@ class UpdateTemplateScratchRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SourceResourceGroup'])) {
             $model->sourceResourceGroup = sourceResourceGroup::fromMap($map['SourceResourceGroup']);

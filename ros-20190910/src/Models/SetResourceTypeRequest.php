@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetResourceTypeRequest extends Model
 {
     /**
+     * @description The ID of the default version. You can use this parameter to specify the default version of the resource type.
+     *
+     * > You can specify only one of the VersionId and DefaultVersionId parameters.
      * @example v1
      *
      * @var string
@@ -16,6 +19,8 @@ class SetResourceTypeRequest extends Model
     public $defaultVersionId;
 
     /**
+     * @description The description of the resource type or resource type version. The description can be up to 512 characters in length.
+     *
      * @example It is a demo.
      *
      * @var string
@@ -23,6 +28,8 @@ class SetResourceTypeRequest extends Model
     public $description;
 
     /**
+     * @description The resource type.
+     *
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *
      * @var string
@@ -30,6 +37,9 @@ class SetResourceTypeRequest extends Model
     public $resourceType;
 
     /**
+     * @description The version ID. If you want to modify a version of the resource type, you must specify this parameter. If you do not specify this parameter, only the resource type is modified.
+     *
+     * > You can specify only one of the VersionId and DefaultVersionId parameters.
      * @example v1
      *
      * @var string

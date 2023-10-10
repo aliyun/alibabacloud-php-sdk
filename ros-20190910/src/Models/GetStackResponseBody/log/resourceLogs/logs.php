@@ -18,7 +18,7 @@ class logs extends Model
     public $content;
 
     /**
-     * @description The keywords.
+     * @description The keywords of a resource log.
      *
      * @var string[]
      */

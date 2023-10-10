@@ -44,11 +44,15 @@ class resourceProgress extends Model
     public $pendingResourceCount;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $stackActionProgress;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $stackOperationProgress;

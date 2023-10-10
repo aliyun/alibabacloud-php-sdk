@@ -64,6 +64,11 @@ class templateScratch extends Model
     public $preferenceParameters;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The source resource group.
      *
      * @var sourceResourceGroup
@@ -164,6 +169,7 @@ class templateScratch extends Model
         'failedCode'           => 'FailedCode',
         'logicalIdStrategy'    => 'LogicalIdStrategy',
         'preferenceParameters' => 'PreferenceParameters',
+        'resourceGroupId'      => 'ResourceGroupId',
         'sourceResourceGroup'  => 'SourceResourceGroup',
         'sourceResources'      => 'SourceResources',
         'sourceTag'            => 'SourceTag',
@@ -204,6 +210,9 @@ class templateScratch extends Model
                     $res['PreferenceParameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sourceResourceGroup) {
             $res['SourceResourceGroup'] = null !== $this->sourceResourceGroup ? $this->sourceResourceGroup->toMap() : null;
@@ -282,6 +291,9 @@ class templateScratch extends Model
                     $model->preferenceParameters[$n++] = null !== $item ? preferenceParameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SourceResourceGroup'])) {
             $model->sourceResourceGroup = sourceResourceGroup::fromMap($map['SourceResourceGroup']);

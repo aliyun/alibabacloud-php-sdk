@@ -27,7 +27,7 @@ class inProgressResourceDetails extends Model
     public $progressValue;
 
     /**
-     * @description The name of the resource.
+     * @description The resource name.
      *
      * @example WaitCondition
      *
@@ -36,7 +36,7 @@ class inProgressResourceDetails extends Model
     public $resourceName;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
      * @example ALIYUN::ROS::WaitCondition
      *

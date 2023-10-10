@@ -14,6 +14,11 @@ use AlibabaCloud\Tea\Model;
 class GetStackResponseBody extends Model
 {
     /**
+     * @description The number of resources on which drift detection is performed.
+     *
+     * >  This parameter is returned only if the drift detection on the stack is successful.
+     * @example 1
+     *
      * @var int
      */
     public $checkedStackResourceCount;
@@ -87,6 +92,11 @@ class GetStackResponseBody extends Model
     public $log;
 
     /**
+     * @description The number of resources on which drift detection is not performed.
+     *
+     * >  This parameter is returned only if the drift detection on the stack is successful.
+     * @example 1
+     *
      * @var int
      */
     public $notCheckedStackResourceCount;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class registrations extends Model
 {
     /**
+     * @description The time when the version was created. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+     *
      * @example 2023-03-02T07:28:35
      *
      * @var string
@@ -16,6 +18,8 @@ class registrations extends Model
     public $createTime;
 
     /**
+     * @description The entity type. Only Module may be returned.
+     *
      * @example Module
      *
      * @var string
@@ -23,6 +27,8 @@ class registrations extends Model
     public $entityType;
 
     /**
+     * @description The ID of the registration record.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -30,6 +36,8 @@ class registrations extends Model
     public $registrationId;
 
     /**
+     * @description The resource type.
+     *
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *
      * @var string
@@ -37,6 +45,12 @@ class registrations extends Model
     public $resourceType;
 
     /**
+     * @description The registration state. Valid values:
+     *
+     *   IN_PROGRESS
+     *   COMPLETE
+     *   FAILED
+     *
      * @example COMPLETE
      *
      * @var string
@@ -44,6 +58,8 @@ class registrations extends Model
     public $status;
 
     /**
+     * @description The reason for the state.
+     *
      * @example Module is created successfully
      *
      * @var string
@@ -51,6 +67,8 @@ class registrations extends Model
     public $statusReason;
 
     /**
+     * @description The version ID.
+     *
      * @example v1
      *
      * @var string

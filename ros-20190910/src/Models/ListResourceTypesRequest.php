@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListResourceTypesRequest extends Model
 {
     /**
-     * @description The array of resource types.
+     * @description The entity type. Valid values:
+     *
+     *   All: all types of resources.
+     *   Resource (default): regular resources. For more information, see [Resources](~~28863~~).
+     *   DataSource: DataSource resources. For more information, see [DataSource resources](~~404753~~).
+     *   Module: modules.
      *
      * @example Resource
      *
@@ -18,6 +23,11 @@ class ListResourceTypesRequest extends Model
     public $entityType;
 
     /**
+     * @description The provider of the resource type. Valid values:
+     *
+     *   ROS (default): The resource type is provided by Resource Orchestration Service (ROS).
+     *   Self: The resource type is provided by you.
+     *
      * @example ROS
      *
      * @var string
@@ -25,6 +35,8 @@ class ListResourceTypesRequest extends Model
     public $provider;
 
     /**
+     * @description The resource type. The resource type can contain letters, digits, colons (:), and asterisks (\*). You can use an asterisk (\*) to perform a fuzzy match.
+     *
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *
      * @var string

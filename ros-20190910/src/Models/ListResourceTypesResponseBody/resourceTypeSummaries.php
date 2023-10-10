@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceTypeSummaries extends Model
 {
     /**
+     * @description The creation time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+     *
      * @example 2023-02-24T08:25:21
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceTypeSummaries extends Model
     public $createTime;
 
     /**
+     * @description The ID of the default version.
+     *
      * @example v1
      *
      * @var string
@@ -23,6 +27,8 @@ class resourceTypeSummaries extends Model
     public $defaultVersionId;
 
     /**
+     * @description The description of the resource type.
+     *
      * @example It is a demo.
      *
      * @var string
@@ -30,6 +36,12 @@ class resourceTypeSummaries extends Model
     public $description;
 
     /**
+     * @description The entity type. Valid values:
+     *
+     *   Resource: regular resources.
+     *   DataSource: DataSource resources.
+     *   Module: modules.
+     *
      * @example Module
      *
      * @var string
@@ -37,6 +49,8 @@ class resourceTypeSummaries extends Model
     public $entityType;
 
     /**
+     * @description The ID of the latest version.
+     *
      * @example v10
      *
      * @var string
@@ -44,6 +58,11 @@ class resourceTypeSummaries extends Model
     public $latestVersionId;
 
     /**
+     * @description The provider of the resource type. Valid values:
+     *
+     *   ROS: The resource type is provided by ROS.
+     *   Self: The resource type is provided by you.
+     *
      * @example ROS
      *
      * @var string
@@ -51,6 +70,8 @@ class resourceTypeSummaries extends Model
     public $provider;
 
     /**
+     * @description The resource type.
+     *
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *
      * @var string
@@ -58,6 +79,8 @@ class resourceTypeSummaries extends Model
     public $resourceType;
 
     /**
+     * @description The number of versions.
+     *
      * @example 10
      *
      * @var int
@@ -65,6 +88,8 @@ class resourceTypeSummaries extends Model
     public $totalVersionCount;
 
     /**
+     * @description The update time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+     *
      * @example 2023-02-24T08:25:21
      *
      * @var string

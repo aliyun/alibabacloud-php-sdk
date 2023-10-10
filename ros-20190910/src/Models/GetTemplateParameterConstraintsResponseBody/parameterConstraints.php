@@ -32,7 +32,7 @@ class parameterConstraints extends Model
      *   NotSupport: The value of this parameter cannot be queried.
      *   QueryError: This parameter failed to be queried.
      *
-     * >  If the AllowedValues parameter is not returned, the Behavior and BehaviorReason parameters are returned.
+     * > If AllowedValues is not returned, Behavior and BehaviorReason are returned.
      * @example NoLimit
      *
      * @var string
@@ -51,7 +51,7 @@ class parameterConstraints extends Model
     /**
      * @description The values that do not conform to the parameter constraints.
      *
-     * >  If the `AllowedValues` parameter is returned, the `IllegalValueByParameterConstraints` and `IllegalValueByRules` parameters are returned at the same time.
+     * > If AllowedValues is returned, IllegalValueByParameterConstraints and IllegalValueByRules are returned at the same time.
      * @var mixed[]
      */
     public $illegalValueByParameterConstraints;
@@ -59,19 +59,21 @@ class parameterConstraints extends Model
     /**
      * @description The values that do not match the rules in the template.
      *
-     * >  If the `AllowedValues` parameter is returned, the `IllegalValueByParameterConstraints` and `IllegalValueByRules` parameters are returned at the same time.
+     * > If AllowedValues is returned, IllegalValueByParameterConstraints and IllegalValueByRules are returned at the same time.
      * @var mixed[]
      */
     public $illegalValueByRules;
 
     /**
-     * @description The unsupported resources in the template.
+     * @description The unsupported resource in the template.
      *
      * @var notSupportResources[]
      */
     public $notSupportResources;
 
     /**
+     * @description The original constraint information.
+     *
      * @var originalConstraints[]
      */
     public $originalConstraints;
@@ -86,14 +88,14 @@ class parameterConstraints extends Model
     public $parameterKey;
 
     /**
-     * @description The error details that are returned if the request fails.
+     * @description The error that is returned when the request fails.
      *
      * @var queryErrors[]
      */
     public $queryErrors;
 
     /**
-     * @description The type of the parameter.
+     * @description The data type of the parameter.
      *
      * @example String
      *

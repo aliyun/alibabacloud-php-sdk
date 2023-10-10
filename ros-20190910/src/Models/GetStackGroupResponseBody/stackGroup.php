@@ -130,8 +130,9 @@ class stackGroup extends Model
     public $status;
 
     /**
-     * @description The details of the last drift detection that was performed on the stack group.
+     * @description The structure that contains the template body.
      *
+     * > We recommend that you use TemplateContent instead of TemplateBody.
      * @example {"ROSTemplateFormatVersion": "2015-09-01"}
      *
      * @var string
@@ -139,6 +140,8 @@ class stackGroup extends Model
     public $templateBody;
 
     /**
+     * @description The JSON-formatted structure that contains the template body. For more information, see [Template syntax](~~28857~~).
+     *
      * @example {
      * }
      * @var string

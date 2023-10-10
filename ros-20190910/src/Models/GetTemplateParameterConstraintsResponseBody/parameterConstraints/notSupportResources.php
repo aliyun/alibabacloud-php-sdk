@@ -20,7 +20,6 @@ class notSupportResources extends Model
     /**
      * @description The resource type.
      *
-     * You can call the [ListResourceTypes](~~133957~~) operation to query the resource type.
      * @example ALIYUN::ECS::InstanceGroup
      *
      * @var string

@@ -19,7 +19,7 @@ class GetStackGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the stack group.
+     * @description Details of the stack group.
      *
      * @var stackGroup
      */

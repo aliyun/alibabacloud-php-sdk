@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceTypeVersionsRequest extends Model
 {
     /**
+     * @description The resource type.
+     *
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *
      * @var string

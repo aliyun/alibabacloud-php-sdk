@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeregisterResourceTypeRequest extends Model
 {
     /**
+     * @description The resource type.
+     *
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *
      * @var string
@@ -16,6 +18,8 @@ class DeregisterResourceTypeRequest extends Model
     public $resourceType;
 
     /**
+     * @description The version ID. If you want to delete a version of the resource type, you must specify this parameter.
+     *
      * @example v1
      *
      * @var string
