@@ -19,6 +19,13 @@ class AssumeRoleRequest extends Model
     public $durationSeconds;
 
     /**
+     * @description The external ID of the RAM role.
+     *
+     * This parameter is provided by an external party and is used to prevent the confused deputy problem.
+     *
+     * The value must be 2 to 1,224 characters in length and can contain letters, digits, and the following special characters: `= , . @ : / - _`. The regular expression for this parameter is `[\w+=,.@:\/-]*`.
+     * @example abcd1234
+     *
      * @var string
      */
     public $externalId;
@@ -29,7 +36,7 @@ class AssumeRoleRequest extends Model
      *   If you specify this parameter, the permissions of the returned STS token are the permissions that are included in the value of this parameter and owned by the RAM role.
      *   If you do not specify this parameter, the returned STS token has all the permissions of the RAM role.
      *
-     * The value must be 1 to 2,048 characters in length.
+     * For more information about policy elements and sample policies, see [Policy elements](~~93738~~) and [Overview of sample policies](~~210969~~).
      * @example {"Statement": [{"Action": ["*"],"Effect": "Allow","Resource": ["*"]}],"Version":"1"}
      *
      * @var string
@@ -39,7 +46,7 @@ class AssumeRoleRequest extends Model
     /**
      * @description The Alibaba Cloud Resource Name (ARN) of the RAM role.
      *
-     * You can view the ARN in the RAM console or by calling operations.
+     * You can view the ARN in the RAM console or by calling operations. The following items describe the validity periods of storage addresses:
      *
      *   For more information about how to view the ARN in the RAM console, see [How do I find the ARN of the RAM role?](~~39744~~)
      *   For more information about how to view the ARN by calling operations, see [ListRoles](~~28713~~) or [GetRole](~~28711~~).
@@ -53,7 +60,7 @@ class AssumeRoleRequest extends Model
     /**
      * @description The custom name of the role session.
      *
-     * The value must be 2 to 64 characters in length and can contain letters, digits, periods (.), at signs (@), hyphens (-), and underscores (\_).
+     * The value must be 2 to 64 characters in length and can contain letters, digits, and the following special characters: `. @ - _`.
      * @example alice
      *
      * @var string

@@ -19,7 +19,7 @@ class AssumeRoleWithSAMLResponseBody extends Model
     public $assumedRoleUser;
 
     /**
-     * @description The access credentials.
+     * @description The STS credentials.
      *
      * @var credentials
      */

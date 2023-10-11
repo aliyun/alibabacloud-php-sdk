@@ -38,6 +38,7 @@ class credentials extends Model
     /**
      * @description The STS token.
      *
+     * > Alibaba Cloud STS does not impose limits on the length of STS tokens. We strongly recommend that you do not specify a maximum length for STS tokens.
      * @example CAIShwJ1q6Ft5B2yfSjIr5bSEsj4g7BihPWGWHz****
      *
      * @var string

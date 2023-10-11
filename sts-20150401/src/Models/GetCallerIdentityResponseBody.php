@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetCallerIdentityResponseBody extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account to which the current requester belongs.
-     *
      * @example 196813200012****
      *
      * @var string
@@ -18,8 +16,6 @@ class GetCallerIdentityResponseBody extends Model
     public $accountId;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the current requester.
-     *
      * @example acs:ram::196813200012****:user/admin
      *
      * @var string
@@ -27,9 +23,6 @@ class GetCallerIdentityResponseBody extends Model
     public $arn;
 
     /**
-     * @description The type of the identity. Valid values:
-     *
-     * - AssumedRoleUser: a RAM role
      * @example RAMUser
      *
      * @var string
@@ -37,8 +30,6 @@ class GetCallerIdentityResponseBody extends Model
     public $identityType;
 
     /**
-     * @description The ID of the principal.
-     *
      * @example 28877424437521****
      *
      * @var string
@@ -46,8 +37,6 @@ class GetCallerIdentityResponseBody extends Model
     public $principalId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 3C87BF47-3724-5443-ADC1-5AEAD9A03EB1
      *
      * @var string
@@ -55,9 +44,6 @@ class GetCallerIdentityResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the RAM role.
-     *
-     * > This parameter is returned only when the current requester uses a RAM role.
      * @example 33537620082992****
      *
      * @var string
@@ -65,9 +51,6 @@ class GetCallerIdentityResponseBody extends Model
     public $roleId;
 
     /**
-     * @description The ID of the current requester.
-     *
-     * > This parameter is returned only when the current requester uses an Alibaba Cloud account or a RAM user.
      * @example 216959339000****
      *
      * @var string
