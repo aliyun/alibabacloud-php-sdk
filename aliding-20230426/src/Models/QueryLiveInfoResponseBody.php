@@ -37,7 +37,7 @@ class QueryLiveInfoResponseBody extends Model
     /**
      * @example 1211-3442-122
      *
-     * @var int
+     * @var string
      */
     public $liveId;
 
@@ -47,6 +47,11 @@ class QueryLiveInfoResponseBody extends Model
      * @var string
      */
     public $livePlayUrl;
+
+    /**
+     * @var int
+     */
+    public $liveStatus;
 
     /**
      * @example 13414
@@ -96,6 +101,7 @@ class QueryLiveInfoResponseBody extends Model
         'introduction'     => 'introduction',
         'liveId'           => 'liveId',
         'livePlayUrl'      => 'livePlayUrl',
+        'liveStatus'       => 'liveStatus',
         'playbackDuration' => 'playbackDuration',
         'requestId'        => 'requestId',
         'startTime'        => 'startTime',
@@ -128,6 +134,9 @@ class QueryLiveInfoResponseBody extends Model
         }
         if (null !== $this->livePlayUrl) {
             $res['livePlayUrl'] = $this->livePlayUrl;
+        }
+        if (null !== $this->liveStatus) {
+            $res['liveStatus'] = $this->liveStatus;
         }
         if (null !== $this->playbackDuration) {
             $res['playbackDuration'] = $this->playbackDuration;
@@ -176,6 +185,9 @@ class QueryLiveInfoResponseBody extends Model
         }
         if (isset($map['livePlayUrl'])) {
             $model->livePlayUrl = $map['livePlayUrl'];
+        }
+        if (isset($map['liveStatus'])) {
+            $model->liveStatus = $map['liveStatus'];
         }
         if (isset($map['playbackDuration'])) {
             $model->playbackDuration = $map['playbackDuration'];
