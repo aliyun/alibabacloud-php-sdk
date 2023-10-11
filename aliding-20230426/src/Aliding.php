@@ -11,6 +11,15 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\AddAttendeeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddAttendeeResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddAttendeeShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddAttendeeShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceDocMembersHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceDocMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceDocMembersResponse;
@@ -66,11 +75,20 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScenegroupHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScenegroupRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScenegroupResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScenegroupShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceResponse;
@@ -81,6 +99,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskResponse;
@@ -130,11 +153,19 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteRowsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteRowsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteRowsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteRowsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteScenegroupMemberHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteScenegroupMemberRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteScenegroupMemberResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteScenegroupMemberShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteSheetHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteSheetRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteSheetResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteSheetShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteSheetShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteSubscribedCalendarHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteSubscribedCalendarRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteSubscribedCalendarResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteSubscribedCalendarShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteTodoTaskHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteTodoTaskRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteTodoTaskResponse;
@@ -159,6 +190,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMeetingRoomsScheduleHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMeetingRoomsScheduleRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMeetingRoomsScheduleResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMeetingRoomsScheduleShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMeetingRoomsScheduleShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceResponse;
@@ -179,6 +215,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodesResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodesShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodesShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOpenUrlHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOpenUrlRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOpenUrlResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOpenUrlShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRangeHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRangeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRangeResponse;
@@ -204,6 +244,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSubscribedCalendarHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSubscribedCalendarRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSubscribedCalendarResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSubscribedCalendarShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdResponse;
@@ -224,6 +268,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetWorkspacesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetWorkspacesResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetWorkspacesShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetWorkspacesShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GrantHonorHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GrantHonorRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GrantHonorResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GrantHonorShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GrantHonorShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeResponse;
@@ -248,6 +297,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsViewHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsViewRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsViewResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsViewShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNodesHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNodesResponse;
@@ -332,6 +385,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgHonorsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgHonorsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgHonorsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgHonorsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgHonorsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksResponse;
@@ -342,6 +400,16 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryUserHonorsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryUserHonorsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryUserHonorsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryUserHonorsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryUserHonorsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RecallHonorHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RecallHonorRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RecallHonorResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RecallHonorShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RecallHonorShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ReceiverListReportHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ReceiverListReportRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ReceiverListReportResponse;
@@ -352,6 +420,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveAttendeeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveAttendeeResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveAttendeeShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveAttendeeShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveMeetingRoomsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveMeetingRoomsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveMeetingRoomsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveMeetingRoomsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveMeetingRoomsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentResponse;
@@ -392,6 +465,14 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\StopCloudRecordRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StopCloudRecordResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StopCloudRecordShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StopCloudRecordShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateLiveHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateLiveRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateLiveResponse;
@@ -417,6 +498,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConferenceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConferenceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConferenceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConferenceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateSubscribedCalendarsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateSubscribedCalendarsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateSubscribedCalendarsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateSubscribedCalendarsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateSubscribedCalendarsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskExecutorStatusHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskExecutorStatusRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskExecutorStatusResponse;
@@ -437,6 +523,16 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateWorkspaceMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateWorkspaceMembersResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateWorkspaceMembersShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateWorkspaceMembersShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UploadMediaHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UploadMediaRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UploadMediaResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UploadMediaShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UploadMediaShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\WearOrgHonorHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\WearOrgHonorRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\WearOrgHonorResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\WearOrgHonorShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\WearOrgHonorShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -543,6 +639,136 @@ class Aliding extends OpenApiClient
         $headers = new AddAttendeeHeaders([]);
 
         return $this->addAttendeeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param AddMeetingRoomsRequest $tmpReq
+     * @param AddMeetingRoomsHeaders $tmpHeader
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddMeetingRoomsResponse
+     */
+    public function addMeetingRoomsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddMeetingRoomsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new AddMeetingRoomsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->meetingRoomsToAdd)) {
+            $request->meetingRoomsToAddShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->meetingRoomsToAdd, 'MeetingRoomsToAdd', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->calendarId)) {
+            $body['CalendarId'] = $request->calendarId;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $body['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->meetingRoomsToAddShrink)) {
+            $body['MeetingRoomsToAdd'] = $request->meetingRoomsToAddShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMeetingRooms',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/addMeetingRooms',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddMeetingRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddMeetingRoomsRequest $request
+     *
+     * @return AddMeetingRoomsResponse
+     */
+    public function addMeetingRooms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddMeetingRoomsHeaders([]);
+
+        return $this->addMeetingRoomsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param AddScenegroupMemberRequest $request
+     * @param AddScenegroupMemberHeaders $tmpHeader
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddScenegroupMemberResponse
+     */
+    public function addScenegroupMemberWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new AddScenegroupMemberShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->openConversationId)) {
+            $body['OpenConversationId'] = $request->openConversationId;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $body['UserIds'] = $request->userIds;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddScenegroupMember',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/im/addScenegroupMember',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddScenegroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddScenegroupMemberRequest $request
+     *
+     * @return AddScenegroupMemberResponse
+     */
+    public function addScenegroupMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddScenegroupMemberHeaders([]);
+
+        return $this->addScenegroupMemberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1413,6 +1639,90 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param CreateOrgHonorTemplateRequest $tmpReq
+     * @param CreateOrgHonorTemplateHeaders $tmpHeader
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateOrgHonorTemplateResponse
+     */
+    public function createOrgHonorTemplateWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateOrgHonorTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CreateOrgHonorTemplateShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->avatarFrameMediaId)) {
+            $body['avatarFrameMediaId'] = $request->avatarFrameMediaId;
+        }
+        if (!Utils::isUnset($request->defaultBgColor)) {
+            $body['defaultBgColor'] = $request->defaultBgColor;
+        }
+        if (!Utils::isUnset($request->medalDesc)) {
+            $body['medalDesc'] = $request->medalDesc;
+        }
+        if (!Utils::isUnset($request->medalMediaId)) {
+            $body['medalMediaId'] = $request->medalMediaId;
+        }
+        if (!Utils::isUnset($request->medalName)) {
+            $body['medalName'] = $request->medalName;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['orgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrgHonorTemplate',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/honor/createOrgHonorTemplate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOrgHonorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOrgHonorTemplateRequest $request
+     *
+     * @return CreateOrgHonorTemplateResponse
+     */
+    public function createOrgHonorTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateOrgHonorTemplateHeaders([]);
+
+        return $this->createOrgHonorTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param CreateReportRequest $tmpReq
      * @param CreateReportHeaders $tmpHeader
      * @param RuntimeOptions      $runtime
@@ -1500,6 +1810,121 @@ class Aliding extends OpenApiClient
         $headers = new CreateReportHeaders([]);
 
         return $this->createReportWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateScenegroupRequest $request
+     * @param CreateScenegroupHeaders $tmpHeader
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateScenegroupResponse
+     */
+    public function createScenegroupWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new CreateScenegroupShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->addFriendForbidden)) {
+            $body['AddFriendForbidden'] = $request->addFriendForbidden;
+        }
+        if (!Utils::isUnset($request->allMembersCanCreateCalendar)) {
+            $body['AllMembersCanCreateCalendar'] = $request->allMembersCanCreateCalendar;
+        }
+        if (!Utils::isUnset($request->allMembersCanCreateMcsConf)) {
+            $body['AllMembersCanCreateMcsConf'] = $request->allMembersCanCreateMcsConf;
+        }
+        if (!Utils::isUnset($request->chatBannedType)) {
+            $body['ChatBannedType'] = $request->chatBannedType;
+        }
+        if (!Utils::isUnset($request->groupEmailDisabled)) {
+            $body['GroupEmailDisabled'] = $request->groupEmailDisabled;
+        }
+        if (!Utils::isUnset($request->groupLiveSwitch)) {
+            $body['GroupLiveSwitch'] = $request->groupLiveSwitch;
+        }
+        if (!Utils::isUnset($request->icon)) {
+            $body['Icon'] = $request->icon;
+        }
+        if (!Utils::isUnset($request->managementType)) {
+            $body['ManagementType'] = $request->managementType;
+        }
+        if (!Utils::isUnset($request->membersToAdminChat)) {
+            $body['MembersToAdminChat'] = $request->membersToAdminChat;
+        }
+        if (!Utils::isUnset($request->mentionAllAuthority)) {
+            $body['MentionAllAuthority'] = $request->mentionAllAuthority;
+        }
+        if (!Utils::isUnset($request->onlyAdminCanDing)) {
+            $body['OnlyAdminCanDing'] = $request->onlyAdminCanDing;
+        }
+        if (!Utils::isUnset($request->onlyAdminCanSetMsgTop)) {
+            $body['OnlyAdminCanSetMsgTop'] = $request->onlyAdminCanSetMsgTop;
+        }
+        if (!Utils::isUnset($request->searchable)) {
+            $body['Searchable'] = $request->searchable;
+        }
+        if (!Utils::isUnset($request->showHistoryType)) {
+            $body['ShowHistoryType'] = $request->showHistoryType;
+        }
+        if (!Utils::isUnset($request->subadminIds)) {
+            $body['SubadminIds'] = $request->subadminIds;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $body['UserIds'] = $request->userIds;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $body['Uuid'] = $request->uuid;
+        }
+        if (!Utils::isUnset($request->validationType)) {
+            $body['ValidationType'] = $request->validationType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScenegroup',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/im/createScenegroup',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateScenegroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateScenegroupRequest $request
+     *
+     * @return CreateScenegroupResponse
+     */
+    public function createScenegroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateScenegroupHeaders([]);
+
+        return $this->createScenegroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1641,6 +2066,81 @@ class Aliding extends OpenApiClient
         $headers = new CreateSheetHeaders([]);
 
         return $this->createSheetWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateSubscribedCalendarRequest $tmpReq
+     * @param CreateSubscribedCalendarHeaders $tmpHeader
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateSubscribedCalendarResponse
+     */
+    public function createSubscribedCalendarWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSubscribedCalendarShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CreateSubscribedCalendarShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->managers)) {
+            $request->managersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managers, 'Managers', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->subscribeScope)) {
+            $request->subscribeScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subscribeScope, 'SubscribeScope', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->managersShrink)) {
+            $body['Managers'] = $request->managersShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->subscribeScopeShrink)) {
+            $body['SubscribeScope'] = $request->subscribeScopeShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSubscribedCalendar',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/createSubscribedCalendar',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSubscribedCalendarRequest $request
+     *
+     * @return CreateSubscribedCalendarResponse
+     */
+    public function createSubscribedCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateSubscribedCalendarHeaders([]);
+
+        return $this->createSubscribedCalendarWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2391,6 +2891,67 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param DeleteScenegroupMemberRequest $request
+     * @param DeleteScenegroupMemberHeaders $tmpHeader
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteScenegroupMemberResponse
+     */
+    public function deleteScenegroupMemberWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new DeleteScenegroupMemberShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->openConversationId)) {
+            $body['OpenConversationId'] = $request->openConversationId;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $body['UserIds'] = $request->userIds;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteScenegroupMember',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/im/deleteScenegroupMember',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteScenegroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteScenegroupMemberRequest $request
+     *
+     * @return DeleteScenegroupMemberResponse
+     */
+    public function deleteScenegroupMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteScenegroupMemberHeaders([]);
+
+        return $this->deleteScenegroupMemberWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param DeleteSheetRequest $tmpReq
      * @param DeleteSheetHeaders $tmpHeader
      * @param RuntimeOptions     $runtime
@@ -2457,6 +3018,64 @@ class Aliding extends OpenApiClient
         $headers = new DeleteSheetHeaders([]);
 
         return $this->deleteSheetWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteSubscribedCalendarRequest $request
+     * @param DeleteSubscribedCalendarHeaders $tmpHeader
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteSubscribedCalendarResponse
+     */
+    public function deleteSubscribedCalendarWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new DeleteSubscribedCalendarShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->calendarId)) {
+            $body['CalendarId'] = $request->calendarId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSubscribedCalendar',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/deleteSubscribedCalendar',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSubscribedCalendarRequest $request
+     *
+     * @return DeleteSubscribedCalendarResponse
+     */
+    public function deleteSubscribedCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteSubscribedCalendarHeaders([]);
+
+        return $this->deleteSubscribedCalendarWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2808,6 +3427,75 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param GetMeetingRoomsScheduleRequest $tmpReq
+     * @param GetMeetingRoomsScheduleHeaders $tmpHeader
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetMeetingRoomsScheduleResponse
+     */
+    public function getMeetingRoomsScheduleWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetMeetingRoomsScheduleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetMeetingRoomsScheduleShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->roomIds)) {
+            $request->roomIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomIds, 'RoomIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->roomIdsShrink)) {
+            $body['RoomIds'] = $request->roomIdsShrink;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMeetingRoomsSchedule',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/getMeetingRoomsSchedule',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMeetingRoomsScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMeetingRoomsScheduleRequest $request
+     *
+     * @return GetMeetingRoomsScheduleResponse
+     */
+    public function getMeetingRoomsSchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetMeetingRoomsScheduleHeaders([]);
+
+        return $this->getMeetingRoomsScheduleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetMineWorkspaceRequest $tmpReq
      * @param GetMineWorkspaceHeaders $tmpHeader
      * @param RuntimeOptions          $runtime
@@ -3093,6 +3781,76 @@ class Aliding extends OpenApiClient
         $headers = new GetNodesHeaders([]);
 
         return $this->getNodesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetOpenUrlRequest $request
+     * @param GetOpenUrlHeaders $tmpHeader
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetOpenUrlResponse
+     */
+    public function getOpenUrlWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new GetOpenUrlShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appType)) {
+            $body['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->systemToken)) {
+            $body['SystemToken'] = $request->systemToken;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $body['Timeout'] = $request->timeout;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOpenUrl',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/yida/getOpenUrl',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOpenUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOpenUrlRequest $request
+     *
+     * @return GetOpenUrlResponse
+     */
+    public function getOpenUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetOpenUrlHeaders([]);
+
+        return $this->getOpenUrlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3450,6 +4208,64 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param GetSubscribedCalendarRequest $request
+     * @param GetSubscribedCalendarHeaders $tmpHeader
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetSubscribedCalendarResponse
+     */
+    public function getSubscribedCalendarWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new GetSubscribedCalendarShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->calendarId)) {
+            $body['CalendarId'] = $request->calendarId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSubscribedCalendar',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/getSubscribedCalendar',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSubscribedCalendarRequest $request
+     *
+     * @return GetSubscribedCalendarResponse
+     */
+    public function getSubscribedCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetSubscribedCalendarHeaders([]);
+
+        return $this->getSubscribedCalendarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetTemplateListByUserIdRequest $tmpReq
      * @param GetTemplateListByUserIdHeaders $tmpHeader
      * @param RuntimeOptions                 $runtime
@@ -3726,6 +4542,105 @@ class Aliding extends OpenApiClient
         $headers = new GetWorkspacesHeaders([]);
 
         return $this->getWorkspacesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GrantHonorRequest $tmpReq
+     * @param GrantHonorHeaders $tmpHeader
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GrantHonorResponse
+     */
+    public function grantHonorWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GrantHonorShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GrantHonorShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->openConversationIds)) {
+            $request->openConversationIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openConversationIds, 'openConversationIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->receiverUserIds)) {
+            $request->receiverUserIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->receiverUserIds, 'receiverUserIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->expirationTime)) {
+            $body['expirationTime'] = $request->expirationTime;
+        }
+        if (!Utils::isUnset($request->grantReason)) {
+            $body['grantReason'] = $request->grantReason;
+        }
+        if (!Utils::isUnset($request->granterName)) {
+            $body['granterName'] = $request->granterName;
+        }
+        if (!Utils::isUnset($request->honorId)) {
+            $body['honorId'] = $request->honorId;
+        }
+        if (!Utils::isUnset($request->noticeAnnouncer)) {
+            $body['noticeAnnouncer'] = $request->noticeAnnouncer;
+        }
+        if (!Utils::isUnset($request->noticeSingle)) {
+            $body['noticeSingle'] = $request->noticeSingle;
+        }
+        if (!Utils::isUnset($request->openConversationIdsShrink)) {
+            $body['openConversationIds'] = $request->openConversationIdsShrink;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['orgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->receiverUserIdsShrink)) {
+            $body['receiverUserIds'] = $request->receiverUserIdsShrink;
+        }
+        if (!Utils::isUnset($request->senderUserId)) {
+            $body['senderUserId'] = $request->senderUserId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantHonor',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/honor/grantHonor',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantHonorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GrantHonorRequest $request
+     *
+     * @return GrantHonorResponse
+     */
+    public function grantHonor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GrantHonorHeaders([]);
+
+        return $this->grantHonorWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4093,6 +5008,79 @@ class Aliding extends OpenApiClient
         $headers = new ListEventsHeaders([]);
 
         return $this->listEventsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListEventsViewRequest $request
+     * @param ListEventsViewHeaders $tmpHeader
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListEventsViewResponse
+     */
+    public function listEventsViewWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new ListEventsViewShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->calendarId)) {
+            $body['CalendarId'] = $request->calendarId;
+        }
+        if (!Utils::isUnset($request->maxAttendees)) {
+            $body['MaxAttendees'] = $request->maxAttendees;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->timeMax)) {
+            $body['TimeMax'] = $request->timeMax;
+        }
+        if (!Utils::isUnset($request->timeMin)) {
+            $body['TimeMin'] = $request->timeMin;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEventsView',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/listEventsView',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEventsViewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEventsViewRequest $request
+     *
+     * @return ListEventsViewResponse
+     */
+    public function listEventsView($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListEventsViewHeaders([]);
+
+        return $this->listEventsViewWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5339,6 +6327,78 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param QueryOrgHonorsRequest $tmpReq
+     * @param QueryOrgHonorsHeaders $tmpHeader
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryOrgHonorsResponse
+     */
+    public function queryOrgHonorsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryOrgHonorsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new QueryOrgHonorsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['orgId'] = $request->orgId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrgHonors',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/honor/queryOrgHonors',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryOrgHonorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryOrgHonorsRequest $request
+     *
+     * @return QueryOrgHonorsResponse
+     */
+    public function queryOrgHonors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryOrgHonorsHeaders([]);
+
+        return $this->queryOrgHonorsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param QueryOrgTodoTasksRequest $tmpReq
      * @param QueryOrgTodoTasksHeaders $tmpHeader
      * @param RuntimeOptions           $runtime
@@ -5471,6 +6531,153 @@ class Aliding extends OpenApiClient
         $headers = new QueryScheduleConferenceHeaders([]);
 
         return $this->queryScheduleConferenceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param QueryUserHonorsRequest $tmpReq
+     * @param QueryUserHonorsHeaders $tmpHeader
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryUserHonorsResponse
+     */
+    public function queryUserHonorsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryUserHonorsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new QueryUserHonorsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['orgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUserHonors',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/honor/queryUserHonors',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryUserHonorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryUserHonorsRequest $request
+     *
+     * @return QueryUserHonorsResponse
+     */
+    public function queryUserHonors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryUserHonorsHeaders([]);
+
+        return $this->queryUserHonorsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param RecallHonorRequest $tmpReq
+     * @param RecallHonorHeaders $tmpHeader
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RecallHonorResponse
+     */
+    public function recallHonorWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RecallHonorShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new RecallHonorShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->honorId)) {
+            $body['honorId'] = $request->honorId;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['orgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecallHonor',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/honor/recallHonor',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecallHonorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecallHonorRequest $request
+     *
+     * @return RecallHonorResponse
+     */
+    public function recallHonor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new RecallHonorHeaders([]);
+
+        return $this->recallHonorWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5612,6 +6819,75 @@ class Aliding extends OpenApiClient
         $headers = new RemoveAttendeeHeaders([]);
 
         return $this->removeAttendeeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param RemoveMeetingRoomsRequest $tmpReq
+     * @param RemoveMeetingRoomsHeaders $tmpHeader
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RemoveMeetingRoomsResponse
+     */
+    public function removeMeetingRoomsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveMeetingRoomsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new RemoveMeetingRoomsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->meetingRoomsToRemove)) {
+            $request->meetingRoomsToRemoveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->meetingRoomsToRemove, 'MeetingRoomsToRemove', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->calendarId)) {
+            $body['CalendarId'] = $request->calendarId;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $body['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->meetingRoomsToRemoveShrink)) {
+            $body['MeetingRoomsToRemove'] = $request->meetingRoomsToRemoveShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveMeetingRooms',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/removeMeetingRooms',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveMeetingRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveMeetingRoomsRequest $request
+     *
+     * @return RemoveMeetingRoomsResponse
+     */
+    public function removeMeetingRooms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new RemoveMeetingRoomsHeaders([]);
+
+        return $this->removeMeetingRoomsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6203,6 +7479,122 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param SubscribeCalendarRequest $request
+     * @param SubscribeCalendarHeaders $tmpHeader
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SubscribeCalendarResponse
+     */
+    public function subscribeCalendarWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new SubscribeCalendarShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->calendarId)) {
+            $body['CalendarId'] = $request->calendarId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubscribeCalendar',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/subscribeCalendar',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubscribeCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubscribeCalendarRequest $request
+     *
+     * @return SubscribeCalendarResponse
+     */
+    public function subscribeCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SubscribeCalendarHeaders([]);
+
+        return $this->subscribeCalendarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UnsubscribeCalendarRequest $request
+     * @param UnsubscribeCalendarHeaders $tmpHeader
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UnsubscribeCalendarResponse
+     */
+    public function unsubscribeCalendarWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new UnsubscribeCalendarShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->calendarId)) {
+            $body['CalendarId'] = $request->calendarId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UnsubscribeCalendar',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/unsubscribeCalendar',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnsubscribeCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnsubscribeCalendarRequest $request
+     *
+     * @return UnsubscribeCalendarResponse
+     */
+    public function unsubscribeCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UnsubscribeCalendarHeaders([]);
+
+        return $this->unsubscribeCalendarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param UpdateLiveRequest $tmpReq
      * @param UpdateLiveHeaders $tmpHeader
      * @param RuntimeOptions    $runtime
@@ -6617,6 +8009,84 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param UpdateSubscribedCalendarsRequest $tmpReq
+     * @param UpdateSubscribedCalendarsHeaders $tmpHeader
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateSubscribedCalendarsResponse
+     */
+    public function updateSubscribedCalendarsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSubscribedCalendarsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new UpdateSubscribedCalendarsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->managers)) {
+            $request->managersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managers, 'Managers', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->subscribeScope)) {
+            $request->subscribeScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subscribeScope, 'SubscribeScope', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->calendarId)) {
+            $body['CalendarId'] = $request->calendarId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->managersShrink)) {
+            $body['Managers'] = $request->managersShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->subscribeScopeShrink)) {
+            $body['SubscribeScope'] = $request->subscribeScopeShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSubscribedCalendars',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/updateSubscribedCalendars',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSubscribedCalendarsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSubscribedCalendarsRequest $request
+     *
+     * @return UpdateSubscribedCalendarsResponse
+     */
+    public function updateSubscribedCalendars($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateSubscribedCalendarsHeaders([]);
+
+        return $this->updateSubscribedCalendarsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param UpdateTodoTaskRequest $tmpReq
      * @param UpdateTodoTaskHeaders $tmpHeader
      * @param RuntimeOptions        $runtime
@@ -6926,5 +8396,155 @@ class Aliding extends OpenApiClient
         $headers = new UpdateWorkspaceMembersHeaders([]);
 
         return $this->updateWorkspaceMembersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UploadMediaRequest $tmpReq
+     * @param UploadMediaHeaders $tmpHeader
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UploadMediaResponse
+     */
+    public function uploadMediaWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UploadMediaShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new UploadMediaShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->mediaName)) {
+            $body['mediaName'] = $request->mediaName;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $body['mediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['orgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['url'] = $request->url;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadMedia',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/documents/uploadMedia',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UploadMediaRequest $request
+     *
+     * @return UploadMediaResponse
+     */
+    public function uploadMedia($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UploadMediaHeaders([]);
+
+        return $this->uploadMediaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param WearOrgHonorRequest $tmpReq
+     * @param WearOrgHonorHeaders $tmpHeader
+     * @param RuntimeOptions      $runtime
+     *
+     * @return WearOrgHonorResponse
+     */
+    public function wearOrgHonorWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new WearOrgHonorShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new WearOrgHonorShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->honorId)) {
+            $body['honorId'] = $request->honorId;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['orgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->wear)) {
+            $body['wear'] = $request->wear;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'WearOrgHonor',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/honor/wearOrgHonor',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return WearOrgHonorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param WearOrgHonorRequest $request
+     *
+     * @return WearOrgHonorResponse
+     */
+    public function wearOrgHonor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new WearOrgHonorHeaders([]);
+
+        return $this->wearOrgHonorWithOptions($request, $headers, $runtime);
     }
 }
