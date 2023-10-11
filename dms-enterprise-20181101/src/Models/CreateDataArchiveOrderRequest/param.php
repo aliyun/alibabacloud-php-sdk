@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataArchiveOrderRequest;
 
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataArchiveOrderRequest\param\tableIncludes;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataArchiveOrderRequest\param\variables;
 use AlibabaCloud\Tea\Model;
 
 class param extends Model
@@ -17,11 +18,9 @@ class param extends Model
     public $archiveMethod;
 
     /**
-     * @example schema1
-     *
      * @var string
      */
-    public $dbSchema;
+    public $cronStr;
 
     /**
      * @example false
@@ -43,11 +42,19 @@ class param extends Model
     public $runMethod;
 
     /**
-     * @example 834***
-     *
-     * @var int
+     * @var string
      */
-    public $sourceDatabaseId;
+    public $sourceCatalogName;
+
+    /**
+     * @var string
+     */
+    public $sourceInstanceName;
+
+    /**
+     * @var string
+     */
+    public $sourceSchemaName;
 
     /**
      * @var tableIncludes[]
@@ -60,27 +67,27 @@ class param extends Model
     public $tableMapping;
 
     /**
-     * @example 256****
-     *
      * @var string
      */
-    public $targetInstanceId;
+    public $targetInstanceHost;
 
     /**
-     * @var string[]
+     * @var variables[]
      */
     public $variables;
     protected $_name = [
-        'archiveMethod'    => 'ArchiveMethod',
-        'dbSchema'         => 'DbSchema',
-        'logic'            => 'Logic',
-        'orderAfter'       => 'OrderAfter',
-        'runMethod'        => 'RunMethod',
-        'sourceDatabaseId' => 'SourceDatabaseId',
-        'tableIncludes'    => 'TableIncludes',
-        'tableMapping'     => 'TableMapping',
-        'targetInstanceId' => 'TargetInstanceId',
-        'variables'        => 'Variables',
+        'archiveMethod'      => 'ArchiveMethod',
+        'cronStr'            => 'CronStr',
+        'logic'              => 'Logic',
+        'orderAfter'         => 'OrderAfter',
+        'runMethod'          => 'RunMethod',
+        'sourceCatalogName'  => 'SourceCatalogName',
+        'sourceInstanceName' => 'SourceInstanceName',
+        'sourceSchemaName'   => 'SourceSchemaName',
+        'tableIncludes'      => 'TableIncludes',
+        'tableMapping'       => 'TableMapping',
+        'targetInstanceHost' => 'TargetInstanceHost',
+        'variables'          => 'Variables',
     ];
 
     public function validate()
@@ -93,8 +100,8 @@ class param extends Model
         if (null !== $this->archiveMethod) {
             $res['ArchiveMethod'] = $this->archiveMethod;
         }
-        if (null !== $this->dbSchema) {
-            $res['DbSchema'] = $this->dbSchema;
+        if (null !== $this->cronStr) {
+            $res['CronStr'] = $this->cronStr;
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
@@ -105,8 +112,14 @@ class param extends Model
         if (null !== $this->runMethod) {
             $res['RunMethod'] = $this->runMethod;
         }
-        if (null !== $this->sourceDatabaseId) {
-            $res['SourceDatabaseId'] = $this->sourceDatabaseId;
+        if (null !== $this->sourceCatalogName) {
+            $res['SourceCatalogName'] = $this->sourceCatalogName;
+        }
+        if (null !== $this->sourceInstanceName) {
+            $res['SourceInstanceName'] = $this->sourceInstanceName;
+        }
+        if (null !== $this->sourceSchemaName) {
+            $res['SourceSchemaName'] = $this->sourceSchemaName;
         }
         if (null !== $this->tableIncludes) {
             $res['TableIncludes'] = [];
@@ -120,11 +133,17 @@ class param extends Model
         if (null !== $this->tableMapping) {
             $res['TableMapping'] = $this->tableMapping;
         }
-        if (null !== $this->targetInstanceId) {
-            $res['TargetInstanceId'] = $this->targetInstanceId;
+        if (null !== $this->targetInstanceHost) {
+            $res['TargetInstanceHost'] = $this->targetInstanceHost;
         }
         if (null !== $this->variables) {
-            $res['Variables'] = $this->variables;
+            $res['Variables'] = [];
+            if (null !== $this->variables && \is_array($this->variables)) {
+                $n = 0;
+                foreach ($this->variables as $item) {
+                    $res['Variables'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -141,8 +160,8 @@ class param extends Model
         if (isset($map['ArchiveMethod'])) {
             $model->archiveMethod = $map['ArchiveMethod'];
         }
-        if (isset($map['DbSchema'])) {
-            $model->dbSchema = $map['DbSchema'];
+        if (isset($map['CronStr'])) {
+            $model->cronStr = $map['CronStr'];
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
@@ -155,8 +174,14 @@ class param extends Model
         if (isset($map['RunMethod'])) {
             $model->runMethod = $map['RunMethod'];
         }
-        if (isset($map['SourceDatabaseId'])) {
-            $model->sourceDatabaseId = $map['SourceDatabaseId'];
+        if (isset($map['SourceCatalogName'])) {
+            $model->sourceCatalogName = $map['SourceCatalogName'];
+        }
+        if (isset($map['SourceInstanceName'])) {
+            $model->sourceInstanceName = $map['SourceInstanceName'];
+        }
+        if (isset($map['SourceSchemaName'])) {
+            $model->sourceSchemaName = $map['SourceSchemaName'];
         }
         if (isset($map['TableIncludes'])) {
             if (!empty($map['TableIncludes'])) {
@@ -172,12 +197,16 @@ class param extends Model
                 $model->tableMapping = $map['TableMapping'];
             }
         }
-        if (isset($map['TargetInstanceId'])) {
-            $model->targetInstanceId = $map['TargetInstanceId'];
+        if (isset($map['TargetInstanceHost'])) {
+            $model->targetInstanceHost = $map['TargetInstanceHost'];
         }
         if (isset($map['Variables'])) {
             if (!empty($map['Variables'])) {
-                $model->variables = $map['Variables'];
+                $model->variables = [];
+                $n                = 0;
+                foreach ($map['Variables'] as $item) {
+                    $model->variables[$n++] = null !== $item ? variables::fromMap($item) : $item;
+                }
             }
         }
 
