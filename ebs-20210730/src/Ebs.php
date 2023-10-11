@@ -12,6 +12,10 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\ApplyLensServiceResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CancelLensServiceResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ClearPairDrillRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ClearPairDrillResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ClearReplicaGroupDrillRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ClearReplicaGroupDrillResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDedicatedBlockStorageClusterRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDedicatedBlockStorageClusterResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaGroupRequest;
@@ -39,8 +43,12 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressRespons
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeLensServiceStatusResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribePairDrillsRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribePairDrillsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeReplicaGroupDrillsRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeReplicaGroupDrillsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairRequest;
@@ -66,6 +74,10 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\StartPairDrillRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\StartPairDrillResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\StartReplicaGroupDrillRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\StartReplicaGroupDrillResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskMonitorRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskMonitorResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskMonitorShrinkRequest;
@@ -303,6 +315,104 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ClearPairDrillRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ClearPairDrillResponse
+     */
+    public function clearPairDrillWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->drillId)) {
+            $query['DrillId'] = $request->drillId;
+        }
+        if (!Utils::isUnset($request->pairId)) {
+            $query['PairId'] = $request->pairId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClearPairDrill',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClearPairDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ClearPairDrillRequest $request
+     *
+     * @return ClearPairDrillResponse
+     */
+    public function clearPairDrill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clearPairDrillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ClearReplicaGroupDrillRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ClearReplicaGroupDrillResponse
+     */
+    public function clearReplicaGroupDrillWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->drillId)) {
+            $query['DrillId'] = $request->drillId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClearReplicaGroupDrill',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClearReplicaGroupDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ClearReplicaGroupDrillRequest $request
+     *
+     * @return ClearReplicaGroupDrillResponse
+     */
+    public function clearReplicaGroupDrill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clearReplicaGroupDrillWithOptions($request, $runtime);
     }
 
     /**
@@ -1282,6 +1392,67 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param DescribePairDrillsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribePairDrillsResponse
+     */
+    public function describePairDrillsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->drillId)) {
+            $query['DrillId'] = $request->drillId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pairId)) {
+            $query['PairId'] = $request->pairId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePairDrills',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePairDrillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePairDrillsRequest $request
+     *
+     * @return DescribePairDrillsResponse
+     */
+    public function describePairDrills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePairDrillsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1328,6 +1499,67 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeReplicaGroupDrillsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeReplicaGroupDrillsResponse
+     */
+    public function describeReplicaGroupDrillsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->drillId)) {
+            $query['DrillId'] = $request->drillId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeReplicaGroupDrills',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeReplicaGroupDrillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeReplicaGroupDrillsRequest $request
+     *
+     * @return DescribeReplicaGroupDrillsResponse
+     */
+    public function describeReplicaGroupDrills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeReplicaGroupDrillsWithOptions($request, $runtime);
     }
 
     /**
@@ -2034,6 +2266,104 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startDiskReplicaPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartPairDrillRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StartPairDrillResponse
+     */
+    public function startPairDrillWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->pairId)) {
+            $query['PairId'] = $request->pairId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartPairDrill',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartPairDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartPairDrillRequest $request
+     *
+     * @return StartPairDrillResponse
+     */
+    public function startPairDrill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startPairDrillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartReplicaGroupDrillRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return StartReplicaGroupDrillResponse
+     */
+    public function startReplicaGroupDrillWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartReplicaGroupDrill',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartReplicaGroupDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartReplicaGroupDrillRequest $request
+     *
+     * @return StartReplicaGroupDrillResponse
+     */
+    public function startReplicaGroupDrill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startReplicaGroupDrillWithOptions($request, $runtime);
     }
 
     /**
