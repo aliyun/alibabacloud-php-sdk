@@ -185,6 +185,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobTableMetaRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobTableMetaResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackOrderDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackOrderDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDbExportDownloadURLRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDbExportDownloadURLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTaskSQLJobLogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTaskSQLJobLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTopologyRequest;
@@ -4932,6 +4934,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDatabaseExportOrderDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDbExportDownloadURLRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDbExportDownloadURLResponse
+     */
+    public function getDbExportDownloadURLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDbExportDownloadURL',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDbExportDownloadURLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDbExportDownloadURLRequest $request
+     *
+     * @return GetDbExportDownloadURLResponse
+     */
+    public function getDbExportDownloadURL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDbExportDownloadURLWithOptions($request, $runtime);
     }
 
     /**

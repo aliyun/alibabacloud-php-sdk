@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class orderBaseInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $attachmentKey;
+
+    /**
      * @description The remarks of the ticket.
      *
      * @example test
@@ -63,6 +68,11 @@ class orderBaseInfo extends Model
      * @var int
      */
     public $orderId;
+
+    /**
+     * @var string
+     */
+    public $originAttachmentName;
 
     /**
      * @description The type of the ticket. For more information about the value of this parameter, see the request parameters of the [CreateOrder](~~465865~~) operation.
@@ -131,19 +141,21 @@ class orderBaseInfo extends Model
      */
     public $workflowStatusDesc;
     protected $_name = [
-        'comment'             => 'Comment',
-        'committer'           => 'Committer',
-        'committerId'         => 'CommitterId',
-        'createTime'          => 'CreateTime',
-        'lastModifyTime'      => 'LastModifyTime',
-        'orderId'             => 'OrderId',
-        'pluginType'          => 'PluginType',
-        'relatedUserList'     => 'RelatedUserList',
-        'relatedUserNickList' => 'RelatedUserNickList',
-        'statusCode'          => 'StatusCode',
-        'statusDesc'          => 'StatusDesc',
-        'workflowInstanceId'  => 'WorkflowInstanceId',
-        'workflowStatusDesc'  => 'WorkflowStatusDesc',
+        'attachmentKey'        => 'AttachmentKey',
+        'comment'              => 'Comment',
+        'committer'            => 'Committer',
+        'committerId'          => 'CommitterId',
+        'createTime'           => 'CreateTime',
+        'lastModifyTime'       => 'LastModifyTime',
+        'orderId'              => 'OrderId',
+        'originAttachmentName' => 'OriginAttachmentName',
+        'pluginType'           => 'PluginType',
+        'relatedUserList'      => 'RelatedUserList',
+        'relatedUserNickList'  => 'RelatedUserNickList',
+        'statusCode'           => 'StatusCode',
+        'statusDesc'           => 'StatusDesc',
+        'workflowInstanceId'   => 'WorkflowInstanceId',
+        'workflowStatusDesc'   => 'WorkflowStatusDesc',
     ];
 
     public function validate()
@@ -153,6 +165,9 @@ class orderBaseInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachmentKey) {
+            $res['AttachmentKey'] = $this->attachmentKey;
+        }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
@@ -170,6 +185,9 @@ class orderBaseInfo extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->originAttachmentName) {
+            $res['OriginAttachmentName'] = $this->originAttachmentName;
         }
         if (null !== $this->pluginType) {
             $res['PluginType'] = $this->pluginType;
@@ -204,6 +222,9 @@ class orderBaseInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachmentKey'])) {
+            $model->attachmentKey = $map['AttachmentKey'];
+        }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
@@ -221,6 +242,9 @@ class orderBaseInfo extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['OriginAttachmentName'])) {
+            $model->originAttachmentName = $map['OriginAttachmentName'];
         }
         if (isset($map['PluginType'])) {
             $model->pluginType = $map['PluginType'];
