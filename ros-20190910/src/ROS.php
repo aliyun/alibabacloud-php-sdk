@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\ContinueCreateStackRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ContinueCreateStackResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateChangeSetRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateChangeSetResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateDiagnosticRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateDiagnosticResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupShrinkRequest;
@@ -29,6 +31,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteChangeSetRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteChangeSetResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteDiagnosticRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteDiagnosticResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteStackGroupRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteStackGroupResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteStackInstancesRequest;
@@ -59,6 +63,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplatePolicyRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplatePolicyResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetDiagnosticRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetDiagnosticResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetResourceTypeRequest;
@@ -96,6 +102,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListDiagnosticsRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListDiagnosticsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypeRegistrationsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypeRegistrationsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypesRequest;
@@ -523,6 +531,55 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createChangeSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDiagnosticRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDiagnosticResponse
+     */
+    public function createDiagnosticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diagnosticKey)) {
+            $query['DiagnosticKey'] = $request->diagnosticKey;
+        }
+        if (!Utils::isUnset($request->diagnosticType)) {
+            $query['DiagnosticType'] = $request->diagnosticType;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDiagnostic',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDiagnosticRequest $request
+     *
+     * @return CreateDiagnosticResponse
+     */
+    public function createDiagnostic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDiagnosticWithOptions($request, $runtime);
     }
 
     /**
@@ -1063,6 +1120,49 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteChangeSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDiagnosticRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDiagnosticResponse
+     */
+    public function deleteDiagnosticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDiagnostic',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDiagnosticRequest $request
+     *
+     * @return DeleteDiagnosticResponse
+     */
+    public function deleteDiagnostic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDiagnosticWithOptions($request, $runtime);
     }
 
     /**
@@ -1840,6 +1940,49 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getChangeSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDiagnosticRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDiagnosticResponse
+     */
+    public function getDiagnosticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDiagnostic',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDiagnosticRequest $request
+     *
+     * @return GetDiagnosticResponse
+     */
+    public function getDiagnostic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDiagnosticWithOptions($request, $runtime);
     }
 
     /**
@@ -3027,6 +3170,61 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listChangeSetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDiagnosticsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDiagnosticsResponse
+     */
+    public function listDiagnosticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diagnosticKey)) {
+            $query['DiagnosticKey'] = $request->diagnosticKey;
+        }
+        if (!Utils::isUnset($request->diagnosticProduct)) {
+            $query['DiagnosticProduct'] = $request->diagnosticProduct;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDiagnostics',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDiagnosticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDiagnosticsRequest $request
+     *
+     * @return ListDiagnosticsResponse
+     */
+    public function listDiagnostics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDiagnosticsWithOptions($request, $runtime);
     }
 
     /**
