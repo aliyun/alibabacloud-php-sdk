@@ -4,19 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetLogMetaResponseBody\logMeta;
 use AlibabaCloud\Tea\Model;
 
-class CreateAgentlessScanTaskResponseBody extends Model
+class GetLogMetaResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example E90DE229-9FC6-58F6-BF4B-03AD6179****
+     * @var logMeta
+     */
+    public $logMeta;
+
+    /**
+     * @example 3956048F-9D73-5EDB-834B-4827BB48****
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'logMeta'   => 'LogMeta',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +32,9 @@ class CreateAgentlessScanTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->logMeta) {
+            $res['LogMeta'] = null !== $this->logMeta ? $this->logMeta->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +45,14 @@ class CreateAgentlessScanTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateAgentlessScanTaskResponseBody
+     * @return GetLogMetaResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LogMeta'])) {
+            $model->logMeta = logMeta::fromMap($map['LogMeta']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

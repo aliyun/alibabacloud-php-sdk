@@ -60,6 +60,8 @@ class basicData extends Model
     public $status;
 
     /**
+     * @example Task is failed.
+     *
      * @var string
      */
     public $statusMessage;

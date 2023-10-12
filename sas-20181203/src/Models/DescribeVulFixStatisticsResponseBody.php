@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulFixStatisticsResponseBody extends Model
 {
     /**
+     * @description An array that consists of the statistics of vulnerability fixes by vulnerability type.
+     *
      * @var fixStat[]
      */
     public $fixStat;
 
     /**
+     * @description The total statistics of vulnerability fixes.
+     *
      * @var fixTotal
      */
     public $fixTotal;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
      *
      * @var string

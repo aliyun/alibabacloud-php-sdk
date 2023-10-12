@@ -77,7 +77,7 @@ class DescribeCloudCenterInstancesRequest extends Model
     public $machineTypes;
 
     /**
-     * @description 使用NextToken方式下返回的NextToken值。第一次拉取传空。
+     * @description The value of NextToken that is returned when the NextToken method is used. You do not need to specify this parameter for the first request.
      *
      * @example E17B501887A2D3AA5E8360A6EFA3B***
      *
@@ -116,8 +116,9 @@ class DescribeCloudCenterInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description 资源目录成员账号主账号ID。
-     * >调用[DescribeMonitorAccounts](~~DescribeMonitorAccounts~~)接口可以获取该参数。
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
      * @example 1232428423234****
      *
      * @var int
@@ -125,10 +126,10 @@ class DescribeCloudCenterInstancesRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
-     * @description 是否使用NextToken方式拉取资产列表数据。如果使用此参数TotalCount不再返回。取值：
+     * @description Specifies whether to use the NextToken method to retrieve a new page of results. If you set UseNextToken to true, the value of TotalCount is not returned. Valid values:
      *
-     * - **true**：使用NextToken方式
-     * - **false**：不使用NextToken方式
+     * - **true**: The NextToken method is used.
+     * - **false**: The NextToken method is not used.
      * @example false
      *
      * @var bool

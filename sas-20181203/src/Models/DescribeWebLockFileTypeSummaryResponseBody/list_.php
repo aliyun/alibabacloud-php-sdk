@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The number of attempts.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,23 @@ class list_ extends Model
     public $count;
 
     /**
+     * @description The type of the protected file. Valid values:
+     *
+     *   **php**: PHP file
+     *   **jsp**: JSP file
+     *   **asp**: ASP file
+     *   **aspx**: ASPX file
+     *   **js**: JS file
+     *   **cgi**: CGI file
+     *   **html**: HTML file
+     *   **htm**: HTM file
+     *   **xml**: XML file
+     *   **shtml**: SHTML file
+     *   **shtm**: SHTM file
+     *   **jpg**: JPG file
+     *   **gif**: GIF file
+     *   **png**: PNG file
+     *
      * @example jsp
      *
      * @var string

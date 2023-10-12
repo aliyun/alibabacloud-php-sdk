@@ -6,18 +6,18 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateAgentlessScanTaskResponseBody extends Model
+class UpdateFileUploadLimitRequest extends Model
 {
     /**
-     * @description The request ID.
+     * @description The QPS limit on the files uploaded from the client. Valid values: 100 to 10000.
      *
-     * @example E90DE229-9FC6-58F6-BF4B-03AD6179****
+     * @example 100
      *
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $limit;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'limit' => 'Limit',
     ];
 
     public function validate()
@@ -27,8 +27,8 @@ class CreateAgentlessScanTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
         }
 
         return $res;
@@ -37,13 +37,13 @@ class CreateAgentlessScanTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateAgentlessScanTaskResponseBody
+     * @return UpdateFileUploadLimitRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
         }
 
         return $model;

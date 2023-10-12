@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRulesCountResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example BE120DAB-F4E7-4C53-ADC3-A97578AB****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetRulesCountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of system defense rules.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class GetRulesCountResponseBody extends Model
     public $totalSystemClientRuleCount;
 
     /**
+     * @description The total number of custom defense rules.
+     *
      * @example 10
      *
      * @var int

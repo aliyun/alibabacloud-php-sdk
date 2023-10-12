@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockFileTypeSummaryResponseBody extends Model
 {
     /**
+     * @description An array that consists of events on web tamper proofing returned.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 4BB99533-4FDC-5B9C-A5E4-5AE3E9BE5C78
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeWebLockFileTypeSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of events on web tamper proofing.
+     *
      * @example 639
      *
      * @var int

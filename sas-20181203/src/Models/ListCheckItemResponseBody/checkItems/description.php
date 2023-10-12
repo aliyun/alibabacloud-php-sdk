@@ -22,6 +22,8 @@ class description extends Model
     /**
      * @description The content of the description for the check item when the Type parameter is text.
      *
+     * @example The download of query results that are returned by SELECT statements in DataStudio must be prohibited at the MaxCompute level.
+     *
      * @var string
      */
     public $value;

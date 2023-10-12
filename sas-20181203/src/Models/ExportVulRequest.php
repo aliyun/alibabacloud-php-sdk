@@ -30,6 +30,11 @@ class ExportVulRequest extends Model
     /**
      * @var string
      */
+    public $containerName;
+
+    /**
+     * @var string
+     */
     public $cveId;
 
     /**
@@ -55,6 +60,11 @@ class ExportVulRequest extends Model
     public $groupId;
 
     /**
+     * @var string
+     */
+    public $imageName;
+
+    /**
      * @description The language of the content within the request and response. Default value: **zh**. Valid values:
      *
      *   zh: Chinese
@@ -78,6 +88,11 @@ class ExportVulRequest extends Model
      * @var string
      */
     public $necessity;
+
+    /**
+     * @var string
+     */
+    public $path;
 
     /**
      * @description The tag that is used to search for the vulnerabilities. Valid values:
@@ -131,11 +146,14 @@ class ExportVulRequest extends Model
     protected $_name = [
         'aliasName'      => 'AliasName',
         'attachTypes'    => 'AttachTypes',
+        'containerName'  => 'ContainerName',
         'cveId'          => 'CveId',
         'dealed'         => 'Dealed',
         'groupId'        => 'GroupId',
+        'imageName'      => 'ImageName',
         'lang'           => 'Lang',
         'necessity'      => 'Necessity',
+        'path'           => 'Path',
         'searchTags'     => 'SearchTags',
         'type'           => 'Type',
         'uuids'          => 'Uuids',
@@ -155,6 +173,9 @@ class ExportVulRequest extends Model
         if (null !== $this->attachTypes) {
             $res['AttachTypes'] = $this->attachTypes;
         }
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
+        }
         if (null !== $this->cveId) {
             $res['CveId'] = $this->cveId;
         }
@@ -164,11 +185,17 @@ class ExportVulRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
         if (null !== $this->necessity) {
             $res['Necessity'] = $this->necessity;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
         if (null !== $this->searchTags) {
             $res['SearchTags'] = $this->searchTags;
@@ -200,6 +227,9 @@ class ExportVulRequest extends Model
         if (isset($map['AttachTypes'])) {
             $model->attachTypes = $map['AttachTypes'];
         }
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
+        }
         if (isset($map['CveId'])) {
             $model->cveId = $map['CveId'];
         }
@@ -209,11 +239,17 @@ class ExportVulRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
         if (isset($map['Necessity'])) {
             $model->necessity = $map['Necessity'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
         if (isset($map['SearchTags'])) {
             $model->searchTags = $map['SearchTags'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fixStat extends Model
 {
     /**
+     * @description The number of vulnerabilities that are fixed on the current day.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class fixStat extends Model
     public $fixedTodayNum;
 
     /**
+     * @description The total number of fixed vulnerabilities.
+     *
      * @example 22
      *
      * @var int
@@ -23,6 +27,8 @@ class fixStat extends Model
     public $fixedTotalNum;
 
     /**
+     * @description The number of vulnerabilities that are being fixed.
+     *
      * @example 17
      *
      * @var int
@@ -30,6 +36,8 @@ class fixStat extends Model
     public $fixingNum;
 
     /**
+     * @description The number of unfixed vulnerabilities.
+     *
      * @example 8
      *
      * @var int
@@ -37,6 +45,14 @@ class fixStat extends Model
     public $needFixNum;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **app**: application vulnerability
+     *   **emg**: urgent vulnerability
+     *
      * @example cve
      *
      * @var string

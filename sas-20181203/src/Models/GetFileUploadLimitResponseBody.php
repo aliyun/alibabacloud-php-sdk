@@ -4,19 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileUploadLimitResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateAgentlessScanTaskResponseBody extends Model
+class GetFileUploadLimitResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example E90DE229-9FC6-58F6-BF4B-03AD6179****
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @example 1A975D03-5F49-5354-B2CB-3918D5DA431A
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +32,9 @@ class CreateAgentlessScanTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +45,14 @@ class CreateAgentlessScanTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateAgentlessScanTaskResponseBody
+     * @return GetFileUploadLimitResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

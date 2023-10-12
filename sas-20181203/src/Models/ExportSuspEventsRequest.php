@@ -87,6 +87,11 @@ class ExportSuspEventsRequest extends Model
     public $from;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @description The language of the content within the request and response. Default value: **zh**. Valid values:
      *
      *   **zh**: Chinese
@@ -119,6 +124,11 @@ class ExportSuspEventsRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string[]
+     */
+    public $operateErrorCodeList;
 
     /**
      * @description The number of entries to return on each page. Default value: **20**.
@@ -229,25 +239,39 @@ class ExportSuspEventsRequest extends Model
      * @var string
      */
     public $timeStart;
+
+    /**
+     * @var string
+     */
+    public $uniqueInfo;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'assetsTypeList'      => 'AssetsTypeList',
-        'clusterId'           => 'ClusterId',
-        'containerFieldName'  => 'ContainerFieldName',
-        'containerFieldValue' => 'ContainerFieldValue',
-        'currentPage'         => 'CurrentPage',
-        'dealed'              => 'Dealed',
-        'from'                => 'From',
-        'lang'                => 'Lang',
-        'levels'              => 'Levels',
-        'name'                => 'Name',
-        'pageSize'            => 'PageSize',
-        'parentEventTypes'    => 'ParentEventTypes',
-        'remark'              => 'Remark',
-        'sourceIp'            => 'SourceIp',
-        'status'              => 'Status',
-        'targetType'          => 'TargetType',
-        'timeEnd'             => 'TimeEnd',
-        'timeStart'           => 'TimeStart',
+        'assetsTypeList'       => 'AssetsTypeList',
+        'clusterId'            => 'ClusterId',
+        'containerFieldName'   => 'ContainerFieldName',
+        'containerFieldValue'  => 'ContainerFieldValue',
+        'currentPage'          => 'CurrentPage',
+        'dealed'               => 'Dealed',
+        'from'                 => 'From',
+        'id'                   => 'Id',
+        'lang'                 => 'Lang',
+        'levels'               => 'Levels',
+        'name'                 => 'Name',
+        'operateErrorCodeList' => 'OperateErrorCodeList',
+        'pageSize'             => 'PageSize',
+        'parentEventTypes'     => 'ParentEventTypes',
+        'remark'               => 'Remark',
+        'sourceIp'             => 'SourceIp',
+        'status'               => 'Status',
+        'targetType'           => 'TargetType',
+        'timeEnd'              => 'TimeEnd',
+        'timeStart'            => 'TimeStart',
+        'uniqueInfo'           => 'UniqueInfo',
+        'uuid'                 => 'Uuid',
     ];
 
     public function validate()
@@ -278,6 +302,9 @@ class ExportSuspEventsRequest extends Model
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -286,6 +313,9 @@ class ExportSuspEventsRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->operateErrorCodeList) {
+            $res['OperateErrorCodeList'] = $this->operateErrorCodeList;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -310,6 +340,12 @@ class ExportSuspEventsRequest extends Model
         }
         if (null !== $this->timeStart) {
             $res['TimeStart'] = $this->timeStart;
+        }
+        if (null !== $this->uniqueInfo) {
+            $res['UniqueInfo'] = $this->uniqueInfo;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -346,6 +382,9 @@ class ExportSuspEventsRequest extends Model
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
@@ -354,6 +393,11 @@ class ExportSuspEventsRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['OperateErrorCodeList'])) {
+            if (!empty($map['OperateErrorCodeList'])) {
+                $model->operateErrorCodeList = $map['OperateErrorCodeList'];
+            }
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -378,6 +422,12 @@ class ExportSuspEventsRequest extends Model
         }
         if (isset($map['TimeStart'])) {
             $model->timeStart = $map['TimeStart'];
+        }
+        if (isset($map['UniqueInfo'])) {
+            $model->uniqueInfo = $map['UniqueInfo'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

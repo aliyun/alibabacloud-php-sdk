@@ -76,6 +76,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileProtectRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileProtectRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileUploadLimitRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileUploadLimitResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotNodeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotNodeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotPresetRequest;
@@ -683,6 +685,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectEventRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectEventResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileUploadLimitResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotAttackStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotAttackStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotEventTrendRequest;
@@ -705,6 +708,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionTargetDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionTargetDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetLastOnceTaskInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetLastOnceTaskInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetLogMetaRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetLogMetaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOnceTaskResultInfoRequest;
@@ -1087,6 +1092,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectRemarkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectRemarkResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileUploadLimitRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileUploadLimitResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateHoneypotNodeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateHoneypotNodeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateHoneypotPresetRequest;
@@ -3069,6 +3076,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFileProtectRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFileUploadLimitRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateFileUploadLimitResponse
+     */
+    public function createFileUploadLimitWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFileUploadLimit',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFileUploadLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFileUploadLimitRequest $request
+     *
+     * @return CreateFileUploadLimitResponse
+     */
+    public function createFileUploadLimit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFileUploadLimitWithOptions($request, $runtime);
     }
 
     /**
@@ -17830,6 +17880,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->from)) {
             $query['From'] = $request->from;
         }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -17838,6 +17891,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->operateErrorCodeList)) {
+            $query['OperateErrorCodeList'] = $request->operateErrorCodeList;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
@@ -17862,6 +17918,12 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->timeStart)) {
             $query['TimeStart'] = $request->timeStart;
+        }
+        if (!Utils::isUnset($request->uniqueInfo)) {
+            $query['UniqueInfo'] = $request->uniqueInfo;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -17914,6 +17976,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->attachTypes)) {
             $query['AttachTypes'] = $request->attachTypes;
         }
+        if (!Utils::isUnset($request->containerName)) {
+            $query['ContainerName'] = $request->containerName;
+        }
         if (!Utils::isUnset($request->cveId)) {
             $query['CveId'] = $request->cveId;
         }
@@ -17923,11 +17988,17 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->imageName)) {
+            $query['ImageName'] = $request->imageName;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
         if (!Utils::isUnset($request->necessity)) {
             $query['Necessity'] = $request->necessity;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
         }
         if (!Utils::isUnset($request->searchTags)) {
             $query['SearchTags'] = $request->searchTags;
@@ -19560,6 +19631,39 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetFileUploadLimitResponse
+     */
+    public function getFileUploadLimitWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetFileUploadLimit',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFileUploadLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetFileUploadLimitResponse
+     */
+    public function getFileUploadLimit()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileUploadLimitWithOptions($runtime);
+    }
+
+    /**
      * @param GetHoneypotAttackStatisticsRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -20081,6 +20185,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLastOnceTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLogMetaRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetLogMetaResponse
+     */
+    public function getLogMetaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->logStore)) {
+            $query['LogStore'] = $request->logStore;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLogMeta',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLogMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLogMetaRequest $request
+     *
+     * @return GetLogMetaResponse
+     */
+    public function getLogMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLogMetaWithOptions($request, $runtime);
     }
 
     /**
@@ -30112,6 +30259,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFileProtectRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateFileUploadLimitRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateFileUploadLimitResponse
+     */
+    public function updateFileUploadLimitWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFileUploadLimit',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateFileUploadLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateFileUploadLimitRequest $request
+     *
+     * @return UpdateFileUploadLimitResponse
+     */
+    public function updateFileUploadLimit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFileUploadLimitWithOptions($request, $runtime);
     }
 
     /**

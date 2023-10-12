@@ -29,6 +29,8 @@ class customConfigs extends Model
     /**
      * @description The display name of the check item.
      *
+     * @example Ensure RAM password policy prevents password reuse
+     *
      * @var string
      */
     public $showName;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAgentlessScanTaskRequest extends Model
 {
     /**
+     * @description The retention period of images. Unit: days.
+     *
      * @example 1
      *
      * @var int
@@ -16,16 +18,34 @@ class CreateAgentlessScanTaskRequest extends Model
     public $autoDeleteDays;
 
     /**
+     * @description Specifies whether to enable the cost-saving mode. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $releaseAfterScan;
 
     /**
+     * @description Specifies whether to check data disks. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $scanDataDisk;
 
     /**
+     * @description The type of the detection object. Valid values:
+     *
+     *   **2**: image
+     *
      * @example 2
      *
      * @var int
@@ -33,6 +53,9 @@ class CreateAgentlessScanTaskRequest extends Model
     public $targetType;
 
     /**
+     * @description The UUIDs of the assets on which you want to run the detection task.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @var string[]
      */
     public $uuidList;

@@ -78,6 +78,10 @@ class HandleSecurityEventsRequest extends Model
     public $operationParams;
 
     /**
+     * @description The remarks of the handling operation.
+     *
+     * @example remark test.
+     *
      * @var string
      */
     public $remark;

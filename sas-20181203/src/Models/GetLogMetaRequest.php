@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateAgentlessScanTaskResponseBody extends Model
+class GetLogMetaRequest extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example E90DE229-9FC6-58F6-BF4B-03AD6179****
+     * @example aegis-log-login
      *
      * @var string
      */
-    public $requestId;
+    public $logStore;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'logStore' => 'LogStore',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class CreateAgentlessScanTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->logStore) {
+            $res['LogStore'] = $this->logStore;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class CreateAgentlessScanTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateAgentlessScanTaskResponseBody
+     * @return GetLogMetaRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['LogStore'])) {
+            $model->logStore = $map['LogStore'];
         }
 
         return $model;

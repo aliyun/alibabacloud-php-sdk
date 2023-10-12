@@ -19,7 +19,7 @@ class ModifyClusterCnnfStatusUserConfirmRequest extends Model
      * @description Specifies whether to fix the blocking status of the cluster. Valid values:
      *
      *   true: yes
-     *   fasle: no
+     *   false: no
      *
      * @example true
      *

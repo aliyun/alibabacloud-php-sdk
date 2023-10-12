@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description 使用NextToken方式下返回的NextToken值。
+     * @description The value of NextToken that is returned when the NextToken method is used.
      *
      * @example B604532DEF982B875E8360A6EFA3B***
      *

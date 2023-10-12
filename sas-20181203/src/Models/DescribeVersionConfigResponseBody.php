@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVersionConfigResponseBody extends Model
 {
     /**
+     * @description The quota for agentless detection.
+     *
+     * >  The agentless detection feature is unavailable for purchase. You can ignore this parameter.
+     * @example 10
+     *
      * @var int
      */
     public $agentlessCapacity;
@@ -57,6 +62,10 @@ class DescribeVersionConfigResponseBody extends Model
     public $assetLevel;
 
     /**
+     * @description The quota for configuration assessment. Unit: times/month.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $cspmCapacity;
@@ -190,6 +199,10 @@ class DescribeVersionConfigResponseBody extends Model
     public $openTime;
 
     /**
+     * @description The quota for application protection. Unit: process/month.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $raspCapacity;
@@ -294,6 +307,10 @@ class DescribeVersionConfigResponseBody extends Model
     public $vmCores;
 
     /**
+     * @description The quota for vulnerability fixing. Unit: times/month.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $vulFixCapacity;

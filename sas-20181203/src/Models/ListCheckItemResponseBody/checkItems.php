@@ -22,6 +22,8 @@ class checkItems extends Model
     /**
      * @description The name of the check item.
      *
+     * @example Enable deletion protection
+     *
      * @var string
      */
     public $checkShowName;
