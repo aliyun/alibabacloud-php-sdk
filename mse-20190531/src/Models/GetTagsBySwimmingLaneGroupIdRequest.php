@@ -30,6 +30,8 @@ class GetTagsBySwimmingLaneGroupIdRequest extends Model
     public $groupId;
 
     /**
+     * @description The name of the Microservices Engine (MSE) namespace that you want to query.
+     *
      * @example default
      *
      * @var string

@@ -46,14 +46,14 @@ class data extends Model
     public $namespaceInfos;
 
     /**
-     * @description The list of namespaces.
+     * @description The queried namespaces.
      *
      * @var namespaces[]
      */
     public $namespaces;
 
     /**
-     * @description The time when the ack-onepilot component was started.
+     * @description The time when the pilot component was started.
      *
      * @example 2022-01-11T11:50:38.000+0000
      *

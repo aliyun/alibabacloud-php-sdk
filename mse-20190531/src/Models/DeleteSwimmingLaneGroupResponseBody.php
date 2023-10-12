@@ -18,7 +18,7 @@ class DeleteSwimmingLaneGroupResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code.
      *
      * @example mse-100-000
      *

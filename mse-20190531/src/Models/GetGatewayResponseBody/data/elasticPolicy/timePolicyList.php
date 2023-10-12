@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class timePolicyList extends Model
 {
     /**
+     * @description The number of expected replicas.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $desiredReplica;
 
     /**
+     * @description The end time of auto scale-out.
+     *
+     * @example 18:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The start time of auto scale-out.
+     *
+     * @example 16:00
+     *
      * @var string
      */
     public $startTime;

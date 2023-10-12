@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowRuleResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,16 +19,22 @@ class UpdateFlowRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The data of the node.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 52BA6DA6-A702-4362-A32F-DFF79655****
      *
      * @var string
@@ -34,6 +42,17 @@ class UpdateFlowRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool

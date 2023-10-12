@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The ID of cluster.
+     * @description The ID of the cluster.
      *
      * @example abcdef123456789
      *
@@ -36,7 +36,7 @@ class result extends Model
     public $k8sVersion;
 
     /**
-     * @description The information of the namespace.
+     * @description The information about the namespace.
      *
      * @example [{"Name":"ack-onepilot","Tags":{"name":"ack-onepilot"}}]
      *
@@ -45,7 +45,7 @@ class result extends Model
     public $namespaceInfos;
 
     /**
-     * @description The time when the ack-onepilot component was started.
+     * @description The time when the pilot component was started.
      *
      * @example 2022-05-17T05:39:43.000+0000
      *

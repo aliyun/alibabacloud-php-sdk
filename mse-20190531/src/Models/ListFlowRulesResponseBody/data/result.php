@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example hkhon1po62@5f1b08becb*****
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example finance
      *
      * @var string
@@ -23,6 +27,17 @@ class result extends Model
     public $appName;
 
     /**
+     * @description The throttling effect.
+     *
+     * Valid values:
+     *
+     *   0
+     *
+     * <!-- -->
+     *
+     *   2
+     *
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -30,6 +45,17 @@ class result extends Model
     public $controlBehavior;
 
     /**
+     * @description Indicates whether the throttling rule was enabled.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -37,6 +63,8 @@ class result extends Model
     public $enable;
 
     /**
+     * @description The throttling behavior.
+     *
      * @example "{\"appName\":\"spring-cloud-a\",\"fallbackBehavior\":{\"webFallbackMode\":0,\"webRespContentType\":0,\"webRespMessage\":\"Blocked\",\"webRespStatusCode\":429},\"id\":977,\"name\":\"Fallback\",\"namespace\":\"default\",\"resourceClassification\":1}"
      *
      * @var string
@@ -44,6 +72,8 @@ class result extends Model
     public $fallbackObject;
 
     /**
+     * @description The timeout period for queuing when the value of ControlBehavior is set to 2. Unit: milliseconds.
+     *
      * @example 500
      *
      * @var int
@@ -51,6 +81,8 @@ class result extends Model
     public $maxQueueingTimeMs;
 
     /**
+     * @description The statistical dimension. The value 1 indicates the number of accepted requests.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +90,8 @@ class result extends Model
     public $metricType;
 
     /**
+     * @description The namespace.
+     *
      * @example default
      *
      * @var string
@@ -65,6 +99,8 @@ class result extends Model
     public $namespace;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -72,6 +108,8 @@ class result extends Model
     public $regionId;
 
     /**
+     * @description The name of the interface resource.
+     *
      * @example /a
      *
      * @var string
@@ -79,6 +117,8 @@ class result extends Model
     public $resource;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 2
      *
      * @var int
@@ -86,6 +126,8 @@ class result extends Model
     public $ruleId;
 
     /**
+     * @description The throttling threshold.
+     *
      * @example 10
      *
      * @var float
@@ -93,6 +135,8 @@ class result extends Model
     public $threshold;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example {\"origin\":\"default\"}
      *
      * @var mixed[]

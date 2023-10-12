@@ -11,7 +11,10 @@ use AlibabaCloud\Tea\Model;
 class AddGatewayRequest extends Model
 {
     /**
-     * @description The data structure.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example zh
      *
@@ -20,8 +23,17 @@ class AddGatewayRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description 付费类型。
+     * @description The billing method.
      *
+     * Valid values:
+     *
+     *   PREPAY
+     *
+     * <!-- -->
+     *
+     *   POSTPAY
+     *
+     * <!-- -->
      * @example POSTPAY
      *
      * @var string
@@ -74,6 +86,15 @@ class AddGatewayRequest extends Model
     public $internetSlbSpec;
 
     /**
+     * @description 网关产品类型：
+     * - mse_serverless：Serverless
+     * @example mse_pro
+     *
+     * @var string
+     */
+    public $mserVersion;
+
+    /**
      * @description The ID of the region.
      *
      * @example test-ceshi
@@ -81,6 +102,15 @@ class AddGatewayRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @description 购买Serverless实例时指定NLB的网络类型：
+     * - privatepubnet：公网+私网
+     * @example pubnet
+     *
+     * @var string
+     */
+    public $nlbNetworkType;
 
     /**
      * @description The specifications of the internal-facing Server Load Balancer (SLB) instance. Valid values:
@@ -115,7 +145,7 @@ class AddGatewayRequest extends Model
     public $replica;
 
     /**
-     * @description 扩展字段。
+     * @description The extended field.
      *
      * @example {}
      *
@@ -136,7 +166,14 @@ class AddGatewayRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The specifications of the internal-facing Server Load Balancer (SLB) instance. Valid values:
+     *
+     *   slb.s1.small
+     *   slb.s2.small
+     *   slb.s2.medium
+     *   slb.s3.small
+     *   slb.s3.medium
+     *   slb.s3.large
      *
      * @example slb.s2.small
      *
@@ -161,12 +198,7 @@ class AddGatewayRequest extends Model
     public $tag;
 
     /**
-     * @description The node specifications. Valid values:
-     *
-     *   MSE_GTW\_16\_32\_200\_c(16C32G)
-     *   MSE_GTW\_2\_4\_200\_c(2C4G)
-     *   MSE_GTW\_4\_8\_200\_c(4C8G)
-     *   MSE_GTW\_8\_16\_200\_c(8C16G)
+     * @description The ID of the primary vSwitch.
      *
      * @example vsw-bp1q8th57frl5khj2li43
      *
@@ -202,7 +234,7 @@ class AddGatewayRequest extends Model
     public $xtraceRatio;
 
     /**
-     * @description 可用区信息。
+     * @description The details of the zone.
      *
      * @var zoneInfo[]
      */
@@ -215,7 +247,9 @@ class AddGatewayRequest extends Model
         'enableXtrace'               => 'EnableXtrace',
         'enterpriseSecurityGroup'    => 'EnterpriseSecurityGroup',
         'internetSlbSpec'            => 'InternetSlbSpec',
+        'mserVersion'                => 'MserVersion',
         'name'                       => 'Name',
+        'nlbNetworkType'             => 'NlbNetworkType',
         'region'                     => 'Region',
         'replica'                    => 'Replica',
         'requestPars'                => 'RequestPars',
@@ -258,8 +292,14 @@ class AddGatewayRequest extends Model
         if (null !== $this->internetSlbSpec) {
             $res['InternetSlbSpec'] = $this->internetSlbSpec;
         }
+        if (null !== $this->mserVersion) {
+            $res['MserVersion'] = $this->mserVersion;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->nlbNetworkType) {
+            $res['NlbNetworkType'] = $this->nlbNetworkType;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -342,8 +382,14 @@ class AddGatewayRequest extends Model
         if (isset($map['InternetSlbSpec'])) {
             $model->internetSlbSpec = $map['InternetSlbSpec'];
         }
+        if (isset($map['MserVersion'])) {
+            $model->mserVersion = $map['MserVersion'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NlbNetworkType'])) {
+            $model->nlbNetworkType = $map['NlbNetworkType'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

@@ -46,7 +46,7 @@ class result extends Model
     public $createTime;
 
     /**
-     * @description The ID.
+     * @description The serial number.
      *
      * @example 1
      *
@@ -64,7 +64,7 @@ class result extends Model
     public $imageVersion;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example mse_ingresspost-cn-0jbvrcex****
      *
@@ -73,7 +73,7 @@ class result extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the user to which the instance belongs.
+     * @description The ID of the user to which the cluster belongs.
      *
      * @example 123456
      *
@@ -82,7 +82,7 @@ class result extends Model
     public $primaryUser;
 
     /**
-     * @description The number of nodes in the instance.
+     * @description The number of nodes in the cluster.
      *
      * @example 3
      *
@@ -91,7 +91,7 @@ class result extends Model
     public $replica;
 
     /**
-     * @description The list of risk items.
+     * @description The risk items.
      *
      * @var riskList[]
      */
@@ -116,7 +116,7 @@ class result extends Model
     public $spec;
 
     /**
-     * @description The status of the task.
+     * @description The task state.
      *
      * @example FINISH
      *
@@ -152,7 +152,7 @@ class result extends Model
     public $type;
 
     /**
-     * @description The last update time.
+     * @description The time when the task was last updated.
      *
      * @example 2022-11-12 15:07:55
      *

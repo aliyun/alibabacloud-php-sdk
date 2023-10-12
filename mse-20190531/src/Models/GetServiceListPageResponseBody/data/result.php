@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example dez4xxxxx@f3f75ed8ffxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $appId;
 
     /**
+     * @description The application name.
+     *
      * @example example-app
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $appName;
 
     /**
+     * @description The time when the service was last updated.
+     *
      * @example 123456
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $gmtModifyTime;
 
     /**
+     * @description The group to which the service belongs.
+     *
      * @example DEFAULT_GROUP
      *
      * @var string
@@ -37,6 +45,8 @@ class result extends Model
     public $group;
 
     /**
+     * @description The number of service nodes.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class result extends Model
     public $instanceNum;
 
     /**
+     * @description The service name.
+     *
      * @example sc-A
      *
      * @var string
@@ -51,6 +63,8 @@ class result extends Model
     public $serviceName;
 
     /**
+     * @description The service version.
+     *
      * @example 1
      *
      * @var string

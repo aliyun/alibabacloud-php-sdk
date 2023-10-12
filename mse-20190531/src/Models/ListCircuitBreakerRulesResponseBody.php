@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListCircuitBreakerRulesResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class ListCircuitBreakerRulesResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the rule.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class ListCircuitBreakerRulesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -36,6 +44,8 @@ class ListCircuitBreakerRulesResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 4E9FDCFE-0738-493B-B801-82BDFBCB****
      *
      * @var string
@@ -43,6 +53,8 @@ class ListCircuitBreakerRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

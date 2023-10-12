@@ -18,7 +18,7 @@ class labels extends Model
     public $key;
 
     /**
-     * @description The key of the tag.
+     * @description The tag value.
      *
      * @example v2
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class appDetail extends Model
 {
     /**
+     * @description The ID of the application for which Microservices Governance is enabled.
+     *
      * @example hkhon1po62@904cba2c0xxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class appDetail extends Model
     public $appId;
 
     /**
+     * @description The name of the application for which Microservices Governance is enabled.
+     *
      * @example spring-cloud-b
      *
      * @var string
@@ -23,6 +27,8 @@ class appDetail extends Model
     public $appName;
 
     /**
+     * @description The health check interval. Unit: seconds.
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +36,8 @@ class appDetail extends Model
     public $checkInternal;
 
     /**
+     * @description The path of the health check. This parameter is required only when the CheckType parameter is set to http.
+     *
      * @example /health
      *
      * @var string
@@ -37,6 +45,8 @@ class appDetail extends Model
     public $checkPath;
 
     /**
+     * @description The timeout period of the health check response. Unit: seconds.
+     *
      * @example 5
      *
      * @var int
@@ -44,6 +54,12 @@ class appDetail extends Model
     public $checkTimeout;
 
     /**
+     * @description The type of the health check. Valid values:
+     *
+     *   connection: connection status check
+     *   tcp: TCP connection check
+     *   http: HTTP connection check
+     *
      * @example connection
      *
      * @var string
@@ -51,6 +67,8 @@ class appDetail extends Model
     public $checkType;
 
     /**
+     * @description The maximum number of health check retries when the instance state changes from unhealthy to healthy.
+     *
      * @example 2
      *
      * @var int
@@ -58,6 +76,8 @@ class appDetail extends Model
     public $healthyCheckTimes;
 
     /**
+     * @description The port number of the application for which Microservices Governance is enabled.
+     *
      * @example 6001
      *
      * @var int
@@ -65,6 +85,8 @@ class appDetail extends Model
     public $port;
 
     /**
+     * @description The maximum number of health check retries when the instance state changes from healthy to unhealthy.
+     *
      * @example 2
      *
      * @var int

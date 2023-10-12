@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class queryPredicates extends Model
 {
     /**
-     * @description The name of the parameter.
+     * @description The parameter name.
      *
      * @example userid
      *
@@ -18,7 +18,7 @@ class queryPredicates extends Model
     public $key;
 
     /**
-     * @description The type.
+     * @description The route type.
      *
      * @example PRE
      *

@@ -52,7 +52,7 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The creation time.
+     * @description The time when the consumer authentication record was created.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -61,7 +61,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The update time.
+     * @description The time when the consumer authentication record was modified.
      *
      * @example 2023-02-01 14:17:57
      *

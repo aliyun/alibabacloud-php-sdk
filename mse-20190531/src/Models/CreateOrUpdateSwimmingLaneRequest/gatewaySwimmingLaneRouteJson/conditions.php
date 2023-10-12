@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
+     * @description The matching condition. Valid values:
+     *
+     *   PRE: prefix matching
+     *   EQUAL: exact matching
+     *   ERGULAR: regular expression matching
+     *
      * @example PRE
      *
      * @var string
@@ -16,6 +22,8 @@ class conditions extends Model
     public $cond;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example name
      *
      * @var string
@@ -23,6 +31,11 @@ class conditions extends Model
     public $name;
 
     /**
+     * @description The type of the parameter. Valid values:
+     *
+     *   header
+     *   param
+     *
      * @example header
      *
      * @var string
@@ -30,6 +43,8 @@ class conditions extends Model
     public $type;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example xiaoming
      *
      * @var string

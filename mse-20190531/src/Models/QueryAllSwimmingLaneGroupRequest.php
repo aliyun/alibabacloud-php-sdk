@@ -21,6 +21,8 @@ class QueryAllSwimmingLaneGroupRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The name of the Microservices Engine (MSE) namespace that you want to query.
+     *
      * @example default
      *
      * @var string

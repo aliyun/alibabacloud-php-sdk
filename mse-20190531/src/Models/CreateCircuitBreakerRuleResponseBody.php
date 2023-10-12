@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCircuitBreakerRuleResponseBody extends Model
 {
     /**
+     * @description The response code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateCircuitBreakerRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the rule.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example OK
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateCircuitBreakerRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example EE5C32A1-BC0E-4B79-817C-103E4EDF****
      *
      * @var string
@@ -36,6 +44,17 @@ class CreateCircuitBreakerRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool

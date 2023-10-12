@@ -39,6 +39,16 @@ class UpdateClusterRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $maintenanceEndTime;
+
+    /**
+     * @var string
+     */
+    public $maintenanceStartTime;
+
+    /**
      * @description The extended request parameters in the JSON format.
      *
      * @example {}
@@ -47,10 +57,12 @@ class UpdateClusterRequest extends Model
      */
     public $requestPars;
     protected $_name = [
-        'acceptLanguage'   => 'AcceptLanguage',
-        'clusterAliasName' => 'ClusterAliasName',
-        'instanceId'       => 'InstanceId',
-        'requestPars'      => 'RequestPars',
+        'acceptLanguage'       => 'AcceptLanguage',
+        'clusterAliasName'     => 'ClusterAliasName',
+        'instanceId'           => 'InstanceId',
+        'maintenanceEndTime'   => 'MaintenanceEndTime',
+        'maintenanceStartTime' => 'MaintenanceStartTime',
+        'requestPars'          => 'RequestPars',
     ];
 
     public function validate()
@@ -68,6 +80,12 @@ class UpdateClusterRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->maintenanceEndTime) {
+            $res['MaintenanceEndTime'] = $this->maintenanceEndTime;
+        }
+        if (null !== $this->maintenanceStartTime) {
+            $res['MaintenanceStartTime'] = $this->maintenanceStartTime;
         }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
@@ -92,6 +110,12 @@ class UpdateClusterRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MaintenanceEndTime'])) {
+            $model->maintenanceEndTime = $map['MaintenanceEndTime'];
+        }
+        if (isset($map['MaintenanceStartTime'])) {
+            $model->maintenanceStartTime = $map['MaintenanceStartTime'];
         }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];

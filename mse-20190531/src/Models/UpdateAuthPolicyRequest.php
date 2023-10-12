@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAuthPolicyRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese, and the value en-US indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateAuthPolicyRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The application ID.
+     *
      * @example abcde@12345
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateAuthPolicyRequest extends Model
     public $appId;
 
     /**
+     * @description The content of the service authentication rule.
+     *
      * @example [{\"all\":true,\"appIds\":[\"f6xqzbao96@4adfaf3c92c947a\"],\"black\":false}]
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateAuthPolicyRequest extends Model
     public $authRule;
 
     /**
+     * @description Specifies whether to enable the rule.
+     *
      * @example true
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateAuthPolicyRequest extends Model
     public $enable;
 
     /**
+     * @description The rule ID.
+     *
      * @example 432
      *
      * @var string
@@ -44,6 +54,8 @@ class UpdateAuthPolicyRequest extends Model
     public $id;
 
     /**
+     * @description The ID of the ACK cluster namespace.
+     *
      * @example c19c6c500e1ff4d7abc7bed9b8236***
      *
      * @var string
@@ -51,6 +63,8 @@ class UpdateAuthPolicyRequest extends Model
     public $k8sNamespace;
 
     /**
+     * @description The name of the rule.
+     *
      * @example demo-test
      *
      * @var string
@@ -58,6 +72,12 @@ class UpdateAuthPolicyRequest extends Model
     public $name;
 
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   **SPRING_CLOUD**
+     *   **DUBBO**
+     *   **istio**
+     *
      * @example SPRING_CLOUD
      *
      * @var string
@@ -65,6 +85,8 @@ class UpdateAuthPolicyRequest extends Model
     public $protocol;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -72,6 +94,8 @@ class UpdateAuthPolicyRequest extends Model
     public $region;
 
     /**
+     * @description The source for application access.
+     *
      * @example edasmsc
      *
      * @var string

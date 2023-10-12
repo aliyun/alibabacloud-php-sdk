@@ -2,36 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\elasticPolicy;
+namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result;
 
 use AlibabaCloud\Tea\Model;
 
-class timePolicyList extends Model
+class maintenancePeriod extends Model
 {
     /**
-     * @example 4
-     *
-     * @var int
-     */
-    public $desiredReplica;
-
-    /**
-     * @example 09:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example 07:00
-     *
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $timeZone;
     protected $_name = [
-        'desiredReplica' => 'DesiredReplica',
-        'endTime'        => 'EndTime',
-        'startTime'      => 'StartTime',
+        'endTime'   => 'EndTime',
+        'startTime' => 'StartTime',
+        'timeZone'  => 'TimeZone',
     ];
 
     public function validate()
@@ -41,14 +35,14 @@ class timePolicyList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->desiredReplica) {
-            $res['DesiredReplica'] = $this->desiredReplica;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
         }
 
         return $res;
@@ -57,19 +51,19 @@ class timePolicyList extends Model
     /**
      * @param array $map
      *
-     * @return timePolicyList
+     * @return maintenancePeriod
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DesiredReplica'])) {
-            $model->desiredReplica = $map['DesiredReplica'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetServiceListPageRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,8 @@ class GetServiceListPageRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The application ID.
+     *
      * @example dez4xxxxx@f3f75ed8ffxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class GetServiceListPageRequest extends Model
     public $appId;
 
     /**
+     * @description 应用名字。
+     *
      * @example example-app
      *
      * @var string
@@ -30,6 +36,8 @@ class GetServiceListPageRequest extends Model
     public $appName;
 
     /**
+     * @description The IP address from which the query is initiated.
+     *
      * @example 223.5.5.5
      *
      * @var string
@@ -37,6 +45,8 @@ class GetServiceListPageRequest extends Model
     public $ip;
 
     /**
+     * @description The name of the MSE namespace.
+     *
      * @example default
      *
      * @var string
@@ -44,6 +54,8 @@ class GetServiceListPageRequest extends Model
     public $namespace;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +63,8 @@ class GetServiceListPageRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +72,8 @@ class GetServiceListPageRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +81,8 @@ class GetServiceListPageRequest extends Model
     public $region;
 
     /**
+     * @description The service name.
+     *
      * @example sc-A
      *
      * @var string
@@ -72,6 +90,8 @@ class GetServiceListPageRequest extends Model
     public $serviceName;
 
     /**
+     * @description The service type.
+     *
      * @example springCloud
      *
      * @var string

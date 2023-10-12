@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class namespaces extends Model
 {
     /**
+     * @description The name of the MSE namespace that you want to access.
+     *
      * @example default
      *
      * @var string
@@ -16,7 +18,7 @@ class namespaces extends Model
     public $mseNamespace;
 
     /**
-     * @description The name.
+     * @description The name of the namespace in the ACK cluster.
      *
      * @example default
      *

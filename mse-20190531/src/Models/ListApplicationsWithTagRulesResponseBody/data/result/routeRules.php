@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class routeRules extends Model
 {
     /**
-     * @description Indicates whether the alert rule is enabled. Valid value:
+     * @description Indicates whether the alert rule is enabled. Valid values:
      *
-     *   `true`: enabled.
-     *   `false`: disabled.
+     *   `true`: enabled
+     *   `false`: disabled
      *
      * @example true
      *
@@ -22,7 +22,7 @@ class routeRules extends Model
     public $enable;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * @example 653
      *
@@ -40,7 +40,7 @@ class routeRules extends Model
     public $instanceNum;
 
     /**
-     * @description The name of the rule.
+     * @description The rule name.
      *
      * @example dubbo
      *
@@ -67,7 +67,7 @@ class routeRules extends Model
     public $rules;
 
     /**
-     * @description The status.
+     * @description The status of the application.
      *
      * @example 1
      *

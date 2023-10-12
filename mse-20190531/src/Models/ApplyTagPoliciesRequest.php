@@ -32,6 +32,8 @@ class ApplyTagPoliciesRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example example-app
      *
      * @var string
@@ -48,6 +50,8 @@ class ApplyTagPoliciesRequest extends Model
     public $enable;
 
     /**
+     * @description The Microservices Engine (MSE) namespace to which the application belongs.
+     *
      * @example default
      *
      * @var string

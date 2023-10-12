@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowRuleRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class UpdateFlowRuleRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The application ID.
+     *
      * @example hkhon1po62@c3df23522******
      *
      * @var string
@@ -23,6 +30,8 @@ class UpdateFlowRuleRequest extends Model
     public $appId;
 
     /**
+     * @description The application name.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -30,6 +39,17 @@ class UpdateFlowRuleRequest extends Model
     public $appName;
 
     /**
+     * @description The throttling effect.
+     *
+     * Valid values:
+     *
+     *   0
+     *
+     * <!-- -->
+     *
+     *   2
+     *
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -37,6 +57,17 @@ class UpdateFlowRuleRequest extends Model
     public $controlBehavior;
 
     /**
+     * @description Specifies whether to enable the rule.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -44,6 +75,8 @@ class UpdateFlowRuleRequest extends Model
     public $enable;
 
     /**
+     * @description The timeout period. Unit: milliseconds. This parameter is required when the value of ControlBehavior is set to 2.
+     *
      * @example 500
      *
      * @var int
@@ -51,6 +84,8 @@ class UpdateFlowRuleRequest extends Model
     public $maxQueueingTimeMs;
 
     /**
+     * @description The namespace.
+     *
      * @example default
      *
      * @var string
@@ -58,6 +93,8 @@ class UpdateFlowRuleRequest extends Model
     public $namespace;
 
     /**
+     * @description The rule ID.
+     *
      * @example 13
      *
      * @var int
@@ -65,6 +102,8 @@ class UpdateFlowRuleRequest extends Model
     public $ruleId;
 
     /**
+     * @description The throttling threshold.
+     *
      * @example 30
      *
      * @var int

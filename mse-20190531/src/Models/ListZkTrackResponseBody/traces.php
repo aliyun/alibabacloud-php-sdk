@@ -30,7 +30,7 @@ class traces extends Model
     public $dataType;
 
     /**
-     * @description The type of the event. Valid values: For tracks of the Notify type:
+     * @description The type of the event. For trajectory of the Notify type:
      *
      *   NodeCreated
      *   NodeDeleted
@@ -71,7 +71,7 @@ class traces extends Model
     public $multiSize;
 
     /**
-     * @description The operation type. For tracks of the Push type:
+     * @description The type of the operation. For trajectory of the Push type:
      *
      *   Create
      *   Update
@@ -79,7 +79,7 @@ class traces extends Model
      *   SetAcl
      *   Multi
      *
-     * For tracks of the Pull type:
+     * For trajectory of the Pull type:
      *
      *   GetData
      *   GetChild
@@ -101,7 +101,7 @@ class traces extends Model
     public $path;
 
     /**
-     * @description The result.
+     * @description The returned result.
      *
      * @example success
      *
@@ -119,7 +119,7 @@ class traces extends Model
     public $sessionId;
 
     /**
-     * @description The timestamp (not available).
+     * @description The timestamp. It is not available.
      *
      * @example 1669619383000
      *
@@ -128,7 +128,7 @@ class traces extends Model
     public $timestamp;
 
     /**
-     * @description The type of the track. Valid values:
+     * @description The type of the trajectory. Valid values:
      *
      *   Push
      *   Pull
@@ -150,7 +150,7 @@ class traces extends Model
     public $ttl;
 
     /**
-     * @description Indicates whether to enable the monitoring feature.
+     * @description Indicates whether the monitoring feature is enabled.
      *
      * @example true
      *

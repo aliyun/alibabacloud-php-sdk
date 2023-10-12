@@ -11,7 +11,7 @@ class UpdateGatewayRouteCORSShrinkRequest extends Model
     /**
      * @description The language of the response. In compliance with [RFC 7231](https://tools.ietf.org/html/rfc7231), the backend service must return a response based on the language used by the user.
      *
-     *   No default value
+     *   No default value.
      *   zh-CN: Chinese
      *   en-US: English
      *

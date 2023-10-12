@@ -18,7 +18,7 @@ class PutClusterHealthCheckTaskResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned message.
+     * @description The data returned.
      *
      * @example null
      *

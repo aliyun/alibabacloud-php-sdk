@@ -28,9 +28,15 @@ class ListServiceSourceRequest extends Model
      * @var string
      */
     public $gatewayUniqueId;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'source'          => 'Source',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class ListServiceSourceRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -63,6 +72,9 @@ class ListServiceSourceRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

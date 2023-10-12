@@ -127,6 +127,8 @@ class data extends Model
     public $fallbackServices;
 
     /**
+     * @description 流量镜像配置。
+     *
      * @var flowMirror
      */
     public $flowMirror;
@@ -200,6 +202,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description The routing policy in a JSON string.
+     *
      * @example {
      * "CORS": "{\"allowMethods\":\"GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH\",\"allowHeaders\":\"*\",\"exposeHeaders\":\"*\",\"unitNum\":12,\"allowCredentials\":true,\"status\":\"off\",\"allowOrigins\":\"*\",\"timeUnit\":\"h\"}",
      * }

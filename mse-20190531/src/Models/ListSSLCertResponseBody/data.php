@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The validation time.
+     * @description The time when the certificate expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 2021-04-01 02:35:12
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $algorithm;
 
     /**
-     * @description The expiration time.
+     * @description The time when the certificate took effect. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $commonName;
 
     /**
-     * @description The validation time.
+     * @description The time when the certificate expires. This value is a GMT timestamp.
      *
      * @example 2021-04-01 02:35:12
      *
@@ -72,7 +72,7 @@ class data extends Model
     public $gmtAfter;
 
     /**
-     * @description The expiration time.
+     * @description The time when the certificate took effect. This value is a GMT timestamp.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $gmtBefore;
 
     /**
-     * @description The issuer.
+     * @description The issuer of the certificate.
      *
      * @example test
      *

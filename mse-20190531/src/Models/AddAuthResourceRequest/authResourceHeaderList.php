@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class authResourceHeaderList extends Model
 {
     /**
+     * @description The parameter of the HTTP header.
+     *
      * @example Access-Control-Allow-Origin
      *
      * @var string
@@ -16,6 +18,45 @@ class authResourceHeaderList extends Model
     public $headerKey;
 
     /**
+     * @description The header matching mode.
+     *
+     * Valid values:
+     *
+     *   SUFFIX
+     *
+     * <!-- -->
+     *
+     *   EXIST
+     *
+     * <!-- -->
+     *
+     *   PREFIX
+     *
+     * <!-- -->
+     *
+     *   EQUAL
+     *
+     * <!-- -->
+     *
+     *   EXCLUDE
+     *
+     * <!-- -->
+     *
+     *   NOT_EQUAL
+     *
+     * <!-- -->
+     *
+     *   NOT_EXIST
+     *
+     * <!-- -->
+     *
+     *   REGREX
+     *
+     * <!-- -->
+     *
+     *   INCLUDE
+     *
+     * <!-- -->
      * @example EQUAL
      *
      * @var string
@@ -23,6 +64,8 @@ class authResourceHeaderList extends Model
     public $headerMethod;
 
     /**
+     * @description The parameter value of the HTTP header.
+     *
      * @example *
      *
      * @var string

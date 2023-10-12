@@ -21,21 +21,37 @@ class data extends Model
     public $chargeType;
 
     /**
+     * @description Indicates whether auto scale-out is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $elastic;
 
     /**
+     * @description The auto scale-out policy.
+     *
      * @var elasticPolicy
      */
     public $elasticPolicy;
 
     /**
+     * @description The number of replicas that are automatically scaled out.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $elasticReplica;
 
     /**
+     * @description The type of auto scale-out. Valid value:
+     *
+     *   CronHPA: scale-out by time
+     *
+     * @example CronHPA
+     *
      * @var string
      */
     public $elasticType;
@@ -192,6 +208,10 @@ class data extends Model
     public $statusDesc;
 
     /**
+     * @description The total number of replicas, including the number of replicas that are automatically scaled out.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalReplica;

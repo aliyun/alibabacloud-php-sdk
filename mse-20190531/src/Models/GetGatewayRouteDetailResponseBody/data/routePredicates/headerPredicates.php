@@ -18,7 +18,7 @@ class headerPredicates extends Model
     public $key;
 
     /**
-     * @description The type.
+     * @description The route type.
      *
      * @example PRE
      *

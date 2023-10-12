@@ -18,7 +18,7 @@ class versions extends Model
     public $label;
 
     /**
-     * @description The type.
+     * @description The type of the service.
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class versions extends Model
     public $type;
 
     /**
-     * @description The key of the tag.
+     * @description The tag value.
      *
      * @example v1
      *

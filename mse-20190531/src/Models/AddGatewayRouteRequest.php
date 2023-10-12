@@ -26,29 +26,14 @@ class AddGatewayRouteRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The destination service type.
-     *
-     * Enumeration values:
-     *
-     *   VersionOriented
-     *
-     * <!-- -->
-     *
-     *   Multiple
-     *
-     * <!-- -->
+     * @description The type of the destination service. Valid values:
      *
      *   Single
-     *
-     * <!-- -->
-     *
-     *   Mock\"\"
-     *
-     * <!-- -->
-     *
+     *   Multiple
+     *   VersionOriented
+     *   Mock
      *   Redirect
      *
-     * <!-- -->
      * @example Multiple
      *
      * @var string
@@ -72,7 +57,7 @@ class AddGatewayRouteRequest extends Model
     public $domainId;
 
     /**
-     * @description The list of domain IDs.
+     * @description The domain IDs.
      *
      * @example [0,94]
      *

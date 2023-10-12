@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The node IP address.
+     *
      * @example 10.1.2.3
      *
      * @var string
@@ -17,6 +19,8 @@ class result extends Model
     public $ip;
 
     /**
+     * @description The application port.
+     *
      * @example 8080
      *
      * @var string
@@ -24,6 +28,8 @@ class result extends Model
     public $port;
 
     /**
+     * @description The node tags.
+     *
      * @var tags[]
      */
     public $tags;

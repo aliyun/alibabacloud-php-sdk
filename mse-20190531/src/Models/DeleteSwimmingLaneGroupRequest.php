@@ -30,6 +30,8 @@ class DeleteSwimmingLaneGroupRequest extends Model
     public $groupId;
 
     /**
+     * @description The name.
+     *
      * @example example-app
      *
      * @var string
@@ -37,6 +39,8 @@ class DeleteSwimmingLaneGroupRequest extends Model
     public $name;
 
     /**
+     * @description The name of the Microservices Engine (MSE) namespace.
+     *
      * @example default
      *
      * @var string

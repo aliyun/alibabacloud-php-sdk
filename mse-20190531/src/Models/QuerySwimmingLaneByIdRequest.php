@@ -30,7 +30,7 @@ class QuerySwimmingLaneByIdRequest extends Model
     public $laneId;
 
     /**
-     * @description MSE命名空间名字
+     * @description The name of the Microservices Engine (MSE) namespace.
      *
      * @example default
      *

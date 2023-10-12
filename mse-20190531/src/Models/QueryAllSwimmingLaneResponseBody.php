@@ -19,7 +19,7 @@ class QueryAllSwimmingLaneResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code.
      *
      * @example mse-100-000
      *
@@ -28,7 +28,7 @@ class QueryAllSwimmingLaneResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example The request was successfully processed.
      *

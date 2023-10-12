@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class fallbackServices extends Model
 {
     /**
-     * @description The type of the protocol. Valid values:
+     * @description The protocol type.
      *
      * @example DUBBO
      *
@@ -54,7 +54,7 @@ class fallbackServices extends Model
     public $percent;
 
     /**
-     * @description The ID of the service.
+     * @description The service ID.
      *
      * @example 1
      *
@@ -63,7 +63,7 @@ class fallbackServices extends Model
     public $serviceId;
 
     /**
-     * @description The name of a service.
+     * @description The service name.
      *
      * @example name
      *
@@ -72,7 +72,7 @@ class fallbackServices extends Model
     public $serviceName;
 
     /**
-     * @description The service port number.
+     * @description The port number of the service.
      *
      * @example 8848
      *
@@ -81,7 +81,7 @@ class fallbackServices extends Model
     public $servicePort;
 
     /**
-     * @description The type of the service source.
+     * @description The source type of the service.
      *
      * @example MSE
      *
@@ -90,7 +90,7 @@ class fallbackServices extends Model
     public $sourceType;
 
     /**
-     * @description The version of a service.
+     * @description The service version.
      *
      * @example v1
      *

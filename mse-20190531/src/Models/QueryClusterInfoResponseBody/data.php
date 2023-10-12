@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterInfoResponseBody;
 
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterInfoResponseBody\data\instanceModels;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterInfoResponseBody\data\maintenancePeriod;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -136,16 +137,26 @@ class data extends Model
     public $diskType;
 
     /**
+     * @description 弹性公网IP（EIP）的实例ID
+     *
+     * @example eip-bp1uujshd5funmyy8rcl9
+     *
      * @var string
      */
     public $eipInstanceId;
 
     /**
+     * @description 到期时间（包年包月）
+     *
+     * @example 2021-08-01 00:00:00
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The zones to which the current cluster can be distributed.
+     *
      * @var string[]
      */
     public $expectZones;
@@ -257,6 +268,11 @@ class data extends Model
     public $intranetPort;
 
     /**
+     * @var maintenancePeriod
+     */
+    public $maintenancePeriod;
+
+    /**
      * @description A deprecated parameter.
      *
      * @example null
@@ -311,11 +327,19 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description ENI网络接入的安全组ID
+     *
+     * @example sg-uf6hgwe067prhg68agfa
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description ENI网络接入的安全组类型
+     *
+     * @example enterprise
+     *
      * @var string
      */
     public $securityGroupType;
@@ -374,6 +398,7 @@ class data extends Model
         'intranetAddress'      => 'IntranetAddress',
         'intranetDomain'       => 'IntranetDomain',
         'intranetPort'         => 'IntranetPort',
+        'maintenancePeriod'    => 'MaintenancePeriod',
         'memoryCapacity'       => 'MemoryCapacity',
         'mseVersion'           => 'MseVersion',
         'netType'              => 'NetType',
@@ -486,6 +511,9 @@ class data extends Model
         }
         if (null !== $this->intranetPort) {
             $res['IntranetPort'] = $this->intranetPort;
+        }
+        if (null !== $this->maintenancePeriod) {
+            $res['MaintenancePeriod'] = null !== $this->maintenancePeriod ? $this->maintenancePeriod->toMap() : null;
         }
         if (null !== $this->memoryCapacity) {
             $res['MemoryCapacity'] = $this->memoryCapacity;
@@ -626,6 +654,9 @@ class data extends Model
         }
         if (isset($map['IntranetPort'])) {
             $model->intranetPort = $map['IntranetPort'];
+        }
+        if (isset($map['MaintenancePeriod'])) {
+            $model->maintenancePeriod = maintenancePeriod::fromMap($map['MaintenancePeriod']);
         }
         if (isset($map['MemoryCapacity'])) {
             $model->memoryCapacity = $map['MemoryCapacity'];

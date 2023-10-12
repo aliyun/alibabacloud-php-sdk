@@ -39,7 +39,7 @@ class AddBlackWhiteListRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description Specifies whether to create a whitelist.
+     * @description The whitelist. Default value: No.
      *
      * @example false
      *
@@ -75,7 +75,11 @@ class AddBlackWhiteListRequest extends Model
     public $resourceIdJsonList;
 
     /**
-     * @description The resource type to which the blacklist or whitelist applies.
+     * @description The effective scope of the blacklist or whitelist. Valid values:
+     *
+     *   GATEWAY
+     *   DOMAIN
+     *   ROUTE
      *
      * @example GATEWAY
      *

@@ -10,7 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AddServiceSourceRequest extends Model
 {
     /**
-     * @description The return value.
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN (default): Chinese
+     *   en-US: English
+     *   ja: Japanese
      *
      * @example zh-CN
      *
@@ -67,7 +71,10 @@ class AddServiceSourceRequest extends Model
     public $pathList;
 
     /**
-     * @description Specifies whether to enable Ingress.
+     * @description The service source.
+     *
+     *   K8s: ACK cluster
+     *   NACOS: MSE Nacos instance
      *
      * @example K8s,MSE
      *
@@ -76,7 +83,10 @@ class AddServiceSourceRequest extends Model
     public $source;
 
     /**
-     * @description The unique ID of the gateway.
+     * @description The type of the service source.
+     *
+     *   K8s: Container Service for Kubernetes (ACK) cluster
+     *   NACOS: Nacos instance
      *
      * @example The Ingress configuration.
      *

@@ -19,7 +19,7 @@ class GetPluginsResponseBody extends Model
     public $code;
 
     /**
-     * @description The information about the plug-in.
+     * @description The data returned.
      *
      * @var data[]
      */

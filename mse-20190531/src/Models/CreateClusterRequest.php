@@ -22,6 +22,17 @@ class CreateClusterRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The billing method.
+     *
+     * Valid values:
+     *
+     *   PREPAY
+     *
+     * <!-- -->
+     *
+     *   POSTPAY
+     *
+     * <!-- -->
      * @example POSTPAY
      *
      * @var string
@@ -91,7 +102,7 @@ class CreateClusterRequest extends Model
     public $connectionType;
 
     /**
-     * @description The disk type. Valid values:
+     * @description The type of the disk. Valid values:
      *
      *   alicloud-disk-ssd
      *   alicloud-disk-essd-pl1
@@ -105,6 +116,8 @@ class CreateClusterRequest extends Model
     public $diskType;
 
     /**
+     * @description Specifies whether to enable Internet access (Elastic IP Address) if ConnectionType is set to `single_eni`.
+     *
      * @var bool
      */
     public $eipEnabled;
@@ -127,7 +140,7 @@ class CreateClusterRequest extends Model
     public $instanceCount;
 
     /**
-     * @description The name of the instance.
+     * @description The name of the MSE instance.
      *
      * @example tanshuyingtest001
      *
@@ -136,10 +149,10 @@ class CreateClusterRequest extends Model
     public $instanceName;
 
     /**
-     * @description Set this parameter unless otherwise specified. Valid values:
+     * @description Configure this parameter unless otherwise specified. Valid values:
      *
      *   `mse_pro`: Professional Edition
-     *   `mse_dev`: Developer Edition
+     *   `mse_dev`: Developer Edition.
      *
      * @example mse_pro
      *
@@ -174,8 +187,8 @@ class CreateClusterRequest extends Model
     public $privateSlbSpecification;
 
     /**
-     * @description The public bandwidth. Unit: Mbit/s.\
-     * Valid values: 0 to 5000. The value 0 indicates no access to the Internet.
+     * @description The public bandwidth. Unit: Mbit/s. This parameter is required.\
+     * Valid values: 0 to 5000. A value of 0 indicates no access to the Internet.
      * @example 0
      *
      * @var string
@@ -230,6 +243,13 @@ class CreateClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The type of the security group to which the instance belongs. This parameter is valid only when the ConnectionType parameter is set to `single_eni`.
+     *
+     * Valid values:
+     *
+     *   enterprise
+     *   normal
+     *
      * @var string
      */
     public $securityGroupType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the namespace.
+     *
      * @example default
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $namespace;
 
     /**
+     * @description The region to which the namespace belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string

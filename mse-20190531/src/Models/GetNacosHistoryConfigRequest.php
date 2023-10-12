@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetNacosHistoryConfigRequest extends Model
 {
     /**
-     * @description The data structure.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example zh
      *

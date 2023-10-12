@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\elasticPolicy;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\initConfig;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\internetSlb;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\maintenancePeriod;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\slb;
 use AlibabaCloud\Tea\Model;
 
@@ -58,11 +59,15 @@ class result extends Model
     public $currentVersion;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $elastic;
 
     /**
+     * @example mse_ingresselastic_public_cn-uqm3d0*****
+     *
      * @var string
      */
     public $elasticInstanceId;
@@ -73,17 +78,21 @@ class result extends Model
     public $elasticPolicy;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $elasticReplica;
 
     /**
+     * @example CronHPA
+     *
      * @var string
      */
     public $elasticType;
 
     /**
-     * @description The time when the subscription gateway expires.
+     * @description The time when the instance expires.
      *
      * @example 4792060800000
      *
@@ -92,7 +101,7 @@ class result extends Model
     public $endDate;
 
     /**
-     * @description The type of the gateway.
+     * @description The gateway type.
      *
      * @example Ingress
      *
@@ -119,7 +128,7 @@ class result extends Model
     public $gatewayVersion;
 
     /**
-     * @description The creation time.
+     * @description The time when the gateway was created.
      *
      * @example 2021-09-13 19:24:23
      *
@@ -128,7 +137,7 @@ class result extends Model
     public $gmtCreate;
 
     /**
-     * @description The modification time.
+     * @description The time when the gateway was modified.
      *
      * @example 2021-09-13 19:24:23
      *
@@ -137,7 +146,7 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @description The ID of the gateway.
+     * @description The gateway ID.
      *
      * @example 153
      *
@@ -153,7 +162,7 @@ class result extends Model
     public $initConfig;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example mse_ingresspost-cn-0jbvrcex****
      *
@@ -178,7 +187,12 @@ class result extends Model
     public $latestVersion;
 
     /**
-     * @description The tag of the instance.
+     * @var maintenancePeriod
+     */
+    public $maintenancePeriod;
+
+    /**
+     * @description The resource tag.
      *
      * @example {"tagKey":"tagValue"}
      *
@@ -187,7 +201,12 @@ class result extends Model
     public $mseTag;
 
     /**
-     * @description Indicates whether the gateway can be forcefully updated.
+     * @var string
+     */
+    public $mseVersion;
+
+    /**
+     * @description Indicates whether the instance was forcefully upgraded.
      *
      * @example false
      *
@@ -196,7 +215,7 @@ class result extends Model
     public $mustUpgrade;
 
     /**
-     * @description The name of the gateway.
+     * @description The gateway name.
      *
      * @example tesa-test
      *
@@ -205,7 +224,7 @@ class result extends Model
     public $name;
 
     /**
-     * @description The information about the user.
+     * @description The user information.
      *
      * @example 18278117654342
      *
@@ -214,7 +233,7 @@ class result extends Model
     public $primaryUser;
 
     /**
-     * @description The region ID.
+     * @description The region in which the gateway resides.
      *
      * @example cn-hangzhou
      *
@@ -250,7 +269,7 @@ class result extends Model
     public $rollBack;
 
     /**
-     * @description The details of the Server Load Balancer (SLB) instances.
+     * @description The details of Server Load Balancer (SLB) instances.
      *
      * @var slb[]
      */
@@ -266,20 +285,20 @@ class result extends Model
     public $spec;
 
     /**
-     * @description The gateway status.
+     * @description The gateway state. Valid values:
      *
      *   0: The gateway is being created.
-     *   1: The gateway fails to be created.
+     *   1: The gateway failed to be created.
      *   2: The gateway is running.
-     *   3: The gateway is changing.
+     *   3: The gateway is being changed.
      *   4: The gateway is scaling down.
      *   6: The gateway is scaling up.
      *   8: The gateway is being deleted.
-     *   9: The gateway is suspended and to be released.
+     *   9: The gateway is suspended and is to be released.
      *   10: The gateway is restarting.
      *   11: The gateway is being rebuilt.
-     *   12: The gateway is updating.
-     *   13: The gateway fails to be updated.
+     *   12: The gateway is being upgraded.
+     *   13: The gateway failed to be upgraded.
      *
      * @example 2
      *
@@ -288,7 +307,7 @@ class result extends Model
     public $status;
 
     /**
-     * @description The description of the status.
+     * @description The description of the gateway state.
      *
      * @example Restarting
      *
@@ -315,12 +334,14 @@ class result extends Model
     public $tag;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $totalReplica;
 
     /**
-     * @description Indicates whether the gateway can be updated.
+     * @description Indicates whether the instance was upgraded.
      *
      * @example false
      *
@@ -329,6 +350,8 @@ class result extends Model
     public $upgrade;
 
     /**
+     * @example vpc-uf6heojei217tv14*****
+     *
      * @var string
      */
     public $vpcId;
@@ -363,7 +386,9 @@ class result extends Model
         'instanceId'        => 'InstanceId',
         'internetSlb'       => 'InternetSlb',
         'latestVersion'     => 'LatestVersion',
+        'maintenancePeriod' => 'MaintenancePeriod',
         'mseTag'            => 'MseTag',
+        'mseVersion'        => 'MseVersion',
         'mustUpgrade'       => 'MustUpgrade',
         'name'              => 'Name',
         'primaryUser'       => 'PrimaryUser',
@@ -459,8 +484,14 @@ class result extends Model
         if (null !== $this->latestVersion) {
             $res['LatestVersion'] = $this->latestVersion;
         }
+        if (null !== $this->maintenancePeriod) {
+            $res['MaintenancePeriod'] = null !== $this->maintenancePeriod ? $this->maintenancePeriod->toMap() : null;
+        }
         if (null !== $this->mseTag) {
             $res['MseTag'] = $this->mseTag;
+        }
+        if (null !== $this->mseVersion) {
+            $res['MseVersion'] = $this->mseVersion;
         }
         if (null !== $this->mustUpgrade) {
             $res['MustUpgrade'] = $this->mustUpgrade;
@@ -600,8 +631,14 @@ class result extends Model
         if (isset($map['LatestVersion'])) {
             $model->latestVersion = $map['LatestVersion'];
         }
+        if (isset($map['MaintenancePeriod'])) {
+            $model->maintenancePeriod = maintenancePeriod::fromMap($map['MaintenancePeriod']);
+        }
         if (isset($map['MseTag'])) {
             $model->mseTag = $map['MseTag'];
+        }
+        if (isset($map['MseVersion'])) {
+            $model->mseVersion = $map['MseVersion'];
         }
         if (isset($map['MustUpgrade'])) {
             $model->mustUpgrade = $map['MustUpgrade'];

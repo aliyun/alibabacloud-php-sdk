@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetServiceListPageResponseBody extends Model
 {
     /**
+     * @description The response to the request.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request information.
+     *
      * @example OK
      *
      * @var string
@@ -22,6 +26,8 @@ class GetServiceListPageResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example A2F946FB-F2E3-5BF4-8CBE-xxxxxxxx
      *
      * @var string
@@ -29,6 +35,8 @@ class GetServiceListPageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example True
      *
      * @var bool

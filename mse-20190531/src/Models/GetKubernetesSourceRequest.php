@@ -30,6 +30,8 @@ class GetKubernetesSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description Specifies whether to obtain the information about all Kubernetes clusters. If you set the value to false, only the information about unassociated clusters is obtained.
+     *
      * @var bool
      */
     public $isAll;

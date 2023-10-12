@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class elasticPolicy extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $elastic;
 
     /**
+     * @example CronHPA
+     *
      * @var string
      */
     public $elasticType;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxReplica;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteNamespaceResponseBody extends Model
 {
     /**
-     * @description 错误码。
+     * @description The error code.
      *
      * @example NO_PERMISSION
      *

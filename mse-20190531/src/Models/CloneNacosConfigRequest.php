@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CloneNacosConfigRequest extends Model
 {
     /**
-     * @description The HTTP status code returned.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example zh
      *

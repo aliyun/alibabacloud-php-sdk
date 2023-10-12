@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationInstanceListRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,8 @@ class GetApplicationInstanceListRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The application ID.
+     *
      * @example abcde@12345
      *
      * @deprecated
@@ -25,6 +29,8 @@ class GetApplicationInstanceListRequest extends Model
     public $appId;
 
     /**
+     * @description The application name.
+     *
      * @example example-app
      *
      * @var string
@@ -32,6 +38,8 @@ class GetApplicationInstanceListRequest extends Model
     public $appName;
 
     /**
+     * @description The Microservices Engine (MSE) namespace to which the application belongs.
+     *
      * @example default
      *
      * @var string
@@ -39,6 +47,8 @@ class GetApplicationInstanceListRequest extends Model
     public $namespace;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -46,6 +56,8 @@ class GetApplicationInstanceListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -53,6 +65,8 @@ class GetApplicationInstanceListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -60,6 +74,8 @@ class GetApplicationInstanceListRequest extends Model
     public $region;
 
     /**
+     * @description The tags that you want to add to nodes.
+     *
      * @example gray
      *
      * @var string

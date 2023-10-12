@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAnsServiceClustersResponseBody extends Model
 {
     /**
-     * @description The details of the data.
+     * @description The data returned.
      *
      * @var data
      */
@@ -26,6 +26,10 @@ class ListAnsServiceClustersResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $httpCode;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListAppBySwimmingLaneGroupTagsResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var DataValue[][]
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example Success
      *
      * @var string
@@ -21,6 +25,8 @@ class ListAppBySwimmingLaneGroupTagsResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The additional request information.
+     *
      * @example OK
      *
      * @var string
@@ -28,6 +34,8 @@ class ListAppBySwimmingLaneGroupTagsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 6832e76b-bb5f-4dea-****-************
      *
      * @var string
@@ -35,6 +43,8 @@ class ListAppBySwimmingLaneGroupTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
      * @example True
      *
      * @var bool

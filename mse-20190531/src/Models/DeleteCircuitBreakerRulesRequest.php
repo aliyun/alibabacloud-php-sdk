@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCircuitBreakerRulesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCircuitBreakerRulesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The name of the application.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -23,11 +27,15 @@ class DeleteCircuitBreakerRulesRequest extends Model
     public $appName;
 
     /**
+     * @description The IDs of the rules that you want to delete.
+     *
      * @var int[]
      */
     public $ids;
 
     /**
+     * @description The microservice namespace to which the application belongs.
+     *
      * @example default
      *
      * @var string

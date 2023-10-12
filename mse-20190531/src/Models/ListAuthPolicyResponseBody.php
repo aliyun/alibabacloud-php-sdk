@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAuthPolicyResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class ListAuthPolicyResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,11 +35,15 @@ class ListAuthPolicyResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 05A5A150-4A5F-5A8C-97D6-710776CC8408
      *
      * @var string
@@ -41,6 +51,11 @@ class ListAuthPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example True
      *
      * @var bool

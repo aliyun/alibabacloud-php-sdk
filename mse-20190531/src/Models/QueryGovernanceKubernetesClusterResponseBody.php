@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class QueryGovernanceKubernetesClusterResponseBody extends Model
 {
     /**
-     * @description The response data.
+     * @description The data returned.
      *
      * @var data
      */

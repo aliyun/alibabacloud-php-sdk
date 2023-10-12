@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
      * @example 19039813784***
      *
      * @var string
@@ -17,6 +19,8 @@ class result extends Model
     public $accountId;
 
     /**
+     * @description The application ID.
+     *
      * @example hkhon1po62@5f1b08becb*****
      *
      * @var string
@@ -24,6 +28,8 @@ class result extends Model
     public $appId;
 
     /**
+     * @description The application name.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -31,11 +37,18 @@ class result extends Model
     public $appName;
 
     /**
+     * @description The content of the service authentication rule.
+     *
      * @var authRule[]
      */
     public $authRule;
 
     /**
+     * @description The rule type. Valid values:
+     *
+     *   0: by application
+     *   1: by namespace
+     *
      * @example 0
      *
      * @var int
@@ -43,6 +56,11 @@ class result extends Model
     public $authType;
 
     /**
+     * @description Indicates whether the rule was enabled or disabled. Valid values:
+     *
+     *   `true`: enabled
+     *   `false`: disabled
+     *
      * @example false
      *
      * @var bool
@@ -50,7 +68,7 @@ class result extends Model
     public $enable;
 
     /**
-     * @description ID。
+     * @description The rule ID.
      *
      * @example 204
      *
@@ -59,6 +77,8 @@ class result extends Model
     public $id;
 
     /**
+     * @description The namespace.
+     *
      * @example c19c6c500e1ff4d7abc7bed9b8236***
      *
      * @var string
@@ -66,6 +86,8 @@ class result extends Model
     public $k8sNamespace;
 
     /**
+     * @description The name of the authentication rule.
+     *
      * @example test
      *
      * @var string
@@ -73,6 +95,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The namespace ID.
+     *
      * @example ced54a95-4e33-4bda-be7e-37e95868***
      *
      * @var string
@@ -80,6 +104,12 @@ class result extends Model
     public $namespaceId;
 
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   **SPRING_CLOUD**
+     *   **DUBBO**
+     *   **istio**
+     *
      * @example SPRING_CLOUD
      *
      * @var string
@@ -87,6 +117,8 @@ class result extends Model
     public $protocol;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -94,6 +126,8 @@ class result extends Model
     public $regionId;
 
     /**
+     * @description The source of the application.
+     *
      * @example edasmsc
      *
      * @var string
@@ -101,6 +135,8 @@ class result extends Model
     public $source;
 
     /**
+     * @description The status.
+     *
      * @example 1
      *
      * @var int

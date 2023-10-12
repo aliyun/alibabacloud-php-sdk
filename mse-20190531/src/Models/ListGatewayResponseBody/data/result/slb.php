@@ -18,7 +18,7 @@ class slb extends Model
     public $gatewaySlbMode;
 
     /**
-     * @description The status of the SLB instance.
+     * @description The state of the SLB instance.
      *
      * @example Ready
      *
@@ -63,7 +63,7 @@ class slb extends Model
     public $slbSpec;
 
     /**
-     * @description The description of the status.
+     * @description The description of the state.
      *
      * @example Creating
      *
@@ -72,7 +72,7 @@ class slb extends Model
     public $statusDesc;
 
     /**
-     * @description The type.
+     * @description Indicates whether the instance was deployed on the public network or internal network.
      *
      * @example PUB_NET
      *

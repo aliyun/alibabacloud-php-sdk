@@ -27,7 +27,7 @@ class clusters extends Model
     public $defaultPort;
 
     /**
-     * @description The type of health check.
+     * @description The type of the health check.
      *
      * @example Heartbeat Reporting
      *
@@ -45,7 +45,7 @@ class clusters extends Model
     public $metadata;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * @example test
      *
@@ -63,7 +63,7 @@ class clusters extends Model
     public $serviceName;
 
     /**
-     * @description Indicates whether an end-to-end health check is initiated by the server. This parameter is valid only if the service is a temporary service.
+     * @description Indicates whether an end-to-end health check was initiated by the server. This parameter is valid only if the service is not a temporary service.
      *
      * @example true
      *

@@ -18,7 +18,7 @@ class data extends Model
     public $clientPort;
 
     /**
-     * @description The creation time. The value of this parameter is a timestamp.
+     * @description The creation time.
      *
      * @example 2022-12-15T02:02:15Z
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $singleTunnelVip;
 
     /**
-     * @description The zone.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-k
      *
@@ -90,6 +90,10 @@ class data extends Model
     public $zone;
 
     /**
+     * @description Indicates whether all pods in the cluster are distributed in the specified zones.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $zoneDistributed;

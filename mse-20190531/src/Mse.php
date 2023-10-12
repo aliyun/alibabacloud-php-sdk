@@ -718,8 +718,14 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->internetSlbSpec)) {
             $query['InternetSlbSpec'] = $request->internetSlbSpec;
         }
+        if (!Utils::isUnset($request->mserVersion)) {
+            $query['MserVersion'] = $request->mserVersion;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nlbNetworkType)) {
+            $query['NlbNetworkType'] = $request->nlbNetworkType;
         }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
@@ -3358,7 +3364,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     * >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
      *   *
      * @param DeleteNacosConfigsRequest $request DeleteNacosConfigsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -3400,7 +3406,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     * >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
      *   *
      * @param DeleteNacosConfigsRequest $request DeleteNacosConfigsRequest
      *
@@ -7921,6 +7927,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -9961,6 +9970,12 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->maintenanceEndTime)) {
+            $query['MaintenanceEndTime'] = $request->maintenanceEndTime;
+        }
+        if (!Utils::isUnset($request->maintenanceStartTime)) {
+            $query['MaintenanceStartTime'] = $request->maintenanceStartTime;
+        }
         if (!Utils::isUnset($request->requestPars)) {
             $query['RequestPars'] = $request->requestPars;
         }
@@ -9995,7 +10010,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
+     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go or subscription MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see "Pricing" (`~~1806469~~`).
      *   *
      * @param UpdateClusterSpecRequest $request UpdateClusterSpecRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -10043,7 +10058,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
+     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go or subscription MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see "Pricing" (`~~1806469~~`).
      *   *
      * @param UpdateClusterSpecRequest $request UpdateClusterSpecRequest
      *
@@ -11412,7 +11427,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing](~~250950~~).
+     * You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](~~250950~~).
      *   *
      * @param UpdateGatewaySpecRequest $request UpdateGatewaySpecRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -11454,7 +11469,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing](~~250950~~).
+     * You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](~~250950~~).
      *   *
      * @param UpdateGatewaySpecRequest $request UpdateGatewaySpecRequest
      *
@@ -11726,7 +11741,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     * >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
      *   *
      * @param UpdateNacosConfigRequest $request UpdateNacosConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -11795,7 +11810,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     * >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
      *   *
      * @param UpdateNacosConfigRequest $request UpdateNacosConfigRequest
      *

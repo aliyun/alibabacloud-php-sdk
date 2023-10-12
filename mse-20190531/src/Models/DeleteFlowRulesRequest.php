@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowRulesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteFlowRulesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The application name.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteFlowRulesRequest extends Model
     public $appName;
 
     /**
+     * @description The IDs of the rules to be deleted.
+     *
      * @example [1,2]
      *
      * @var int[]
@@ -30,6 +39,8 @@ class DeleteFlowRulesRequest extends Model
     public $ids;
 
     /**
+     * @description The microservice namespace to which the application belongs.
+     *
      * @example default
      *
      * @var string

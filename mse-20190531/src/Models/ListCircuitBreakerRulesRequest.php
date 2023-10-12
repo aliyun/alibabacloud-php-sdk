@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCircuitBreakerRulesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese, and the value en-US indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,8 @@ class ListCircuitBreakerRulesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
      * @example hkhon1po62@c3df23522bXXXXX
      *
      * @var string
@@ -23,6 +27,8 @@ class ListCircuitBreakerRulesRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -30,6 +36,8 @@ class ListCircuitBreakerRulesRequest extends Model
     public $appName;
 
     /**
+     * @description The microservice namespace to which the application belongs.
+     *
      * @example default
      *
      * @var string
@@ -37,6 +45,8 @@ class ListCircuitBreakerRulesRequest extends Model
     public $namespace;
 
     /**
+     * @description The start page of the returned pages. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class ListCircuitBreakerRulesRequest extends Model
     public $pageIndex;
 
     /**
+     * @description The number of entries per page. Default value: 6.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +63,8 @@ class ListCircuitBreakerRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is used for exact match of circuit breaking rules.
+     *
      * @example /a
      *
      * @var string
@@ -58,6 +72,8 @@ class ListCircuitBreakerRulesRequest extends Model
     public $resource;
 
     /**
+     * @description This parameter is used for fuzzy match of circuit breaking rules.
+     *
      * @example a
      *
      * @var string

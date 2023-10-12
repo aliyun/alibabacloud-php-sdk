@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAuthPolicyResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 500
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateAuthPolicyResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the data.
+     *
      * @example {}
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateAuthPolicyResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -30,11 +36,15 @@ class UpdateAuthPolicyResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 83E3909D-D26F-5D97-B73B-407A26***
      *
      * @var string
@@ -42,6 +52,8 @@ class UpdateAuthPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
+     *
      * @example true
      *
      * @var bool

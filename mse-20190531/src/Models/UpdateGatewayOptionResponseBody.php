@@ -18,7 +18,7 @@ class UpdateGatewayOptionResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @example {\"LogConfigDetails\": {\"LogEnabled\": True}, \"TraceDetails\": {\"Sample\": 17, \"TraceEnabled\": True}}
      *

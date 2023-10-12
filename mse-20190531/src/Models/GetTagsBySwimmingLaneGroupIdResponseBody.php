@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTagsBySwimmingLaneGroupIdResponseBody extends Model
 {
     /**
-     * @description The details of the data.
+     * @description The data of the tag.
      *
      * @example ["gray"]
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCircuitBreakerRuleRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese, and the value en-US indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
      * @example hkhon1po62@c3df23522bXXXXX
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -30,6 +36,17 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $appName;
 
     /**
+     * @description Specifies whether to enable the rule.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -37,6 +54,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $enable;
 
     /**
+     * @description The minimum number of requests that can be passed in each step after circuit breaking recovers. Default value: 1.
+     *
      * @example 5
      *
      * @var int
@@ -44,6 +63,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $halfOpenBaseAmountPerStep;
 
     /**
+     * @description The number of circuit breaking recovery steps. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +72,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $halfOpenRecoveryStepNum;
 
     /**
+     * @description The maximum response time (RT). Unit: milliseconds. If the RT of a request is greater than the value of this parameter, a slow call is counted. If you set Strategy to 0, you must specify this parameter.
+     *
      * @example 200
      *
      * @var int
@@ -58,6 +81,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $maxAllowedRtMs;
 
     /**
+     * @description The minimum number of requests to trigger circuit breaking. If the number of requests in the current time window is less than the value of this parameter, circuit breaking is not triggered even if the circuit breaking rule is met. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -65,6 +90,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $minRequestAmount;
 
     /**
+     * @description The microservice namespace to which the application belongs.
+     *
      * @example default
      *
      * @var string
@@ -72,6 +99,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $namespace;
 
     /**
+     * @description The period in which circuit breaking is implemented. Unit: milliseconds. If circuit breaking is implemented on the requests for the route, the calls to all the requests for the route fail in the configured circuit breaking period. The value must be an integral multiple of 1,000. Default value: 10000. This value indicates 10 seconds.
+     *
      * @example 10000
      *
      * @var int
@@ -79,6 +108,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $retryTimeoutMs;
 
     /**
+     * @description The rule ID.
+     *
      * @example 1
      *
      * @var int
@@ -86,6 +117,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $ruleId;
 
     /**
+     * @description The length of the time window. Unit: milliseconds. The valid range is from 1 second to 120 minutes. The default value is 20000. This value indicates 20 seconds.
+     *
      * @example 20000
      *
      * @var int
@@ -93,6 +126,17 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $statIntervalMs;
 
     /**
+     * @description The threshold type.
+     *
+     * Valid values:
+     *
+     *   0
+     *
+     * <!-- -->
+     *
+     *   1
+     *
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -100,6 +144,8 @@ class UpdateCircuitBreakerRuleRequest extends Model
     public $strategy;
 
     /**
+     * @description A percentage threshold for triggering circuit breaking. Valid values: 0-1. These values represent 0% to 100%.
+     *
      * @example 0.8
      *
      * @var float

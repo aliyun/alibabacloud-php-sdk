@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description 标签值。
+     *
      * @example gray
      *
      * @var string

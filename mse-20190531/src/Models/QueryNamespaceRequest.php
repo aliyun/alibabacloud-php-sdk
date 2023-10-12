@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryNamespaceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values: zh and en. Default value: zh. The value zh which indicates Chinese, and the value en indicates English.
+     *
      * @example zh
      *
      * @var string

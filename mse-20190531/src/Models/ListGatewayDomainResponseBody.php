@@ -19,7 +19,7 @@ class ListGatewayDomainResponseBody extends Model
     public $code;
 
     /**
-     * @description The data of the node.
+     * @description The details of the data.
      *
      * @var data[]
      */

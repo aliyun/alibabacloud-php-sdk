@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNamespaceRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+     *
      * @example zh
      *
      * @var string

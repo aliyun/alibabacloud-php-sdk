@@ -27,7 +27,7 @@ class headerOpItems extends Model
     public $key;
 
     /**
-     * @description The operation type.
+     * @description The type of the operation.
      *
      * @example Add
      *

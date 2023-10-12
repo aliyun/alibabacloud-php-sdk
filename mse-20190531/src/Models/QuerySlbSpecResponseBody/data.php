@@ -27,7 +27,7 @@ class data extends Model
     public $maxConnection;
 
     /**
-     * @description The name.
+     * @description The name of the instance.
      *
      * @example Standard I
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The maximum connections per second (CPS).
+     * @description The number of connections per second.
      *
      * @example 50,000
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $qps;
 
     /**
-     * @description The specifications.
+     * @description The specification of the instance.
      *
      * @example slb.s2.small
      *

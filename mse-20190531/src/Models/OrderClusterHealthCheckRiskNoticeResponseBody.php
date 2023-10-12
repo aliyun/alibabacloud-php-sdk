@@ -18,7 +18,7 @@ class OrderClusterHealthCheckRiskNoticeResponseBody extends Model
     public $code;
 
     /**
-     * @description The data of the node.
+     * @description Indicates whether the subscription was successful.
      *
      * @example null
      *

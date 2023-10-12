@@ -94,6 +94,10 @@ class data extends Model
     public $configSecretSupported;
 
     /**
+     * @description Indicates whether access port 8761 was enabled for Eureka. If this port is disabled, applications cannot use the Eureka protocol for service registration and discovery.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $eurekaSupported;
@@ -280,6 +284,10 @@ class data extends Model
     public $syncLimit;
 
     /**
+     * @description MSE Nacos supports TLS transmission link encryption since version 2.1.2.1. Nacos clients must be upgraded to version 2.2.1 or later. After TLS is enabled, the system performance will decrease by about 10%. You must evaluate the system capacity. For more information about the relevant operations, see Nacos TLS transmission encryption.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $TLSEnabled;

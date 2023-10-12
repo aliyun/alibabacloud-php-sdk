@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DataValue extends Model
 {
     /**
+     * @description The ID of the user to which the application belongs.
+     *
      * @example 12345
      *
      * @var string
@@ -16,6 +18,8 @@ class DataValue extends Model
     public $userId;
 
     /**
+     * @description The region where the application resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class DataValue extends Model
     public $regionId;
 
     /**
+     * @description The microservice namespace where the application resides.
+     *
      * @example default
      *
      * @var string
@@ -30,6 +36,8 @@ class DataValue extends Model
     public $namespace;
 
     /**
+     * @description The application name.
+     *
      * @example example-app-name
      *
      * @var string
@@ -37,6 +45,8 @@ class DataValue extends Model
     public $appName;
 
     /**
+     * @description The application ID.
+     *
      * @example 123456abcde@12345abcde
      *
      * @var string

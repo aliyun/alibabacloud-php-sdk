@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class QueryNamespaceResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description 错误码。
+     * @description The error code.
      *
      * @example Success
      *

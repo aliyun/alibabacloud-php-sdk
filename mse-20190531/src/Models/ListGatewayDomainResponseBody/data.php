@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The expiration time.
+     * @description The time when the certificate expires.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $certBeforeDate;
 
     /**
-     * @description The ID of the certificate.
+     * @description The certificate ID.
      *
      * @example 3452-cn-hangzhou
      *
@@ -28,14 +28,14 @@ class data extends Model
     public $certIdentifier;
 
     /**
-     * @description The route comment (ingress).
+     * @description The route comment. This parameter is returned only in ingress scenarios.
      *
      * @var comment
      */
     public $comment;
 
     /**
-     * @description The ID of the gateway.
+     * @description The gateway ID.
      *
      * @example 12
      *
@@ -44,7 +44,7 @@ class data extends Model
     public $gatewayId;
 
     /**
-     * @description The creation time.
+     * @description The time when the domain name was created.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -53,7 +53,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The update time.
+     * @description The time when the domain name was updated.
      *
      * @example 2031-03-30 02:35:12
      *
@@ -75,7 +75,7 @@ class data extends Model
     public $http2;
 
     /**
-     * @description The domain ID.
+     * @description The ID of the domain name.
      *
      * @example 243
      *
@@ -111,9 +111,9 @@ class data extends Model
     public $protocol;
 
     /**
-     * @description The status of the domain name. Valid values:
+     * @description The state of the domain name. Valid values:
      *
-     *   0: unpublish
+     *   0: unpublished
      *   2: publishing
      *   3: published
      *   4: editing
@@ -145,7 +145,10 @@ class data extends Model
     public $tlsMin;
 
     /**
-     * @description The type.
+     * @description The type of the domain name source. Valid values:
+     *
+     *   Op: console
+     *   Ingress: MSE Ingress
      *
      * @example Op
      *

@@ -11,8 +11,8 @@ class CreateMseServiceApplicationRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     *   zh: Chinese.
-     *   en: English.
+     *   zh: Chinese
+     *   en: English
      *
      * @example zh
      *
@@ -84,7 +84,7 @@ class CreateMseServiceApplicationRequest extends Model
     public $sentinelEnable;
 
     /**
-     * @description The source.
+     * @description The service source.
      *
      * @example edasmsc
      *

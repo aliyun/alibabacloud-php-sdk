@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class routeServices extends Model
 {
     /**
-     * @description The type of the protocol. Valid values:
+     * @description The protocol type.
      *
      * @example DUBBO
      *
@@ -18,7 +18,7 @@ class routeServices extends Model
     public $agreementType;
 
     /**
-     * @description The name of the group to which a service belongs.
+     * @description The name of the group to which the service belongs.
      *
      * @example api
      *
@@ -27,7 +27,7 @@ class routeServices extends Model
     public $groupName;
 
     /**
-     * @description The name of a service.
+     * @description The service name.
      *
      * @example dubbo4
      *
@@ -54,7 +54,7 @@ class routeServices extends Model
     public $percent;
 
     /**
-     * @description The ID of a service.
+     * @description The service ID.
      *
      * @example 782
      *
@@ -63,7 +63,7 @@ class routeServices extends Model
     public $serviceId;
 
     /**
-     * @description The name of a service.
+     * @description The service name.
      *
      * @example xkc-crm
      *
@@ -72,7 +72,7 @@ class routeServices extends Model
     public $serviceName;
 
     /**
-     * @description The service port number.
+     * @description The port number of the service.
      *
      * @example 20880
      *
@@ -81,7 +81,7 @@ class routeServices extends Model
     public $servicePort;
 
     /**
-     * @description The source type of a service.
+     * @description The source type of the service.
      *
      * @example MSE
      *
@@ -90,7 +90,7 @@ class routeServices extends Model
     public $sourceType;
 
     /**
-     * @description The version of a service.
+     * @description The service version.
      *
      * @example v1
      *

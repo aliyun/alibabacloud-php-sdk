@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The description of the rule.
+     * @description The rule description.
      *
      * @example Test
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $description;
 
     /**
-     * @description The ID of the gateway.
+     * @description The gateway ID.
      *
      * @example 81
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The creation time.
+     * @description The time when the instance was created.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The last modification time.
+     * @description The time when the instance configuration was last modified.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description The ID.
+     * @description The authorization record ID of the security group.
      *
      * @example 21
      *

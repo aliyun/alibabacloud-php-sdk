@@ -54,6 +54,8 @@ class result extends Model
     public $language;
 
     /**
+     * @description The microservice namespace to which the application belongs.
+     *
      * @example default
      *
      * @var string
@@ -61,7 +63,7 @@ class result extends Model
     public $namespace;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -88,7 +90,7 @@ class result extends Model
     public $status;
 
     /**
-     * @description The ID of the user.
+     * @description The user ID.
      *
      * @example 1234567890
      *

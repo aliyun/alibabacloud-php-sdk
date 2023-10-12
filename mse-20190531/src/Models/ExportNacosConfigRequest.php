@@ -21,9 +21,11 @@ class ExportNacosConfigRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The tag of the application.
+     * @description The application tag.
      *
      * @example qjl-gateway-openapi
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -35,16 +37,19 @@ class ExportNacosConfigRequest extends Model
      * >
      *
      *   Multiple export methods are supported.
+     *
      *   If you want to export a single configuration, you must leave the Ids parameter empty and specify the DataID and Group parameters.
      *
      * @example sms-mes-develop.prop****
+     *
+     * @deprecated
      *
      * @var string
      */
     public $dataId;
 
     /**
-     * @description The configuration group name and the ID of the data that you want to export. Separate multiple configurations with comma (,).
+     * @description The configuration group name and the ID of the configuration that you want to export. Separate multiple configurations with comma (,).
      *
      * @example testGroup+testDataId1,testGroup+testDataId2
      *
@@ -57,6 +62,8 @@ class ExportNacosConfigRequest extends Model
      *
      * @example TIMEDTASK_COMMON_GROUP
      *
+     * @deprecated
+     *
      * @var string
      */
     public $group;
@@ -66,6 +73,8 @@ class ExportNacosConfigRequest extends Model
      *
      * >  - Multiple export methods are supported. You must specify this parameter if you want to export multiple configurations. - You can obtain the value of this parameter by calling the ListNacosConfigs operation. - If you specify this parameter, multiple configurations are exported. The DataId and Group parameters are invalid.
      * @example 1709,1710
+     *
+     * @deprecated
      *
      * @var string
      */

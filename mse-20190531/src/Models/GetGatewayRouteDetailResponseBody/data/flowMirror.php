@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class flowMirror extends Model
 {
     /**
+     * @description 流量复制比例（%），取值0-100。
+     *
+     * @example 90
+     *
      * @var int
      */
     public $percentage;
 
     /**
+     * @description 目标服务端口。
+     *
+     * @example 8790
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description 开启状态，取值：
+     *
+     * - off：关闭
+     * @example on
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 目标服务ID。
+     *
+     * @example 21
+     *
      * @var int
      */
     public $targetServiceId;
 
     /**
+     * @description 目标服务名称。
+     *
+     * @example test
+     *
      * @var string
      */
     public $targetServiceName;

@@ -31,6 +31,8 @@ class AddAuthResourceRequest extends Model
     public $authId;
 
     /**
+     * @description The authentication resource headers.
+     *
      * @var authResourceHeaderList[]
      */
     public $authResourceHeaderList;
@@ -54,6 +56,8 @@ class AddAuthResourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description Specifies whether the matching is not case-sensitive. Default value: true.
+     *
      * @example true
      *
      * @var bool
@@ -61,11 +65,11 @@ class AddAuthResourceRequest extends Model
     public $ignoreCase;
 
     /**
-     * @description The matching type.
+     * @description The matching type. Valid values:
      *
-     *   exact: exact matching
-     *   prefix: prefix matching
-     *   regex: regular expression matching
+     *   EQUAL
+     *   PRE
+     *   ERGULAR
      *
      * @example exact
      *

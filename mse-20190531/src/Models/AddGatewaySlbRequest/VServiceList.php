@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class VServiceList extends Model
 {
     /**
+     * @description The port number.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *
+     * @example HTTPS
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The ID of the virtual server group.
+     *
+     * @example rsp-bp1j**t0fyl**
+     *
      * @var string
      */
     public $VServerGroupId;
 
     /**
+     * @description The name of the virtual server group.
+     *
+     * @example k8s/31**0/***\/istio-system/clusterid
+     *
      * @var string
      */
     public $VServerGroupName;

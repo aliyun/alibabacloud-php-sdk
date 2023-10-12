@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example hpn9ac29kz@e31a4b871******
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $appId;
 
     /**
+     * @description The application name.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -23,6 +27,17 @@ class data extends Model
     public $appName;
 
     /**
+     * @description The throttling effect.
+     *
+     * Valid values:
+     *
+     *   0
+     *
+     * <!-- -->
+     *
+     *   2
+     *
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -30,6 +45,17 @@ class data extends Model
     public $controlBehavior;
 
     /**
+     * @description Indicates whether the rule was enabled.
+     *
+     * Valid value:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -37,6 +63,8 @@ class data extends Model
     public $enable;
 
     /**
+     * @description The rule ID.
+     *
      * @example 12
      *
      * @var int
@@ -44,6 +72,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The timeout period for queuing when the value of ControlBehavior is set to 2. Unit: milliseconds.
+     *
      * @example 500
      *
      * @var int
@@ -51,6 +81,8 @@ class data extends Model
     public $maxQueueingTimeMs;
 
     /**
+     * @description The namespace.
+     *
      * @example default
      *
      * @var string
@@ -58,6 +90,8 @@ class data extends Model
     public $namespace;
 
     /**
+     * @description The name of the API resource.
+     *
      * @example /c
      *
      * @var string
@@ -65,6 +99,8 @@ class data extends Model
     public $resource;
 
     /**
+     * @description The throttling threshold.
+     *
      * @example 5
      *
      * @var float

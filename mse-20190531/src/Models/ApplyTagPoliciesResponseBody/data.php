@@ -18,10 +18,10 @@ class data extends Model
     public $carryData;
 
     /**
-     * @description Indicates whether the routing rule is enabled.
+     * @description Indicates whether the rule is enabled. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: The rule is enabled.
+     *   `false`: The rule is disabled.
      *
      * @example true
      *
@@ -66,7 +66,7 @@ class data extends Model
     public $rate;
 
     /**
-     * @description Indicates whether the routing rule is deleted.
+     * @description Indicates whether the routing rule was deleted.
      *
      * @var bool
      */

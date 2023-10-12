@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class authRule extends Model
 {
     /**
+     * @description The IDs of applications.
+     *
      * @var string[]
      */
     public $appIds;
 
     /**
+     * @description The rule type. Valid values:
+     *
+     *   0: by application
+     *   1: by namespace
+     *
      * @example 0
      *
      * @var int
@@ -22,6 +29,8 @@ class authRule extends Model
     public $authType;
 
     /**
+     * @description Indicates whether the rule is a blacklist rule.
+     *
      * @example false
      *
      * @var bool
@@ -29,16 +38,22 @@ class authRule extends Model
     public $black;
 
     /**
+     * @description The queried namespaces.
+     *
      * @var string[]
      */
     public $k8sNamespaces;
 
     /**
+     * @description The request method.
+     *
      * @var method
      */
     public $method;
 
     /**
+     * @description The service path.
+     *
      * @example /a
      *
      * @var string

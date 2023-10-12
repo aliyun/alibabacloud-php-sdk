@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class method extends Model
 {
     /**
+     * @description The group.
+     *
      * @example default
      *
      * @var string
@@ -16,6 +18,8 @@ class method extends Model
     public $group;
 
     /**
+     * @description The method name.
+     *
      * @example hello
      *
      * @var string
@@ -23,11 +27,15 @@ class method extends Model
     public $name;
 
     /**
+     * @description The types of request parameters.
+     *
      * @var string[]
      */
     public $parameterTypes;
 
     /**
+     * @description The type of the return value.
+     *
      * @example Boolean
      *
      * @var string
@@ -35,6 +43,8 @@ class method extends Model
     public $returnType;
 
     /**
+     * @description The service name.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -42,6 +52,8 @@ class method extends Model
     public $serviceName;
 
     /**
+     * @description The method version.
+     *
      * @example 0.0.1
      *
      * @var string

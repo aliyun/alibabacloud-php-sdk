@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowRuleRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class CreateFlowRuleRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The application ID.
+     *
      * @example ib09eblv6p@c3df23522******
      *
      * @var string
@@ -23,6 +30,8 @@ class CreateFlowRuleRequest extends Model
     public $appId;
 
     /**
+     * @description The application name.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -30,6 +39,17 @@ class CreateFlowRuleRequest extends Model
     public $appName;
 
     /**
+     * @description The throttling effect.
+     *
+     * Valid values:
+     *
+     *   0
+     *
+     * <!-- -->
+     *
+     *   2
+     *
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -37,6 +57,17 @@ class CreateFlowRuleRequest extends Model
     public $controlBehavior;
 
     /**
+     * @description Specifies whether to enable the rule.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -44,6 +75,8 @@ class CreateFlowRuleRequest extends Model
     public $enable;
 
     /**
+     * @description The timeout period. Unit: milliseconds. This value is required if the ControlBehavior parameter is set to 2.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +84,8 @@ class CreateFlowRuleRequest extends Model
     public $maxQueueingTimeMs;
 
     /**
+     * @description The namespace.
+     *
      * @example default
      *
      * @var string
@@ -58,6 +93,8 @@ class CreateFlowRuleRequest extends Model
     public $namespace;
 
     /**
+     * @description The region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +102,8 @@ class CreateFlowRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the API resource.
+     *
      * @example /b
      *
      * @var string
@@ -72,6 +111,8 @@ class CreateFlowRuleRequest extends Model
     public $resource;
 
     /**
+     * @description The throttling threshold.
+     *
      * @example 20
      *
      * @var int

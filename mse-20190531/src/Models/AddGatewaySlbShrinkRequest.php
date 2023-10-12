@@ -96,6 +96,8 @@ class AddGatewaySlbShrinkRequest extends Model
     public $VServerGroupId;
 
     /**
+     * @description The SLB monitoring information.
+     *
      * @var string
      */
     public $VServiceListShrink;

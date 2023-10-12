@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAppBySwimmingLaneGroupTagsRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,8 @@ class ListAppBySwimmingLaneGroupTagsRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the lane group.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListAppBySwimmingLaneGroupTagsRequest extends Model
     public $groupId;
 
     /**
+     * @description The name of the MSE namespace that you want to query.
+     *
      * @example default
      *
      * @var string
@@ -30,6 +36,8 @@ class ListAppBySwimmingLaneGroupTagsRequest extends Model
     public $namespace;
 
     /**
+     * @description The tag based on which you want to list applications.
+     *
      * @var string[]
      */
     public $tags;

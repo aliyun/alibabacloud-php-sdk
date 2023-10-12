@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowRulesResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var int
@@ -16,11 +18,15 @@ class DeleteFlowRulesResponseBody extends Model
     public $code;
 
     /**
+     * @description The IDs of the rules that were deleted.
+     *
      * @var int[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -28,6 +34,8 @@ class DeleteFlowRulesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -35,6 +43,8 @@ class DeleteFlowRulesResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example FAF577DD-8E8E-5BE6-80CC-380E19******
      *
      * @var string
@@ -42,6 +52,11 @@ class DeleteFlowRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
      * @example true
      *
      * @var bool

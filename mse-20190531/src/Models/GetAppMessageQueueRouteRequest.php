@@ -30,6 +30,8 @@ class GetAppMessageQueueRouteRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example example-app
      *
      * @var string
@@ -37,6 +39,8 @@ class GetAppMessageQueueRouteRequest extends Model
     public $appName;
 
     /**
+     * @description The name of the Microservices Engine (MSE) namespace.
+     *
      * @example default
      *
      * @var string

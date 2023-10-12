@@ -127,6 +127,11 @@ class data extends Model
     public $slbPort;
 
     /**
+     * @var string
+     */
+    public $slbType;
+
+    /**
      * @description The description of the status.
      *
      * @example Associating
@@ -176,6 +181,7 @@ class data extends Model
         'slbId'               => 'SlbId',
         'slbIp'               => 'SlbIp',
         'slbPort'             => 'SlbPort',
+        'slbType'             => 'SlbType',
         'statusDesc'          => 'StatusDesc',
         'type'                => 'Type',
         'VServerGroupId'      => 'VServerGroupId',
@@ -228,6 +234,9 @@ class data extends Model
         }
         if (null !== $this->slbPort) {
             $res['SlbPort'] = $this->slbPort;
+        }
+        if (null !== $this->slbType) {
+            $res['SlbType'] = $this->slbType;
         }
         if (null !== $this->statusDesc) {
             $res['StatusDesc'] = $this->statusDesc;
@@ -300,6 +309,9 @@ class data extends Model
         }
         if (isset($map['SlbPort'])) {
             $model->slbPort = $map['SlbPort'];
+        }
+        if (isset($map['SlbType'])) {
+            $model->slbType = $map['SlbType'];
         }
         if (isset($map['StatusDesc'])) {
             $model->statusDesc = $map['StatusDesc'];

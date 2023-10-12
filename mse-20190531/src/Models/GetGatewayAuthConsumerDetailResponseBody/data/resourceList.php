@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resourceList extends Model
 {
     /**
-     * @description The ID of the consumer.
+     * @description The consumer ID.
      *
      * @example 123
      *
@@ -27,7 +27,7 @@ class resourceList extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The creation time.
+     * @description The time when the resource associated with the consumer authentication record was created.
      *
      * @example 2022-12-06 01:38:03
      *
@@ -36,7 +36,7 @@ class resourceList extends Model
     public $gmtCreate;
 
     /**
-     * @description The modification time.
+     * @description The time when the resource associated with the consumer authentication record was modified.
      *
      * @example 2022-12-06 01:38:03
      *
@@ -54,10 +54,10 @@ class resourceList extends Model
     public $id;
 
     /**
-     * @description The resource authorization status. Valid values:
+     * @description The resource authorization state. Valid values:
      *
-     *   true: enabled
-     *   false: disabled
+     *   true: Resource authorization is enabled.
+     *   false: Resource authorization is disabled.
      *
      * @example true
      *

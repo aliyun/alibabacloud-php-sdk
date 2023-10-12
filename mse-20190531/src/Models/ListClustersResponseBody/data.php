@@ -36,7 +36,7 @@ class data extends Model
     public $chargeType;
 
     /**
-     * @description The alias of the instance.
+     * @description The alias of the cluster.
      *
      * @example mse-7413****
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $clusterAliasName;
 
     /**
-     * @description The name of the instance.
+     * @description The name of the cluster.
      *
      * @example mse-cn-st21ri2****
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $clusterName;
 
     /**
-     * @description The type of the instance. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+     * @description The type of the cluster. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
      *
      * @example Eureka
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $clusterType;
 
     /**
-     * @description The time when the instance was created.
+     * @description The time when the cluster was created.
      *
      * @example 2020-07-31 11:36:08
      *
@@ -72,7 +72,7 @@ class data extends Model
     public $createTime;
 
     /**
-     * @description The time when the instance expires.
+     * @description The time when the cluster expires.
      *
      * @example 2021-08-01 00:00:00
      *
@@ -90,7 +90,7 @@ class data extends Model
     public $initStatus;
 
     /**
-     * @description The number of instance nodes.
+     * @description The number of clusters.
      *
      * @example 2
      *
@@ -99,7 +99,7 @@ class data extends Model
     public $instanceCount;
 
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
      * @example mse-cn-st21ri2****
      *
@@ -117,7 +117,7 @@ class data extends Model
     public $internetAddress;
 
     /**
-     * @description The public endpoint of the instance.
+     * @description The public endpoint.
      *
      * @example mse-7413****-p.eureka.mse.aliyuncs.com
      *
@@ -135,7 +135,7 @@ class data extends Model
     public $intranetAddress;
 
     /**
-     * @description The internal endpoint of the instance.
+     * @description The internal endpoint.
      *
      * @example mse-7413****-eureka.mse.aliyuncs.com
      *
@@ -144,7 +144,7 @@ class data extends Model
     public $intranetDomain;
 
     /**
-     * @description The edition of the instance.
+     * @description The edition of the cluster.
      *
      * @example mse_pro
      *
@@ -178,6 +178,8 @@ class data extends Model
     public $versionCode;
 
     /**
+     * @example vpc-bp1hcg467ekqsv0zr****
+     *
      * @var string
      */
     public $vpcId;

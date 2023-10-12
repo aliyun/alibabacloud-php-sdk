@@ -11,12 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateSwimmingLaneRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:****
+     * @description The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
      *
-     *   **zh-CN**: Chinese
-     *   **en-US**: English
-     *
-     * > Default value: **zh-CN**.
      * @example zh
      *
      * @var string
@@ -56,6 +52,8 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $entryRules;
 
     /**
+     * @description The information about the routing rule for the gateway. This parameter is required when a cloud-native gateway is used as the ingress.
+     *
      * @var gatewaySwimmingLaneRouteJson
      */
     public $gatewaySwimmingLaneRouteJson;
@@ -74,7 +72,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the primary key. A value -1 specifies a request that is used to create a lane. A value greater than 0 specifies a request that is used to modify a lane.
+     * @description The ID of the primary key. The value -1 indicates a request that is used to create a lane. A value greater than 0 indicates a request that is used to modify a lane.
      *
      * @example -1
      *
@@ -83,7 +81,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $id;
 
     /**
-     * @description The name of the MSE namespace.
+     * @description The name of the lane.
      *
      * @example Test lane
      *

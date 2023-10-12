@@ -11,8 +11,8 @@ class UpdateGatewayServiceTrafficPolicyShrinkRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     *   **zh-CN**: Chinese
-     *   **en-US**: English.
+     *   **zh-CN** (default): Chinese
+     *   **en-US**: English
      *
      * @example zh
      *

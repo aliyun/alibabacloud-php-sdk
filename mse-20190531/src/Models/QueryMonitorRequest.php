@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryMonitorRequest extends Model
 {
     /**
-     * @description The timestamp when the monitoring starts.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example zh
      *

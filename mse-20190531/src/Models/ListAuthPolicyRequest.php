@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAuthPolicyRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese and the value en-US indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,8 @@ class ListAuthPolicyRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The application ID.
+     *
      * @example jgy4cadmqo@***
      *
      * @var string
@@ -23,6 +27,8 @@ class ListAuthPolicyRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the authentication rule.
+     *
      * @example auto-rule-**
      *
      * @var string
@@ -30,6 +36,8 @@ class ListAuthPolicyRequest extends Model
     public $name;
 
     /**
+     * @description The name of the Microservices Engine (MSE) namespace.
+     *
      * @example default
      *
      * @var string
@@ -37,6 +45,8 @@ class ListAuthPolicyRequest extends Model
     public $namespace;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var string
@@ -44,6 +54,8 @@ class ListAuthPolicyRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -51,6 +63,12 @@ class ListAuthPolicyRequest extends Model
     public $pageSize;
 
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   **SPRING_CLOUD**
+     *   **DUBBO**
+     *   **istio**
+     *
      * @example SPRING_CLOUD
      *
      * @var string
@@ -58,6 +76,8 @@ class ListAuthPolicyRequest extends Model
     public $protocol;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -65,6 +85,8 @@ class ListAuthPolicyRequest extends Model
     public $region;
 
     /**
+     * @description The service source.
+     *
      * @example edasmsc
      *
      * @var string

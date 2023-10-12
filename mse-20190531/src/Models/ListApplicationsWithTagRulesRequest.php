@@ -41,7 +41,7 @@ class ListApplicationsWithTagRulesRequest extends Model
     public $appName;
 
     /**
-     * @description 应用所属的MSE命名空间。
+     * @description The Microservices Engine (MSE) namespace to which the application belongs.
      *
      * @example default
      *

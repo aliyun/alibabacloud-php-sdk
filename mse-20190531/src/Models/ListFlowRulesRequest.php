@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListFlowRulesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListFlowRulesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the application.
+     *
      * @example hkhon1po62@c3df23522******
      *
      * @var string
@@ -23,6 +30,8 @@ class ListFlowRulesRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example xx-demo
      *
      * @var string
@@ -30,6 +39,8 @@ class ListFlowRulesRequest extends Model
     public $appName;
 
     /**
+     * @description The namespace.
+     *
      * @example default
      *
      * @var string
@@ -37,6 +48,8 @@ class ListFlowRulesRequest extends Model
     public $namespace;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +57,8 @@ class ListFlowRulesRequest extends Model
     public $pageIndex;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +66,8 @@ class ListFlowRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the resource.
+     *
      * @example /a
      *
      * @var string
@@ -58,6 +75,8 @@ class ListFlowRulesRequest extends Model
     public $resource;
 
     /**
+     * @description The keyword that is used for the search.
+     *
      * @example /a
      *
      * @var string

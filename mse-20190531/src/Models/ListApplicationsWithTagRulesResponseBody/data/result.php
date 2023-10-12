@@ -19,7 +19,7 @@ class result extends Model
     public $appId;
 
     /**
-     * @description The name of the application.
+     * @description The application name.
      *
      * @example service-lottery-core
      *
@@ -28,7 +28,7 @@ class result extends Model
     public $appName;
 
     /**
-     * @description 应用所属的MSE命名空间。
+     * @description The MSE namespace to which the application belongs.
      *
      * @example default
      *
@@ -37,14 +37,17 @@ class result extends Model
     public $namespace;
 
     /**
-     * @description The information about the rules.
+     * @description The details of the rule.
      *
      * @var routeRules[]
      */
     public $routeRules;
 
     /**
-     * @description The status of the route. Valid values: -0: disabled. -1: enabled.
+     * @description The route state. Valid values:
+     *
+     *   0: disabled
+     *   1: enabled
      *
      * @example 1
      *

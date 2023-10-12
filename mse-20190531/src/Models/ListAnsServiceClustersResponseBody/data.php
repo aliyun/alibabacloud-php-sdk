@@ -11,12 +11,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the associated application for which Microservices Governance is enabled when the Source parameter is set to governance.
+     *
      * @var appDetail
      */
     public $appDetail;
 
     /**
-     * @description The information about the clusters.
+     * @description The cluster information.
      *
      * @var clusters[]
      */
@@ -35,7 +37,7 @@ class data extends Model
     public $ephemeral;
 
     /**
-     * @description The name of the contact group.
+     * @description The service group to which the service belongs.
      *
      * @example DEFAULT_GROUP
      *
@@ -80,6 +82,12 @@ class data extends Model
     public $selectorType;
 
     /**
+     * @description The source type of the service. Valid values:
+     *
+     *   console: The service was registered in the console.
+     *   sdk: The service was registered by using the SDK.
+     *   governance: The service was registered on Microservices Governance.
+     *
      * @example console
      *
      * @var string

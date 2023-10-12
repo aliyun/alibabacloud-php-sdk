@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceModels extends Model
 {
     /**
-     * @description The timestamp when the instance node was created.
+     * @description The timestamp when the instance was created.
      *
      * @example 1578575377732
      *
@@ -18,7 +18,7 @@ class instanceModels extends Model
     public $creationTimestamp;
 
     /**
-     * @description The health status of the instance node.
+     * @description The health status of the instance.
      *
      * @example Running
      *
@@ -36,7 +36,7 @@ class instanceModels extends Model
     public $internetIp;
 
     /**
-     * @description The IP address of the node.
+     * @description The IP address of the instance.
      *
      * @example 10.12.XX.XX
      *
@@ -72,7 +72,7 @@ class instanceModels extends Model
     public $singleTunnelVip;
 
     /**
-     * @description The zone.
+     * @description The zone ID.
      *
      * @example cn-shanghai-f
      *

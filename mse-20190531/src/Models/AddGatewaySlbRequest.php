@@ -97,6 +97,8 @@ class AddGatewaySlbRequest extends Model
     public $VServerGroupId;
 
     /**
+     * @description The SLB monitoring information.
+     *
      * @var VServiceList[]
      */
     public $VServiceList;

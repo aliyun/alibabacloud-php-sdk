@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example hkhon1po62@54e1f42f3******
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $appId;
 
     /**
+     * @description The application name.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -23,6 +27,17 @@ class data extends Model
     public $appName;
 
     /**
+     * @description The throttling effect.
+     *
+     * Valid values:
+     *
+     *   0
+     *
+     * <!-- -->
+     *
+     *   2
+     *
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -30,6 +45,17 @@ class data extends Model
     public $controlBehavior;
 
     /**
+     * @description Indicates whether the rule is enabled.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -37,7 +63,7 @@ class data extends Model
     public $enable;
 
     /**
-     * @description ID。
+     * @description The ID.
      *
      * @example 12
      *
@@ -46,6 +72,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The timeout period for queuing when the value of ControlBehavior is set to 2. Unit: milliseconds.
+     *
      * @example 500
      *
      * @var int
@@ -53,6 +81,8 @@ class data extends Model
     public $maxQueueingTimeMs;
 
     /**
+     * @description The namespace.
+     *
      * @example default
      *
      * @var string
@@ -60,6 +90,8 @@ class data extends Model
     public $namespace;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -67,6 +99,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The name of the API resource.
+     *
      * @example app
      *
      * @var string
@@ -74,6 +108,8 @@ class data extends Model
     public $resource;
 
     /**
+     * @description The throttling threshold.
+     *
      * @example 200
      *
      * @var float

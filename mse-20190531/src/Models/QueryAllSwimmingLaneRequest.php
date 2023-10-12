@@ -30,7 +30,7 @@ class QueryAllSwimmingLaneRequest extends Model
     public $groupId;
 
     /**
-     * @description MSE命名空间名字
+     * @description The name of the MSE namespace.
      *
      * @example default
      *
