@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstanceResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoRenewal;
+
+    /**
      * @description The number of times that you can change the domain names that are bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of the custom edition.
      *
      * @example 3
@@ -320,6 +325,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
      */
     public $versionName;
     protected $_name = [
+        'autoRenewal'           => 'AutoRenewal',
         'bindCount'             => 'BindCount',
         'bindDomainCount'       => 'BindDomainCount',
         'bindDomainUsedCount'   => 'BindDomainUsedCount',
@@ -364,6 +370,9 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoRenewal) {
+            $res['AutoRenewal'] = $this->autoRenewal;
+        }
         if (null !== $this->bindCount) {
             $res['BindCount'] = $this->bindCount;
         }
@@ -481,6 +490,9 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRenewal'])) {
+            $model->autoRenewal = $map['AutoRenewal'];
+        }
         if (isset($map['BindCount'])) {
             $model->bindCount = $map['BindCount'];
         }
