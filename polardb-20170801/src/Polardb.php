@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateColdStorageInstanceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateColdStorageInstanceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterEndpointRequest;
@@ -176,6 +178,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterServerlessRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterServerlessResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterServerlessRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterServerlessResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableFirewallRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EvaluateRegionResourceRequest;
@@ -932,6 +936,70 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateColdStorageInstanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateColdStorageInstanceResponse
+     */
+    public function createColdStorageInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->coldStorageInstanceDescription)) {
+            $query['ColdStorageInstanceDescription'] = $request->coldStorageInstanceDescription;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateColdStorageInstance',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateColdStorageInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateColdStorageInstanceRequest $request
+     *
+     * @return CreateColdStorageInstanceResponse
+     */
+    public function createColdStorageInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createColdStorageInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -6052,6 +6120,79 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableDBClusterServerlessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableDBClusterServerlessRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableDBClusterServerlessResponse
+     */
+    public function enableDBClusterServerlessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scaleApRoNumMax)) {
+            $query['ScaleApRoNumMax'] = $request->scaleApRoNumMax;
+        }
+        if (!Utils::isUnset($request->scaleApRoNumMin)) {
+            $query['ScaleApRoNumMin'] = $request->scaleApRoNumMin;
+        }
+        if (!Utils::isUnset($request->scaleMax)) {
+            $query['ScaleMax'] = $request->scaleMax;
+        }
+        if (!Utils::isUnset($request->scaleMin)) {
+            $query['ScaleMin'] = $request->scaleMin;
+        }
+        if (!Utils::isUnset($request->scaleRoNumMax)) {
+            $query['ScaleRoNumMax'] = $request->scaleRoNumMax;
+        }
+        if (!Utils::isUnset($request->scaleRoNumMin)) {
+            $query['ScaleRoNumMin'] = $request->scaleRoNumMin;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableDBClusterServerless',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableDBClusterServerlessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableDBClusterServerlessRequest $request
+     *
+     * @return EnableDBClusterServerlessResponse
+     */
+    public function enableDBClusterServerless($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableDBClusterServerlessWithOptions($request, $runtime);
     }
 
     /**

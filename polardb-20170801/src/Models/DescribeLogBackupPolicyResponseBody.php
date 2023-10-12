@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogBackupPolicyResponseBody extends Model
 {
     /**
-     * @description Indicates whether the log backup feature was enabled. Valid values:
+     * @description Indicates whether the log backup feature is enabled. Valid values:
      *
-     *   0: disabled.
-     *   1: enabled. By default, the log backup feature is enabled and cannot be disabled.
+     *   0: The log backup feature is disabled.
+     *   1: The log backup feature is enabled. By default, the log backup feature is enabled and cannot be disabled.
      *
      * @example 1
      *
@@ -21,20 +21,33 @@ class DescribeLogBackupPolicyResponseBody extends Model
     public $enableBackupLog;
 
     /**
+     * @description The region in which you want to store cross-region log backups. For more information about regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $logBackupAnotherRegionRegion;
 
     /**
+     * @description The retention period of cross-region log backups. Valid values:
+     *
+     *   **0**: The cross-region backup feature is disabled.
+     *   **30 to 7300**: Cross-region log backups are retained for 30 to 7,300 days.
+     *   **-1**: The log backups are permanently retained.
+     *
+     * >  When you create a cluster, the default value of this parameter is **0**.
+     * @example 0
+     *
      * @var string
      */
     public $logBackupAnotherRegionRetentionPeriod;
 
     /**
-     * @description The retention period of the logs. Valid values:
+     * @description The retention period of the log backups. Valid values:
      *
-     *   7 to 7300: The logs are retained for 7 to 7,300 days.
-     *   \-1: The logs are permanently retained.
+     *   3 to 7300: The log backups are retained for 3 to 7,300 days.
+     *   \-1: The log backups are permanently retained.
      *
      * @example 7
      *
@@ -43,7 +56,7 @@ class DescribeLogBackupPolicyResponseBody extends Model
     public $logBackupRetentionPeriod;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 62EE0051-102B-488D-9C79-D607B8******
      *

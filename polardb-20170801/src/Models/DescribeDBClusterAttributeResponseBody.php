@@ -309,6 +309,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $payType;
 
     /**
+     * @var string
+     */
+    public $provisionedIops;
+
+    /**
      * @description The number of CPU cores for PolarProxy.
      *
      * @example 4
@@ -560,6 +565,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'lockMode'                  => 'LockMode',
         'maintainTime'              => 'MaintainTime',
         'payType'                   => 'PayType',
+        'provisionedIops'           => 'ProvisionedIops',
         'proxyCpuCores'             => 'ProxyCpuCores',
         'proxyServerlessType'       => 'ProxyServerlessType',
         'proxyStandardCpuCores'     => 'ProxyStandardCpuCores',
@@ -689,6 +695,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->provisionedIops) {
+            $res['ProvisionedIops'] = $this->provisionedIops;
         }
         if (null !== $this->proxyCpuCores) {
             $res['ProxyCpuCores'] = $this->proxyCpuCores;
@@ -872,6 +881,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['ProvisionedIops'])) {
+            $model->provisionedIops = $map['ProvisionedIops'];
         }
         if (isset($map['ProxyCpuCores'])) {
             $model->proxyCpuCores = $map['ProxyCpuCores'];
