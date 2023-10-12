@@ -59,7 +59,7 @@ class CreateServerGroupRequest extends Model
     public $connectionDrainEnabled;
 
     /**
-     * @description The timeout period of connection draining. Unit: seconds. Valid values: **10** to **900**.
+     * @description The timeout period of connection draining. Unit: seconds. Valid values: **0** to **900**.
      *
      * @example 10
      *
