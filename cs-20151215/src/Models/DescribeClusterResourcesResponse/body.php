@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse\body\dependencies;
 use AlibabaCloud\Tea\Model;
 
 class body extends Model
@@ -82,6 +83,11 @@ class body extends Model
      * @var int
      */
     public $autoCreate;
+
+    /**
+     * @var dependencies
+     */
+    public $dependencies;
     protected $_name = [
         'clusterId'    => 'cluster_id',
         'created'      => 'created',
@@ -90,6 +96,7 @@ class body extends Model
         'resourceType' => 'resource_type',
         'state'        => 'state',
         'autoCreate'   => 'auto_create',
+        'dependencies' => 'dependencies',
     ];
 
     public function validate()
@@ -119,6 +126,9 @@ class body extends Model
         }
         if (null !== $this->autoCreate) {
             $res['auto_create'] = $this->autoCreate;
+        }
+        if (null !== $this->dependencies) {
+            $res['dependencies'] = null !== $this->dependencies ? $this->dependencies->toMap() : null;
         }
 
         return $res;
@@ -152,6 +162,9 @@ class body extends Model
         }
         if (isset($map['auto_create'])) {
             $model->autoCreate = $map['auto_create'];
+        }
+        if (isset($map['dependencies'])) {
+            $model->dependencies = dependencies::fromMap($map['dependencies']);
         }
 
         return $model;
