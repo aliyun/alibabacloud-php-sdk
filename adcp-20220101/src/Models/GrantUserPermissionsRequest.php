@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GrantUserPermissionsRequest extends Model
 {
     /**
+     * @description The list of permissions that you want to grant to the RAM user.
+     *
      * @var permissions[]
      */
     public $permissions;
 
     /**
+     * @description The ID of the RAM user.
+     *
      * @example 2367****
      *
      * @var string

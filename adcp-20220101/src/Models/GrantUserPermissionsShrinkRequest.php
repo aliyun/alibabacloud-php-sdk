@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GrantUserPermissionsShrinkRequest extends Model
 {
     /**
+     * @description The list of permissions that you want to grant to the RAM user.
+     *
      * @var string
      */
     public $permissionsShrink;
 
     /**
+     * @description The ID of the RAM user.
+     *
      * @example 2367****
      *
      * @var string

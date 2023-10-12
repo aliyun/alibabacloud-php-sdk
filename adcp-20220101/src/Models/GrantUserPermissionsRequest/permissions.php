@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class permissions extends Model
 {
     /**
+     * @description The master instance ID.
+     *
+     *   When the role_type parameter is set to all-clusters, set the parameter to an empty string.
+     *
      * @example cf67bdb0ffcb349ecabc1ca70da78****
      *
      * @var string
@@ -16,11 +20,15 @@ class permissions extends Model
     public $clusterId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRamRole;
 
     /**
+     * @description The namespace to which the permissions are scoped. By default, this parameter is empty when you set RoleType to cluster.
+     *
      * @example test
      *
      * @var string
@@ -28,6 +36,11 @@ class permissions extends Model
     public $namespace;
 
     /**
+     * @description The predefined role that you want to assign. Valid values:
+     *
+     *   admin: the administrator role.
+     *   dev: the developer role.
+     *
      * @example dev
      *
      * @var string
@@ -35,6 +48,12 @@ class permissions extends Model
     public $roleName;
 
     /**
+     * @description The authorization type. Valid values:
+     *
+     *   cluster: specifies that the permissions are scoped to a master instance.
+     *   namespace: specifies that the permissions are scoped to a namespace of a cluster.
+     *   all-clusters: specifies that the permissions are scoped to all master instances.
+     *
      * @example cluster
      *
      * @var string

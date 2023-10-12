@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateHubClusterFeatureShrinkRequest extends Model
 {
     /**
+     * @description The Internet access control list (ACL). This parameter takes effect only if PublicAccessEnabled is set to true.
+     *
      * @var string
      */
     public $accessControlListShrink;
@@ -23,6 +25,11 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $apiServerEipId;
 
     /**
+     * @description Specifies whether to enable Argo CD. This parameter takes effect only if Profile is set to XFlow. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -30,16 +37,33 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $argoCDEnabled;
 
     /**
+     * @description Specifies whether to enable high availability for Argo CD. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $argoCDHAEnabled;
 
     /**
+     * @description Specifies whether to enable ArgoEvents. Valid values:
+     *
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $argoEventsEnabled;
 
     /**
+     * @description Specifies whether to enable the workflow instance UI. This parameter takes effect only if Profile is set to XFlow. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -59,7 +83,7 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $auditLogEnabled;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example c46979b1075f04d99b5f2b710393e5****
      *
@@ -68,11 +92,12 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $clusterId;
 
     /**
-     * @description Specifies whether to enable deletion protection for the cluster. After you enable deletion protection, you cannot delete the master instance in the console or by calling the DeleteHubCluster operation. Valid values:
+     * @description Specifies whether to enable the deletion protection feature for the cluster. After you enable the deletion protection feature for the cluster, you cannot delete the cluster in the console or by calling the DeleteHubCluster operation. Valid values:
      *
-     *   true: enables deletion protection for the cluster.
-     *   false: disables deletion protection for the cluster. This is the default value.
+     *   true
+     *   false
      *
+     * Default value: false.
      * @example true
      *
      * @var bool
@@ -80,9 +105,11 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $deletionProtection;
 
     /**
-     * @description Specifies whether to enable Alibaba Cloud Service Mesh (ASM). Valid values:
+     * @description Specifies whether to enable Service Mesh (ASM). Valid values:
      *
-     * true: enables ASM. false: disables ASM.
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -92,10 +119,22 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $MSEEnabled;
+
+    /**
+     * @description Specifies whether to enable the monitoring dashboard feature for the workflow instance. This parameter takes effect only if Profile is set to XFlow. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
+     * @var bool
+     */
     public $monitorEnabled;
 
     /**
-     * @description The name of the cluster. The name must be 1 to 63 characters in length. It must start with a letter, and can contain letters, digits, underscores (\_), and hyphens (-).
+     * @description The name of the master instance. The name must be 1 to 63 characters in length. It must start with a letter, and can contain letters, digits, underscores (\_), and hyphens (-).
      *
      * @example ack-demo
      *
@@ -113,6 +152,13 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $priceLimit;
 
     /**
+     * @description Specifies whether to enable public domain name resolution in the Argo CD or Argo Workflow console. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $publicAccessEnabled;
@@ -120,7 +166,7 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     /**
      * @description Specifies whether to associate an elastic IP address (EIP) with the API server. Valid values:
      *
-     *   true: associates an EIP with the API server. You can specify the ApiServerEipId parameter. If you do not specify the ApiServerEipId parameter, the system automatically creates an EIP.
+     *   true: associates an EIP with the API server. You can specify ApiServerEipId. If you do not specify ApiServerEipId, the system automatically creates an EIP.
      *   false: disassociates an EIP from the API server.
      *
      * @example true
@@ -130,11 +176,18 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $publicApiServerEnabled;
 
     /**
+     * @description The vSwitches.
+     *
      * @var string
      */
     public $vSwitchesShrink;
 
     /**
+     * @description The scheduling mode of the workflow. This parameter takes effect only if Profile is set to XFlow. Valid values:
+     *
+     *   cost-optimized: cost-prioritized scheduling mode.
+     *   stock-optimized: inventory-prioritized scheduling mode.
+     *
      * @example cost-optimized
      *
      * @var string
@@ -151,6 +204,7 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         'clusterId'               => 'ClusterId',
         'deletionProtection'      => 'DeletionProtection',
         'enableMesh'              => 'EnableMesh',
+        'MSEEnabled'              => 'MSEEnabled',
         'monitorEnabled'          => 'MonitorEnabled',
         'name'                    => 'Name',
         'priceLimit'              => 'PriceLimit',
@@ -196,6 +250,9 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         }
         if (null !== $this->enableMesh) {
             $res['EnableMesh'] = $this->enableMesh;
+        }
+        if (null !== $this->MSEEnabled) {
+            $res['MSEEnabled'] = $this->MSEEnabled;
         }
         if (null !== $this->monitorEnabled) {
             $res['MonitorEnabled'] = $this->monitorEnabled;
@@ -259,6 +316,9 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         }
         if (isset($map['EnableMesh'])) {
             $model->enableMesh = $map['EnableMesh'];
+        }
+        if (isset($map['MSEEnabled'])) {
+            $model->MSEEnabled = $map['MSEEnabled'];
         }
         if (isset($map['MonitorEnabled'])) {
             $model->monitorEnabled = $map['MonitorEnabled'];

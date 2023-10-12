@@ -1179,6 +1179,9 @@ class Adcp extends OpenApiClient
         if (!Utils::isUnset($request->enableMesh)) {
             $query['EnableMesh'] = $request->enableMesh;
         }
+        if (!Utils::isUnset($request->MSEEnabled)) {
+            $query['MSEEnabled'] = $request->MSEEnabled;
+        }
         if (!Utils::isUnset($request->monitorEnabled)) {
             $query['MonitorEnabled'] = $request->monitorEnabled;
         }

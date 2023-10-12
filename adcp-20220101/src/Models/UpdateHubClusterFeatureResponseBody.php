@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateHubClusterFeatureResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 52C1B7DF-96C1-5214-97B6-1B0859FEAFE5
      *
