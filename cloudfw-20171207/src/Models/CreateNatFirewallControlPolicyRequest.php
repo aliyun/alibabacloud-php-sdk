@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateNatFirewallControlPolicyRequest extends Model
 {
     /**
+     * @description The action that Cloud Firewall performs on the traffic.
+     *
+     * Valid values:
+     *
+     *   **accept**: allows the traffic.
+     *   **drop**: denies the traffic.
+     *   **log**: monitors the traffic.
+     *
      * @example log
      *
      * @var string
@@ -16,16 +24,32 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $aclAction;
 
     /**
+     * @description The application types supported by the access control policy.
+     *
      * @var string[]
      */
     public $applicationNameList;
 
     /**
+     * @description The description of the access control policy.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The destination port in the access control policy. Valid values:
+     *
+     *   If Proto is set to ICMP, DestPort is automatically left empty.
+     *
+     * > If Proto is set to ICMP, access control does not take effect on the destination port.
+     *
+     *   If Proto is set to TCP, UDP, or ANY and DestPortType is set to group, DestPort is empty.
+     *
+     * > If DestPortType is set to group, you do not need to specify the destination port number. All ports on which the access control policy takes effect are included in the destination port address book.
+     *
+     *   If Proto is set to TCP, UDP, or ANY and DestPortType is set to port, the value of DestPort is the destination port number.
+     *
      * @example 80
      *
      * @var string
@@ -33,6 +57,9 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $destPort;
 
     /**
+     * @description The name of the destination port address book in the access control policy.
+     *
+     * > If DestPortType is set to group, you must specify the name of the destination port address book.
      * @example my_port_group
      *
      * @var string
@@ -40,6 +67,11 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $destPortGroup;
 
     /**
+     * @description The type of the destination port in the access control policy. Valid values:
+     *
+     *   **port**: port
+     *   **group**: port address book
+     *
      * @example port
      *
      * @var string
@@ -47,6 +79,25 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $destPortType;
 
     /**
+     * @description The destination address in the access control policy.
+     *
+     * Valid values:
+     *
+     *   If DestinationType is set to net, the value of this parameter is a CIDR block.
+     *
+     * Example: 1.2.XX.XX/24
+     *
+     *   If DestinationType is set to group, the value of this parameter is an address book.
+     *
+     * Example: db_group
+     *
+     *   If DestinationType is set to domain, the value of this parameter is a domain name.
+     *
+     * Example: \*.aliyuncs.com
+     *
+     *   If DestinationType is set to location, the value of this parameter is a location.
+     *
+     * Example: \["BJ11", "ZB"]
      * @example XX.XX.XX.XX/24
      *
      * @var string
@@ -54,6 +105,14 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $destination;
 
     /**
+     * @description The type of the destination address in the access control policy.
+     *
+     * Valid values:
+     *
+     *   **net**: CIDR block
+     *   **group**: address book
+     *   **domain**: domain name
+     *
      * @example net
      *
      * @var string
@@ -61,6 +120,10 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $destinationType;
 
     /**
+     * @description The direction of the traffic to which the access control policy applies. Valid values:
+     *
+     *   **out**: outbound traffic
+     *
      * @example out
      *
      * @var string
@@ -68,11 +131,28 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $direction;
 
     /**
+     * @description The domain name resolution method of the access control policy. By default, an access control policy is enabled after it is created. Valid values:
+     *
+     *   **0**: Fully qualified domain name (FQDN)-based resolution
+     *   **1**: Domain Name System (DNS)-based dynamic resolution
+     *   **2**: FQDN and DNS-based dynamic resolution
+     *
+     * @example 0
+     *
      * @var int
      */
     public $domainResolveType;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @description The IP version supported by the access control policy. Valid values:
+     *
+     *   **4**: IPv4 (default)
+     *
      * @example 4
      *
      * @var string
@@ -80,6 +160,13 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $ipVersion;
 
     /**
+     * @description The language of the content within the response.
+     *
+     * Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -87,6 +174,8 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngx-xxxxxxx
      *
      * @var string
@@ -94,6 +183,8 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The new priority of the access control policy.
+     *
      * @example 1
      *
      * @var string
@@ -101,6 +192,15 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $newOrder;
 
     /**
+     * @description The protocol type in the access control policy.
+     *
+     * Valid values:
+     *
+     *   ANY: all types of protocols
+     *   TCP
+     *   UDP
+     *   ICMP
+     *
      * @example ANY
      *
      * @var string
@@ -108,6 +208,11 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $proto;
 
     /**
+     * @description Specifies whether to enable the access control policy. By default, an access control policy is enabled after it is created. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var string
@@ -115,6 +220,37 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $release;
 
     /**
+     * @var int[]
+     */
+    public $repeatDays;
+
+    /**
+     * @var string
+     */
+    public $repeatEndTime;
+
+    /**
+     * @var string
+     */
+    public $repeatStartTime;
+
+    /**
+     * @var string
+     */
+    public $repeatType;
+
+    /**
+     * @description The source address in the access control policy.
+     *
+     * Valid values:
+     *
+     *   If **SourceType** is set to `net`, the value of Source is a CIDR block.
+     *
+     * Example: 10.2.4.0/24
+     *
+     *   If **SourceType** is set to `group`, the value of this parameter must be an address book name.
+     *
+     * Example: db_group
      * @example 192.168.0.25/32
      *
      * @var string
@@ -122,11 +258,23 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $source;
 
     /**
+     * @description The type of the source address in the access control policy.
+     *
+     * Valid values:
+     *
+     *   **net**: source CIDR block
+     *   **group**: source address book
+     *
      * @example net
      *
      * @var string
      */
     public $sourceType;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'aclAction'           => 'AclAction',
         'applicationNameList' => 'ApplicationNameList',
@@ -138,14 +286,20 @@ class CreateNatFirewallControlPolicyRequest extends Model
         'destinationType'     => 'DestinationType',
         'direction'           => 'Direction',
         'domainResolveType'   => 'DomainResolveType',
+        'endTime'             => 'EndTime',
         'ipVersion'           => 'IpVersion',
         'lang'                => 'Lang',
         'natGatewayId'        => 'NatGatewayId',
         'newOrder'            => 'NewOrder',
         'proto'               => 'Proto',
         'release'             => 'Release',
+        'repeatDays'          => 'RepeatDays',
+        'repeatEndTime'       => 'RepeatEndTime',
+        'repeatStartTime'     => 'RepeatStartTime',
+        'repeatType'          => 'RepeatType',
         'source'              => 'Source',
         'sourceType'          => 'SourceType',
+        'startTime'           => 'StartTime',
     ];
 
     public function validate()
@@ -185,6 +339,9 @@ class CreateNatFirewallControlPolicyRequest extends Model
         if (null !== $this->domainResolveType) {
             $res['DomainResolveType'] = $this->domainResolveType;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
@@ -203,11 +360,26 @@ class CreateNatFirewallControlPolicyRequest extends Model
         if (null !== $this->release) {
             $res['Release'] = $this->release;
         }
+        if (null !== $this->repeatDays) {
+            $res['RepeatDays'] = $this->repeatDays;
+        }
+        if (null !== $this->repeatEndTime) {
+            $res['RepeatEndTime'] = $this->repeatEndTime;
+        }
+        if (null !== $this->repeatStartTime) {
+            $res['RepeatStartTime'] = $this->repeatStartTime;
+        }
+        if (null !== $this->repeatType) {
+            $res['RepeatType'] = $this->repeatType;
+        }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -253,6 +425,9 @@ class CreateNatFirewallControlPolicyRequest extends Model
         if (isset($map['DomainResolveType'])) {
             $model->domainResolveType = $map['DomainResolveType'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
@@ -271,11 +446,28 @@ class CreateNatFirewallControlPolicyRequest extends Model
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
         }
+        if (isset($map['RepeatDays'])) {
+            if (!empty($map['RepeatDays'])) {
+                $model->repeatDays = $map['RepeatDays'];
+            }
+        }
+        if (isset($map['RepeatEndTime'])) {
+            $model->repeatEndTime = $map['RepeatEndTime'];
+        }
+        if (isset($map['RepeatStartTime'])) {
+            $model->repeatStartTime = $map['RepeatStartTime'];
+        }
+        if (isset($map['RepeatType'])) {
+            $model->repeatType = $map['RepeatType'];
+        }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

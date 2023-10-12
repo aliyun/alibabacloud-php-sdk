@@ -70,6 +70,11 @@ class dataList extends Model
      * @var int
      */
     public $time;
+
+    /**
+     * @var int
+     */
+    public $totalBps;
     protected $_name = [
         'inBps'        => 'InBps',
         'inBytes'      => 'InBytes',
@@ -80,6 +85,7 @@ class dataList extends Model
         'outPps'       => 'OutPps',
         'sessionCount' => 'SessionCount',
         'time'         => 'Time',
+        'totalBps'     => 'TotalBps',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class dataList extends Model
         }
         if (null !== $this->time) {
             $res['Time'] = $this->time;
+        }
+        if (null !== $this->totalBps) {
+            $res['TotalBps'] = $this->totalBps;
         }
 
         return $res;
@@ -154,6 +163,9 @@ class dataList extends Model
         }
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
+        }
+        if (isset($map['TotalBps'])) {
+            $model->totalBps = $map['TotalBps'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class assets extends Model
     /**
      * @description The UID of the Alibaba Cloud account.
      *
-     * > The value of this parameter indicates the management account to which the member is added.
+     * >  The value of this parameter indicates the management account to which the member is added.
      * @example 158039427902****
      *
      * @var int
@@ -19,7 +19,7 @@ class assets extends Model
     public $aliUid;
 
     /**
-     * @description The instance ID of the asset.
+     * @description The ID of the cloud resource with which the asset is associated.
      *
      * @example i-8vbdrjrxzt78****
      *
@@ -37,6 +37,8 @@ class assets extends Model
     public $bindInstanceName;
 
     /**
+     * @description The timestamp when the asset is added to Cloud Firewall.
+     *
      * @example 2023-02-28 10:29:58
      *
      * @var string
@@ -76,7 +78,7 @@ class assets extends Model
     public $ipVersion;
 
     /**
-     * @description The UID of the member that is added to Cloud Firewall.
+     * @description The UID of the member.
      *
      * @example 258039427902****
      *
@@ -94,6 +96,12 @@ class assets extends Model
     public $name;
 
     /**
+     * @description The time when the asset was added. Valid values:
+     *
+     *   **discovered in 1 hour**: within one hour.
+     *   **discovered in 1 day**: within one day.
+     *   **discovered in 7 days**: within seven days.
+     *
      * @example discovered in 1 hour
      *
      * @var string
@@ -115,10 +123,10 @@ class assets extends Model
     /**
      * @description The status of the firewall. Valid values:
      *
-     *   **open**: The firewall is enabled.
-     *   **opening**: The firewall is being enabled.
-     *   **closed**: The firewall is disabled.
-     *   **closing**: The firewall is being disabled.
+     *   **open**: enabled.
+     *   **opening**: being enabled.
+     *   **closed**: disabled.
+     *   **closing**: being disabled.
      *
      * @example open
      *
@@ -138,8 +146,8 @@ class assets extends Model
     /**
      * @description Indicates whether the firewall is supported in the region in which the asset resides. Valid values:
      *
-     *   **enable**: supported
-     *   **disable**: unsupported
+     *   **enable**: yes
+     *   **disable**: no
      *
      * @example enable
      *
@@ -161,15 +169,15 @@ class assets extends Model
      *
      *   **BastionHostEgressIP**: the egress IP address of a bastion host
      *   **BastionHostIngressIP**: the ingress IP address of a bastion host
-     *   **EcsEIP**: the EIP of an ECS instance
+     *   **EcsEIP**: the elastic IP address (EIP) of an Elastic Compute Service (ECS) instance
      *   **EcsPublicIP**: the public IP address of an ECS instance
      *   **EIP**: the EIP
-     *   **EniEIP**: the EIP of an ENI
+     *   **EniEIP**: the EIP of an elastic network interface (ENI)
      *   **NatEIP**: the EIP of a NAT gateway
-     *   **SlbEIP**: the EIP of an SLB instance
+     *   **SlbEIP**: the EIP of a Server Load Balancer (SLB) instance
      *   **SlbPublicIP**: the public IP address of an SLB instance
      *   **NatPublicIP**: the public IP address of a NAT gateway
-     *   **HAVIP**: the HAVIP
+     *   **HAVIP**: the high-availability virtual IP address (HAVIP)
      *
      * @example EIP
      *
@@ -184,7 +192,7 @@ class assets extends Model
      *   **middle**: medium
      *   **hight**: high
      *
-     * > The value of this parameter is returned only when the UserType parameter is set to free.
+     * >  The value of this parameter is returned only when the UserType parameter is set to free.
      * @example low
      *
      * @var string
@@ -194,8 +202,8 @@ class assets extends Model
     /**
      * @description The status of the security group policy. Valid values:
      *
-     *   **pass**: delivered
-     *   **block**: undelivered
+     *   **pass**: applied
+     *   **block**: not applied
      *   **unsupport**: unsupported
      *
      * @example block
@@ -205,7 +213,7 @@ class assets extends Model
     public $sgStatus;
 
     /**
-     * @description The time when the status of the security group policy was last checked. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the status of the security group was last checked. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1615082937
      *
@@ -214,10 +222,10 @@ class assets extends Model
     public $sgStatusTime;
 
     /**
-     * @description The status of traffic redirection for the asset. Valid values:
+     * @description Indicates whether traffic redirection is supported for the asset. Valid values:
      *
-     *   **enable**: Traffic redirection is enabled.
-     *   **disable**: Traffic redirection is disabled.
+     *   **enable**: yes
+     *   **disable**: no
      *
      * @example enable
      *

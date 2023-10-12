@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTrFirewallV2Request extends Model
 {
     /**
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
+     *
      * @example cen-4xbjup276au29r****
      *
      * @var string
@@ -16,16 +18,22 @@ class CreateTrFirewallV2Request extends Model
     public $cenId;
 
     /**
+     * @description The description of the firewall.
+     *
      * @var string
      */
     public $firewallDescription;
 
     /**
+     * @description The name of the firewall.
+     *
      * @var string
      */
     public $firewallName;
 
     /**
+     * @description The subnet CIDR block of the VPC in which the ENI of the firewall is stored in automatic mode.
+     *
      * @example 10.0.1.0/24
      *
      * @var string
@@ -33,6 +41,8 @@ class CreateTrFirewallV2Request extends Model
     public $firewallSubnetCidr;
 
     /**
+     * @description The CIDR block that is allocated to the VPC created for the VPC firewall in automatic mode.
+     *
      * @example 10.0.0.0/16
      *
      * @var string
@@ -40,6 +50,8 @@ class CreateTrFirewallV2Request extends Model
     public $firewallVpcCidr;
 
     /**
+     * @description The ID of the VPC in which the ENI associated with the VPC firewall is created in manual mode.
+     *
      * @example vpc-wz9r5qvryn0lg3atb****
      *
      * @var string
@@ -47,6 +59,8 @@ class CreateTrFirewallV2Request extends Model
     public $firewallVpcId;
 
     /**
+     * @description The ID of the vSwitch that is used to create the ENI in manual mode.
+     *
      * @example vsw-uf6ydz3vqj77mr5l6****
      *
      * @var string
@@ -54,6 +68,11 @@ class CreateTrFirewallV2Request extends Model
     public $firewallVswitchId;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -61,6 +80,8 @@ class CreateTrFirewallV2Request extends Model
     public $lang;
 
     /**
+     * @description The region ID of the route router.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -68,6 +89,11 @@ class CreateTrFirewallV2Request extends Model
     public $regionNo;
 
     /**
+     * @description The routing mode of the VPC firewall. Valid values:
+     *
+     *   **managed**: automatic mode
+     *   **manual**: manual mode
+     *
      * @example managed
      *
      * @var string
@@ -75,6 +101,8 @@ class CreateTrFirewallV2Request extends Model
     public $routeMode;
 
     /**
+     * @description The primary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
+     *
      * @example 10.0.3.0/24
      *
      * @var string
@@ -82,6 +110,8 @@ class CreateTrFirewallV2Request extends Model
     public $trAttachmentMasterCidr;
 
     /**
+     * @description The secondary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
+     *
      * @example 10.0.0.16/28
      *
      * @var string
@@ -89,6 +119,8 @@ class CreateTrFirewallV2Request extends Model
     public $trAttachmentSlaveCidr;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-m5etmb2q7e0mxcur****
      *
      * @var string

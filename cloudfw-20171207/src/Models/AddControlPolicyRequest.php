@@ -160,6 +160,11 @@ class AddControlPolicyRequest extends Model
     public $direction;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @description The IP version supported by the access control policy.
      *
      * Valid values:
@@ -221,6 +226,26 @@ class AddControlPolicyRequest extends Model
     public $release;
 
     /**
+     * @var int[]
+     */
+    public $repeatDays;
+
+    /**
+     * @var string
+     */
+    public $repeatEndTime;
+
+    /**
+     * @var string
+     */
+    public $repeatStartTime;
+
+    /**
+     * @var string
+     */
+    public $repeatType;
+
+    /**
      * @description The source address in the access control policy. Valid values:
      *
      *   If SourceType is set to net, the value of this parameter is a CIDR block.
@@ -263,6 +288,11 @@ class AddControlPolicyRequest extends Model
      * @var string
      */
     public $sourceType;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'aclAction'           => 'AclAction',
         'applicationName'     => 'ApplicationName',
@@ -274,14 +304,20 @@ class AddControlPolicyRequest extends Model
         'destination'         => 'Destination',
         'destinationType'     => 'DestinationType',
         'direction'           => 'Direction',
+        'endTime'             => 'EndTime',
         'ipVersion'           => 'IpVersion',
         'lang'                => 'Lang',
         'newOrder'            => 'NewOrder',
         'proto'               => 'Proto',
         'release'             => 'Release',
+        'repeatDays'          => 'RepeatDays',
+        'repeatEndTime'       => 'RepeatEndTime',
+        'repeatStartTime'     => 'RepeatStartTime',
+        'repeatType'          => 'RepeatType',
         'source'              => 'Source',
         'sourceIp'            => 'SourceIp',
         'sourceType'          => 'SourceType',
+        'startTime'           => 'StartTime',
     ];
 
     public function validate()
@@ -321,6 +357,9 @@ class AddControlPolicyRequest extends Model
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
@@ -336,6 +375,18 @@ class AddControlPolicyRequest extends Model
         if (null !== $this->release) {
             $res['Release'] = $this->release;
         }
+        if (null !== $this->repeatDays) {
+            $res['RepeatDays'] = $this->repeatDays;
+        }
+        if (null !== $this->repeatEndTime) {
+            $res['RepeatEndTime'] = $this->repeatEndTime;
+        }
+        if (null !== $this->repeatStartTime) {
+            $res['RepeatStartTime'] = $this->repeatStartTime;
+        }
+        if (null !== $this->repeatType) {
+            $res['RepeatType'] = $this->repeatType;
+        }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -344,6 +395,9 @@ class AddControlPolicyRequest extends Model
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -389,6 +443,9 @@ class AddControlPolicyRequest extends Model
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
@@ -404,6 +461,20 @@ class AddControlPolicyRequest extends Model
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
         }
+        if (isset($map['RepeatDays'])) {
+            if (!empty($map['RepeatDays'])) {
+                $model->repeatDays = $map['RepeatDays'];
+            }
+        }
+        if (isset($map['RepeatEndTime'])) {
+            $model->repeatEndTime = $map['RepeatEndTime'];
+        }
+        if (isset($map['RepeatStartTime'])) {
+            $model->repeatStartTime = $map['RepeatStartTime'];
+        }
+        if (isset($map['RepeatType'])) {
+            $model->repeatType = $map['RepeatType'];
+        }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
@@ -412,6 +483,9 @@ class AddControlPolicyRequest extends Model
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

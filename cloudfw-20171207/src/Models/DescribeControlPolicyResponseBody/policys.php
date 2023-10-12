@@ -207,6 +207,11 @@ class policys extends Model
     public $dnsResultTime;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @description The timestamp when the access control policy was last hit. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1579261141
@@ -282,6 +287,26 @@ class policys extends Model
     public $release;
 
     /**
+     * @var int[]
+     */
+    public $repeatDays;
+
+    /**
+     * @var string
+     */
+    public $repeatEndTime;
+
+    /**
+     * @var string
+     */
+    public $repeatStartTime;
+
+    /**
+     * @var string
+     */
+    public $repeatType;
+
+    /**
      * @description The source address in the access control policy. Valid values:
      *
      *   If **SourceType** is set to `net`, the value of Source is a CIDR block. Example: 192.0.XX.XX/24.
@@ -338,6 +363,11 @@ class policys extends Model
      * @var int
      */
     public $spreadCnt;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'aclAction'             => 'AclAction',
         'aclUuid'               => 'AclUuid',
@@ -357,6 +387,7 @@ class policys extends Model
         'direction'             => 'Direction',
         'dnsResult'             => 'DnsResult',
         'dnsResultTime'         => 'DnsResultTime',
+        'endTime'               => 'EndTime',
         'hitLastTime'           => 'HitLastTime',
         'hitTimes'              => 'HitTimes',
         'ipVersion'             => 'IpVersion',
@@ -364,11 +395,16 @@ class policys extends Model
         'order'                 => 'Order',
         'proto'                 => 'Proto',
         'release'               => 'Release',
+        'repeatDays'            => 'RepeatDays',
+        'repeatEndTime'         => 'RepeatEndTime',
+        'repeatStartTime'       => 'RepeatStartTime',
+        'repeatType'            => 'RepeatType',
         'source'                => 'Source',
         'sourceGroupCidrs'      => 'SourceGroupCidrs',
         'sourceGroupType'       => 'SourceGroupType',
         'sourceType'            => 'SourceType',
         'spreadCnt'             => 'SpreadCnt',
+        'startTime'             => 'StartTime',
     ];
 
     public function validate()
@@ -432,6 +468,9 @@ class policys extends Model
         if (null !== $this->dnsResultTime) {
             $res['DnsResultTime'] = $this->dnsResultTime;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->hitLastTime) {
             $res['HitLastTime'] = $this->hitLastTime;
         }
@@ -453,6 +492,18 @@ class policys extends Model
         if (null !== $this->release) {
             $res['Release'] = $this->release;
         }
+        if (null !== $this->repeatDays) {
+            $res['RepeatDays'] = $this->repeatDays;
+        }
+        if (null !== $this->repeatEndTime) {
+            $res['RepeatEndTime'] = $this->repeatEndTime;
+        }
+        if (null !== $this->repeatStartTime) {
+            $res['RepeatStartTime'] = $this->repeatStartTime;
+        }
+        if (null !== $this->repeatType) {
+            $res['RepeatType'] = $this->repeatType;
+        }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -467,6 +518,9 @@ class policys extends Model
         }
         if (null !== $this->spreadCnt) {
             $res['SpreadCnt'] = $this->spreadCnt;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -540,6 +594,9 @@ class policys extends Model
         if (isset($map['DnsResultTime'])) {
             $model->dnsResultTime = $map['DnsResultTime'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['HitLastTime'])) {
             $model->hitLastTime = $map['HitLastTime'];
         }
@@ -561,6 +618,20 @@ class policys extends Model
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
         }
+        if (isset($map['RepeatDays'])) {
+            if (!empty($map['RepeatDays'])) {
+                $model->repeatDays = $map['RepeatDays'];
+            }
+        }
+        if (isset($map['RepeatEndTime'])) {
+            $model->repeatEndTime = $map['RepeatEndTime'];
+        }
+        if (isset($map['RepeatStartTime'])) {
+            $model->repeatStartTime = $map['RepeatStartTime'];
+        }
+        if (isset($map['RepeatType'])) {
+            $model->repeatType = $map['RepeatType'];
+        }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
@@ -577,6 +648,9 @@ class policys extends Model
         }
         if (isset($map['SpreadCnt'])) {
             $model->spreadCnt = $map['SpreadCnt'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

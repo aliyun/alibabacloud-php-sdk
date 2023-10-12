@@ -64,6 +64,16 @@ class policys extends Model
     public $applicationName;
 
     /**
+     * @var string[]
+     */
+    public $applicationNameList;
+
+    /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @description The description of the access control policy.
      *
      * @example test
@@ -155,6 +165,16 @@ class policys extends Model
     public $destinationType;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @var int
+     */
+    public $hitLastTime;
+
+    /**
      * @description The number of hits for the access control policy.
      *
      * @example 100
@@ -171,6 +191,11 @@ class policys extends Model
      * @var string
      */
     public $memberUid;
+
+    /**
+     * @var int
+     */
+    public $modifyTime;
 
     /**
      * @description The priority of the access control policy.
@@ -207,6 +232,26 @@ class policys extends Model
      * @var string
      */
     public $release;
+
+    /**
+     * @var int[]
+     */
+    public $repeatDays;
+
+    /**
+     * @var string
+     */
+    public $repeatEndTime;
+
+    /**
+     * @var string
+     */
+    public $repeatStartTime;
+
+    /**
+     * @var string
+     */
+    public $repeatType;
 
     /**
      * @description The source address in the access control policy. Valid values:
@@ -247,11 +292,23 @@ class policys extends Model
      * @var string
      */
     public $sourceType;
+
+    /**
+     * @var int
+     */
+    public $spreadCnt;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'aclAction'             => 'AclAction',
         'aclUuid'               => 'AclUuid',
         'applicationId'         => 'ApplicationId',
         'applicationName'       => 'ApplicationName',
+        'applicationNameList'   => 'ApplicationNameList',
+        'createTime'            => 'CreateTime',
         'description'           => 'Description',
         'destPort'              => 'DestPort',
         'destPortGroup'         => 'DestPortGroup',
@@ -261,15 +318,24 @@ class policys extends Model
         'destinationGroupCidrs' => 'DestinationGroupCidrs',
         'destinationGroupType'  => 'DestinationGroupType',
         'destinationType'       => 'DestinationType',
+        'endTime'               => 'EndTime',
+        'hitLastTime'           => 'HitLastTime',
         'hitTimes'              => 'HitTimes',
         'memberUid'             => 'MemberUid',
+        'modifyTime'            => 'ModifyTime',
         'order'                 => 'Order',
         'proto'                 => 'Proto',
         'release'               => 'Release',
+        'repeatDays'            => 'RepeatDays',
+        'repeatEndTime'         => 'RepeatEndTime',
+        'repeatStartTime'       => 'RepeatStartTime',
+        'repeatType'            => 'RepeatType',
         'source'                => 'Source',
         'sourceGroupCidrs'      => 'SourceGroupCidrs',
         'sourceGroupType'       => 'SourceGroupType',
         'sourceType'            => 'SourceType',
+        'spreadCnt'             => 'SpreadCnt',
+        'startTime'             => 'StartTime',
     ];
 
     public function validate()
@@ -290,6 +356,12 @@ class policys extends Model
         }
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
+        }
+        if (null !== $this->applicationNameList) {
+            $res['ApplicationNameList'] = $this->applicationNameList;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -318,11 +390,20 @@ class policys extends Model
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->hitLastTime) {
+            $res['HitLastTime'] = $this->hitLastTime;
+        }
         if (null !== $this->hitTimes) {
             $res['HitTimes'] = $this->hitTimes;
         }
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
@@ -332,6 +413,18 @@ class policys extends Model
         }
         if (null !== $this->release) {
             $res['Release'] = $this->release;
+        }
+        if (null !== $this->repeatDays) {
+            $res['RepeatDays'] = $this->repeatDays;
+        }
+        if (null !== $this->repeatEndTime) {
+            $res['RepeatEndTime'] = $this->repeatEndTime;
+        }
+        if (null !== $this->repeatStartTime) {
+            $res['RepeatStartTime'] = $this->repeatStartTime;
+        }
+        if (null !== $this->repeatType) {
+            $res['RepeatType'] = $this->repeatType;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -344,6 +437,12 @@ class policys extends Model
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->spreadCnt) {
+            $res['SpreadCnt'] = $this->spreadCnt;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -368,6 +467,14 @@ class policys extends Model
         }
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
+        }
+        if (isset($map['ApplicationNameList'])) {
+            if (!empty($map['ApplicationNameList'])) {
+                $model->applicationNameList = $map['ApplicationNameList'];
+            }
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -400,11 +507,20 @@ class policys extends Model
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['HitLastTime'])) {
+            $model->hitLastTime = $map['HitLastTime'];
+        }
         if (isset($map['HitTimes'])) {
             $model->hitTimes = $map['HitTimes'];
         }
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
@@ -414,6 +530,20 @@ class policys extends Model
         }
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
+        }
+        if (isset($map['RepeatDays'])) {
+            if (!empty($map['RepeatDays'])) {
+                $model->repeatDays = $map['RepeatDays'];
+            }
+        }
+        if (isset($map['RepeatEndTime'])) {
+            $model->repeatEndTime = $map['RepeatEndTime'];
+        }
+        if (isset($map['RepeatStartTime'])) {
+            $model->repeatStartTime = $map['RepeatStartTime'];
+        }
+        if (isset($map['RepeatType'])) {
+            $model->repeatType = $map['RepeatType'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
@@ -428,6 +558,12 @@ class policys extends Model
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['SpreadCnt'])) {
+            $model->spreadCnt = $map['SpreadCnt'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

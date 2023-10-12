@@ -120,6 +120,11 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     public $release;
 
     /**
+     * @var string
+     */
+    public $repeatType;
+
+    /**
      * @description The source address in the access control policy. Fuzzy match is supported.
      *
      * > The value of this parameter can be a CIDR block or an address book name.
@@ -152,6 +157,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
         'pageSize'      => 'PageSize',
         'proto'         => 'Proto',
         'release'       => 'Release',
+        'repeatType'    => 'RepeatType',
         'source'        => 'Source',
         'vpcFirewallId' => 'VpcFirewallId',
     ];
@@ -192,6 +198,9 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
         }
         if (null !== $this->release) {
             $res['Release'] = $this->release;
+        }
+        if (null !== $this->repeatType) {
+            $res['RepeatType'] = $this->repeatType;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -240,6 +249,9 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
         }
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
+        }
+        if (isset($map['RepeatType'])) {
+            $model->repeatType = $map['RepeatType'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatFirewallControlPolicyPositionRequest extends Model
 {
     /**
+     * @description The UUID of the access control policy.
+     *
      * @example 66961eea-e659-4225-84c9-9b6da76ec401
      *
      * @var string
@@ -16,6 +18,11 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
     public $aclUuid;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-xxxxxx
      *
      * @var string
@@ -30,6 +39,9 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The new priority of the IPv4 access control policy. You must specify a numeric value for this parameter. The value 1 indicates the highest priority. A larger value indicates a lower priority.
+     *
+     * Before you call this operation, we recommend that you call the DescribeNatFirewallPolicyPriorUsed operation to query the priority range of the IPv4 access control policies in the specified traffic direction.
      * @example 5
      *
      * @var int

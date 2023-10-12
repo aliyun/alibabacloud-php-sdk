@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatFirewallPolicyPriorUsedResponseBody extends Model
 {
     /**
+     * @description The lowest priority for the access control policy.
+     *
      * @example 28
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeNatFirewallPolicyPriorUsedResponseBody extends Model
     public $end;
 
     /**
+     * @description The request ID.
+     *
      * @example BCDF3907-1011-5504-B015-CC7603C0E6B6
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeNatFirewallPolicyPriorUsedResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The highest priority for the access control policy.
+     *
      * @example 1
      *
      * @var int

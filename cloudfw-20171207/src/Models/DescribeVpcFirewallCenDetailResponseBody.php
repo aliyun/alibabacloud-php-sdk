@@ -33,6 +33,8 @@ class DescribeVpcFirewallCenDetailResponseBody extends Model
     public $firewallSwitchStatus;
 
     /**
+     * @description The VPC that is automatically created for the firewall.
+     *
      * @var firewallVpc
      */
     public $firewallVpc;

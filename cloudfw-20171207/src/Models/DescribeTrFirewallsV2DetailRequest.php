@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrFirewallsV2DetailRequest extends Model
 {
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-tr-a5a6b89f46764928****
+     *
      * @var string
      */
     public $firewallId;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class PutEnableFwSwitchResponseBody extends Model
 {
     /**
+     * @description The status information of the asset when it is not synchronized to Cloud Firewall.
+     *
      * @var abnormalResourceStatusList[]
      */
     public $abnormalResourceStatusList;

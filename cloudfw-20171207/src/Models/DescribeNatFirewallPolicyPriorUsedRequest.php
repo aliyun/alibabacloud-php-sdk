@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatFirewallPolicyPriorUsedRequest extends Model
 {
     /**
+     * @description The direction of the traffic to which the access control policy applies.
+     *
+     * Valid values:
+     *
+     *   **out**: outbound traffic
+     *
      * @example out
      *
      * @var string
@@ -16,6 +22,10 @@ class DescribeNatFirewallPolicyPriorUsedRequest extends Model
     public $direction;
 
     /**
+     * @description The IP version supported by the access control policy. Valid values:
+     *
+     *   **4**: IPv4 (default)
+     *
      * @example 4
      *
      * @var string
@@ -23,6 +33,11 @@ class DescribeNatFirewallPolicyPriorUsedRequest extends Model
     public $ipVersion;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +45,8 @@ class DescribeNatFirewallPolicyPriorUsedRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-xxxxxx
      *
      * @var string

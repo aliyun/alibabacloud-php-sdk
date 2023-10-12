@@ -45,6 +45,11 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     public $applicationName;
 
     /**
+     * @var string[]
+     */
+    public $applicationNameList;
+
+    /**
      * @description The description of the access control policy.
      *
      * @example test
@@ -109,6 +114,11 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     public $destinationType;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      * - **zh**: Chinese (default)
@@ -163,6 +173,26 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     public $release;
 
     /**
+     * @var int[]
+     */
+    public $repeatDays;
+
+    /**
+     * @var string
+     */
+    public $repeatEndTime;
+
+    /**
+     * @var string
+     */
+    public $repeatStartTime;
+
+    /**
+     * @var string
+     */
+    public $repeatType;
+
+    /**
      * @description The source address in the access control policy.
      *
      * - If SourceType is set to `group`, the value of Source must be an address book.
@@ -184,6 +214,11 @@ class CreateVpcFirewallControlPolicyRequest extends Model
     public $sourceType;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @description The ID of the policy group in which you want to create the access control policy.
      *
      * >  You can call the [DescribeVpcFirewallAclGroupList](https://www.alibabacloud.com/help/en/cloud-firewall/latest/describevpcfirewallaclgrouplist) operation to query the IDs.
@@ -193,22 +228,29 @@ class CreateVpcFirewallControlPolicyRequest extends Model
      */
     public $vpcFirewallId;
     protected $_name = [
-        'aclAction'       => 'AclAction',
-        'applicationName' => 'ApplicationName',
-        'description'     => 'Description',
-        'destPort'        => 'DestPort',
-        'destPortGroup'   => 'DestPortGroup',
-        'destPortType'    => 'DestPortType',
-        'destination'     => 'Destination',
-        'destinationType' => 'DestinationType',
-        'lang'            => 'Lang',
-        'memberUid'       => 'MemberUid',
-        'newOrder'        => 'NewOrder',
-        'proto'           => 'Proto',
-        'release'         => 'Release',
-        'source'          => 'Source',
-        'sourceType'      => 'SourceType',
-        'vpcFirewallId'   => 'VpcFirewallId',
+        'aclAction'           => 'AclAction',
+        'applicationName'     => 'ApplicationName',
+        'applicationNameList' => 'ApplicationNameList',
+        'description'         => 'Description',
+        'destPort'            => 'DestPort',
+        'destPortGroup'       => 'DestPortGroup',
+        'destPortType'        => 'DestPortType',
+        'destination'         => 'Destination',
+        'destinationType'     => 'DestinationType',
+        'endTime'             => 'EndTime',
+        'lang'                => 'Lang',
+        'memberUid'           => 'MemberUid',
+        'newOrder'            => 'NewOrder',
+        'proto'               => 'Proto',
+        'release'             => 'Release',
+        'repeatDays'          => 'RepeatDays',
+        'repeatEndTime'       => 'RepeatEndTime',
+        'repeatStartTime'     => 'RepeatStartTime',
+        'repeatType'          => 'RepeatType',
+        'source'              => 'Source',
+        'sourceType'          => 'SourceType',
+        'startTime'           => 'StartTime',
+        'vpcFirewallId'       => 'VpcFirewallId',
     ];
 
     public function validate()
@@ -223,6 +265,9 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         }
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
+        }
+        if (null !== $this->applicationNameList) {
+            $res['ApplicationNameList'] = $this->applicationNameList;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -242,6 +287,9 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -257,11 +305,26 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         if (null !== $this->release) {
             $res['Release'] = $this->release;
         }
+        if (null !== $this->repeatDays) {
+            $res['RepeatDays'] = $this->repeatDays;
+        }
+        if (null !== $this->repeatEndTime) {
+            $res['RepeatEndTime'] = $this->repeatEndTime;
+        }
+        if (null !== $this->repeatStartTime) {
+            $res['RepeatStartTime'] = $this->repeatStartTime;
+        }
+        if (null !== $this->repeatType) {
+            $res['RepeatType'] = $this->repeatType;
+        }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->vpcFirewallId) {
             $res['VpcFirewallId'] = $this->vpcFirewallId;
@@ -284,6 +347,11 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
+        if (isset($map['ApplicationNameList'])) {
+            if (!empty($map['ApplicationNameList'])) {
+                $model->applicationNameList = $map['ApplicationNameList'];
+            }
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -302,6 +370,9 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
@@ -317,11 +388,28 @@ class CreateVpcFirewallControlPolicyRequest extends Model
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
         }
+        if (isset($map['RepeatDays'])) {
+            if (!empty($map['RepeatDays'])) {
+                $model->repeatDays = $map['RepeatDays'];
+            }
+        }
+        if (isset($map['RepeatEndTime'])) {
+            $model->repeatEndTime = $map['RepeatEndTime'];
+        }
+        if (isset($map['RepeatStartTime'])) {
+            $model->repeatStartTime = $map['RepeatStartTime'];
+        }
+        if (isset($map['RepeatType'])) {
+            $model->repeatType = $map['RepeatType'];
+        }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['VpcFirewallId'])) {
             $model->vpcFirewallId = $map['VpcFirewallId'];

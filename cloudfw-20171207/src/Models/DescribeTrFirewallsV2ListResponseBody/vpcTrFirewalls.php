@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class vpcTrFirewalls extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-03f8s0z052ka3v****
      *
      * @var string
@@ -19,6 +21,8 @@ class vpcTrFirewalls extends Model
     public $cenId;
 
     /**
+     * @description The name of the CEN instance.
+     *
      * @example cen_swas
      *
      * @var string
@@ -26,6 +30,8 @@ class vpcTrFirewalls extends Model
     public $cenName;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
      * @example vfw-tr-99bc4f0fc88b4d00****
      *
      * @var string
@@ -33,6 +39,17 @@ class vpcTrFirewalls extends Model
     public $firewallId;
 
     /**
+     * @description The status of the VPC firewall. Valid values:
+     *
+     *   **opened**: The VPC firewall is enabled.
+     *   **closed**: The VPC firewall is disabled.
+     *   **notconfigured**: The VPC firewall is not created.
+     *   **configured**: The VPC firewall is created but is not enabled.
+     *   **creating**: The VPC firewall is being created.
+     *   **opening**: The VPC firewall is being enabled.
+     *   **deleting**: The VPC firewall is being deleted.
+     *
+     * >  If you do not specify this parameter, VPC firewalls in all states are queried.
      * @example opened
      *
      * @var string
@@ -40,11 +57,15 @@ class vpcTrFirewalls extends Model
     public $firewallSwitchStatus;
 
     /**
+     * @description The information about the intrusion prevention system (IPS) configuration.
+     *
      * @var ipsConfig
      */
     public $ipsConfig;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
+     *
      * @example 171761785151****
      *
      * @var int
@@ -52,6 +73,12 @@ class vpcTrFirewalls extends Model
     public $ownerId;
 
     /**
+     * @description Indicates whether the VPC firewall can be automatically enabled. Valid values:
+     *
+     *   **passed**: yes
+     *   **failed**: no
+     *   **unknown**
+     *
      * @example passed
      *
      * @var string
@@ -59,11 +86,15 @@ class vpcTrFirewalls extends Model
     public $precheckStatus;
 
     /**
+     * @description The protected resources.
+     *
      * @var protectedResource
      */
     public $protectedResource;
 
     /**
+     * @description The region ID of the transit router.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -71,6 +102,11 @@ class vpcTrFirewalls extends Model
     public $regionNo;
 
     /**
+     * @description Indicates whether you can create a VPC firewall in a specified region. Valid values:
+     *
+     *   **enable**: yes
+     *   **disable**: no
+     *
      * @example enable
      *
      * @var string
@@ -78,6 +114,11 @@ class vpcTrFirewalls extends Model
     public $regionStatus;
 
     /**
+     * @description The result code of the operation that creates the VPC firewall. Valid values:
+     *
+     *   **RegionDisable**: VPC Firewall is not supported in the region of the network instance. You cannot create a VPC firewall for the network instance.
+     *   **Empty string**: You can create a VPC firewall for the network instance.
+     *
      * @example RegionDisable
      *
      * @var string
@@ -85,6 +126,11 @@ class vpcTrFirewalls extends Model
     public $resultCode;
 
     /**
+     * @description The routing mode of the VPC firewall. Valid values:
+     *
+     *   **managed**: automatic mode
+     *   **manual**: manual mode
+     *
      * @example managed
      *
      * @var string
@@ -92,6 +138,8 @@ class vpcTrFirewalls extends Model
     public $routeMode;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-2vcmhjs88nil55fvu****
      *
      * @var string
@@ -99,11 +147,15 @@ class vpcTrFirewalls extends Model
     public $transitRouterId;
 
     /**
+     * @description The unprotected resources.
+     *
      * @var unprotectedResource
      */
     public $unprotectedResource;
 
     /**
+     * @description The instance name of the VPC firewall.
+     *
      * @var string
      */
     public $vpcFirewallName;

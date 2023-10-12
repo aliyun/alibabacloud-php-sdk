@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class policys extends Model
 {
     /**
+     * @description The action that Cloud Firewall performs on the traffic. Valid values:
+     *
+     *   **accept**: allows the traffic.
+     *   **drop**: denies the traffic.
+     *   **log**: monitors the traffic.
+     *
      * @example accept
      *
      * @var string
@@ -16,6 +22,8 @@ class policys extends Model
     public $aclAction;
 
     /**
+     * @description The UUID of the access control policy.
+     *
      * @example 00281255-d220-4db1-8f4f-c4df221a****
      *
      * @var string
@@ -23,11 +31,15 @@ class policys extends Model
     public $aclUuid;
 
     /**
+     * @description The application names.
+     *
      * @var string[]
      */
     public $applicationNameList;
 
     /**
+     * @description The time at which the access control policy was created.
+     *
      * @example 1761062400
      *
      * @var int
@@ -35,11 +47,15 @@ class policys extends Model
     public $createTime;
 
     /**
+     * @description The description of the access control policy.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The destination port in the access control policy.
+     *
      * @example 80
      *
      * @var string
@@ -47,6 +63,8 @@ class policys extends Model
     public $destPort;
 
     /**
+     * @description The name of the destination port address book in the access control policy.
+     *
      * @example my_port_group
      *
      * @var string
@@ -54,11 +72,18 @@ class policys extends Model
     public $destPortGroup;
 
     /**
+     * @description The ports in the destination port address book.
+     *
      * @var string[]
      */
     public $destPortGroupPorts;
 
     /**
+     * @description The type of the destination port in the access control policy. Valid values:
+     *
+     *   **port**: port
+     *   **group**: port address book
+     *
      * @example port
      *
      * @var string
@@ -66,6 +91,13 @@ class policys extends Model
     public $destPortType;
 
     /**
+     * @description The destination address in the access control policy. The value of this parameter varies based on the value of the DestinationType parameter. Valid values:
+     *
+     *   If **DestinationType** is set to **net**, the value of Destination is a CIDR block. Example: 192.0.XX.XX/24.
+     *   If **DestinationType** is set to **domain**, the value of Destination is a domain name. Example: aliyuncs.com.
+     *   If **DestinationType** is set to **group**, the value of Destination is the name of an address book. Example: db_group.
+     *   If **DestinationType** is set to **location**, the value of Destination is a location. For more information about location codes, see [AddControlPolicy](~~138867~~). Example: \["BJ11", "ZB"].
+     *
      * @example x.x.x.x/32
      *
      * @var string
@@ -73,11 +105,18 @@ class policys extends Model
     public $destination;
 
     /**
+     * @description The CIDR blocks in the destination address book.
+     *
      * @var string[]
      */
     public $destinationGroupCidrs;
 
     /**
+     * @description The type of the destination address book in the access control policy. Valid values:
+     *
+     *   **ip**: an address book that includes one or more CIDR blocks
+     *   **domain**: an address book that includes one or more domain names
+     *
      * @example ip
      *
      * @var string
@@ -85,6 +124,13 @@ class policys extends Model
     public $destinationGroupType;
 
     /**
+     * @description The type of the destination address in the access control policy. Valid values:
+     *
+     *   **net**: CIDR block
+     *   **group**: address book
+     *   **domain**: domain name
+     *   **location**
+     *
      * @example net
      *
      * @var string
@@ -92,6 +138,8 @@ class policys extends Model
     public $destinationType;
 
     /**
+     * @description The DNS resolution result.
+     *
      * @example 111.0.XX.XX,112.0.XX.XX
      *
      * @var string
@@ -99,6 +147,8 @@ class policys extends Model
     public $dnsResult;
 
     /**
+     * @description The time of the DNS resolution result. The value is a timestamp. Unit: seconds.
+     *
      * @example 1579261141
      *
      * @var int
@@ -106,6 +156,12 @@ class policys extends Model
     public $dnsResultTime;
 
     /**
+     * @description The domain name resolution method of the access control policy. By default, an access control policy is enabled after it is created. Valid values:
+     *
+     *   **1**: Fully qualified domain name (FQDN)-based
+     *   **2**: Domain Name System (DNS)-based
+     *   **3**: FQDN and DNS-based
+     *
      * @example 1
      *
      * @var int
@@ -113,6 +169,13 @@ class policys extends Model
     public $domainResolveType;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @description The times when the access control policy was last hit. The value is a timestamp. Unit: seconds.
+     *
      * @example 1579261141
      *
      * @var int
@@ -120,6 +183,8 @@ class policys extends Model
     public $hitLastTime;
 
     /**
+     * @description The number of hits for the access control policy.
+     *
      * @example 100
      *
      * @var int
@@ -127,6 +192,8 @@ class policys extends Model
     public $hitTimes;
 
     /**
+     * @description The time at which the access control policy was modified.
+     *
      * @example 1761062400
      *
      * @var int
@@ -134,6 +201,8 @@ class policys extends Model
     public $modifyTime;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-xxxxxx
      *
      * @var string
@@ -141,6 +210,9 @@ class policys extends Model
     public $natGatewayId;
 
     /**
+     * @description The priority of the access control policy.
+     *
+     * The priority value starts from 1. A smaller priority value indicates a higher priority.
      * @example 1
      *
      * @var int
@@ -148,6 +220,13 @@ class policys extends Model
     public $order;
 
     /**
+     * @description The type of the protocol in the access control policy. Valid values:
+     *
+     *   **ANY**
+     *   **TCP**
+     *   **UDP**
+     *   **ICMP**
+     *
      * @example TCP
      *
      * @var string
@@ -155,6 +234,11 @@ class policys extends Model
     public $proto;
 
     /**
+     * @description Indicates whether the access control policy is enabled. By default, an access control policy is enabled after it is created. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var string
@@ -162,6 +246,32 @@ class policys extends Model
     public $release;
 
     /**
+     * @var int[]
+     */
+    public $repeatDays;
+
+    /**
+     * @var string
+     */
+    public $repeatEndTime;
+
+    /**
+     * @var string
+     */
+    public $repeatStartTime;
+
+    /**
+     * @var string
+     */
+    public $repeatType;
+
+    /**
+     * @description The source address in the access control policy. Valid values:
+     *
+     *   If **SourceType** is set to `net`, the value of Source is a CIDR block. Example: 192.0.XX.XX/24.
+     *   If **SourceType** is set to `group`, the value of Source is the name of an address book. Example: db_group.
+     *   If **SourceType** is set to `location`, the value of Source is a location. For more information about location codes, see [AddControlPolicy](~~138867~~). Example: \["BJ11", "ZB"].
+     *
      * @example 192.0.XX.XX/24
      *
      * @var string
@@ -169,11 +279,15 @@ class policys extends Model
     public $source;
 
     /**
+     * @description The CIDR blocks in the source address book.
+     *
      * @var string[]
      */
     public $sourceGroupCidrs;
 
     /**
+     * @description The type of the source address book in the access control policy. The value is fixed as **ip**. The value indicates an address book that includes one or more CIDR blocks.
+     *
      * @example ip
      *
      * @var string
@@ -181,6 +295,12 @@ class policys extends Model
     public $sourceGroupType;
 
     /**
+     * @description The type of the source address book in the access control policy. Valid values:
+     *
+     *   **net**: CIDR block
+     *   **group**: address book
+     *   **location**: location
+     *
      * @example net
      *
      * @var string
@@ -188,11 +308,18 @@ class policys extends Model
     public $sourceType;
 
     /**
+     * @description The total quota consumed by the returned access control policies, which is the sum of the quota consumed by each policy. The quota that is consumed by an access control policy is calculated based on the following formula: Quota that is consumed by an access control policy = Number of source CIDR blocks × Number of destination CIDR blocks, regions, or resolved domain names × *Number of applications* × Number of ports.
+     *
      * @example 10,000
      *
      * @var string
      */
     public $spreadCnt;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'aclAction'             => 'AclAction',
         'aclUuid'               => 'AclUuid',
@@ -210,6 +337,7 @@ class policys extends Model
         'dnsResult'             => 'DnsResult',
         'dnsResultTime'         => 'DnsResultTime',
         'domainResolveType'     => 'DomainResolveType',
+        'endTime'               => 'EndTime',
         'hitLastTime'           => 'HitLastTime',
         'hitTimes'              => 'HitTimes',
         'modifyTime'            => 'ModifyTime',
@@ -217,11 +345,16 @@ class policys extends Model
         'order'                 => 'Order',
         'proto'                 => 'Proto',
         'release'               => 'Release',
+        'repeatDays'            => 'RepeatDays',
+        'repeatEndTime'         => 'RepeatEndTime',
+        'repeatStartTime'       => 'RepeatStartTime',
+        'repeatType'            => 'RepeatType',
         'source'                => 'Source',
         'sourceGroupCidrs'      => 'SourceGroupCidrs',
         'sourceGroupType'       => 'SourceGroupType',
         'sourceType'            => 'SourceType',
         'spreadCnt'             => 'SpreadCnt',
+        'startTime'             => 'StartTime',
     ];
 
     public function validate()
@@ -279,6 +412,9 @@ class policys extends Model
         if (null !== $this->domainResolveType) {
             $res['DomainResolveType'] = $this->domainResolveType;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->hitLastTime) {
             $res['HitLastTime'] = $this->hitLastTime;
         }
@@ -300,6 +436,18 @@ class policys extends Model
         if (null !== $this->release) {
             $res['Release'] = $this->release;
         }
+        if (null !== $this->repeatDays) {
+            $res['RepeatDays'] = $this->repeatDays;
+        }
+        if (null !== $this->repeatEndTime) {
+            $res['RepeatEndTime'] = $this->repeatEndTime;
+        }
+        if (null !== $this->repeatStartTime) {
+            $res['RepeatStartTime'] = $this->repeatStartTime;
+        }
+        if (null !== $this->repeatType) {
+            $res['RepeatType'] = $this->repeatType;
+        }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -314,6 +462,9 @@ class policys extends Model
         }
         if (null !== $this->spreadCnt) {
             $res['SpreadCnt'] = $this->spreadCnt;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -381,6 +532,9 @@ class policys extends Model
         if (isset($map['DomainResolveType'])) {
             $model->domainResolveType = $map['DomainResolveType'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['HitLastTime'])) {
             $model->hitLastTime = $map['HitLastTime'];
         }
@@ -402,6 +556,20 @@ class policys extends Model
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
         }
+        if (isset($map['RepeatDays'])) {
+            if (!empty($map['RepeatDays'])) {
+                $model->repeatDays = $map['RepeatDays'];
+            }
+        }
+        if (isset($map['RepeatEndTime'])) {
+            $model->repeatEndTime = $map['RepeatEndTime'];
+        }
+        if (isset($map['RepeatStartTime'])) {
+            $model->repeatStartTime = $map['RepeatStartTime'];
+        }
+        if (isset($map['RepeatType'])) {
+            $model->repeatType = $map['RepeatType'];
+        }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
@@ -418,6 +586,9 @@ class policys extends Model
         }
         if (isset($map['SpreadCnt'])) {
             $model->spreadCnt = $map['SpreadCnt'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

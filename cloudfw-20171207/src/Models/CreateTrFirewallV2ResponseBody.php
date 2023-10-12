@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTrFirewallV2ResponseBody extends Model
 {
     /**
+     * @description The instance ID of the VPC firewall.
+     *
      * @example vfw-tr-37e22bf0d9b34870****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateTrFirewallV2ResponseBody extends Model
     public $firewallId;
 
     /**
+     * @description The request ID.
+     *
      * @example 822B9125-6E1A-551C-8EAF-6E7AE7444B00
      *
      * @var string

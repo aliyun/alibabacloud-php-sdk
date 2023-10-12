@@ -18,9 +18,7 @@ class DescribeDomainResolveRequest extends Model
     public $domain;
 
     /**
-     * @description The IP version of the asset that is protected by Cloud Firewall.
-     *
-     * Valid values:
+     * @description The IP version of the asset that is protected by Cloud Firewall. Valid values:
      *
      *   **4**: IPv4 (default)
      *   **6**: IPv6
@@ -32,7 +30,7 @@ class DescribeDomainResolveRequest extends Model
     public $ipVersion;
 
     /**
-     * @description The natural language of the response.
+     * @description The language of the content within the response.
      *
      * Valid values:
      *

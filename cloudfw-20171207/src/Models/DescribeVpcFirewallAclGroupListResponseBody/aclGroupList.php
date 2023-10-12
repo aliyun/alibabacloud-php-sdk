@@ -39,6 +39,11 @@ class aclGroupList extends Model
     public $aclGroupName;
 
     /**
+     * @var int
+     */
+    public $aclRuleCount;
+
+    /**
      * @description The UID of the member that is managed by your Alibaba Cloud account.
      *
      * @example 258039427902****
@@ -49,6 +54,7 @@ class aclGroupList extends Model
     protected $_name = [
         'aclGroupId'   => 'AclGroupId',
         'aclGroupName' => 'AclGroupName',
+        'aclRuleCount' => 'AclRuleCount',
         'memberUid'    => 'MemberUid',
     ];
 
@@ -64,6 +70,9 @@ class aclGroupList extends Model
         }
         if (null !== $this->aclGroupName) {
             $res['AclGroupName'] = $this->aclGroupName;
+        }
+        if (null !== $this->aclRuleCount) {
+            $res['AclRuleCount'] = $this->aclRuleCount;
         }
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
@@ -85,6 +94,9 @@ class aclGroupList extends Model
         }
         if (isset($map['AclGroupName'])) {
             $model->aclGroupName = $map['AclGroupName'];
+        }
+        if (isset($map['AclRuleCount'])) {
+            $model->aclRuleCount = $map['AclRuleCount'];
         }
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];

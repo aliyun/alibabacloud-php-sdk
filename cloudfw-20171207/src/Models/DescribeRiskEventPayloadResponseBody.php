@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskEventPayloadResponseBody extends Model
 {
     /**
+     * @description The destination IP address of the intrusion event.
+     *
      * @example 203.0.113.1
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $dstIP;
 
     /**
+     * @description The destination port of the intrusion event.
+     *
      * @example 8080
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $dstPort;
 
     /**
+     * @description The destination VPC ID of the intrusion event.
+     *
      * @example vpc-bp10w5nb30r4jzfyc****
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $dstVpcId;
 
     /**
+     * @description The attack payload of the intrusion event.
+     *
      * @example 302902010004067075626c6963a01c0204036a5f43020100020100300e300c06082b060102010101000500
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $payload;
 
     /**
+     * @description The length of the attack payload of the intrusion event.
+     *
      * @example 457
      *
      * @var int
@@ -44,6 +54,11 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $payloadLen;
 
     /**
+     * @description The protocol type of intrusion event. Valid values:
+     *
+     *   **TCP**
+     *   **UDP**
+     *
      * @example TCP
      *
      * @var string
@@ -51,6 +66,8 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $proto;
 
     /**
+     * @description The HTTP X-Real-IP field.
+     *
      * @example 203.0.113.3
      *
      * @var string
@@ -58,6 +75,8 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $realIp;
 
     /**
+     * @description The request ID.
+     *
      * @example 68055BA4-D8BD-5611-AC49-C651E619A12E
      *
      * @var string
@@ -65,6 +84,8 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The source IP address of the intrusion event.
+     *
      * @example 203.0.113.2
      *
      * @var string
@@ -72,6 +93,8 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $srcIP;
 
     /**
+     * @description The source port of the intrusion event.
+     *
      * @example 54360
      *
      * @var int
@@ -79,6 +102,8 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $srcPort;
 
     /**
+     * @description The source VPC ID of the intrusion event.
+     *
      * @example vpc-t4nlt09olhpazpoeg****
      *
      * @var string
@@ -86,6 +111,8 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $srcVpcId;
 
     /**
+     * @description The HTTP X-Forwarded-For field.
+     *
      * @example 203.0.113.4
      *
      * @var string

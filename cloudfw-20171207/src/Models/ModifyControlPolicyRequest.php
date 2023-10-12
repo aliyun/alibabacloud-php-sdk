@@ -143,6 +143,11 @@ class ModifyControlPolicyRequest extends Model
     public $direction;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese (default)
@@ -182,6 +187,26 @@ class ModifyControlPolicyRequest extends Model
     public $release;
 
     /**
+     * @var int[]
+     */
+    public $repeatDays;
+
+    /**
+     * @var string
+     */
+    public $repeatEndTime;
+
+    /**
+     * @var string
+     */
+    public $repeatStartTime;
+
+    /**
+     * @var string
+     */
+    public $repeatType;
+
+    /**
      * @description The source address in the access control policy.
      *
      *   If **SourceType** is set to net, the value of **Source** is a CIDR block. Example: 1.2.XX.XX/24
@@ -206,6 +231,11 @@ class ModifyControlPolicyRequest extends Model
      * @var string
      */
     public $sourceType;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'aclAction'           => 'AclAction',
         'aclUuid'             => 'AclUuid',
@@ -218,11 +248,17 @@ class ModifyControlPolicyRequest extends Model
         'destination'         => 'Destination',
         'destinationType'     => 'DestinationType',
         'direction'           => 'Direction',
+        'endTime'             => 'EndTime',
         'lang'                => 'Lang',
         'proto'               => 'Proto',
         'release'             => 'Release',
+        'repeatDays'          => 'RepeatDays',
+        'repeatEndTime'       => 'RepeatEndTime',
+        'repeatStartTime'     => 'RepeatStartTime',
+        'repeatType'          => 'RepeatType',
         'source'              => 'Source',
         'sourceType'          => 'SourceType',
+        'startTime'           => 'StartTime',
     ];
 
     public function validate()
@@ -265,6 +301,9 @@ class ModifyControlPolicyRequest extends Model
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -274,11 +313,26 @@ class ModifyControlPolicyRequest extends Model
         if (null !== $this->release) {
             $res['Release'] = $this->release;
         }
+        if (null !== $this->repeatDays) {
+            $res['RepeatDays'] = $this->repeatDays;
+        }
+        if (null !== $this->repeatEndTime) {
+            $res['RepeatEndTime'] = $this->repeatEndTime;
+        }
+        if (null !== $this->repeatStartTime) {
+            $res['RepeatStartTime'] = $this->repeatStartTime;
+        }
+        if (null !== $this->repeatType) {
+            $res['RepeatType'] = $this->repeatType;
+        }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -327,6 +381,9 @@ class ModifyControlPolicyRequest extends Model
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
@@ -336,11 +393,28 @@ class ModifyControlPolicyRequest extends Model
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
         }
+        if (isset($map['RepeatDays'])) {
+            if (!empty($map['RepeatDays'])) {
+                $model->repeatDays = $map['RepeatDays'];
+            }
+        }
+        if (isset($map['RepeatEndTime'])) {
+            $model->repeatEndTime = $map['RepeatEndTime'];
+        }
+        if (isset($map['RepeatStartTime'])) {
+            $model->repeatStartTime = $map['RepeatStartTime'];
+        }
+        if (isset($map['RepeatType'])) {
+            $model->repeatType = $map['RepeatType'];
+        }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

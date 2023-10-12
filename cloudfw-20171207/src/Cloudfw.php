@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenIpRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenIpResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetTrafficTrendRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListRequest;
@@ -320,6 +322,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->direction)) {
             $query['Direction'] = $request->direction;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->ipVersion)) {
             $query['IpVersion'] = $request->ipVersion;
         }
@@ -335,6 +340,18 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->release)) {
             $query['Release'] = $request->release;
         }
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
+        }
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
+        }
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
+        }
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
@@ -343,6 +360,9 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -496,10 +516,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param CreateNatFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
+     * You can use this operation to create an access control policy to allow, deny, or monitor traffic that passes through a NAT firewall.
+     *   *
+     * @param CreateNatFirewallControlPolicyRequest $request CreateNatFirewallControlPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNatFirewallControlPolicyResponse
+     * @return CreateNatFirewallControlPolicyResponse CreateNatFirewallControlPolicyResponse
      */
     public function createNatFirewallControlPolicyWithOptions($request, $runtime)
     {
@@ -535,6 +557,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->domainResolveType)) {
             $query['DomainResolveType'] = $request->domainResolveType;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->ipVersion)) {
             $query['IpVersion'] = $request->ipVersion;
         }
@@ -553,11 +578,26 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->release)) {
             $query['Release'] = $request->release;
         }
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
+        }
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
+        }
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
+        }
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -578,9 +618,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param CreateNatFirewallControlPolicyRequest $request
+     * You can use this operation to create an access control policy to allow, deny, or monitor traffic that passes through a NAT firewall.
+     *   *
+     * @param CreateNatFirewallControlPolicyRequest $request CreateNatFirewallControlPolicyRequest
      *
-     * @return CreateNatFirewallControlPolicyResponse
+     * @return CreateNatFirewallControlPolicyResponse CreateNatFirewallControlPolicyResponse
      */
     public function createNatFirewallControlPolicy($request)
     {
@@ -916,6 +958,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->applicationName)) {
             $query['ApplicationName'] = $request->applicationName;
         }
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -934,6 +979,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->destinationType)) {
             $query['DestinationType'] = $request->destinationType;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -949,11 +997,26 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->release)) {
             $query['Release'] = $request->release;
         }
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
+        }
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
+        }
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
+        }
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->vpcFirewallId)) {
             $query['VpcFirewallId'] = $request->vpcFirewallId;
@@ -1210,10 +1273,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteNatFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
+     * You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
+     *   *
+     * @param DeleteNatFirewallControlPolicyRequest $request DeleteNatFirewallControlPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNatFirewallControlPolicyResponse
+     * @return DeleteNatFirewallControlPolicyResponse DeleteNatFirewallControlPolicyResponse
      */
     public function deleteNatFirewallControlPolicyWithOptions($request, $runtime)
     {
@@ -1250,9 +1315,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteNatFirewallControlPolicyRequest $request
+     * You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
+     *   *
+     * @param DeleteNatFirewallControlPolicyRequest $request DeleteNatFirewallControlPolicyRequest
      *
-     * @return DeleteNatFirewallControlPolicyResponse
+     * @return DeleteNatFirewallControlPolicyResponse DeleteNatFirewallControlPolicyResponse
      */
     public function deleteNatFirewallControlPolicy($request)
     {
@@ -1681,6 +1748,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->release)) {
             $query['Release'] = $request->release;
         }
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
@@ -1765,7 +1835,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeDomainResolve operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
+     * You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -1812,7 +1882,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeDomainResolve operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
+     * You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -1828,7 +1898,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeInstanceMembers operation to query the information about members in Cloud Firewall.
+     * You can use this operation to query the information about members in Cloud Firewall.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -1875,7 +1945,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeInstanceMembers operation to query the information about members in Cloud Firewall.
+     * You can use this operation to query the information about members in Cloud Firewall.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -1888,6 +1958,85 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInternetOpenIpRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeInternetOpenIpResponse
+     */
+    public function describeInternetOpenIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assetsInstanceId)) {
+            $query['AssetsInstanceId'] = $request->assetsInstanceId;
+        }
+        if (!Utils::isUnset($request->assetsInstanceName)) {
+            $query['AssetsInstanceName'] = $request->assetsInstanceName;
+        }
+        if (!Utils::isUnset($request->assetsType)) {
+            $query['AssetsType'] = $request->assetsType;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->publicIp)) {
+            $query['PublicIp'] = $request->publicIp;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInternetOpenIp',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInternetOpenIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInternetOpenIpRequest $request
+     *
+     * @return DescribeInternetOpenIpResponse
+     */
+    public function describeInternetOpenIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInternetOpenIpWithOptions($request, $runtime);
     }
 
     /**
@@ -2049,10 +2198,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeNatFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                          $runtime
+     * You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
+     *   *
+     * @param DescribeNatFirewallControlPolicyRequest $request DescribeNatFirewallControlPolicyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNatFirewallControlPolicyResponse
+     * @return DescribeNatFirewallControlPolicyResponse DescribeNatFirewallControlPolicyResponse
      */
     public function describeNatFirewallControlPolicyWithOptions($request, $runtime)
     {
@@ -2091,6 +2242,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->release)) {
             $query['Release'] = $request->release;
         }
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
@@ -2113,9 +2267,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeNatFirewallControlPolicyRequest $request
+     * You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
+     *   *
+     * @param DescribeNatFirewallControlPolicyRequest $request DescribeNatFirewallControlPolicyRequest
      *
-     * @return DescribeNatFirewallControlPolicyResponse
+     * @return DescribeNatFirewallControlPolicyResponse DescribeNatFirewallControlPolicyResponse
      */
     public function describeNatFirewallControlPolicy($request)
     {
@@ -2125,10 +2281,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeNatFirewallPolicyPriorUsedRequest $request
-     * @param RuntimeOptions                            $runtime
+     * You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
+     *   *
+     * @param DescribeNatFirewallPolicyPriorUsedRequest $request DescribeNatFirewallPolicyPriorUsedRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNatFirewallPolicyPriorUsedResponse
+     * @return DescribeNatFirewallPolicyPriorUsedResponse DescribeNatFirewallPolicyPriorUsedResponse
      */
     public function describeNatFirewallPolicyPriorUsedWithOptions($request, $runtime)
     {
@@ -2165,9 +2323,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeNatFirewallPolicyPriorUsedRequest $request
+     * You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
+     *   *
+     * @param DescribeNatFirewallPolicyPriorUsedRequest $request DescribeNatFirewallPolicyPriorUsedRequest
      *
-     * @return DescribeNatFirewallPolicyPriorUsedResponse
+     * @return DescribeNatFirewallPolicyPriorUsedResponse DescribeNatFirewallPolicyPriorUsedResponse
      */
     public function describeNatFirewallPolicyPriorUsed($request)
     {
@@ -3256,6 +3416,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->release)) {
             $query['Release'] = $request->release;
         }
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
@@ -3769,6 +3932,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->direction)) {
             $query['Direction'] = $request->direction;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -3778,11 +3944,26 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->release)) {
             $query['Release'] = $request->release;
         }
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
+        }
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
+        }
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
+        }
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4058,10 +4239,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyNatFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
+     * You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
+     *   *
+     * @param ModifyNatFirewallControlPolicyRequest $request ModifyNatFirewallControlPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyNatFirewallControlPolicyResponse
+     * @return ModifyNatFirewallControlPolicyResponse ModifyNatFirewallControlPolicyResponse
      */
     public function modifyNatFirewallControlPolicyWithOptions($request, $runtime)
     {
@@ -4097,6 +4280,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->domainResolveType)) {
             $query['DomainResolveType'] = $request->domainResolveType;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -4109,11 +4295,26 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->release)) {
             $query['Release'] = $request->release;
         }
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
+        }
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
+        }
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
+        }
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4134,9 +4335,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyNatFirewallControlPolicyRequest $request
+     * You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
+     *   *
+     * @param ModifyNatFirewallControlPolicyRequest $request ModifyNatFirewallControlPolicyRequest
      *
-     * @return ModifyNatFirewallControlPolicyResponse
+     * @return ModifyNatFirewallControlPolicyResponse ModifyNatFirewallControlPolicyResponse
      */
     public function modifyNatFirewallControlPolicy($request)
     {
@@ -4641,6 +4844,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->applicationName)) {
             $query['ApplicationName'] = $request->applicationName;
         }
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -4659,6 +4865,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->destinationType)) {
             $query['DestinationType'] = $request->destinationType;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -4668,11 +4877,26 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->release)) {
             $query['Release'] = $request->release;
         }
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
+        }
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
+        }
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
+        }
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->vpcFirewallId)) {
             $query['VpcFirewallId'] = $request->vpcFirewallId;
@@ -4712,7 +4936,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallControlPolicyPosition operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
+     * You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -4759,7 +4983,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallControlPolicyPosition operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
+     * You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *

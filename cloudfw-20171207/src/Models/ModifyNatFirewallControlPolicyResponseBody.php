@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatFirewallControlPolicyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 3868197C-E6E8-52CD-8358-05E3308430E2
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatFirewallControlPolicyResponseBody extends Model
 {
     /**
+     * @description The information about the access control policies.
+     *
      * @var policys[]
      */
     public $policys;
 
     /**
+     * @description The request ID.
+     *
      * @example F183567D-8A52-5BAE-9472-F1C427378C28
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeNatFirewallControlPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 28
      *
      * @var string

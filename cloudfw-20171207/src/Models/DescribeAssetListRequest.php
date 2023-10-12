@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetListRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The page number. Valid values: 1 to 50.
      *
      * @example 1
      *
@@ -51,6 +51,12 @@ class DescribeAssetListRequest extends Model
     public $memberUid;
 
     /**
+     * @description The time when the asset was added. Valid values:
+     *
+     *   **discovered in 1 hour**: within one hour.
+     *   **discovered in 1 day**: within one day.
+     *   **discovered in 7 days**: within seven days.
+     *
      * @example discovered in 1 hour
      *
      * @var string
@@ -58,7 +64,7 @@ class DescribeAssetListRequest extends Model
     public $newResourceTag;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page. Valid values: 1 to 50.
      *
      * @example 10
      *

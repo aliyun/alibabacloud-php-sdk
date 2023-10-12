@@ -4,36 +4,30 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponseBody\members;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponseBody\pageInfo;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenIpResponseBody\dataList;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenIpResponseBody\pageInfo;
 use AlibabaCloud\Tea\Model;
 
-class DescribeInstanceMembersResponseBody extends Model
+class DescribeInternetOpenIpResponseBody extends Model
 {
     /**
-     * @description The information about the member.
-     *
-     * @var members[]
+     * @var dataList[]
      */
-    public $members;
+    public $dataList;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The request ID.
-     *
-     * @example A531AE1A-FBA2-48B6-BAB8-84D02BD409EE
+     * @example 6B780BD6-282C-51A9-A8E6-59F636BAFA54
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'members'   => 'Members',
+        'dataList'  => 'DataList',
         'pageInfo'  => 'PageInfo',
         'requestId' => 'RequestId',
     ];
@@ -45,12 +39,12 @@ class DescribeInstanceMembersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->members) {
-            $res['Members'] = [];
-            if (null !== $this->members && \is_array($this->members)) {
+        if (null !== $this->dataList) {
+            $res['DataList'] = [];
+            if (null !== $this->dataList && \is_array($this->dataList)) {
                 $n = 0;
-                foreach ($this->members as $item) {
-                    $res['Members'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->dataList as $item) {
+                    $res['DataList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -67,17 +61,17 @@ class DescribeInstanceMembersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeInstanceMembersResponseBody
+     * @return DescribeInternetOpenIpResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Members'])) {
-            if (!empty($map['Members'])) {
-                $model->members = [];
-                $n              = 0;
-                foreach ($map['Members'] as $item) {
-                    $model->members[$n++] = null !== $item ? members::fromMap($item) : $item;
+        if (isset($map['DataList'])) {
+            if (!empty($map['DataList'])) {
+                $model->dataList = [];
+                $n               = 0;
+                foreach ($map['DataList'] as $item) {
+                    $model->dataList[$n++] = null !== $item ? dataList::fromMap($item) : $item;
                 }
             }
         }

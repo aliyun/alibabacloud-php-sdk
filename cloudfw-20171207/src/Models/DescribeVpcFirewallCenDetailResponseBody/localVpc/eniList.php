@@ -27,6 +27,10 @@ class eniList extends Model
     public $eniPrivateIpAddress;
 
     /**
+     * @description The ID of the vSwitch to which the ENI is connected.
+     *
+     * @example vsw-wz9viido7j436b0n1****
+     *
      * @var string
      */
     public $eniVSwitchId;

@@ -115,9 +115,9 @@ class DescribeRiskEventGroupRequest extends Model
     public $endTime;
 
     /**
-     * @description 入侵防御事件的名称。
+     * @description The name of the intrusion event.
      *
-     * @example 木马后门通信
+     * @example Webshell communication
      *
      * @var string
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrFirewallsV2ListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1471E2EC-F706-5F11-A79B-BD583ACB8297
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeTrFirewallsV2ListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 6
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeTrFirewallsV2ListResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The VPC firewalls.
+     *
      * @var vpcTrFirewalls[]
      */
     public $vpcTrFirewalls;

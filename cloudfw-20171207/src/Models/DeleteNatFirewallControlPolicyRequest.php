@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteNatFirewallControlPolicyRequest extends Model
 {
     /**
+     * @description The UUID of the access control policy.
+     *
+     * To delete an access control policy, you must provide the ID of the policy. You can call the DescribeNatFirewallControlPolicy operation to query the UUIDs of access control policies.
      * @example b6c8f905-2eb6-442a-ba35-9416e9dbb2c5
      *
      * @var string
@@ -16,6 +19,12 @@ class DeleteNatFirewallControlPolicyRequest extends Model
     public $aclUuid;
 
     /**
+     * @description The direction of the traffic to which the access control policy applies.
+     *
+     * Valid values:
+     *
+     *   **out**: outbound traffic
+     *
      * @example out
      *
      * @var string
@@ -23,6 +32,11 @@ class DeleteNatFirewallControlPolicyRequest extends Model
     public $direction;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +44,8 @@ class DeleteNatFirewallControlPolicyRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-xxxxxx
      *
      * @var string

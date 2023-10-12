@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateNatFirewallControlPolicyResponseBody extends Model
 {
     /**
+     * @description The UUID of the access control policy.
+     *
+     * > If you want to modify an access control policy, you must provide the UUID of the policy. You can call the DescribeNatFirewallControlPolicy operation to query the UUIDs of access control policies.
      * @example 6504d2fb-ab36-49c3-92a6-822a56549783
      *
      * @var string
@@ -16,6 +19,8 @@ class CreateNatFirewallControlPolicyResponseBody extends Model
     public $aclUuid;
 
     /**
+     * @description The request ID.
+     *
      * @example 0DC783F1-B3A7-578D-8A63-687CC9B82C0A
      *
      * @var string

@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class firewallVpc extends Model
 {
     /**
+     * @description Indicates whether you can specify a CIDR block when you create a VPC firewall for a Basic Edition transit router of a CEN instance. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 0
+     *
      * @var int
      */
     public $allowConfiguration;
 
     /**
+     * @description The CIDR block of the VPC.
+     *
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $vpcCidr;
 
     /**
+     * @description The VPC ID.
+     *
+     * @example vpc-bp1245k5oagy2bp74****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The CIDR block of the vSwitch.
+     *
+     * @example 10.0.0.1/24
+     *
      * @var string
      */
     public $vswitchCidr;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-bp1sqg9wms9wxcs1****
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @description The zone ID.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMembersRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The page number. Default value: **1**.
      *
-     * Pages start from page 1. Default value: **1**.
      * @example 1
      *
      * @var string
@@ -19,7 +18,7 @@ class DescribeInstanceMembersRequest extends Model
     public $currentPage;
 
     /**
-     * @description The remarks of the member in Cloud Firewall. The length is 1 ~ 256 characters.
+     * @description The remarks of the member. The remarks must be 1 to 256 characters in length.
      *
      * @example renewal
      *
@@ -28,7 +27,7 @@ class DescribeInstanceMembersRequest extends Model
     public $memberDesc;
 
     /**
-     * @description The name of the member in Cloud Firewall.
+     * @description The name of the member.
      *
      * @example cloudfirewall_2
      *
@@ -37,7 +36,7 @@ class DescribeInstanceMembersRequest extends Model
     public $memberDisplayName;
 
     /**
-     * @description The unique identifier (UID) of the member in Cloud Firewall.
+     * @description The UID of the member.
      *
      * @example 258039427902****
      *
@@ -46,7 +45,7 @@ class DescribeInstanceMembersRequest extends Model
     public $memberUid;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: **20**.
      * @example 20

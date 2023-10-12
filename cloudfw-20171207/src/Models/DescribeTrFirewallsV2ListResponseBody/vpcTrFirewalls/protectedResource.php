@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class protectedResource extends Model
 {
     /**
+     * @description The number of protected resources.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The protected peer transit routers.
+     *
      * @var string[]
      */
     public $peerTrList;
 
     /**
+     * @description The protected virtual border routers (VBRs).
+     *
      * @var string[]
      */
     public $vbrList;
 
     /**
+     * @description The protected VPCs.
+     *
      * @var string[]
      */
     public $vpcList;
 
     /**
+     * @description The protected VPN gateways.
+     *
      * @var string[]
      */
     public $vpnList;

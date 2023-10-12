@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNatFirewallControlPolicyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 31306869-C4BC-56F3-BBE6-C377CF9C8E1C
      *
      * @var string

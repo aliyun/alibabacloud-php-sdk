@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class unprotectedResource extends Model
 {
     /**
+     * @description The number of unprotected resources.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The unprotected peer transit routers.
+     *
      * @var string[]
      */
     public $peerTrList;
 
     /**
+     * @description The unprotected VBRs.
+     *
      * @var string[]
      */
     public $vbrList;
 
     /**
+     * @description The unprotected VPCs.
+     *
      * @var string[]
      */
     public $vpcList;
 
     /**
+     * @description The unprotected VPN gateways.
+     *
      * @var string[]
      */
     public $vpnList;

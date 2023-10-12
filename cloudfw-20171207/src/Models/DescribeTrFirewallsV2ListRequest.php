@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrFirewallsV2ListRequest extends Model
 {
     /**
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
+     *
      * @example cen-rig0t5zi96crkl****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeTrFirewallsV2ListRequest extends Model
     public $cenId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeTrFirewallsV2ListRequest extends Model
     public $currentPage;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
      * @example vfw-tr-f1799baa9e254651****
      *
      * @var string
@@ -30,11 +36,24 @@ class DescribeTrFirewallsV2ListRequest extends Model
     public $firewallId;
 
     /**
+     * @description The name of the VPC firewall.
+     *
      * @var string
      */
     public $firewallName;
 
     /**
+     * @description The status of the VPC firewall. Valid values:
+     *
+     *   **opened**: The VPC firewall is enabled.
+     *   **closed**: The VPC firewall is disabled.
+     *   **notconfigured**: The VPC firewall is not created.
+     *   **configured**: The VPC firewall is created but is not enabled.
+     *   **creating**: The VPC firewall is being created.
+     *   **opening**: The VPC firewall is being enabled.
+     *   **deleting**: The VPC firewall is being deleted.
+     *
+     * >  If you do not specify this parameter, VPC firewalls in all states are queried.
      * @example opened
      *
      * @var string
@@ -42,6 +61,11 @@ class DescribeTrFirewallsV2ListRequest extends Model
     public $firewallSwitchStatus;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -54,6 +78,8 @@ class DescribeTrFirewallsV2ListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -61,6 +87,8 @@ class DescribeTrFirewallsV2ListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the transit router.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -68,6 +96,12 @@ class DescribeTrFirewallsV2ListRequest extends Model
     public $regionNo;
 
     /**
+     * @description The routing mode of the VPC firewall. Valid values:
+     *
+     *   **managed**: automatic mode
+     *   **manual**: manual mode
+     *
+     * >  If you do not specify this parameter, VPC firewalls in all routing modes are queried.
      * @example managed
      *
      * @var string
@@ -75,6 +109,8 @@ class DescribeTrFirewallsV2ListRequest extends Model
     public $routeMode;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-uf6egtvyaedvt20xl****
      *
      * @var string

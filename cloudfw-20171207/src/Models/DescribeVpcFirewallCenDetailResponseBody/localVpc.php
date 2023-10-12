@@ -36,7 +36,7 @@ class localVpc extends Model
     public $defendCidrList;
 
     /**
-     * @description An array that consists of the elastic network interfaces (ENIs).
+     * @description The Elastic Network Interfaces (ENIs).
      *
      * @var eniList[]
      */

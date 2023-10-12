@@ -9,36 +9,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrFirewallsV2DetailResponseBody extends Model
 {
     /**
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
+     *
+     * @example cen-37nddhri7jf0d2****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @description The description of the VPC firewall.
+     *
+     * @example VPC Firewall
+     *
      * @var string
      */
     public $firewallDescription;
 
     /**
+     * @description The ID of the Elastic Network Interface (ENI) with which the VPC firewall is associated.
+     *
+     * @example eni-uf621u00nafypeex****
+     *
      * @var string
      */
     public $firewallEniId;
 
     /**
+     * @description The ID of the VPC to which the ENI is attached.
+     *
+     * @example vpc-2zeppcci782zeh2bk****
+     *
      * @var string
      */
     public $firewallEniVpcId;
 
     /**
+     * @description The ID of the vSwitch with which the ENI is associated.
+     *
+     * @example vsw-uf6ptq1kl1c1d9pw9****
+     *
      * @var string
      */
     public $firewallEniVswitchId;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-tr-9c7c711abdfa4d80****
+     *
      * @var string
      */
     public $firewallId;
 
     /**
+     * @description The name of the VPC firewall.
+     *
      * @example cloudfirewall-manual
      *
      * @var string
@@ -46,6 +72,12 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
     public $firewallName;
 
     /**
+     * @description The status of the VPC firewall. Valid values:
+     *
+     *   Creating
+     *   Deleting
+     *   Ready
+     *
      * @example Ready
      *
      * @var string
@@ -53,11 +85,26 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
     public $firewallStatus;
 
     /**
+     * @description The subnet CIDR block of the VPC in which the ENI of the firewall is stored in automatic mode.
+     *
+     * @example 10.0.1.0/24
+     *
      * @var string
      */
     public $firewallSubnetCidr;
 
     /**
+     * @description The status of the VPC firewall. Valid values:
+     *
+     *   **opened**: The VPC firewall is enabled.
+     *   **closed**: The VPC firewall is disabled.
+     *   **notconfigured**: The VPC firewall is not created.
+     *   **configured**: The VPC firewall is created but is not enabled.
+     *   **creating**: The VPC firewall is being created.
+     *   **opening**: The VPC firewall is being enabled.
+     *   **deleting**: The VPC firewall is being deleted.
+     *
+     * > If you do not specify this parameter, VPC firewalls in all states are queried.
      * @example opened
      *
      * @var string
@@ -65,11 +112,17 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
     public $firewallSwitchStatus;
 
     /**
+     * @description The CIDR block that is allocated to the VPC created for the VPC firewall in automatic mode.
+     *
+     * @example 10.0.0.0/16
+     *
      * @var string
      */
     public $firewallVpcCidr;
 
     /**
+     * @description The region ID of the transit router.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -77,6 +130,8 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
     public $regionNo;
 
     /**
+     * @description The request ID.
+     *
      * @example 7E53A7FB-3EB9-5E33-8E50-B8F417D1E02B
      *
      * @var string
@@ -84,6 +139,11 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The routing mode of the VPC firewall. Valid values:
+     *
+     *   **managed**: automatic mode
+     *   **manual**: manual mode
+     *
      * @example managed
      *
      * @var string
@@ -91,16 +151,28 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
     public $routeMode;
 
     /**
+     * @description The primary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
+     *
+     * @example 10.0.2.0/24
+     *
      * @var string
      */
     public $trAttachmentMasterCidr;
 
     /**
+     * @description The secondary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
+     *
+     * @example 10.0.3.0/24
+     *
      * @var string
      */
     public $trAttachmentSlaveCidr;
 
     /**
+     * @description The ID of the transit router.
+     *
+     * @example tr-wz9y8sgug8b1xb416****
+     *
      * @var string
      */
     public $transitRouterId;

@@ -2,15 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponseBody;
+namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenIpResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class pageInfo extends Model
 {
     /**
-     * @description The page number.
-     *
      * @example 1
      *
      * @var int
@@ -18,18 +16,14 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 20
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The total number of the members.
-     *
-     * @example 20
+     * @example 40
      *
      * @var int
      */

@@ -139,6 +139,11 @@ class DescribeControlPolicyRequest extends Model
     public $release;
 
     /**
+     * @var string
+     */
+    public $repeatType;
+
+    /**
      * @description The source address in the access control policy. Fuzzy match is supported. The value of this parameter depends on the value of the SourceType parameter.
      *
      *   If SourceType is set to `net`, the value of Source must be a CIDR block. Example: 192.0.XX.XX/24.
@@ -163,6 +168,7 @@ class DescribeControlPolicyRequest extends Model
         'pageSize'    => 'PageSize',
         'proto'       => 'Proto',
         'release'     => 'Release',
+        'repeatType'  => 'RepeatType',
         'source'      => 'Source',
     ];
 
@@ -205,6 +211,9 @@ class DescribeControlPolicyRequest extends Model
         }
         if (null !== $this->release) {
             $res['Release'] = $this->release;
+        }
+        if (null !== $this->repeatType) {
+            $res['RepeatType'] = $this->repeatType;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -253,6 +262,9 @@ class DescribeControlPolicyRequest extends Model
         }
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
+        }
+        if (isset($map['RepeatType'])) {
+            $model->repeatType = $map['RepeatType'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

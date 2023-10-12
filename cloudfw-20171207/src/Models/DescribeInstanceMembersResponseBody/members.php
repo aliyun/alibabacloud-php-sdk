@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
-     * @description The time when the member was added to Cloud Firewall.
+     * @description The time when the member was added to Cloud Firewall. The value is a timestamp. Unit: seconds.
      *
-     * >  The value is a UNIX timestamp. Unit: seconds.
      * @example 1615189819
      *
      * @var int
@@ -19,7 +18,7 @@ class members extends Model
     public $createTime;
 
     /**
-     * @description The remarks of the member in Cloud Firewall.
+     * @description The remarks of the member.
      *
      * @example renewal
      *
@@ -28,7 +27,7 @@ class members extends Model
     public $memberDesc;
 
     /**
-     * @description The name of the member in Cloud Firewall.
+     * @description The name of the member.
      *
      * @example cloudfirewall_2
      *
@@ -37,7 +36,7 @@ class members extends Model
     public $memberDisplayName;
 
     /**
-     * @description The status of the member in Cloud Firewall. Valid values:
+     * @description The status of the member. Valid values:
      *
      *   **normal**
      *   **deleting**
@@ -49,7 +48,7 @@ class members extends Model
     public $memberStatus;
 
     /**
-     * @description The UID of the member in Cloud Firewall.
+     * @description The UID of the member.
      *
      * @example 258039427902****
      *
@@ -58,9 +57,8 @@ class members extends Model
     public $memberUid;
 
     /**
-     * @description The time when the member in Cloud Firewall was last modified.
+     * @description The time when the member was last modified. The value is a timestamp. Unit: seconds.
      *
-     * >  The value is a UNIX timestamp. Unit: seconds.
      * @example 1615189819
      *
      * @var int
