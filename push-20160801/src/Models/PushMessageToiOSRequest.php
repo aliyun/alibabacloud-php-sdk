@@ -30,6 +30,11 @@ class PushMessageToiOSRequest extends Model
     public $jobKey;
 
     /**
+     * @var bool
+     */
+    public $storeOffline;
+
+    /**
      * @example ALL
      *
      * @var string
@@ -50,12 +55,13 @@ class PushMessageToiOSRequest extends Model
      */
     public $title;
     protected $_name = [
-        'appKey'      => 'AppKey',
-        'body'        => 'Body',
-        'jobKey'      => 'JobKey',
-        'target'      => 'Target',
-        'targetValue' => 'TargetValue',
-        'title'       => 'Title',
+        'appKey'       => 'AppKey',
+        'body'         => 'Body',
+        'jobKey'       => 'JobKey',
+        'storeOffline' => 'StoreOffline',
+        'target'       => 'Target',
+        'targetValue'  => 'TargetValue',
+        'title'        => 'Title',
     ];
 
     public function validate()
@@ -73,6 +79,9 @@ class PushMessageToiOSRequest extends Model
         }
         if (null !== $this->jobKey) {
             $res['JobKey'] = $this->jobKey;
+        }
+        if (null !== $this->storeOffline) {
+            $res['StoreOffline'] = $this->storeOffline;
         }
         if (null !== $this->target) {
             $res['Target'] = $this->target;
@@ -103,6 +112,9 @@ class PushMessageToiOSRequest extends Model
         }
         if (isset($map['JobKey'])) {
             $model->jobKey = $map['JobKey'];
+        }
+        if (isset($map['StoreOffline'])) {
+            $model->storeOffline = $map['StoreOffline'];
         }
         if (isset($map['Target'])) {
             $model->target = $map['Target'];

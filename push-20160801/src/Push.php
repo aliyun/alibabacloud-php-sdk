@@ -402,7 +402,7 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
      *   *
      * Deprecated
      *
@@ -440,7 +440,7 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
      *   *
      * Deprecated
      *
@@ -600,7 +600,7 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
      *   *
      * Deprecated
      *
@@ -627,7 +627,7 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
      *   *
      * Deprecated
      *
@@ -756,6 +756,9 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->androidExtParameters)) {
             $query['AndroidExtParameters'] = $request->androidExtParameters;
         }
+        if (!Utils::isUnset($request->androidHonorTargetUserType)) {
+            $query['AndroidHonorTargetUserType'] = $request->androidHonorTargetUserType;
+        }
         if (!Utils::isUnset($request->androidHuaweiReceiptId)) {
             $query['AndroidHuaweiReceiptId'] = $request->androidHuaweiReceiptId;
         }
@@ -830,6 +833,9 @@ class Push extends OpenApiClient
         }
         if (!Utils::isUnset($request->androidRenderStyle)) {
             $query['AndroidRenderStyle'] = $request->androidRenderStyle;
+        }
+        if (!Utils::isUnset($request->androidTargetUserType)) {
+            $query['AndroidTargetUserType'] = $request->androidTargetUserType;
         }
         if (!Utils::isUnset($request->androidVivoPushMode)) {
             $query['AndroidVivoPushMode'] = $request->androidVivoPushMode;
@@ -1000,6 +1006,9 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->jobKey)) {
             $query['JobKey'] = $request->jobKey;
         }
+        if (!Utils::isUnset($request->storeOffline)) {
+            $query['StoreOffline'] = $request->storeOffline;
+        }
         if (!Utils::isUnset($request->target)) {
             $query['Target'] = $request->target;
         }
@@ -1057,6 +1066,9 @@ class Push extends OpenApiClient
         }
         if (!Utils::isUnset($request->jobKey)) {
             $query['JobKey'] = $request->jobKey;
+        }
+        if (!Utils::isUnset($request->storeOffline)) {
+            $query['StoreOffline'] = $request->storeOffline;
         }
         if (!Utils::isUnset($request->target)) {
             $query['Target'] = $request->target;
@@ -1118,6 +1130,9 @@ class Push extends OpenApiClient
         }
         if (!Utils::isUnset($request->jobKey)) {
             $query['JobKey'] = $request->jobKey;
+        }
+        if (!Utils::isUnset($request->storeOffline)) {
+            $query['StoreOffline'] = $request->storeOffline;
         }
         if (!Utils::isUnset($request->target)) {
             $query['Target'] = $request->target;

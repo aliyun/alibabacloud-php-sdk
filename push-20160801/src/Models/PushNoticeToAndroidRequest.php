@@ -37,6 +37,11 @@ class PushNoticeToAndroidRequest extends Model
     public $jobKey;
 
     /**
+     * @var bool
+     */
+    public $storeOffline;
+
+    /**
      * @example ALL
      *
      * @var string
@@ -61,6 +66,7 @@ class PushNoticeToAndroidRequest extends Model
         'body'          => 'Body',
         'extParameters' => 'ExtParameters',
         'jobKey'        => 'JobKey',
+        'storeOffline'  => 'StoreOffline',
         'target'        => 'Target',
         'targetValue'   => 'TargetValue',
         'title'         => 'Title',
@@ -84,6 +90,9 @@ class PushNoticeToAndroidRequest extends Model
         }
         if (null !== $this->jobKey) {
             $res['JobKey'] = $this->jobKey;
+        }
+        if (null !== $this->storeOffline) {
+            $res['StoreOffline'] = $this->storeOffline;
         }
         if (null !== $this->target) {
             $res['Target'] = $this->target;
@@ -117,6 +126,9 @@ class PushNoticeToAndroidRequest extends Model
         }
         if (isset($map['JobKey'])) {
             $model->jobKey = $map['JobKey'];
+        }
+        if (isset($map['StoreOffline'])) {
+            $model->storeOffline = $map['StoreOffline'];
         }
         if (isset($map['Target'])) {
             $model->target = $map['Target'];

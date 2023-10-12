@@ -40,11 +40,20 @@ class pushTask extends Model
     public $androidExtParameters;
 
     /**
+     * @var int
+     */
+    public $androidHonorTargetUserType;
+
+    /**
+     * @example RCP4C123456
+     *
      * @var string
      */
     public $androidHuaweiReceiptId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $androidHuaweiTargetUserType;
@@ -76,6 +85,8 @@ class pushTask extends Model
     public $androidMessageHuaweiUrgency;
 
     /**
+     * @example TODO
+     *
      * @var string
      */
     public $androidMessageVivoCategory;
@@ -203,6 +214,11 @@ class pushTask extends Model
      * @var string
      */
     public $androidRenderStyle;
+
+    /**
+     * @var int
+     */
+    public $androidTargetUserType;
 
     /**
      * @example 1
@@ -447,6 +463,7 @@ class pushTask extends Model
         'androidBigPictureUrl'             => 'AndroidBigPictureUrl',
         'androidBigTitle'                  => 'AndroidBigTitle',
         'androidExtParameters'             => 'AndroidExtParameters',
+        'androidHonorTargetUserType'       => 'AndroidHonorTargetUserType',
         'androidHuaweiReceiptId'           => 'AndroidHuaweiReceiptId',
         'androidHuaweiTargetUserType'      => 'AndroidHuaweiTargetUserType',
         'androidImageUrl'                  => 'AndroidImageUrl',
@@ -472,6 +489,7 @@ class pushTask extends Model
         'androidPopupTitle'                => 'AndroidPopupTitle',
         'androidRemind'                    => 'AndroidRemind',
         'androidRenderStyle'               => 'AndroidRenderStyle',
+        'androidTargetUserType'            => 'AndroidTargetUserType',
         'androidVivoPushMode'              => 'AndroidVivoPushMode',
         'androidXiaoMiActivity'            => 'AndroidXiaoMiActivity',
         'androidXiaoMiNotifyBody'          => 'AndroidXiaoMiNotifyBody',
@@ -529,6 +547,9 @@ class pushTask extends Model
         }
         if (null !== $this->androidExtParameters) {
             $res['AndroidExtParameters'] = $this->androidExtParameters;
+        }
+        if (null !== $this->androidHonorTargetUserType) {
+            $res['AndroidHonorTargetUserType'] = $this->androidHonorTargetUserType;
         }
         if (null !== $this->androidHuaweiReceiptId) {
             $res['AndroidHuaweiReceiptId'] = $this->androidHuaweiReceiptId;
@@ -604,6 +625,9 @@ class pushTask extends Model
         }
         if (null !== $this->androidRenderStyle) {
             $res['AndroidRenderStyle'] = $this->androidRenderStyle;
+        }
+        if (null !== $this->androidTargetUserType) {
+            $res['AndroidTargetUserType'] = $this->androidTargetUserType;
         }
         if (null !== $this->androidVivoPushMode) {
             $res['AndroidVivoPushMode'] = $this->androidVivoPushMode;
@@ -734,6 +758,9 @@ class pushTask extends Model
         if (isset($map['AndroidExtParameters'])) {
             $model->androidExtParameters = $map['AndroidExtParameters'];
         }
+        if (isset($map['AndroidHonorTargetUserType'])) {
+            $model->androidHonorTargetUserType = $map['AndroidHonorTargetUserType'];
+        }
         if (isset($map['AndroidHuaweiReceiptId'])) {
             $model->androidHuaweiReceiptId = $map['AndroidHuaweiReceiptId'];
         }
@@ -808,6 +835,9 @@ class pushTask extends Model
         }
         if (isset($map['AndroidRenderStyle'])) {
             $model->androidRenderStyle = $map['AndroidRenderStyle'];
+        }
+        if (isset($map['AndroidTargetUserType'])) {
+            $model->androidTargetUserType = $map['AndroidTargetUserType'];
         }
         if (isset($map['AndroidVivoPushMode'])) {
             $model->androidVivoPushMode = $map['AndroidVivoPushMode'];

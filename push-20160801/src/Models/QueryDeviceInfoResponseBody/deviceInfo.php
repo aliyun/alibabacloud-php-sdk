@@ -23,6 +23,11 @@ class deviceInfo extends Model
     public $alias;
 
     /**
+     * @var string
+     */
+    public $brand;
+
+    /**
      * @example a64ae296f3b04a58a05b30c95****
      *
      * @var string
@@ -49,6 +54,11 @@ class deviceInfo extends Model
      * @var string
      */
     public $lastOnlineTime;
+
+    /**
+     * @var string
+     */
+    public $model;
 
     /**
      * @example false
@@ -80,10 +90,12 @@ class deviceInfo extends Model
     protected $_name = [
         'account'        => 'Account',
         'alias'          => 'Alias',
+        'brand'          => 'Brand',
         'deviceId'       => 'DeviceId',
         'deviceToken'    => 'DeviceToken',
         'deviceType'     => 'DeviceType',
         'lastOnlineTime' => 'LastOnlineTime',
+        'model'          => 'Model',
         'online'         => 'Online',
         'phoneNumber'    => 'PhoneNumber',
         'pushEnabled'    => 'PushEnabled',
@@ -103,6 +115,9 @@ class deviceInfo extends Model
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
+        if (null !== $this->brand) {
+            $res['Brand'] = $this->brand;
+        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
@@ -114,6 +129,9 @@ class deviceInfo extends Model
         }
         if (null !== $this->lastOnlineTime) {
             $res['LastOnlineTime'] = $this->lastOnlineTime;
+        }
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
         }
         if (null !== $this->online) {
             $res['Online'] = $this->online;
@@ -145,6 +163,9 @@ class deviceInfo extends Model
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
+        if (isset($map['Brand'])) {
+            $model->brand = $map['Brand'];
+        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
@@ -156,6 +177,9 @@ class deviceInfo extends Model
         }
         if (isset($map['LastOnlineTime'])) {
             $model->lastOnlineTime = $map['LastOnlineTime'];
+        }
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
         }
         if (isset($map['Online'])) {
             $model->online = $map['Online'];
