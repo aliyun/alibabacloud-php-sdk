@@ -23,7 +23,7 @@ class ListLayersRequest extends Model
     public $nextToken;
 
     /**
-     * @example false, true
+     * @example true
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class ListLayersRequest extends Model
     public $prefix;
 
     /**
-     * @example false, true
+     * @example true
      *
      * @var string
      */

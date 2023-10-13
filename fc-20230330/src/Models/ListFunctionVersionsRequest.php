@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionVersionsRequest extends Model
 {
     /**
-     * @example BACKWARD, FORWARD
+     * @example BACKWARD
      *
      * @var string
      */

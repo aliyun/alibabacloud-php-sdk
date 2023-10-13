@@ -136,7 +136,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数别名.
+     * 创建函数别名。
      *   *
      * @param string             $functionName
      * @param CreateAliasRequest $request      CreateAliasRequest
@@ -168,7 +168,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数别名.
+     * 创建函数别名。
      *   *
      * @param string             $functionName
      * @param CreateAliasRequest $request      CreateAliasRequest
@@ -184,7 +184,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建自定义域名.
+     * 创建自定义域名。
      *   *
      * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
      * @param string[]                  $headers map
@@ -215,7 +215,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建自定义域名.
+     * 创建自定义域名。
      *   *
      * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
      *
@@ -230,7 +230,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数.
+     * 创建函数。
      *   *
      * @param CreateFunctionRequest $request CreateFunctionRequest
      * @param string[]              $headers map
@@ -261,7 +261,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数.
+     * 创建函数。
      *   *
      * @param CreateFunctionRequest $request CreateFunctionRequest
      *
@@ -276,7 +276,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建层版本.
+     * 创建层版本。
      *   *
      * @param string                    $layerName
      * @param CreateLayerVersionRequest $request   CreateLayerVersionRequest
@@ -308,7 +308,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建层版本.
+     * 创建层版本。
      *   *
      * @param string                    $layerName
      * @param CreateLayerVersionRequest $request   CreateLayerVersionRequest
@@ -324,7 +324,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数触发器.
+     * 创建函数触发器。
      *   *
      * @param string               $functionName
      * @param CreateTriggerRequest $request      CreateTriggerRequest
@@ -356,7 +356,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数触发器.
+     * 创建函数触发器。
      *   *
      * @param string               $functionName
      * @param CreateTriggerRequest $request      CreateTriggerRequest
@@ -372,7 +372,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建VPC绑定.
+     * 创建VPC绑定。
      *   *
      * @param string                  $functionName
      * @param CreateVpcBindingRequest $request      CreateVpcBindingRequest
@@ -404,7 +404,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建VPC绑定.
+     * 创建VPC绑定。
      *   *
      * @param string                  $functionName
      * @param CreateVpcBindingRequest $request      CreateVpcBindingRequest
@@ -420,7 +420,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数别名.
+     * 删除函数别名。
      *   *
      * @param string         $functionName
      * @param string         $aliasName
@@ -450,7 +450,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数别名.
+     * 删除函数别名。
      *   *
      * @param string $functionName
      * @param string $aliasName
@@ -466,7 +466,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数异步调用配置.
+     * 删除函数异步调用配置。
      *   *
      * @param string                         $functionName
      * @param DeleteAsyncInvokeConfigRequest $request      DeleteAsyncInvokeConfigRequest
@@ -502,7 +502,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数异步调用配置.
+     * 删除函数异步调用配置。
      *   *
      * @param string                         $functionName
      * @param DeleteAsyncInvokeConfigRequest $request      DeleteAsyncInvokeConfigRequest
@@ -518,7 +518,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数并发度配置.
+     * 删除函数并发度配置。
      *   *
      * @param string         $functionName
      * @param string[]       $headers      map
@@ -547,7 +547,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数并发度配置.
+     * 删除函数并发度配置。
      *   *
      * @param string $functionName
      *
@@ -562,7 +562,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除自定义域名.
+     * 删除自定义域名。
      *   *
      * @param string         $domainName
      * @param string[]       $headers    map
@@ -591,7 +591,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除自定义域名.
+     * 删除自定义域名。
      *   *
      * @param string $domainName
      *
@@ -606,7 +606,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数.
+     * 删除函数。
      *   *
      * @param string         $functionName
      * @param string[]       $headers      map
@@ -635,7 +635,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数.
+     * 删除函数。
      *   *
      * @param string $functionName
      *
@@ -650,7 +650,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数版本.
+     * 删除函数版本。
      *   *
      * @param string         $functionName
      * @param string         $versionId
@@ -680,7 +680,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数版本.
+     * 删除函数版本。
      *   *
      * @param string $functionName
      * @param string $versionId
@@ -696,7 +696,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除层版本.
+     * 删除层版本。
      *   *
      * @param string         $layerName
      * @param string         $version
@@ -726,7 +726,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除层版本.
+     * 删除层版本。
      *   *
      * @param string $layerName
      * @param string $version
@@ -742,7 +742,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数预留配置.
+     * 删除函数预留配置。
      *   *
      * @param string                       $functionName
      * @param DeleteProvisionConfigRequest $request      DeleteProvisionConfigRequest
@@ -778,7 +778,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数预留配置.
+     * 删除函数预留配置。
      *   *
      * @param string                       $functionName
      * @param DeleteProvisionConfigRequest $request      DeleteProvisionConfigRequest
@@ -794,7 +794,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数触发器.
+     * 删除函数触发器。
      *   *
      * @param string         $functionName
      * @param string         $triggerName
@@ -824,7 +824,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数触发器.
+     * 删除函数触发器。
      *   *
      * @param string $functionName
      * @param string $triggerName
@@ -840,7 +840,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除VPC绑定.
+     * 删除VPC绑定。
      *   *
      * @param string         $functionName
      * @param string         $vpcId
@@ -870,7 +870,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除VPC绑定.
+     * 删除VPC绑定。
      *   *
      * @param string $functionName
      * @param string $vpcId
@@ -886,7 +886,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数别名信息.
+     * 获取函数别名信息。
      *   *
      * @param string         $functionName
      * @param string         $aliasName
@@ -916,7 +916,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数别名信息.
+     * 获取函数别名信息。
      *   *
      * @param string $functionName
      * @param string $aliasName
@@ -932,7 +932,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数异步调用配置.
+     * 获取函数异步调用配置。
      *   *
      * @param string                      $functionName
      * @param GetAsyncInvokeConfigRequest $request      GetAsyncInvokeConfigRequest
@@ -968,7 +968,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数异步调用配置.
+     * 获取函数异步调用配置。
      *   *
      * @param string                      $functionName
      * @param GetAsyncInvokeConfigRequest $request      GetAsyncInvokeConfigRequest
@@ -984,7 +984,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数并发度配置.
+     * 获取函数并发度配置。
      *   *
      * @param string         $functionName
      * @param string[]       $headers      map
@@ -1013,7 +1013,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数并发度配置.
+     * 获取函数并发度配置。
      *   *
      * @param string $functionName
      *
@@ -1028,7 +1028,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取自定义域名.
+     * 获取自定义域名。
      *   *
      * @param string         $domainName
      * @param string[]       $headers    map
@@ -1057,7 +1057,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取自定义域名.
+     * 获取自定义域名。
      *   *
      * @param string $domainName
      *
@@ -1072,7 +1072,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数信息.
+     * 获取函数信息。
      *   *
      * @param string             $functionName
      * @param GetFunctionRequest $request      GetFunctionRequest
@@ -1108,7 +1108,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数信息.
+     * 获取函数信息。
      *   *
      * @param string             $functionName
      * @param GetFunctionRequest $request      GetFunctionRequest
@@ -1124,7 +1124,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数代码
+     * 获取函数代码。
      *   *
      * @param string                 $functionName
      * @param GetFunctionCodeRequest $request      GetFunctionCodeRequest
@@ -1160,7 +1160,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数代码
+     * 获取函数代码。
      *   *
      * @param string                 $functionName
      * @param GetFunctionCodeRequest $request      GetFunctionCodeRequest
@@ -1176,7 +1176,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取层版本.
+     * 获取层版本。
      *   *
      * @param string         $layerName
      * @param string         $version
@@ -1206,7 +1206,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取层版本.
+     * 获取层版本。
      *   *
      * @param string $layerName
      * @param string $version
@@ -1222,7 +1222,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 根据资源标识获取层版本.
+     * 根据资源标识获取层版本。
      *   *
      * @param string         $arn
      * @param string[]       $headers map
@@ -1251,7 +1251,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 根据资源标识获取层版本.
+     * 根据资源标识获取层版本。
      *   *
      * @param string $arn
      *
@@ -1266,7 +1266,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数预留配置.
+     * 获取函数预留配置。
      *   *
      * @param string                    $functionName
      * @param GetProvisionConfigRequest $request      GetProvisionConfigRequest
@@ -1302,7 +1302,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数预留配置.
+     * 获取函数预留配置。
      *   *
      * @param string                    $functionName
      * @param GetProvisionConfigRequest $request      GetProvisionConfigRequest
@@ -1318,7 +1318,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取资源标签.
+     * 获取资源标签。
      *   *
      * @param GetResourceTagsRequest $request GetResourceTagsRequest
      * @param string[]               $headers map
@@ -1353,7 +1353,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取资源标签.
+     * 获取资源标签。
      *   *
      * @param GetResourceTagsRequest $request GetResourceTagsRequest
      *
@@ -1368,7 +1368,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数触发器.
+     * 获取函数触发器。
      *   *
      * @param string         $functionName
      * @param string         $triggerName
@@ -1398,7 +1398,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数触发器.
+     * 获取函数触发器。
      *   *
      * @param string $functionName
      * @param string $triggerName
@@ -1414,7 +1414,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 调用函数.
+     * 调用函数。
      *   *
      * @param string                $functionName
      * @param InvokeFunctionRequest $request      InvokeFunctionRequest
@@ -1476,7 +1476,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 调用函数.
+     * 调用函数。
      *   *
      * @param string                $functionName
      * @param InvokeFunctionRequest $request      InvokeFunctionRequest
@@ -1492,7 +1492,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数别名.
+     * 列出函数别名。
      *   *
      * @param string             $functionName
      * @param ListAliasesRequest $request      ListAliasesRequest
@@ -1534,7 +1534,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数别名.
+     * 列出函数别名。
      *   *
      * @param string             $functionName
      * @param ListAliasesRequest $request      ListAliasesRequest
@@ -1550,7 +1550,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数异步调用配置.
+     * 列出函数异步调用配置。
      *   *
      * @param ListAsyncInvokeConfigsRequest $request ListAsyncInvokeConfigsRequest
      * @param string[]                      $headers map
@@ -1591,7 +1591,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数异步调用配置.
+     * 列出函数异步调用配置。
      *   *
      * @param ListAsyncInvokeConfigsRequest $request ListAsyncInvokeConfigsRequest
      *
@@ -1606,7 +1606,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数并发度配置.
+     * 列出函数并发度配置。
      *   *
      * @param ListConcurrencyConfigsRequest $request ListConcurrencyConfigsRequest
      * @param string[]                      $headers map
@@ -1647,7 +1647,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数并发度配置.
+     * 列出函数并发度配置。
      *   *
      * @param ListConcurrencyConfigsRequest $request ListConcurrencyConfigsRequest
      *
@@ -1662,7 +1662,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出自定义域名.
+     * 列出自定义域名。
      *   *
      * @param ListCustomDomainsRequest $request ListCustomDomainsRequest
      * @param string[]                 $headers map
@@ -1703,7 +1703,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出自定义域名.
+     * 列出自定义域名。
      *   *
      * @param ListCustomDomainsRequest $request ListCustomDomainsRequest
      *
@@ -1718,7 +1718,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数版本.
+     * 列出函数版本。
      *   *
      * @param string                      $functionName
      * @param ListFunctionVersionsRequest $request      ListFunctionVersionsRequest
@@ -1760,7 +1760,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数版本.
+     * 列出函数版本。
      *   *
      * @param string                      $functionName
      * @param ListFunctionVersionsRequest $request      ListFunctionVersionsRequest
@@ -1776,7 +1776,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数.
+     * 列出函数。
      *   *
      * @param ListFunctionsRequest $request ListFunctionsRequest
      * @param string[]             $headers map
@@ -1817,7 +1817,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数.
+     * 列出函数。
      *   *
      * @param ListFunctionsRequest $request ListFunctionsRequest
      *
@@ -1832,7 +1832,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数实例.
+     * 列出函数实例。
      *   *
      * @param string               $functionName
      * @param ListInstancesRequest $request      ListInstancesRequest
@@ -1871,7 +1871,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数实例.
+     * 列出函数实例。
      *   *
      * @param string               $functionName
      * @param ListInstancesRequest $request      ListInstancesRequest
@@ -1887,7 +1887,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出层版本.
+     * 列出层版本。
      *   *
      * @param string                   $layerName
      * @param ListLayerVersionsRequest $request   ListLayerVersionsRequest
@@ -1926,7 +1926,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出层版本.
+     * 列出层版本。
      *   *
      * @param string                   $layerName
      * @param ListLayerVersionsRequest $request   ListLayerVersionsRequest
@@ -1942,7 +1942,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出层
+     * 列出层。
      *   *
      * @param ListLayersRequest $request ListLayersRequest
      * @param string[]          $headers map
@@ -1989,7 +1989,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出层
+     * 列出层。
      *   *
      * @param ListLayersRequest $request ListLayersRequest
      *
@@ -2004,7 +2004,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数预留配置.
+     * 列出函数预留配置。
      *   *
      * @param ListProvisionConfigsRequest $request ListProvisionConfigsRequest
      * @param string[]                    $headers map
@@ -2045,7 +2045,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数预留配置.
+     * 列出函数预留配置。
      *   *
      * @param ListProvisionConfigsRequest $request ListProvisionConfigsRequest
      *
@@ -2060,7 +2060,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出具有标签的资源.
+     * 列出具有标签的资源。
      *   *
      * @param ListTaggedResourcesRequest $request ListTaggedResourcesRequest
      * @param string[]                   $headers map
@@ -2077,6 +2077,9 @@ class FC extends OpenApiClient
         }
         if (!Utils::isUnset($request->nextToken)) {
             $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['resourceType'] = $request->resourceType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2098,7 +2101,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出具有标签的资源.
+     * 列出具有标签的资源。
      *   *
      * @param ListTaggedResourcesRequest $request ListTaggedResourcesRequest
      *
@@ -2113,7 +2116,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数触发器.
+     * 列出函数触发器。
      *   *
      * @param string              $functionName
      * @param ListTriggersRequest $request      ListTriggersRequest
@@ -2155,7 +2158,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数触发器.
+     * 列出函数触发器。
      *   *
      * @param string              $functionName
      * @param ListTriggersRequest $request      ListTriggersRequest
@@ -2171,7 +2174,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出VPC绑定配置.
+     * 列出VPC绑定配置。
      *   *
      * @param string         $functionName
      * @param string[]       $headers      map
@@ -2200,7 +2203,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出VPC绑定配置.
+     * 列出VPC绑定配置。
      *   *
      * @param string $functionName
      *
@@ -2215,7 +2218,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 发布函数版本.
+     * 发布函数版本。
      *   *
      * @param string                        $functionName
      * @param PublishFunctionVersionRequest $request      PublishFunctionVersionRequest
@@ -2247,7 +2250,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 发布函数版本.
+     * 发布函数版本。
      *   *
      * @param string                        $functionName
      * @param PublishFunctionVersionRequest $request      PublishFunctionVersionRequest
@@ -2263,7 +2266,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数异步调用配置.
+     * 设置函数异步调用配置。
      *   *
      * @param string                      $functionName
      * @param PutAsyncInvokeConfigRequest $request      PutAsyncInvokeConfigRequest
@@ -2300,7 +2303,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数异步调用配置.
+     * 设置函数异步调用配置。
      *   *
      * @param string                      $functionName
      * @param PutAsyncInvokeConfigRequest $request      PutAsyncInvokeConfigRequest
@@ -2316,7 +2319,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数并发度配置.
+     * 设置函数并发度配置。
      *   *
      * @param string                      $functionName
      * @param PutConcurrencyConfigRequest $request      PutConcurrencyConfigRequest
@@ -2348,7 +2351,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数并发度配置.
+     * 设置函数并发度配置。
      *   *
      * @param string                      $functionName
      * @param PutConcurrencyConfigRequest $request      PutConcurrencyConfigRequest
@@ -2364,7 +2367,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置层的访问权限.
+     * 设置层的访问权限。
      *   *
      * @param string             $layerName
      * @param PutLayerACLRequest $request   PutLayerACLRequest
@@ -2400,7 +2403,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置层的访问权限.
+     * 设置层的访问权限。
      *   *
      * @param string             $layerName
      * @param PutLayerACLRequest $request   PutLayerACLRequest
@@ -2416,7 +2419,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数预留配置.
+     * 设置函数预留配置。
      *   *
      * @param string                    $functionName
      * @param PutProvisionConfigRequest $request      PutProvisionConfigRequest
@@ -2453,7 +2456,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数预留配置.
+     * 设置函数预留配置。
      *   *
      * @param string                    $functionName
      * @param PutProvisionConfigRequest $request      PutProvisionConfigRequest
@@ -2469,7 +2472,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置资源标签.
+     * 设置资源标签。
      *   *
      * @param TagResourceRequest $request TagResourceRequest
      * @param string[]           $headers map
@@ -2500,7 +2503,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置资源标签.
+     * 设置资源标签。
      *   *
      * @param TagResourceRequest $request TagResourceRequest
      *
@@ -2515,7 +2518,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除资源标签.
+     * 删除资源标签。
      *   *
      * @param UntagResourceRequest $request UntagResourceRequest
      * @param string[]             $headers map
@@ -2556,7 +2559,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除资源标签.
+     * 删除资源标签。
      *   *
      * @param UntagResourceRequest $request UntagResourceRequest
      *
@@ -2571,7 +2574,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数别名.
+     * 更新函数别名。
      *   *
      * @param string             $functionName
      * @param string             $aliasName
@@ -2604,7 +2607,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数别名.
+     * 更新函数别名。
      *   *
      * @param string             $functionName
      * @param string             $aliasName
@@ -2621,7 +2624,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新自定义域名.
+     * 更新自定义域名。
      *   *
      * @param string                    $domainName
      * @param UpdateCustomDomainRequest $request    UpdateCustomDomainRequest
@@ -2653,7 +2656,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新自定义域名.
+     * 更新自定义域名。
      *   *
      * @param string                    $domainName
      * @param UpdateCustomDomainRequest $request    UpdateCustomDomainRequest
@@ -2669,7 +2672,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数.
+     * 更新函数。
      *   *
      * @param string                $functionName
      * @param UpdateFunctionRequest $request      UpdateFunctionRequest
@@ -2701,7 +2704,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数.
+     * 更新函数。
      *   *
      * @param string                $functionName
      * @param UpdateFunctionRequest $request      UpdateFunctionRequest
@@ -2717,7 +2720,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数触发器.
+     * 更新函数触发器。
      *   *
      * @param string               $functionName
      * @param string               $triggerName
@@ -2750,7 +2753,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数触发器.
+     * 更新函数触发器。
      *   *
      * @param string               $functionName
      * @param string               $triggerName

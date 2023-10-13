@@ -14,7 +14,7 @@ class PutAsyncInvokeConfigRequest extends Model
     public $body;
 
     /**
-     * @example LATEST, prod, 1
+     * @example LATEST
      *
      * @var string
      */

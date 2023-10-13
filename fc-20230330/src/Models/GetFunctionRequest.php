@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionRequest extends Model
 {
     /**
-     * @example LATEST, prod, 1
+     * @example LATEST
      *
      * @var string
      */

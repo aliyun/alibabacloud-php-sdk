@@ -21,9 +21,17 @@ class ListTaggedResourcesRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @example ALIYUN::FC:FUNCTION
+     *
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
-        'limit'     => 'limit',
-        'nextToken' => 'nextToken',
+        'limit'        => 'limit',
+        'nextToken'    => 'nextToken',
+        'resourceType' => 'resourceType',
     ];
 
     public function validate()
@@ -38,6 +46,9 @@ class ListTaggedResourcesRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+        if (null !== $this->resourceType) {
+            $res['resourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -56,6 +67,9 @@ class ListTaggedResourcesRequest extends Model
         }
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+        if (isset($map['resourceType'])) {
+            $model->resourceType = $map['resourceType'];
         }
 
         return $model;

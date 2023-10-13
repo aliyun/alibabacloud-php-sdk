@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteProvisionConfigRequest extends Model
 {
     /**
-     * @example LATEST, prod
+     * @example LATEST
      *
      * @var string
      */

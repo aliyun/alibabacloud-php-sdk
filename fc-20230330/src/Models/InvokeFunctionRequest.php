@@ -10,12 +10,14 @@ use GuzzleHttp\Psr7\Stream;
 class InvokeFunctionRequest extends Model
 {
     /**
+     * @example event
+     *
      * @var Stream
      */
     public $body;
 
     /**
-     * @example LATEST, prod, 1
+     * @example LATEST
      *
      * @var string
      */

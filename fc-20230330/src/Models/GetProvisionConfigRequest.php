@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetProvisionConfigRequest extends Model
 {
     /**
-     * @example LATEST, prod
+     * @example LATEST
      *
      * @var string
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteAsyncInvokeConfigRequest extends Model
 {
     /**
-     * @example LATEST, prod, 1
+     * @example LATEST
      *
      * @var string
      */

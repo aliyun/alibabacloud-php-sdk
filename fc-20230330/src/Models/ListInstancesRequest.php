@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
-     * @example LATEST, prod, 1
+     * @example LATEST
      *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withAllActive;

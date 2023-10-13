@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTagsOutput extends Model
 {
     /**
+     * @example ALIYUN::FC::FUNCTION
+     *
+     * @var string
+     */
+    public $resouceType;
+
+    /**
      * @example acs:fc:cn-shanghai:****:functions/demo
      *
      * @var string
@@ -20,6 +27,7 @@ class GetResourceTagsOutput extends Model
      */
     public $tags;
     protected $_name = [
+        'resouceType' => 'resouceType',
         'resourceArn' => 'resourceArn',
         'tags'        => 'tags',
     ];
@@ -31,6 +39,9 @@ class GetResourceTagsOutput extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resouceType) {
+            $res['resouceType'] = $this->resouceType;
+        }
         if (null !== $this->resourceArn) {
             $res['resourceArn'] = $this->resourceArn;
         }
@@ -49,6 +60,9 @@ class GetResourceTagsOutput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['resouceType'])) {
+            $model->resouceType = $map['resouceType'];
+        }
         if (isset($map['resourceArn'])) {
             $model->resourceArn = $map['resourceArn'];
         }
