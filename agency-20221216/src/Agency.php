@@ -8,14 +8,39 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CancelSubscriptionBillRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CancelSubscriptionBillResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCustomerRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCustomerResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\DeductOutstandingBalanceRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\DeductOutstandingBalanceResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditEndUserStatusRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditEndUserStatusResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditNewBuyStatusRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditNewBuyStatusResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditZeroCreditShutdownRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditZeroCreditShutdownResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetAccountInfoRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetAccountInfoResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetCreditInfoRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetCreditInfoResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetDailyBillRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetDailyBillResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetInviteStatusRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetInviteStatusResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetMonthlyBillRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetMonthlyBillResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ListCountriesResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ResendEmailRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ResendEmailResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\SetAccountInfoRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\SetAccountInfoResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\SetCreditLineRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\SetCreditLineResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\SetWarningThresholdRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\SetWarningThresholdResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\SubscriptionBillRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\SubscriptionBillResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -169,6 +194,107 @@ class Agency extends OpenApiClient
     }
 
     /**
+     * @param CreateCustomerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCustomerResponse
+     */
+    public function createCustomerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customerName)) {
+            $query['CustomerName'] = $request->customerName;
+        }
+        if (!Utils::isUnset($request->customerSource)) {
+            $query['CustomerSource'] = $request->customerSource;
+        }
+        if (!Utils::isUnset($request->customerSubTrade)) {
+            $query['CustomerSubTrade'] = $request->customerSubTrade;
+        }
+        if (!Utils::isUnset($request->customerTrade)) {
+            $query['CustomerTrade'] = $request->customerTrade;
+        }
+        if (!Utils::isUnset($request->nation)) {
+            $query['Nation'] = $request->nation;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomer',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomerRequest $request
+     *
+     * @return CreateCustomerResponse
+     */
+    public function createCustomer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeductOutstandingBalanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeductOutstandingBalanceResponse
+     */
+    public function deductOutstandingBalanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deductAmount)) {
+            $query['DeductAmount'] = $request->deductAmount;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeductOutstandingBalance',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeductOutstandingBalanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeductOutstandingBalanceRequest $request
+     *
+     * @return DeductOutstandingBalanceResponse
+     */
+    public function deductOutstandingBalance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deductOutstandingBalanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EditEndUserStatusRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -301,6 +427,267 @@ class Agency extends OpenApiClient
     }
 
     /**
+     * @param GetAccountInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAccountInfoResponse
+     */
+    public function getAccountInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccountInfo',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccountInfoRequest $request
+     *
+     * @return GetAccountInfoResponse
+     */
+    public function getAccountInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccountInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCreditInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetCreditInfoResponse
+     */
+    public function getCreditInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCreditInfo',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCreditInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCreditInfoRequest $request
+     *
+     * @return GetCreditInfoResponse
+     */
+    public function getCreditInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCreditInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDailyBillRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetDailyBillResponse
+     */
+    public function getDailyBillWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwner)) {
+            $query['BillOwner'] = $request->billOwner;
+        }
+        if (!Utils::isUnset($request->billType)) {
+            $query['BillType'] = $request->billType;
+        }
+        if (!Utils::isUnset($request->date)) {
+            $query['Date'] = $request->date;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDailyBill',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDailyBillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDailyBillRequest $request
+     *
+     * @return GetDailyBillResponse
+     */
+    public function getDailyBill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDailyBillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInviteStatusRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetInviteStatusResponse
+     */
+    public function getInviteStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inviteStatusList)) {
+            $query['InviteStatusList'] = $request->inviteStatusList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInviteStatus',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInviteStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInviteStatusRequest $request
+     *
+     * @return GetInviteStatusResponse
+     */
+    public function getInviteStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInviteStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMonthlyBillRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetMonthlyBillResponse
+     */
+    public function getMonthlyBillWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billOwner)) {
+            $query['BillOwner'] = $request->billOwner;
+        }
+        if (!Utils::isUnset($request->billType)) {
+            $query['BillType'] = $request->billType;
+        }
+        if (!Utils::isUnset($request->month)) {
+            $query['Month'] = $request->month;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMonthlyBill',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMonthlyBillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMonthlyBillRequest $request
+     *
+     * @return GetMonthlyBillResponse
+     */
+    public function getMonthlyBill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMonthlyBillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUnassociatedCustomerRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetUnassociatedCustomerResponse
+     */
+    public function getUnassociatedCustomerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUnassociatedCustomer',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUnassociatedCustomerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUnassociatedCustomerRequest $request
+     *
+     * @return GetUnassociatedCustomerResponse
+     */
+    public function getUnassociatedCustomer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUnassociatedCustomerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param InviteSubAccountRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -341,6 +728,223 @@ class Agency extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->inviteSubAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListCountriesResponse
+     */
+    public function listCountriesWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListCountries',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCountriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListCountriesResponse
+     */
+    public function listCountries()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCountriesWithOptions($runtime);
+    }
+
+    /**
+     * @param ResendEmailRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ResendEmailResponse
+     */
+    public function resendEmailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inviteId)) {
+            $query['InviteId'] = $request->inviteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResendEmail',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResendEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResendEmailRequest $request
+     *
+     * @return ResendEmailResponse
+     */
+    public function resendEmail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resendEmailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetAccountInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SetAccountInfoResponse
+     */
+    public function setAccountInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountNickname)) {
+            $query['AccountNickname'] = $request->accountNickname;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetAccountInfo',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetAccountInfoRequest $request
+     *
+     * @return SetAccountInfoResponse
+     */
+    public function setAccountInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAccountInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetCreditLineRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SetCreditLineResponse
+     */
+    public function setCreditLineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->creditLine)) {
+            $query['CreditLine'] = $request->creditLine;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetCreditLine',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetCreditLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetCreditLineRequest $request
+     *
+     * @return SetCreditLineResponse
+     */
+    public function setCreditLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setCreditLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetWarningThresholdRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetWarningThresholdResponse
+     */
+    public function setWarningThresholdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        if (!Utils::isUnset($request->warningValue)) {
+            $query['WarningValue'] = $request->warningValue;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetWarningThreshold',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetWarningThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetWarningThresholdRequest $request
+     *
+     * @return SetWarningThresholdResponse
+     */
+    public function setWarningThreshold($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setWarningThresholdWithOptions($request, $runtime);
     }
 
     /**
