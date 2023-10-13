@@ -62,6 +62,11 @@ class itineraryList extends Model
     public $projectTitle;
 
     /**
+     * @var string
+     */
+    public $thirdpartItineraryId;
+
+    /**
      * @example 0
      *
      * @var int
@@ -75,17 +80,18 @@ class itineraryList extends Model
      */
     public $tripWay;
     protected $_name = [
-        'arrCity'        => 'arr_city',
-        'arrDate'        => 'arr_date',
-        'costCenterName' => 'cost_center_name',
-        'depCity'        => 'dep_city',
-        'depDate'        => 'dep_date',
-        'invoiceName'    => 'invoice_name',
-        'itineraryId'    => 'itinerary_id',
-        'projectCode'    => 'project_code',
-        'projectTitle'   => 'project_title',
-        'trafficType'    => 'traffic_type',
-        'tripWay'        => 'trip_way',
+        'arrCity'              => 'arr_city',
+        'arrDate'              => 'arr_date',
+        'costCenterName'       => 'cost_center_name',
+        'depCity'              => 'dep_city',
+        'depDate'              => 'dep_date',
+        'invoiceName'          => 'invoice_name',
+        'itineraryId'          => 'itinerary_id',
+        'projectCode'          => 'project_code',
+        'projectTitle'         => 'project_title',
+        'thirdpartItineraryId' => 'thirdpart_itinerary_id',
+        'trafficType'          => 'traffic_type',
+        'tripWay'              => 'trip_way',
     ];
 
     public function validate()
@@ -121,6 +127,9 @@ class itineraryList extends Model
         }
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
+        }
+        if (null !== $this->thirdpartItineraryId) {
+            $res['thirdpart_itinerary_id'] = $this->thirdpartItineraryId;
         }
         if (null !== $this->trafficType) {
             $res['traffic_type'] = $this->trafficType;
@@ -166,6 +175,9 @@ class itineraryList extends Model
         }
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
+        }
+        if (isset($map['thirdpart_itinerary_id'])) {
+            $model->thirdpartItineraryId = $map['thirdpart_itinerary_id'];
         }
         if (isset($map['traffic_type'])) {
             $model->trafficType = $map['traffic_type'];

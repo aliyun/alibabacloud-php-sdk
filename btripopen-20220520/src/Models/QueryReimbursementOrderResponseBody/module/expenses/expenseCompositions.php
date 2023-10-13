@@ -26,6 +26,11 @@ class expenseCompositions extends Model
     /**
      * @var string
      */
+    public $orderId;
+
+    /**
+     * @var string
+     */
     public $remark;
 
     /**
@@ -51,6 +56,7 @@ class expenseCompositions extends Model
         'billSettlementId' => 'bill_settlement_id',
         'capitalDirection' => 'capital_direction',
         'feeType'          => 'fee_type',
+        'orderId'          => 'order_id',
         'remark'           => 'remark',
         'remindTagList'    => 'remind_tag_list',
         'settlementAmount' => 'settlement_amount',
@@ -73,6 +79,9 @@ class expenseCompositions extends Model
         }
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
+        }
+        if (null !== $this->orderId) {
+            $res['order_id'] = $this->orderId;
         }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
@@ -109,6 +118,9 @@ class expenseCompositions extends Model
         }
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
+        }
+        if (isset($map['order_id'])) {
+            $model->orderId = $map['order_id'];
         }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];

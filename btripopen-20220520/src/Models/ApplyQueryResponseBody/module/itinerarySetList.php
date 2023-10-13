@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\itinerarySetList\itineraryTravelStandard;
 use AlibabaCloud\Tea\Model;
 
 class itinerarySetList extends Model
@@ -52,6 +53,11 @@ class itinerarySetList extends Model
     public $itineraryId;
 
     /**
+     * @var itineraryTravelStandard
+     */
+    public $itineraryTravelStandard;
+
+    /**
      * @example projecttow
      *
      * @var string
@@ -64,22 +70,29 @@ class itinerarySetList extends Model
     public $projectTitle;
 
     /**
+     * @var string
+     */
+    public $thirdpartItineraryId;
+
+    /**
      * @example 0
      *
      * @var int
      */
     public $trafficType;
     protected $_name = [
-        'arrDate'        => 'arr_date',
-        'cityCodeSet'    => 'city_code_set',
-        'citySet'        => 'city_set',
-        'costCenterName' => 'cost_center_name',
-        'depDate'        => 'dep_date',
-        'invoiceName'    => 'invoice_name',
-        'itineraryId'    => 'itinerary_id',
-        'projectCode'    => 'project_code',
-        'projectTitle'   => 'project_title',
-        'trafficType'    => 'traffic_type',
+        'arrDate'                 => 'arr_date',
+        'cityCodeSet'             => 'city_code_set',
+        'citySet'                 => 'city_set',
+        'costCenterName'          => 'cost_center_name',
+        'depDate'                 => 'dep_date',
+        'invoiceName'             => 'invoice_name',
+        'itineraryId'             => 'itinerary_id',
+        'itineraryTravelStandard' => 'itinerary_travel_standard',
+        'projectCode'             => 'project_code',
+        'projectTitle'            => 'project_title',
+        'thirdpartItineraryId'    => 'thirdpart_itinerary_id',
+        'trafficType'             => 'traffic_type',
     ];
 
     public function validate()
@@ -110,11 +123,17 @@ class itinerarySetList extends Model
         if (null !== $this->itineraryId) {
             $res['itinerary_id'] = $this->itineraryId;
         }
+        if (null !== $this->itineraryTravelStandard) {
+            $res['itinerary_travel_standard'] = null !== $this->itineraryTravelStandard ? $this->itineraryTravelStandard->toMap() : null;
+        }
         if (null !== $this->projectCode) {
             $res['project_code'] = $this->projectCode;
         }
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
+        }
+        if (null !== $this->thirdpartItineraryId) {
+            $res['thirdpart_itinerary_id'] = $this->thirdpartItineraryId;
         }
         if (null !== $this->trafficType) {
             $res['traffic_type'] = $this->trafficType;
@@ -152,11 +171,17 @@ class itinerarySetList extends Model
         if (isset($map['itinerary_id'])) {
             $model->itineraryId = $map['itinerary_id'];
         }
+        if (isset($map['itinerary_travel_standard'])) {
+            $model->itineraryTravelStandard = itineraryTravelStandard::fromMap($map['itinerary_travel_standard']);
+        }
         if (isset($map['project_code'])) {
             $model->projectCode = $map['project_code'];
         }
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
+        }
+        if (isset($map['thirdpart_itinerary_id'])) {
+            $model->thirdpartItineraryId = $map['thirdpart_itinerary_id'];
         }
         if (isset($map['traffic_type'])) {
             $model->trafficType = $map['traffic_type'];

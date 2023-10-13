@@ -33,9 +33,34 @@ class module extends Model
     public $corpId;
 
     /**
+     * @var string
+     */
+    public $costCenterCode;
+
+    /**
+     * @var string
+     */
+    public $costCenterName;
+
+    /**
      * @var expenses[]
      */
     public $expenses;
+
+    /**
+     * @var string
+     */
+    public $expensesCoverDeptId;
+
+    /**
+     * @var string
+     */
+    public $expensesCoverDeptName;
+
+    /**
+     * @var string
+     */
+    public $expensesCoverInvoiceTitle;
 
     /**
      * @example 2022-05-15T22:27Z
@@ -76,6 +101,16 @@ class module extends Model
     /**
      * @var string
      */
+    public $projectCode;
+
+    /**
+     * @var string
+     */
+    public $projectName;
+
+    /**
+     * @var string
+     */
     public $reason;
 
     /**
@@ -112,23 +147,30 @@ class module extends Model
      */
     public $userName;
     protected $_name = [
-        'companyAmount'      => 'company_amount',
-        'companyPayAmount'   => 'company_pay_amount',
-        'corpId'             => 'corp_id',
-        'expenses'           => 'expenses',
-        'gmtCreate'          => 'gmt_create',
-        'gmtModified'        => 'gmt_modified',
-        'isDeleted'          => 'is_deleted',
-        'itineraries'        => 'itineraries',
-        'paymentInfos'       => 'payment_infos',
-        'personalAmount'     => 'personal_amount',
-        'reason'             => 'reason',
-        'reimbursementNo'    => 'reimbursement_no',
-        'remark'             => 'remark',
-        'status'             => 'status',
-        'travelThirdApplyId' => 'travel_third_apply_id',
-        'userId'             => 'user_id',
-        'userName'           => 'user_name',
+        'companyAmount'             => 'company_amount',
+        'companyPayAmount'          => 'company_pay_amount',
+        'corpId'                    => 'corp_id',
+        'costCenterCode'            => 'cost_center_code',
+        'costCenterName'            => 'cost_center_name',
+        'expenses'                  => 'expenses',
+        'expensesCoverDeptId'       => 'expenses_cover_dept_id',
+        'expensesCoverDeptName'     => 'expenses_cover_dept_name',
+        'expensesCoverInvoiceTitle' => 'expenses_cover_invoice_title',
+        'gmtCreate'                 => 'gmt_create',
+        'gmtModified'               => 'gmt_modified',
+        'isDeleted'                 => 'is_deleted',
+        'itineraries'               => 'itineraries',
+        'paymentInfos'              => 'payment_infos',
+        'personalAmount'            => 'personal_amount',
+        'projectCode'               => 'project_code',
+        'projectName'               => 'project_name',
+        'reason'                    => 'reason',
+        'reimbursementNo'           => 'reimbursement_no',
+        'remark'                    => 'remark',
+        'status'                    => 'status',
+        'travelThirdApplyId'        => 'travel_third_apply_id',
+        'userId'                    => 'user_id',
+        'userName'                  => 'user_name',
     ];
 
     public function validate()
@@ -147,6 +189,12 @@ class module extends Model
         if (null !== $this->corpId) {
             $res['corp_id'] = $this->corpId;
         }
+        if (null !== $this->costCenterCode) {
+            $res['cost_center_code'] = $this->costCenterCode;
+        }
+        if (null !== $this->costCenterName) {
+            $res['cost_center_name'] = $this->costCenterName;
+        }
         if (null !== $this->expenses) {
             $res['expenses'] = [];
             if (null !== $this->expenses && \is_array($this->expenses)) {
@@ -155,6 +203,15 @@ class module extends Model
                     $res['expenses'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->expensesCoverDeptId) {
+            $res['expenses_cover_dept_id'] = $this->expensesCoverDeptId;
+        }
+        if (null !== $this->expensesCoverDeptName) {
+            $res['expenses_cover_dept_name'] = $this->expensesCoverDeptName;
+        }
+        if (null !== $this->expensesCoverInvoiceTitle) {
+            $res['expenses_cover_invoice_title'] = $this->expensesCoverInvoiceTitle;
         }
         if (null !== $this->gmtCreate) {
             $res['gmt_create'] = $this->gmtCreate;
@@ -185,6 +242,12 @@ class module extends Model
         }
         if (null !== $this->personalAmount) {
             $res['personal_amount'] = $this->personalAmount;
+        }
+        if (null !== $this->projectCode) {
+            $res['project_code'] = $this->projectCode;
+        }
+        if (null !== $this->projectName) {
+            $res['project_name'] = $this->projectName;
         }
         if (null !== $this->reason) {
             $res['reason'] = $this->reason;
@@ -228,6 +291,12 @@ class module extends Model
         if (isset($map['corp_id'])) {
             $model->corpId = $map['corp_id'];
         }
+        if (isset($map['cost_center_code'])) {
+            $model->costCenterCode = $map['cost_center_code'];
+        }
+        if (isset($map['cost_center_name'])) {
+            $model->costCenterName = $map['cost_center_name'];
+        }
         if (isset($map['expenses'])) {
             if (!empty($map['expenses'])) {
                 $model->expenses = [];
@@ -236,6 +305,15 @@ class module extends Model
                     $model->expenses[$n++] = null !== $item ? expenses::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['expenses_cover_dept_id'])) {
+            $model->expensesCoverDeptId = $map['expenses_cover_dept_id'];
+        }
+        if (isset($map['expenses_cover_dept_name'])) {
+            $model->expensesCoverDeptName = $map['expenses_cover_dept_name'];
+        }
+        if (isset($map['expenses_cover_invoice_title'])) {
+            $model->expensesCoverInvoiceTitle = $map['expenses_cover_invoice_title'];
         }
         if (isset($map['gmt_create'])) {
             $model->gmtCreate = $map['gmt_create'];
@@ -266,6 +344,12 @@ class module extends Model
         }
         if (isset($map['personal_amount'])) {
             $model->personalAmount = $map['personal_amount'];
+        }
+        if (isset($map['project_code'])) {
+            $model->projectCode = $map['project_code'];
+        }
+        if (isset($map['project_name'])) {
+            $model->projectName = $map['project_name'];
         }
         if (isset($map['reason'])) {
             $model->reason = $map['reason'];

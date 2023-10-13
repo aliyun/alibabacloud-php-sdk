@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\itineraryList\itineraryTravelStandard;
 use AlibabaCloud\Tea\Model;
 
 class itineraryList extends Model
@@ -68,6 +69,11 @@ class itineraryList extends Model
     public $itineraryId;
 
     /**
+     * @var itineraryTravelStandard
+     */
+    public $itineraryTravelStandard;
+
+    /**
      * @example true
      *
      * @var bool
@@ -121,23 +127,24 @@ class itineraryList extends Model
      */
     public $tripWay;
     protected $_name = [
-        'arrCity'               => 'arr_city',
-        'arrCityCode'           => 'arr_city_code',
-        'arrDate'               => 'arr_date',
-        'costCenterId'          => 'cost_center_id',
-        'depCity'               => 'dep_city',
-        'depCityCode'           => 'dep_city_code',
-        'depDate'               => 'dep_date',
-        'invoiceId'             => 'invoice_id',
-        'itineraryId'           => 'itinerary_id',
-        'needHotel'             => 'need_hotel',
-        'needTraffic'           => 'need_traffic',
-        'projectCode'           => 'project_code',
-        'projectTitle'          => 'project_title',
-        'thirdPartInvoiceId'    => 'third_part_invoice_id',
-        'thirdpartCostCenterId' => 'thirdpart_cost_center_id',
-        'trafficType'           => 'traffic_type',
-        'tripWay'               => 'trip_way',
+        'arrCity'                 => 'arr_city',
+        'arrCityCode'             => 'arr_city_code',
+        'arrDate'                 => 'arr_date',
+        'costCenterId'            => 'cost_center_id',
+        'depCity'                 => 'dep_city',
+        'depCityCode'             => 'dep_city_code',
+        'depDate'                 => 'dep_date',
+        'invoiceId'               => 'invoice_id',
+        'itineraryId'             => 'itinerary_id',
+        'itineraryTravelStandard' => 'itinerary_travel_standard',
+        'needHotel'               => 'need_hotel',
+        'needTraffic'             => 'need_traffic',
+        'projectCode'             => 'project_code',
+        'projectTitle'            => 'project_title',
+        'thirdPartInvoiceId'      => 'third_part_invoice_id',
+        'thirdpartCostCenterId'   => 'thirdpart_cost_center_id',
+        'trafficType'             => 'traffic_type',
+        'tripWay'                 => 'trip_way',
     ];
 
     public function validate()
@@ -173,6 +180,9 @@ class itineraryList extends Model
         }
         if (null !== $this->itineraryId) {
             $res['itinerary_id'] = $this->itineraryId;
+        }
+        if (null !== $this->itineraryTravelStandard) {
+            $res['itinerary_travel_standard'] = null !== $this->itineraryTravelStandard ? $this->itineraryTravelStandard->toMap() : null;
         }
         if (null !== $this->needHotel) {
             $res['need_hotel'] = $this->needHotel;
@@ -236,6 +246,9 @@ class itineraryList extends Model
         }
         if (isset($map['itinerary_id'])) {
             $model->itineraryId = $map['itinerary_id'];
+        }
+        if (isset($map['itinerary_travel_standard'])) {
+            $model->itineraryTravelStandard = itineraryTravelStandard::fromMap($map['itinerary_travel_standard']);
         }
         if (isset($map['need_hotel'])) {
             $model->needHotel = $map['need_hotel'];
