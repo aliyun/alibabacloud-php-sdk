@@ -231,6 +231,13 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $notice;
 
     /**
+     * @example NORMAL_MODE
+     *
+     * @var string
+     */
+    public $notifyMode;
+
+    /**
      * @description The notification policy.
      *
      *   If you set this parameter to null, no notification policy is specified. After you create an alert rule, you can create a notification policy and specify match rules and match conditions. For example, you can specify the name of the alert rule as the match condition. When the alert rule is triggered, an alert event is generated and an alert notification is sent to the contacts or contact groups that are specified in the notification policy.
@@ -295,6 +302,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
         'metricsKey'            => 'MetricsKey',
         'metricsType'           => 'MetricsType',
         'notice'                => 'Notice',
+        'notifyMode'            => 'NotifyMode',
         'notifyStrategy'        => 'NotifyStrategy',
         'pids'                  => 'Pids',
         'promQL'                => 'PromQL',
@@ -377,6 +385,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (null !== $this->notice) {
             $res['Notice'] = $this->notice;
+        }
+        if (null !== $this->notifyMode) {
+            $res['NotifyMode'] = $this->notifyMode;
         }
         if (null !== $this->notifyStrategy) {
             $res['NotifyStrategy'] = $this->notifyStrategy;
@@ -479,6 +490,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (isset($map['Notice'])) {
             $model->notice = $map['Notice'];
+        }
+        if (isset($map['NotifyMode'])) {
+            $model->notifyMode = $map['NotifyMode'];
         }
         if (isset($map['NotifyStrategy'])) {
             $model->notifyStrategy = $map['NotifyStrategy'];

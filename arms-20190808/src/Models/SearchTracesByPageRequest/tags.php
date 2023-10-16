@@ -14,7 +14,7 @@ class tags extends Model
      *   traceId: the ID of the trace.
      *   serverApp: the name of the server application.
      *   clientApp: the name of the client application.
-     *   service: the name of the operation.
+     *   service: the name of the API operation.
      *   rpc: the type of the call.
      *   msOfSpan: the duration exceeds a specific value.
      *   clientIp: the IP address of the client.

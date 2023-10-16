@@ -51,6 +51,11 @@ class traceApps extends Model
     /**
      * @var string
      */
+    public $language;
+
+    /**
+     * @var string
+     */
     public $namespace;
 
     /**
@@ -153,6 +158,7 @@ class traceApps extends Model
         'clusterId'       => 'ClusterId',
         'createTime'      => 'CreateTime',
         'labels'          => 'Labels',
+        'language'        => 'Language',
         'namespace'       => 'Namespace',
         'pid'             => 'Pid',
         'regionId'        => 'RegionId',
@@ -188,6 +194,9 @@ class traceApps extends Model
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -259,6 +268,9 @@ class traceApps extends Model
             if (!empty($map['Labels'])) {
                 $model->labels = $map['Labels'];
             }
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

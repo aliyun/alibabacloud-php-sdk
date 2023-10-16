@@ -27,8 +27,11 @@ class SearchTracesByPageRequest extends Model
     public $exclusionFilters;
 
     /**
-     * @description 是否过滤错误的调用链。
-     * - `false`（默认）：不过滤
+     * @description Specifies whether to include the traces of abnormal calls.
+     *
+     *   `true`: No
+     *   `false` (default): Yes
+     *
      * @example false
      *
      * @var bool
@@ -129,7 +132,7 @@ class SearchTracesByPageRequest extends Model
     public $startTime;
 
     /**
-     * @description The list of tags.
+     * @description The tags.
      *
      * @var tags[]
      */

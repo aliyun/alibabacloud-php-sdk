@@ -31,10 +31,18 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ApplyScenarioResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ApplyScenarioShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\BindPrometheusGrafanaInstanceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\BindPrometheusGrafanaInstanceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\BlockAlarmNotificationRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\BlockAlarmNotificationResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ChangeAlarmSeverityRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ChangeAlarmSeverityResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CheckServiceStatusRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CheckServiceStatusResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ClaimAlarmRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ClaimAlarmResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CloseAlarmRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CloseAlarmResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ConfigAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ConfigAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateAlertContactGroupRequest;
@@ -1094,6 +1102,110 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param BlockAlarmNotificationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BlockAlarmNotificationResponse
+     */
+    public function blockAlarmNotificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmId)) {
+            $query['AlarmId'] = $request->alarmId;
+        }
+        if (!Utils::isUnset($request->handlerId)) {
+            $query['HandlerId'] = $request->handlerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BlockAlarmNotification',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BlockAlarmNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BlockAlarmNotificationRequest $request
+     *
+     * @return BlockAlarmNotificationResponse
+     */
+    public function blockAlarmNotification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->blockAlarmNotificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeAlarmSeverityRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeAlarmSeverityResponse
+     */
+    public function changeAlarmSeverityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmId)) {
+            $query['AlarmId'] = $request->alarmId;
+        }
+        if (!Utils::isUnset($request->handlerId)) {
+            $query['HandlerId'] = $request->handlerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->severity)) {
+            $query['Severity'] = $request->severity;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeAlarmSeverity',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeAlarmSeverityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeAlarmSeverityRequest $request
+     *
+     * @return ChangeAlarmSeverityResponse
+     */
+    public function changeAlarmSeverity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeAlarmSeverityWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ChangeResourceGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1189,6 +1301,107 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkServiceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ClaimAlarmRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ClaimAlarmResponse
+     */
+    public function claimAlarmWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmId)) {
+            $query['AlarmId'] = $request->alarmId;
+        }
+        if (!Utils::isUnset($request->handlerId)) {
+            $query['HandlerId'] = $request->handlerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClaimAlarm',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClaimAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ClaimAlarmRequest $request
+     *
+     * @return ClaimAlarmResponse
+     */
+    public function claimAlarm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->claimAlarmWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CloseAlarmRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CloseAlarmResponse
+     */
+    public function closeAlarmWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmId)) {
+            $query['AlarmId'] = $request->alarmId;
+        }
+        if (!Utils::isUnset($request->handlerId)) {
+            $query['HandlerId'] = $request->handlerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->solution)) {
+            $query['Solution'] = $request->solution;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CloseAlarm',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloseAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CloseAlarmRequest $request
+     *
+     * @return CloseAlarmResponse
+     */
+    public function closeAlarm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeAlarmWithOptions($request, $runtime);
     }
 
     /**
@@ -1534,6 +1747,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->notice)) {
             $body['Notice'] = $request->notice;
+        }
+        if (!Utils::isUnset($request->notifyMode)) {
+            $body['NotifyMode'] = $request->notifyMode;
         }
         if (!Utils::isUnset($request->notifyStrategy)) {
             $body['NotifyStrategy'] = $request->notifyStrategy;
