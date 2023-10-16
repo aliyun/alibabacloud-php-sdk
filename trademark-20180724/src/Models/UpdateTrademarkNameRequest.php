@@ -9,32 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateTrademarkNameRequest extends Model
 {
     /**
-     * @description 幂等参数
-     *
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @description 业务id
-     *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 商标名称
-     *
      * @var string
      */
-    public $tmName;
-
-    /**
-     * @description 商标图片
-     *
-     * @var string
-     */
-    public $tmIcon;
+    public $clientToken;
 
     /**
      * @var string
@@ -42,17 +24,25 @@ class UpdateTrademarkNameRequest extends Model
     public $tmComment;
 
     /**
-     * @description 商标类型
-     *
+     * @var string
+     */
+    public $tmIcon;
+
+    /**
+     * @var string
+     */
+    public $tmName;
+
+    /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'clientToken' => 'ClientToken',
         'bizId'       => 'BizId',
-        'tmName'      => 'TmName',
-        'tmIcon'      => 'TmIcon',
+        'clientToken' => 'ClientToken',
         'tmComment'   => 'TmComment',
+        'tmIcon'      => 'TmIcon',
+        'tmName'      => 'TmName',
         'type'        => 'Type',
     ];
 
@@ -63,20 +53,20 @@ class UpdateTrademarkNameRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->tmName) {
-            $res['TmName'] = $this->tmName;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->tmComment) {
+            $res['TmComment'] = $this->tmComment;
         }
         if (null !== $this->tmIcon) {
             $res['TmIcon'] = $this->tmIcon;
         }
-        if (null !== $this->tmComment) {
-            $res['TmComment'] = $this->tmComment;
+        if (null !== $this->tmName) {
+            $res['TmName'] = $this->tmName;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -93,20 +83,20 @@ class UpdateTrademarkNameRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['TmName'])) {
-            $model->tmName = $map['TmName'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['TmComment'])) {
+            $model->tmComment = $map['TmComment'];
         }
         if (isset($map['TmIcon'])) {
             $model->tmIcon = $map['TmIcon'];
         }
-        if (isset($map['TmComment'])) {
-            $model->tmComment = $map['TmComment'];
+        if (isset($map['TmName'])) {
+            $model->tmName = $map['TmName'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -10,9 +10,24 @@ use AlibabaCloud\Tea\Model;
 class QueryTrademarkPriceResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $currency;
+
+    /**
+     * @var float
+     */
+    public $discountPrice;
+
+    /**
      * @var float
      */
     public $originalPrice;
+
+    /**
+     * @var prices
+     */
+    public $prices;
 
     /**
      * @var string
@@ -22,29 +37,14 @@ class QueryTrademarkPriceResponseBody extends Model
     /**
      * @var float
      */
-    public $discountPrice;
-
-    /**
-     * @var string
-     */
-    public $currency;
-
-    /**
-     * @var float
-     */
     public $tradePrice;
-
-    /**
-     * @var prices
-     */
-    public $prices;
     protected $_name = [
-        'originalPrice' => 'OriginalPrice',
-        'requestId'     => 'RequestId',
-        'discountPrice' => 'DiscountPrice',
         'currency'      => 'Currency',
-        'tradePrice'    => 'TradePrice',
+        'discountPrice' => 'DiscountPrice',
+        'originalPrice' => 'OriginalPrice',
         'prices'        => 'Prices',
+        'requestId'     => 'RequestId',
+        'tradePrice'    => 'TradePrice',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class QueryTrademarkPriceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->originalPrice) {
-            $res['OriginalPrice'] = $this->originalPrice;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
         }
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
-        if (null !== $this->currency) {
-            $res['Currency'] = $this->currency;
-        }
-        if (null !== $this->tradePrice) {
-            $res['TradePrice'] = $this->tradePrice;
+        if (null !== $this->originalPrice) {
+            $res['OriginalPrice'] = $this->originalPrice;
         }
         if (null !== $this->prices) {
             $res['Prices'] = null !== $this->prices ? $this->prices->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->tradePrice) {
+            $res['TradePrice'] = $this->tradePrice;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class QueryTrademarkPriceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OriginalPrice'])) {
-            $model->originalPrice = $map['OriginalPrice'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
         }
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
-        if (isset($map['Currency'])) {
-            $model->currency = $map['Currency'];
-        }
-        if (isset($map['TradePrice'])) {
-            $model->tradePrice = $map['TradePrice'];
+        if (isset($map['OriginalPrice'])) {
+            $model->originalPrice = $map['OriginalPrice'];
         }
         if (isset($map['Prices'])) {
             $model->prices = prices::fromMap($map['Prices']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TradePrice'])) {
+            $model->tradePrice = $map['TradePrice'];
         }
 
         return $model;

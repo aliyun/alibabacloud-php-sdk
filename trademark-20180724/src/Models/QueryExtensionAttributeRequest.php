@@ -11,15 +11,15 @@ class QueryExtensionAttributeRequest extends Model
     /**
      * @var string
      */
-    public $bizId;
+    public $attributeKey;
 
     /**
      * @var string
      */
-    public $attributeKey;
+    public $bizId;
     protected $_name = [
-        'bizId'        => 'BizId',
         'attributeKey' => 'AttributeKey',
+        'bizId'        => 'BizId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QueryExtensionAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
-        }
         if (null !== $this->attributeKey) {
             $res['AttributeKey'] = $this->attributeKey;
+        }
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QueryExtensionAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
-        }
         if (isset($map['AttributeKey'])) {
             $model->attributeKey = $map['AttributeKey'];
+        }
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
 
         return $model;

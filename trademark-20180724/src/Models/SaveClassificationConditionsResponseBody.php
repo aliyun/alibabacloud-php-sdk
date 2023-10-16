@@ -15,14 +15,14 @@ class SaveClassificationConditionsResponseBody extends Model
     public $errorMsg;
 
     /**
-     * @var string
+     * @var invalidList[]
      */
-    public $requestId;
+    public $invalidList;
 
     /**
      * @var string
      */
-    public $tagName;
+    public $requestId;
 
     /**
      * @var bool
@@ -30,15 +30,15 @@ class SaveClassificationConditionsResponseBody extends Model
     public $success;
 
     /**
-     * @var invalidList[]
+     * @var string
      */
-    public $invalidList;
+    public $tagName;
     protected $_name = [
         'errorMsg'    => 'ErrorMsg',
-        'requestId'   => 'RequestId',
-        'tagName'     => 'TagName',
-        'success'     => 'Success',
         'invalidList' => 'InvalidList',
+        'requestId'   => 'RequestId',
+        'success'     => 'Success',
+        'tagName'     => 'TagName',
     ];
 
     public function validate()
@@ -51,15 +51,6 @@ class SaveClassificationConditionsResponseBody extends Model
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->tagName) {
-            $res['TagName'] = $this->tagName;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->invalidList) {
             $res['InvalidList'] = [];
             if (null !== $this->invalidList && \is_array($this->invalidList)) {
@@ -68,6 +59,15 @@ class SaveClassificationConditionsResponseBody extends Model
                     $res['InvalidList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->tagName) {
+            $res['TagName'] = $this->tagName;
         }
 
         return $res;
@@ -84,15 +84,6 @@ class SaveClassificationConditionsResponseBody extends Model
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TagName'])) {
-            $model->tagName = $map['TagName'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['InvalidList'])) {
             if (!empty($map['InvalidList'])) {
                 $model->invalidList = [];
@@ -101,6 +92,15 @@ class SaveClassificationConditionsResponseBody extends Model
                     $model->invalidList[$n++] = null !== $item ? invalidList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['TagName'])) {
+            $model->tagName = $map['TagName'];
         }
 
         return $model;

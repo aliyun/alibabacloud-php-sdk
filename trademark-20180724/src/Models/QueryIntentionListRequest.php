@@ -11,22 +11,12 @@ class QueryIntentionListRequest extends Model
     /**
      * @var int
      */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $status;
+    public $pageNum;
 
     /**
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
 
     /**
      * @var string
@@ -37,13 +27,23 @@ class QueryIntentionListRequest extends Model
      * @var string
      */
     public $sortOrder;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
-        'type'      => 'Type',
-        'status'    => 'Status',
-        'pageSize'  => 'PageSize',
         'pageNum'   => 'PageNum',
+        'pageSize'  => 'PageSize',
         'sortFiled' => 'SortFiled',
         'sortOrder' => 'SortOrder',
+        'status'    => 'Status',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class QueryIntentionListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->sortFiled) {
             $res['SortFiled'] = $this->sortFiled;
         }
         if (null !== $this->sortOrder) {
             $res['SortOrder'] = $this->sortOrder;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class QueryIntentionListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
         }
         if (isset($map['SortFiled'])) {
             $model->sortFiled = $map['SortFiled'];
         }
         if (isset($map['SortOrder'])) {
             $model->sortOrder = $map['SortOrder'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

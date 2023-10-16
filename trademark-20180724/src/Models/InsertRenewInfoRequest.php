@@ -11,9 +11,18 @@ class InsertRenewInfoRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $address;
 
     /**
+     * @example beijing
+     *
+     * @var string
+     */
+    public $engAddress;
+
+    /**
+     * @example aliyun
+     *
      * @var string
      */
     public $engName;
@@ -21,22 +30,19 @@ class InsertRenewInfoRequest extends Model
     /**
      * @var string
      */
-    public $address;
+    public $name;
 
     /**
-     * @var string
-     */
-    public $engAddress;
-
-    /**
+     * @example 1545731871738
+     *
      * @var int
      */
     public $registerTime;
     protected $_name = [
-        'name'         => 'Name',
-        'engName'      => 'EngName',
         'address'      => 'Address',
         'engAddress'   => 'EngAddress',
+        'engName'      => 'EngName',
+        'name'         => 'Name',
         'registerTime' => 'RegisterTime',
     ];
 
@@ -47,17 +53,17 @@ class InsertRenewInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->engName) {
-            $res['EngName'] = $this->engName;
-        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
         if (null !== $this->engAddress) {
             $res['EngAddress'] = $this->engAddress;
+        }
+        if (null !== $this->engName) {
+            $res['EngName'] = $this->engName;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->registerTime) {
             $res['RegisterTime'] = $this->registerTime;
@@ -74,17 +80,17 @@ class InsertRenewInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['EngName'])) {
-            $model->engName = $map['EngName'];
-        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
         if (isset($map['EngAddress'])) {
             $model->engAddress = $map['EngAddress'];
+        }
+        if (isset($map['EngName'])) {
+            $model->engName = $map['EngName'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['RegisterTime'])) {
             $model->registerTime = $map['RegisterTime'];

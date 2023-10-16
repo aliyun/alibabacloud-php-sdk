@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SyncTrademarkRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $beginTime;
+
+    /**
      * @var string
      */
     public $classificationCode;
@@ -16,12 +21,17 @@ class SyncTrademarkRequest extends Model
     /**
      * @var string
      */
-    public $tmName;
+    public $description;
+
+    /**
+     * @var int
+     */
+    public $endTime;
 
     /**
      * @var string
      */
-    public $tmIcon;
+    public $label;
 
     /**
      * @var float
@@ -31,37 +41,7 @@ class SyncTrademarkRequest extends Model
     /**
      * @var string
      */
-    public $tmNumber;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $beginTime;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $label;
-
-    /**
-     * @var int
-     */
-    public $regAnnDate;
+    public $ownerEnName;
 
     /**
      * @var string
@@ -71,7 +51,12 @@ class SyncTrademarkRequest extends Model
     /**
      * @var string
      */
-    public $ownerEnName;
+    public $reason;
+
+    /**
+     * @var int
+     */
+    public $regAnnDate;
 
     /**
      * @var string
@@ -81,35 +66,50 @@ class SyncTrademarkRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $thirdClassification;
 
     /**
      * @var string
      */
-    public $type;
+    public $tmIcon;
 
     /**
      * @var string
      */
-    public $reason;
+    public $tmName;
+
+    /**
+     * @var string
+     */
+    public $tmNumber;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'classificationCode'      => 'ClassificationCode',
-        'tmName'                  => 'TmName',
-        'tmIcon'                  => 'TmIcon',
-        'originalPrice'           => 'OriginalPrice',
-        'tmNumber'                => 'TmNumber',
-        'status'                  => 'Status',
-        'endTime'                 => 'EndTime',
         'beginTime'               => 'BeginTime',
+        'classificationCode'      => 'ClassificationCode',
         'description'             => 'Description',
+        'endTime'                 => 'EndTime',
         'label'                   => 'Label',
-        'regAnnDate'              => 'RegAnnDate',
-        'ownerName'               => 'OwnerName',
+        'originalPrice'           => 'OriginalPrice',
         'ownerEnName'             => 'OwnerEnName',
-        'secondaryClassification' => 'SecondaryClassification',
-        'thirdClassification'     => 'ThirdClassification',
-        'type'                    => 'Type',
+        'ownerName'               => 'OwnerName',
         'reason'                  => 'Reason',
+        'regAnnDate'              => 'RegAnnDate',
+        'secondaryClassification' => 'SecondaryClassification',
+        'status'                  => 'Status',
+        'thirdClassification'     => 'ThirdClassification',
+        'tmIcon'                  => 'TmIcon',
+        'tmName'                  => 'TmName',
+        'tmNumber'                => 'TmNumber',
+        'type'                    => 'Type',
     ];
 
     public function validate()
@@ -119,56 +119,56 @@ class SyncTrademarkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->classificationCode) {
-            $res['ClassificationCode'] = $this->classificationCode;
-        }
-        if (null !== $this->tmName) {
-            $res['TmName'] = $this->tmName;
-        }
-        if (null !== $this->tmIcon) {
-            $res['TmIcon'] = $this->tmIcon;
-        }
-        if (null !== $this->originalPrice) {
-            $res['OriginalPrice'] = $this->originalPrice;
-        }
-        if (null !== $this->tmNumber) {
-            $res['TmNumber'] = $this->tmNumber;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
+        }
+        if (null !== $this->classificationCode) {
+            $res['ClassificationCode'] = $this->classificationCode;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
-        if (null !== $this->regAnnDate) {
-            $res['RegAnnDate'] = $this->regAnnDate;
-        }
-        if (null !== $this->ownerName) {
-            $res['OwnerName'] = $this->ownerName;
+        if (null !== $this->originalPrice) {
+            $res['OriginalPrice'] = $this->originalPrice;
         }
         if (null !== $this->ownerEnName) {
             $res['OwnerEnName'] = $this->ownerEnName;
         }
+        if (null !== $this->ownerName) {
+            $res['OwnerName'] = $this->ownerName;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->regAnnDate) {
+            $res['RegAnnDate'] = $this->regAnnDate;
+        }
         if (null !== $this->secondaryClassification) {
             $res['SecondaryClassification'] = $this->secondaryClassification;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->thirdClassification) {
             $res['ThirdClassification'] = $this->thirdClassification;
         }
+        if (null !== $this->tmIcon) {
+            $res['TmIcon'] = $this->tmIcon;
+        }
+        if (null !== $this->tmName) {
+            $res['TmName'] = $this->tmName;
+        }
+        if (null !== $this->tmNumber) {
+            $res['TmNumber'] = $this->tmNumber;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->reason) {
-            $res['Reason'] = $this->reason;
         }
 
         return $res;
@@ -182,56 +182,56 @@ class SyncTrademarkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClassificationCode'])) {
-            $model->classificationCode = $map['ClassificationCode'];
-        }
-        if (isset($map['TmName'])) {
-            $model->tmName = $map['TmName'];
-        }
-        if (isset($map['TmIcon'])) {
-            $model->tmIcon = $map['TmIcon'];
-        }
-        if (isset($map['OriginalPrice'])) {
-            $model->originalPrice = $map['OriginalPrice'];
-        }
-        if (isset($map['TmNumber'])) {
-            $model->tmNumber = $map['TmNumber'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
+        }
+        if (isset($map['ClassificationCode'])) {
+            $model->classificationCode = $map['ClassificationCode'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
-        if (isset($map['RegAnnDate'])) {
-            $model->regAnnDate = $map['RegAnnDate'];
-        }
-        if (isset($map['OwnerName'])) {
-            $model->ownerName = $map['OwnerName'];
+        if (isset($map['OriginalPrice'])) {
+            $model->originalPrice = $map['OriginalPrice'];
         }
         if (isset($map['OwnerEnName'])) {
             $model->ownerEnName = $map['OwnerEnName'];
         }
+        if (isset($map['OwnerName'])) {
+            $model->ownerName = $map['OwnerName'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
+        }
+        if (isset($map['RegAnnDate'])) {
+            $model->regAnnDate = $map['RegAnnDate'];
+        }
         if (isset($map['SecondaryClassification'])) {
             $model->secondaryClassification = $map['SecondaryClassification'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['ThirdClassification'])) {
             $model->thirdClassification = $map['ThirdClassification'];
         }
+        if (isset($map['TmIcon'])) {
+            $model->tmIcon = $map['TmIcon'];
+        }
+        if (isset($map['TmName'])) {
+            $model->tmName = $map['TmName'];
+        }
+        if (isset($map['TmNumber'])) {
+            $model->tmNumber = $map['TmNumber'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Reason'])) {
-            $model->reason = $map['Reason'];
         }
 
         return $model;

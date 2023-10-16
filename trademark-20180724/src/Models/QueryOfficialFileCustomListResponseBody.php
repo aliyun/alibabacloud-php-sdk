@@ -15,9 +15,14 @@ class QueryOfficialFileCustomListResponseBody extends Model
     public $currentPageNum;
 
     /**
+     * @var data
+     */
+    public $data;
+
+    /**
      * @var int
      */
-    public $totalPageNum;
+    public $pageSize;
 
     /**
      * @var string
@@ -27,24 +32,19 @@ class QueryOfficialFileCustomListResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $totalItemNum;
 
     /**
      * @var int
      */
-    public $totalItemNum;
-
-    /**
-     * @var data
-     */
-    public $data;
+    public $totalPageNum;
     protected $_name = [
         'currentPageNum' => 'CurrentPageNum',
-        'totalPageNum'   => 'TotalPageNum',
-        'requestId'      => 'RequestId',
-        'pageSize'       => 'PageSize',
-        'totalItemNum'   => 'TotalItemNum',
         'data'           => 'Data',
+        'pageSize'       => 'PageSize',
+        'requestId'      => 'RequestId',
+        'totalItemNum'   => 'TotalItemNum',
+        'totalPageNum'   => 'TotalPageNum',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class QueryOfficialFileCustomListResponseBody extends Model
         if (null !== $this->currentPageNum) {
             $res['CurrentPageNum'] = $this->currentPageNum;
         }
-        if (null !== $this->totalPageNum) {
-            $res['TotalPageNum'] = $this->totalPageNum;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalItemNum) {
             $res['TotalItemNum'] = $this->totalItemNum;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->totalPageNum) {
+            $res['TotalPageNum'] = $this->totalPageNum;
         }
 
         return $res;
@@ -87,20 +87,20 @@ class QueryOfficialFileCustomListResponseBody extends Model
         if (isset($map['CurrentPageNum'])) {
             $model->currentPageNum = $map['CurrentPageNum'];
         }
-        if (isset($map['TotalPageNum'])) {
-            $model->totalPageNum = $map['TotalPageNum'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalItemNum'])) {
             $model->totalItemNum = $map['TotalItemNum'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['TotalPageNum'])) {
+            $model->totalPageNum = $map['TotalPageNum'];
         }
 
         return $model;

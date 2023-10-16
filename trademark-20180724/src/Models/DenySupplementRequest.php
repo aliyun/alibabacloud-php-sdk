@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DenySupplementRequest extends Model
 {
     /**
+     * @example 12
+     *
      * @var int
      */
     public $id;

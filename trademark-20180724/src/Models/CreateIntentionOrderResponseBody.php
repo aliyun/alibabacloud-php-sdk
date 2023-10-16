@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateIntentionOrderResponseBody extends Model
 {
     /**
+     * @var data
+     */
+    public $data;
+
+    /**
      * @var string
      */
     public $errorMsg;
@@ -23,16 +28,11 @@ class CreateIntentionOrderResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var data
-     */
-    public $data;
     protected $_name = [
+        'data'      => 'Data',
         'errorMsg'  => 'ErrorMsg',
         'requestId' => 'RequestId',
         'success'   => 'Success',
-        'data'      => 'Data',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class CreateIntentionOrderResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
@@ -50,9 +53,6 @@ class CreateIntentionOrderResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class CreateIntentionOrderResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
@@ -74,9 +77,6 @@ class CreateIntentionOrderResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

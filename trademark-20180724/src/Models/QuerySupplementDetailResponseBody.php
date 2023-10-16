@@ -12,7 +12,57 @@ class QuerySupplementDetailResponseBody extends Model
     /**
      * @var int
      */
+    public $acceptDeadTime;
+
+    /**
+     * @var int
+     */
+    public $acceptTime;
+
+    /**
+     * @var string
+     */
+    public $content;
+
+    /**
+     * @var string
+     */
+    public $fileName;
+
+    /**
+     * @var fileTemplateUrls
+     */
+    public $fileTemplateUrls;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
     public $operateTime;
+
+    /**
+     * @var string
+     */
+    public $reason;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $sbjDeadTime;
+
+    /**
+     * @var int
+     */
+    public $sendTime;
 
     /**
      * @var string
@@ -25,74 +75,36 @@ class QuerySupplementDetailResponseBody extends Model
     public $status;
 
     /**
-     * @var int
-     */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $sbjDeadTime;
-
-    /**
-     * @var int
-     */
-    public $acceptDeadTime;
-
-    /**
-     * @var int
-     */
-    public $sendTime;
-
-    /**
-     * @var int
-     */
-    public $acceptTime;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string
      */
     public $tmNumber;
 
     /**
+     * @var int
+     */
+    public $type;
+
+    /**
      * @var string
      */
     public $uploadFileTemplateUrl;
-
-    /**
-     * @var string
-     */
-    public $content;
-
-    /**
-     * @var int
-     */
-    public $id;
-
-    /**
-     * @var fileTemplateUrls
-     */
-    public $fileTemplateUrls;
     protected $_name = [
+        'acceptDeadTime'        => 'AcceptDeadTime',
+        'acceptTime'            => 'AcceptTime',
+        'content'               => 'Content',
+        'fileName'              => 'FileName',
+        'fileTemplateUrls'      => 'FileTemplateUrls',
+        'id'                    => 'Id',
         'operateTime'           => 'OperateTime',
+        'reason'                => 'Reason',
+        'requestId'             => 'RequestId',
+        'sbjDeadTime'           => 'SbjDeadTime',
+        'sendTime'              => 'SendTime',
         'serialNumber'          => 'SerialNumber',
         'status'                => 'Status',
-        'type'                  => 'Type',
-        'sbjDeadTime'           => 'SbjDeadTime',
-        'acceptDeadTime'        => 'AcceptDeadTime',
-        'sendTime'              => 'SendTime',
-        'acceptTime'            => 'AcceptTime',
-        'requestId'             => 'RequestId',
         'tmNumber'              => 'TmNumber',
+        'type'                  => 'Type',
         'uploadFileTemplateUrl' => 'UploadFileTemplateUrl',
-        'content'               => 'Content',
-        'id'                    => 'Id',
-        'fileTemplateUrls'      => 'FileTemplateUrls',
     ];
 
     public function validate()
@@ -102,8 +114,38 @@ class QuerySupplementDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptDeadTime) {
+            $res['AcceptDeadTime'] = $this->acceptDeadTime;
+        }
+        if (null !== $this->acceptTime) {
+            $res['AcceptTime'] = $this->acceptTime;
+        }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->fileTemplateUrls) {
+            $res['FileTemplateUrls'] = null !== $this->fileTemplateUrls ? $this->fileTemplateUrls->toMap() : null;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->operateTime) {
             $res['OperateTime'] = $this->operateTime;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sbjDeadTime) {
+            $res['SbjDeadTime'] = $this->sbjDeadTime;
+        }
+        if (null !== $this->sendTime) {
+            $res['SendTime'] = $this->sendTime;
         }
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
@@ -111,38 +153,14 @@ class QuerySupplementDetailResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->sbjDeadTime) {
-            $res['SbjDeadTime'] = $this->sbjDeadTime;
-        }
-        if (null !== $this->acceptDeadTime) {
-            $res['AcceptDeadTime'] = $this->acceptDeadTime;
-        }
-        if (null !== $this->sendTime) {
-            $res['SendTime'] = $this->sendTime;
-        }
-        if (null !== $this->acceptTime) {
-            $res['AcceptTime'] = $this->acceptTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->tmNumber) {
             $res['TmNumber'] = $this->tmNumber;
         }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
         if (null !== $this->uploadFileTemplateUrl) {
             $res['UploadFileTemplateUrl'] = $this->uploadFileTemplateUrl;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->fileTemplateUrls) {
-            $res['FileTemplateUrls'] = null !== $this->fileTemplateUrls ? $this->fileTemplateUrls->toMap() : null;
         }
 
         return $res;
@@ -156,8 +174,38 @@ class QuerySupplementDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptDeadTime'])) {
+            $model->acceptDeadTime = $map['AcceptDeadTime'];
+        }
+        if (isset($map['AcceptTime'])) {
+            $model->acceptTime = $map['AcceptTime'];
+        }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
+        }
+        if (isset($map['FileTemplateUrls'])) {
+            $model->fileTemplateUrls = fileTemplateUrls::fromMap($map['FileTemplateUrls']);
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['OperateTime'])) {
             $model->operateTime = $map['OperateTime'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SbjDeadTime'])) {
+            $model->sbjDeadTime = $map['SbjDeadTime'];
+        }
+        if (isset($map['SendTime'])) {
+            $model->sendTime = $map['SendTime'];
         }
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
@@ -165,38 +213,14 @@ class QuerySupplementDetailResponseBody extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['SbjDeadTime'])) {
-            $model->sbjDeadTime = $map['SbjDeadTime'];
-        }
-        if (isset($map['AcceptDeadTime'])) {
-            $model->acceptDeadTime = $map['AcceptDeadTime'];
-        }
-        if (isset($map['SendTime'])) {
-            $model->sendTime = $map['SendTime'];
-        }
-        if (isset($map['AcceptTime'])) {
-            $model->acceptTime = $map['AcceptTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['TmNumber'])) {
             $model->tmNumber = $map['TmNumber'];
         }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
         if (isset($map['UploadFileTemplateUrl'])) {
             $model->uploadFileTemplateUrl = $map['UploadFileTemplateUrl'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['FileTemplateUrls'])) {
-            $model->fileTemplateUrls = fileTemplateUrls::fromMap($map['FileTemplateUrls']);
         }
 
         return $model;

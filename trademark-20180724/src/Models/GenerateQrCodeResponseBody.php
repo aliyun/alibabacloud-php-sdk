@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GenerateQrCodeResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $expireTime;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $fieldKey;
 
     /**
      * @var string
@@ -36,14 +26,24 @@ class GenerateQrCodeResponseBody extends Model
     /**
      * @var string
      */
-    public $fieldKey;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'uuid'       => 'Uuid',
-        'requestId'  => 'RequestId',
         'expireTime' => 'ExpireTime',
-        'success'    => 'Success',
-        'qrcodeUrl'  => 'QrcodeUrl',
         'fieldKey'   => 'FieldKey',
+        'qrcodeUrl'  => 'QrcodeUrl',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
+        'uuid'       => 'Uuid',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class GenerateQrCodeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->fieldKey) {
+            $res['FieldKey'] = $this->fieldKey;
         }
         if (null !== $this->qrcodeUrl) {
             $res['QrcodeUrl'] = $this->qrcodeUrl;
         }
-        if (null !== $this->fieldKey) {
-            $res['FieldKey'] = $this->fieldKey;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class GenerateQrCodeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['FieldKey'])) {
+            $model->fieldKey = $map['FieldKey'];
         }
         if (isset($map['QrcodeUrl'])) {
             $model->qrcodeUrl = $map['QrcodeUrl'];
         }
-        if (isset($map['FieldKey'])) {
-            $model->fieldKey = $map['FieldKey'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CombineLoaResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $templateCombineUrl;
-
-    /**
+     * @example 166BC359-A3D8-4287-BC39-56A144A1583A
+     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example https://trademark-loa.oss-cn-beijing.aliyuncs.com/usertrademark/1219541161213057_CD0D64DFC8D37DB2658A5BEA93BF480E.jpg?Expires=1545707150&OSSAccessKeyId=hObpgEXoca42qH3V&Signature=idfmwfKdGSha9PP3IPn2KCwhycM%3D
+     *
+     * @var string
+     */
+    public $templateCombineUrl;
     protected $_name = [
-        'templateCombineUrl' => 'TemplateCombineUrl',
         'requestId'          => 'RequestId',
+        'templateCombineUrl' => 'TemplateCombineUrl',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class CombineLoaResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateCombineUrl) {
-            $res['TemplateCombineUrl'] = $this->templateCombineUrl;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->templateCombineUrl) {
+            $res['TemplateCombineUrl'] = $this->templateCombineUrl;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class CombineLoaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateCombineUrl'])) {
-            $model->templateCombineUrl = $map['TemplateCombineUrl'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TemplateCombineUrl'])) {
+            $model->templateCombineUrl = $map['TemplateCombineUrl'];
         }
 
         return $model;

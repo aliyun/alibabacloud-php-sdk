@@ -12,12 +12,12 @@ class reviewOfficialFiles extends Model
     /**
      * @var string
      */
-    public $reviewKeep;
+    public $reviewAudit;
 
     /**
      * @var string
      */
-    public $reviewAudit;
+    public $reviewKeep;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class reviewOfficialFiles extends Model
      */
     public $reviewSupplements;
     protected $_name = [
-        'reviewKeep'        => 'ReviewKeep',
         'reviewAudit'       => 'ReviewAudit',
+        'reviewKeep'        => 'ReviewKeep',
         'reviewPart'        => 'ReviewPart',
         'reviewPass'        => 'ReviewPass',
         'reviewSupplements' => 'ReviewSupplements',
@@ -48,11 +48,11 @@ class reviewOfficialFiles extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reviewKeep) {
-            $res['ReviewKeep'] = $this->reviewKeep;
-        }
         if (null !== $this->reviewAudit) {
             $res['ReviewAudit'] = $this->reviewAudit;
+        }
+        if (null !== $this->reviewKeep) {
+            $res['ReviewKeep'] = $this->reviewKeep;
         }
         if (null !== $this->reviewPart) {
             $res['ReviewPart'] = $this->reviewPart;
@@ -75,11 +75,11 @@ class reviewOfficialFiles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReviewKeep'])) {
-            $model->reviewKeep = $map['ReviewKeep'];
-        }
         if (isset($map['ReviewAudit'])) {
             $model->reviewAudit = $map['ReviewAudit'];
+        }
+        if (isset($map['ReviewKeep'])) {
+            $model->reviewKeep = $map['ReviewKeep'];
         }
         if (isset($map['ReviewPart'])) {
             $model->reviewPart = $map['ReviewPart'];

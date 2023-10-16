@@ -14,11 +14,6 @@ class QueryTrademarkMonitorRulesRequest extends Model
     public $id;
 
     /**
-     * @var string
-     */
-    public $ruleName;
-
-    /**
      * @var int
      */
     public $notifyUpdate;
@@ -32,12 +27,17 @@ class QueryTrademarkMonitorRulesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
     protected $_name = [
         'id'           => 'Id',
-        'ruleName'     => 'RuleName',
         'notifyUpdate' => 'NotifyUpdate',
         'pageNum'      => 'PageNum',
         'pageSize'     => 'PageSize',
+        'ruleName'     => 'RuleName',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class QueryTrademarkMonitorRulesRequest extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
         if (null !== $this->notifyUpdate) {
             $res['NotifyUpdate'] = $this->notifyUpdate;
         }
@@ -61,6 +58,9 @@ class QueryTrademarkMonitorRulesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class QueryTrademarkMonitorRulesRequest extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
         if (isset($map['NotifyUpdate'])) {
             $model->notifyUpdate = $map['NotifyUpdate'];
         }
@@ -88,6 +85,9 @@ class QueryTrademarkMonitorRulesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
 
         return $model;

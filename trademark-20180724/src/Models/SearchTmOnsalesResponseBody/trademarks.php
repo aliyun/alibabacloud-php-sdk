@@ -11,12 +11,27 @@ class trademarks extends Model
     /**
      * @var string
      */
-    public $trademarkName;
+    public $classification;
 
     /**
-     * @var int
+     * @var string
      */
-    public $status;
+    public $icon;
+
+    /**
+     * @var string
+     */
+    public $orderPrice;
+
+    /**
+     * @var string
+     */
+    public $partnerCode;
+
+    /**
+     * @var string
+     */
+    public $productCode;
 
     /**
      * @var string
@@ -29,45 +44,30 @@ class trademarks extends Model
     public $registrationNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $icon;
+    public $status;
 
     /**
      * @var string
      */
-    public $partnerCode;
-
-    /**
-     * @var string
-     */
-    public $classification;
+    public $trademarkName;
 
     /**
      * @var string
      */
     public $uid;
-
-    /**
-     * @var string
-     */
-    public $productCode;
-
-    /**
-     * @var string
-     */
-    public $orderPrice;
     protected $_name = [
-        'trademarkName'      => 'TrademarkName',
-        'status'             => 'Status',
+        'classification'     => 'Classification',
+        'icon'               => 'Icon',
+        'orderPrice'         => 'OrderPrice',
+        'partnerCode'        => 'PartnerCode',
+        'productCode'        => 'ProductCode',
         'productDesc'        => 'ProductDesc',
         'registrationNumber' => 'RegistrationNumber',
-        'icon'               => 'Icon',
-        'partnerCode'        => 'PartnerCode',
-        'classification'     => 'Classification',
+        'status'             => 'Status',
+        'trademarkName'      => 'TrademarkName',
         'uid'                => 'Uid',
-        'productCode'        => 'ProductCode',
-        'orderPrice'         => 'OrderPrice',
     ];
 
     public function validate()
@@ -77,11 +77,20 @@ class trademarks extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trademarkName) {
-            $res['TrademarkName'] = $this->trademarkName;
+        if (null !== $this->classification) {
+            $res['Classification'] = $this->classification;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->icon) {
+            $res['Icon'] = $this->icon;
+        }
+        if (null !== $this->orderPrice) {
+            $res['OrderPrice'] = $this->orderPrice;
+        }
+        if (null !== $this->partnerCode) {
+            $res['PartnerCode'] = $this->partnerCode;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
         if (null !== $this->productDesc) {
             $res['ProductDesc'] = $this->productDesc;
@@ -89,23 +98,14 @@ class trademarks extends Model
         if (null !== $this->registrationNumber) {
             $res['RegistrationNumber'] = $this->registrationNumber;
         }
-        if (null !== $this->icon) {
-            $res['Icon'] = $this->icon;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->partnerCode) {
-            $res['PartnerCode'] = $this->partnerCode;
-        }
-        if (null !== $this->classification) {
-            $res['Classification'] = $this->classification;
+        if (null !== $this->trademarkName) {
+            $res['TrademarkName'] = $this->trademarkName;
         }
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
-        }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->orderPrice) {
-            $res['OrderPrice'] = $this->orderPrice;
         }
 
         return $res;
@@ -119,11 +119,20 @@ class trademarks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TrademarkName'])) {
-            $model->trademarkName = $map['TrademarkName'];
+        if (isset($map['Classification'])) {
+            $model->classification = $map['Classification'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Icon'])) {
+            $model->icon = $map['Icon'];
+        }
+        if (isset($map['OrderPrice'])) {
+            $model->orderPrice = $map['OrderPrice'];
+        }
+        if (isset($map['PartnerCode'])) {
+            $model->partnerCode = $map['PartnerCode'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
         if (isset($map['ProductDesc'])) {
             $model->productDesc = $map['ProductDesc'];
@@ -131,23 +140,14 @@ class trademarks extends Model
         if (isset($map['RegistrationNumber'])) {
             $model->registrationNumber = $map['RegistrationNumber'];
         }
-        if (isset($map['Icon'])) {
-            $model->icon = $map['Icon'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['PartnerCode'])) {
-            $model->partnerCode = $map['PartnerCode'];
-        }
-        if (isset($map['Classification'])) {
-            $model->classification = $map['Classification'];
+        if (isset($map['TrademarkName'])) {
+            $model->trademarkName = $map['TrademarkName'];
         }
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
-        }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['OrderPrice'])) {
-            $model->orderPrice = $map['OrderPrice'];
         }
 
         return $model;

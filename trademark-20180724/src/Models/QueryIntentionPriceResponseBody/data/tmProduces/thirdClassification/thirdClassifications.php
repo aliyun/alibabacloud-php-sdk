@@ -11,15 +11,15 @@ class thirdClassifications extends Model
     /**
      * @var string
      */
-    public $classificationName;
+    public $classificationCode;
 
     /**
      * @var string
      */
-    public $classificationCode;
+    public $classificationName;
     protected $_name = [
-        'classificationName' => 'ClassificationName',
         'classificationCode' => 'ClassificationCode',
+        'classificationName' => 'ClassificationName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class thirdClassifications extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->classificationName) {
-            $res['ClassificationName'] = $this->classificationName;
-        }
         if (null !== $this->classificationCode) {
             $res['ClassificationCode'] = $this->classificationCode;
+        }
+        if (null !== $this->classificationName) {
+            $res['ClassificationName'] = $this->classificationName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class thirdClassifications extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClassificationName'])) {
-            $model->classificationName = $map['ClassificationName'];
-        }
         if (isset($map['ClassificationCode'])) {
             $model->classificationCode = $map['ClassificationCode'];
+        }
+        if (isset($map['ClassificationName'])) {
+            $model->classificationName = $map['ClassificationName'];
         }
 
         return $model;

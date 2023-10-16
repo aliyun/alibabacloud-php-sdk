@@ -15,14 +15,19 @@ class data extends Model
     public $addressFill;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $templateUrl;
+    public $countryFill;
+
+    /**
+     * @var errorMsgs
+     */
+    public $errorMsgs;
 
     /**
      * @var bool
      */
-    public $countryFill;
+    public $materialNameFill;
 
     /**
      * @var bool
@@ -35,28 +40,29 @@ class data extends Model
     public $stampFill;
 
     /**
+     * @var string
+     */
+    public $templateUrl;
+
+    /**
+     * @var string
+     */
+    public $tips;
+
+    /**
      * @var bool
      */
     public $tradeMarkNameFill;
-
-    /**
-     * @var bool
-     */
-    public $materialNameFill;
-
-    /**
-     * @var errorMsgs
-     */
-    public $errorMsgs;
     protected $_name = [
         'addressFill'       => 'AddressFill',
-        'templateUrl'       => 'TemplateUrl',
         'countryFill'       => 'CountryFill',
+        'errorMsgs'         => 'ErrorMsgs',
+        'materialNameFill'  => 'MaterialNameFill',
         'nationalityFill'   => 'NationalityFill',
         'stampFill'         => 'StampFill',
+        'templateUrl'       => 'TemplateUrl',
+        'tips'              => 'Tips',
         'tradeMarkNameFill' => 'TradeMarkNameFill',
-        'materialNameFill'  => 'MaterialNameFill',
-        'errorMsgs'         => 'ErrorMsgs',
     ];
 
     public function validate()
@@ -69,11 +75,14 @@ class data extends Model
         if (null !== $this->addressFill) {
             $res['AddressFill'] = $this->addressFill;
         }
-        if (null !== $this->templateUrl) {
-            $res['TemplateUrl'] = $this->templateUrl;
-        }
         if (null !== $this->countryFill) {
             $res['CountryFill'] = $this->countryFill;
+        }
+        if (null !== $this->errorMsgs) {
+            $res['ErrorMsgs'] = null !== $this->errorMsgs ? $this->errorMsgs->toMap() : null;
+        }
+        if (null !== $this->materialNameFill) {
+            $res['MaterialNameFill'] = $this->materialNameFill;
         }
         if (null !== $this->nationalityFill) {
             $res['NationalityFill'] = $this->nationalityFill;
@@ -81,14 +90,14 @@ class data extends Model
         if (null !== $this->stampFill) {
             $res['StampFill'] = $this->stampFill;
         }
+        if (null !== $this->templateUrl) {
+            $res['TemplateUrl'] = $this->templateUrl;
+        }
+        if (null !== $this->tips) {
+            $res['Tips'] = $this->tips;
+        }
         if (null !== $this->tradeMarkNameFill) {
             $res['TradeMarkNameFill'] = $this->tradeMarkNameFill;
-        }
-        if (null !== $this->materialNameFill) {
-            $res['MaterialNameFill'] = $this->materialNameFill;
-        }
-        if (null !== $this->errorMsgs) {
-            $res['ErrorMsgs'] = null !== $this->errorMsgs ? $this->errorMsgs->toMap() : null;
         }
 
         return $res;
@@ -105,11 +114,14 @@ class data extends Model
         if (isset($map['AddressFill'])) {
             $model->addressFill = $map['AddressFill'];
         }
-        if (isset($map['TemplateUrl'])) {
-            $model->templateUrl = $map['TemplateUrl'];
-        }
         if (isset($map['CountryFill'])) {
             $model->countryFill = $map['CountryFill'];
+        }
+        if (isset($map['ErrorMsgs'])) {
+            $model->errorMsgs = errorMsgs::fromMap($map['ErrorMsgs']);
+        }
+        if (isset($map['MaterialNameFill'])) {
+            $model->materialNameFill = $map['MaterialNameFill'];
         }
         if (isset($map['NationalityFill'])) {
             $model->nationalityFill = $map['NationalityFill'];
@@ -117,14 +129,14 @@ class data extends Model
         if (isset($map['StampFill'])) {
             $model->stampFill = $map['StampFill'];
         }
+        if (isset($map['TemplateUrl'])) {
+            $model->templateUrl = $map['TemplateUrl'];
+        }
+        if (isset($map['Tips'])) {
+            $model->tips = $map['Tips'];
+        }
         if (isset($map['TradeMarkNameFill'])) {
             $model->tradeMarkNameFill = $map['TradeMarkNameFill'];
-        }
-        if (isset($map['MaterialNameFill'])) {
-            $model->materialNameFill = $map['MaterialNameFill'];
-        }
-        if (isset($map['ErrorMsgs'])) {
-            $model->errorMsgs = errorMsgs::fromMap($map['ErrorMsgs']);
         }
 
         return $model;

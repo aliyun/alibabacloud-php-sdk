@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitSupplementShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $content;
+
+    /**
      * @var int
      */
     public $id;
@@ -16,16 +21,17 @@ class SubmitSupplementShrinkRequest extends Model
     /**
      * @var string
      */
-    public $uploadOssKeyListShrink;
+    public $operateType;
 
     /**
      * @var string
      */
-    public $content;
+    public $uploadOssKeyListShrink;
     protected $_name = [
-        'id'                     => 'Id',
-        'uploadOssKeyListShrink' => 'UploadOssKeyList',
         'content'                => 'Content',
+        'id'                     => 'Id',
+        'operateType'            => 'OperateType',
+        'uploadOssKeyListShrink' => 'UploadOssKeyList',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class SubmitSupplementShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->operateType) {
+            $res['OperateType'] = $this->operateType;
+        }
         if (null !== $this->uploadOssKeyListShrink) {
             $res['UploadOssKeyList'] = $this->uploadOssKeyListShrink;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class SubmitSupplementShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['OperateType'])) {
+            $model->operateType = $map['OperateType'];
+        }
         if (isset($map['UploadOssKeyList'])) {
             $model->uploadOssKeyListShrink = $map['UploadOssKeyList'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
         }
 
         return $model;

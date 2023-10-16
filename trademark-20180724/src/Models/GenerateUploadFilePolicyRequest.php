@@ -11,15 +11,17 @@ class GenerateUploadFilePolicyRequest extends Model
     /**
      * @var string
      */
-    public $fileType;
+    public $bizId;
 
     /**
+     * @example ICON
+     *
      * @var string
      */
-    public $bizId;
+    public $fileType;
     protected $_name = [
-        'fileType' => 'FileType',
         'bizId'    => 'BizId',
+        'fileType' => 'FileType',
     ];
 
     public function validate()
@@ -29,11 +31,11 @@ class GenerateUploadFilePolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileType) {
-            $res['FileType'] = $this->fileType;
-        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->fileType) {
+            $res['FileType'] = $this->fileType;
         }
 
         return $res;
@@ -47,11 +49,11 @@ class GenerateUploadFilePolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileType'])) {
-            $model->fileType = $map['FileType'];
-        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+        if (isset($map['FileType'])) {
+            $model->fileType = $map['FileType'];
         }
 
         return $model;

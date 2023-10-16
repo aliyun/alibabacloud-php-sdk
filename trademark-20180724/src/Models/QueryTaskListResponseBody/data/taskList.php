@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class taskList extends Model
 {
     /**
-     * @var string
-     */
-    public $taskType;
-
-    /**
-     * @var string
-     */
-    public $result;
-
-    /**
-     * @var string
-     */
-    public $taskStatus;
-
-    /**
      * @var int
      */
     public $completeTime;
@@ -42,14 +27,29 @@ class taskList extends Model
      * @var string
      */
     public $fileName;
+
+    /**
+     * @var string
+     */
+    public $result;
+
+    /**
+     * @var string
+     */
+    public $taskStatus;
+
+    /**
+     * @var string
+     */
+    public $taskType;
     protected $_name = [
-        'taskType'     => 'TaskType',
-        'result'       => 'Result',
-        'taskStatus'   => 'TaskStatus',
         'completeTime' => 'CompleteTime',
         'createTime'   => 'CreateTime',
         'errMsg'       => 'ErrMsg',
         'fileName'     => 'FileName',
+        'result'       => 'Result',
+        'taskStatus'   => 'TaskStatus',
+        'taskType'     => 'TaskType',
     ];
 
     public function validate()
@@ -59,15 +59,6 @@ class taskList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
-        }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
-        }
         if (null !== $this->completeTime) {
             $res['CompleteTime'] = $this->completeTime;
         }
@@ -79,6 +70,15 @@ class taskList extends Model
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -92,15 +92,6 @@ class taskList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
-        }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
-        }
         if (isset($map['CompleteTime'])) {
             $model->completeTime = $map['CompleteTime'];
         }
@@ -112,6 +103,15 @@ class taskList extends Model
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

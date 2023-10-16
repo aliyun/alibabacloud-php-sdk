@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubmitSupplementRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $content;
+
+    /**
      * @var int
      */
     public $id;
 
     /**
+     * @var string
+     */
+    public $operateType;
+
+    /**
      * @var mixed[]
      */
     public $uploadOssKeyList;
-
-    /**
-     * @var string
-     */
-    public $content;
     protected $_name = [
-        'id'               => 'Id',
-        'uploadOssKeyList' => 'UploadOssKeyList',
         'content'          => 'Content',
+        'id'               => 'Id',
+        'operateType'      => 'OperateType',
+        'uploadOssKeyList' => 'UploadOssKeyList',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class SubmitSupplementRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->operateType) {
+            $res['OperateType'] = $this->operateType;
+        }
         if (null !== $this->uploadOssKeyList) {
             $res['UploadOssKeyList'] = $this->uploadOssKeyList;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class SubmitSupplementRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['OperateType'])) {
+            $model->operateType = $map['OperateType'];
+        }
         if (isset($map['UploadOssKeyList'])) {
             $model->uploadOssKeyList = $map['UploadOssKeyList'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
         }
 
         return $model;

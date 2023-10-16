@@ -11,7 +11,7 @@ class QueryCredentialsInfoRequest extends Model
     /**
      * @var string
      */
-    public $ossKey;
+    public $companyName;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class QueryCredentialsInfoRequest extends Model
     /**
      * @var string
      */
-    public $companyName;
+    public $ossKey;
     protected $_name = [
-        'ossKey'       => 'OssKey',
-        'materialType' => 'MaterialType',
         'companyName'  => 'CompanyName',
+        'materialType' => 'MaterialType',
+        'ossKey'       => 'OssKey',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class QueryCredentialsInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ossKey) {
-            $res['OssKey'] = $this->ossKey;
+        if (null !== $this->companyName) {
+            $res['CompanyName'] = $this->companyName;
         }
         if (null !== $this->materialType) {
             $res['MaterialType'] = $this->materialType;
         }
-        if (null !== $this->companyName) {
-            $res['CompanyName'] = $this->companyName;
+        if (null !== $this->ossKey) {
+            $res['OssKey'] = $this->ossKey;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class QueryCredentialsInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OssKey'])) {
-            $model->ossKey = $map['OssKey'];
+        if (isset($map['CompanyName'])) {
+            $model->companyName = $map['CompanyName'];
         }
         if (isset($map['MaterialType'])) {
             $model->materialType = $map['MaterialType'];
         }
-        if (isset($map['CompanyName'])) {
-            $model->companyName = $map['CompanyName'];
+        if (isset($map['OssKey'])) {
+            $model->ossKey = $map['OssKey'];
         }
 
         return $model;

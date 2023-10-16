@@ -9,47 +9,65 @@ use AlibabaCloud\Tea\Model;
 class GenerateUploadFilePolicyResponseBody extends Model
 {
     /**
+     * @description accessId
+     *
+     * @example hObpgEXoca42qH3V
+     *
      * @var string
      */
-    public $signature;
+    public $accessId;
 
     /**
-     * @var string
-     */
-    public $host;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $expireTime;
-
-    /**
+     * @description osspolicy
+     *
+     * @example eyJleHBpcmF0aW9uIjoiMjAxOC0xMi0yNVQwODozNDo0MC41ODVaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMjA0ODAwXSxbInN0YXJ0cy13aXRoIiwiJGtleSIsIjEyMTk1NDExNjEyMTMwNTcvaWNvbiJdXX0=
+     *
      * @var string
      */
     public $encodedPolicy;
 
     /**
+     * @example 1545726880585
+     *
+     * @var int
+     */
+    public $expireTime;
+
+    /**
+     * @example 1219541161213057/icon
+     *
      * @var string
      */
     public $fileDir;
 
     /**
+     * @example //trade-mark-user-upload.oss-cn-beijing.aliyuncs.com/
+     *
      * @var string
      */
-    public $accessId;
+    public $host;
+
+    /**
+     * @example A891194E-BEB7-45EA-9A02-886B94479783
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example ozjILaFe+DSgUPX2OOplFHYBJqk=
+     *
+     * @var string
+     */
+    public $signature;
     protected $_name = [
-        'signature'     => 'Signature',
+        'accessId'      => 'AccessId',
+        'encodedPolicy' => 'EncodedPolicy',
+        'expireTime'    => 'ExpireTime',
+        'fileDir'       => 'FileDir',
         'host'          => 'Host',
         'requestId'     => 'RequestId',
-        'expireTime'    => 'ExpireTime',
-        'encodedPolicy' => 'EncodedPolicy',
-        'fileDir'       => 'FileDir',
-        'accessId'      => 'AccessId',
+        'signature'     => 'Signature',
     ];
 
     public function validate()
@@ -59,8 +77,17 @@ class GenerateUploadFilePolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
+        if (null !== $this->accessId) {
+            $res['AccessId'] = $this->accessId;
+        }
+        if (null !== $this->encodedPolicy) {
+            $res['EncodedPolicy'] = $this->encodedPolicy;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->fileDir) {
+            $res['FileDir'] = $this->fileDir;
         }
         if (null !== $this->host) {
             $res['Host'] = $this->host;
@@ -68,17 +95,8 @@ class GenerateUploadFilePolicyResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
-        }
-        if (null !== $this->encodedPolicy) {
-            $res['EncodedPolicy'] = $this->encodedPolicy;
-        }
-        if (null !== $this->fileDir) {
-            $res['FileDir'] = $this->fileDir;
-        }
-        if (null !== $this->accessId) {
-            $res['AccessId'] = $this->accessId;
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
         }
 
         return $res;
@@ -92,8 +110,17 @@ class GenerateUploadFilePolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
+        if (isset($map['AccessId'])) {
+            $model->accessId = $map['AccessId'];
+        }
+        if (isset($map['EncodedPolicy'])) {
+            $model->encodedPolicy = $map['EncodedPolicy'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['FileDir'])) {
+            $model->fileDir = $map['FileDir'];
         }
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
@@ -101,17 +128,8 @@ class GenerateUploadFilePolicyResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['EncodedPolicy'])) {
-            $model->encodedPolicy = $map['EncodedPolicy'];
-        }
-        if (isset($map['FileDir'])) {
-            $model->fileDir = $map['FileDir'];
-        }
-        if (isset($map['AccessId'])) {
-            $model->accessId = $map['AccessId'];
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
         }
 
         return $model;

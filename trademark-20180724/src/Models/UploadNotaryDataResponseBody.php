@@ -11,15 +11,15 @@ class UploadNotaryDataResponseBody extends Model
     /**
      * @var string
      */
-    public $userAuthUrl;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $userAuthUrl;
     protected $_name = [
-        'userAuthUrl' => 'UserAuthUrl',
         'requestId'   => 'RequestId',
+        'userAuthUrl' => 'UserAuthUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UploadNotaryDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userAuthUrl) {
-            $res['UserAuthUrl'] = $this->userAuthUrl;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->userAuthUrl) {
+            $res['UserAuthUrl'] = $this->userAuthUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UploadNotaryDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserAuthUrl'])) {
-            $model->userAuthUrl = $map['UserAuthUrl'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UserAuthUrl'])) {
+            $model->userAuthUrl = $map['UserAuthUrl'];
         }
 
         return $model;

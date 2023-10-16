@@ -19,19 +19,19 @@ class GetDefaultPrincipalResponseBody extends Model
     public $principalName;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $principalValue;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'principalDescription' => 'PrincipalDescription',
         'principalName'        => 'PrincipalName',
-        'requestId'            => 'RequestId',
         'principalValue'       => 'PrincipalValue',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class GetDefaultPrincipalResponseBody extends Model
         if (null !== $this->principalName) {
             $res['PrincipalName'] = $this->principalName;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->principalValue) {
             $res['PrincipalValue'] = $this->principalValue;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class GetDefaultPrincipalResponseBody extends Model
         if (isset($map['PrincipalName'])) {
             $model->principalName = $map['PrincipalName'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PrincipalValue'])) {
             $model->principalValue = $map['PrincipalValue'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

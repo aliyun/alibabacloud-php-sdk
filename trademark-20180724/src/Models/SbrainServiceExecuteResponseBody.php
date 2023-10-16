@@ -6,12 +6,22 @@ namespace AlibabaCloud\SDK\Trademark\V20180724\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class InsertTradeIntentionUserResponseBody extends Model
+class SbrainServiceExecuteResponseBody extends Model
 {
+    /**
+     * @var mixed
+     */
+    public $data;
+
     /**
      * @var string
      */
-    public $errorMsg;
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @var string
@@ -23,9 +33,11 @@ class InsertTradeIntentionUserResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'errorMsg'  => 'ErrorMsg',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'data'         => 'Data',
+        'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -35,8 +47,14 @@ class InsertTradeIntentionUserResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errorMsg) {
-            $res['ErrorMsg'] = $this->errorMsg;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -51,13 +69,19 @@ class InsertTradeIntentionUserResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return InsertTradeIntentionUserResponseBody
+     * @return SbrainServiceExecuteResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorMsg'])) {
-            $model->errorMsg = $map['ErrorMsg'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

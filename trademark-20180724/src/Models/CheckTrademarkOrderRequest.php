@@ -9,29 +9,34 @@ use AlibabaCloud\Tea\Model;
 class CheckTrademarkOrderRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $userId;
+    public $agreementId;
 
     /**
      * @var string
      */
-    public $tmName;
+    public $bizId;
 
     /**
      * @var string
      */
-    public $tmIcon;
+    public $channel;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $type;
+    public $isBlackIcon;
 
     /**
      * @var string
      */
-    public $orderData;
+    public $loaOssKey;
+
+    /**
+     * @var string
+     */
+    public $logoGoodsId;
 
     /**
      * @var string
@@ -41,12 +46,32 @@ class CheckTrademarkOrderRequest extends Model
     /**
      * @var string
      */
-    public $loaOssKey;
+    public $orderData;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $isBlackIcon;
+    public $partnerCode;
+
+    /**
+     * @var string
+     */
+    public $phoneNum;
+
+    /**
+     * @var string
+     */
+    public $realUserName;
+
+    /**
+     * @var string
+     */
+    public $registerName;
+
+    /**
+     * @var string
+     */
+    public $registerNumber;
 
     /**
      * @var string
@@ -61,12 +86,17 @@ class CheckTrademarkOrderRequest extends Model
     /**
      * @var string
      */
-    public $channel;
+    public $tmComment;
 
     /**
      * @var string
      */
-    public $registerNumber;
+    public $tmIcon;
+
+    /**
+     * @var string
+     */
+    public $tmName;
 
     /**
      * @var string
@@ -74,19 +104,9 @@ class CheckTrademarkOrderRequest extends Model
     public $tmNameType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $registerName;
-
-    /**
-     * @var string
-     */
-    public $tmComment;
-
-    /**
-     * @var string
-     */
-    public $bizId;
+    public $type;
 
     /**
      * @var string
@@ -94,46 +114,32 @@ class CheckTrademarkOrderRequest extends Model
     public $uid;
 
     /**
-     * @var string
+     * @var int
      */
-    public $partnerCode;
-
-    /**
-     * @var string
-     */
-    public $realUserName;
-
-    /**
-     * @var string
-     */
-    public $phoneNum;
-
-    /**
-     * @var string
-     */
-    public $logoGoodsId;
+    public $userId;
     protected $_name = [
-        'userId'         => 'UserId',
-        'tmName'         => 'TmName',
-        'tmIcon'         => 'TmIcon',
-        'type'           => 'Type',
-        'orderData'      => 'OrderData',
-        'materialId'     => 'MaterialId',
-        'loaOssKey'      => 'LoaOssKey',
+        'agreementId'    => 'AgreementId',
+        'bizId'          => 'BizId',
+        'channel'        => 'Channel',
         'isBlackIcon'    => 'IsBlackIcon',
+        'loaOssKey'      => 'LoaOssKey',
+        'logoGoodsId'    => 'LogoGoodsId',
+        'materialId'     => 'MaterialId',
+        'orderData'      => 'OrderData',
+        'partnerCode'    => 'PartnerCode',
+        'phoneNum'       => 'PhoneNum',
+        'realUserName'   => 'RealUserName',
+        'registerName'   => 'RegisterName',
+        'registerNumber' => 'RegisterNumber',
         'renewInfoId'    => 'RenewInfoId',
         'rootCode'       => 'RootCode',
-        'channel'        => 'Channel',
-        'registerNumber' => 'RegisterNumber',
-        'tmNameType'     => 'TmNameType',
-        'registerName'   => 'RegisterName',
         'tmComment'      => 'TmComment',
-        'bizId'          => 'BizId',
+        'tmIcon'         => 'TmIcon',
+        'tmName'         => 'TmName',
+        'tmNameType'     => 'TmNameType',
+        'type'           => 'Type',
         'uid'            => 'Uid',
-        'partnerCode'    => 'PartnerCode',
-        'realUserName'   => 'RealUserName',
-        'phoneNum'       => 'PhoneNum',
-        'logoGoodsId'    => 'LogoGoodsId',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -143,29 +149,44 @@ class CheckTrademarkOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->agreementId) {
+            $res['AgreementId'] = $this->agreementId;
         }
-        if (null !== $this->tmName) {
-            $res['TmName'] = $this->tmName;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->tmIcon) {
-            $res['TmIcon'] = $this->tmIcon;
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->orderData) {
-            $res['OrderData'] = $this->orderData;
-        }
-        if (null !== $this->materialId) {
-            $res['MaterialId'] = $this->materialId;
+        if (null !== $this->isBlackIcon) {
+            $res['IsBlackIcon'] = $this->isBlackIcon;
         }
         if (null !== $this->loaOssKey) {
             $res['LoaOssKey'] = $this->loaOssKey;
         }
-        if (null !== $this->isBlackIcon) {
-            $res['IsBlackIcon'] = $this->isBlackIcon;
+        if (null !== $this->logoGoodsId) {
+            $res['LogoGoodsId'] = $this->logoGoodsId;
+        }
+        if (null !== $this->materialId) {
+            $res['MaterialId'] = $this->materialId;
+        }
+        if (null !== $this->orderData) {
+            $res['OrderData'] = $this->orderData;
+        }
+        if (null !== $this->partnerCode) {
+            $res['PartnerCode'] = $this->partnerCode;
+        }
+        if (null !== $this->phoneNum) {
+            $res['PhoneNum'] = $this->phoneNum;
+        }
+        if (null !== $this->realUserName) {
+            $res['RealUserName'] = $this->realUserName;
+        }
+        if (null !== $this->registerName) {
+            $res['RegisterName'] = $this->registerName;
+        }
+        if (null !== $this->registerNumber) {
+            $res['RegisterNumber'] = $this->registerNumber;
         }
         if (null !== $this->renewInfoId) {
             $res['RenewInfoId'] = $this->renewInfoId;
@@ -173,38 +194,26 @@ class CheckTrademarkOrderRequest extends Model
         if (null !== $this->rootCode) {
             $res['RootCode'] = $this->rootCode;
         }
-        if (null !== $this->channel) {
-            $res['Channel'] = $this->channel;
+        if (null !== $this->tmComment) {
+            $res['TmComment'] = $this->tmComment;
         }
-        if (null !== $this->registerNumber) {
-            $res['RegisterNumber'] = $this->registerNumber;
+        if (null !== $this->tmIcon) {
+            $res['TmIcon'] = $this->tmIcon;
+        }
+        if (null !== $this->tmName) {
+            $res['TmName'] = $this->tmName;
         }
         if (null !== $this->tmNameType) {
             $res['TmNameType'] = $this->tmNameType;
         }
-        if (null !== $this->registerName) {
-            $res['RegisterName'] = $this->registerName;
-        }
-        if (null !== $this->tmComment) {
-            $res['TmComment'] = $this->tmComment;
-        }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
-        if (null !== $this->partnerCode) {
-            $res['PartnerCode'] = $this->partnerCode;
-        }
-        if (null !== $this->realUserName) {
-            $res['RealUserName'] = $this->realUserName;
-        }
-        if (null !== $this->phoneNum) {
-            $res['PhoneNum'] = $this->phoneNum;
-        }
-        if (null !== $this->logoGoodsId) {
-            $res['LogoGoodsId'] = $this->logoGoodsId;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -218,29 +227,44 @@ class CheckTrademarkOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['AgreementId'])) {
+            $model->agreementId = $map['AgreementId'];
         }
-        if (isset($map['TmName'])) {
-            $model->tmName = $map['TmName'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
-        if (isset($map['TmIcon'])) {
-            $model->tmIcon = $map['TmIcon'];
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['OrderData'])) {
-            $model->orderData = $map['OrderData'];
-        }
-        if (isset($map['MaterialId'])) {
-            $model->materialId = $map['MaterialId'];
+        if (isset($map['IsBlackIcon'])) {
+            $model->isBlackIcon = $map['IsBlackIcon'];
         }
         if (isset($map['LoaOssKey'])) {
             $model->loaOssKey = $map['LoaOssKey'];
         }
-        if (isset($map['IsBlackIcon'])) {
-            $model->isBlackIcon = $map['IsBlackIcon'];
+        if (isset($map['LogoGoodsId'])) {
+            $model->logoGoodsId = $map['LogoGoodsId'];
+        }
+        if (isset($map['MaterialId'])) {
+            $model->materialId = $map['MaterialId'];
+        }
+        if (isset($map['OrderData'])) {
+            $model->orderData = $map['OrderData'];
+        }
+        if (isset($map['PartnerCode'])) {
+            $model->partnerCode = $map['PartnerCode'];
+        }
+        if (isset($map['PhoneNum'])) {
+            $model->phoneNum = $map['PhoneNum'];
+        }
+        if (isset($map['RealUserName'])) {
+            $model->realUserName = $map['RealUserName'];
+        }
+        if (isset($map['RegisterName'])) {
+            $model->registerName = $map['RegisterName'];
+        }
+        if (isset($map['RegisterNumber'])) {
+            $model->registerNumber = $map['RegisterNumber'];
         }
         if (isset($map['RenewInfoId'])) {
             $model->renewInfoId = $map['RenewInfoId'];
@@ -248,38 +272,26 @@ class CheckTrademarkOrderRequest extends Model
         if (isset($map['RootCode'])) {
             $model->rootCode = $map['RootCode'];
         }
-        if (isset($map['Channel'])) {
-            $model->channel = $map['Channel'];
+        if (isset($map['TmComment'])) {
+            $model->tmComment = $map['TmComment'];
         }
-        if (isset($map['RegisterNumber'])) {
-            $model->registerNumber = $map['RegisterNumber'];
+        if (isset($map['TmIcon'])) {
+            $model->tmIcon = $map['TmIcon'];
+        }
+        if (isset($map['TmName'])) {
+            $model->tmName = $map['TmName'];
         }
         if (isset($map['TmNameType'])) {
             $model->tmNameType = $map['TmNameType'];
         }
-        if (isset($map['RegisterName'])) {
-            $model->registerName = $map['RegisterName'];
-        }
-        if (isset($map['TmComment'])) {
-            $model->tmComment = $map['TmComment'];
-        }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }
-        if (isset($map['PartnerCode'])) {
-            $model->partnerCode = $map['PartnerCode'];
-        }
-        if (isset($map['RealUserName'])) {
-            $model->realUserName = $map['RealUserName'];
-        }
-        if (isset($map['PhoneNum'])) {
-            $model->phoneNum = $map['PhoneNum'];
-        }
-        if (isset($map['LogoGoodsId'])) {
-            $model->logoGoodsId = $map['LogoGoodsId'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

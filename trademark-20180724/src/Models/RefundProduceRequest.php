@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RefundProduceRequest extends Model
 {
     /**
+     * @example trademark_register-cn-o400xeo7n03
+     *
      * @var string
      */
     public $bizId;
+
+    /**
+     * @var string
+     */
+    public $refundType;
     protected $_name = [
-        'bizId' => 'BizId',
+        'bizId'      => 'BizId',
+        'refundType' => 'RefundType',
     ];
 
     public function validate()
@@ -25,6 +33,9 @@ class RefundProduceRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->refundType) {
+            $res['RefundType'] = $this->refundType;
         }
 
         return $res;
@@ -40,6 +51,9 @@ class RefundProduceRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+        if (isset($map['RefundType'])) {
+            $model->refundType = $map['RefundType'];
         }
 
         return $model;

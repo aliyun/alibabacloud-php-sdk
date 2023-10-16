@@ -16,22 +16,22 @@ class QueryCommunicationLogsRequest extends Model
     /**
      * @var int
      */
-    public $type;
-
-    /**
-     * @var int
-     */
     public $pageNum;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
         'bizId'    => 'BizId',
-        'type'     => 'Type',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class QueryCommunicationLogsRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class QueryCommunicationLogsRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

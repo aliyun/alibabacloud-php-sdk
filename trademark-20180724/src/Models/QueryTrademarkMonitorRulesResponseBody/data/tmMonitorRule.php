@@ -11,42 +11,7 @@ class tmMonitorRule extends Model
     /**
      * @var string
      */
-    public $ruleStatus;
-
-    /**
-     * @var string
-     */
-    public $lastFinishTime;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
-
-    /**
-     * @var int
-     */
-    public $ruleType;
-
-    /**
-     * @var string
-     */
     public $createTime;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $ruleExtend;
-
-    /**
-     * @var string
-     */
-    public $ruleName;
 
     /**
      * @var string
@@ -56,12 +21,17 @@ class tmMonitorRule extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $env;
 
     /**
      * @var string
      */
-    public $ruleKeyword;
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $lastFinishTime;
 
     /**
      * @var string
@@ -69,24 +39,9 @@ class tmMonitorRule extends Model
     public $lastRunTime;
 
     /**
-     * @var int
-     */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $ruleSource;
-
-    /**
      * @var string
      */
     public $lastUpdateTime;
-
-    /**
-     * @var string
-     */
-    public $env;
 
     /**
      * @var int
@@ -101,27 +56,72 @@ class tmMonitorRule extends Model
     /**
      * @var string
      */
-    public $id;
+    public $ruleExtend;
+
+    /**
+     * @var string
+     */
+    public $ruleKeyword;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
+
+    /**
+     * @var string
+     */
+    public $ruleSource;
+
+    /**
+     * @var string
+     */
+    public $ruleStatus;
+
+    /**
+     * @var int
+     */
+    public $ruleType;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $userId;
+
+    /**
+     * @var int
+     */
+    public $version;
     protected $_name = [
-        'ruleStatus'     => 'RuleStatus',
-        'lastFinishTime' => 'LastFinishTime',
-        'updateTime'     => 'UpdateTime',
-        'ruleType'       => 'RuleType',
         'createTime'     => 'CreateTime',
-        'userId'         => 'UserId',
-        'ruleExtend'     => 'RuleExtend',
-        'ruleName'       => 'RuleName',
         'endTime'        => 'EndTime',
-        'startTime'      => 'StartTime',
-        'ruleKeyword'    => 'RuleKeyword',
-        'lastRunTime'    => 'LastRunTime',
-        'version'        => 'Version',
-        'ruleSource'     => 'RuleSource',
-        'lastUpdateTime' => 'LastUpdateTime',
         'env'            => 'Env',
+        'id'             => 'Id',
+        'lastFinishTime' => 'LastFinishTime',
+        'lastRunTime'    => 'LastRunTime',
+        'lastUpdateTime' => 'LastUpdateTime',
         'notifyUpdate'   => 'NotifyUpdate',
         'ruleDetail'     => 'RuleDetail',
-        'id'             => 'Id',
+        'ruleExtend'     => 'RuleExtend',
+        'ruleKeyword'    => 'RuleKeyword',
+        'ruleName'       => 'RuleName',
+        'ruleSource'     => 'RuleSource',
+        'ruleStatus'     => 'RuleStatus',
+        'ruleType'       => 'RuleType',
+        'startTime'      => 'StartTime',
+        'updateTime'     => 'UpdateTime',
+        'userId'         => 'UserId',
+        'version'        => 'Version',
     ];
 
     public function validate()
@@ -131,53 +131,26 @@ class tmMonitorRule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleStatus) {
-            $res['RuleStatus'] = $this->ruleStatus;
-        }
-        if (null !== $this->lastFinishTime) {
-            $res['LastFinishTime'] = $this->lastFinishTime;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->ruleType) {
-            $res['RuleType'] = $this->ruleType;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->ruleExtend) {
-            $res['RuleExtend'] = $this->ruleExtend;
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->env) {
+            $res['Env'] = $this->env;
         }
-        if (null !== $this->ruleKeyword) {
-            $res['RuleKeyword'] = $this->ruleKeyword;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->lastFinishTime) {
+            $res['LastFinishTime'] = $this->lastFinishTime;
         }
         if (null !== $this->lastRunTime) {
             $res['LastRunTime'] = $this->lastRunTime;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->ruleSource) {
-            $res['RuleSource'] = $this->ruleSource;
-        }
         if (null !== $this->lastUpdateTime) {
             $res['LastUpdateTime'] = $this->lastUpdateTime;
-        }
-        if (null !== $this->env) {
-            $res['Env'] = $this->env;
         }
         if (null !== $this->notifyUpdate) {
             $res['NotifyUpdate'] = $this->notifyUpdate;
@@ -185,8 +158,35 @@ class tmMonitorRule extends Model
         if (null !== $this->ruleDetail) {
             $res['RuleDetail'] = $this->ruleDetail;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->ruleExtend) {
+            $res['RuleExtend'] = $this->ruleExtend;
+        }
+        if (null !== $this->ruleKeyword) {
+            $res['RuleKeyword'] = $this->ruleKeyword;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->ruleSource) {
+            $res['RuleSource'] = $this->ruleSource;
+        }
+        if (null !== $this->ruleStatus) {
+            $res['RuleStatus'] = $this->ruleStatus;
+        }
+        if (null !== $this->ruleType) {
+            $res['RuleType'] = $this->ruleType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -200,53 +200,26 @@ class tmMonitorRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleStatus'])) {
-            $model->ruleStatus = $map['RuleStatus'];
-        }
-        if (isset($map['LastFinishTime'])) {
-            $model->lastFinishTime = $map['LastFinishTime'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['RuleType'])) {
-            $model->ruleType = $map['RuleType'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['RuleExtend'])) {
-            $model->ruleExtend = $map['RuleExtend'];
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Env'])) {
+            $model->env = $map['Env'];
         }
-        if (isset($map['RuleKeyword'])) {
-            $model->ruleKeyword = $map['RuleKeyword'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['LastFinishTime'])) {
+            $model->lastFinishTime = $map['LastFinishTime'];
         }
         if (isset($map['LastRunTime'])) {
             $model->lastRunTime = $map['LastRunTime'];
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['RuleSource'])) {
-            $model->ruleSource = $map['RuleSource'];
-        }
         if (isset($map['LastUpdateTime'])) {
             $model->lastUpdateTime = $map['LastUpdateTime'];
-        }
-        if (isset($map['Env'])) {
-            $model->env = $map['Env'];
         }
         if (isset($map['NotifyUpdate'])) {
             $model->notifyUpdate = $map['NotifyUpdate'];
@@ -254,8 +227,35 @@ class tmMonitorRule extends Model
         if (isset($map['RuleDetail'])) {
             $model->ruleDetail = $map['RuleDetail'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['RuleExtend'])) {
+            $model->ruleExtend = $map['RuleExtend'];
+        }
+        if (isset($map['RuleKeyword'])) {
+            $model->ruleKeyword = $map['RuleKeyword'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['RuleSource'])) {
+            $model->ruleSource = $map['RuleSource'];
+        }
+        if (isset($map['RuleStatus'])) {
+            $model->ruleStatus = $map['RuleStatus'];
+        }
+        if (isset($map['RuleType'])) {
+            $model->ruleType = $map['RuleType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

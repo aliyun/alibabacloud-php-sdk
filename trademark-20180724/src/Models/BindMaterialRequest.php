@@ -9,11 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BindMaterialRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $materialId;
-
-    /**
+     * @example trademark_register-cn-11212
+     *
      * @var string
      */
     public $bizId;
@@ -21,17 +18,26 @@ class BindMaterialRequest extends Model
     /**
      * @var string
      */
+    public $legalNoticeKey;
+
+    /**
+     * @example /test/loaosskey.jpg
+     *
+     * @var string
+     */
     public $loaOssKey;
 
     /**
+     * @example 11
+     *
      * @var string
      */
-    public $legalNoticeKey;
+    public $materialId;
     protected $_name = [
-        'materialId'     => 'MaterialId',
         'bizId'          => 'BizId',
-        'loaOssKey'      => 'LoaOssKey',
         'legalNoticeKey' => 'LegalNoticeKey',
+        'loaOssKey'      => 'LoaOssKey',
+        'materialId'     => 'MaterialId',
     ];
 
     public function validate()
@@ -41,17 +47,17 @@ class BindMaterialRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->materialId) {
-            $res['MaterialId'] = $this->materialId;
-        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->legalNoticeKey) {
+            $res['LegalNoticeKey'] = $this->legalNoticeKey;
         }
         if (null !== $this->loaOssKey) {
             $res['LoaOssKey'] = $this->loaOssKey;
         }
-        if (null !== $this->legalNoticeKey) {
-            $res['LegalNoticeKey'] = $this->legalNoticeKey;
+        if (null !== $this->materialId) {
+            $res['MaterialId'] = $this->materialId;
         }
 
         return $res;
@@ -65,17 +71,17 @@ class BindMaterialRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaterialId'])) {
-            $model->materialId = $map['MaterialId'];
-        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+        if (isset($map['LegalNoticeKey'])) {
+            $model->legalNoticeKey = $map['LegalNoticeKey'];
         }
         if (isset($map['LoaOssKey'])) {
             $model->loaOssKey = $map['LoaOssKey'];
         }
-        if (isset($map['LegalNoticeKey'])) {
-            $model->legalNoticeKey = $map['LegalNoticeKey'];
+        if (isset($map['MaterialId'])) {
+            $model->materialId = $map['MaterialId'];
         }
 
         return $model;

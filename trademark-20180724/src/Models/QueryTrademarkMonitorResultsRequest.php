@@ -11,32 +11,12 @@ class QueryTrademarkMonitorResultsRequest extends Model
     /**
      * @var int
      */
-    public $ruleId;
-
-    /**
-     * @var int
-     */
     public $actionType;
-
-    /**
-     * @var int
-     */
-    public $procedureStatus;
-
-    /**
-     * @var string
-     */
-    public $tmName;
 
     /**
      * @var string
      */
     public $applyYear;
-
-    /**
-     * @var string
-     */
-    public $registrationNumber;
 
     /**
      * @var string
@@ -52,16 +32,36 @@ class QueryTrademarkMonitorResultsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $procedureStatus;
+
+    /**
+     * @var string
+     */
+    public $registrationNumber;
+
+    /**
+     * @var int
+     */
+    public $ruleId;
+
+    /**
+     * @var string
+     */
+    public $tmName;
     protected $_name = [
-        'ruleId'             => 'RuleId',
         'actionType'         => 'ActionType',
-        'procedureStatus'    => 'ProcedureStatus',
-        'tmName'             => 'TmName',
         'applyYear'          => 'ApplyYear',
-        'registrationNumber' => 'RegistrationNumber',
         'classification'     => 'Classification',
         'pageNum'            => 'PageNum',
         'pageSize'           => 'PageSize',
+        'procedureStatus'    => 'ProcedureStatus',
+        'registrationNumber' => 'RegistrationNumber',
+        'ruleId'             => 'RuleId',
+        'tmName'             => 'TmName',
     ];
 
     public function validate()
@@ -71,23 +71,11 @@ class QueryTrademarkMonitorResultsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
-        }
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
-        if (null !== $this->procedureStatus) {
-            $res['ProcedureStatus'] = $this->procedureStatus;
-        }
-        if (null !== $this->tmName) {
-            $res['TmName'] = $this->tmName;
-        }
         if (null !== $this->applyYear) {
             $res['ApplyYear'] = $this->applyYear;
-        }
-        if (null !== $this->registrationNumber) {
-            $res['RegistrationNumber'] = $this->registrationNumber;
         }
         if (null !== $this->classification) {
             $res['Classification'] = $this->classification;
@@ -97,6 +85,18 @@ class QueryTrademarkMonitorResultsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->procedureStatus) {
+            $res['ProcedureStatus'] = $this->procedureStatus;
+        }
+        if (null !== $this->registrationNumber) {
+            $res['RegistrationNumber'] = $this->registrationNumber;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->tmName) {
+            $res['TmName'] = $this->tmName;
         }
 
         return $res;
@@ -110,23 +110,11 @@ class QueryTrademarkMonitorResultsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
-        }
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }
-        if (isset($map['ProcedureStatus'])) {
-            $model->procedureStatus = $map['ProcedureStatus'];
-        }
-        if (isset($map['TmName'])) {
-            $model->tmName = $map['TmName'];
-        }
         if (isset($map['ApplyYear'])) {
             $model->applyYear = $map['ApplyYear'];
-        }
-        if (isset($map['RegistrationNumber'])) {
-            $model->registrationNumber = $map['RegistrationNumber'];
         }
         if (isset($map['Classification'])) {
             $model->classification = $map['Classification'];
@@ -136,6 +124,18 @@ class QueryTrademarkMonitorResultsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProcedureStatus'])) {
+            $model->procedureStatus = $map['ProcedureStatus'];
+        }
+        if (isset($map['RegistrationNumber'])) {
+            $model->registrationNumber = $map['RegistrationNumber'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['TmName'])) {
+            $model->tmName = $map['TmName'];
         }
 
         return $model;

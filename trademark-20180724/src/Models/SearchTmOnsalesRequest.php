@@ -11,47 +11,12 @@ class SearchTmOnsalesRequest extends Model
     /**
      * @var string
      */
-    public $keyword;
-
-    /**
-     * @var string
-     */
     public $classification;
 
     /**
      * @var string
      */
-    public $productCode;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $registerNumber;
-
-    /**
-     * @var string
-     */
-    public $tmName;
-
-    /**
-     * @var string
-     */
-    public $topSearch;
-
-    /**
-     * @var string
-     */
-    public $tag;
+    public $keyword;
 
     /**
      * @var int
@@ -66,12 +31,37 @@ class SearchTmOnsalesRequest extends Model
     /**
      * @var int
      */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $productCode;
+
+    /**
+     * @var bool
+     */
+    public $queryAll;
+
+    /**
+     * @var int
+     */
     public $regLeft;
 
     /**
      * @var int
      */
     public $regRight;
+
+    /**
+     * @var string
+     */
+    public $registerNumber;
 
     /**
      * @var string
@@ -84,26 +74,36 @@ class SearchTmOnsalesRequest extends Model
     public $sortOrder;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $queryAll;
+    public $tag;
+
+    /**
+     * @var string
+     */
+    public $tmName;
+
+    /**
+     * @var string
+     */
+    public $topSearch;
     protected $_name = [
-        'keyword'         => 'Keyword',
         'classification'  => 'Classification',
-        'productCode'     => 'ProductCode',
-        'pageNum'         => 'PageNum',
-        'pageSize'        => 'PageSize',
-        'registerNumber'  => 'RegisterNumber',
-        'tmName'          => 'TmName',
-        'topSearch'       => 'TopSearch',
-        'tag'             => 'Tag',
+        'keyword'         => 'Keyword',
         'orderPriceLeft'  => 'OrderPriceLeft',
         'orderPriceRight' => 'OrderPriceRight',
+        'pageNum'         => 'PageNum',
+        'pageSize'        => 'PageSize',
+        'productCode'     => 'ProductCode',
+        'queryAll'        => 'QueryAll',
         'regLeft'         => 'RegLeft',
         'regRight'        => 'RegRight',
+        'registerNumber'  => 'RegisterNumber',
         'sortName'        => 'SortName',
         'sortOrder'       => 'SortOrder',
-        'queryAll'        => 'QueryAll',
+        'tag'             => 'Tag',
+        'tmName'          => 'TmName',
+        'topSearch'       => 'TopSearch',
     ];
 
     public function validate()
@@ -113,32 +113,11 @@ class SearchTmOnsalesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
-        }
         if (null !== $this->classification) {
             $res['Classification'] = $this->classification;
         }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->registerNumber) {
-            $res['RegisterNumber'] = $this->registerNumber;
-        }
-        if (null !== $this->tmName) {
-            $res['TmName'] = $this->tmName;
-        }
-        if (null !== $this->topSearch) {
-            $res['TopSearch'] = $this->topSearch;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
         if (null !== $this->orderPriceLeft) {
             $res['OrderPriceLeft'] = $this->orderPriceLeft;
@@ -146,11 +125,26 @@ class SearchTmOnsalesRequest extends Model
         if (null !== $this->orderPriceRight) {
             $res['OrderPriceRight'] = $this->orderPriceRight;
         }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->queryAll) {
+            $res['QueryAll'] = $this->queryAll;
+        }
         if (null !== $this->regLeft) {
             $res['RegLeft'] = $this->regLeft;
         }
         if (null !== $this->regRight) {
             $res['RegRight'] = $this->regRight;
+        }
+        if (null !== $this->registerNumber) {
+            $res['RegisterNumber'] = $this->registerNumber;
         }
         if (null !== $this->sortName) {
             $res['SortName'] = $this->sortName;
@@ -158,8 +152,14 @@ class SearchTmOnsalesRequest extends Model
         if (null !== $this->sortOrder) {
             $res['SortOrder'] = $this->sortOrder;
         }
-        if (null !== $this->queryAll) {
-            $res['QueryAll'] = $this->queryAll;
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->tmName) {
+            $res['TmName'] = $this->tmName;
+        }
+        if (null !== $this->topSearch) {
+            $res['TopSearch'] = $this->topSearch;
         }
 
         return $res;
@@ -173,32 +173,11 @@ class SearchTmOnsalesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
-        }
         if (isset($map['Classification'])) {
             $model->classification = $map['Classification'];
         }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegisterNumber'])) {
-            $model->registerNumber = $map['RegisterNumber'];
-        }
-        if (isset($map['TmName'])) {
-            $model->tmName = $map['TmName'];
-        }
-        if (isset($map['TopSearch'])) {
-            $model->topSearch = $map['TopSearch'];
-        }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
         if (isset($map['OrderPriceLeft'])) {
             $model->orderPriceLeft = $map['OrderPriceLeft'];
@@ -206,11 +185,26 @@ class SearchTmOnsalesRequest extends Model
         if (isset($map['OrderPriceRight'])) {
             $model->orderPriceRight = $map['OrderPriceRight'];
         }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['QueryAll'])) {
+            $model->queryAll = $map['QueryAll'];
+        }
         if (isset($map['RegLeft'])) {
             $model->regLeft = $map['RegLeft'];
         }
         if (isset($map['RegRight'])) {
             $model->regRight = $map['RegRight'];
+        }
+        if (isset($map['RegisterNumber'])) {
+            $model->registerNumber = $map['RegisterNumber'];
         }
         if (isset($map['SortName'])) {
             $model->sortName = $map['SortName'];
@@ -218,8 +212,14 @@ class SearchTmOnsalesRequest extends Model
         if (isset($map['SortOrder'])) {
             $model->sortOrder = $map['SortOrder'];
         }
-        if (isset($map['QueryAll'])) {
-            $model->queryAll = $map['QueryAll'];
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
+        }
+        if (isset($map['TmName'])) {
+            $model->tmName = $map['TmName'];
+        }
+        if (isset($map['TopSearch'])) {
+            $model->topSearch = $map['TopSearch'];
         }
 
         return $model;

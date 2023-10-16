@@ -11,15 +11,15 @@ class GetAuthorizationLetterVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $version;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $version;
     protected $_name = [
-        'version'   => 'Version',
         'requestId' => 'RequestId',
+        'version'   => 'Version',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetAuthorizationLetterVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetAuthorizationLetterVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

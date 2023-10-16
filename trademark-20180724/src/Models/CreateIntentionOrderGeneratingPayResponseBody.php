@@ -14,9 +14,9 @@ class CreateIntentionOrderGeneratingPayResponseBody extends Model
     public $errorMsg;
 
     /**
-     * @var string
+     * @var int[]
      */
-    public $requestId;
+    public $orderIds;
 
     /**
      * @var string
@@ -24,20 +24,20 @@ class CreateIntentionOrderGeneratingPayResponseBody extends Model
     public $payUrl;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int[]
-     */
-    public $orderIds;
     protected $_name = [
         'errorMsg'  => 'ErrorMsg',
-        'requestId' => 'RequestId',
-        'payUrl'    => 'PayUrl',
-        'success'   => 'Success',
         'orderIds'  => 'OrderIds',
+        'payUrl'    => 'PayUrl',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class CreateIntentionOrderGeneratingPayResponseBody extends Model
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->orderIds) {
+            $res['OrderIds'] = $this->orderIds;
         }
         if (null !== $this->payUrl) {
             $res['PayUrl'] = $this->payUrl;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->orderIds) {
-            $res['OrderIds'] = $this->orderIds;
         }
 
         return $res;
@@ -77,19 +77,19 @@ class CreateIntentionOrderGeneratingPayResponseBody extends Model
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PayUrl'])) {
-            $model->payUrl = $map['PayUrl'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['OrderIds'])) {
             if (!empty($map['OrderIds'])) {
                 $model->orderIds = $map['OrderIds'];
             }
+        }
+        if (isset($map['PayUrl'])) {
+            $model->payUrl = $map['PayUrl'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class SubmitTrademarkApplicationComplaintShrinkRequest extends Model
     /**
      * @var string
      */
-    public $filesShrink;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $filesShrink;
     protected $_name = [
         'bizId'       => 'BizId',
-        'filesShrink' => 'Files',
         'content'     => 'Content',
+        'filesShrink' => 'Files',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class SubmitTrademarkApplicationComplaintShrinkRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->filesShrink) {
-            $res['Files'] = $this->filesShrink;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->filesShrink) {
+            $res['Files'] = $this->filesShrink;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class SubmitTrademarkApplicationComplaintShrinkRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['Files'])) {
-            $model->filesShrink = $map['Files'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['Files'])) {
+            $model->filesShrink = $map['Files'];
         }
 
         return $model;

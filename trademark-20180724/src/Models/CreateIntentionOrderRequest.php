@@ -11,15 +11,15 @@ class CreateIntentionOrderRequest extends Model
     /**
      * @var string
      */
-    public $intentionBizId;
+    public $channel;
 
     /**
      * @var string
      */
-    public $channel;
+    public $intentionBizId;
     protected $_name = [
-        'intentionBizId' => 'IntentionBizId',
         'channel'        => 'Channel',
+        'intentionBizId' => 'IntentionBizId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateIntentionOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->intentionBizId) {
-            $res['IntentionBizId'] = $this->intentionBizId;
-        }
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
+        }
+        if (null !== $this->intentionBizId) {
+            $res['IntentionBizId'] = $this->intentionBizId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateIntentionOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IntentionBizId'])) {
-            $model->intentionBizId = $map['IntentionBizId'];
-        }
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];
+        }
+        if (isset($map['IntentionBizId'])) {
+            $model->intentionBizId = $map['IntentionBizId'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SaveClassificationConditionsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $type;
-
-    /**
      * @var string
      */
     public $bizId;
@@ -22,10 +17,15 @@ class SaveClassificationConditionsRequest extends Model
      * @var string
      */
     public $condition;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
-        'type'      => 'Type',
         'bizId'     => 'BizId',
         'condition' => 'Condition',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SaveClassificationConditionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
         if (null !== $this->condition) {
             $res['Condition'] = $this->condition;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SaveClassificationConditionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
         if (isset($map['Condition'])) {
             $model->condition = $map['Condition'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

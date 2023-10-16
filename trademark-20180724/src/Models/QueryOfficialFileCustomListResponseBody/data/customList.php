@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class customList extends Model
 {
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @var string
      */
-    public $status;
+    public $downloadUrl;
+
+    /**
+     * @var int
+     */
+    public $endAcceptTime;
 
     /**
      * @var int
@@ -24,32 +34,22 @@ class customList extends Model
     public $remark;
 
     /**
-     * @var string
-     */
-    public $downloadUrl;
-
-    /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @var int
-     */
-    public $endAcceptTime;
-
-    /**
      * @var int
      */
     public $startAcceptTime;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'          => 'Status',
+        'createTime'      => 'CreateTime',
+        'downloadUrl'     => 'DownloadUrl',
+        'endAcceptTime'   => 'EndAcceptTime',
         'expireTime'      => 'ExpireTime',
         'remark'          => 'Remark',
-        'downloadUrl'     => 'DownloadUrl',
-        'createTime'      => 'CreateTime',
-        'endAcceptTime'   => 'EndAcceptTime',
         'startAcceptTime' => 'StartAcceptTime',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -59,8 +59,14 @@ class customList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->downloadUrl) {
+            $res['DownloadUrl'] = $this->downloadUrl;
+        }
+        if (null !== $this->endAcceptTime) {
+            $res['EndAcceptTime'] = $this->endAcceptTime;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
@@ -68,17 +74,11 @@ class customList extends Model
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
-        if (null !== $this->downloadUrl) {
-            $res['DownloadUrl'] = $this->downloadUrl;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->endAcceptTime) {
-            $res['EndAcceptTime'] = $this->endAcceptTime;
-        }
         if (null !== $this->startAcceptTime) {
             $res['StartAcceptTime'] = $this->startAcceptTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,8 +92,14 @@ class customList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DownloadUrl'])) {
+            $model->downloadUrl = $map['DownloadUrl'];
+        }
+        if (isset($map['EndAcceptTime'])) {
+            $model->endAcceptTime = $map['EndAcceptTime'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
@@ -101,17 +107,11 @@ class customList extends Model
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
-        if (isset($map['DownloadUrl'])) {
-            $model->downloadUrl = $map['DownloadUrl'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['EndAcceptTime'])) {
-            $model->endAcceptTime = $map['EndAcceptTime'];
-        }
         if (isset($map['StartAcceptTime'])) {
             $model->startAcceptTime = $map['StartAcceptTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

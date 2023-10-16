@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryTrademarkPriceShrinkRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $userId;
-
-    /**
      * @var string
      */
-    public $tmName;
+    public $orderDataShrink;
 
     /**
      * @var string
@@ -24,20 +19,25 @@ class QueryTrademarkPriceShrinkRequest extends Model
     public $tmIcon;
 
     /**
+     * @var string
+     */
+    public $tmName;
+
+    /**
      * @var int
      */
     public $type;
 
     /**
-     * @var string
+     * @var int
      */
-    public $orderDataShrink;
+    public $userId;
     protected $_name = [
-        'userId'          => 'UserId',
-        'tmName'          => 'TmName',
-        'tmIcon'          => 'TmIcon',
-        'type'            => 'Type',
         'orderDataShrink' => 'OrderData',
+        'tmIcon'          => 'TmIcon',
+        'tmName'          => 'TmName',
+        'type'            => 'Type',
+        'userId'          => 'UserId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class QueryTrademarkPriceShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->tmName) {
-            $res['TmName'] = $this->tmName;
+        if (null !== $this->orderDataShrink) {
+            $res['OrderData'] = $this->orderDataShrink;
         }
         if (null !== $this->tmIcon) {
             $res['TmIcon'] = $this->tmIcon;
         }
+        if (null !== $this->tmName) {
+            $res['TmName'] = $this->tmName;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->orderDataShrink) {
-            $res['OrderData'] = $this->orderDataShrink;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class QueryTrademarkPriceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['TmName'])) {
-            $model->tmName = $map['TmName'];
+        if (isset($map['OrderData'])) {
+            $model->orderDataShrink = $map['OrderData'];
         }
         if (isset($map['TmIcon'])) {
             $model->tmIcon = $map['TmIcon'];
         }
+        if (isset($map['TmName'])) {
+            $model->tmName = $map['TmName'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['OrderData'])) {
-            $model->orderDataShrink = $map['OrderData'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

@@ -11,7 +11,12 @@ class QueryTradeProduceListRequest extends Model
     /**
      * @var string
      */
-    public $registerNumber;
+    public $bizId;
+
+    /**
+     * @var int
+     */
+    public $buyerStatus;
 
     /**
      * @var int
@@ -29,14 +34,9 @@ class QueryTradeProduceListRequest extends Model
     public $preOrderId;
 
     /**
-     * @var int
-     */
-    public $buyerStatus;
-
-    /**
      * @var string
      */
-    public $sortOrder;
+    public $registerNumber;
 
     /**
      * @var string
@@ -46,16 +46,16 @@ class QueryTradeProduceListRequest extends Model
     /**
      * @var string
      */
-    public $bizId;
+    public $sortOrder;
     protected $_name = [
-        'registerNumber' => 'RegisterNumber',
+        'bizId'          => 'BizId',
+        'buyerStatus'    => 'BuyerStatus',
         'pageNum'        => 'PageNum',
         'pageSize'       => 'PageSize',
         'preOrderId'     => 'PreOrderId',
-        'buyerStatus'    => 'BuyerStatus',
-        'sortOrder'      => 'SortOrder',
+        'registerNumber' => 'RegisterNumber',
         'sortFiled'      => 'SortFiled',
-        'bizId'          => 'BizId',
+        'sortOrder'      => 'SortOrder',
     ];
 
     public function validate()
@@ -65,8 +65,11 @@ class QueryTradeProduceListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->registerNumber) {
-            $res['RegisterNumber'] = $this->registerNumber;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+        if (null !== $this->buyerStatus) {
+            $res['BuyerStatus'] = $this->buyerStatus;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -77,17 +80,14 @@ class QueryTradeProduceListRequest extends Model
         if (null !== $this->preOrderId) {
             $res['PreOrderId'] = $this->preOrderId;
         }
-        if (null !== $this->buyerStatus) {
-            $res['BuyerStatus'] = $this->buyerStatus;
-        }
-        if (null !== $this->sortOrder) {
-            $res['SortOrder'] = $this->sortOrder;
+        if (null !== $this->registerNumber) {
+            $res['RegisterNumber'] = $this->registerNumber;
         }
         if (null !== $this->sortFiled) {
             $res['SortFiled'] = $this->sortFiled;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
+        if (null !== $this->sortOrder) {
+            $res['SortOrder'] = $this->sortOrder;
         }
 
         return $res;
@@ -101,8 +101,11 @@ class QueryTradeProduceListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegisterNumber'])) {
-            $model->registerNumber = $map['RegisterNumber'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+        if (isset($map['BuyerStatus'])) {
+            $model->buyerStatus = $map['BuyerStatus'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -113,17 +116,14 @@ class QueryTradeProduceListRequest extends Model
         if (isset($map['PreOrderId'])) {
             $model->preOrderId = $map['PreOrderId'];
         }
-        if (isset($map['BuyerStatus'])) {
-            $model->buyerStatus = $map['BuyerStatus'];
-        }
-        if (isset($map['SortOrder'])) {
-            $model->sortOrder = $map['SortOrder'];
+        if (isset($map['RegisterNumber'])) {
+            $model->registerNumber = $map['RegisterNumber'];
         }
         if (isset($map['SortFiled'])) {
             $model->sortFiled = $map['SortFiled'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
+        if (isset($map['SortOrder'])) {
+            $model->sortOrder = $map['SortOrder'];
         }
 
         return $model;

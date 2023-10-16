@@ -10,19 +10,34 @@ use AlibabaCloud\Tea\Model;
 class QueryTrademarkMonitorRulesResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPageNum;
+
+    /**
+     * @var data
+     */
+    public $data;
+
+    /**
      * @var bool
      */
     public $nextPage;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $pageSize;
 
     /**
      * @var bool
      */
     public $prePage;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
@@ -32,31 +47,16 @@ class QueryTrademarkMonitorRulesResponseBody extends Model
     /**
      * @var int
      */
-    public $currentPageNum;
-
-    /**
-     * @var int
-     */
     public $totalPageNum;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var data
-     */
-    public $data;
     protected $_name = [
-        'nextPage'       => 'NextPage',
-        'requestId'      => 'RequestId',
-        'prePage'        => 'PrePage',
-        'totalItemNum'   => 'TotalItemNum',
         'currentPageNum' => 'CurrentPageNum',
-        'totalPageNum'   => 'TotalPageNum',
-        'pageSize'       => 'PageSize',
         'data'           => 'Data',
+        'nextPage'       => 'NextPage',
+        'pageSize'       => 'PageSize',
+        'prePage'        => 'PrePage',
+        'requestId'      => 'RequestId',
+        'totalItemNum'   => 'TotalItemNum',
+        'totalPageNum'   => 'TotalPageNum',
     ];
 
     public function validate()
@@ -66,29 +66,29 @@ class QueryTrademarkMonitorRulesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextPage) {
-            $res['NextPage'] = $this->nextPage;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->prePage) {
-            $res['PrePage'] = $this->prePage;
-        }
-        if (null !== $this->totalItemNum) {
-            $res['TotalItemNum'] = $this->totalItemNum;
-        }
         if (null !== $this->currentPageNum) {
             $res['CurrentPageNum'] = $this->currentPageNum;
         }
-        if (null !== $this->totalPageNum) {
-            $res['TotalPageNum'] = $this->totalPageNum;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->nextPage) {
+            $res['NextPage'] = $this->nextPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->prePage) {
+            $res['PrePage'] = $this->prePage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalItemNum) {
+            $res['TotalItemNum'] = $this->totalItemNum;
+        }
+        if (null !== $this->totalPageNum) {
+            $res['TotalPageNum'] = $this->totalPageNum;
         }
 
         return $res;
@@ -102,29 +102,29 @@ class QueryTrademarkMonitorRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextPage'])) {
-            $model->nextPage = $map['NextPage'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PrePage'])) {
-            $model->prePage = $map['PrePage'];
-        }
-        if (isset($map['TotalItemNum'])) {
-            $model->totalItemNum = $map['TotalItemNum'];
-        }
         if (isset($map['CurrentPageNum'])) {
             $model->currentPageNum = $map['CurrentPageNum'];
         }
-        if (isset($map['TotalPageNum'])) {
-            $model->totalPageNum = $map['TotalPageNum'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['NextPage'])) {
+            $model->nextPage = $map['NextPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['PrePage'])) {
+            $model->prePage = $map['PrePage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalItemNum'])) {
+            $model->totalItemNum = $map['TotalItemNum'];
+        }
+        if (isset($map['TotalPageNum'])) {
+            $model->totalPageNum = $map['TotalPageNum'];
         }
 
         return $model;

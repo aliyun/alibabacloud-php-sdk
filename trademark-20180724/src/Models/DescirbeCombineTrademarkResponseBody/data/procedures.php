@@ -11,16 +11,6 @@ class procedures extends Model
     /**
      * @var string
      */
-    public $procedureStep;
-
-    /**
-     * @var string
-     */
-    public $procedureResult;
-
-    /**
-     * @var string
-     */
     public $procedureCode;
 
     /**
@@ -32,12 +22,22 @@ class procedures extends Model
      * @var string
      */
     public $procedureName;
+
+    /**
+     * @var string
+     */
+    public $procedureResult;
+
+    /**
+     * @var string
+     */
+    public $procedureStep;
     protected $_name = [
-        'procedureStep'   => 'ProcedureStep',
-        'procedureResult' => 'ProcedureResult',
         'procedureCode'   => 'ProcedureCode',
         'procedureDate'   => 'ProcedureDate',
         'procedureName'   => 'ProcedureName',
+        'procedureResult' => 'ProcedureResult',
+        'procedureStep'   => 'ProcedureStep',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class procedures extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->procedureStep) {
-            $res['ProcedureStep'] = $this->procedureStep;
-        }
-        if (null !== $this->procedureResult) {
-            $res['ProcedureResult'] = $this->procedureResult;
-        }
         if (null !== $this->procedureCode) {
             $res['ProcedureCode'] = $this->procedureCode;
         }
@@ -61,6 +55,12 @@ class procedures extends Model
         }
         if (null !== $this->procedureName) {
             $res['ProcedureName'] = $this->procedureName;
+        }
+        if (null !== $this->procedureResult) {
+            $res['ProcedureResult'] = $this->procedureResult;
+        }
+        if (null !== $this->procedureStep) {
+            $res['ProcedureStep'] = $this->procedureStep;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class procedures extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProcedureStep'])) {
-            $model->procedureStep = $map['ProcedureStep'];
-        }
-        if (isset($map['ProcedureResult'])) {
-            $model->procedureResult = $map['ProcedureResult'];
-        }
         if (isset($map['ProcedureCode'])) {
             $model->procedureCode = $map['ProcedureCode'];
         }
@@ -88,6 +82,12 @@ class procedures extends Model
         }
         if (isset($map['ProcedureName'])) {
             $model->procedureName = $map['ProcedureName'];
+        }
+        if (isset($map['ProcedureResult'])) {
+            $model->procedureResult = $map['ProcedureResult'];
+        }
+        if (isset($map['ProcedureStep'])) {
+            $model->procedureStep = $map['ProcedureStep'];
         }
 
         return $model;

@@ -9,49 +9,44 @@ use AlibabaCloud\Tea\Model;
 class trademark extends Model
 {
     /**
-     * @var string
-     */
-    public $principalDescription;
-
-    /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $contactName;
-
-    /**
+     * @example 12121212
+     *
      * @var string
      */
     public $cardNumber;
 
     /**
-     * @var int
+     * @example 1212
+     *
+     * @var string
      */
-    public $validDate;
+    public $contactName;
 
     /**
+     * @example 12
+     *
      * @var int
      */
-    public $region;
+    public $id;
 
     /**
-     * @var int
+     * @example test.key
+     *
+     * @var string
      */
-    public $principalName;
+    public $loaKey;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $loaStatus;
+
+    /**
+     * @var string
+     */
+    public $materialVersion;
 
     /**
      * @var string
@@ -61,31 +56,64 @@ class trademark extends Model
     /**
      * @var string
      */
-    public $loaKey;
+    public $principalDescription;
 
     /**
      * @var int
      */
-    public $id;
+    public $principalName;
 
     /**
      * @var string
      */
     public $reason;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $region;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $systemVersion;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $type;
+
+    /**
+     * @var int
+     */
+    public $validDate;
     protected $_name = [
-        'principalDescription' => 'PrincipalDescription',
-        'status'               => 'Status',
-        'type'                 => 'Type',
-        'contactName'          => 'ContactName',
         'cardNumber'           => 'CardNumber',
-        'validDate'            => 'ValidDate',
-        'region'               => 'Region',
-        'principalName'        => 'PrincipalName',
-        'loaStatus'            => 'LoaStatus',
-        'name'                 => 'Name',
-        'loaKey'               => 'LoaKey',
+        'contactName'          => 'ContactName',
         'id'                   => 'Id',
+        'loaKey'               => 'LoaKey',
+        'loaStatus'            => 'LoaStatus',
+        'materialVersion'      => 'MaterialVersion',
+        'name'                 => 'Name',
+        'principalDescription' => 'PrincipalDescription',
+        'principalName'        => 'PrincipalName',
         'reason'               => 'Reason',
+        'region'               => 'Region',
+        'status'               => 'Status',
+        'systemVersion'        => 'SystemVersion',
+        'type'                 => 'Type',
+        'validDate'            => 'ValidDate',
     ];
 
     public function validate()
@@ -95,44 +123,50 @@ class trademark extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->principalDescription) {
-            $res['PrincipalDescription'] = $this->principalDescription;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->cardNumber) {
+            $res['CardNumber'] = $this->cardNumber;
         }
         if (null !== $this->contactName) {
             $res['ContactName'] = $this->contactName;
         }
-        if (null !== $this->cardNumber) {
-            $res['CardNumber'] = $this->cardNumber;
-        }
-        if (null !== $this->validDate) {
-            $res['ValidDate'] = $this->validDate;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->principalName) {
-            $res['PrincipalName'] = $this->principalName;
-        }
-        if (null !== $this->loaStatus) {
-            $res['LoaStatus'] = $this->loaStatus;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->loaKey) {
             $res['LoaKey'] = $this->loaKey;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->loaStatus) {
+            $res['LoaStatus'] = $this->loaStatus;
+        }
+        if (null !== $this->materialVersion) {
+            $res['MaterialVersion'] = $this->materialVersion;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->principalDescription) {
+            $res['PrincipalDescription'] = $this->principalDescription;
+        }
+        if (null !== $this->principalName) {
+            $res['PrincipalName'] = $this->principalName;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->systemVersion) {
+            $res['SystemVersion'] = $this->systemVersion;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->validDate) {
+            $res['ValidDate'] = $this->validDate;
         }
 
         return $res;
@@ -146,44 +180,50 @@ class trademark extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrincipalDescription'])) {
-            $model->principalDescription = $map['PrincipalDescription'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['CardNumber'])) {
+            $model->cardNumber = $map['CardNumber'];
         }
         if (isset($map['ContactName'])) {
             $model->contactName = $map['ContactName'];
         }
-        if (isset($map['CardNumber'])) {
-            $model->cardNumber = $map['CardNumber'];
-        }
-        if (isset($map['ValidDate'])) {
-            $model->validDate = $map['ValidDate'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['PrincipalName'])) {
-            $model->principalName = $map['PrincipalName'];
-        }
-        if (isset($map['LoaStatus'])) {
-            $model->loaStatus = $map['LoaStatus'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['LoaKey'])) {
             $model->loaKey = $map['LoaKey'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['LoaStatus'])) {
+            $model->loaStatus = $map['LoaStatus'];
+        }
+        if (isset($map['MaterialVersion'])) {
+            $model->materialVersion = $map['MaterialVersion'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['PrincipalDescription'])) {
+            $model->principalDescription = $map['PrincipalDescription'];
+        }
+        if (isset($map['PrincipalName'])) {
+            $model->principalName = $map['PrincipalName'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['SystemVersion'])) {
+            $model->systemVersion = $map['SystemVersion'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['ValidDate'])) {
+            $model->validDate = $map['ValidDate'];
         }
 
         return $model;

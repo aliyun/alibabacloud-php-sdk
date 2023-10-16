@@ -11,15 +11,15 @@ class SaveTaskRequest extends Model
     /**
      * @var string
      */
-    public $request;
+    public $bizType;
 
     /**
      * @var string
      */
-    public $bizType;
+    public $request;
     protected $_name = [
-        'request' => 'Request',
         'bizType' => 'BizType',
+        'request' => 'Request',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SaveTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->request) {
-            $res['Request'] = $this->request;
-        }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+        if (null !== $this->request) {
+            $res['Request'] = $this->request;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SaveTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Request'])) {
-            $model->request = $map['Request'];
-        }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+        if (isset($map['Request'])) {
+            $model->request = $map['Request'];
         }
 
         return $model;

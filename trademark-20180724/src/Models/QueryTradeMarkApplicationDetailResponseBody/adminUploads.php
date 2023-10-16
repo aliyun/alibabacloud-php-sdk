@@ -11,15 +11,15 @@ class adminUploads extends Model
     /**
      * @var string
      */
-    public $loaPicUrl;
+    public $licensePicUrl;
 
     /**
      * @var string
      */
-    public $licensePicUrl;
+    public $loaPicUrl;
     protected $_name = [
-        'loaPicUrl'     => 'LoaPicUrl',
         'licensePicUrl' => 'LicensePicUrl',
+        'loaPicUrl'     => 'LoaPicUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class adminUploads extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->loaPicUrl) {
-            $res['LoaPicUrl'] = $this->loaPicUrl;
-        }
         if (null !== $this->licensePicUrl) {
             $res['LicensePicUrl'] = $this->licensePicUrl;
+        }
+        if (null !== $this->loaPicUrl) {
+            $res['LoaPicUrl'] = $this->loaPicUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class adminUploads extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LoaPicUrl'])) {
-            $model->loaPicUrl = $map['LoaPicUrl'];
-        }
         if (isset($map['LicensePicUrl'])) {
             $model->licensePicUrl = $map['LicensePicUrl'];
+        }
+        if (isset($map['LoaPicUrl'])) {
+            $model->loaPicUrl = $map['LoaPicUrl'];
         }
 
         return $model;

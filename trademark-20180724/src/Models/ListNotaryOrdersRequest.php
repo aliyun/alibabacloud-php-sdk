@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListNotaryOrdersRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $startOrderDate;
+    public $aliyunOrderId;
+
+    /**
+     * @var string
+     */
+    public $bizId;
 
     /**
      * @var int
@@ -24,19 +29,9 @@ class ListNotaryOrdersRequest extends Model
     public $notaryStatus;
 
     /**
-     * @var string
-     */
-    public $aliyunOrderId;
-
-    /**
-     * @var string
-     */
-    public $sortByType;
-
-    /**
      * @var int
      */
-    public $sortKeyType;
+    public $notaryType;
 
     /**
      * @var int
@@ -51,23 +46,28 @@ class ListNotaryOrdersRequest extends Model
     /**
      * @var string
      */
-    public $bizId;
+    public $sortByType;
 
     /**
      * @var int
      */
-    public $notaryType;
+    public $sortKeyType;
+
+    /**
+     * @var int
+     */
+    public $startOrderDate;
     protected $_name = [
-        'startOrderDate' => 'StartOrderDate',
+        'aliyunOrderId'  => 'AliyunOrderId',
+        'bizId'          => 'BizId',
         'endOrderDate'   => 'EndOrderDate',
         'notaryStatus'   => 'NotaryStatus',
-        'aliyunOrderId'  => 'AliyunOrderId',
-        'sortByType'     => 'SortByType',
-        'sortKeyType'    => 'SortKeyType',
+        'notaryType'     => 'NotaryType',
         'pageNum'        => 'PageNum',
         'pageSize'       => 'PageSize',
-        'bizId'          => 'BizId',
-        'notaryType'     => 'NotaryType',
+        'sortByType'     => 'SortByType',
+        'sortKeyType'    => 'SortKeyType',
+        'startOrderDate' => 'StartOrderDate',
     ];
 
     public function validate()
@@ -77,8 +77,11 @@ class ListNotaryOrdersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startOrderDate) {
-            $res['StartOrderDate'] = $this->startOrderDate;
+        if (null !== $this->aliyunOrderId) {
+            $res['AliyunOrderId'] = $this->aliyunOrderId;
+        }
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->endOrderDate) {
             $res['EndOrderDate'] = $this->endOrderDate;
@@ -86,14 +89,8 @@ class ListNotaryOrdersRequest extends Model
         if (null !== $this->notaryStatus) {
             $res['NotaryStatus'] = $this->notaryStatus;
         }
-        if (null !== $this->aliyunOrderId) {
-            $res['AliyunOrderId'] = $this->aliyunOrderId;
-        }
-        if (null !== $this->sortByType) {
-            $res['SortByType'] = $this->sortByType;
-        }
-        if (null !== $this->sortKeyType) {
-            $res['SortKeyType'] = $this->sortKeyType;
+        if (null !== $this->notaryType) {
+            $res['NotaryType'] = $this->notaryType;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -101,11 +98,14 @@ class ListNotaryOrdersRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
+        if (null !== $this->sortByType) {
+            $res['SortByType'] = $this->sortByType;
         }
-        if (null !== $this->notaryType) {
-            $res['NotaryType'] = $this->notaryType;
+        if (null !== $this->sortKeyType) {
+            $res['SortKeyType'] = $this->sortKeyType;
+        }
+        if (null !== $this->startOrderDate) {
+            $res['StartOrderDate'] = $this->startOrderDate;
         }
 
         return $res;
@@ -119,8 +119,11 @@ class ListNotaryOrdersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartOrderDate'])) {
-            $model->startOrderDate = $map['StartOrderDate'];
+        if (isset($map['AliyunOrderId'])) {
+            $model->aliyunOrderId = $map['AliyunOrderId'];
+        }
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
         if (isset($map['EndOrderDate'])) {
             $model->endOrderDate = $map['EndOrderDate'];
@@ -128,14 +131,8 @@ class ListNotaryOrdersRequest extends Model
         if (isset($map['NotaryStatus'])) {
             $model->notaryStatus = $map['NotaryStatus'];
         }
-        if (isset($map['AliyunOrderId'])) {
-            $model->aliyunOrderId = $map['AliyunOrderId'];
-        }
-        if (isset($map['SortByType'])) {
-            $model->sortByType = $map['SortByType'];
-        }
-        if (isset($map['SortKeyType'])) {
-            $model->sortKeyType = $map['SortKeyType'];
+        if (isset($map['NotaryType'])) {
+            $model->notaryType = $map['NotaryType'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -143,11 +140,14 @@ class ListNotaryOrdersRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
+        if (isset($map['SortByType'])) {
+            $model->sortByType = $map['SortByType'];
         }
-        if (isset($map['NotaryType'])) {
-            $model->notaryType = $map['NotaryType'];
+        if (isset($map['SortKeyType'])) {
+            $model->sortKeyType = $map['SortKeyType'];
+        }
+        if (isset($map['StartOrderDate'])) {
+            $model->startOrderDate = $map['StartOrderDate'];
         }
 
         return $model;

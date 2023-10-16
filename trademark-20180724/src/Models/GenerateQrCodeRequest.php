@@ -11,7 +11,7 @@ class GenerateQrCodeRequest extends Model
     /**
      * @var string
      */
-    public $uuid;
+    public $fieldKey;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class GenerateQrCodeRequest extends Model
     /**
      * @var string
      */
-    public $fieldKey;
+    public $uuid;
     protected $_name = [
-        'uuid'     => 'Uuid',
-        'ossKey'   => 'OssKey',
         'fieldKey' => 'FieldKey',
+        'ossKey'   => 'OssKey',
+        'uuid'     => 'Uuid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GenerateQrCodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
+        if (null !== $this->fieldKey) {
+            $res['FieldKey'] = $this->fieldKey;
         }
         if (null !== $this->ossKey) {
             $res['OssKey'] = $this->ossKey;
         }
-        if (null !== $this->fieldKey) {
-            $res['FieldKey'] = $this->fieldKey;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GenerateQrCodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
+        if (isset($map['FieldKey'])) {
+            $model->fieldKey = $map['FieldKey'];
         }
         if (isset($map['OssKey'])) {
             $model->ossKey = $map['OssKey'];
         }
-        if (isset($map['FieldKey'])) {
-            $model->fieldKey = $map['FieldKey'];
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

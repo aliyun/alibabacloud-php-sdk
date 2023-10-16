@@ -11,15 +11,15 @@ class firstClassification extends Model
     /**
      * @var string
      */
-    public $name;
+    public $code;
 
     /**
      * @var string
      */
-    public $code;
+    public $name;
     protected $_name = [
-        'name' => 'Name',
         'code' => 'Code',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class firstClassification extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class firstClassification extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

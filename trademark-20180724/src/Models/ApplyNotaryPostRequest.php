@@ -16,12 +16,12 @@ class ApplyNotaryPostRequest extends Model
     /**
      * @var string
      */
-    public $receiverName;
+    public $receiverAddress;
 
     /**
      * @var string
      */
-    public $receiverAddress;
+    public $receiverName;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class ApplyNotaryPostRequest extends Model
     public $receiverPhone;
     protected $_name = [
         'notaryOrderId'   => 'NotaryOrderId',
-        'receiverName'    => 'ReceiverName',
         'receiverAddress' => 'ReceiverAddress',
+        'receiverName'    => 'ReceiverName',
         'receiverPhone'   => 'ReceiverPhone',
     ];
 
@@ -44,11 +44,11 @@ class ApplyNotaryPostRequest extends Model
         if (null !== $this->notaryOrderId) {
             $res['NotaryOrderId'] = $this->notaryOrderId;
         }
-        if (null !== $this->receiverName) {
-            $res['ReceiverName'] = $this->receiverName;
-        }
         if (null !== $this->receiverAddress) {
             $res['ReceiverAddress'] = $this->receiverAddress;
+        }
+        if (null !== $this->receiverName) {
+            $res['ReceiverName'] = $this->receiverName;
         }
         if (null !== $this->receiverPhone) {
             $res['ReceiverPhone'] = $this->receiverPhone;
@@ -68,11 +68,11 @@ class ApplyNotaryPostRequest extends Model
         if (isset($map['NotaryOrderId'])) {
             $model->notaryOrderId = $map['NotaryOrderId'];
         }
-        if (isset($map['ReceiverName'])) {
-            $model->receiverName = $map['ReceiverName'];
-        }
         if (isset($map['ReceiverAddress'])) {
             $model->receiverAddress = $map['ReceiverAddress'];
+        }
+        if (isset($map['ReceiverName'])) {
+            $model->receiverName = $map['ReceiverName'];
         }
         if (isset($map['ReceiverPhone'])) {
             $model->receiverPhone = $map['ReceiverPhone'];

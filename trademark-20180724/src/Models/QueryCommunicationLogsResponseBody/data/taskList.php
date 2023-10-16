@@ -11,17 +11,17 @@ class taskList extends Model
     /**
      * @var string
      */
-    public $note;
-
-    /**
-     * @var string
-     */
     public $bizId;
 
     /**
      * @var int
      */
-    public $updateTime;
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $note;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class taskList extends Model
     /**
      * @var int
      */
-    public $createTime;
+    public $updateTime;
     protected $_name = [
-        'note'        => 'Note',
         'bizId'       => 'BizId',
-        'updateTime'  => 'UpdateTime',
-        'partnerCode' => 'PartnerCode',
         'createTime'  => 'CreateTime',
+        'note'        => 'Note',
+        'partnerCode' => 'PartnerCode',
+        'updateTime'  => 'UpdateTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class taskList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->note) {
-            $res['Note'] = $this->note;
-        }
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->note) {
+            $res['Note'] = $this->note;
         }
         if (null !== $this->partnerCode) {
             $res['PartnerCode'] = $this->partnerCode;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class taskList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Note'])) {
-            $model->note = $map['Note'];
-        }
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Note'])) {
+            $model->note = $map['Note'];
         }
         if (isset($map['PartnerCode'])) {
             $model->partnerCode = $map['PartnerCode'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

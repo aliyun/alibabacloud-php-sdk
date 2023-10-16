@@ -14,24 +14,30 @@ class CreateTrademarkOrderResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @example 202975794160629
+     *
+     * @var int
+     */
+    public $orderId;
+
+    /**
+     * @example 483637DD-1D82-4A73-8F68-0FCDA2F677D6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $orderId;
     protected $_name = [
         'errorMsg'  => 'ErrorMsg',
+        'orderId'   => 'OrderId',
         'requestId' => 'RequestId',
         'success'   => 'Success',
-        'orderId'   => 'OrderId',
     ];
 
     public function validate()
@@ -44,14 +50,14 @@ class CreateTrademarkOrderResponseBody extends Model
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -68,14 +74,14 @@ class CreateTrademarkOrderResponseBody extends Model
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
         }
 
         return $model;

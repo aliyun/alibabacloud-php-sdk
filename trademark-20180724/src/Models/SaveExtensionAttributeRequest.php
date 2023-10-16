@@ -11,21 +11,21 @@ class SaveExtensionAttributeRequest extends Model
     /**
      * @var string
      */
-    public $bizId;
-
-    /**
-     * @var string
-     */
     public $attributeKey;
 
     /**
      * @var string
      */
     public $attributeValue;
+
+    /**
+     * @var string
+     */
+    public $bizId;
     protected $_name = [
-        'bizId'          => 'BizId',
         'attributeKey'   => 'AttributeKey',
         'attributeValue' => 'AttributeValue',
+        'bizId'          => 'BizId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SaveExtensionAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
-        }
         if (null !== $this->attributeKey) {
             $res['AttributeKey'] = $this->attributeKey;
         }
         if (null !== $this->attributeValue) {
             $res['AttributeValue'] = $this->attributeValue;
+        }
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SaveExtensionAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
-        }
         if (isset($map['AttributeKey'])) {
             $model->attributeKey = $map['AttributeKey'];
         }
         if (isset($map['AttributeValue'])) {
             $model->attributeValue = $map['AttributeValue'];
+        }
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
 
         return $model;

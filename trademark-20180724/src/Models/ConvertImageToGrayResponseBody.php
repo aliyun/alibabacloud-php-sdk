@@ -11,15 +11,15 @@ class ConvertImageToGrayResponseBody extends Model
     /**
      * @var string
      */
-    public $signatureUrl;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $signatureUrl;
     protected $_name = [
-        'signatureUrl' => 'SignatureUrl',
         'requestId'    => 'RequestId',
+        'signatureUrl' => 'SignatureUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ConvertImageToGrayResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->signatureUrl) {
-            $res['SignatureUrl'] = $this->signatureUrl;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->signatureUrl) {
+            $res['SignatureUrl'] = $this->signatureUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ConvertImageToGrayResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SignatureUrl'])) {
-            $model->signatureUrl = $map['SignatureUrl'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SignatureUrl'])) {
+            $model->signatureUrl = $map['SignatureUrl'];
         }
 
         return $model;

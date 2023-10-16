@@ -14,18 +14,18 @@ class SubmitTrademarkApplicationComplaintRequest extends Model
     public $bizId;
 
     /**
-     * @var mixed[]
-     */
-    public $files;
-
-    /**
      * @var string
      */
     public $content;
+
+    /**
+     * @var mixed[]
+     */
+    public $files;
     protected $_name = [
         'bizId'   => 'BizId',
-        'files'   => 'Files',
         'content' => 'Content',
+        'files'   => 'Files',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class SubmitTrademarkApplicationComplaintRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->files) {
-            $res['Files'] = $this->files;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->files) {
+            $res['Files'] = $this->files;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class SubmitTrademarkApplicationComplaintRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['Files'])) {
-            $model->files = $map['Files'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['Files'])) {
+            $model->files = $map['Files'];
         }
 
         return $model;

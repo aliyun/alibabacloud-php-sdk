@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class intention extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $type;
+    public $bizId;
+
+    /**
+     * @var string
+     */
+    public $classification;
 
     /**
      * @var int
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $updateTime;
+    public $createTime;
 
     /**
      * @var string
@@ -36,32 +36,32 @@ class intention extends Model
     /**
      * @var int
      */
-    public $createTime;
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $type;
+
+    /**
+     * @var int
+     */
+    public $updateTime;
 
     /**
      * @var string
      */
     public $userId;
-
-    /**
-     * @var string
-     */
-    public $bizId;
-
-    /**
-     * @var string
-     */
-    public $classification;
     protected $_name = [
-        'type'           => 'Type',
-        'status'         => 'Status',
-        'updateTime'     => 'UpdateTime',
-        'description'    => 'Description',
-        'registerNumber' => 'RegisterNumber',
-        'createTime'     => 'CreateTime',
-        'userId'         => 'UserId',
         'bizId'          => 'BizId',
         'classification' => 'Classification',
+        'createTime'     => 'CreateTime',
+        'description'    => 'Description',
+        'registerNumber' => 'RegisterNumber',
+        'status'         => 'Status',
+        'type'           => 'Type',
+        'updateTime'     => 'UpdateTime',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -71,14 +71,14 @@ class intention extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->classification) {
+            $res['Classification'] = $this->classification;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -86,17 +86,17 @@ class intention extends Model
         if (null !== $this->registerNumber) {
             $res['RegisterNumber'] = $this->registerNumber;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
-        }
-        if (null !== $this->classification) {
-            $res['Classification'] = $this->classification;
         }
 
         return $res;
@@ -110,14 +110,14 @@ class intention extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Classification'])) {
+            $model->classification = $map['Classification'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -125,17 +125,17 @@ class intention extends Model
         if (isset($map['RegisterNumber'])) {
             $model->registerNumber = $map['RegisterNumber'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
-        }
-        if (isset($map['Classification'])) {
-            $model->classification = $map['Classification'];
         }
 
         return $model;

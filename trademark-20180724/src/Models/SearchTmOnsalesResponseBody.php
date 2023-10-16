@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class SearchTmOnsalesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -27,7 +17,12 @@ class SearchTmOnsalesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalPageNumber;
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
@@ -35,15 +30,20 @@ class SearchTmOnsalesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @var int
+     */
+    public $totalPageNumber;
+
+    /**
      * @var trademarks[]
      */
     public $trademarks;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'pageSize'        => 'PageSize',
         'pageNumber'      => 'PageNumber',
-        'totalPageNumber' => 'TotalPageNumber',
+        'pageSize'        => 'PageSize',
+        'requestId'       => 'RequestId',
         'totalCount'      => 'TotalCount',
+        'totalPageNumber' => 'TotalPageNumber',
         'trademarks'      => 'Trademarks',
     ];
 
@@ -54,20 +54,20 @@ class SearchTmOnsalesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->totalPageNumber) {
-            $res['TotalPageNumber'] = $this->totalPageNumber;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->totalPageNumber) {
+            $res['TotalPageNumber'] = $this->totalPageNumber;
         }
         if (null !== $this->trademarks) {
             $res['Trademarks'] = [];
@@ -90,20 +90,20 @@ class SearchTmOnsalesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['TotalPageNumber'])) {
-            $model->totalPageNumber = $map['TotalPageNumber'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['TotalPageNumber'])) {
+            $model->totalPageNumber = $map['TotalPageNumber'];
         }
         if (isset($map['Trademarks'])) {
             if (!empty($map['Trademarks'])) {

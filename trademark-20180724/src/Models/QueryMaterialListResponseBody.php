@@ -10,41 +10,51 @@ use AlibabaCloud\Tea\Model;
 class QueryMaterialListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPageNum;
 
     /**
-     * @var int
+     * @var data
      */
-    public $totalPageNum;
+    public $data;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @example 15
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 11212
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example 32
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
-     * @var data
+     * @example 3
+     *
+     * @var int
      */
-    public $data;
+    public $totalPageNum;
     protected $_name = [
         'currentPageNum' => 'CurrentPageNum',
-        'totalPageNum'   => 'TotalPageNum',
-        'requestId'      => 'RequestId',
-        'pageSize'       => 'PageSize',
-        'totalItemNum'   => 'TotalItemNum',
         'data'           => 'Data',
+        'pageSize'       => 'PageSize',
+        'requestId'      => 'RequestId',
+        'totalItemNum'   => 'TotalItemNum',
+        'totalPageNum'   => 'TotalPageNum',
     ];
 
     public function validate()
@@ -57,20 +67,20 @@ class QueryMaterialListResponseBody extends Model
         if (null !== $this->currentPageNum) {
             $res['CurrentPageNum'] = $this->currentPageNum;
         }
-        if (null !== $this->totalPageNum) {
-            $res['TotalPageNum'] = $this->totalPageNum;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalItemNum) {
             $res['TotalItemNum'] = $this->totalItemNum;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->totalPageNum) {
+            $res['TotalPageNum'] = $this->totalPageNum;
         }
 
         return $res;
@@ -87,20 +97,20 @@ class QueryMaterialListResponseBody extends Model
         if (isset($map['CurrentPageNum'])) {
             $model->currentPageNum = $map['CurrentPageNum'];
         }
-        if (isset($map['TotalPageNum'])) {
-            $model->totalPageNum = $map['TotalPageNum'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalItemNum'])) {
             $model->totalItemNum = $map['TotalItemNum'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['TotalPageNum'])) {
+            $model->totalPageNum = $map['TotalPageNum'];
         }
 
         return $model;

@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescirbeCombineTrademarkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $accurateMatch;
+
+    /**
      * @var string
      */
-    public $registrationNumber;
+    public $classification;
 
     /**
      * @var string
@@ -22,16 +27,6 @@ class DescirbeCombineTrademarkRequest extends Model
      * @var string
      */
     public $ownerName;
-
-    /**
-     * @var string
-     */
-    public $products;
-
-    /**
-     * @var bool
-     */
-    public $accurateMatch;
 
     /**
      * @var int
@@ -46,21 +41,26 @@ class DescirbeCombineTrademarkRequest extends Model
     /**
      * @var string
      */
-    public $classification;
+    public $products;
+
+    /**
+     * @var string
+     */
+    public $registrationNumber;
 
     /**
      * @var string
      */
     public $similarGroups;
     protected $_name = [
-        'registrationNumber' => 'RegistrationNumber',
+        'accurateMatch'      => 'AccurateMatch',
+        'classification'     => 'Classification',
         'name'               => 'Name',
         'ownerName'          => 'OwnerName',
-        'products'           => 'Products',
-        'accurateMatch'      => 'AccurateMatch',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
-        'classification'     => 'Classification',
+        'products'           => 'Products',
+        'registrationNumber' => 'RegistrationNumber',
         'similarGroups'      => 'SimilarGroups',
     ];
 
@@ -71,8 +71,11 @@ class DescirbeCombineTrademarkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->registrationNumber) {
-            $res['RegistrationNumber'] = $this->registrationNumber;
+        if (null !== $this->accurateMatch) {
+            $res['AccurateMatch'] = $this->accurateMatch;
+        }
+        if (null !== $this->classification) {
+            $res['Classification'] = $this->classification;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -80,20 +83,17 @@ class DescirbeCombineTrademarkRequest extends Model
         if (null !== $this->ownerName) {
             $res['OwnerName'] = $this->ownerName;
         }
-        if (null !== $this->products) {
-            $res['Products'] = $this->products;
-        }
-        if (null !== $this->accurateMatch) {
-            $res['AccurateMatch'] = $this->accurateMatch;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->classification) {
-            $res['Classification'] = $this->classification;
+        if (null !== $this->products) {
+            $res['Products'] = $this->products;
+        }
+        if (null !== $this->registrationNumber) {
+            $res['RegistrationNumber'] = $this->registrationNumber;
         }
         if (null !== $this->similarGroups) {
             $res['SimilarGroups'] = $this->similarGroups;
@@ -110,8 +110,11 @@ class DescirbeCombineTrademarkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegistrationNumber'])) {
-            $model->registrationNumber = $map['RegistrationNumber'];
+        if (isset($map['AccurateMatch'])) {
+            $model->accurateMatch = $map['AccurateMatch'];
+        }
+        if (isset($map['Classification'])) {
+            $model->classification = $map['Classification'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -119,20 +122,17 @@ class DescirbeCombineTrademarkRequest extends Model
         if (isset($map['OwnerName'])) {
             $model->ownerName = $map['OwnerName'];
         }
-        if (isset($map['Products'])) {
-            $model->products = $map['Products'];
-        }
-        if (isset($map['AccurateMatch'])) {
-            $model->accurateMatch = $map['AccurateMatch'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Classification'])) {
-            $model->classification = $map['Classification'];
+        if (isset($map['Products'])) {
+            $model->products = $map['Products'];
+        }
+        if (isset($map['RegistrationNumber'])) {
+            $model->registrationNumber = $map['RegistrationNumber'];
         }
         if (isset($map['SimilarGroups'])) {
             $model->similarGroups = $map['SimilarGroups'];

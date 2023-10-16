@@ -11,6 +11,11 @@ class QueryExtensionAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $attributeValue;
+
+    /**
+     * @var string
+     */
     public $code;
 
     /**
@@ -27,17 +32,12 @@ class QueryExtensionAttributeResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $attributeValue;
     protected $_name = [
+        'attributeValue' => 'AttributeValue',
         'code'           => 'Code',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
         'success'        => 'Success',
-        'attributeValue' => 'AttributeValue',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class QueryExtensionAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attributeValue) {
+            $res['AttributeValue'] = $this->attributeValue;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -58,9 +61,6 @@ class QueryExtensionAttributeResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->attributeValue) {
-            $res['AttributeValue'] = $this->attributeValue;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class QueryExtensionAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttributeValue'])) {
+            $model->attributeValue = $map['AttributeValue'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -85,9 +88,6 @@ class QueryExtensionAttributeResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['AttributeValue'])) {
-            $model->attributeValue = $map['AttributeValue'];
         }
 
         return $model;

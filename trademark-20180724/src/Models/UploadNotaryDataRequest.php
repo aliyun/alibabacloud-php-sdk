@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UploadNotaryDataRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizOrderNo;
+
+    /**
      * @var int
      */
     public $notaryType;
@@ -16,15 +21,10 @@ class UploadNotaryDataRequest extends Model
     /**
      * @var string
      */
-    public $bizOrderNo;
-
-    /**
-     * @var string
-     */
     public $uploadContext;
     protected $_name = [
-        'notaryType'    => 'NotaryType',
         'bizOrderNo'    => 'BizOrderNo',
+        'notaryType'    => 'NotaryType',
         'uploadContext' => 'UploadContext',
     ];
 
@@ -35,11 +35,11 @@ class UploadNotaryDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->notaryType) {
-            $res['NotaryType'] = $this->notaryType;
-        }
         if (null !== $this->bizOrderNo) {
             $res['BizOrderNo'] = $this->bizOrderNo;
+        }
+        if (null !== $this->notaryType) {
+            $res['NotaryType'] = $this->notaryType;
         }
         if (null !== $this->uploadContext) {
             $res['UploadContext'] = $this->uploadContext;
@@ -56,11 +56,11 @@ class UploadNotaryDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NotaryType'])) {
-            $model->notaryType = $map['NotaryType'];
-        }
         if (isset($map['BizOrderNo'])) {
             $model->bizOrderNo = $map['BizOrderNo'];
+        }
+        if (isset($map['NotaryType'])) {
+            $model->notaryType = $map['NotaryType'];
         }
         if (isset($map['UploadContext'])) {
             $model->uploadContext = $map['UploadContext'];

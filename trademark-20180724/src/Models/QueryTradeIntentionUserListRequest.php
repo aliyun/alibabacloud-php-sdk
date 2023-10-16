@@ -14,9 +14,19 @@ class QueryTradeIntentionUserListRequest extends Model
     public $begin;
 
     /**
+     * @var string
+     */
+    public $bizId;
+
+    /**
      * @var int
      */
     public $end;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
 
     /**
      * @var int
@@ -26,24 +36,20 @@ class QueryTradeIntentionUserListRequest extends Model
     /**
      * @var int
      */
-    public $pageNum;
-
-    /**
-     * @var string
-     */
-    public $bizId;
+    public $status;
 
     /**
      * @var int
      */
-    public $status;
+    public $type;
     protected $_name = [
         'begin'    => 'Begin',
-        'end'      => 'End',
-        'pageSize' => 'PageSize',
-        'pageNum'  => 'PageNum',
         'bizId'    => 'BizId',
+        'end'      => 'End',
+        'pageNum'  => 'PageNum',
+        'pageSize' => 'PageSize',
         'status'   => 'Status',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -56,20 +62,23 @@ class QueryTradeIntentionUserListRequest extends Model
         if (null !== $this->begin) {
             $res['Begin'] = $this->begin;
         }
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
         if (null !== $this->end) {
             $res['End'] = $this->end;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -86,20 +95,23 @@ class QueryTradeIntentionUserListRequest extends Model
         if (isset($map['Begin'])) {
             $model->begin = $map['Begin'];
         }
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
         if (isset($map['End'])) {
             $model->end = $map['End'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

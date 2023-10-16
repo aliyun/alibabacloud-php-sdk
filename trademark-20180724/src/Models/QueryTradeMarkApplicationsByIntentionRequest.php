@@ -11,12 +11,12 @@ class QueryTradeMarkApplicationsByIntentionRequest extends Model
     /**
      * @var string
      */
-    public $intentionBizId;
+    public $channel;
 
     /**
      * @var string
      */
-    public $channel;
+    public $intentionBizId;
 
     /**
      * @var int
@@ -33,8 +33,8 @@ class QueryTradeMarkApplicationsByIntentionRequest extends Model
      */
     public $tmProduceStatus;
     protected $_name = [
-        'intentionBizId'  => 'IntentionBizId',
         'channel'         => 'Channel',
+        'intentionBizId'  => 'IntentionBizId',
         'pageNum'         => 'PageNum',
         'pageSize'        => 'PageSize',
         'tmProduceStatus' => 'TmProduceStatus',
@@ -47,11 +47,11 @@ class QueryTradeMarkApplicationsByIntentionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->intentionBizId) {
-            $res['IntentionBizId'] = $this->intentionBizId;
-        }
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
+        }
+        if (null !== $this->intentionBizId) {
+            $res['IntentionBizId'] = $this->intentionBizId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -74,11 +74,11 @@ class QueryTradeMarkApplicationsByIntentionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IntentionBizId'])) {
-            $model->intentionBizId = $map['IntentionBizId'];
-        }
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];
+        }
+        if (isset($map['IntentionBizId'])) {
+            $model->intentionBizId = $map['IntentionBizId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

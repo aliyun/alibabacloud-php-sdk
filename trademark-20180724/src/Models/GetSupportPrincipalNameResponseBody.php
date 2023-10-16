@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetSupportPrincipalNameResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var principals[]
      */
     public $principals;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'principals' => 'Principals',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class GetSupportPrincipalNameResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->principals) {
             $res['Principals'] = [];
             if (null !== $this->principals && \is_array($this->principals)) {
@@ -41,6 +38,9 @@ class GetSupportPrincipalNameResponseBody extends Model
                     $res['Principals'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class GetSupportPrincipalNameResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Principals'])) {
             if (!empty($map['Principals'])) {
                 $model->principals = [];
@@ -65,6 +62,9 @@ class GetSupportPrincipalNameResponseBody extends Model
                     $model->principals[$n++] = null !== $item ? principals::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

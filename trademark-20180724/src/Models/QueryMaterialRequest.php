@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMaterialRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;

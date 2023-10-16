@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CheckTrademarkIconRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $trademarkIconOssKey;
-
-    /**
      * @var int
      */
     public $eventSceneType;
+
+    /**
+     * @var string
+     */
+    public $trademarkIconOssKey;
     protected $_name = [
-        'trademarkIconOssKey' => 'TrademarkIconOssKey',
         'eventSceneType'      => 'EventSceneType',
+        'trademarkIconOssKey' => 'TrademarkIconOssKey',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CheckTrademarkIconRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trademarkIconOssKey) {
-            $res['TrademarkIconOssKey'] = $this->trademarkIconOssKey;
-        }
         if (null !== $this->eventSceneType) {
             $res['EventSceneType'] = $this->eventSceneType;
+        }
+        if (null !== $this->trademarkIconOssKey) {
+            $res['TrademarkIconOssKey'] = $this->trademarkIconOssKey;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CheckTrademarkIconRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TrademarkIconOssKey'])) {
-            $model->trademarkIconOssKey = $map['TrademarkIconOssKey'];
-        }
         if (isset($map['EventSceneType'])) {
             $model->eventSceneType = $map['EventSceneType'];
+        }
+        if (isset($map['TrademarkIconOssKey'])) {
+            $model->trademarkIconOssKey = $map['TrademarkIconOssKey'];
         }
 
         return $model;

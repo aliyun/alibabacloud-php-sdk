@@ -16,12 +16,12 @@ class AcceptPartnerNotificationRequest extends Model
     /**
      * @var string
      */
-    public $operation;
+    public $material;
 
     /**
      * @var string
      */
-    public $material;
+    public $operation;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class AcceptPartnerNotificationRequest extends Model
     public $remark;
     protected $_name = [
         'bizId'     => 'BizId',
-        'operation' => 'Operation',
         'material'  => 'Material',
+        'operation' => 'Operation',
         'remark'    => 'Remark',
     ];
 
@@ -44,11 +44,11 @@ class AcceptPartnerNotificationRequest extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->operation) {
-            $res['Operation'] = $this->operation;
-        }
         if (null !== $this->material) {
             $res['Material'] = $this->material;
+        }
+        if (null !== $this->operation) {
+            $res['Operation'] = $this->operation;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -68,11 +68,11 @@ class AcceptPartnerNotificationRequest extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['Operation'])) {
-            $model->operation = $map['Operation'];
-        }
         if (isset($map['Material'])) {
             $model->material = $map['Material'];
+        }
+        if (isset($map['Operation'])) {
+            $model->operation = $map['Operation'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];

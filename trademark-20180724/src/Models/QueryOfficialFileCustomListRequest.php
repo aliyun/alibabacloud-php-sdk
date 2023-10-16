@@ -11,15 +11,15 @@ class QueryOfficialFileCustomListRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageNum;
 
     /**
      * @var int
      */
-    public $pageNum;
+    public $pageSize;
     protected $_name = [
-        'pageSize' => 'PageSize',
         'pageNum'  => 'PageNum',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QueryOfficialFileCustomListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QueryOfficialFileCustomListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

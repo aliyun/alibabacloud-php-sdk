@@ -16,12 +16,7 @@ class taskList extends Model
     /**
      * @var int
      */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
-    public $ossUrl;
+    public $createTime;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class taskList extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $ossUrl;
+
+    /**
      * @var int
      */
-    public $createTime;
+    public $updateTime;
     protected $_name = [
         'bizId'      => 'BizId',
-        'updateTime' => 'UpdateTime',
-        'ossUrl'     => 'OssUrl',
-        'name'       => 'Name',
         'createTime' => 'CreateTime',
+        'name'       => 'Name',
+        'ossUrl'     => 'OssUrl',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class taskList extends Model
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->ossUrl) {
-            $res['OssUrl'] = $this->ossUrl;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->ossUrl) {
+            $res['OssUrl'] = $this->ossUrl;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class taskList extends Model
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['OssUrl'])) {
-            $model->ossUrl = $map['OssUrl'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['OssUrl'])) {
+            $model->ossUrl = $map['OssUrl'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

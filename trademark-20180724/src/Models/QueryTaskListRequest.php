@@ -16,16 +16,16 @@ class QueryTaskListRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageNum;
 
     /**
      * @var int
      */
-    public $pageNum;
+    public $pageSize;
     protected $_name = [
         'bizType'  => 'BizType',
-        'pageSize' => 'PageSize',
         'pageNum'  => 'PageNum',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class QueryTaskListRequest extends Model
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class QueryTaskListRequest extends Model
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

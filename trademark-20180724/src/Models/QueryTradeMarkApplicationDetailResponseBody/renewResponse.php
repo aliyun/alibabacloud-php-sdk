@@ -11,12 +11,7 @@ class renewResponse extends Model
     /**
      * @var string
      */
-    public $engName;
-
-    /**
-     * @var int
-     */
-    public $registerTime;
+    public $address;
 
     /**
      * @var string
@@ -26,7 +21,7 @@ class renewResponse extends Model
     /**
      * @var string
      */
-    public $address;
+    public $engName;
 
     /**
      * @var string
@@ -36,13 +31,18 @@ class renewResponse extends Model
     /**
      * @var int
      */
+    public $registerTime;
+
+    /**
+     * @var int
+     */
     public $submitSbjtime;
     protected $_name = [
-        'engName'       => 'EngName',
-        'registerTime'  => 'RegisterTime',
-        'engAddress'    => 'EngAddress',
         'address'       => 'Address',
+        'engAddress'    => 'EngAddress',
+        'engName'       => 'EngName',
         'name'          => 'Name',
+        'registerTime'  => 'RegisterTime',
         'submitSbjtime' => 'SubmitSbjtime',
     ];
 
@@ -53,20 +53,20 @@ class renewResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->engName) {
-            $res['EngName'] = $this->engName;
-        }
-        if (null !== $this->registerTime) {
-            $res['RegisterTime'] = $this->registerTime;
+        if (null !== $this->address) {
+            $res['Address'] = $this->address;
         }
         if (null !== $this->engAddress) {
             $res['EngAddress'] = $this->engAddress;
         }
-        if (null !== $this->address) {
-            $res['Address'] = $this->address;
+        if (null !== $this->engName) {
+            $res['EngName'] = $this->engName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->registerTime) {
+            $res['RegisterTime'] = $this->registerTime;
         }
         if (null !== $this->submitSbjtime) {
             $res['SubmitSbjtime'] = $this->submitSbjtime;
@@ -83,20 +83,20 @@ class renewResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EngName'])) {
-            $model->engName = $map['EngName'];
-        }
-        if (isset($map['RegisterTime'])) {
-            $model->registerTime = $map['RegisterTime'];
+        if (isset($map['Address'])) {
+            $model->address = $map['Address'];
         }
         if (isset($map['EngAddress'])) {
             $model->engAddress = $map['EngAddress'];
         }
-        if (isset($map['Address'])) {
-            $model->address = $map['Address'];
+        if (isset($map['EngName'])) {
+            $model->engName = $map['EngName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RegisterTime'])) {
+            $model->registerTime = $map['RegisterTime'];
         }
         if (isset($map['SubmitSbjtime'])) {
             $model->submitSbjtime = $map['SubmitSbjtime'];
