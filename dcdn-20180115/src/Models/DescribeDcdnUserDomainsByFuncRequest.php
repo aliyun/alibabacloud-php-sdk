@@ -39,6 +39,11 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public $funcId;
 
     /**
+     * @var string
+     */
+    public $matchType;
+
+    /**
      * @description The number of the page to return. Default value: **1**. Valid values: **1 to 100000**.
      *
      * @example 1
@@ -68,6 +73,7 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
         'domainName'      => 'DomainName',
         'funcFilter'      => 'FuncFilter',
         'funcId'          => 'FuncId',
+        'matchType'       => 'MatchType',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
@@ -88,6 +94,9 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
         }
         if (null !== $this->funcId) {
             $res['FuncId'] = $this->funcId;
+        }
+        if (null !== $this->matchType) {
+            $res['MatchType'] = $this->matchType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -118,6 +127,9 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
         }
         if (isset($map['FuncId'])) {
             $model->funcId = $map['FuncId'];
+        }
+        if (isset($map['MatchType'])) {
+            $model->matchType = $map['MatchType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

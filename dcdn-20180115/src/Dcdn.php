@@ -2978,7 +2978,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnCertificateList instead.
+     * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnSSLCertificateList instead.
      *   * > You can call this operation up to 30 times per second per account.
      *   *
      * Deprecated
@@ -3020,7 +3020,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnCertificateList instead.
+     * @deprecated : DescribeDcdnCertificateList is deprecated, please use dcdn::2018-01-15::DescribeDcdnSSLCertificateList instead.
      *   * > You can call this operation up to 30 times per second per account.
      *   *
      * Deprecated
@@ -7934,6 +7934,9 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->funcId)) {
             $query['FuncId'] = $request->funcId;
+        }
+        if (!Utils::isUnset($request->matchType)) {
+            $query['MatchType'] = $request->matchType;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
