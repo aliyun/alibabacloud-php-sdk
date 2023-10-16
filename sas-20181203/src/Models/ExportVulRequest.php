@@ -33,6 +33,16 @@ class ExportVulRequest extends Model
     public $containerName;
 
     /**
+     * @var int
+     */
+    public $createTsEnd;
+
+    /**
+     * @var int
+     */
+    public $createTsStart;
+
+    /**
      * @var string
      */
     public $cveId;
@@ -147,6 +157,8 @@ class ExportVulRequest extends Model
         'aliasName'      => 'AliasName',
         'attachTypes'    => 'AttachTypes',
         'containerName'  => 'ContainerName',
+        'createTsEnd'    => 'CreateTsEnd',
+        'createTsStart'  => 'CreateTsStart',
         'cveId'          => 'CveId',
         'dealed'         => 'Dealed',
         'groupId'        => 'GroupId',
@@ -175,6 +187,12 @@ class ExportVulRequest extends Model
         }
         if (null !== $this->containerName) {
             $res['ContainerName'] = $this->containerName;
+        }
+        if (null !== $this->createTsEnd) {
+            $res['CreateTsEnd'] = $this->createTsEnd;
+        }
+        if (null !== $this->createTsStart) {
+            $res['CreateTsStart'] = $this->createTsStart;
         }
         if (null !== $this->cveId) {
             $res['CveId'] = $this->cveId;
@@ -229,6 +247,12 @@ class ExportVulRequest extends Model
         }
         if (isset($map['ContainerName'])) {
             $model->containerName = $map['ContainerName'];
+        }
+        if (isset($map['CreateTsEnd'])) {
+            $model->createTsEnd = $map['CreateTsEnd'];
+        }
+        if (isset($map['CreateTsStart'])) {
+            $model->createTsStart = $map['CreateTsStart'];
         }
         if (isset($map['CveId'])) {
             $model->cveId = $map['CveId'];

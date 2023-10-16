@@ -17955,6 +17955,12 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->containerName)) {
             $query['ContainerName'] = $request->containerName;
         }
+        if (!Utils::isUnset($request->createTsEnd)) {
+            $query['CreateTsEnd'] = $request->createTsEnd;
+        }
+        if (!Utils::isUnset($request->createTsStart)) {
+            $query['CreateTsStart'] = $request->createTsStart;
+        }
         if (!Utils::isUnset($request->cveId)) {
             $query['CveId'] = $request->cveId;
         }
