@@ -18,6 +18,11 @@ class CreateLaunchTemplateResponseBody extends Model
     public $launchTemplateId;
 
     /**
+     * @var int
+     */
+    public $launchTemplateVersionNumber;
+
+    /**
      * @description The ID of the request.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
@@ -26,8 +31,9 @@ class CreateLaunchTemplateResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'launchTemplateId' => 'LaunchTemplateId',
-        'requestId'        => 'RequestId',
+        'launchTemplateId'            => 'LaunchTemplateId',
+        'launchTemplateVersionNumber' => 'LaunchTemplateVersionNumber',
+        'requestId'                   => 'RequestId',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class CreateLaunchTemplateResponseBody extends Model
         $res = [];
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
+        }
+        if (null !== $this->launchTemplateVersionNumber) {
+            $res['LaunchTemplateVersionNumber'] = $this->launchTemplateVersionNumber;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -57,6 +66,9 @@ class CreateLaunchTemplateResponseBody extends Model
         $model = new self();
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
+        }
+        if (isset($map['LaunchTemplateVersionNumber'])) {
+            $model->launchTemplateVersionNumber = $map['LaunchTemplateVersionNumber'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
