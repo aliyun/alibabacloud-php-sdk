@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class BeginDialogueRequest extends Model
 {
     /**
+     * @example 10086
+     *
      * @var string
      */
     public $calledNumber;
 
     /**
+     * @example 1358158****
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example c28fc549-d88f-4f6e-85ad-a0806e5e39c0
+     *
      * @var string
      */
     public $conversationId;
 
     /**
+     * @example {\"channelId\":\"fe2559d3-5fc9-4fa5-8314-32b9f762791d\"}
+     *
      * @var string
      */
     public $initialContext;
 
     /**
+     * @example 4d7db6670b8e41b5adb1f21560ea9272
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1231639035307976
+     *
      * @var int
      */
     public $instanceOwnerId;

@@ -15,21 +15,29 @@ class ListConversationsResponseBody extends Model
     public $conversations;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a2c26e67-5984-4935-984e-bcee52971993
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

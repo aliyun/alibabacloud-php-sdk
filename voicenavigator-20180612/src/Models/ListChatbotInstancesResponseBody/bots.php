@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class bots extends Model
 {
     /**
+     * @example https://dss0.ali.com/70cFuHS.jpg
+     *
      * @var string
      */
     public $avatar;
 
     /**
+     * @example 1582266750353
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example af81a389-91f0-4157-8d82-720edd02b66a
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ‘’
+     *
      * @var string
      */
     public $introduction;
 
     /**
+     * @example zh-cn
+     *
      * @var string
      */
     public $languageCode;
@@ -39,6 +49,8 @@ class bots extends Model
     public $name;
 
     /**
+     * @example UTC+8
+     *
      * @var string
      */
     public $timeZone;

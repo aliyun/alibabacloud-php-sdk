@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRealTimeConcurrencyRequest extends Model
 {
     /**
+     * @example c112c168ed664c0a851f9ca72d2f7999
+     *
      * @var string
      */
     public $instanceId;

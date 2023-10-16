@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssociateChatbotInstanceRequest extends Model
 {
     /**
+     * @example chatbot-720edd02b66a
+     *
      * @var string
      */
     public $chatbotInstanceId;
@@ -19,13 +21,27 @@ class AssociateChatbotInstanceRequest extends Model
     public $chatbotName;
 
     /**
+     * @example af81a389-91f0-4157-8d82-720edd02b66a
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $nluServiceParamsJson;
+
+    /**
+     * @var string
+     */
+    public $unionSource;
     protected $_name = [
-        'chatbotInstanceId' => 'ChatbotInstanceId',
-        'chatbotName'       => 'ChatbotName',
-        'instanceId'        => 'InstanceId',
+        'chatbotInstanceId'    => 'ChatbotInstanceId',
+        'chatbotName'          => 'ChatbotName',
+        'instanceId'           => 'InstanceId',
+        'nluServiceParamsJson' => 'NluServiceParamsJson',
+        'unionSource'          => 'UnionSource',
     ];
 
     public function validate()
@@ -43,6 +59,12 @@ class AssociateChatbotInstanceRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->nluServiceParamsJson) {
+            $res['NluServiceParamsJson'] = $this->nluServiceParamsJson;
+        }
+        if (null !== $this->unionSource) {
+            $res['UnionSource'] = $this->unionSource;
         }
 
         return $res;
@@ -64,6 +86,12 @@ class AssociateChatbotInstanceRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NluServiceParamsJson'])) {
+            $model->nluServiceParamsJson = $map['NluServiceParamsJson'];
+        }
+        if (isset($map['UnionSource'])) {
+            $model->unionSource = $map['UnionSource'];
         }
 
         return $model;

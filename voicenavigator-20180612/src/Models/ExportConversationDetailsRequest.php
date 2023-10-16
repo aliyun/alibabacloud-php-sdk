@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ExportConversationDetailsRequest extends Model
 {
     /**
+     * @example 1582266750353
+     *
      * @var int
      */
     public $beginTimeLeftRange;
 
     /**
+     * @example 1640793599000
+     *
      * @var int
      */
     public $beginTimeRightRange;
 
     /**
+     * @example 13581588**
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example 6c01a99f-1b72-4f75-a8bd-3875766bd19d
+     *
      * @var string
      */
     public $instanceId;
@@ -32,6 +40,11 @@ class ExportConversationDetailsRequest extends Model
      * @var string[]
      */
     public $options;
+
+    /**
+     * @var int
+     */
+    public $result;
 
     /**
      * @var int
@@ -48,6 +61,7 @@ class ExportConversationDetailsRequest extends Model
         'callingNumber'       => 'CallingNumber',
         'instanceId'          => 'InstanceId',
         'options'             => 'Options',
+        'result'              => 'Result',
         'roundsLeftRange'     => 'RoundsLeftRange',
         'roundsRightRange'    => 'RoundsRightRange',
     ];
@@ -73,6 +87,9 @@ class ExportConversationDetailsRequest extends Model
         }
         if (null !== $this->options) {
             $res['Options'] = $this->options;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
         }
         if (null !== $this->roundsLeftRange) {
             $res['RoundsLeftRange'] = $this->roundsLeftRange;
@@ -108,6 +125,9 @@ class ExportConversationDetailsRequest extends Model
             if (!empty($map['Options'])) {
                 $model->options = $map['Options'];
             }
+        }
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
         }
         if (isset($map['RoundsLeftRange'])) {
             $model->roundsLeftRange = $map['RoundsLeftRange'];

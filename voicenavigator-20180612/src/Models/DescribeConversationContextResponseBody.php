@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeConversationContextResponseBody extends Model
 {
     /**
+     * @example {         "CallingNumber": "135815***",         "AdditionalContext": "",         "ConversationId": "361c8a53-0e29-42f3-8aa7-c7752d010399"     }
+     *
      * @var string
      */
     public $conversationContext;
 
     /**
+     * @example b19af5ce5314ac08108d1b33fe20e15
+     *
      * @var string
      */
     public $requestId;

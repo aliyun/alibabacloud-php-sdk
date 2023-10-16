@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeStatisticalDataResponseBody extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $conversationTotalNum;
 
     /**
+     * @example 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $resolvedQuestionTotalNum;
@@ -30,21 +36,29 @@ class DescribeStatisticalDataResponseBody extends Model
     public $statisticalDataReports;
 
     /**
+     * @example 80.00%
+     *
      * @var string
      */
     public $totalDialoguePassRate;
 
     /**
+     * @example 80.00%
+     *
      * @var string
      */
     public $totalKnowledgeHitRate;
 
     /**
+     * @example 80.00%
+     *
      * @var string
      */
     public $totalResolutionRate;
 
     /**
+     * @example 80.00%
+     *
      * @var string
      */
     public $totalValidAnswerRate;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AuditTTSVoiceRequest extends Model
 {
     /**
+     * @example af81a389-91f0-4157-8d82-720edd02b66a
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $speechRate;
@@ -24,11 +28,15 @@ class AuditTTSVoiceRequest extends Model
     public $text;
 
     /**
+     * @example aixia
+     *
      * @var string
      */
     public $voice;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $volume;

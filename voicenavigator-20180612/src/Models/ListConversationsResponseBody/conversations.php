@@ -14,26 +14,36 @@ class conversations extends Model
     public $calledNumber;
 
     /**
+     * @example 135815884***
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example 82b2eaae-ce5c-45f8-8231-f15b6b27e55c
+     *
      * @var string
      */
     public $conversationId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $endReason;
 
     /**
+     * @example 1582266750353
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasLastPlaybackCompleted;
@@ -44,11 +54,15 @@ class conversations extends Model
     public $hasToAgent;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $rounds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sandBox;
@@ -59,6 +73,8 @@ class conversations extends Model
     public $skillGroup;
 
     /**
+     * @example 1641625694286
+     *
      * @var int
      */
     public $startTime;

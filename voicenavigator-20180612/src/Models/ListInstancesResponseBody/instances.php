@@ -14,9 +14,16 @@ class instances extends Model
     public $applicableOperations;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $concurrency;
+
+    /**
+     * @var int
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -24,16 +31,22 @@ class instances extends Model
     public $description;
 
     /**
+     * @example dc437bba-5a25-4bbc-b4c2-f268864bebb5
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1582266750353
+     *
      * @var int
      */
     public $modifyTime;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $modifyUserName;
@@ -46,16 +59,43 @@ class instances extends Model
     /**
      * @var string
      */
+    public $nluServiceParamsJson;
+
+    /**
+     * @var string[]
+     */
+    public $numbers;
+
+    /**
+     * @example Published
+     *
+     * @var string
+     */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $unionInstanceId;
+
+    /**
+     * @var string
+     */
+    public $unionSource;
     protected $_name = [
         'applicableOperations' => 'ApplicableOperations',
         'concurrency'          => 'Concurrency',
+        'createTime'           => 'CreateTime',
         'description'          => 'Description',
         'instanceId'           => 'InstanceId',
         'modifyTime'           => 'ModifyTime',
         'modifyUserName'       => 'ModifyUserName',
         'name'                 => 'Name',
+        'nluServiceParamsJson' => 'NluServiceParamsJson',
+        'numbers'              => 'Numbers',
         'status'               => 'Status',
+        'unionInstanceId'      => 'UnionInstanceId',
+        'unionSource'          => 'UnionSource',
     ];
 
     public function validate()
@@ -70,6 +110,9 @@ class instances extends Model
         }
         if (null !== $this->concurrency) {
             $res['Concurrency'] = $this->concurrency;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -86,8 +129,20 @@ class instances extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->nluServiceParamsJson) {
+            $res['NluServiceParamsJson'] = $this->nluServiceParamsJson;
+        }
+        if (null !== $this->numbers) {
+            $res['Numbers'] = $this->numbers;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->unionInstanceId) {
+            $res['UnionInstanceId'] = $this->unionInstanceId;
+        }
+        if (null !== $this->unionSource) {
+            $res['UnionSource'] = $this->unionSource;
         }
 
         return $res;
@@ -109,6 +164,9 @@ class instances extends Model
         if (isset($map['Concurrency'])) {
             $model->concurrency = $map['Concurrency'];
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -124,8 +182,22 @@ class instances extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['NluServiceParamsJson'])) {
+            $model->nluServiceParamsJson = $map['NluServiceParamsJson'];
+        }
+        if (isset($map['Numbers'])) {
+            if (!empty($map['Numbers'])) {
+                $model->numbers = $map['Numbers'];
+            }
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['UnionInstanceId'])) {
+            $model->unionInstanceId = $map['UnionInstanceId'];
+        }
+        if (isset($map['UnionSource'])) {
+            $model->unionSource = $map['UnionSource'];
         }
 
         return $model;

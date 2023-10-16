@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ModifyAsrConfigRequest extends Model
 {
     /**
+     * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
+     *
      * @var string
      */
     public $asrAcousticModelId;
 
     /**
+     * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
+     *
      * @var string
      */
     public $asrClassVocabularyId;
 
     /**
+     * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
+     *
      * @var string
      */
     public $asrCustomizationId;
 
     /**
+     * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
+     *
      * @var string
      */
     public $asrVocabularyId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $configLevel;
 
     /**
+     * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
+     *
      * @var string
      */
     public $entryId;

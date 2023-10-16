@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportProgressRequest extends Model
 {
     /**
+     * @example 0de8e5ccc2b645039ae6fbda443da73f
+     *
      * @var string
      */
     public $exportTaskId;
 
     /**
+     * @example 868eef14-7515-4856-8a50-5c9a22abdbcc
+     *
      * @var string
      */
     public $instanceId;

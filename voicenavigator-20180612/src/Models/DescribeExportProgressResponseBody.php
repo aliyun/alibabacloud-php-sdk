@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportProgressResponseBody extends Model
 {
     /**
+     * @example http://ssml-test.oss-cn-shanghai.aliyuncs.com/key
+     *
      * @var string
      */
     public $fileHttpUrl;
 
     /**
+     * @example b19af5ce5314ac08108d1b33fe20e15
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example FINISHED
+     *
      * @var string
      */
     public $status;

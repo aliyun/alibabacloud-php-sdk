@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class conversations extends Model
 {
     /**
+     * @example 1582183381000
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 02811111111
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example af81a389-91f0-4157-8d82-720edd02b66a
+     *
      * @var string
      */
     public $conversationId;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $effectiveAnswerCount;
 
     /**
+     * @example 1582183481000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example AAA
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $transferredToAgent;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $userUtteranceCount;

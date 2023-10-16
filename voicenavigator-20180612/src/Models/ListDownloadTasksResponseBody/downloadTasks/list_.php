@@ -15,16 +15,22 @@ class list_ extends Model
     public $downloadTaskFiles;
 
     /**
+     * @example 1637119221702
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example Expired
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cb9aba69-f578-42b2-aa2f-3e5a41947db8
+     *
      * @var string
      */
     public $taskId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeTTSConfigRequest extends Model
 {
     /**
+     * @example dc437bba-5a25-4bbc-b4c2-f268864bebb5
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1971226538081821
+     *
      * @var int
      */
     public $instanceOwnerId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableInstanceRequest extends Model
 {
     /**
+     * @example da37319b-6c83-4268-9f19-814aed62e401
+     *
      * @var string
      */
     public $instanceId;

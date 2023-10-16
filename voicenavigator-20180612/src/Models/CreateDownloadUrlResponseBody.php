@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateDownloadUrlResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example http://ssml-test.oss-cn-shanghai.aliyuncs.com/key
+     *
      * @var string
      */
     public $fileHttpUrl;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example get upload tool url success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 7401D698-0AAC-5909-B68E-88C68805FFB8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

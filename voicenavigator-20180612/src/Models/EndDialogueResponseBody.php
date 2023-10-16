@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EndDialogueResponseBody extends Model
 {
     /**
+     * @example e48e45dd-e47a-4744-a063-f08cbebb1c5a
+     *
      * @var string
      */
     public $requestId;

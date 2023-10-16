@@ -11,27 +11,41 @@ class CollectedNumberRequest extends Model
     /**
      * @var string
      */
+    public $additionalContext;
+
+    /**
+     * @example 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
+     *
+     * @var string
+     */
     public $conversationId;
 
     /**
+     * @example 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1426738157626835
+     *
      * @var int
      */
     public $instanceOwnerId;
 
     /**
+     * @example 1500060224
+     *
      * @var string
      */
     public $number;
     protected $_name = [
-        'conversationId'  => 'ConversationId',
-        'instanceId'      => 'InstanceId',
-        'instanceOwnerId' => 'InstanceOwnerId',
-        'number'          => 'Number',
+        'additionalContext' => 'AdditionalContext',
+        'conversationId'    => 'ConversationId',
+        'instanceId'        => 'InstanceId',
+        'instanceOwnerId'   => 'InstanceOwnerId',
+        'number'            => 'Number',
     ];
 
     public function validate()
@@ -41,6 +55,9 @@ class CollectedNumberRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->additionalContext) {
+            $res['AdditionalContext'] = $this->additionalContext;
+        }
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
@@ -65,6 +82,9 @@ class CollectedNumberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdditionalContext'])) {
+            $model->additionalContext = $map['AdditionalContext'];
+        }
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }

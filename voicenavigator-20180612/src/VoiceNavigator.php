@@ -146,6 +146,12 @@ class VoiceNavigator extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->nluServiceParamsJson)) {
+            $query['NluServiceParamsJson'] = $request->nluServiceParamsJson;
+        }
+        if (!Utils::isUnset($request->unionSource)) {
+            $query['UnionSource'] = $request->unionSource;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -299,6 +305,9 @@ class VoiceNavigator extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->additionalContext)) {
+            $query['AdditionalContext'] = $request->additionalContext;
+        }
         if (!Utils::isUnset($request->conversationId)) {
             $query['ConversationId'] = $request->conversationId;
         }
@@ -399,6 +408,15 @@ class VoiceNavigator extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nluServiceParamsJson)) {
+            $query['NluServiceParamsJson'] = $request->nluServiceParamsJson;
+        }
+        if (!Utils::isUnset($request->unionInstanceId)) {
+            $query['UnionInstanceId'] = $request->unionInstanceId;
+        }
+        if (!Utils::isUnset($request->unionSource)) {
+            $query['UnionSource'] = $request->unionSource;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1175,6 +1193,9 @@ class VoiceNavigator extends OpenApiClient
         }
         if (!Utils::isUnset($request->options)) {
             $query['Options'] = $request->options;
+        }
+        if (!Utils::isUnset($request->result)) {
+            $query['Result'] = $request->result;
         }
         if (!Utils::isUnset($request->roundsLeftRange)) {
             $query['RoundsLeftRange'] = $request->roundsLeftRange;

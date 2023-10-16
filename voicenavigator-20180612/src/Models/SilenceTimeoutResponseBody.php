@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SilenceTimeoutResponseBody extends Model
 {
     /**
+     * @example TransferToAgent
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example { "skillGroupId": "ABC"}
+     *
      * @var string
      */
     public $actionParams;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $interruptible;
 
     /**
+     * @example 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class silenceTimeoutConfig extends Model
 {
     /**
+     * @example HangUp
+     *
      * @var string
      */
     public $finalAction;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $finalActionParams;
@@ -24,6 +28,10 @@ class silenceTimeoutConfig extends Model
     public $finalPrompt;
 
     /**
+     * @description ""
+     *
+     * @example ""
+     *
      * @var string
      */
     public $intentTrigger;
@@ -34,16 +42,22 @@ class silenceTimeoutConfig extends Model
     public $prompt;
 
     /**
+     * @example chatbotIntent
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $threshold;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $timeout;

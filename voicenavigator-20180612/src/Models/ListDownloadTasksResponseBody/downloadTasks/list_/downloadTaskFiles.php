@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class downloadTaskFiles extends Model
 {
     /**
+     * @example c32bf5675b704dc5b19200a89d2e85f1
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example 70
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example Published
+     *
      * @var string
      */
     public $status;

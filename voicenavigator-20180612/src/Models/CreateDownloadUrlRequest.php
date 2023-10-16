@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDownloadUrlRequest extends Model
 {
     /**
+     * @example 073f092da0a847b9bf76eb88b5931c7a
+     *
      * @var string
      */
     public $downloadTaskId;
 
     /**
+     * @example 22626c39603744f5a08d4d715315561a
+     *
      * @var string
      */
     public $fileId;

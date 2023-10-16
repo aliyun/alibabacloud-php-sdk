@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SilenceTimeoutRequest extends Model
 {
     /**
+     * @example 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
+     *
      * @var string
      */
     public $conversationId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $initialContext;
 
     /**
+     * @example 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1231639035307976
+     *
      * @var int
      */
     public $instanceOwnerId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CollectedNumberResponseBody extends Model
 {
     /**
+     * @example Broadcast
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example {\"duration\":31340,\"endTime\":1638243934786,\"hangUpDirection\":\"ivr\",\"startTime\":1638243903446}
+     *
      * @var string
      */
     public $actionParams;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $interruptible;
 
     /**
+     * @example da37319b-6c83-4268-9f19-814aed62e401
+     *
      * @var string
      */
     public $requestId;

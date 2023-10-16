@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDownloadTasksResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,21 +22,29 @@ class ListDownloadTasksResponseBody extends Model
     public $downloadTasks;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example D24E0148-6D40-550E-9471-B2C5A34C3D12
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

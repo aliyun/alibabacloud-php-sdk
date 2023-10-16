@@ -15,21 +15,29 @@ class ListChatbotInstancesResponseBody extends Model
     public $bots;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example da37319b-6c83-4268-9f19-814aed62e401
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

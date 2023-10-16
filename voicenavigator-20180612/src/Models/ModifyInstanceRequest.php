@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $concurrency;
@@ -19,6 +21,8 @@ class ModifyInstanceRequest extends Model
     public $description;
 
     /**
+     * @example 12f407b22cbe4890ac595f09985848d5
+     *
      * @var string
      */
     public $instanceId;

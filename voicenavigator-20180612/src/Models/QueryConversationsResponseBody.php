@@ -15,21 +15,29 @@ class QueryConversationsResponseBody extends Model
     public $conversations;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

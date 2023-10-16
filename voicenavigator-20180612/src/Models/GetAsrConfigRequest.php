@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetAsrConfigRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $configLevel;
 
     /**
+     * @example 3b1d3031-8b6e-460a-8640-d330f2ca50b8
+     *
      * @var string
      */
     public $entryId;

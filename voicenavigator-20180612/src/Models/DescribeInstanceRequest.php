@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRequest extends Model
 {
     /**
+     * @example ecbfa5e3-1838-4e8a-aa08-fa8b713b82df
+     *
      * @var string
      */
     public $instanceId;

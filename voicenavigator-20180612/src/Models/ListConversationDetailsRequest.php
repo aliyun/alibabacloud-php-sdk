@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListConversationDetailsRequest extends Model
 {
     /**
+     * @example a2c26e67-5984-4935-984e-bcee52971993
+     *
      * @var string
      */
     public $conversationId;
 
     /**
+     * @example 82b2eaae-ce5c-45f8-8231-f15b6b27e55c
+     *
      * @var string
      */
     public $instanceId;

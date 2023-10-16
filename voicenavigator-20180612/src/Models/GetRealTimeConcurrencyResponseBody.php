@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetRealTimeConcurrencyResponseBody extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $maxConcurrency;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $realTimeConcurrency;
 
     /**
+     * @example E6E61E1A-D2DC-5ACF-AED4-A115B6691F98
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1661584255029
+     *
      * @var int
      */
     public $timestamp;

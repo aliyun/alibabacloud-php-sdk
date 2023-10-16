@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveRecordingResponseBody extends Model
 {
     /**
+     * @example 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+     *
      * @var string
      */
     public $requestId;

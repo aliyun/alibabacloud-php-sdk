@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DebugCollectedNumberRequest extends Model
 {
     /**
+     * @example 7cefbff0-8d50-4d6f-b93c-73cee23c1555
+     *
      * @var string
      */
     public $conversationId;
 
     /**
+     * @example 7cefbff0-8d50-4d6f-b93c-73cee23c1555
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $number;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DebugCollectedNumberResponseBody extends Model
 {
     /**
+     * @example Broadcast
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $actionParams;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $interruptible;
 
     /**
+     * @example abb4aa26-3a8e-43dd-82f8-0c3898c9c67f
+     *
      * @var string
      */
     public $requestId;

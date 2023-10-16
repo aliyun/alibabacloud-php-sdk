@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DebugDialogueResponseBody extends Model
 {
     /**
+     * @example Broadcast
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $actionParams;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $interruptible;
 
     /**
+     * @example d74d6290-7cbe-4436-b5d7-014ebb0f4060
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 80d11be3-faad-4101-b4b0-59dbea28aaf0
+     *
      * @var string
      */
     public $textResponse;

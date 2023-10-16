@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class conversationDetails extends Model
 {
     /**
+     * @example Dialogue
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $actionParams;
 
     /**
+     * @example af81a389-91f0-4157-8d82-720edd02b66a
+     *
      * @var string
      */
     public $conversationId;
 
     /**
+     * @example 1582266750353
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example af81a389-91f0-4157-8d82-720edd02b66a
+     *
      * @var string
      */
     public $sequenceId;
 
     /**
+     * @example Chatbot
+     *
      * @var string
      */
     public $speaker;

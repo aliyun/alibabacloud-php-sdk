@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class unrecognizingConfig extends Model
 {
     /**
+     * @example TransferToAgent
+     *
      * @var string
      */
     public $finalAction;
 
     /**
+     * @example { \"skillGroupId\": \"fallbackSkillGroup\" }
+     *
      * @var string
      */
     public $finalActionParams;
@@ -29,6 +33,8 @@ class unrecognizingConfig extends Model
     public $prompt;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $threshold;

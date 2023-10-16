@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DisableInstanceResponseBody extends Model
 {
     /**
+     * @example 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $status;

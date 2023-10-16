@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DialogueRequest extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
     public $additionalContext;
 
     /**
+     * @example 10086
+     *
      * @var string
      */
     public $calledNumber;
 
     /**
+     * @example 18851708605
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example da37319b-6c83-4268-9f19-814aed62e401
+     *
      * @var string
      */
     public $conversationId;
@@ -34,11 +42,15 @@ class DialogueRequest extends Model
     public $emotion;
 
     /**
+     * @example 21e0b2a3-168d-4ba7-9009-afc42666eb54
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1426738157626835
+     *
      * @var int
      */
     public $instanceOwnerId;

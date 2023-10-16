@@ -14,6 +14,8 @@ class ModifyTTSConfigRequest extends Model
     public $appKey;
 
     /**
+     * @example 12f407b22cbe4890ac595f09985848d5
+     *
      * @var string
      */
     public $instanceId;
@@ -24,16 +26,22 @@ class ModifyTTSConfigRequest extends Model
     public $nlsServiceType;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $speechRate;
 
     /**
+     * @example aixia
+     *
      * @var string
      */
     public $voice;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $volume;

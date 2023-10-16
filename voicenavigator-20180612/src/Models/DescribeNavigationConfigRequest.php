@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNavigationConfigRequest extends Model
 {
     /**
+     * @example 287289b6-1510-4e64-9224-39b53ad89dd2
+     *
      * @var string
      */
     public $instanceId;

@@ -19,6 +19,8 @@ class greetingConfig extends Model
     public $intentTrigger;
 
     /**
+     * @example chatbotIntent
+     *
      * @var string
      */
     public $sourceType;

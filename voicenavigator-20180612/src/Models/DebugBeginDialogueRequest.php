@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DebugBeginDialogueRequest extends Model
 {
     /**
+     * @example 10086
+     *
      * @var string
      */
     public $calledNumber;
 
     /**
+     * @example 135815*****
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example 8a503680-815d-473e-a9b0-e010f47a64d2
+     *
      * @var string
      */
     public $conversationId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $initialContext;
 
     /**
+     * @example 8a503680-815d-473e-a9b0-e010f47a64d2
+     *
      * @var string
      */
     public $instanceId;

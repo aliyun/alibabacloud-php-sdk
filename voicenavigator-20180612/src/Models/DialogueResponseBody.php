@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DialogueResponseBody extends Model
 {
     /**
+     * @example Broadcast
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example {\"duration\":2420,\"endTime\":1651717326805,\"hangUpDirection\":\"client\",\"hasLastPlaybackCompleted\":true,\"startTime\":1651717324385}
+     *
      * @var string
      */
     public $actionParams;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $interruptible;
 
     /**
+     * @example 9DB8BA95-4513-54B9-9C67-A28909CFB4AD
+     *
      * @var string
      */
     public $requestId;

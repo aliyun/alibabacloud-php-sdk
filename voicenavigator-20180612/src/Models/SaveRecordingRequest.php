@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class SaveRecordingRequest extends Model
 {
     /**
+     * @example 390515b5-6115-4ccf-83e2-52d5bfaf2ddf
+     *
      * @var string
      */
     public $conversationId;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example e6bef0db439d4048bfcf45322491becf.wav
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example oss://test/record/
+     *
      * @var string
      */
     public $filePath;
 
     /**
+     * @example af81a389-91f0-4157-8d82-720edd02b66a
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1971226538081821
+     *
      * @var int
      */
     public $instanceOwnerId;
 
     /**
+     * @example 1582267398628
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example Source
+     *
      * @var string
      */
     public $type;

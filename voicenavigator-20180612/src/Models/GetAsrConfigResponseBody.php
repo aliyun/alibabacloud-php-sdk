@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetAsrConfigResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,21 +22,29 @@ class GetAsrConfigResponseBody extends Model
     public $data;
 
     /**
+     * @example Not Found
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryConversationsRequest extends Model
 {
     /**
+     * @example 1582183381000
+     *
      * @var int
      */
     public $beginTimeLeftRange;
 
     /**
+     * @example 1582356181000
+     *
      * @var int
      */
     public $beginTimeRightRange;
 
     /**
+     * @example 02811111111
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example 12f407b22cbe4890ac595f09985848d5
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

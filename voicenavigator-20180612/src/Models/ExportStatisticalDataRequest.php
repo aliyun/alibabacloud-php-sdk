@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ExportStatisticalDataRequest extends Model
 {
     /**
+     * @example 1582266750353
+     *
      * @var int
      */
     public $beginTimeLeftRange;
 
     /**
+     * @example 1582266750353
+     *
      * @var int
      */
     public $beginTimeRightRange;
 
     /**
+     * @example statistical
+     *
      * @var string
      */
     public $exportType;
 
     /**
+     * @example 29b52d70-d9fe-4fe0-8476-8aaacbcfdc84
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Hour
+     *
      * @var string
      */
     public $timeUnit;

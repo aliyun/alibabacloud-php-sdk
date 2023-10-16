@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class statisticalDataReports extends Model
 {
     /**
+     * @example 80.00%
+     *
      * @var string
      */
     public $dialoguePassRate;
 
     /**
+     * @example 80.00%
+     *
      * @var string
      */
     public $knowledgeHitRate;
 
     /**
+     * @example 80.00%
+     *
      * @var string
      */
     public $resolutionRate;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $resolvedQuestionNum;
 
     /**
+     * @example 19:00:00
+     *
      * @var string
      */
     public $statisticalDate;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalConversationNum;
 
     /**
+     * @example 80.0
+     *
      * @var string
      */
     public $validAnswerRate;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeConversationResponseBody extends Model
 {
     /**
+     * @example 1582103260434
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 138106*****
+     *
      * @var string
      */
     public $callingNumber;
 
     /**
+     * @example 2d5aa451-661f-4f08-b0c4-28eec78decc4
+     *
      * @var string
      */
     public $conversationId;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $effectiveAnswerCount;
 
     /**
+     * @example 1582103299434
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ABABCBAC
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $transferredToAgent;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $userUtteranceCount;

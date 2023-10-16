@@ -14,6 +14,8 @@ class ModifyGreetingConfigRequest extends Model
     public $greetingWords;
 
     /**
+     * @example 12f407b22cbe4890ac595f09985848d5
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +26,8 @@ class ModifyGreetingConfigRequest extends Model
     public $intentTrigger;
 
     /**
+     * @example chatbotIntent
+     *
      * @var string
      */
     public $sourceType;

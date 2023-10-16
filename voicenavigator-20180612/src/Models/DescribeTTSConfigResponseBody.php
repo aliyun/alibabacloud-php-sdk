@@ -19,21 +19,29 @@ class DescribeTTSConfigResponseBody extends Model
     public $nlsServiceType;
 
     /**
+     * @example F132DDBA-66C4-5BD3-BF7E-9642FE877158
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example -150
+     *
      * @var int
      */
     public $speechRate;
 
     /**
+     * @example aixia
+     *
      * @var string
      */
     public $voice;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $volume;

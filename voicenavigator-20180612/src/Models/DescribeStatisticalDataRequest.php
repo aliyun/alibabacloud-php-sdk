@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeStatisticalDataRequest extends Model
 {
     /**
+     * @example 1582283640000
+     *
      * @var int
      */
     public $beginTimeLeftRange;
 
     /**
+     * @example 1582298040000
+     *
      * @var int
      */
     public $beginTimeRightRange;
 
     /**
+     * @example c28fc549-d88f-4f6e-85ad-a0806e5e39c0
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Day/Hour
+     *
      * @var string
      */
     public $timeUnit;
