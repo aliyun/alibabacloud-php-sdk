@@ -6,29 +6,19 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeCdnCertificateDetailByIdRequest extends Model
+class CheckCdnDomainICPRequest extends Model
 {
     /**
-     * @description The ID of the certificate.
-     *
-     * @example 12345
+     * @example example.com
      *
      * @var string
      */
-    public $certId;
+    public $domainName;
 
     /**
-     * @description The region of the certificate. Valid values:
-     *
-     *   **ap-southeast-1**: Singapore
-     *   **cn-hangzhou**: China (Hangzhou)
-     *
-     * Default value: **cn-hangzhou**
-     * @example cn-hangzhou
-     *
      * @var string
      */
-    public $certRegion;
+    public $ownerAccount;
 
     /**
      * @var int
@@ -40,8 +30,8 @@ class DescribeCdnCertificateDetailByIdRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'certId'        => 'CertId',
-        'certRegion'    => 'CertRegion',
+        'domainName'    => 'DomainName',
+        'ownerAccount'  => 'OwnerAccount',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
@@ -53,11 +43,11 @@ class DescribeCdnCertificateDetailByIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certId) {
-            $res['CertId'] = $this->certId;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->certRegion) {
-            $res['CertRegion'] = $this->certRegion;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -72,16 +62,16 @@ class DescribeCdnCertificateDetailByIdRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeCdnCertificateDetailByIdRequest
+     * @return CheckCdnDomainICPRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertId'])) {
-            $model->certId = $map['CertId'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
-        if (isset($map['CertRegion'])) {
-            $model->certRegion = $map['CertRegion'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

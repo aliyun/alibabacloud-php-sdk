@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnCertificateDetailByIdResponseBody extends Model
 {
     /**
+     * @description The content of the certificate.
+     *
      * @example -----BEGINCERTIFICATE-----xxx-----END CERTIFICATE-----
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeCdnCertificateDetailByIdResponseBody extends Model
     public $cert;
 
     /**
+     * @description The ID of the certificate.
+     *
      * @example 12345
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeCdnCertificateDetailByIdResponseBody extends Model
     public $certId;
 
     /**
+     * @description The name of the certificate.
+     *
      * @example yourCertName
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeCdnCertificateDetailByIdResponseBody extends Model
     public $certName;
 
     /**
+     * @description The public key of the certificate.
+     *
      * @example 587f6db37e3a2f01047b032b739cbe31
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeCdnCertificateDetailByIdResponseBody extends Model
     public $key;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C370DAF1-C838-4288-A1A0-9A87633D248E
      *
      * @var string

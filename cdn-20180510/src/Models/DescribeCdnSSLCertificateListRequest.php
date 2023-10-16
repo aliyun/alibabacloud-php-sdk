@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnSSLCertificateListRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each request.
+     *
      * @example www.example.com
      *
      * @var string
@@ -21,6 +23,8 @@ class DescribeCdnSSLCertificateListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +32,8 @@ class DescribeCdnSSLCertificateListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: an integer from **1** to **1000**.
+     *
      * @example 20
      *
      * @var int
@@ -35,6 +41,8 @@ class DescribeCdnSSLCertificateListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The keyword that is used to query the certificate.
+     *
      * @example certabc
      *
      * @var string
