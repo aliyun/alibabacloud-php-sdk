@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersRequest extends Model
 {
     /**
-     * @description The type of the database account. Valid values:
+     * @description The role of the instance. Valid values:
      *
-     *   mongos: an account that can be used to log on to a mongos node.
-     *   shard: an account that can be used to log on to a shard node.
+     *   db: a shard node.
+     *   cs: a Configserver node.
+     *   mongos: a mongos node.
      *
      * @example mongos
      *
@@ -21,9 +22,9 @@ class DescribeParametersRequest extends Model
     public $characterType;
 
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
-     * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -31,7 +32,7 @@ class DescribeParametersRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description terrform use
+     * @description The parameter that is available in the future.
      *
      * @example terrform
      *
@@ -42,7 +43,7 @@ class DescribeParametersRequest extends Model
     /**
      * @description The ID of the mongos or shard node in the specified sharded cluster instance.
      *
-     * > This parameter is valid when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
+     * >  This parameter is valid only when you specify the **DBInstanceId** parameter to the ID of a sharded cluster instance.
      * @example d-bpxxxxxxxx
      *
      * @var string

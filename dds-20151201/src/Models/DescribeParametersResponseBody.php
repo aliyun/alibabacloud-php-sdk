@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersResponseBody extends Model
 {
     /**
-     * @description The parameter settings in the configuration template.
+     * @description The settings of parameters that are being configured.
      *
      * @var configParameters
      */
@@ -27,7 +27,7 @@ class DescribeParametersResponseBody extends Model
     public $engine;
 
     /**
-     * @description The version of the database engine.
+     * @description The database engine version of the instance.
      *
      * @example 4.0
      *
@@ -36,7 +36,7 @@ class DescribeParametersResponseBody extends Model
     public $engineVersion;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3ADD0C7D-2D2A-4F15-88FF-E7AC9B9FDCC8
      *
@@ -45,7 +45,7 @@ class DescribeParametersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The parameter settings for the running instance.
+     * @description The settings of the parameters that have taken effect.
      *
      * @var runningParameters
      */

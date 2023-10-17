@@ -501,6 +501,11 @@ class DBInstance extends Model
     public $tags;
 
     /**
+     * @var bool
+     */
+    public $useClusterBackup;
+
+    /**
      * @description The instance ID.
      *
      * > This parameter is returned if the network type of the instance is VPC.
@@ -597,6 +602,7 @@ class DBInstance extends Model
         'storageType'                 => 'StorageType',
         'syncPercent'                 => 'SyncPercent',
         'tags'                        => 'Tags',
+        'useClusterBackup'            => 'UseClusterBackup',
         'VPCCloudInstanceIds'         => 'VPCCloudInstanceIds',
         'VPCId'                       => 'VPCId',
         'vSwitchId'                   => 'VSwitchId',
@@ -745,6 +751,9 @@ class DBInstance extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->useClusterBackup) {
+            $res['UseClusterBackup'] = $this->useClusterBackup;
         }
         if (null !== $this->VPCCloudInstanceIds) {
             $res['VPCCloudInstanceIds'] = $this->VPCCloudInstanceIds;
@@ -907,6 +916,9 @@ class DBInstance extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['UseClusterBackup'])) {
+            $model->useClusterBackup = $map['UseClusterBackup'];
         }
         if (isset($map['VPCCloudInstanceIds'])) {
             $model->VPCCloudInstanceIds = $map['VPCCloudInstanceIds'];

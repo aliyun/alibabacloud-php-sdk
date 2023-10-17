@@ -18,7 +18,7 @@ class parameter extends Model
     public $checkingCode;
 
     /**
-     * @description Indicates whether a restart is required for parameter modifications to take effect.
+     * @description Indicates whether a restart is required for parameter modifications to take effect. Valid values:
      *
      *   **false**: A restart is not required. Modifications take effect immediately.
      *   **true**: A restart is required for parameter modifications to take effect.
@@ -30,10 +30,10 @@ class parameter extends Model
     public $forceRestart;
 
     /**
-     * @description Indicates whether the parameter value can be changed.
+     * @description Indicates whether the parameter value can be modified. Valid values:
      *
-     *   **false**: The parameter value cannot be changed.
-     *   **true**: The parameter value can be changed.
+     *   **false**: The parameter value cannot be modified.
+     *   **true**: The parameter value can be modified.
      *
      * @example true
      *

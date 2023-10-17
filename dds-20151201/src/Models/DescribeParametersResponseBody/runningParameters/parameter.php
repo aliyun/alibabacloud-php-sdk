@@ -9,11 +9,12 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
-     * @description 实例的角色类型，取值说明：
+     * @description The role of the instance. Valid values:
      *
-     * - **db**：shard角色。
-     * - **cs**：config server角色。
-     * - **mongos**：mongos角色。
+     *   **db**: a shard node.
+     *   **cs**: a Configserver node.
+     *   **mongos**: a mongos node.
+     *
      * @example db
      *
      * @var string
@@ -30,7 +31,7 @@ class parameter extends Model
     public $checkingCode;
 
     /**
-     * @description Indicates whether a restart is required for parameter modifications to take effect.
+     * @description Indicates whether a restart is required for parameter modifications to take effect. Valid values:
      *
      *   **false**: A restart is not required. Modifications take effect immediately.
      *   **true**: A restart is required for parameter modifications to take effect.
@@ -42,10 +43,10 @@ class parameter extends Model
     public $forceRestart;
 
     /**
-     * @description Indicates whether the parameter value can be changed.
+     * @description Indicates whether the parameter value can be modified. Valid values:
      *
-     *   **false**: The parameter value cannot be changed.
-     *   **true**: The parameter value can be changed.
+     *   **false**: The parameter value cannot be modified.
+     *   **true**: The parameter value can be modified.
      *
      * @example true
      *

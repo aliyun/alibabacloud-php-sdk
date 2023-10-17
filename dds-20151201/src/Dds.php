@@ -542,6 +542,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->sourceDBInstance)) {
             $query['SourceDBInstance'] = $request->sourceDBInstance;
         }
+        if (!Utils::isUnset($request->sourceDBInstance)) {
+            $query['SourceDBInstance'] = $request->sourceDBInstance;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2105,6 +2108,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sourceDBInstance)) {
+            $query['SourceDBInstance'] = $request->sourceDBInstance;
         }
         if (!Utils::isUnset($request->sourceDBInstance)) {
             $query['SourceDBInstance'] = $request->sourceDBInstance;
@@ -5258,6 +5264,9 @@ class Dds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
         if (!Utils::isUnset($request->classicExpendExpiredDays)) {
             $query['ClassicExpendExpiredDays'] = $request->classicExpendExpiredDays;
         }
