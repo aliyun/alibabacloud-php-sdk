@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeUserLangResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 2F5AA940-9EBF-5948-ACE7-3EF0FE54****
      *
      * @var string

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyOperateVulRequest extends Model
 {
     /**
+     * @description The ID of the request source. Set the value to **sas**.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $from;

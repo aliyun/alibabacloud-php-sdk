@@ -85,6 +85,11 @@ class imageInfos extends Model
     public $riskLevel;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @description The tag of the image.
      *
      * @example nuxeo6
@@ -110,6 +115,7 @@ class imageInfos extends Model
         'repoName'      => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
         'riskLevel'     => 'RiskLevel',
+        'status'        => 'Status',
         'tag'           => 'Tag',
         'uuid'          => 'Uuid',
     ];
@@ -144,6 +150,9 @@ class imageInfos extends Model
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -186,6 +195,9 @@ class imageInfos extends Model
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];

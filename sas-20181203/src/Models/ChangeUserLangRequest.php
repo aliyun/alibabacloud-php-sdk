@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ChangeUserLangRequest extends Model
 {
     /**
+     * @description The new language. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string

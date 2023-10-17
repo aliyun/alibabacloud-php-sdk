@@ -208,6 +208,11 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      * @var string[]
      */
     public $scanRange;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'clusterId'      => 'ClusterId',
         'clusterName'    => 'ClusterName',
@@ -229,6 +234,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
         'repoNamespace'  => 'RepoNamespace',
         'repoRegionId'   => 'RepoRegionId',
         'scanRange'      => 'ScanRange',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -297,6 +303,9 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
         }
         if (null !== $this->scanRange) {
             $res['ScanRange'] = $this->scanRange;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -371,6 +380,9 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
             if (!empty($map['ScanRange'])) {
                 $model->scanRange = $map['ScanRange'];
             }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

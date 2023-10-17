@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserLangResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 23AD0BD2-8771-5647-819E-6BA51E21****
      *
      * @var string
@@ -17,6 +19,8 @@ class GetUserLangResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The language settings.
+     *
      * @var sasUserLang
      */
     public $sasUserLang;

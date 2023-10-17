@@ -18,6 +18,11 @@ class sensitiveFileList extends Model
     public $advice;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The file path.
      *
      * @example /usr/lib/abc.txt
@@ -52,6 +57,11 @@ class sensitiveFileList extends Model
      * @var string
      */
     public $layerDigest;
+
+    /**
+     * @var string
+     */
+    public $md5;
 
     /**
      * @description The sensitive content.
@@ -207,10 +217,12 @@ class sensitiveFileList extends Model
     public $sensitiveFileName;
     protected $_name = [
         'advice'            => 'Advice',
+        'description'       => 'Description',
         'filePath'          => 'FilePath',
         'firstScanTime'     => 'FirstScanTime',
         'lastScanTime'      => 'LastScanTime',
         'layerDigest'       => 'LayerDigest',
+        'md5'               => 'Md5',
         'promt'             => 'Promt',
         'riskLevel'         => 'RiskLevel',
         'sensitiveFileKey'  => 'SensitiveFileKey',
@@ -227,6 +239,9 @@ class sensitiveFileList extends Model
         if (null !== $this->advice) {
             $res['Advice'] = $this->advice;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
@@ -238,6 +253,9 @@ class sensitiveFileList extends Model
         }
         if (null !== $this->layerDigest) {
             $res['LayerDigest'] = $this->layerDigest;
+        }
+        if (null !== $this->md5) {
+            $res['Md5'] = $this->md5;
         }
         if (null !== $this->promt) {
             $res['Promt'] = $this->promt;
@@ -266,6 +284,9 @@ class sensitiveFileList extends Model
         if (isset($map['Advice'])) {
             $model->advice = $map['Advice'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
@@ -277,6 +298,9 @@ class sensitiveFileList extends Model
         }
         if (isset($map['LayerDigest'])) {
             $model->layerDigest = $map['LayerDigest'];
+        }
+        if (isset($map['Md5'])) {
+            $model->md5 = $map['Md5'];
         }
         if (isset($map['Promt'])) {
             $model->promt = $map['Promt'];

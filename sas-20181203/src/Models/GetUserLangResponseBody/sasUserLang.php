@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class sasUserLang extends Model
 {
     /**
+     * @description The language specified for log analysis. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string

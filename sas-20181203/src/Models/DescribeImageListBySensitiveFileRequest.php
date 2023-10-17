@@ -217,6 +217,11 @@ class DescribeImageListBySensitiveFileRequest extends Model
      * @var string
      */
     public $sensitiveFileKey;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'currentPage'      => 'CurrentPage',
         'imageDigest'      => 'ImageDigest',
@@ -228,6 +233,7 @@ class DescribeImageListBySensitiveFileRequest extends Model
         'riskLevel'        => 'RiskLevel',
         'scanRange'        => 'ScanRange',
         'sensitiveFileKey' => 'SensitiveFileKey',
+        'status'           => 'Status',
     ];
 
     public function validate()
@@ -266,6 +272,9 @@ class DescribeImageListBySensitiveFileRequest extends Model
         }
         if (null !== $this->sensitiveFileKey) {
             $res['SensitiveFileKey'] = $this->sensitiveFileKey;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -310,6 +319,9 @@ class DescribeImageListBySensitiveFileRequest extends Model
         }
         if (isset($map['SensitiveFileKey'])) {
             $model->sensitiveFileKey = $map['SensitiveFileKey'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -49,6 +49,11 @@ class groupedMaliciousFileResponse extends Model
     public $level;
 
     /**
+     * @var string
+     */
+    public $maliciousKey;
+
+    /**
      * @description The MD5 hash value of the malicious image sample.
      *
      * @example d836968041f7683b5459****
@@ -84,6 +89,7 @@ class groupedMaliciousFileResponse extends Model
         'imageCount'          => 'ImageCount',
         'latestScanTimestamp' => 'LatestScanTimestamp',
         'level'               => 'Level',
+        'maliciousKey'        => 'MaliciousKey',
         'maliciousMd5'        => 'MaliciousMd5',
         'maliciousName'       => 'MaliciousName',
         'status'              => 'Status',
@@ -107,6 +113,9 @@ class groupedMaliciousFileResponse extends Model
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+        if (null !== $this->maliciousKey) {
+            $res['MaliciousKey'] = $this->maliciousKey;
         }
         if (null !== $this->maliciousMd5) {
             $res['MaliciousMd5'] = $this->maliciousMd5;
@@ -140,6 +149,9 @@ class groupedMaliciousFileResponse extends Model
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+        if (isset($map['MaliciousKey'])) {
+            $model->maliciousKey = $map['MaliciousKey'];
         }
         if (isset($map['MaliciousMd5'])) {
             $model->maliciousMd5 = $map['MaliciousMd5'];

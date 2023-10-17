@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class sensitiveFileList extends Model
 {
     /**
+     * @var string
+     */
+    public $classKey;
+
+    /**
+     * @var string
+     */
+    public $className;
+
+    /**
      * @description The number of scans that are performed on the sensitive file.
      *
      * @example 9
@@ -179,6 +189,8 @@ class sensitiveFileList extends Model
      */
     public $sensitiveFileName;
     protected $_name = [
+        'classKey'          => 'ClassKey',
+        'className'         => 'ClassName',
         'count'             => 'Count',
         'firstScanTime'     => 'FirstScanTime',
         'lastScanTime'      => 'LastScanTime',
@@ -194,6 +206,12 @@ class sensitiveFileList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->classKey) {
+            $res['ClassKey'] = $this->classKey;
+        }
+        if (null !== $this->className) {
+            $res['ClassName'] = $this->className;
+        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
@@ -224,6 +242,12 @@ class sensitiveFileList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClassKey'])) {
+            $model->classKey = $map['ClassKey'];
+        }
+        if (isset($map['ClassName'])) {
+            $model->className = $map['ClassName'];
+        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }

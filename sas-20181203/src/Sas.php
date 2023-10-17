@@ -5809,6 +5809,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->scanRange)) {
             $query['ScanRange'] = $request->scanRange;
         }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -10698,6 +10701,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->sensitiveFileKey)) {
             $query['SensitiveFileKey'] = $request->sensitiveFileKey;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
