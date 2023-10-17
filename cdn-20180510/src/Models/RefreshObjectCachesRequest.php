@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RefreshObjectCachesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @example http://example.com/image/1.png\nhttp://aliyundoc.com/image/2.png
      *
      * @var string
@@ -40,6 +45,7 @@ class RefreshObjectCachesRequest extends Model
      */
     public $securityToken;
     protected $_name = [
+        'force'         => 'Force',
         'objectPath'    => 'ObjectPath',
         'objectType'    => 'ObjectType',
         'ownerId'       => 'OwnerId',
@@ -53,6 +59,9 @@ class RefreshObjectCachesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
         if (null !== $this->objectPath) {
             $res['ObjectPath'] = $this->objectPath;
         }
@@ -77,6 +86,9 @@ class RefreshObjectCachesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
         if (isset($map['ObjectPath'])) {
             $model->objectPath = $map['ObjectPath'];
         }
