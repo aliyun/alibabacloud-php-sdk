@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RefreshDcdnObjectCachesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @description The path of the objects that you want to refresh. Separate multiple URLs with line feed characters (\n) or a pair of carriage return and line feed characters (\r\n).
      *
      * @example example.com/example.txt
@@ -39,6 +44,7 @@ class RefreshDcdnObjectCachesRequest extends Model
      */
     public $securityToken;
     protected $_name = [
+        'force'         => 'Force',
         'objectPath'    => 'ObjectPath',
         'objectType'    => 'ObjectType',
         'ownerId'       => 'OwnerId',
@@ -52,6 +58,9 @@ class RefreshDcdnObjectCachesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
         if (null !== $this->objectPath) {
             $res['ObjectPath'] = $this->objectPath;
         }
@@ -76,6 +85,9 @@ class RefreshDcdnObjectCachesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
         if (isset($map['ObjectPath'])) {
             $model->objectPath = $map['ObjectPath'];
         }

@@ -1,3 +1,6 @@
+2023-10-17 Version: 1.6.0
+- Generated php 2018-01-15 for dcdn.
+
 2023-10-17 Version: 1.5.2
 - Generated php 2018-01-15 for dcdn.
 

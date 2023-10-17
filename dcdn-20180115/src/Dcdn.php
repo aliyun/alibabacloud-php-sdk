@@ -274,6 +274,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropByMinuteRespon
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserTagsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserVipsByDomainRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserVipsByDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnVerifyContentRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnVerifyContentResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafBotAppKeyResponse;
@@ -8290,6 +8292,52 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnUserVipsByDomainRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDcdnUserVipsByDomainResponse
+     */
+    public function describeDcdnUserVipsByDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->available)) {
+            $query['Available'] = $request->available;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserVipsByDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnUserVipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnUserVipsByDomainRequest $request
+     *
+     * @return DescribeDcdnUserVipsByDomainResponse
+     */
+    public function describeDcdnUserVipsByDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnUserVipsByDomainWithOptions($request, $runtime);
+    }
+
+    /**
      * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeDcdnVerifyContentRequest $request DescribeDcdnVerifyContentRequest
@@ -11006,6 +11054,9 @@ class Dcdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
         if (!Utils::isUnset($request->objectPath)) {
             $query['ObjectPath'] = $request->objectPath;
         }
