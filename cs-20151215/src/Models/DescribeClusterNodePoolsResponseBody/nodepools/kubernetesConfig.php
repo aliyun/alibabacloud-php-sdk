@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class kubernetesConfig extends Model
 {
     /**
-     * @description Indicates where the CloudMonitor agent is installed on ECS nodes of the cluster. After the CloudMonitor agent is installed, you can view monitoring information about the ECS instances in the CloudMonitor console. Installation is recommended. Valid values:
+     * @description Indicates whether the CloudMonitor agent is installed on ECS nodes in the cluster. After the CloudMonitor agent is installed, you can view monitoring information about the ECS instances in the CloudMonitor console. Installation is recommended. Valid values:
      *
-     *   `true` The CloudMonitor agent is installed on ECS nodes.
+     *   `true`: The CloudMonitor agent is installed on ECS nodes.
      *   `false`: The CloudMonitor agent is not installed on ECS nodes.
      *
      * @example true
@@ -23,9 +23,9 @@ class kubernetesConfig extends Model
     public $cmsEnabled;
 
     /**
-     * @description The CPU management policy. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
+     * @description The CPU management policy of the nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
      *
-     *   `static`: This policy allows pods with specific resource characteristics on the node to be granted with enhanced CPU affinity and exclusivity.
+     *   `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
      *   `none`: indicates that the default CPU affinity is used.
      *
      * @example none
@@ -35,7 +35,7 @@ class kubernetesConfig extends Model
     public $cpuPolicy;
 
     /**
-     * @description The labels of the nodes. You can add labels to the nodes in the cluster. You must add labels based on the following rules:
+     * @description The labels of the nodes in the node pool. You can add labels to the nodes in the cluster. You must add labels based on the following rules:
      *
      *   Each label is a case-sensitive key-value pair. You can add up to 20 labels.
      *   A key must be unique and cannot exceed 64 characters in length. A value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
@@ -45,6 +45,12 @@ class kubernetesConfig extends Model
     public $labels;
 
     /**
+     * @description A custom node name consists of a prefix, an IP substring, and a suffix.
+     *
+     *   The prefix and suffix can contain multiple parts that are separated by periods (.). Each part can contain lowercase letters, digits, and hyphens (-). A custom node name must start and end with a digit or lowercase letter.
+     *   The IP substring length specifies the number of digits to be truncated from the end of the node IP address. The IP substring length ranges from 5 to 12.
+     *
+     * For example, if the node IP address is 192.168.0.55, the prefix is aliyun.com, the IP substring length is 5, and the suffix is test, the node name will be aliyun.com00055test.
      * @example customized,test.,5,.com
      *
      * @var string
@@ -70,14 +76,14 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
-     * @description The taints that are added to nodes. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, toleration rules allow pods to be scheduled to nodes with matching taints. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+     * @description The taints of the nodes in the node pool. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, tolerations allow pods to be scheduled to nodes with matching taints. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
      * @var Taint[]
      */
     public $taints;
 
     /**
-     * @description The user-defined data of the node pool. For more information, see [Generate user-defined data](~~49121~~).
+     * @description The user data of the node pool. For more information, see [Generate user data](~~49121~~).
      *
      * @example IyEvYmluL3NoCmVjaG8gIkhlbGxvIEFD****
      *

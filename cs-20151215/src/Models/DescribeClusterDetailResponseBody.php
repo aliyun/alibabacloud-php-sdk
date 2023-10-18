@@ -83,9 +83,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $dockerVersion;
 
     /**
-     * @description The ID of the Server Load Balancer (SLB) instance that is used for the Ingress of the cluster.
-     *
-     * @example lb-2ze3buguz3gx9920z****
+     * @example lb-2zehc05z3b8dwiifh****
      *
      * @var string
      */
@@ -136,14 +134,6 @@ class DescribeClusterDetailResponseBody extends Model
     public $name;
 
     /**
-     * @description The network mode of the cluster. Valid values:
-     *
-     *   `classic`: classic network
-     *   `vpc`: virtual private cloud (VPC)
-     *   `overlay`: overlay network
-     *   `calico`: network powered by Calico
-     *
-     * Default value: `vpc`.
      * @example vpc
      *
      * @var string
@@ -151,8 +141,6 @@ class DescribeClusterDetailResponseBody extends Model
     public $networkMode;
 
     /**
-     * @description The Kubernetes version to which the cluster can be updated.
-     *
      * @example 1.18.8-aliyun.1
      *
      * @var string
@@ -167,11 +155,6 @@ class DescribeClusterDetailResponseBody extends Model
     public $parameters;
 
     /**
-     * @description Indicates whether Alibaba Cloud DNS PrivateZone is enabled.
-     *
-     *   `true`: Alibaba Cloud DNS PrivateZone is enabled.
-     *   `false`: Alibaba Cloud DNS PrivateZone is disabled.
-     *
      * @example false
      *
      * @var bool
@@ -306,8 +289,6 @@ class DescribeClusterDetailResponseBody extends Model
     public $workerRamRoleName;
 
     /**
-     * @description The ID of the zone where the cluster is deployed.
-     *
      * @example cn-beijing-a
      *
      * @var string

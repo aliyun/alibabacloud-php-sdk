@@ -18,18 +18,22 @@ use AlibabaCloud\Tea\Model;
 class nodepools extends Model
 {
     /**
-     * @description The configurations of auto scaling.
+     * @description The configurations about auto scaling.
      *
      * @var autoScaling
      */
     public $autoScaling;
 
     /**
+     * @description The network configuration of the edge node pool. This parameter takes effect only for edge node pools.
+     *
      * @var interconnectConfig
      */
     public $interconnectConfig;
 
     /**
+     * @description The network type of the edge node pool. Valid values: basic and enhanced. This parameter takes effect only for edge node pools.
+     *
      * @example improved
      *
      * @var string
@@ -37,20 +41,22 @@ class nodepools extends Model
     public $interconnectMode;
 
     /**
-     * @description The configurations of the cluster.
+     * @description The configuration of the cluster where the node pool is deployed.
      *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description The configurations of managed node pools. Managed node pools are available only in professional managed Kubernetes clusters.
+     * @description The configuration of the managed node pool feature. The configuration takes effect only for ACK Pro managed clusters.
      *
      * @var management
      */
     public $management;
 
     /**
+     * @description The maximum number of nodes that are supported by the edge node pool. The value of this parameter must be equal to or greater than 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools whose types are ess or default edge node pools.
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +64,8 @@ class nodepools extends Model
     public $maxNodes;
 
     /**
+     * @description 节点配置。
+     *
      * @var nodeConfig
      */
     public $nodeConfig;
@@ -70,7 +78,7 @@ class nodepools extends Model
     public $nodepoolInfo;
 
     /**
-     * @description The configurations of the scaling group.
+     * @description The configuration of the scaling group.
      *
      * @var scalingGroup
      */
@@ -84,7 +92,7 @@ class nodepools extends Model
     public $status;
 
     /**
-     * @description The configurations of confidential computing.
+     * @description The configuration of confidential computing.
      *
      * @var teeConfig
      */

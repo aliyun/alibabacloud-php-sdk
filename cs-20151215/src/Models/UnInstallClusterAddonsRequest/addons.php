@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class addons extends Model
 {
     /**
+     * @description Whether to clean up cloud resources.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $cleanupCloudResources;
 
     /**
+     * @description The component name.
+     *
      * @example ack-node-problem-detector
      *
      * @var string

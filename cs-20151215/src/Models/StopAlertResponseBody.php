@@ -18,7 +18,10 @@ class StopAlertResponseBody extends Model
     public $msg;
 
     /**
-     * @description A value of True indicates that the call succeeds. A value of False indicates that the call failed.
+     * @description The operation result. Valid values:
+     *
+     *   True: The operation is successful.
+     *   False: The operation failed.
      *
      * @example True
      *

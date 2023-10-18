@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DataDisk extends Model
 {
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $autoFormat;
+
+    /**
      * @example sp-2zej1nogjvovnz4z****
      *
      * @var string
@@ -37,6 +44,20 @@ class DataDisk extends Model
     public $encrypted;
 
     /**
+     * @example ext4
+     *
+     * @var string
+     */
+    public $fileSystem;
+
+    /**
+     * @example /mnt/path1
+     *
+     * @var string
+     */
+    public $mountTarget;
+
+    /**
      * @example PL1
      *
      * @var string
@@ -57,10 +78,13 @@ class DataDisk extends Model
      */
     public $size;
     protected $_name = [
+        'autoFormat'           => 'auto_format',
         'autoSnapshotPolicyId' => 'auto_snapshot_policy_id',
         'burstingEnabled'      => 'bursting_enabled',
         'category'             => 'category',
         'encrypted'            => 'encrypted',
+        'fileSystem'           => 'file_system',
+        'mountTarget'          => 'mount_target',
         'performanceLevel'     => 'performance_level',
         'provisionedIops'      => 'provisioned_iops',
         'size'                 => 'size',
@@ -73,6 +97,9 @@ class DataDisk extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoFormat) {
+            $res['auto_format'] = $this->autoFormat;
+        }
         if (null !== $this->autoSnapshotPolicyId) {
             $res['auto_snapshot_policy_id'] = $this->autoSnapshotPolicyId;
         }
@@ -84,6 +111,12 @@ class DataDisk extends Model
         }
         if (null !== $this->encrypted) {
             $res['encrypted'] = $this->encrypted;
+        }
+        if (null !== $this->fileSystem) {
+            $res['file_system'] = $this->fileSystem;
+        }
+        if (null !== $this->mountTarget) {
+            $res['mount_target'] = $this->mountTarget;
         }
         if (null !== $this->performanceLevel) {
             $res['performance_level'] = $this->performanceLevel;
@@ -106,6 +139,9 @@ class DataDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['auto_format'])) {
+            $model->autoFormat = $map['auto_format'];
+        }
         if (isset($map['auto_snapshot_policy_id'])) {
             $model->autoSnapshotPolicyId = $map['auto_snapshot_policy_id'];
         }
@@ -117,6 +153,12 @@ class DataDisk extends Model
         }
         if (isset($map['encrypted'])) {
             $model->encrypted = $map['encrypted'];
+        }
+        if (isset($map['file_system'])) {
+            $model->fileSystem = $map['file_system'];
+        }
+        if (isset($map['mount_target'])) {
+            $model->mountTarget = $map['mount_target'];
         }
         if (isset($map['performance_level'])) {
             $model->performanceLevel = $map['performance_level'];

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RemoveClusterNodesRequest extends Model
 {
     /**
+     * @description Specifies whether to evict all pods from the nodes that you want to remove.
+     *
      * @var bool
      */
     public $drainNode;
 
     /**
+     * @description The list of nodes to be removed.
+     *
      * @var string[]
      */
     public $nodes;
 
     /**
+     * @description Specifies whether to release the Elastic Compute Service (ECS) instances when they are removed from the cluster.
+     *
      * @var bool
      */
     public $releaseNode;

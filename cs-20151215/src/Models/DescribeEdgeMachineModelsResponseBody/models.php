@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class models extends Model
 {
     /**
-     * @description The number of CPU cores.
+     * @description The number of vCores.
      *
      * @example 6
      *
@@ -36,7 +36,7 @@ class models extends Model
     public $created;
 
     /**
-     * @description The description.
+     * @description The description of the cloud-native box.
      *
      * @example B010
      *
@@ -45,7 +45,7 @@ class models extends Model
     public $description;
 
     /**
-     * @description Indicates whether the Docker runtime is managed.
+     * @description Indicates whether the cloud-native box model manages the Docker runtime.
      *
      * @example 0/1
      *
@@ -54,7 +54,7 @@ class models extends Model
     public $manageRuntime;
 
     /**
-     * @description The memory size. Unit: GB.
+     * @description The memory. Unit: GB.
      *
      * @example 8
      *

@@ -11,8 +11,8 @@ class teeConfig extends Model
     /**
      * @description Indicates whether confidential computing is enabled. Valid values:
      *
-     *   `true`: confidential computing is enabled.
-     *   `false`: confidential computing is disabled.
+     *   `true`: Confidential computing is enabled.
+     *   `false`: Confidential computing is disabled.
      *
      * @example false
      *

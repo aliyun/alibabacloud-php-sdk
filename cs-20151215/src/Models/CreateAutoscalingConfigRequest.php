@@ -11,7 +11,7 @@ class CreateAutoscalingConfigRequest extends Model
     /**
      * @description The cooldown period. Newly added nodes can be removed in scale-in activities only after the cooldown period ends. Unit: minutes.
      *
-     * @example 10
+     * @example 10 m
      *
      * @var string
      */
@@ -54,7 +54,7 @@ class CreateAutoscalingConfigRequest extends Model
     /**
      * @description The maximum amount of time that the cluster autoscaler waits for pods on the nodes to terminate during scale-in activities. Unit: seconds.
      *
-     * @example 14400
+     * @example 14400s
      *
      * @var int
      */
@@ -102,7 +102,7 @@ class CreateAutoscalingConfigRequest extends Model
     /**
      * @description The interval at which the cluster is scanned and evaluated for scaling. Unit: seconds.
      *
-     * @example 30
+     * @example 30s
      *
      * @var string
      */
@@ -135,7 +135,7 @@ class CreateAutoscalingConfigRequest extends Model
     /**
      * @description The waiting time before the auto scaling feature performs a scale-in activity. Only if the resource usage on a node remains below the scale-in threshold within the waiting time, the node is removed after the waiting time ends. Unit: minutes.
      *
-     * @example 10
+     * @example 10 m
      *
      * @var string
      */

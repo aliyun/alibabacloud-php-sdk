@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeExternalAgentResponseBody extends Model
 {
     /**
-     * @description The agent configurations in YAML format.
+     * @description The agent configurations in the YAML format.
      *
      * @example apiVersion: v1****
      *

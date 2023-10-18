@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
-     * @description The ID of the ACK cluster.
+     * @description The cluster ID.
      *
      * @example cb1a7214cfc0b41d9bb086affc2d8f51c
      *

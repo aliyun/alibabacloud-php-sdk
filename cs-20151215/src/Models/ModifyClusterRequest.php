@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\systemEventsLogging;
 use AlibabaCloud\Tea\Model;
 
 class ModifyClusterRequest extends Model
@@ -116,6 +117,11 @@ class ModifyClusterRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var systemEventsLogging
+     */
+    public $systemEventsLogging;
     protected $_name = [
         'accessControlList'          => 'access_control_list',
         'apiServerEip'               => 'api_server_eip',
@@ -128,6 +134,7 @@ class ModifyClusterRequest extends Model
         'instanceDeletionProtection' => 'instance_deletion_protection',
         'maintenanceWindow'          => 'maintenance_window',
         'resourceGroupId'            => 'resource_group_id',
+        'systemEventsLogging'        => 'system_events_logging',
     ];
 
     public function validate()
@@ -169,6 +176,9 @@ class ModifyClusterRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['resource_group_id'] = $this->resourceGroupId;
+        }
+        if (null !== $this->systemEventsLogging) {
+            $res['system_events_logging'] = null !== $this->systemEventsLogging ? $this->systemEventsLogging->toMap() : null;
         }
 
         return $res;
@@ -216,6 +226,9 @@ class ModifyClusterRequest extends Model
         }
         if (isset($map['resource_group_id'])) {
             $model->resourceGroupId = $map['resource_group_id'];
+        }
+        if (isset($map['system_events_logging'])) {
+            $model->systemEventsLogging = systemEventsLogging::fromMap($map['system_events_logging']);
         }
 
         return $model;

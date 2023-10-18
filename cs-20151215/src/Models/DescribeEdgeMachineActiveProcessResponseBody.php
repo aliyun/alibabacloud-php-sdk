@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachineActiveProcessResponseBody extends Model
 {
     /**
-     * @description The list of details about the activation progress.
+     * @description The activation progress list.
      *
      * @example [{\"content\":\"步骤 \"颁发激活凭证\" 执行开始\",\"id\":0,\"level\":3,\"timestamp\":1625994913000},{\"content\":\"步骤 \"颁发激活凭证\" 执行成功\",\"id\":1,\"level\":3,\"timestamp\":1625994914000},{\"content\":\"步骤 \"初始化主机配置\" 执行开始\",\"id\":2,\"level\":3,\"timestamp\":1625994975000},{\"content\":\"步骤 \"初始化主机配置\" 执行成功\",\"id\":3,\"level\":3,\"timestamp\":1625994975000}]
      *
@@ -27,7 +27,7 @@ class DescribeEdgeMachineActiveProcessResponseBody extends Model
     public $progress;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example b62796a8-c5a6-4d3f-beb2-7650e4309cb1
      *
@@ -36,7 +36,7 @@ class DescribeEdgeMachineActiveProcessResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the cloud-native box.
+     * @description The activation status.
      *
      * @example ACTIVATED
      *
@@ -45,7 +45,7 @@ class DescribeEdgeMachineActiveProcessResponseBody extends Model
     public $state;
 
     /**
-     * @description The current step of the activation process.
+     * @description The activation step.
      *
      * @example 步骤 \"初始化主机配置\" 执行成功
      *

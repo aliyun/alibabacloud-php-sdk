@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeWorkflowsResponseBody extends Model
 {
     /**
-     * @description The list of the jobs.
+     * @description The list of jobs.
      *
      * @var jobs[]
      */

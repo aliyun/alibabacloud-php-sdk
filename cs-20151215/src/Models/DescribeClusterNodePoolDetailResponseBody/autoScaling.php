@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class autoScaling extends Model
 {
     /**
-     * @description The peak bandwidth of the elastic IP address (EIP) that is associated with the node pool.
+     * @description The maximum bandwidth of the elastic IP address (EIP).
      *
      * @example 5
      *
@@ -18,10 +18,10 @@ class autoScaling extends Model
     public $eipBandwidth;
 
     /**
-     * @description The billing method of the EIP. Valid values:
+     * @description The metering method of the EIP. Valid values:
      *
-     *   `PayByBandwidth`: pay-by-bandwidth
-     *   `PayByTraffic`: pay-by-data-transfer
+     *   `PayByBandwidth`: pay-by-bandwidth.
+     *   `PayByTraffic`: pay-by-data-transfer.
      *
      * @example PayByBandwidth
      *
@@ -32,8 +32,8 @@ class autoScaling extends Model
     /**
      * @description Indicates whether auto scaling is enabled. Valid values:
      *
-     *   `true`: Auto scaling is enabled.
-     *   `false`: Auto scaling is disabled. If this parameter is set to false, other parameters in the `auto_scaling` section do not take effect.
+     *   `true`: auto scaling is enabled.
+     *   `false`: auto scaling is disabled. If this parameter is set to false, other parameters in the `auto_scaling` section do not take effect.
      *
      * @example true
      *
@@ -54,7 +54,7 @@ class autoScaling extends Model
     public $isBondEip;
 
     /**
-     * @description The maximum number of Elastic Compute Service (ECS) instances supported by the node pool.
+     * @description The maximum number of Elastic Compute Service (ECS) instances that can be created in the node pool.
      *
      * @example 10
      *
@@ -74,10 +74,10 @@ class autoScaling extends Model
     /**
      * @description The instance types that can be used for the auto scaling of the node pool. Valid values:
      *
-     *   `cpu`: regular instance
-     *   `gpu`: GPU-accelerated instance
-     *   `gpushare`: shared GPU-accelerated instance
-     *   `spot`: preemptible instance
+     *   `cpu`: regular instance.
+     *   `gpu`: GPU-accelerated instance.
+     *   `gpushare`: shared GPU-accelerated instance.
+     *   `spot`: preemptible instance.
      *
      * @example cpu
      *

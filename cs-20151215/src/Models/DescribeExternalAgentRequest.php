@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeExternalAgentRequest extends Model
 {
     /**
+     * @description The agent mode.
+     *
      * @example admin
      *
      * @var string
@@ -16,6 +18,12 @@ class DescribeExternalAgentRequest extends Model
     public $agentMode;
 
     /**
+     * @description Specifies whether to obtain the credentials that are used to access the cluster over the internal network.
+     *
+     *   `true`: obtains the credentials that are used to access the cluster over the internal network.
+     *   `false`: obtains the credentials that are used to access the cluster over the Internet.
+     *
+     * Default value: `false`.
      * @example true
      *
      * @var string

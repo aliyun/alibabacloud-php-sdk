@@ -83,8 +83,8 @@ class scalingGroup extends Model
     /**
      * @description The billing method of the nodes in the node pool. Valid values:
      *
-     *   `PrePaid`: subscription
-     *   `PostPaid`: pay-as-you-go
+     *   `PrePaid`: the subscription billing method.
+     *   `PostPaid`: the pay-as-you-go billing method.
      *
      * @example PostPaid
      *
@@ -93,7 +93,7 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance types of the nodes in the node pool.
+     * @description A list of instance types. You can select multiple instance types. When the system needs to create a node, it starts from the first instance type until the node is created. The instance type that is used to create the node varies based on the actual instance stock.
      *
      * @var string[]
      */
@@ -145,11 +145,11 @@ class scalingGroup extends Model
      *
      **
      *
-     **Note** `COST_OPTIMIZED` is valid only when multiple instance types are specified or at least one preemptible instance type is specified.
+     **Note**The `COST_OPTIMIZED` setting takes effect only when multiple instance types are specified or at least one instance type is specified for preemptible instances.
      *
-     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the RebalanceInstances operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](~~71516~~)
+     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the RebalanceInstances operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](~~71516~~).
      *
-     * Default value: `PRIORITY`
+     * Default value: `PRIORITY`.
      * @example BALANCE
      *
      * @var string
@@ -187,7 +187,7 @@ class scalingGroup extends Model
     /**
      * @description The billing cycle of the nodes. This parameter is required if `instance_charge_type` is set to `PrePaid`.
      *
-     * Valid value: `Month`
+     * Valid value: `Month`.
      * @example Month
      *
      * @var string
@@ -209,7 +209,7 @@ class scalingGroup extends Model
     public $platform;
 
     /**
-     * @description The configurations of the private node pool.
+     * @description The configuration of the private node pool.
      *
      * @var privatePoolOptions
      */
@@ -225,7 +225,7 @@ class scalingGroup extends Model
     public $ramPolicy;
 
     /**
-     * @description The IDs of the ApsaraDB RDS instances.
+     * @description After you specify the list of RDS instances, the ECS instances in the cluster are automatically added to the whitelist of the RDS instances.
      *
      * @var string[]
      */
@@ -243,8 +243,8 @@ class scalingGroup extends Model
     /**
      * @description The scaling mode of the scaling group. Valid values:
      *
-     *   `release`: the standard mode. ECS instances are created and released based on the resource usage.
-     *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances attached with local disks.
+     *   `release`: the standard mode. ECS instances are created and released based on resource usage.
+     *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances that are attached with local disks.
      *
      * @example release
      *
@@ -297,7 +297,7 @@ class scalingGroup extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding policy of preemptible instances. Valid values:
+     * @description The type of preemptible instance. Valid values:
      *
      *   NoSpot: a non-preemptible instance.
      *   SpotWithPriceLimit: a preemptible instance that is configured with the highest bid price.
@@ -313,8 +313,8 @@ class scalingGroup extends Model
     /**
      * @description The type of system disk. Valid values:
      *
-     *   `cloud_efficiency`: ultra disk
-     *   `cloud_ssd`: standard SSD
+     *   `cloud_efficiency`: ultra disk.
+     *   `cloud_ssd`: standard SSD.
      *
      * @example cloud_efficiency
      *
@@ -334,7 +334,7 @@ class scalingGroup extends Model
     /**
      * @description The system disk size of a node. Unit: GiB.
      *
-     * Valid values: 20 to 500
+     * Valid values: 20 to 500.
      * @example 120
      *
      * @var int
@@ -350,8 +350,9 @@ class scalingGroup extends Model
     public $tags;
 
     /**
-     * @description The IDs of vSwitches.
+     * @description The IDs of vSwitches. You can specify 1 to 20 vSwitches.
      *
+     * > We recommend that you select vSwitches in different zones to ensure high availability.
      * @var string[]
      */
     public $vswitchIds;

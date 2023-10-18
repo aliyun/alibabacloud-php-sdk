@@ -2,22 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\management;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteClusterNodepoolRequest extends Model
+class autoRepairPolicy extends Model
 {
     /**
-     * @description Specifies whether to forcefully delete the node pool.
-     *
-     * @example false
+     * @example true
      *
      * @var bool
      */
-    public $force;
+    public $restartNode;
     protected $_name = [
-        'force' => 'force',
+        'restartNode' => 'restart_node',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class DeleteClusterNodepoolRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->force) {
-            $res['force'] = $this->force;
+        if (null !== $this->restartNode) {
+            $res['restart_node'] = $this->restartNode;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class DeleteClusterNodepoolRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteClusterNodepoolRequest
+     * @return autoRepairPolicy
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['force'])) {
-            $model->force = $map['force'];
+        if (isset($map['restart_node'])) {
+            $model->restartNode = $map['restart_node'];
         }
 
         return $model;

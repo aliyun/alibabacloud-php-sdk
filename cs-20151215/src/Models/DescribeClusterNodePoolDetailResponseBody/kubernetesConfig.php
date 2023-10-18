@@ -76,14 +76,14 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
-     * @description The taints of the nodes. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, toleration rules allow pods to be scheduled to nodes with matching taints. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+     * @description The taints of the nodes in the node pool. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, tolerations allow pods to be scheduled to nodes with matching taints. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
      * @var Taint[]
      */
     public $taints;
 
     /**
-     * @description The user-defined data of the node pool. For more information, see [Generate user-defined data](~~49121~~).
+     * @description The user data of the node pool. For more information, see [Generate user data](~~49121~~).
      *
      * @example IyEvYmluL3NoCmVjaG8gIkhlbGxvIEFDSyEi
      *

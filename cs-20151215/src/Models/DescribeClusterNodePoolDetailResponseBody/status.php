@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class status extends Model
 {
     /**
+     * @description The number of failed nodes.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class status extends Model
     public $failedNodes;
 
     /**
+     * @description The number of healthy nodes.
+     *
      * @example 3
      *
      * @var int
@@ -23,6 +27,8 @@ class status extends Model
     public $healthyNodes;
 
     /**
+     * @description The number of nodes that are being created.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class status extends Model
     public $initialNodes;
 
     /**
+     * @description The number of offline nodes.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class status extends Model
     public $offlineNodes;
 
     /**
+     * @description The number of nodes that are being removed.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class status extends Model
     public $removingNodes;
 
     /**
+     * @description The number of running nodes.
+     *
      * @example 3
      *
      * @var int
@@ -51,6 +63,14 @@ class status extends Model
     public $servingNodes;
 
     /**
+     * @description The status of the node pool. Valid values:
+     *
+     *   `active`: The node pool is active.
+     *   `scaling`: The node pool is being scaled.
+     *   `removing`: Nodes are being removed from the node pool.
+     *   `deleting`: The node pool is being deleted.
+     *   `updating`: The node pool is being updated.
+     *
      * @example active
      *
      * @var string
@@ -58,6 +78,8 @@ class status extends Model
     public $state;
 
     /**
+     * @description The total number of nodes in the node pool.
+     *
      * @example 3
      *
      * @var int

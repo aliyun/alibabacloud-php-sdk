@@ -18,9 +18,8 @@ class nodepoolInfo extends Model
     public $created;
 
     /**
-     * @description Indicates whether the node pool is a default node pool. A Container Service for Kubernetes (ACK) cluster usually has only one default node pool. Valid values:
+     * @description Indicates whether the node pool is a default node pool. A Container Service for Kubernetes (ACK) cluster usually has only one default node pool. Valid values: `true`: The node pool is a default node pool. `false`: The node pool is not a default node pool.
      *
-     * `false`: The node pool is not a default node pool.
      * @example true
      *
      * @var bool
@@ -38,7 +37,7 @@ class nodepoolInfo extends Model
     public $name;
 
     /**
-     * @description The ID of the node pool.
+     * @description The node pool ID.
      *
      * @example np615c0e0966124216a0412e10afe0****
      *
@@ -47,7 +46,7 @@ class nodepoolInfo extends Model
     public $nodepoolId;
 
     /**
-     * @description The ID of the region where the node pool is deployed.
+     * @description The region ID.
      *
      * @example cn-beijing
      *
@@ -56,7 +55,7 @@ class nodepoolInfo extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the node pool belongs.
+     * @description The ID of the resource group.
      *
      * @example rg-acfmyvw3wjmb****
      *
@@ -65,7 +64,7 @@ class nodepoolInfo extends Model
     public $resourceGroupId;
 
     /**
-     * @description The type of the node pool.
+     * @description The type of node pool.
      *
      * @example ess
      *

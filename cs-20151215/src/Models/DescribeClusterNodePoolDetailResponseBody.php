@@ -18,13 +18,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodePoolDetailResponseBody extends Model
 {
     /**
-     * @description The auto scaling configurations of the queried node pool.
+     * @description The auto scaling configuration of the node pool.
      *
      * @var autoScaling
      */
     public $autoScaling;
 
     /**
+     * @description The network configuration of the edge node pool. This parameter takes effect only for edge node pools.
+     *
      * @var interconnectConfig
      */
     public $interconnectConfig;
@@ -39,21 +41,21 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $interconnectMode;
 
     /**
-     * @description The configurations of the cluster where the node pool is deployed.
+     * @description The configuration of the cluster where the node pool is deployed.
      *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description The configurations about the managed node pool feature.
+     * @description The configuration of the managed node pool feature.
      *
      * @var management
      */
     public $management;
 
     /**
-     * @description The maximum number of nodes that are supported by the edge node pool. The value of this parameter must be equal to or greater than 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools of the ess type or default edge node pools.
+     * @description The maximum number of nodes that are supported by the edge node pool. The value of this parameter must be equal to or greater than 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools whose types are ess or default edge node pools.
      *
      * @example 10
      *
@@ -62,31 +64,35 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $maxNodes;
 
     /**
+     * @description 节点配置
+     *
      * @var nodeConfig
      */
     public $nodeConfig;
 
     /**
-     * @description The configurations of the node pool.
+     * @description The configuration of the node pool.
      *
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
 
     /**
-     * @description The configurations of the scaling group.
+     * @description The configuration of the scaling group.
      *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
+     * @description The status details about the node pool.
+     *
      * @var status
      */
     public $status;
 
     /**
-     * @description The configurations of confidential computing.
+     * @description The configuration of confidential computing.
      *
      * @var teeConfig
      */
