@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
-     * @description The bandwidth throttling of the node. Unit: MB/s.
+     * @description The maximum bandwidth of the node. Unit: Mbit/s.
      *
      * @example 96
      *
@@ -36,7 +36,7 @@ class nodeInfo extends Model
     public $connection;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example r-bp10noxlhcoim2****-proxy-3#542****
      *

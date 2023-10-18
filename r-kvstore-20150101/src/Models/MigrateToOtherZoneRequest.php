@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MigrateToOtherZoneRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraDB for Redis instance.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -16,6 +18,12 @@ class MigrateToOtherZoneRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Specifies the time when the database is switched after data is migrated. Valid values:
+     *
+     *   **Immediately**: immediately switched after the data is migrated.
+     *   **MaintainTime**: switched within the maintenance window.
+     *
+     * >  Default value: **Immediately**.
      * @example Immediately
      *
      * @var string
@@ -43,6 +51,9 @@ class MigrateToOtherZoneRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the destination secondary zone. You can call the [DescribeZones](~~DescribeZones~~) operation to query zone IDs.
+     *
+     * >  You can specify this parameter to deploy the master node and replica node in different zones to implement zone-disaster recovery. This helps withstand data center-level breakdowns.
      * @example cn-hangzhou-h
      *
      * @var string
@@ -55,6 +66,10 @@ class MigrateToOtherZoneRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * > *   The vSwitch must be deployed in the zone that is specified by the ZoneId parameter.
+     * > *   If the network type of the instance is VPC, this parameter is required.
      * @example vsw-bp1e7clcw529l773d****
      *
      * @var string
@@ -62,6 +77,8 @@ class MigrateToOtherZoneRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the destination primary zone. You can call the [DescribeZones](~~94527~~) operation to query zone IDs.
+     *
      * @example cn-hangzhou-g
      *
      * @var string

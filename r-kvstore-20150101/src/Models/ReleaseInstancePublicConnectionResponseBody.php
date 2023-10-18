@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstancePublicConnectionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 88F850B5-CC68-48B4-83CA-5497C3C191DE
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlushInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

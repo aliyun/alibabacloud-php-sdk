@@ -61,6 +61,11 @@ class order extends Model
     public $ruleIds;
 
     /**
+     * @var bool
+     */
+    public $showDiscountInfo;
+
+    /**
      * @description The transaction price of the order.
      *
      * @example 10
@@ -75,6 +80,7 @@ class order extends Model
         'handlingFeeAmount' => 'HandlingFeeAmount',
         'originalAmount'    => 'OriginalAmount',
         'ruleIds'           => 'RuleIds',
+        'showDiscountInfo'  => 'ShowDiscountInfo',
         'tradeAmount'       => 'TradeAmount',
     ];
 
@@ -102,6 +108,9 @@ class order extends Model
         }
         if (null !== $this->ruleIds) {
             $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
+        }
+        if (null !== $this->showDiscountInfo) {
+            $res['ShowDiscountInfo'] = $this->showDiscountInfo;
         }
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
@@ -135,6 +144,9 @@ class order extends Model
         }
         if (isset($map['RuleIds'])) {
             $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
+        }
+        if (isset($map['ShowDiscountInfo'])) {
+            $model->showDiscountInfo = $map['ShowDiscountInfo'];
         }
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];

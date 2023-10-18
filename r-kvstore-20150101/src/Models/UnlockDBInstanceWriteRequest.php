@@ -6,25 +6,14 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteInstanceRequest extends Model
+class UnlockDBInstanceWriteRequest extends Model
 {
     /**
-     * @description The ID of the distributed instance to which the instance belongs. This parameter is applicable to only China site (aliyun.com).
-     *
-     * @example gr-bp14rkqrhac****
-     *
-     * @var string
-     */
-    public $globalInstanceId;
-
-    /**
-     * @description The ID of the instance that you want to release.
-     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
      */
-    public $instanceId;
+    public $DBInstanceId;
 
     /**
      * @var string
@@ -51,8 +40,7 @@ class DeleteInstanceRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'globalInstanceId'     => 'GlobalInstanceId',
-        'instanceId'           => 'InstanceId',
+        'DBInstanceId'         => 'DBInstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -67,11 +55,8 @@ class DeleteInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->globalInstanceId) {
-            $res['GlobalInstanceId'] = $this->globalInstanceId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -95,16 +80,13 @@ class DeleteInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteInstanceRequest
+     * @return UnlockDBInstanceWriteRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GlobalInstanceId'])) {
-            $model->globalInstanceId = $map['GlobalInstanceId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

@@ -134,6 +134,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\InitializeKvstorePermissionReques
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\InitializeKvstorePermissionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\LockDBInstanceWriteRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\LockDBInstanceWriteResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\MigrateToOtherZoneRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\MigrateToOtherZoneResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountDescriptionRequest;
@@ -210,6 +212,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\TransformInstanceChargeTypeReques
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\TransformInstanceChargeTypeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\TransformToPrePaidRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\TransformToPrePaidResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UnlockDBInstanceWriteRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UnlockDBInstanceWriteResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UntagResourcesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -227,13 +231,14 @@ class Rkvstore extends OpenApiClient
         $this->_endpointMap  = [
             'cn-qingdao'                  => 'r-kvstore.aliyuncs.com',
             'cn-beijing'                  => 'r-kvstore.aliyuncs.com',
+            'cn-wulanchabu'               => 'r-kvstore.aliyuncs.com',
             'cn-hangzhou'                 => 'r-kvstore.aliyuncs.com',
             'cn-shanghai'                 => 'r-kvstore.aliyuncs.com',
             'cn-shenzhen'                 => 'r-kvstore.aliyuncs.com',
             'cn-heyuan'                   => 'r-kvstore.aliyuncs.com',
+            'cn-guangzhou'                => 'r-kvstore.aliyuncs.com',
+            'cn-hongkong'                 => 'r-kvstore.aliyuncs.com',
             'ap-southeast-1'              => 'r-kvstore.aliyuncs.com',
-            'us-west-1'                   => 'r-kvstore.aliyuncs.com',
-            'us-east-1'                   => 'r-kvstore.aliyuncs.com',
             'cn-hangzhou-finance'         => 'r-kvstore.aliyuncs.com',
             'cn-shanghai-finance-1'       => 'r-kvstore.aliyuncs.com',
             'cn-shenzhen-finance-1'       => 'r-kvstore.aliyuncs.com',
@@ -253,7 +258,6 @@ class Rkvstore extends OpenApiClient
             'cn-hangzhou-internal-test-3' => 'r-kvstore.aliyuncs.com',
             'cn-hangzhou-test-306'        => 'r-kvstore.aliyuncs.com',
             'cn-hongkong-finance-pop'     => 'r-kvstore.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'r-kvstore.aliyuncs.com',
             'cn-qingdao-nebula'           => 'r-kvstore.aliyuncs.com',
             'cn-shanghai-et15-b01'        => 'r-kvstore.aliyuncs.com',
             'cn-shanghai-et2-b01'         => 'r-kvstore.aliyuncs.com',
@@ -263,8 +267,8 @@ class Rkvstore extends OpenApiClient
             'cn-shenzhen-st4-d01'         => 'r-kvstore.aliyuncs.com',
             'cn-shenzhen-su18-b01'        => 'r-kvstore.aliyuncs.com',
             'cn-wuhan'                    => 'r-kvstore.aliyuncs.com',
-            'cn-wulanchabu'               => 'r-kvstore.aliyuncs.com',
             'cn-yushanfang'               => 'r-kvstore.aliyuncs.com',
+            'cn-zhangbei'                 => 'r-kvstore.aliyuncs.com',
             'cn-zhangbei-na61-b01'        => 'r-kvstore.aliyuncs.com',
             'cn-zhangjiakou-na62-a01'     => 'r-kvstore.aliyuncs.com',
             'cn-zhengzhou-nebula-1'       => 'r-kvstore.aliyuncs.com',
@@ -1225,9 +1229,8 @@ class Rkvstore extends OpenApiClient
     /**
      * For more information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
      *   * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * >
-     *   * *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
-     *   * *   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
+     *   * > *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
+     *   * >*   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
      *   *
      * @param CreateTairInstanceRequest $request CreateTairInstanceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1376,9 +1379,8 @@ class Rkvstore extends OpenApiClient
     /**
      * For more information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
      *   * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * >
-     *   * *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
-     *   * *   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
+     *   * > *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
+     *   * >*   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
      *   *
      * @param CreateTairInstanceRequest $request CreateTairInstanceRequest
      *
@@ -5165,7 +5167,70 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * @param LockDBInstanceWriteRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return LockDBInstanceWriteResponse
+     */
+    public function lockDBInstanceWriteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->lockReason)) {
+            $query['LockReason'] = $request->lockReason;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LockDBInstanceWrite',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LockDBInstanceWriteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param LockDBInstanceWriteRequest $request
+     *
+     * @return LockDBInstanceWriteResponse
+     */
+    public function lockDBInstanceWrite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->lockDBInstanceWriteWithOptions($request, $runtime);
+    }
+
+    /**
+     * For more information about how to migrate an instance across zones in the ApsaraDB for Redis console, see [Migrate an instance across zones](~~106272~~).
+     *   * > *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the endpoint of the classic network is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
+     *   * > *   After the data is migrated, the endpoint of an instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
      *   *
      * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -5225,7 +5290,9 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * For more information about how to migrate an instance across zones in the ApsaraDB for Redis console, see [Migrate an instance across zones](~~106272~~).
+     *   * > *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the endpoint of the classic network is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
+     *   * > *   After the data is migrated, the endpoint of an instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
      *   *
      * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      *
@@ -7860,6 +7927,64 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->transformToPrePaidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnlockDBInstanceWriteRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UnlockDBInstanceWriteResponse
+     */
+    public function unlockDBInstanceWriteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnlockDBInstanceWrite',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnlockDBInstanceWriteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnlockDBInstanceWriteRequest $request
+     *
+     * @return UnlockDBInstanceWriteResponse
+     */
+    public function unlockDBInstanceWrite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unlockDBInstanceWriteWithOptions($request, $runtime);
     }
 
     /**

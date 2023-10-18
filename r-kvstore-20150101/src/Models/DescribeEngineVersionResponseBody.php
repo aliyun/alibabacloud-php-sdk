@@ -4,10 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionResponseBody\DBLatestMinorVersion;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionResponseBody\proxyLatestMinorVersion;
 use AlibabaCloud\Tea\Model;
 
 class DescribeEngineVersionResponseBody extends Model
 {
+    /**
+     * @var DBLatestMinorVersion
+     */
+    public $DBLatestMinorVersion;
+
     /**
      * @description The release notes for the minor version of the instance, including the release date, minor version number, release type such as new feature, and description.
      *
@@ -51,6 +58,11 @@ class DescribeEngineVersionResponseBody extends Model
      * @var string
      */
     public $engine;
+
+    /**
+     * @var string
+     */
+    public $isAutoUpgradeOpen;
 
     /**
      * @description Indicates whether the instance uses the latest minor version. Valid values:
@@ -110,6 +122,11 @@ class DescribeEngineVersionResponseBody extends Model
     public $minorVersion;
 
     /**
+     * @var proxyLatestMinorVersion
+     */
+    public $proxyLatestMinorVersion;
+
+    /**
      * @description The minor version of proxy nodes.
      *
      * > This parameter is returned only for cluster and read/write splitting instances.
@@ -138,16 +155,19 @@ class DescribeEngineVersionResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'DBLatestMinorVersion'      => 'DBLatestMinorVersion',
         'DBVersionRelease'          => 'DBVersionRelease',
         'enableUpgradeMajorVersion' => 'EnableUpgradeMajorVersion',
         'enableUpgradeMinorVersion' => 'EnableUpgradeMinorVersion',
         'engine'                    => 'Engine',
+        'isAutoUpgradeOpen'         => 'IsAutoUpgradeOpen',
         'isLatestVersion'           => 'IsLatestVersion',
         'isNewSSLMode'              => 'IsNewSSLMode',
         'isRedisCompatibleVersion'  => 'IsRedisCompatibleVersion',
         'isSSLEnable'               => 'IsSSLEnable',
         'majorVersion'              => 'MajorVersion',
         'minorVersion'              => 'MinorVersion',
+        'proxyLatestMinorVersion'   => 'ProxyLatestMinorVersion',
         'proxyMinorVersion'         => 'ProxyMinorVersion',
         'proxyVersionRelease'       => 'ProxyVersionRelease',
         'requestId'                 => 'RequestId',
@@ -160,6 +180,9 @@ class DescribeEngineVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBLatestMinorVersion) {
+            $res['DBLatestMinorVersion'] = null !== $this->DBLatestMinorVersion ? $this->DBLatestMinorVersion->toMap() : null;
+        }
         if (null !== $this->DBVersionRelease) {
             $res['DBVersionRelease'] = $this->DBVersionRelease;
         }
@@ -171,6 +194,9 @@ class DescribeEngineVersionResponseBody extends Model
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->isAutoUpgradeOpen) {
+            $res['IsAutoUpgradeOpen'] = $this->isAutoUpgradeOpen;
         }
         if (null !== $this->isLatestVersion) {
             $res['IsLatestVersion'] = $this->isLatestVersion;
@@ -189,6 +215,9 @@ class DescribeEngineVersionResponseBody extends Model
         }
         if (null !== $this->minorVersion) {
             $res['MinorVersion'] = $this->minorVersion;
+        }
+        if (null !== $this->proxyLatestMinorVersion) {
+            $res['ProxyLatestMinorVersion'] = null !== $this->proxyLatestMinorVersion ? $this->proxyLatestMinorVersion->toMap() : null;
         }
         if (null !== $this->proxyMinorVersion) {
             $res['ProxyMinorVersion'] = $this->proxyMinorVersion;
@@ -211,6 +240,9 @@ class DescribeEngineVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBLatestMinorVersion'])) {
+            $model->DBLatestMinorVersion = DBLatestMinorVersion::fromMap($map['DBLatestMinorVersion']);
+        }
         if (isset($map['DBVersionRelease'])) {
             $model->DBVersionRelease = $map['DBVersionRelease'];
         }
@@ -222,6 +254,9 @@ class DescribeEngineVersionResponseBody extends Model
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+        if (isset($map['IsAutoUpgradeOpen'])) {
+            $model->isAutoUpgradeOpen = $map['IsAutoUpgradeOpen'];
         }
         if (isset($map['IsLatestVersion'])) {
             $model->isLatestVersion = $map['IsLatestVersion'];
@@ -240,6 +275,9 @@ class DescribeEngineVersionResponseBody extends Model
         }
         if (isset($map['MinorVersion'])) {
             $model->minorVersion = $map['MinorVersion'];
+        }
+        if (isset($map['ProxyLatestMinorVersion'])) {
+            $model->proxyLatestMinorVersion = proxyLatestMinorVersion::fromMap($map['ProxyLatestMinorVersion']);
         }
         if (isset($map['ProxyMinorVersion'])) {
             $model->proxyMinorVersion = $map['ProxyMinorVersion'];

@@ -27,6 +27,8 @@ class ModifyInstanceSSLResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 32184****
      *
      * @var string

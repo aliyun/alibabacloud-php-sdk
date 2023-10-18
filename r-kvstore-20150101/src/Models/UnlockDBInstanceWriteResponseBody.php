@@ -6,38 +6,32 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class FlushExpireKeysResponseBody extends Model
+class UnlockDBInstanceWriteResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example r-bp1zxszhcgatnx****
+     * @example r-2ev03avw0r0552***
      *
      * @var string
      */
-    public $instanceId;
+    public $DBInstanceName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **FlushExpireKeys**.
-     *
-     * @example 82E30AB7-E3A4-46AC-88A0-3E4DCDC5****
+     * @example 5D622714-AEDD-4609-9167-F5DDD3D1****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @example 10****
      *
-     * @example 21986****
-     *
-     * @var string
+     * @var int
      */
     public $taskId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
-        'taskId'     => 'TaskId',
+        'DBInstanceName' => 'DBInstanceName',
+        'requestId'      => 'RequestId',
+        'taskId'         => 'TaskId',
     ];
 
     public function validate()
@@ -47,8 +41,8 @@ class FlushExpireKeysResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -63,13 +57,13 @@ class FlushExpireKeysResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return FlushExpireKeysResponseBody
+     * @return UnlockDBInstanceWriteResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

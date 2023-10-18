@@ -44,6 +44,8 @@ class templateRecord extends Model
     /**
      * @description The description of the parameter.
      *
+     * @example test description
+     *
      * @var string
      */
     public $parameterDescription;

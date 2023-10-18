@@ -18,6 +18,11 @@ class GrantAccountPrivilegeRequest extends Model
     public $accountName;
 
     /**
+     * @description The permissions of the account. Valid values:
+     *
+     *   **RoleReadOnly**: The account has read-only permissions.
+     *   **RoleReadWrite**: The account has read and write permissions.
+     *
      * @example RoleReadWrite
      *
      * @var string

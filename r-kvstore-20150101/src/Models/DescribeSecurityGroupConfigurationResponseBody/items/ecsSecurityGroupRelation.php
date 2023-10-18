@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ecsSecurityGroupRelation extends Model
 {
     /**
+     * @description The network type of the ECS security group. Valid values:
+     *
+     *   **vpc**
+     *   **classic**
+     *
      * @example vpc
      *
      * @var string

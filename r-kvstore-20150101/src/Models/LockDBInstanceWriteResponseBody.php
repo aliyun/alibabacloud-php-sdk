@@ -6,38 +6,38 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class FlushExpireKeysResponseBody extends Model
+class LockDBInstanceWriteResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example r-bp1zxszhcgatnx****
+     * @example r-2ev03avw0r0552***
      *
      * @var string
      */
-    public $instanceId;
+    public $DBInstanceName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **FlushExpireKeys**.
-     *
-     * @example 82E30AB7-E3A4-46AC-88A0-3E4DCDC5****
+     * @var string
+     */
+    public $lockReason;
+
+    /**
+     * @example 2BE6E619-A657-42E3-AD2D-18F8428A****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the task.
-     *
      * @example 21986****
      *
-     * @var string
+     * @var int
      */
     public $taskId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
-        'taskId'     => 'TaskId',
+        'DBInstanceName' => 'DBInstanceName',
+        'lockReason'     => 'LockReason',
+        'requestId'      => 'RequestId',
+        'taskId'         => 'TaskId',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class FlushExpireKeysResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->lockReason) {
+            $res['LockReason'] = $this->lockReason;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -63,13 +66,16 @@ class FlushExpireKeysResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return FlushExpireKeysResponseBody
+     * @return LockDBInstanceWriteResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['LockReason'])) {
+            $model->lockReason = $map['LockReason'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

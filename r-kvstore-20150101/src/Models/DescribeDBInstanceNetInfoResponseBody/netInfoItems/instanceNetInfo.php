@@ -48,6 +48,8 @@ class instanceNetInfo extends Model
     public $expiredTime;
 
     /**
+     * @description The IP address of the instance in the classic network.
+     *
      * @example 172.16.49.***
      *
      * @var string

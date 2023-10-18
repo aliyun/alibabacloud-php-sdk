@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
+     * @description The maximum bandwidth of the node. Unit: Mbit/s.
+     *
      * @example 96
      *
      * @var string
@@ -16,6 +18,8 @@ class nodeInfo extends Model
     public $bandwidth;
 
     /**
+     * @description The storage capacity of the node. Unit: MB.
+     *
      * @example 2048
      *
      * @var string
@@ -23,6 +27,8 @@ class nodeInfo extends Model
     public $capacity;
 
     /**
+     * @description The maximum number of connections.
+     *
      * @example 10000
      *
      * @var string
@@ -30,6 +36,8 @@ class nodeInfo extends Model
     public $connection;
 
     /**
+     * @description The node ID.
+     *
      * @example r-bp10noxlhcoim2****-db-0#688****
      *
      * @var string
@@ -37,6 +45,11 @@ class nodeInfo extends Model
     public $nodeId;
 
     /**
+     * @description The node type. Valid values:
+     *
+     *   **proxy**: proxy node
+     *   **db**: data node
+     *
      * @example db
      *
      * @var string
@@ -44,6 +57,13 @@ class nodeInfo extends Model
     public $nodeType;
 
     /**
+     * @description The type of the child instance. Valid values:
+     *
+     *   **master**: master node
+     *   **readonly**: read-only instance
+     *
+     * @example master
+     *
      * @var string
      */
     public $subInstanceType;

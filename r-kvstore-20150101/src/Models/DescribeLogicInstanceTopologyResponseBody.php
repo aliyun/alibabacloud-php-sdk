@@ -27,6 +27,8 @@ class DescribeLogicInstanceTopologyResponseBody extends Model
     public $redisProxyList;
 
     /**
+     * @description Details of data shards, including node information such as NodeInfo.
+     *
      * @var redisShardList
      */
     public $redisShardList;

@@ -464,6 +464,16 @@ class DBInstanceAttribute extends Model
     public $shardCount;
 
     /**
+     * @var string
+     */
+    public $storage;
+
+    /**
+     * @var string
+     */
+    public $storageType;
+
+    /**
      * @description Details of the tags.
      *
      * @var tags
@@ -573,6 +583,8 @@ class DBInstanceAttribute extends Model
         'secondaryZoneId'           => 'SecondaryZoneId',
         'securityIPList'            => 'SecurityIPList',
         'shardCount'                => 'ShardCount',
+        'storage'                   => 'Storage',
+        'storageType'               => 'StorageType',
         'tags'                      => 'Tags',
         'vSwitchId'                 => 'VSwitchId',
         'vpcAuthMode'               => 'VpcAuthMode',
@@ -717,6 +729,12 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->shardCount) {
             $res['ShardCount'] = $this->shardCount;
+        }
+        if (null !== $this->storage) {
+            $res['Storage'] = $this->storage;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -879,6 +897,12 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['ShardCount'])) {
             $model->shardCount = $map['ShardCount'];
+        }
+        if (isset($map['Storage'])) {
+            $model->storage = $map['Storage'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

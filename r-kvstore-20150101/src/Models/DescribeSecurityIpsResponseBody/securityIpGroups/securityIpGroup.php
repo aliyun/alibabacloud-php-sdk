@@ -18,6 +18,8 @@ class securityIpGroup extends Model
     public $securityIpGroupAttribute;
 
     /**
+     * @description The name of the security group.
+     *
      * @example default
      *
      * @var string
@@ -25,6 +27,8 @@ class securityIpGroup extends Model
     public $securityIpGroupName;
 
     /**
+     * @description The IP addresses in the whitelist.
+     *
      * @example 100.100.202.***\/24,10.10.10.***
      *
      * @var string
