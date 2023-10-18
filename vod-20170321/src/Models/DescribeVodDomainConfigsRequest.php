@@ -18,7 +18,7 @@ class DescribeVodDomainConfigsRequest extends Model
     public $domainName;
 
     /**
-     * @description The name of the feature. Separate multiple names with commas (,). For more information, see the **Feature description** section.
+     * @description The feature name. Separate multiple names with commas (,). For more information, see **Feature description**.
      *
      * @example filetype_based_ttl_set,set_req_host_header
      *

@@ -29,14 +29,14 @@ class domainLogDetail extends Model
     public $logCount;
 
     /**
-     * @description The detailed information about Alibaba Cloud CDN logs.
+     * @description The queried CDN logs.
      *
      * @var logInfos
      */
     public $logInfos;
 
     /**
-     * @description The pagination settings of Alibaba Cloud CDN logs.
+     * @description The pagination information.
      *
      * @var pageInfos
      */

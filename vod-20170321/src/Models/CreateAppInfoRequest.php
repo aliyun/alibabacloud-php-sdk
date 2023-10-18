@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateAppInfoRequest extends Model
 {
     /**
-     * @description The name of the application, which must be unique.
+     * @description The name of the application. The application name must be unique.
      *
-     * - The name can contain only UTF-8 characters.
+     *   The name can contain letters, digits, periods (.), hyphens (-), and at signs (@). The name can be up to 128 characters in length.
+     *   The value must be encoded in UTF-8.
+     *
      * @example test
      *
      * @var string
@@ -20,7 +22,10 @@ class CreateAppInfoRequest extends Model
 
     /**
      * @description The description of the application.
-     * - The description can contain only UTF-8 characters.
+     *
+     *   The description can contain up to 512 characters in length.
+     *   The value must be encoded in UTF-8.
+     *
      * @example myfirstapp
      *
      * @var string

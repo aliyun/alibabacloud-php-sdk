@@ -9,7 +9,14 @@ use AlibabaCloud\Tea\Model;
 class SubmitAIJobRequest extends Model
 {
     /**
-     * @description The configurations of the AI job. The value is a JSON string.
+     * @description The configurations of the AI job. The value must be a JSON string.
+     *
+     *   If `Types` is set to `AIVideoTag`, you can configure `AnalyseTypes` for `Config` to set the analysis algorithm of a smart tagging job. Valid values:
+     *
+     *   ASR: speech recognition.
+     *   OCR: image optical character recognition (OCR).
+     *
+     *   If `Types` is set to `AIMediaDNA`, you can configure `DNADBId` for `Config` to set the ID of the media fingerprint library for video fingerprinting jobs.
      *
      * @example {"AIVideoTag": {"AnalyseTypes": "Face,ASR"} }
      *

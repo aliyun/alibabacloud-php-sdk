@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddTranscodeTemplateGroupRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The application ID. Default value: **app-1000000**. For more information, see [Use the multi-application service](~~113600~~).
      *
      * @example app-****
      *
@@ -20,7 +20,10 @@ class AddTranscodeTemplateGroupRequest extends Model
     /**
      * @description The name of the transcoding template group.
      *
-     * > You must set TranscodeTemplateGroupId or Name in the request.
+     *   The name can be up to 128 bytes in length.
+     *   The value must be encoded in UTF-8.
+     *
+     * > You must specify TranscodeTemplateGroupId or Name in the request.
      * @example transcodetemplate
      *
      * @var string
@@ -28,9 +31,9 @@ class AddTranscodeTemplateGroupRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the transcoding template group. If a transcoding template group ID is specified, you can add new transcoding templates to the template group.
+     * @description The ID of the transcoding template group. If a transcoding template group ID is specified, you can add transcoding templates to the template group.
      *
-     * > You must set TranscodeTemplateGroupId or Name in the request.
+     * > You must specify TranscodeTemplateGroupId or Name in the request.
      * @example 4c71a339fe52b4fa6f4527****
      *
      * @var string
@@ -38,9 +41,10 @@ class AddTranscodeTemplateGroupRequest extends Model
     public $transcodeTemplateGroupId;
 
     /**
-     * @description The configurations of the transcoding template. The value is a string in JSON format. For more information about the data structure, see [Basic structures](~~52839~~).
+     * @description The configurations of the transcoding template. The value is a string in JSON format. For more information about the data structure, see [TranscodeTemplate](~~52839~~).
      *
-     * > If you do not specify this parameter, the transcoding job cannot be automatically created after you upload a video.
+     * > *   If you do not specify this parameter, the transcoding job cannot be automatically created after you upload a video.
+     * > *   If you do not need to set Width or Height, do not specify the corresponding parameter. You cannot set the value to an empty string, such as "Height":"".
      * @example [{"Video":{"Bitrate":"400","Codec":"H.264","Fps":"30","Height":""},"Definition":"SD","Container":{"Format":"mp4"},"TemplateName":"testName","MuxConfig":{},"Audio":{"Codec":"AAC","Bitrate":"64","Samplerate":"44100"}}]
      *
      * @var string

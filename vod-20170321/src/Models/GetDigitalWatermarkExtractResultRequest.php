@@ -6,8 +6,29 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteEditingProjectRequest extends Model
+class GetDigitalWatermarkExtractResultRequest extends Model
 {
+    /**
+     * @example TraceMark
+     *
+     * @var string
+     */
+    public $extractType;
+
+    /**
+     * @example 2bf4390af9e5491c09cc720ad****
+     *
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @example 93ab850b4f6f54b6e91d24d81d4****
+     *
+     * @var string
+     */
+    public $mediaId;
+
     /**
      * @var string
      */
@@ -19,15 +40,6 @@ class DeleteEditingProjectRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the online editing project. Separate multiple IDs with commas (,).
-     *
-     * @example fb2101bf24bf41*****cb318787dc
-     *
-     * @var string
-     */
-    public $projectIds;
-
-    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -37,9 +49,11 @@ class DeleteEditingProjectRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'extractType'          => 'ExtractType',
+        'jobId'                => 'JobId',
+        'mediaId'              => 'MediaId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'projectIds'           => 'ProjectIds',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -51,14 +65,20 @@ class DeleteEditingProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->extractType) {
+            $res['ExtractType'] = $this->extractType;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->projectIds) {
-            $res['ProjectIds'] = $this->projectIds;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -73,19 +93,25 @@ class DeleteEditingProjectRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteEditingProjectRequest
+     * @return GetDigitalWatermarkExtractResultRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExtractType'])) {
+            $model->extractType = $map['ExtractType'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ProjectIds'])) {
-            $model->projectIds = $map['ProjectIds'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

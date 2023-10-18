@@ -32,7 +32,7 @@ class DescribePlayVideoStatisRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the video.
+     * @description The video ID.
      *
      * @example 2a8d4cb9ecbb487681473****aba8fda
      *

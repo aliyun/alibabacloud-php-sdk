@@ -18,7 +18,7 @@ class RefreshVodObjectCachesResponseBody extends Model
     public $refreshTaskId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D61E4801-EAFF-4A63-****-FBF6CE1CFD1C
      *

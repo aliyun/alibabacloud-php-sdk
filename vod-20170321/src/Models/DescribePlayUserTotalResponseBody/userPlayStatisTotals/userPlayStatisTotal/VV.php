@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class VV extends Model
 {
     /**
-     * @description The total number of video views that is collected for videos that are played by using ApsaraVideo Player SDK for Android.
+     * @description The total number of video views played by using ApsaraVideo Player SDK for Android.
      *
      * @example 161
      *
@@ -18,7 +18,7 @@ class VV extends Model
     public $android;
 
     /**
-     * @description The total number of video views that is collected for videos that are played by using ApsaraVideo Player SDK for Flash.
+     * @description The total number of video views played by using the Flash player.
      *
      * @example 2
      *
@@ -27,7 +27,7 @@ class VV extends Model
     public $flash;
 
     /**
-     * @description The total number of video views that is collected for videos that are played by using ApsaraVideo Player SDK for HTML5.
+     * @description The total number of video views played by using the HTML5 player.
      *
      * @example 2
      *
@@ -36,7 +36,7 @@ class VV extends Model
     public $HTML5;
 
     /**
-     * @description The total number of video views that is collected for videos that are played by using ApsaraVideo Player SDK for iOS.
+     * @description The total number of video views played by using ApsaraVideo Player SDK for iOS.
      *
      * @example 0
      *

@@ -11,7 +11,7 @@ class SubmitAIImageJobRequest extends Model
     /**
      * @description The ID of the pipeline that is used for the AI processing job.
      *
-     * <props="intl">> This parameter is optional if you have specified a default pipeline ID. If you need to submit image AI processing jobs in a batch to a specific pipeline, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.12672711.top-nav.ditem-sub.3cd51fa3WvRsjz#/ticket/add/?productId=1270) to contact Alibaba Cloud technical support.</props>
+     * >  This parameter is optional if you have specified a default pipeline ID. If you need to submit image AI processing jobs in a batch to a specific pipeline, [submit a ticket](https://yida.alibaba-inc.com/o/ticketapply) to contact Alibaba Cloud technical support.
      * @example 6492025b8f*****6ba5bb755a33438
      *
      * @var string

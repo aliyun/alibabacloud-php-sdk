@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RefreshVodObjectCachesRequest extends Model
 {
     /**
-     * @description The path of the resource to be refreshed. Separate multiple paths with line breaks (\n or \r\n).
+     * @description The URL of the file to be prefetched. Separate multiple URLs with line breaks (\n or \r\n).
      *
      * @example abc.com/image/1.png
      *
@@ -18,10 +18,10 @@ class RefreshVodObjectCachesRequest extends Model
     public $objectPath;
 
     /**
-     * @description The granularity of the resources to be refreshed. Valid values:
+     * @description The type of the object that you want to refresh. Valid values:
      *
-     *   **File**: refreshes one or more files. This is the default value.
-     *   **Directory**: refreshes the files under one or more directories.
+     *   **File** (default): refreshes files.
+     *   **Directory**: refreshes the files in specified directories.
      *
      * @example File
      *

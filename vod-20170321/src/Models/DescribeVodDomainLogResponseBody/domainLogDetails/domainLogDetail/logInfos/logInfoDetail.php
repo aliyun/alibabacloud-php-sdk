@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logInfoDetail extends Model
 {
     /**
-     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The end of the time range during which data was queried. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2018-05-31T05:00:00Z
      *
@@ -45,7 +45,7 @@ class logInfoDetail extends Model
     public $logSize;
 
     /**
-     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2018-05-31T04:00:00Z
      *

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ListAIJobResponseBody extends Model
 {
     /**
-     * @description The information about the jobs.
+     * @description The list of jobs.
      *
      * @var AIJobList
      */

@@ -27,7 +27,7 @@ class playInfo extends Model
     public $bitrate;
 
     /**
-     * @description The time when the audio or video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The creation time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-04-18T07:37:15Z
      *
@@ -36,7 +36,7 @@ class playInfo extends Model
     public $creationTime;
 
     /**
-     * @description The quality of the video stream. Valid values:
+     * @description The quality of the media stream. Valid values:
      *
      *   **FD**: low definition
      *   **LD**: standard definition
@@ -65,10 +65,10 @@ class playInfo extends Model
     public $duration;
 
     /**
-     * @description Indicates whether the video stream was encrypted. Valid values:
+     * @description Indicates whether the media stream was encrypted. Valid values:
      *
      *   **0**: no
-     *   **1**: yes
+     *   **1**: yes.
      *
      * @example 1
      *
@@ -82,7 +82,7 @@ class playInfo extends Model
      *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
      *   **HLSEncryption**: HTTP Live Streaming (HLS) encryption
      *
-     * > If the encryption type is **AliyunVoDEncryption**, only ApsaraVideo Player SDK can be used to play videos.
+     * >  If the encryption type is AliyunVoDEncryption, only ApsaraVideo Player SDK can be used to play videos.
      * @example AliyunVoDEncryption
      *
      * @var string
@@ -127,7 +127,7 @@ class playInfo extends Model
     public $HDRType;
 
     /**
-     * @description The height of the media stream. Unit: pixels.
+     * @description The height of the media stream. Unit: pixel.
      *
      * @example 640
      *
@@ -136,13 +136,27 @@ class playInfo extends Model
     public $height;
 
     /**
-     * @description The ID of the media transcoding job. This ID uniquely identifies a media stream.
+     * @example CopyrightMarkTest
+     *
+     * @var string
+     */
+    public $jobExt;
+
+    /**
+     * @description The job ID for transcoding the media stream. This ID uniquely identifies a media stream.
      *
      * @example 80e9c6580e754a798c3c19c59b16****
      *
      * @var string
      */
     public $jobId;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $jobType;
 
     /**
      * @description The update time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
@@ -156,7 +170,7 @@ class playInfo extends Model
     /**
      * @description The type of Narrowband HD transcoding. Valid values:
      *
-     *   **0**: regular
+     *   **0**: normal transcoding
      *   **1.0**: Narrowband HD 1.0
      *   **2.0**: Narrowband HD 2.0
      *
@@ -168,7 +182,7 @@ class playInfo extends Model
     public $narrowBandType;
 
     /**
-     * @description The playback URL of the video stream.
+     * @description The playback URL of the media stream.
      *
      * @example https://example.aliyundoc.com/d52ee123f331466aabf6ab32a93d****\/a777f9e24e6e47a2a942467d5c38ea37-8ee8e04293c6657fdda282bc422704****.m3u8
      *
@@ -225,7 +239,7 @@ class playInfo extends Model
     public $watermarkId;
 
     /**
-     * @description The width of the media stream. Unit: pixels.
+     * @description The width of the media stream. Unit: pixel.
      *
      * @example 360
      *
@@ -244,7 +258,9 @@ class playInfo extends Model
         'fps'              => 'Fps',
         'HDRType'          => 'HDRType',
         'height'           => 'Height',
+        'jobExt'           => 'JobExt',
         'jobId'            => 'JobId',
+        'jobType'          => 'JobType',
         'modificationTime' => 'ModificationTime',
         'narrowBandType'   => 'NarrowBandType',
         'playURL'          => 'PlayURL',
@@ -296,8 +312,14 @@ class playInfo extends Model
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+        if (null !== $this->jobExt) {
+            $res['JobExt'] = $this->jobExt;
+        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->jobType) {
+            $res['JobType'] = $this->jobType;
         }
         if (null !== $this->modificationTime) {
             $res['ModificationTime'] = $this->modificationTime;
@@ -371,8 +393,14 @@ class playInfo extends Model
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+        if (isset($map['JobExt'])) {
+            $model->jobExt = $map['JobExt'];
+        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['JobType'])) {
+            $model->jobType = $map['JobType'];
         }
         if (isset($map['ModificationTime'])) {
             $model->modificationTime = $map['ModificationTime'];

@@ -31,11 +31,11 @@ class RestoreMediaRequest extends Model
     public $restoreDays;
 
     /**
-     * @description The restoration priority. This parameter is required only when you restore a Cold Archive media asset. Valid values:
+     * @description The restoration priority. This parameter is required only when you restore a Cold Archive media file. Valid values:
      *
-     *   **Expedited**
-     *   **Standard**
-     *   **Bulk**
+     *   **Expedited**: The file is restored within 1 hour.
+     *   **Standard**: The file is restored within 2 to 5 hours.
+     *   **Bulk**: The file is restored within 5 to 12 hours.
      *
      * @example Standard
      *
@@ -44,10 +44,10 @@ class RestoreMediaRequest extends Model
     public $restoreTier;
 
     /**
-     * @description The restore range. Valid values:
+     * @description The modification range. Valid values:
      *
-     *   **All**: restores all media assets including the source file, transcoded streams, and snapshots.
-     *   **SourceFile**: restores only the source file.
+     *   **All**: restores all resources, including the source files and transcoded streams.
+     *   **SourceFile**: restores only the source files.
      *
      * @example All
      *

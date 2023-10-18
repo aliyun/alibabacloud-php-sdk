@@ -19,7 +19,7 @@ class DescribePlayUserTotalResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The statistics on total playback each day.
+     * @description The daily playback statistics.
      *
      * @var userPlayStatisTotals
      */

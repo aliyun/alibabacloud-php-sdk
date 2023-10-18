@@ -63,6 +63,11 @@ class GetPlayInfoRequest extends Model
     public $definition;
 
     /**
+     * @var string
+     */
+    public $digitalWatermarkType;
+
+    /**
      * @description The format of the media stream. Separate multiple formats with commas (,). Valid values:
      *
      *   **mp4**
@@ -93,7 +98,6 @@ class GetPlayInfoRequest extends Model
      * @description The custom playback configuration. The value is a JSON string. For more information, see [PlayConfig](~~86952~~).
      *
      * >-   If you do not specify PlayConfig or `PlayDomain` in PlayConfig, the default domain name configured in ApsaraVideo VOD is used in this operation. If no default domain name is configured, the domain names are queried in reverse chronological order based on the time when the domain names were modified. The domain name that was last modified is used as the streaming domain name. To prevent domain name issues, we recommend that you specify the default streaming domain name. You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration Management** > **Media Management** > **Storage** > **Manage** > **Origin Domain Name** to set the default streaming domain name.
-     *
      * >-   If the `EncryptType` parameter in PlayConfig is set to `AliyunVoDEncryption`, the playback URL of the stream encrypted by using proprietary cryptography is not returned to ensure video security. If you want to return such URL, you must set the `ResultType` parameter to `Multiple`.
      * @example {"PlayDomain":"vod.test_domain","XForwardedFor":"yqCD7Fp1uqChoVj/sl/p5Q==","PreviewTime":"20","MtsHlsUriToken":"yqCD7Fp1uqChoVjslp5Q"}
      *
@@ -136,6 +140,11 @@ class GetPlayInfoRequest extends Model
     public $streamType;
 
     /**
+     * @var string
+     */
+    public $trace;
+
+    /**
      * @description The ID of the media file. You can specify only one ID. You can use one of the following methods to obtain the media ID:
      *
      *   Log on to the [ApsaraVideo VOD](https://vod.console.aliyun.com) console. In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, you can view the ID of the audio or video file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
@@ -148,16 +157,18 @@ class GetPlayInfoRequest extends Model
      */
     public $videoId;
     protected $_name = [
-        'additionType' => 'AdditionType',
-        'authTimeout'  => 'AuthTimeout',
-        'definition'   => 'Definition',
-        'formats'      => 'Formats',
-        'outputType'   => 'OutputType',
-        'playConfig'   => 'PlayConfig',
-        'reAuthInfo'   => 'ReAuthInfo',
-        'resultType'   => 'ResultType',
-        'streamType'   => 'StreamType',
-        'videoId'      => 'VideoId',
+        'additionType'         => 'AdditionType',
+        'authTimeout'          => 'AuthTimeout',
+        'definition'           => 'Definition',
+        'digitalWatermarkType' => 'DigitalWatermarkType',
+        'formats'              => 'Formats',
+        'outputType'           => 'OutputType',
+        'playConfig'           => 'PlayConfig',
+        'reAuthInfo'           => 'ReAuthInfo',
+        'resultType'           => 'ResultType',
+        'streamType'           => 'StreamType',
+        'trace'                => 'Trace',
+        'videoId'              => 'VideoId',
     ];
 
     public function validate()
@@ -176,6 +187,9 @@ class GetPlayInfoRequest extends Model
         if (null !== $this->definition) {
             $res['Definition'] = $this->definition;
         }
+        if (null !== $this->digitalWatermarkType) {
+            $res['DigitalWatermarkType'] = $this->digitalWatermarkType;
+        }
         if (null !== $this->formats) {
             $res['Formats'] = $this->formats;
         }
@@ -193,6 +207,9 @@ class GetPlayInfoRequest extends Model
         }
         if (null !== $this->streamType) {
             $res['StreamType'] = $this->streamType;
+        }
+        if (null !== $this->trace) {
+            $res['Trace'] = $this->trace;
         }
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
@@ -218,6 +235,9 @@ class GetPlayInfoRequest extends Model
         if (isset($map['Definition'])) {
             $model->definition = $map['Definition'];
         }
+        if (isset($map['DigitalWatermarkType'])) {
+            $model->digitalWatermarkType = $map['DigitalWatermarkType'];
+        }
         if (isset($map['Formats'])) {
             $model->formats = $map['Formats'];
         }
@@ -235,6 +255,9 @@ class GetPlayInfoRequest extends Model
         }
         if (isset($map['StreamType'])) {
             $model->streamType = $map['StreamType'];
+        }
+        if (isset($map['Trace'])) {
+            $model->trace = $map['Trace'];
         }
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];

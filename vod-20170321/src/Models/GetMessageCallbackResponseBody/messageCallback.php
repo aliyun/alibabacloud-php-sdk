@@ -29,8 +29,8 @@ class messageCallback extends Model
     /**
      * @description Indicates whether callback authentication is enabled. This parameter is returned only for HTTP callbacks. Valid values:
      *
-     *   **on**: indicates that authentication is enabled.
-     *   **off**: indicates that authentication is disabled.
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -69,7 +69,7 @@ class messageCallback extends Model
     public $eventTypeList;
 
     /**
-     * @description The public endpoint of Message Service (MNS). This parameter is returned only for MNS callbacks.
+     * @description The public endpoint of MNS. This parameter is returned only for MNS callbacks.
      *
      * @example http://1234567.mns.cn-shanghai-internal.aliyuncs.com/
      *
@@ -78,7 +78,7 @@ class messageCallback extends Model
     public $mnsEndpoint;
 
     /**
-     * @description The name of the MNS queue. This parameter is returned only for MNS callbacks.
+     * @description The name of the Message Service (MNS) queue. This parameter is returned only for MNS callbacks.
      *
      * @example vodcallback
      *

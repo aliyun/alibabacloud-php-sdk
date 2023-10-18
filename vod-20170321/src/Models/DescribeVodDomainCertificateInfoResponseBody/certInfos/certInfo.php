@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
+     * @description The domain name that matches the certificate.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class certInfo extends Model
     public $certDomainName;
 
     /**
+     * @description The time at which the certificate expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-06-03T13:03:39Z
      *
      * @var string
@@ -23,6 +27,8 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
+     * @description The validity period of the certificate. Unit: months or years.
+     *
      * @example 3 months
      *
      * @var string
@@ -30,6 +36,8 @@ class certInfo extends Model
     public $certLife;
 
     /**
+     * @description The name of the certificate.
+     *
      * @example cert-example.com
      *
      * @var string
@@ -37,6 +45,8 @@ class certInfo extends Model
     public $certName;
 
     /**
+     * @description The certificate authority (CA) that issued the certificate.
+     *
      * @example Let\"s Encrypt
      *
      * @var string
@@ -44,6 +54,12 @@ class certInfo extends Model
     public $certOrg;
 
     /**
+     * @description The type of the certificate. Valid values:
+     *
+     *   **free**: a free certificate.
+     *   **cas**: a certificate that is purchased from Certificate Management Service.
+     *   **upload**: a user-uploaded certificate.
+     *
      * @example free
      *
      * @var string
@@ -51,6 +67,8 @@ class certInfo extends Model
     public $certType;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -58,6 +76,11 @@ class certInfo extends Model
     public $domainName;
 
     /**
+     * @description Indicates whether the SSL certificate is enabled.
+     *
+     *   **on**
+     *   **off**
+     *
      * @example checking
      *
      * @var string
@@ -65,6 +88,17 @@ class certInfo extends Model
     public $serverCertificateStatus;
 
     /**
+     * @description The status of the certificate. Valid values:
+     *
+     *   **success**: The certificate is in effect.
+     *   **checking**: The system is checking whether the domain name is added to ApsaraVideo VOD.
+     *   **cname_error**: The domain name is not added to ApsaraVideo VOD.
+     *   **domain_invalid**: The domain name contains invalid characters.
+     *   **unsupport_wildcard**: The domain name is a wildcard domain name. Wildcard domain names are not supported.
+     *   **applying**: The certificate application is in progress.
+     *   **failed**: The certificate application failed.
+     *
+     * > A value is returned for this parameter only if `free` is returned for `CertType`. If a value other than free is returned for CertType, an empty string is returned for this parameter.
      * @example success
      *
      * @var string

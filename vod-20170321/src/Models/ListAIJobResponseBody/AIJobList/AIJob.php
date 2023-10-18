@@ -18,7 +18,7 @@ class AIJob extends Model
     public $code;
 
     /**
-     * @description The time when the job is complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2020-06-28T02:04:47Z
      *
@@ -36,7 +36,7 @@ class AIJob extends Model
     public $creationTime;
 
     /**
-     * @description The returned data. The value is a JSON string.
+     * @description The returned data. The value is a JSON string. For more information, see [AITemplateConfig](~~89863~~).
      *
      * @example {"OrigASRData":{"AsrTextList":\[{"EndTime":700,"StartTime":0,"Text":"Yes.","ChannelId":0,"SpeechRate":85},{"EndTime":3750,"StartTime":1630,"Text":"No.","ChannelId":0,"SpeechRate":28},{"EndTime":5910,"StartTime":4020,"Text":"Of course.","ChannelId":0,"SpeechRate":95},{"EndTime":12750,"StartTime":10090,"Text":"Message.","ChannelId":0,"SpeechRate":45},{"EndTime":25230,"StartTime":13590,"Text":"Hello, good afternoon.","ChannelId":0,"SpeechRate":20},{"EndTime":30000,"StartTime":28220,"Text":"Yes.","ChannelId":0,"SpeechRate":33}],"Duration":"30016"}}
      *
@@ -45,7 +45,7 @@ class AIJob extends Model
     public $data;
 
     /**
-     * @description The ID of the job.
+     * @description The job ID.
      *
      * @example a718a3a1e8bb42ee3bc88921e94****
      *
@@ -54,7 +54,7 @@ class AIJob extends Model
     public $jobId;
 
     /**
-     * @description The ID of the video.
+     * @description The ID of the video file.
      *
      * @example 3D3D12340d9401fab46a0b847****
      *
@@ -74,7 +74,7 @@ class AIJob extends Model
     /**
      * @description The status of the job. Valid values:
      *
-     *   **success**: The job is complete.
+     *   **success**: The job is successful.
      *   **fail**: The job failed.
      *   **init**: The job is being initialized.
      *   **Processing**: The job is in progress.
@@ -88,8 +88,8 @@ class AIJob extends Model
     /**
      * @description The type of the job. Valid values:
      *
-     *   **AIMediaDNA**: The media fingerprinting job.
-     *   **AIVideoTag**: The smart tagging job.
+     *   **AIMediaDNA**: video fingerprinting
+     *   **AIVideoTag**: smart tagging
      *
      * @example AIVideoTag
      *

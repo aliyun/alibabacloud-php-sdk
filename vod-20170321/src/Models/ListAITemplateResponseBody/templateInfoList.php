@@ -51,8 +51,8 @@ class templateInfoList extends Model
     public $source;
 
     /**
-     * @description The detailed configurations of the AI template. The value is a JSON string.
-     * <props="china">For more information, see [AITemplateConfig](~~89863~~#title-vd3-499-o36).</props>
+     * @description The detailed configurations of the AI template. The value is a JSON string. For more information, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
+     *
      * @example {"AuditRange":["text-title","video"],"AuditContent":["screen"],"AuditItem":["terrorism","porn"],"AuditAutoBlock":"yes"}
      *
      * @var string

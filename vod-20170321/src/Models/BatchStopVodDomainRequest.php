@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchStopVodDomainRequest extends Model
 {
     /**
-     * @description The domain name for CDN. Separate multiple domain names with commas (,).
+     * @description The accelerated domain name. Separate multiple domain names with commas (,).
      *
      * @example example.com
      *

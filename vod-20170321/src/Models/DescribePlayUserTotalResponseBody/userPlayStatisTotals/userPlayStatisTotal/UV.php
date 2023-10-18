@@ -18,7 +18,7 @@ class UV extends Model
     public $android;
 
     /**
-     * @description The total number of unique visitors who use ApsaraVideo Player SDK for Flash.
+     * @description The total number of unique visitors who use the Flash player.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class UV extends Model
     public $flash;
 
     /**
-     * @description The total number of unique visitors who use ApsaraVideo Player SDK for HTML5.
+     * @description The total number of unique visitors who use the HTML5 player.
      *
      * @example 1
      *

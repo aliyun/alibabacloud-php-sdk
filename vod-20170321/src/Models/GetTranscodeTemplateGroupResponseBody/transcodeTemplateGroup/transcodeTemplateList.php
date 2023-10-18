@@ -36,6 +36,11 @@ class transcodeTemplateList extends Model
     public $container;
 
     /**
+     * @var string
+     */
+    public $copyrightMark;
+
+    /**
      * @description Valid values for the definition of a common transcoding template:
      *   **LD**: low definition.
      *   **SD**: standard definition.
@@ -118,6 +123,11 @@ class transcodeTemplateList extends Model
     public $templateName;
 
     /**
+     * @var string
+     */
+    public $traceMark;
+
+    /**
      * @description The conditional transcoding configurations. This parameter can be used if you want to determine the basic logic based on the bitrate and resolution of the mezzanine file before the video is transcoded. The value is a JSON-formatted string.
      *
      * @example {"IsCheckReso":"true","IsCheckResoFail":"false","IsCheckVideoBitrate":"false","IsCheckVideoBitrateFail":"false","IsCheckAudioBitrate":"false","IsCheckAudioBitrateFail":"false"}
@@ -175,6 +185,7 @@ class transcodeTemplateList extends Model
         'audio'                => 'Audio',
         'clip'                 => 'Clip',
         'container'            => 'Container',
+        'copyrightMark'        => 'CopyrightMark',
         'definition'           => 'Definition',
         'encryptSetting'       => 'EncryptSetting',
         'muxConfig'            => 'MuxConfig',
@@ -182,6 +193,7 @@ class transcodeTemplateList extends Model
         'rotate'               => 'Rotate',
         'subtitleList'         => 'SubtitleList',
         'templateName'         => 'TemplateName',
+        'traceMark'            => 'TraceMark',
         'transConfig'          => 'TransConfig',
         'transcodeFileRegular' => 'TranscodeFileRegular',
         'transcodeTemplateId'  => 'TranscodeTemplateId',
@@ -206,6 +218,9 @@ class transcodeTemplateList extends Model
         if (null !== $this->container) {
             $res['Container'] = $this->container;
         }
+        if (null !== $this->copyrightMark) {
+            $res['CopyrightMark'] = $this->copyrightMark;
+        }
         if (null !== $this->definition) {
             $res['Definition'] = $this->definition;
         }
@@ -226,6 +241,9 @@ class transcodeTemplateList extends Model
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->traceMark) {
+            $res['TraceMark'] = $this->traceMark;
         }
         if (null !== $this->transConfig) {
             $res['TransConfig'] = $this->transConfig;
@@ -266,6 +284,9 @@ class transcodeTemplateList extends Model
         if (isset($map['Container'])) {
             $model->container = $map['Container'];
         }
+        if (isset($map['CopyrightMark'])) {
+            $model->copyrightMark = $map['CopyrightMark'];
+        }
         if (isset($map['Definition'])) {
             $model->definition = $map['Definition'];
         }
@@ -286,6 +307,9 @@ class transcodeTemplateList extends Model
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['TraceMark'])) {
+            $model->traceMark = $map['TraceMark'];
         }
         if (isset($map['TransConfig'])) {
             $model->transConfig = $map['TransConfig'];

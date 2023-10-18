@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAuditSecurityIpResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 664BBD08-C7DB-4E*****73-9D0958D9A899
      *

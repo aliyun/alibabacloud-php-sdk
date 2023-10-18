@@ -27,7 +27,7 @@ class ProduceEditingProjectVideoRequest extends Model
     public $description;
 
     /**
-     * @description The metadata of the produced video, in JSON format. For more information about the structure, see [MediaMetadata](~~52839~~).
+     * @description The video metadata. The value must be in JSON format. For more information about the parameter structure, see [MediaMetadata](~~52839#title_rtf_ry5\_gjp~~).
      *
      * @example {"Description":"video description","Title":"userData test"}
      *
@@ -41,8 +41,9 @@ class ProduceEditingProjectVideoRequest extends Model
     public $ownerId;
 
     /**
-     * @description The configuration of video production, in JSON format. For more information about the structure, see [ProduceConfig](~~52839~~).
+     * @description The configuration of video production. The value must be in JSON format. For more information about the parameter structure, see [ProduceConfig](~~52839#title_ybl\_7cs_y7d~~).
      *
+     * > The StorageLocation field is required if you create an online editing project in a region other than the China (Shanghai) region.
      * @example {"TemplateGroupId":"6d11e25ea30a4c465435c74****"}
      *
      * @var string
@@ -50,7 +51,10 @@ class ProduceEditingProjectVideoRequest extends Model
     public $produceConfig;
 
     /**
-     * @description The ID of the online editing project.
+     * @description The ID of the online editing project. You can use one of the following methods to obtain the ID of the online editing project:
+     *
+     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Production Center** > **Video Editing** to view the ID of the online editing project.
+     *   Obtain the value of ProjectId from the response to the [AddEditingProject](~~69048~~) operation.
      *
      * @example fb2101bf24b4cb318787dc****
      *
@@ -69,7 +73,7 @@ class ProduceEditingProjectVideoRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The timeline of the online editing project, in JSON format. For more information about the structure, see [Timeline](~~52839~~).
+     * @description The timeline of the online editing project. The value must be in JSON format. For more information about the parameter structure, see [Timeline](~~52839#07bc7fe0f2xuh~~).
      *
      * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"cc3308ac59615a54328bc3443****"},{"MediaId":"da87a9cff645cd88bc6d8326e4****"}]}]}
      *
@@ -87,9 +91,9 @@ class ProduceEditingProjectVideoRequest extends Model
     public $title;
 
     /**
-     * @description The custom configuration, such as the callback configuration. The value is a JSON-formatted string. For more information about the structure, see [UserData](~~86952~~).
+     * @description The custom configurations, such as the callback configuration. The value must be a JSON string. For more information about the parameter structure, see [UserData](~~86952#title_vz7\_xzs\_0c5~~).
      *
-     * > To use the MessageCallback parameter, you must set an HTTP callback URL and select a callback event type in the ApsaraVideo VOD console. Otherwise, the callback configuration does not take effect.
+     * > The callback configurations take effect only after you specify an HTTP URL for receiving callback notifications and select the event types in the ApsaraVideo VOD console.
      * @example {"Extend":{"width":1280,"id":"028a8e56b1ebf6bb7afc74****","height":720},"MessageCallback":{"CallbackURL":"https://example.aliyundoc.com/2016-08-15/proxy/httpcallback/testcallback/","CallbackType":"http"}}
      *
      * @var string

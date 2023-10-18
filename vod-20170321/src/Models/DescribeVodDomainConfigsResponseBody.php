@@ -17,7 +17,7 @@ class DescribeVodDomainConfigsResponseBody extends Model
     public $domainConfigs;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F8AA0364-0FDB-4AD5-****-D69FAB8924ED
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAuditRequest extends Model
 {
     /**
+     * @description The review content. You can specify up to **100** audio or video files in a request. The value must be converted to a string.\
+     * For more information about this parameter, see the **AuditContent** section of this topic.
      * @var string
      */
     public $auditContent;

@@ -11,8 +11,8 @@ class ProduceEditingProjectVideoResponseBody extends Model
     /**
      * @description The ID of the produced video.
      *
-     * > *   This operation returns the ID of the produced video in synchronous mode.
-     * > *   If this operation returns the MediaId parameter, the video production task is being asynchronously processed.
+     * > *   This parameter is returned for each request.
+     * > *   If a value is returned for this parameter, the video production task is being asynchronously processed.
      * @example 006204a11bb386bb25491f95f****
      *
      * @var string

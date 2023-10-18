@@ -6,28 +6,24 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetDefaultAITemplateResponseBody extends Model
+class SubmitDigitalWatermarkExtractJobResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @example ad90a501b1b9472374ad005046****
      *
-     * @example 8E70E3F8-E2EE-47BC-4677-379D6F28****
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @example 04F0F334-1335-436C-****-6C044FE73368
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description The ID of the AI template.
-     *
-     * @example 1706a0063dd733f6a823ef32e0a5****
-     *
-     * @var string
-     */
-    public $templateId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'templateId' => 'TemplateId',
+        'jobId'     => 'JobId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -37,11 +33,11 @@ class SetDefaultAITemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -50,16 +46,16 @@ class SetDefaultAITemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SetDefaultAITemplateResponseBody
+     * @return SubmitDigitalWatermarkExtractJobResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

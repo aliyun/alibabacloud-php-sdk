@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class videoPlayStatisDetail extends Model
 {
     /**
-     * @description The date when the statistics were generated. The date follows the *yyyy-MM-dd* format.
+     * @description The date. The date is displayed in the *yyyy-MM-dd* format.
      *
      * @example 20170120
      *
@@ -18,7 +18,7 @@ class videoPlayStatisDetail extends Model
     public $date;
 
     /**
-     * @description The playback duration. Unit: milliseconds.
+     * @description The playback duration. Unit: millisecond.
      *
      * @example 967277
      *
@@ -36,7 +36,7 @@ class videoPlayStatisDetail extends Model
     public $playRange;
 
     /**
-     * @description The title of the video.
+     * @description The video title.
      *
      * @example Four streams (one stream encrypted): LD-HLS + SD-MP4 + HD-HLS-encrypted + UHD-MP4
      *

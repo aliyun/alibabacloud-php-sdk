@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateAITemplateRequest extends Model
 {
     /**
-     * @description The detailed configurations of the AI template. The value is a JSON string.
+     * @description The detailed configurations of the AI template. The value is a JSON string. For more information, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
      *
      * @example {"AuditItem":["terrorism","porn"],"AuditRange":["text-title","video"],"AuditContent":["screen"],"AuditAutoBlock":"yes"}
      *

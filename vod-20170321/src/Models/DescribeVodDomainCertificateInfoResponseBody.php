@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainCertificateInfoResponseBody extends Model
 {
     /**
+     * @description The certificate information about the domain name.
+     *
      * @var certInfos
      */
     public $certInfos;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5C1E43DC-9E51-4771-****-7D5ECEB547A1
      *
      * @var string

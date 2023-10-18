@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainSrcTrafficDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the entries returned. Unit: seconds.
+     *
      * @example 300
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeVodDomainSrcTrafficDataResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeVodDomainSrcTrafficDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2022-09-23T15:59:59Z
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVodDomainSrcTrafficDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
      * @var string
@@ -38,11 +46,15 @@ class DescribeVodDomainSrcTrafficDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details about the origin traffic returned at each time interval. Unit: bytes.
+     *
      * @var srcTrafficDataPerInterval
      */
     public $srcTrafficDataPerInterval;
 
     /**
+     * @description The start of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2022-08-29T16:00:00Z
      *
      * @var string
@@ -50,6 +62,8 @@ class DescribeVodDomainSrcTrafficDataResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The total traffic. Unit: bytes.
+     *
      * @example 5906662826
      *
      * @var string

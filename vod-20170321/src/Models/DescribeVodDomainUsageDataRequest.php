@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainUsageDataRequest extends Model
 {
     /**
-     * @description The region where you want to query data. Default value: CN. Valid values:
+     * @description The region in which you want to query data. Default value: CN. Valid values:
      *
-     *   **CN**: Chinese mainland
-     *   **OverSeas**: outside the Chinese mainland
+     *   **CN**: the Chinese mainland.
+     *   **OverSeas**: outside the Chinese mainland.
      *
      * @example CN
      *

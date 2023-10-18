@@ -18,7 +18,7 @@ class watermarkInfo extends Model
     public $appId;
 
     /**
-     * @description The time when the watermark was added. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the watermark was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-11-06T08:03:17Z
      *
@@ -27,7 +27,7 @@ class watermarkInfo extends Model
     public $creationTime;
 
     /**
-     * @description The Object Storage Service (OSS) URL or Content Delivery Network (CDN) URL of the watermark file. A text watermark does not have a file URL.
+     * @description The Object Storage Service (OSS) URL or CDN URL of the watermark file. A text watermark does not have a file URL.
      *
      * @example https://outin-32*****f4b3e7.oss-cn-shanghai.aliyuncs.com/image/cover/F85529C8B715E6F8A72EC6B-6-2.png?Expires=1541600583&OSSAccessKeyId=****&Signature=gmf1eYMoDVg%2BHQCb4UGozBW****
      *
@@ -38,8 +38,8 @@ class watermarkInfo extends Model
     /**
      * @description Indicates whether the watermark is the default one. Valid values:
      *
-     *   **Default**: The watermark is the default one.
-     *   **NotDefault**: The watermark is not the default one.
+     *   **Default**
+     *   **NotDefault**
      *
      * @example NotDefault
      *
@@ -69,7 +69,7 @@ class watermarkInfo extends Model
     public $type;
 
     /**
-     * @description The configurations such as the position and effect of the text watermark or image watermark. The value is a JSON-formatted string. For more information about the data structure, see the "WatermarkConfig" section of the [Media processing parameters](~~98618~~) topic.
+     * @description The configuration information such as the position and effect about the text watermark or image watermark. The value is a JSON string. For more information about the data structure, see the "WatermarkConfig: specifies the watermark configurations" section of the [Parameters for media processing](~~98618~~) topic.
      *
      * @example {"ReferPos": "BottomRight","Height": "55","Width": "55","Dx": "8","Dy": "8" }
      *

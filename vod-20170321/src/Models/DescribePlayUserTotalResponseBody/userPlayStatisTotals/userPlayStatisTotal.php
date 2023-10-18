@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class userPlayStatisTotal extends Model
 {
     /**
-     * @description The date when the statistics were generated. The date follows the *yyyy-MM-dd* format.
+     * @description The date. The date is displayed in the *yyyy-MM-dd* format.
      *
      * @example 20170120
      *
