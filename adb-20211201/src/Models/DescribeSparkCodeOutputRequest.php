@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSparkCodeOutputRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~612397~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
      * @example amv-uf6210mmev07****
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeSparkCodeOutputRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The ID of the Spark job.
+     *
      * @example 620
      *
      * @var int
@@ -23,6 +28,8 @@ class DescribeSparkCodeOutputRequest extends Model
     public $jobId;
 
     /**
+     * @description The region ID of the cluster.
+     *
      * @example cn-hangzhou
      *
      * @var string

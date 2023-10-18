@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSparkCodeOutputResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     *   If the request was successful, **Success** is returned.
+     *   If the request failed, an error message is returned.
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeSparkCodeOutputResponseBody extends Model
     public $message;
 
     /**
+     * @description The execution result, which is in the format of JSON objects.
+     *
      * @example "{\"schema\":[\"id\",\"name\",\"age\"],\"data\":[\"{\\\"id\\\":10,\\\"name\\\":\\\"z\\\",\\\"age\\\":123}\",\"{\\\"id\\\":2,\\\"name\\\":\\\"b\\\",\\\"age\\\":17}\",\"{\\\"id\\\":1,\\\"name\\\":\\\"a\\\",\\\"age\\\":15}\",\"{\\\"id\\\":3,\\\"name\\\":\\\"c\\\",\\\"age\\\":222}\",\"{\\\"id\\\":10,\\\"name\\\":\\\"z\\\",\\\"age\\\":123}\"],\"haveRows\":true,\"rowNumber\":6}"
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeSparkCodeOutputResponseBody extends Model
     public $output;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string
@@ -30,6 +39,11 @@ class DescribeSparkCodeOutputResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

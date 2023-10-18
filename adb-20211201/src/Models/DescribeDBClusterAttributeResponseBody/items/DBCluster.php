@@ -278,6 +278,11 @@ class DBCluster extends Model
     public $storageResourceTotal;
 
     /**
+     * @var string[]
+     */
+    public $supportedFeatures;
+
+    /**
      * @var tags
      */
     public $tags;
@@ -347,6 +352,7 @@ class DBCluster extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'storageResource'      => 'StorageResource',
         'storageResourceTotal' => 'StorageResourceTotal',
+        'supportedFeatures'    => 'SupportedFeatures',
         'tags'                 => 'Tags',
         'userENIStatus'        => 'UserENIStatus',
         'VPCId'                => 'VPCId',
@@ -438,6 +444,9 @@ class DBCluster extends Model
         }
         if (null !== $this->storageResourceTotal) {
             $res['StorageResourceTotal'] = $this->storageResourceTotal;
+        }
+        if (null !== $this->supportedFeatures) {
+            $res['SupportedFeatures'] = $this->supportedFeatures;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -543,6 +552,9 @@ class DBCluster extends Model
         }
         if (isset($map['StorageResourceTotal'])) {
             $model->storageResourceTotal = $map['StorageResourceTotal'];
+        }
+        if (isset($map['SupportedFeatures'])) {
+            $model->supportedFeatures = $map['SupportedFeatures'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

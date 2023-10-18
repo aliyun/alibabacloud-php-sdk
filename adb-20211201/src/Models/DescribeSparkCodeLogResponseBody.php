@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSparkCodeLogResponseBody extends Model
 {
     /**
+     * @description The content of the log.
+     *
      * @example >>>>>>>> stdout:n++++++++++++++++++executing sql: MSCK REPAIR TABLE  `footprint_ethereum`.`dwd_eth_eth_txr_v2_di` n++n
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeSparkCodeLogResponseBody extends Model
     public $log;
 
     /**
+     * @description The returned message.
+     *
+     *   If the request was successful, **Success** is returned.
+     *   If the request failed, an error message is returned.
+     *
      * @example Success
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeSparkCodeLogResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 1CD65640-9963-5D60-929C-118F2C84070E
      *
      * @var string
@@ -30,6 +39,11 @@ class DescribeSparkCodeLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

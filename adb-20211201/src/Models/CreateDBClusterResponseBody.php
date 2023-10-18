@@ -18,7 +18,7 @@ class CreateDBClusterResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 202353278****
      *
@@ -27,7 +27,7 @@ class CreateDBClusterResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
@@ -36,7 +36,7 @@ class CreateDBClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the default resource group.
+     * @description The default resource group ID.
      *
      * @example rg-4690g37929****
      *

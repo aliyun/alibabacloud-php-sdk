@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDBClusterRequest extends Model
 {
     /**
+     * @description The ID of the backup set that you want to use to restore data.
+     *
+     * >  You can call the [DescribeBackups](~~612318~~) operation to query the backup sets of the cluster.
+     * @example 1880808684
+     *
      * @var string
      */
     public $backupSetId;
 
     /**
-     * @description The reserved computing resources. Unit: ACUs. Valid values: 0 to 4096. The value must be in increments of 16 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The amount of reserved computing resources. Unit: ACUs. Valid values: 0 to 4096. The value must be in increments of 16 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
      *
-     * >  You must specify a value with the unit for this parameter.
+     * >  This parameter must be specified with a unit.
      * @example 16ACU
      *
      * @var string
@@ -28,7 +33,7 @@ class CreateDBClusterRequest extends Model
      * @description The description of the cluster.
      *
      *   The description cannot start with `http://` or `https://`.
-     *   The description must be 2 to 256 characters in length.
+     *   The description must be 2 to 256 characters in length
      *
      * @example test
      *
@@ -55,10 +60,10 @@ class CreateDBClusterRequest extends Model
     public $DBClusterVersion;
 
     /**
-     * @description Specifies whether to distribute all the reserved computing resources to the default resource group user_default. Default value: true. Valid values:
+     * @description Specifies whether to allocate all reserved computing resources to the user_default resource group. Valid values:
      *
-     *   **true**: distributes all the reserved computing resources to the default resource group.
-     *   **false**: does not distribute all the reserved computing resources to the default resource group.
+     *   **true** (default)
+     *   **false**
      *
      * @example true
      *
@@ -69,8 +74,8 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The billing method of the cluster. Valid values:
      *
-     *   **Postpaid**: pay-as-you-go
-     *   **Prepaid**: subscription
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
      *
      * @example Prepaid
      *
@@ -81,10 +86,10 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The subscription type of the subscription cluster. Valid values:
      *
-     *   **Year**: subscription on a yearly basis
-     *   **Month**: subscription on a monthly basis
+     *   **Year**: subscription on a yearly basis.
+     *   **Month**: subscription on a monthly basis.
      *
-     * >  This parameter is required when PayType is set to Prepaid.
+     * >  This parameter must be specified when PayType is set to Prepaid.
      * @example Month
      *
      * @var string
@@ -92,7 +97,7 @@ class CreateDBClusterRequest extends Model
     public $period;
 
     /**
-     * @description The ID of the region in which to create the cluster.
+     * @description The region ID.
      *
      * >  You can call the [DescribeRegions](~~454314~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -102,29 +107,48 @@ class CreateDBClusterRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-4690g37929****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The point in time to which you want to restore data from the backup set.
+     *
+     * @example 2023-09-20T03:13:56Z
+     *
      * @var string
      */
     public $restoreToTime;
 
     /**
+     * @description The method that you want to use to restore data. Valid values:
+     *
+     *   **backup**: restores data from a backup set. You must also specify the **BackupSetId** and **SourceDBClusterId** parameters.
+     *   **timepoint**: restores data to a point in time. You must also specify the **RestoreToTime** and **SourceDBClusterId** parameters.
+     *
+     * @example backup
+     *
      * @var string
      */
     public $restoreType;
 
     /**
+     * @description The ID of the source AnalyticDB for MySQL Data Warehouse Edition cluster. If you want to restore a Data Lakehouse Edition cluster from a Data Warehouse Edition cluster, you must specify this parameter.
+     *
+     * @example amv-bp1r053byu48p****
+     *
      * @var string
      */
     public $sourceDbClusterId;
 
     /**
-     * @description The reserved storage resources. Unit: AnalyticDB Compute Units (ACUs). Valid values: 0 to 2064. The value must be in increments of 24 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The amount of reserved storage resources. Unit: AnalyticDB compute units (ACUs). Valid values: 0 to 2064. The value must be in increments of 24 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
      *
-     * >  You must specify a value with the unit for this parameter.
+     * >  This parameter must be specified with a unit.
      * @example 24ACU
      *
      * @var string
@@ -132,17 +156,19 @@ class CreateDBClusterRequest extends Model
     public $storageResource;
 
     /**
+     * @description The tags to add to the cluster.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The subscription duration of the subscription cluster. Valid values:
+     * @description The subscription duration of the subscription cluster.
      *
-     *   Valid values when **Period** is set to Year: 1 to 3 (integer)
-     *   Valid values when **Period** is set to Month: 1 to 9 (integer)
+     *   Valid values when **Period** is set to Year: 1 to 3 (integer).
+     *   Valid values when **Period** is set to Month: 1 to 9 (integer).
      *
-     * >  This parameter is required when PayType is set to **Prepaid**.
+     * >  This parameter must be specified when PayType is set to **Prepaid**.
      * @example 3
      *
      * @var string
@@ -168,7 +194,7 @@ class CreateDBClusterRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID of the cluster.
+     * @description The zone ID.
      *
      * >  You can call the [DescribeRegions](~~454314~~) operation to query the most recent zone list.
      * @example cn-hangzhou-h
