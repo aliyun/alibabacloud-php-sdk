@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallConfigureRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeACLProtectTrendRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeACLProtectTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListRequest;
@@ -674,8 +676,14 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->trAttachmentMasterCidr)) {
             $query['TrAttachmentMasterCidr'] = $request->trAttachmentMasterCidr;
         }
+        if (!Utils::isUnset($request->trAttachmentMasterZone)) {
+            $query['TrAttachmentMasterZone'] = $request->trAttachmentMasterZone;
+        }
         if (!Utils::isUnset($request->trAttachmentSlaveCidr)) {
             $query['TrAttachmentSlaveCidr'] = $request->trAttachmentSlaveCidr;
+        }
+        if (!Utils::isUnset($request->trAttachmentSlaveZone)) {
+            $query['TrAttachmentSlaveZone'] = $request->trAttachmentSlaveZone;
         }
         if (!Utils::isUnset($request->transitRouterId)) {
             $query['TransitRouterId'] = $request->transitRouterId;
@@ -1543,6 +1551,61 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVpcFirewallControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeACLProtectTrendRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeACLProtectTrendResponse
+     */
+    public function describeACLProtectTrendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeACLProtectTrend',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeACLProtectTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeACLProtectTrendRequest $request
+     *
+     * @return DescribeACLProtectTrendResponse
+     */
+    public function describeACLProtectTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeACLProtectTrendWithOptions($request, $runtime);
     }
 
     /**

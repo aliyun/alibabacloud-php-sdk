@@ -110,6 +110,11 @@ class CreateTrFirewallV2Request extends Model
     public $trAttachmentMasterCidr;
 
     /**
+     * @var string
+     */
+    public $trAttachmentMasterZone;
+
+    /**
      * @description The secondary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
      *
      * @example 10.0.0.16/28
@@ -117,6 +122,11 @@ class CreateTrFirewallV2Request extends Model
      * @var string
      */
     public $trAttachmentSlaveCidr;
+
+    /**
+     * @var string
+     */
+    public $trAttachmentSlaveZone;
 
     /**
      * @description The ID of the transit router.
@@ -138,7 +148,9 @@ class CreateTrFirewallV2Request extends Model
         'regionNo'               => 'RegionNo',
         'routeMode'              => 'RouteMode',
         'trAttachmentMasterCidr' => 'TrAttachmentMasterCidr',
+        'trAttachmentMasterZone' => 'TrAttachmentMasterZone',
         'trAttachmentSlaveCidr'  => 'TrAttachmentSlaveCidr',
+        'trAttachmentSlaveZone'  => 'TrAttachmentSlaveZone',
         'transitRouterId'        => 'TransitRouterId',
     ];
 
@@ -182,8 +194,14 @@ class CreateTrFirewallV2Request extends Model
         if (null !== $this->trAttachmentMasterCidr) {
             $res['TrAttachmentMasterCidr'] = $this->trAttachmentMasterCidr;
         }
+        if (null !== $this->trAttachmentMasterZone) {
+            $res['TrAttachmentMasterZone'] = $this->trAttachmentMasterZone;
+        }
         if (null !== $this->trAttachmentSlaveCidr) {
             $res['TrAttachmentSlaveCidr'] = $this->trAttachmentSlaveCidr;
+        }
+        if (null !== $this->trAttachmentSlaveZone) {
+            $res['TrAttachmentSlaveZone'] = $this->trAttachmentSlaveZone;
         }
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
@@ -233,8 +251,14 @@ class CreateTrFirewallV2Request extends Model
         if (isset($map['TrAttachmentMasterCidr'])) {
             $model->trAttachmentMasterCidr = $map['TrAttachmentMasterCidr'];
         }
+        if (isset($map['TrAttachmentMasterZone'])) {
+            $model->trAttachmentMasterZone = $map['TrAttachmentMasterZone'];
+        }
         if (isset($map['TrAttachmentSlaveCidr'])) {
             $model->trAttachmentSlaveCidr = $map['TrAttachmentSlaveCidr'];
+        }
+        if (isset($map['TrAttachmentSlaveZone'])) {
+            $model->trAttachmentSlaveZone = $map['TrAttachmentSlaveZone'];
         }
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];
