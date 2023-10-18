@@ -115,6 +115,9 @@ class Hologram extends OpenApiClient
         if (!Utils::isUnset($request->gatewayCount)) {
             $body['gatewayCount'] = $request->gatewayCount;
         }
+        if (!Utils::isUnset($request->initialDatabases)) {
+            $body['initialDatabases'] = $request->initialDatabases;
+        }
         if (!Utils::isUnset($request->instanceName)) {
             $body['instanceName'] = $request->instanceName;
         }

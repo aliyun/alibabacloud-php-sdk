@@ -104,6 +104,11 @@ class CreateInstanceRequest extends Model
     public $gatewayCount;
 
     /**
+     * @var string
+     */
+    public $initialDatabases;
+
+    /**
      * @description The name of the Hologres instance that you want to purchase. The name must be 2 to 64 characters in length.
      *
      * @example my_holo
@@ -229,6 +234,7 @@ class CreateInstanceRequest extends Model
         'cpu'              => 'cpu',
         'duration'         => 'duration',
         'gatewayCount'     => 'gatewayCount',
+        'initialDatabases' => 'initialDatabases',
         'instanceName'     => 'instanceName',
         'instanceType'     => 'instanceType',
         'leaderInstanceId' => 'leaderInstanceId',
@@ -268,6 +274,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->gatewayCount) {
             $res['gatewayCount'] = $this->gatewayCount;
+        }
+        if (null !== $this->initialDatabases) {
+            $res['initialDatabases'] = $this->initialDatabases;
         }
         if (null !== $this->instanceName) {
             $res['instanceName'] = $this->instanceName;
@@ -331,6 +340,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['gatewayCount'])) {
             $model->gatewayCount = $map['gatewayCount'];
+        }
+        if (isset($map['initialDatabases'])) {
+            $model->initialDatabases = $map['initialDatabases'];
         }
         if (isset($map['instanceName'])) {
             $model->instanceName = $map['instanceName'];
