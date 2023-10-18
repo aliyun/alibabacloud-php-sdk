@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vcoHealthCheck extends Model
 {
     /**
-     * @description The destination IP address that was used for health checks.
+     * @description The destination IP address.
      *
      * @example 192.168.1.1
      *
@@ -18,10 +18,10 @@ class vcoHealthCheck extends Model
     public $dip;
 
     /**
-     * @description Indicates whether the health check feature is enabled. Valid values:
+     * @description Indicates whether the health check feature is enabled for the IPsec-VPN connection.
      *
-     *   **true:** The health check feature is enabled.
-     *   **false:** The health check feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -30,7 +30,7 @@ class vcoHealthCheck extends Model
     public $enable;
 
     /**
-     * @description The interval between two consecutive health check retries. Unit: seconds.
+     * @description The interval between two consecutive health checks. Unit: seconds.
      *
      * @example 3
      *
@@ -48,7 +48,7 @@ class vcoHealthCheck extends Model
     public $retry;
 
     /**
-     * @description The source IP address that was used for health checks.
+     * @description The source IP address that is used for health checks.
      *
      * @example 10.1.1.1
      *

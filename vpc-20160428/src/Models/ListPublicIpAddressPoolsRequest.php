@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ListPublicIpAddressPoolsRequest extends Model
 {
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
+     * @description Specifies whether to perform a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -24,19 +24,19 @@ class ListPublicIpAddressPoolsRequest extends Model
     /**
      * @description The line type. Valid values:
      *
-     *   **BGP** (default): BGP (Multi-ISP) lines
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines
+     *   **BGP** (default): BGP (Multi-ISP) line
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro line
      *
      * If you are allowed to use single-ISP bandwidth, you can also choose one of the following values:
      *
-     *   **ChinaTelecom**: China Telecom
-     *   **ChinaUnicom**: China Unicom
-     *   **ChinaMobile**: China Mobile
-     *   **ChinaTelecom_L2**: China Telecom L2
-     *   **ChinaUnicom_L2**: China Unicom L2
-     *   **ChinaMobile_L2**: China Mobile L2
+     *   **ChinaTelecom**
+     *   **ChinaUnicom**
+     *   **ChinaMobile**
+     *   **ChinaTelecom_L2**
+     *   **ChinaUnicom_L2**
+     *   **ChinaMobile_L2**
      *
-     * If your services are deployed in China East 1 Finance, this parameter is required and you must set the value to **BGP_FinanceCloud**.
+     * If your services are deployed in China East 1 Finance, this parameter is required and you must set the parameter to **BGP_FinanceCloud**.
      * @example BGP
      *
      * @var string
@@ -55,7 +55,7 @@ class ListPublicIpAddressPoolsRequest extends Model
     /**
      * @description The name of the IP address pool.
      *
-     * This parameter is optional. The name must be 1 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * If you enter a name, the name must be 1 to 128 characters in length and can contain digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example AddressPoolName
      *
      * @var string
@@ -63,10 +63,10 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $name;
 
     /**
-     * @description The token that determines the start point of the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
-     *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
-     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -85,14 +85,17 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The IDs of the IP address pool.
+     *
+     * You can enter up to 100 IDs.
      * @var string[]
      */
     public $publicIpAddressPoolIds;
 
     /**
-     * @description The ID of the region where you want to query IP address pools.
+     * @description The ID of the region in which the IP address pool that you want to query resides.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
      * @example cn-chengdu
      *
      * @var string
@@ -121,9 +124,9 @@ class ListPublicIpAddressPoolsRequest extends Model
     /**
      * @description The status of the IP address pool. Valid values:
      *
-     *   **Created**: The IP address pool is available.
-     *   **Deleting**: The IP address pool is being deleted.
-     *   **Modifying**: The IP address pool is being modified.
+     *   **Created**
+     *   **Deleting**
+     *   **Modifying**
      *
      * @example Created
      *
@@ -132,6 +135,8 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $status;
 
     /**
+     * @description The tags to add to the resource.
+     *
      * @var tags[]
      */
     public $tags;

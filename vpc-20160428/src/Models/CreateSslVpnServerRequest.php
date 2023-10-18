@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateSslVpnServerRequest extends Model
 {
     /**
-     * @description The encryption algorithm that is used in the SSL-VPN connection. Valid values:
+     * @description The encryption algorithm that is used for the SSL-VPN connection. Valid values:
      *
-     *   **AES-128-CBC** (default): AES-128-CBC
-     *   **AES-192-CBC**: AES-192-CBC
-     *   **AES-256-CBC**: AES-256-CBC
-     *   **none**: does not use an encryption algorithm.
+     *   **AES-128-CBC** (default)
+     *   **AES-192-CBC**
+     *   **AES-256-CBC**
+     *   **none**
      *
      * @example AES-128-CBC
      *
@@ -25,9 +25,9 @@ class CreateSslVpnServerRequest extends Model
     /**
      * @description The client CIDR block.
      *
-     * When the client accesses the destination network through an SSL-VPN connection, the VPN gateway allocates an IP address from the client CIDR block to the client.
+     * When the client accesses the local virtual private cloud (VPC) by using an SSL-VPN connection, the VPN gateway allocates an IP address from the client CIDR block to the client.
      *
-     * >  This CIDR block cannot conflict with the CIDR block specified by **LocalSubnet**.
+     * >  This CIDR block cannot overlap with the CIDR block specified by **LocalSubnet**.
      * @example 192.168.1.0/24
      *
      * @var string
@@ -37,9 +37,9 @@ class CreateSslVpnServerRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate a value, and you must make sure that each request has a unique token value. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-0016e04115b
      *
      * @var string
@@ -49,8 +49,8 @@ class CreateSslVpnServerRequest extends Model
     /**
      * @description Specifies whether to enable data compression. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -61,10 +61,10 @@ class CreateSslVpnServerRequest extends Model
     /**
      * @description Specifies whether to enable two-factor authentication. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default):
      *
-     * >  To enable two-factor authentication, make sure that the VPN gateway was created after 00:00:00 (UTC+8), March 5, 2020. Otherwise, two-factor authentication is not supported.
+     * >  If you want to use the two-factor authentication feature, you must make sure that your VPN gateway is created after 00:00:00, March 5, 2020. Otherwise, the two-factor authentication feature is not supported.
      * @example false
      *
      * @var bool
@@ -72,7 +72,7 @@ class CreateSslVpnServerRequest extends Model
     public $enableMultiFactorAuth;
 
     /**
-     * @description The ID of the IDaaS instance.
+     * @description The Identity as a Service (IDaaS) instance ID.
      *
      * @example idaas-cn-hangzhou-p****
      *
@@ -92,7 +92,7 @@ class CreateSslVpnServerRequest extends Model
     /**
      * @description The local CIDR block.
      *
-     * This value can be the CIDR block of a virtual private cloud (VPC), a vSwitch, a data center that is connected to a VPC through an Express Connect circuit, or Object Storage Service (OSS).
+     * This value can be the CIDR block of a VPC, a vSwitch, a data center that is connected to a VPC by using an Express Connect circuit, or an Alibaba Cloud service such as Object Storage Service (OSS).
      * @example 10.0.0.0/8
      *
      * @var string
@@ -100,9 +100,9 @@ class CreateSslVpnServerRequest extends Model
     public $localSubnet;
 
     /**
-     * @description The name of the SSL server.
+     * @description The SSL server name.
      *
-     * The name must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
      * @example sslvpnname
      *
      * @var string
@@ -120,7 +120,7 @@ class CreateSslVpnServerRequest extends Model
     public $ownerId;
 
     /**
-     * @description The port used by the SSL server. Default value: **1194**. The following ports cannot be used:
+     * @description The port that is used by the SSL server. Default value: **1194**. The following ports cannot be used:
      *
      **22, 2222, 22222, 9000, 9001, 9002, 7505, 80, 443, 53, 68, 123, 4510, 4560, 500, and 4500**.
      *
@@ -133,8 +133,8 @@ class CreateSslVpnServerRequest extends Model
     /**
      * @description The protocol that is used by the SSL server. Valid values:
      *
-     *   **TCP**: TCP
-     *   **UDP** (default): UDP
+     *   **TCP**
+     *   **UDP** (default)
      *
      * @example UDP
      *
@@ -143,7 +143,7 @@ class CreateSslVpnServerRequest extends Model
     public $proto;
 
     /**
-     * @description The ID of the region where the VPN gateway is created.
+     * @description The region ID of the VPN gateway.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai

@@ -12,21 +12,21 @@ use AlibabaCloud\Tea\Model;
 class vpnConnectionConfig extends Model
 {
     /**
-     * @description The IKE configuration.
+     * @description The configurations of Phase 1 negotiations.
      *
      * @var ikeConfig
      */
     public $ikeConfig;
 
     /**
-     * @description The configuration of the IPsec-VPN connection.
+     * @description The configurations of Phase 2 negotiations.
      *
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
-     * @description The identifier of the VPN gateway.
+     * @description The identifier of the customer gateway.
      *
      * @example 139.196.XX.XX
      *
@@ -35,7 +35,7 @@ class vpnConnectionConfig extends Model
     public $local;
 
     /**
-     * @description The CIDR block on the virtual private cloud (VPC) side.
+     * @description The CIDR block on the data center side.
      *
      * @example 10.0.0.0/8
      *
@@ -44,7 +44,7 @@ class vpnConnectionConfig extends Model
     public $localSubnet;
 
     /**
-     * @description The identifier of the customer gateway.
+     * @description The identifier of the VPN gateway.
      *
      * @example 116.62.XX.XX
      *
@@ -53,7 +53,7 @@ class vpnConnectionConfig extends Model
     public $remote;
 
     /**
-     * @description The CIDR block on the data center side.
+     * @description The CIDR block on the virtual private cloud (VPC) side.
      *
      * @example 192.168.0.0/16
      *
@@ -62,8 +62,9 @@ class vpnConnectionConfig extends Model
     public $remoteSubnet;
 
     /**
-     * @description The tunnel configuration of the peer gateway device. Parameters in TunnelsConfig are returned only if the IPsec-VPN connection is in dual-tunnel mode.
+     * @description The tunnel configurations of the peer gateway device.
      *
+     * The parameters in **TunnelsConfig** are returned only when the IPsec-VPN connection supports the dual-tunnel mode.
      * @var tunnelsConfig
      */
     public $tunnelsConfig;

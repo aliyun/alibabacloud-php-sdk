@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipAddressesResponseBody extends Model
 {
     /**
-     * @description The details about the EIP.
+     * @description The details about the EIPs.
      *
      * @var eipAddresses
      */
     public $eipAddresses;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 10
      *
@@ -26,7 +26,7 @@ class DescribeEipAddressesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeEipAddressesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *

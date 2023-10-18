@@ -21,7 +21,7 @@ class eipAddress extends Model
     public $allocationId;
 
     /**
-     * @description The time when the EIP was created. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The time when the EIP was created. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2021-04-23T01:37:38Z
      *
@@ -39,7 +39,7 @@ class eipAddress extends Model
     public $bandwidth;
 
     /**
-     * @description The maximum bandwidth of the EIP bandwidth plan with which the EIP is associated. Unit: Mbit/s.
+     * @description The maximum bandwidth of the Internet Shared Bandwidth instance with which the EIP is associated. Unit: Mbit/s.
      *
      * @example 50
      *
@@ -48,7 +48,7 @@ class eipAddress extends Model
     public $bandwidthPackageBandwidth;
 
     /**
-     * @description The ID of the EIP bandwidth plan.
+     * @description The ID of the Internet Shared Bandwidth instance.
      *
      * @example cbwp-bp1ego3i4j07ccdvf****
      *
@@ -57,7 +57,7 @@ class eipAddress extends Model
     public $bandwidthPackageId;
 
     /**
-     * @description The type of the bandwidth. Only **CommonBandwidthPackage** (EIP Bandwidth Plan) is returned.
+     * @description The type of the bandwidth. Only **CommonBandwidthPackage** may be returned, which indicates Internet Shared Bandwidth.
      *
      * @example CommonBandwidthPackage
      *
@@ -66,15 +66,22 @@ class eipAddress extends Model
     public $bandwidthPackageType;
 
     /**
+     * @description The service type. Valid values:
+     *
+     *   **CloudBox** Only cloud box users can select this type.
+     *   **Default** (default)
+     *
+     * @example CloudBox
+     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @description The service status of the EIP. Valid values:
+     * @description The service state of the EIP. Valid values:
      *
-     *   **Normal**: active
-     *   **FinancialLocked**: locked
+     *   **Normal**
+     *   **FinancialLocked**
      *
      * @example Normal
      *
@@ -85,8 +92,8 @@ class eipAddress extends Model
     /**
      * @description The billing method of the EIP. Valid values:
      *
-     *   **PostPaid**: pay-as-you-go
-     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go.
+     *   **PrePaid**: subscription.
      *
      * @example PostPaid
      *
@@ -97,8 +104,8 @@ class eipAddress extends Model
     /**
      * @description Indicates whether deletion protection is enabled. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -116,7 +123,7 @@ class eipAddress extends Model
     public $description;
 
     /**
-     * @description The maximum bandwidth of the EIP when it is not associated with an EIP bandwidth plan. Unit: Mbit/s.
+     * @description The maximum bandwidth of the EIP when it is not associated with an Internet Shared Bandwidth instance. Unit: Mbit/s.
      *
      * @example 101
      *
@@ -125,7 +132,7 @@ class eipAddress extends Model
     public $eipBandwidth;
 
     /**
-     * @description The time when the EIP expires. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The time when the EIP expires. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2021-05-23T02:00:00Z
      *
@@ -136,8 +143,8 @@ class eipAddress extends Model
     /**
      * @description Indicates whether fine-grained monitoring is enabled for the EIP. Valid values:
      *
-     *   **false**: no
-     *   **true**: yes
+     *   **false**
+     *   **true**
      *
      * @example false
      *
@@ -146,10 +153,10 @@ class eipAddress extends Model
     public $HDMonitorStatus;
 
     /**
-     * @description Indicates whether renewal data is included.
+     * @description Indicates whether renewal data is included. Valid values:
      *
-     *   **false**: no
-     *   **true**: yes This parameter returns **true** only when the **IncludeReservationData** parameter is set to **true** and some orders have not taken effect.
+     *   **false**
+     *   **true** A value of **true** is returned only when **IncludeReservationData** is set to **true** and some orders have not taken effect.
      *
      * @example false
      *
@@ -158,19 +165,19 @@ class eipAddress extends Model
     public $hasReservationData;
 
     /**
-     * @description The line type.
+     * @description The line type. Valid values:
      *
-     *   **BGP**: BGP (Multi-ISP). All regions support BGP (Multi-ISP) EIPs.
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. Only the following regions support BGP (Multi-ISP) Pro lines: China (Hong Kong), Singapore, Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok).
+     *   **BGP**: BGP (Multi-ISP) lines. All regions support BGP (Multi-ISP) EIPs.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. Only the following regions support BGP (Multi-ISP) Pro lines: China (Hong Kong), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok).
      *
-     * If you are allowed to use single-ISP bandwidth, one of the following values is returned:
+     * If you are allowed to use single-ISP bandwidth, one of the following values may be returned:
      *
-     *   **ChinaTelecom**: China Telecom
-     *   **ChinaUnicom**: China Unicom
-     *   **ChinaMobile**: China Mobile
-     *   **ChinaTelecom_L2**: China Telecom L2
-     *   **ChinaUnicom_L2**: China Unicom L2
-     *   **ChinaMobile_L2**: China Mobile L2
+     *   **ChinaTelecom**
+     *   **ChinaUnicom**
+     *   **ChinaMobile**
+     *   **ChinaTelecom_L2**
+     *   **ChinaUnicom_L2**
+     *   **ChinaMobile_L2**
      *
      * If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
      * @example BGP
@@ -200,12 +207,12 @@ class eipAddress extends Model
     /**
      * @description The type of the associated instance. Valid values:
      *
-     *   **EcsInstance**: an ECS instance in a VPC
-     *   **SlbInstance**: an SLB instance in a VPC
-     *   **Nat**: a NAT gateway
-     *   **HaVip**: an HAVIP
-     *   **NetworkInterface**: a secondary ENI
-     *   **IpAddress**: an IP address
+     *   **EcsInstance**: an ECS instance in a VPC.
+     *   **SlbInstance**: an SLB instance in a VPC.
+     *   **Nat**: a NAT gateway.
+     *   **HaVip**: an HAVIP.
+     *   **NetworkInterface**: a secondary ENI.
+     *   **IpAddress**: an IP address.
      *
      * @example EcsInstance
      *
@@ -216,8 +223,8 @@ class eipAddress extends Model
     /**
      * @description The metering method of the EIP. Valid values:
      *
-     *   **PayByBandwidth**: pay-by-bandwidth
-     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth**: pay-by-bandwidth.
+     *   **PayByTraffic**: pay-by-traffic.
      *
      * @example PayByBandwidth
      *
@@ -226,7 +233,7 @@ class eipAddress extends Model
     public $internetChargeType;
 
     /**
-     * @description The IP address of the EIP.
+     * @description The EIP.
      *
      * @example 47.75.XX.XX
      *
@@ -244,7 +251,7 @@ class eipAddress extends Model
     public $name;
 
     /**
-     * @description The network type. The value is set to **public**, which indicates the Internet.
+     * @description The network type. Only **public** may be returned.
      *
      * @example public
      *
@@ -253,7 +260,7 @@ class eipAddress extends Model
     public $netmode;
 
     /**
-     * @description The details about the locked EIPs.
+     * @description The details about the locked EIP.
      *
      * @var operationLocks
      */
@@ -278,7 +285,7 @@ class eipAddress extends Model
     public $regionId;
 
     /**
-     * @description The time when the renewal takes effect. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The time when the renewal took effect. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2021-05-23T16:00:00Z
      *
@@ -287,7 +294,7 @@ class eipAddress extends Model
     public $reservationActiveTime;
 
     /**
-     * @description The bandwidth after the renewal takes effect. Unit: Mbit/s.
+     * @description The maximum bandwidth after the renewal takes effect. Unit: Mbit/s.
      *
      * @example 12
      *
@@ -298,8 +305,8 @@ class eipAddress extends Model
     /**
      * @description The metering method that is used after the renewal takes effect. Valid values:
      *
-     *   **PayByBandwidth**: pay-by-bandwidth
-     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth**: pay-by-bandwidth.
+     *   **PayByTraffic**: pay-by-traffic.
      *
      * @example PayByBandwidth
      *
@@ -310,9 +317,9 @@ class eipAddress extends Model
     /**
      * @description The type of the renewal order. Valid values:
      *
-     *   **RENEWCHANGE**: renewal with an upgrade or a downgrade
-     *   **TEMP_UPGRADE**: temporary upgrade
-     *   **UPGRADE**: upgrade
+     *   **RENEWCHANGE**: renewal with an upgrade or a downgrade.
+     *   **TEMP_UPGRADE**: temporary upgrade.
+     *   **UPGRADE**: upgrade.
      *
      * @example RENEWCHANGE
      *
@@ -332,8 +339,8 @@ class eipAddress extends Model
     /**
      * @description Indicates whether level-2 throttling is configured. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -344,16 +351,17 @@ class eipAddress extends Model
     /**
      * @description The edition of Anti-DDoS.
      *
-     * - If an empty value is returned, it indicates that Anti-DDoS Origin Basic is used.
-     * - If **AntiDDoS_Enhanced** is returned, it indicates that Anti-DDoS Pro/Premium is used.
+     *   If an empty value is returned, it indicates that Anti-DDoS Origin Basic is used.
+     *   If **AntiDDoS_Enhanced** is returned, it indicates that Anti-DDoS Pro/Premium is used.
+     *
      * @var securityProtectionTypes
      */
     public $securityProtectionTypes;
 
     /**
-     * @description The IDs of contiguous EIPs.
+     * @description The ID of the contiguous EIP group.
      *
-     * This value is returned only when you query contiguous EIP groups.
+     * This value is returned only when you query contiguous EIPs.
      * @example eipsg-t4nr90yik5oy38xd****
      *
      * @var string
@@ -361,10 +369,10 @@ class eipAddress extends Model
     public $segmentInstanceId;
 
     /**
-     * @description Indicates whether the resource is created by the service account.
+     * @description Indicates whether the resource is created by the service account. Valid values:
      *
-     *   **0**: no
-     *   **1**: yes
+     *   **0**: The resource is not created by the service account.
+     *   **1**: The resource is created by the service account.
      *
      * @example 0
      *
@@ -373,13 +381,13 @@ class eipAddress extends Model
     public $serviceManaged;
 
     /**
-     * @description The status of the EIP. Valid values:
+     * @description The state of the EIP. Valid values:
      *
-     *   **Associating**: being associated
-     *   **Unassociating**: being disassociated
-     *   **InUse**: allocated
-     *   **Available**: available
-     *   **Releasing**: being released
+     *   **Associating**
+     *   **Unassociating**
+     *   **InUse**
+     *   **Available**
+     *   **Releasing**
      *
      * @example Available
      *
@@ -388,18 +396,18 @@ class eipAddress extends Model
     public $status;
 
     /**
-     * @description The tag list of the EIP.
+     * @description The tags of the EIP.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the VPC that has IPv4 gateways enabled and that is deployed in the same region as the EIP.
+     * @description The ID of the VPC in which an IPv4 gateway is created and that is deployed in the same region as the EIP.
      *
      * When you associate an EIP with an IP address, the system can enable the IP address to access the Internet based on VPC route configurations.
      *
-     * >  This parameter is returned if **InstanceType** is set to **IpAddress**. In this case, the EIP is associated with an IP address.
+     * >  This parameter is returned if the value of **InstanceType** is **IpAddress**. In this case, the EIP is associated with an IP address.
      * @example vpc-bp15zckdt37pq72zv****
      *
      * @var string
@@ -409,7 +417,7 @@ class eipAddress extends Model
     /**
      * @description The zone of the EIP.
      *
-     * This parameter is returned only if your account is included in the whitelist.
+     * This parameter is returned only when the service type is CloudBox.
      * @example cn-hangzhou-a
      *
      * @var string

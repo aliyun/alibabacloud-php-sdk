@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ikeConfig extends Model
 {
     /**
-     * @description The authentication algorithm that was used in Phase 1 negotiations.
+     * @description The authentication algorithm that is used in Phase 1 negotiations.
      *
      * @example sha1
      *
@@ -18,7 +18,7 @@ class ikeConfig extends Model
     public $ikeAuthAlg;
 
     /**
-     * @description The encryption algorithm that was used in Phase 1 negotiations.
+     * @description The encryption algorithm that is used in Phase 1 negotiations.
      *
      * @example aes
      *
@@ -27,7 +27,7 @@ class ikeConfig extends Model
     public $ikeEncAlg;
 
     /**
-     * @description The SA lifetime that was determined by Phase 1 negotiations. Unit: seconds.
+     * @description The SA lifetime that is determined by Phase 1 negotiations. Unit: seconds.
      *
      * @example 86400
      *
@@ -45,7 +45,7 @@ class ikeConfig extends Model
     public $ikeMode;
 
     /**
-     * @description The Diffie-Hellman key exchange algorithm that was used in Phase 1 negotiations.
+     * @description The DH key exchange algorithm that is used in Phase 1 negotiations.
      *
      * @example group2
      *
@@ -63,7 +63,7 @@ class ikeConfig extends Model
     public $ikeVersion;
 
     /**
-     * @description The identifier on the Alibaba Cloud side.
+     * @description The identifier of the IPsec-VPN connection on the Alibaba Cloud side.
      *
      * @example 47.XX.XX.1
      *
@@ -72,7 +72,7 @@ class ikeConfig extends Model
     public $localId;
 
     /**
-     * @description The pre-shared key that was used for identity authentication between the VPN gateway and the data center.
+     * @description The pre-shared key that is used for identity authentication between the VPN gateway and the data center.
      *
      * >  The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the data center. Otherwise, you cannot establish a connection between the data center and the VPN gateway.
      * @example 1234***
@@ -82,7 +82,7 @@ class ikeConfig extends Model
     public $psk;
 
     /**
-     * @description The identifier on the data center side.
+     * @description The identifier of the IPsec-VPN connection on the data center side.
      *
      * @example 47.XX.XX.2
      *

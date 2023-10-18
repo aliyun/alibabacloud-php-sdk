@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of tag N to add to the resource. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+     *
+     * A tag key can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+     *
+     * A tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
      * @var string
      */
     public $value;

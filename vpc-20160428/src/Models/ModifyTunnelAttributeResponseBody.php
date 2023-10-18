@@ -23,8 +23,9 @@ class ModifyTunnelAttributeResponseBody extends Model
     /**
      * @description Indicates whether DPD is enabled. Valid values:
      *
-     * - **true**
-     * - **false**
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var bool
@@ -32,10 +33,11 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $enableDpd;
 
     /**
-     * @description Indicates whether BAT traversal is enabled. Valid values:
+     * @description Indicates whether NAT traversal is enabled. Valid values:
      *
-     * - **true**
-     * - **false**
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var bool
@@ -52,7 +54,7 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $internetIp;
 
     /**
-     * @description The peer CA certificate when a ShangMi (SM) VPN gateway is associated with the IPsec connection.
+     * @description The peer CA certificate when a VPN gateway that uses an SM certificate is used to create the IPsec connection.
      *
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
@@ -72,8 +74,9 @@ class ModifyTunnelAttributeResponseBody extends Model
     /**
      * @description The tunnel role. Valid values:
      *
-     * - **master**
-     * - **slave**
+     *   **master**
+     *   **slave**
+     *
      * @example master
      *
      * @var string
@@ -83,9 +86,10 @@ class ModifyTunnelAttributeResponseBody extends Model
     /**
      * @description The tunnel status. Valid values:
      *
-     * - **active**
-     * - **updating**
-     * - d**eleting**
+     *   **active**
+     *   **updating**
+     *   **deleting**
+     *
      * @example active
      *
      * @var string
@@ -93,7 +97,7 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $state;
 
     /**
-     * @description The BGP configurations.
+     * @description The BGP configuration.
      *
      * @var tunnelBgpConfig
      */
@@ -109,14 +113,14 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $tunnelId;
 
     /**
-     * @description The IKE settings for Phase 1 negotiations.
+     * @description The configurations of IKE Phase 1.
      *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
-     * @description The IPsec settings for Phase 2 negotiations.
+     * @description The configurations of IPsec Phase 2.
      *
      * @var tunnelIpsecConfig
      */

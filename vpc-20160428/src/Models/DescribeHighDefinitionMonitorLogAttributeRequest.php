@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHighDefinitionMonitorLogAttributeRequest extends Model
 {
     /**
-     * @description The ID of the fine-grained monitoring instance.
+     * @description The ID of the instance whose fine-grained monitoring configurations you want to query.
      *
      * @example eip-wz9fi6qboho9fwgx7****
      *
@@ -18,7 +18,7 @@ class DescribeHighDefinitionMonitorLogAttributeRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the instance. Set the value to **EIP**.
+     * @description The type of the instance. Set the value to **EIP**.
      *
      * @example EIP
      *
@@ -37,9 +37,9 @@ class DescribeHighDefinitionMonitorLogAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the instance is deployed.
+     * @description The region ID of the instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

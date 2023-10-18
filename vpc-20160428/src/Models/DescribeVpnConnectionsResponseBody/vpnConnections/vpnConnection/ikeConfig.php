@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ikeConfig extends Model
 {
     /**
-     * @description The IKE authentication algorithm.
+     * @description The authentication algorithm in the IKE phase.
      *
      * @example sha1
      *
@@ -18,7 +18,7 @@ class ikeConfig extends Model
     public $ikeAuthAlg;
 
     /**
-     * @description The IKE encryption algorithm.
+     * @description The encryption algorithm in the IKE phase.
      *
      * @example aes
      *
@@ -27,7 +27,7 @@ class ikeConfig extends Model
     public $ikeEncAlg;
 
     /**
-     * @description The IKE lifetime. Unit: seconds.
+     * @description The lifetime in the IKE phase. Unit: seconds.
      *
      * @example 86400
      *
@@ -48,7 +48,7 @@ class ikeConfig extends Model
     public $ikeMode;
 
     /**
-     * @description The DH group.
+     * @description The Diffie-Hellman (DH) group in the IKE phase.
      *
      * @example group2
      *
@@ -70,7 +70,7 @@ class ikeConfig extends Model
     public $ikeVersion;
 
     /**
-     * @description The identifier on the data center side.
+     * @description The identifier of the IPsec-VPN connection on the data center side.
      *
      * @example 116.64.XX.XX
      *
@@ -88,7 +88,7 @@ class ikeConfig extends Model
     public $psk;
 
     /**
-     * @description The identifier on the Alibaba Cloud side.
+     * @description The identifier of the IPsec-VPN connection on the Alibaba Cloud side.
      *
      * @example 139.17.XX.XX
      *

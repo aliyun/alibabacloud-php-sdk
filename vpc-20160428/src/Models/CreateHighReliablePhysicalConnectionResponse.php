@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AssociateGlobalAccelerationInstanceResponse extends Model
+class CreateHighReliablePhysicalConnectionResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class AssociateGlobalAccelerationInstanceResponse extends Model
     public $statusCode;
 
     /**
-     * @var AssociateGlobalAccelerationInstanceResponseBody
+     * @var CreateHighReliablePhysicalConnectionResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class AssociateGlobalAccelerationInstanceResponse extends Model
     /**
      * @param array $map
      *
-     * @return AssociateGlobalAccelerationInstanceResponse
+     * @return CreateHighReliablePhysicalConnectionResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class AssociateGlobalAccelerationInstanceResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = AssociateGlobalAccelerationInstanceResponseBody::fromMap($map['body']);
+            $model->body = CreateHighReliablePhysicalConnectionResponseBody::fromMap($map['body']);
         }
 
         return $model;

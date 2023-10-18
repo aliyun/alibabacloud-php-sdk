@@ -11,9 +11,9 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
+     * You can use the client to generate a value, and you must make sure that each request has a unique token value. The client token can contain only ASCII characters.
      *
-     * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -31,7 +31,7 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     public $description;
 
     /**
-     * @description The destination CIDR block of the route entry.
+     * @description The destination CIDR block of the route entry in the gateway route table.
      *
      * @example 47.100.XX.XX/16
      *
@@ -40,10 +40,10 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     public $destinationCidrBlock;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
+     * @description Specifies whether to precheck only this request. Valid values:
      *
-     *   **true**: checks the request but does not modify the route entry. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the route entry is modified.
+     *   **true**: prechecks the request without modifying the gateway route table. The system checks the required parameters, request format, and service limits. If the request fails to pass the precheck, an error code is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false**: sends the request. This is the default value. If the request passes the precheck, a 2xx HTTP status code is returned and the gateway route table is modified.
      *
      * @example false
      *
@@ -71,13 +71,13 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     public $name;
 
     /**
-     * @description The next hop ID of the route entry after the route entry is modified.
+     * @description The new next hop ID of the route entry.
      *
-     *   If you set **NextHopType** to **Instance**, specify an ECS instance ID for the **NextHopId** parameter.
-     *   If you set **NextHopType** to **NetworkInterface**, specify an ENI ID for the **NextHopId** parameter.
-     *   If you set **NextHopType** to **Local**, leave the **NextHopId** parameter empty, which specifies a local next hop.
+     *   If you set **NextHopType** to **Instance**, specify an ECS instance ID for **NextHopId**.
+     *   If you set **NextHopType** to **NetworkInterface**, specify an ENI ID for **NextHopId**.
+     *   If you set **NextHopType** to **Local**, leave **NextHopId** empty. This indicates a local next hop.
      *
-     * >  If you want to modify a route entry whose next hop type is **Instance** or **NetworkInterface**, you must first change the value of the **NextHopType** parameter to **Local**. Then, change the value of **NextHopType** to **Instance** or **NetworkInterface** and specify the **NextHopId** parameter. When you modify a route entry whose next hop type is Instance or NetworkInterface, you cannot directly specify a different ENI ID or ECS instance ID for the NextHopId parameter.
+     * >  If the value of NextHopType is **Instance** or **NetworkInterface**, and you want to modify the next hop, you must set **NextHopType** to **Local** first. Then, set **NextHopType** to **Instance** or **NetworkInterface** and specify **NextHopId** based on your requirements. If the next hop type of a route entry is Instance or NetworkInterface, you cannot directly specify a different ENI ID or ECS instance ID for the NextHopId parameter.
      * @example i-bp18xq9yguxoxe7m****
      *
      * @var string
@@ -85,11 +85,11 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     public $nextHopId;
 
     /**
-     * @description The next hop type of the route entry after the route entry is modified. Valid values:
+     * @description The new next hop type of the route entry. Valid values:
      *
-     *   **EcsInstance**: an Elastic Compute Service (ECS) instance
-     *   **NetworkInterface**: an elastic network interface (ENI)
-     *   **Local**: a local next hop
+     *   **EcsInstance**: an Elastic Compute Service (ECS) instance.
+     *   **NetworkInterface**: an elastic network interface (ENI).
+     *   **Local**: a local next hop.
      *
      * @example EcsInstance
      *

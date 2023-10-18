@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ListPublicIpAddressPoolsResponseBody extends Model
 {
     /**
-     * @description The token that determines the start point of the next query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
-     *   If **NextToken** is returned, it indicates that no additional results exist.
-     *   If **NextToken** is returned, the value indicates the token that is used for the next query.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -22,14 +22,14 @@ class ListPublicIpAddressPoolsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The total number of entries returned.
+     * @description The IP address pools.
      *
      * @var publicIpAddressPoolList[]
      */
     public $publicIpAddressPoolList;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
@@ -38,7 +38,7 @@ class ListPublicIpAddressPoolsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The maximum number of entries returned.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

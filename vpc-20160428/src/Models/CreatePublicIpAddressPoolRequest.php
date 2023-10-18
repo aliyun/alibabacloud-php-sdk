@@ -10,16 +10,23 @@ use AlibabaCloud\Tea\Model;
 class CreatePublicIpAddressPoolRequest extends Model
 {
     /**
+     * @description The service type of the IP address pool. Valid values:
+     *
+     *   **CloudBox** Only cloud box users can select this type.
+     *   **Default**: This is the default value.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @description The client token that you want to use to ensure the idempotence of the request.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that the value is unique among all requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate a value, and you must make sure that each request has a unique token value. The client token can contain only ASCII characters.
      *
-     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** for each API request is different.
      * @example 02fb3da4-130e-11****
      *
      * @var string
@@ -37,10 +44,10 @@ class CreatePublicIpAddressPoolRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
+     * @description Specifies whether to precheck only this request. Valid values:
      *
-     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *   **true**: prechecks the request without creating an IP address pool. The system checks the required parameters, request format, and service limits. If the request fails to pass the precheck, an error code is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false**: sends the request. This is the default value. If the request passes the precheck, a 2xx HTTP status code is returned and the IP address pool is created.
      *
      * @example false
      *
@@ -51,19 +58,19 @@ class CreatePublicIpAddressPoolRequest extends Model
     /**
      * @description The line type. Valid values:
      *
-     *   **BGP** (default): BGP (Multi-ISP) lines.
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines
+     *   **BGP** (default)
+     *   **BGP_PRO**
      *
-     * For more information about BGP (Multi-ISP) and BGP (Multi-ISP) Pro, see [EIP line types](~~32321~~).
+     * For more information about BGP (Multi-ISP) lines and BGP (Multi-ISP) Pro lines, see the "Line types" section in the [What is EIP?](~~32321~~) topic.
      *
-     *   If you are allowed to use single-ISP bandwidth, you can also choose one of the following values:
+     *   If you are allowed to use single-ISP bandwidth, you can also use one of the following values:
      *
-     *   **ChinaTelecom**: China Telecom
-     *   **ChinaUnicom**: China Unicom
-     *   **ChinaMobile**: China Mobile
-     *   **ChinaTelecom_L2**: China Telecom L2
-     *   **ChinaUnicom_L2**: China Unicom L2
-     *   **ChinaMobile_L2**: China Mobile L2
+     *   **ChinaTelecom**
+     *   **ChinaUnicom**
+     *   **ChinaMobile**
+     *   **ChinaTelecom_L2**
+     *   **ChinaUnicom_L2**
+     *   **ChinaMobile_L2**
      *
      *   If your services are deployed in China East 1 Finance, this parameter is required and you must set the value to **BGP_FinanceCloud**.
      *
@@ -76,7 +83,7 @@ class CreatePublicIpAddressPoolRequest extends Model
     /**
      * @description The name of the IP address pool.
      *
-     * This parameter is optional. The name must be 1 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * This parameter is optional. The name must be 1 to 128 characters in length and can contain digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example AddressPoolName
      *
      * @var string
@@ -122,11 +129,15 @@ class CreatePublicIpAddressPoolRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag of the resource.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The zone of the IP address pool. If you set **BizType** to **CloudBox**, this parameter is required.
+     *
      * @var string[]
      */
     public $zones;

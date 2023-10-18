@@ -18,7 +18,7 @@ class CreateIpv6EgressOnlyRuleResponseBody extends Model
     public $ipv6EgressRuleId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9DFEDBEE-E5AB-49E8-A2DC-CC114C67AF75
      *

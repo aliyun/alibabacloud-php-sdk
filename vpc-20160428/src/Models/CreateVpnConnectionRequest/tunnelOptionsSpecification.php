@@ -14,8 +14,10 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description The ID of the customer gateway associated with the tunnel.
      *
-     * > - This parameter is required if the VPN gateway supports the dual-tunnel mode.
-     * > - If the VPN gateway supports the dual-tunnel mode, you need to configure the active tunnel and standby tunnel by specifying the parameters in the **TunnelOptionsSpecification** array. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
+     *
+     *
+     * > *   This parameter is required if the VPN gateway supports the dual-tunnel mode.
+     * > *   If the VPN gateway supports the dual-tunnel mode, you must configure the active tunnel and standby tunnel by specifying **TunnelOptionsSpecification**. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
      * @example cgw-p0wy363lucf1uyae8****
      *
      * @var string
@@ -23,10 +25,11 @@ class tunnelOptionsSpecification extends Model
     public $customerGatewayId;
 
     /**
-     * @description Specifies whether to enable the DPD feature for the tunnel. Valid values:
+     * @description Specifies whether to enable the Dead Peer Detection (DPD) feature for the tunnel. Valid values:
      *
-     * - **true** (default): The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
-     * - **false**
+     *   **true** (default): The DPD feature is enabled. The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
+     *   **false**: The DPD feature is disabled. The initiator of the IPsec-VPN connection does not send DPD packets.
+     *
      * @example true
      *
      * @var bool
@@ -36,9 +39,9 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description Specifies whether to enable NAT traversal for the tunnel. Valid values:
      *
-     * - **true** (default): After NAT traversal is enabled, the verification process for the peer UDP port is deleted from IKE negotiations. In addition, the NAT gateway in the tunnel can be found.
+     *   **true** (default): NAT traversal is enabled. After NAT traversal is enabled, the verification process for the peer UDP port is deleted from IKE negotiations. In addition, the NAT gateway in the tunnel can be found.
+     *   **false**: NAT traversal is disabled.
      *
-     * - **false**: no
      * @example true
      *
      * @var bool
@@ -46,9 +49,11 @@ class tunnelOptionsSpecification extends Model
     public $enableNatTraversal;
 
     /**
-     * @description If the VPN gateway is of the SM type, you need to configure a CA certificate for the peer gateway device.
+     * @description The CA certificate. If the VPN gateway is of the SM type, you must configure a CA certificate for the peer gateway device.
      *
-     * - You can ignore this parameter when a standard VPN gateway is used to create the IPsec-VPN connection.
+     *   If an SM VPN gateway is used to create the IPsec-VPN connection, this parameter is required.
+     *   If a standard VPN gateway is used to create the IPsec-VPN connection, leave this parameter empty.
+     *
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
      * @var string
@@ -56,10 +61,11 @@ class tunnelOptionsSpecification extends Model
     public $remoteCaCertificate;
 
     /**
-     * @description The tunnel role. Valid values:
+     * @description The role of the tunnel. Valid values:
      *
-     * - **master**
-     * - **slave**
+     *   **master**: The tunnel is the active tunnel.
+     *   **slave**: The tunnel is the standby tunnel.
+     *
      * @example master
      *
      * @var string
@@ -67,21 +73,21 @@ class tunnelOptionsSpecification extends Model
     public $role;
 
     /**
-     * @description The BGP configurations.
+     * @description The BGP configurations for the tunnel.
      *
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
 
     /**
-     * @description The configuration of Phase 1 negotiations.
+     * @description The configurations of Phase 1 negotiations.
      *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
-     * @description The configuration of Phase 2 negotiations.
+     * @description The configurations of Phase 2 negotiations.
      *
      * @var tunnelIpsecConfig
      */

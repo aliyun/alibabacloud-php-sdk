@@ -46,9 +46,8 @@ class DescribeVpnGatewaysResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description If the order type is **TEMP_UPGRADE** (temporary upgrade), this parameter specifies the time when the temporary upgrade expires.
+     * @description The information about VPN gateways.
      *
-     * If the order type is **RENEWCHANGE** (renewal with a specification change) or **RENEW** (renewal), this parameter indicates the time when the renewal or renewal with a specification change takes effect.
      * @var vpnGateways
      */
     public $vpnGateways;

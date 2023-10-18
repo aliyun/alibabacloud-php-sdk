@@ -12,7 +12,7 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     /**
      * @description The time when the diagnostic started.
      *
-     * The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
+     * The time follows the ISO8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      * @example 2022-12-15T05:28:57Z
      *
      * @var string
@@ -38,7 +38,7 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     /**
      * @description The timestamp when the system finishes diagnosing the item.
      *
-     * The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
+     * The time follows the ISO8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      * @example 2022-12-15T05:29:08Z
      *
      * @var string
@@ -55,7 +55,7 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     public $finishedCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 312C4D5A-6563-5FC6-8C6E-A43A5A316FEB
      *

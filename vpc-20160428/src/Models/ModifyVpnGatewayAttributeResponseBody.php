@@ -11,8 +11,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     /**
      * @description Indicates whether BGP routes are automatically advertised to the VPC. Valid values:
      *
-     *   **true:** yes.
-     *   **false:** no.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -23,8 +23,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     /**
      * @description The payment status of the VPN gateway. Valid values:
      *
-     *   **Normal:** The VPN gateway is running as expected.
-     *   **FinancialLocked:** The VPN gateway is locked due to overdue payments.
+     *   **Normal**
+     *   **FinancialLocked**
      *
      * @example Normal
      *
@@ -33,9 +33,9 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $businessStatus;
 
     /**
-     * @description The timestamp is generated when the VPN gateway was created. Unit: milliseconds.
+     * @description The time when the VPN gateway was created. Unit: milliseconds.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1492753580000
      *
      * @var int
@@ -52,8 +52,9 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $description;
 
     /**
-     * @description The second IP address assigned by the system to create an IPsec-VPN connection. This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
+     * @description The second IP address assigned by the system to create an IPsec-VPN connection.
      *
+     * This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
      * @example 116.11.XX.XX
      *
      * @var string
@@ -61,8 +62,9 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $disasterRecoveryInternetIp;
 
     /**
-     * @description The ID of the second vSwitch associated with the VPN gateway. This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
+     * @description The ID of the second vSwitch associated with the VPN gateway.
      *
+     * This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
      * @example vsw-p0w95ql6tmr2ludkt****
      *
      * @var string
@@ -70,10 +72,10 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $disasterRecoveryVSwitchId;
 
     /**
-     * @description The BGP status of the VPN gateway. Valid values:
+     * @description Indicates whether BGP is enabled for the VPN gateway. Valid values:
      *
-     *   **true:** enabled.
-     *   **false:** disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -82,7 +84,7 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $enableBgp;
 
     /**
-     * @description The timestamp generated when the VPN gateway expires. Unit: milliseconds.
+     * @description The time when the VPN gateway expires. Unit: milliseconds.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1495382400000
@@ -92,8 +94,11 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $endTime;
 
     /**
-     * @description - If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
-     * - If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the address is the first IP address used to create an IPsec-VPN connection. The address cannot be used to create an SSL-VPN connection. If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the system assigns two IP addresses to the VPN gateway to create two encrypted tunnels.
+     * @description *   If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
+     *
+     *   If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the address is the first IP address used to create an IPsec-VPN connection. The address cannot be used to create an SSL-VPN connection.
+     *
+     * If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the system assigns two IP addresses to the VPN gateway to create two encrypted tunnels.
      * @example 116.62.XX.XX
      *
      * @var string
@@ -101,8 +106,9 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $internetIp;
 
     /**
-     * @description The private IP address of the VPN gateway.
+     * @description The IP address of the VPN gateway.
      *
+     * This parameter is returned only when the VPN gateway is a private VPN gateway and supports only the single-tunnel mode.
      * @example 172.27.30.24
      *
      * @var string
@@ -119,7 +125,7 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
      *
@@ -137,8 +143,9 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $spec;
 
     /**
-     * @description The IP address of the SSL-VPN connection. This parameter is returned only when the VPN gateway is a public VPN gateway and supports only the single-tunnel mode. In addition, the VPN gateway must have the SSL-VPN feature enabled.
+     * @description The IP address of the SSL-VPN connection.
      *
+     * This parameter is returned only when the VPN gateway is a public VPN gateway and supports only the single-tunnel mode. In addition, the VPN gateway must have the SSL-VPN feature enabled.
      * @example 116.33.XX.XX
      *
      * @var string
@@ -148,11 +155,11 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     /**
      * @description The status of the VPN gateway. Valid values:
      *
-     *   **init:** The VPN gateway is being initialized.
-     *   **provisioning:** The VPN gateway is being prepared.
-     *   **active:** The VPN gateway is ready.
-     *   **updating:** The VPN gateway is being updated.
-     *   **deleting:** The VPN gateway is being deleted.
+     *   **init**
+     *   **provisioning**
+     *   **active**
+     *   **updating**
+     *   **deleting**
      *
      * @example active
      *
@@ -161,7 +168,7 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $status;
 
     /**
-     * @description The ID of the vSwitch to which the VPN gateway belongs.
+     * @description The ID of the vSwitch associated with the VPN gateway.
      *
      * @example vsw-bp1y9ovl1cu9ou4tv****
      *

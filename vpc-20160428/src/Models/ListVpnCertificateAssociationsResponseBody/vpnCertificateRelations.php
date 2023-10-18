@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class vpnCertificateRelations extends Model
 {
     /**
-     * @description The time when the certificate was associated.
+     * @description The time when the Anycast EIP was associated.
      *
-     * The time follows the ISO8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      * @example 2020-12-29T09:30:29Z
      *
      * @var string
@@ -28,7 +28,7 @@ class vpnCertificateRelations extends Model
     public $certificateId;
 
     /**
-     * @description The certificate type.
+     * @description The type of the certificate.
      *
      *   **Encryption**
      *   **Signature**

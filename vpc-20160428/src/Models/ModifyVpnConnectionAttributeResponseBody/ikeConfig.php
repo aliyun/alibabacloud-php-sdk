@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ikeConfig extends Model
 {
     /**
-     * @description The IKE authentication algorithm.
+     * @description The authentication algorithm in the IKE phase.
      *
      * @example sha1
      *
@@ -18,7 +18,7 @@ class ikeConfig extends Model
     public $ikeAuthAlg;
 
     /**
-     * @description The IKE encryption algorithm.
+     * @description The encryption algorithm in the IKE phase.
      *
      * @example aes
      *
@@ -27,7 +27,7 @@ class ikeConfig extends Model
     public $ikeEncAlg;
 
     /**
-     * @description The IKE lifetime. Unit: seconds.
+     * @description The lifetime in the IKE phase. Unit: seconds.
      *
      * @example 86400
      *
@@ -36,10 +36,10 @@ class ikeConfig extends Model
     public $ikeLifetime;
 
     /**
-     * @description The IKE negotiation mode. Valid values:
+     * @description The IKE negotiation mode.
      *
-     *   **main:** This mode offers higher security during negotiations.
-     *   **aggressive:** This mode is faster and has a higher success rate.
+     *   **main**: This mode offers higher security during negotiations.
+     *   **aggressive**: This mode is faster and has a higher success rate.
      *
      * @example main
      *
@@ -48,7 +48,7 @@ class ikeConfig extends Model
     public $ikeMode;
 
     /**
-     * @description The Diffie-Hellman group.
+     * @description The DH group in the IKE phase.
      *
      * @example group2
      *
@@ -88,7 +88,7 @@ class ikeConfig extends Model
     public $psk;
 
     /**
-     * @description The identifier on the data center side. The default value is the IP address of the customer gateway. The value can be a fully qualified domain name (FQDN) or an IP address.
+     * @description The identifier on the data center side. The default value is the IP address of the customer gateway. The value can be a FQDN or an IP address.
      *
      * @example 139.18.XX.XX
      *

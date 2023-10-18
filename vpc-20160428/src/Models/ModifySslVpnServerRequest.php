@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifySslVpnServerRequest extends Model
 {
     /**
-     * @description The encryption algorithm that is used by the SSL server. Valid values:
+     * @description The encryption algorithm that is used in the SSL-VPN connection. Valid values:
      *
-     *   **AES-128-CBC** (default): AES-128-CBC
-     *   **AES-192-CBC**: AES-192-CBC
-     *   **AES-256-CBC**: AES-256-CBC
-     *   **none**: does not use an encryption algorithm.
+     *   **AES-128-CBC** (default)
+     *   **AES-192-CBC**
+     *   **AES-256-CBC**
+     *   **none**
      *
      * @example AES-128-CBC
      *
@@ -34,9 +34,9 @@ class ModifySslVpnServerRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-0016e04115b
      *
      * @var string
@@ -46,8 +46,8 @@ class ModifySslVpnServerRequest extends Model
     /**
      * @description Specifies whether to enable data compression. Valid values:
      *
-     *   **true** (default): yes
-     *   **false**: no
+     *   **true** (default)
+     *   **false**
      *
      * @example true
      *
@@ -58,8 +58,8 @@ class ModifySslVpnServerRequest extends Model
     /**
      * @description Specifies whether to enable two-factor authentication.
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -128,8 +128,8 @@ class ModifySslVpnServerRequest extends Model
     /**
      * @description The protocol that is used by the SSL server. Valid values:
      *
-     *   **TCP**: TCP
-     *   **UDP** (default): UDP
+     *   **TCP**
+     *   **UDP** (default)
      *
      * @example UDP
      *
@@ -138,7 +138,7 @@ class ModifySslVpnServerRequest extends Model
     public $proto;
 
     /**
-     * @description The ID of the region where the VPN gateway is created.
+     * @description The region ID of the VPN gateway.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou

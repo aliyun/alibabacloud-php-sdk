@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateCommonBandwidthPackageResponseBody extends Model
 {
     /**
-     * @description The ID of the EIP bandwidth plan.
+     * @description The ID of the Internet Shared Bandwidth instance.
      *
      * @example cbwp-bp1vevu8h3ieh****
      *
@@ -18,7 +18,7 @@ class CreateCommonBandwidthPackageResponseBody extends Model
     public $bandwidthPackageId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example FF39F653-033E-4CD9-9EDF-3CCA5A71FBC3
      *

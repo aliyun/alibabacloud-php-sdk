@@ -18,10 +18,10 @@ class vcoHealthCheck extends Model
     public $dip;
 
     /**
-     * @description Indicates whether health checks are enabled.
+     * @description Indicates whether the health check feature is enabled.
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -39,10 +39,10 @@ class vcoHealthCheck extends Model
     public $interval;
 
     /**
-     * @description Indicates whether advertised routes are withdrawn when the health check fails.
+     * @description Indicates whether advertised routes are withdrawn when the health check fails. Valid values:
      *
-     *   **revoke_route**: yes
-     *   **reserve_route**: no
+     *   **revoke_route**: Advertised routes are withdrawn.
+     *   **reserve_route**: Advertised routes are not withdrawn.
      *
      * @example revoke_route
      *
@@ -69,7 +69,7 @@ class vcoHealthCheck extends Model
     public $sip;
 
     /**
-     * @description The status of the health check.
+     * @description The state of the health check. Valid values:
      *
      *   **success**: normal
      *   **failed**: abnormal

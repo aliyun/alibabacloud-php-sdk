@@ -17,7 +17,7 @@ class DescribeSslVpnClientsResponseBody extends Model
     public $clientInfoList;
 
     /**
-     * @description The number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeSslVpnClientsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeSslVpnClientsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the VPN gateway.
+     * @description The region ID.
      *
      * @example eu-central-1
      *
@@ -44,7 +44,7 @@ class DescribeSslVpnClientsResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 885E117D-06A9-38A3-8DD2-40BDAC429FFC
      *
@@ -53,7 +53,7 @@ class DescribeSslVpnClientsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned.
+     * @description The number of returned entries.
      *
      * @example 1
      *

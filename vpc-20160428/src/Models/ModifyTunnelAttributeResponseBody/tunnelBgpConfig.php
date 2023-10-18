@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tunnelBgpConfig extends Model
 {
     /**
-     * @description Indicates whether BGP is enabled. Valid values:
+     * @description Indicates whether the BGP feature is enabled. Valid values:
      *
-     * - **true**
-     * - **false**
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

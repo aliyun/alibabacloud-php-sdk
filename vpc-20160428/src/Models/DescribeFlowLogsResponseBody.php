@@ -26,7 +26,7 @@ class DescribeFlowLogsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 20
      *
@@ -35,7 +35,7 @@ class DescribeFlowLogsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
      *
@@ -46,8 +46,8 @@ class DescribeFlowLogsResponseBody extends Model
     /**
      * @description Indicates whether the operation is successful. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *

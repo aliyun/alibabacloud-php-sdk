@@ -54,7 +54,7 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8AA5CE21-2E6A-4530-BDF5-F055849476E6
      *

@@ -17,7 +17,7 @@ class DescribeIpv6AddressesResponseBody extends Model
     public $ipv6Addresses;
 
     /**
-     * @description The number of the returned page. Default value: **1**.
+     * @description The page number of the returned page. Default value: **1**.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeIpv6AddressesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeIpv6AddressesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example AA4486A8-B6AE-469E-AB09-820EF8ECFA2B
      *
@@ -44,7 +44,7 @@ class DescribeIpv6AddressesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of returned entries.
      *
      * @example 2
      *

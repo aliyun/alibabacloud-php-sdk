@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePublicIpAddressResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status codes returned.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class DescribePublicIpAddressResponseBody extends Model
     public $code;
 
     /**
-     * @description The response message.
+     * @description The response messages.
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class DescribePublicIpAddressResponseBody extends Model
     public $message;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class DescribePublicIpAddressResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 100
      *
@@ -63,7 +63,7 @@ class DescribePublicIpAddressResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
      *
@@ -74,8 +74,8 @@ class DescribePublicIpAddressResponseBody extends Model
     /**
      * @description Indicates whether the call is successful. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -84,7 +84,7 @@ class DescribePublicIpAddressResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of returned entries.
      *
      * @example 1
      *

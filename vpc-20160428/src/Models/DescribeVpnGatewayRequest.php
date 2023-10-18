@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnGatewayRequest extends Model
 {
     /**
-     * @description Specifies whether to return information about pending orders. Valid values:
+     * @description Specifies whether to include the data about pending orders. Valid values:
      *
      *   **false** (default)
      *   **true**

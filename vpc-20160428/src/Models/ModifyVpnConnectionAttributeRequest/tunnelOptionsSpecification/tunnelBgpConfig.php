@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tunnelBgpConfig extends Model
 {
     /**
-     * @description The local ASN (Alibaba Cloud side). Valid values: **1 ** to **4294967295**. Default value: **45104**.
+     * @description The ASN of the tunnel on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
      *
-     * > - You can set or modify this parameter if BGP is enabled for the IPsecVPN connection (**EnableTunnelsBgp** is set to **true**).
-     * > - We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. Refer to the relevant documentation for the private ASN range.
+     * > *   You can specify or modify this parameter if **EnableTunnelsBgp** is set to **true**. This indicateds that BGP is enabled for the IPsec-VPN connection.
+     * >*   Before you configure BGP, we recommend that you learn how BGP dynamic routing works and the limits of using BGP dynamic routing. For more information, see [VPN Gateway supports BGP dynamic routing](~~170235~~).
+     * >*   We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. Refer to the relevant documentation for the private ASN range.
      * @example 65530
      *
      * @var int
@@ -20,7 +21,7 @@ class tunnelBgpConfig extends Model
     public $localAsn;
 
     /**
-     * @description The local BGP address (Alibaba Cloud side). The BGP address is an IP address that falls into the BGP CIDR block.
+     * @description The BGP IP address of the tunnel on the Alibaba Cloud side. The address is an IP address that falls within the BGP CIDR block.
      *
      * @example 169.254.10.1
      *
@@ -29,9 +30,9 @@ class tunnelBgpConfig extends Model
     public $localBgpIp;
 
     /**
-     * @description The BGP CIDR block. The CIDR block must fall within 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+     * @description The BGP CIDR block of the tunnel. The CIDR block falls within 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
      *
-     * > The BGP CIDR block of each tunnel on a VPN gateway must be unique.
+     * >  The BGP CIDR block of each tunnel must be unique on a VPN gateway.
      * @example 169.254.10.0/30
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @description The filter key used to query resources. Set the value to **CreationStartTime**, which indicates the time when the system started to create the resource.
+     * @description The filter key used to query resources. Set the value to **CreationStartTime**, which specifies the time when the system started to create the resource.
      *
      * @example CreationStartTime
      *
@@ -18,7 +18,7 @@ class filter extends Model
     public $key;
 
     /**
-     * @description The filter value used to query resources. Specify the time in the ISO 8601 standard in `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
+     * @description The filter value used to query resources. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time must be in Coordinated Universal Time (UTC).
      *
      * @example 2023-01-01T01:00Z
      *

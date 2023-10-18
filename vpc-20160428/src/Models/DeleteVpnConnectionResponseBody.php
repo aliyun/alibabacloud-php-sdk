@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpnConnectionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 606998F0-B94D-48FE-8316-ACA81BB230DA
      *

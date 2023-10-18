@@ -9,13 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tunnelIpsecConfig extends Model
 {
     /**
-     * @description The authentication algorithm that was used in Phase 2 negotiations.
+     * @description The authentication algorithm that is used in Phase 2 negotiations.
      *
-     * <props="intl"><ph>Valid values: **md5**,**sha1**,**sha256**,**sha384**,**sha512**.</ph></props>
-     *
-     * <props="china"><ph>如果VPN网关实例类型为普通型，则取值：**md5**、**sha1**、**sha256**、**sha384**、**sha512**。</ph></props>
-     *
-     * <props="china"><ph>如果VPN网关实例类型为国密型，则仅取值：**sm3**。</ph></props>
+     * Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**.
      * @example md5
      *
      * @var string
@@ -25,11 +21,7 @@ class tunnelIpsecConfig extends Model
     /**
      * @description The encryption algorithm that is used in Phase 2 negotiations.
      *
-     * <props="intl"><ph>Valid values: **aes**,**aes192**,**aes256**,**des**或**3des**.</ph></props>
-     *
-     * <props="china"><ph>如果VPN网关实例类型为普通型，则取值为**aes**、**aes192**、**aes256**、**des**或**3des**。</ph></props>
-     *
-     * <props="china"><ph>如果VPN网关实例类型为国密型，则仅取值：**sm4**。</ph></props>
+     * Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**.
      * @example aes
      *
      * @var string
@@ -46,8 +38,9 @@ class tunnelIpsecConfig extends Model
     public $ipsecLifetime;
 
     /**
-     * @description The DH key exchange algorithm that is used in Phase 2 negotiations. Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**.
+     * @description The DH key exchange algorithm that is used in Phase 2 negotiations.
      *
+     * Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**.
      * @example group2
      *
      * @var string

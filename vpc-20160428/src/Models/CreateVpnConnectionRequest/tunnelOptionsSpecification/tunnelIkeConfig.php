@@ -11,11 +11,7 @@ class tunnelIkeConfig extends Model
     /**
      * @description The authentication algorithm that is used in Phase 1 negotiations.
      *
-     * <props="intl"><ph>Valid values: **md5**, **sha1**, **sha256**, **sha384**, **sha512**. Default value: **md5**. </ph></props>
-     *
-     * <props="china"><ph>如果VPN网关实例类型为普通型，则取值：**md5**、**sha1**、**sha256**、**sha384**、**sha512**。默认值：**md5**。</ph></props>
-     *
-     * <props="china"><ph>如果VPN网关实例类型为国密型，则取值为**sm3**（默认值）。</ph></props>
+     * Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **md5**.
      * @example md5
      *
      * @var string
@@ -25,11 +21,7 @@ class tunnelIkeConfig extends Model
     /**
      * @description The encryption algorithm that is used in Phase 1 negotiations.
      *
-     * <props="intl"><ph>Valid values: **aes**, **aes192**, **aes256**, **des**, **3des**. Default value: **aes**. </ph></props>
-     *
-     * <props="china"><ph>如果VPN网关实例类型为普通型，则取值为**aes**、**aes192**、**aes256**、**des**或**3des**。默认值：**aes**。</ph></props>
-     *
-     * <props="china"><ph>如果VPN网关实例类型为国密型，则取值为**sm4**（默认值）。</ph></props>
+     * Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**. Default value: **aes**.
      * @example aes
      *
      * @var string
@@ -47,12 +39,11 @@ class tunnelIkeConfig extends Model
     public $ikeLifetime;
 
     /**
-     * @description The IKE negotiation mode. Valid values: **main** and **aggressive**. Default value: **main**.
+     * @description The negotiation mode of IKE. Valid values: **main** and **aggressive**. Default value: **main**.
      *
-     * - **main**: This mode offers higher security during negotiations.
-     * - **aggressive**: This mode is faster and has a higher success rate.
+     *   **main**: This mode offers higher security during negotiations.
+     *   **aggressive**: This mode is faster and has a higher success rate.
      *
-     * <props="china"><ph>如果VPN网关实例类型为国密型，则协商模式仅支持**main**。</ph></props>
      * @example main
      *
      * @var string
@@ -60,8 +51,8 @@ class tunnelIkeConfig extends Model
     public $ikeMode;
 
     /**
-     * @description The Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiations.
-     * Default value: **group2**. Valid values: **group1**, **group2**, **group5**, and **group14**.
+     * @description The DH key exchange algorithm that is used in Phase 1 negotiations. Default value: **group2**.\
+     * Valid values: **group1**, **group2**, **group5**, and **group14**.
      * @example group2
      *
      * @var string
@@ -69,10 +60,9 @@ class tunnelIkeConfig extends Model
     public $ikePfs;
 
     /**
-     * @description The IKE version. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
-     * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
+     * @description The version of the IKE protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
      *
-     * <props="china"><ph>如果VPN网关实例类型为国密型，则IKE版本仅支持**ikev1**。</ph></props>
+     * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
      * @example ikev1
      *
      * @var string
@@ -80,9 +70,9 @@ class tunnelIkeConfig extends Model
     public $ikeVersion;
 
     /**
-     * @description The identifier on the Alibaba Cloud side, which is used in Phase 1 negotiations.
-     * The description can be up to 100 characters in length. The default identifier is the tunnel IP address.
-     * You can set **LocalId** to a fully qualified domain name (FQDN). In this case, we recommend that you set Negotiation Mode to **aggressive**.
+     * @description The identifier on the Alibaba Cloud side, which is used in Phase 1 negotiations. The value can be up to 100 characters in length. The default identifier is the IP address of the tunnel.
+     *
+     * You can set **LocalId** to a fully qualified domain name (FQDN). In this case, we recommend that you set IkeMode to **aggressive**.
      * @example 47.21.XX.XX
      *
      * @var string
@@ -93,7 +83,7 @@ class tunnelIkeConfig extends Model
      * @description The pre-shared key, which is used for identity authentication between the tunnel and the tunnel peer.
      *
      * - The key must be 1 to 100 characters in length and can contain digits, letters, and the following characters: ```~!\`@#$%^&*()_-+={}[]|;:\",.<>/?```
-     * > Make sure that the tunnel and peer use the same pre-shared key. Otherwise, tunnel communication cannot be established.
+     * > The pre-shared key of the tunnel and that of the tunnel peer must be the same. Otherwise, the system cannot establish the tunnel.
      * @example 123456****
      *
      * @var string
@@ -101,9 +91,9 @@ class tunnelIkeConfig extends Model
     public $psk;
 
     /**
-     * @description The identifier of the tunnel peer, which is used in Phase 1 negotiations.
-     * The description can be up to 100 characters in length. The default identifier is the IP address of the customer gateway.
-     * You can set **RemoteId** to an FQDN. In this case, we recommend that you set Negotiation Mode to **aggressive**.
+     * @description The identifier of the tunnel peer, which is used in Phase 1 negotiations. The value can be up to 100 characters in length. The default identifier is the IP address of the customer gateway associated with the tunnel.
+     *
+     * You can set **RemoteId** to an FQDN. In this case, we recommend that you set IkeMode to **aggressive**.
      * @example 47.42.XX.XX
      *
      * @var string

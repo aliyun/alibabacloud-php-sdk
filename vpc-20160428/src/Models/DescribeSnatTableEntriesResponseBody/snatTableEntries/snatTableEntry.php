@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class snatTableEntry extends Model
 {
     /**
+     * @description The ID of the NAT gateway to which the SNAT entry belongs.
+     *
+     * @example ngw-bp1uewa15k4iy5770****
+     *
      * @var string
      */
     public $natGatewayId;
@@ -72,9 +76,9 @@ class snatTableEntry extends Model
     /**
      * @description The status of the SNAT entry. Valid values:
      *
-     *   **Pending**: being created or modified
-     *   **Available**: available
-     *   **Deleting**: being deleted
+     *   **Pending**
+     *   **Available**
+     *   **Deleting**
      *
      * @example Pending
      *

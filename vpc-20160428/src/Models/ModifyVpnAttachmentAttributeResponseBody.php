@@ -22,11 +22,11 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $attachInstanceId;
 
     /**
-     * @description The type of resource that is associated with the IPsec-VPN connection.
+     * @description The type of the resource that is associated with the IPsec-VPN connection. Valid values:
      *
-     *   **CEN:** indicates that the IPsec-VPN connection is associated with a transit router.
-     *   **VPNGW:** indicates that the IPsec-VPN connection is associated with a VPN gateway.
-     *   **NO_ASSOCIATED:** indicates that the IPsec-VPN connection is not associated with any resource.
+     *   **CEN**: The IPsec-VPN connection is associated with a transit router.
+     *   **VPNGW**: The IPsec-VPN connection is associated with a VPN gateway.
+     *   **NO_ASSOCIATED**: The IPsec-VPN connection is not associated with any resource.
      *
      * @example CEN
      *
@@ -63,10 +63,10 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $description;
 
     /**
-     * @description Indicates whether IPsec negotiations immediately start after the configuration is complete. Valid values:
+     * @description Indicates whether IPsec negotiations immediately start after the configuration takes effect. Valid values:
      *
-     *   **true:** IPsec negotiations immediately start after the configuration is complete.
-     *   **false:** IPsec negotiations start when inbound traffic is detected.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -75,10 +75,10 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $effectImmediately;
 
     /**
-     * @description Indicates whether the DPD feature is enabled for the IPsec-VPN connection.
+     * @description Indicates whether the DPD feature is enabled for the IPsec-VPN connection. Valid values:
      *
-     *   **true:** The DPD feature is enabled.
-     *   **false:** The DPD feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -87,10 +87,10 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $enableDpd;
 
     /**
-     * @description Indicates whether NAT traversal is enabled for the IPsec-VPN connection.
+     * @description Indicates whether NAT traversal is enabled for the IPsec-VPN connection. Valid values:
      *
-     *   **true:** NAT traversal is enabled.
-     *   **false:** NAT traversal is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -99,21 +99,21 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $enableNatTraversal;
 
     /**
-     * @description The configurations of Phase 1 negotiations.
+     * @description The configuration of Phase 1 negotiations.
      *
      * @var ikeConfig
      */
     public $ikeConfig;
 
     /**
-     * @description The configurations of Phase 2 negotiations.
+     * @description The configuration of Phase 2 negotiations.
      *
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
-     * @description The CIDR block on the VPC side.
+     * @description The CIDR block of the VPC with which the data center can communicate.
      *
      * @example 10.1.1.0/24,10.1.2.0/24
      *
@@ -131,10 +131,10 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $name;
 
     /**
-     * @description The network type of the IPsec-VPN connection.
+     * @description The network type of the IPsec-VPN connection. Valid values:
      *
-     *   **public:** Internet.
-     *   **private:** private networks.
+     *   **public**: an encrypted connection over the Internet
+     *   **private**: an encrypted connection over private networks
      *
      * @example public
      *
@@ -143,7 +143,7 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $networkType;
 
     /**
-     * @description The CIDR block on the data center side.
+     * @description The CIDR block of the data center with which the VPC can communicate.
      *
      * @example 10.1.3.0/24,10.1.4.0/24
      *
@@ -152,7 +152,7 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $remoteSubnet;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 35822A84-867F-3936-A2E6-A4C4E3ED11C0
      *
@@ -163,8 +163,7 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     /**
      * @description The bandwidth specification of the IPsec-VPN connection.
      *
-     **M** in the response indicates **Mbit/s**.
-     *
+     * A value of **M** in the response indicates **Mbit/s**.
      * @example 1000M
      *
      * @var string
@@ -172,12 +171,12 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $spec;
 
     /**
-     * @description The status of the IPsec-VPN connection.
+     * @description The state of the IPsec-VPN connection. Valid values:
      *
-     *   **ike_sa_not_established:** Phase 1 negotiations failed.
-     *   **ike_sa_established:** Phase 1 negotiations were successful.
-     *   **ipsec_sa_not_established:** Phase 2 negotiations failed.
-     *   **ipsec_sa_established:** Phase 2 negotiations were successful.
+     *   **ike_sa_not_established**: Phase 1 negotiations failed.
+     *   **ike_sa_established**: Phase 1 negotiations succeeded.
+     *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
+     *   **ipsec_sa_established**: Phase 2 negotiations succeeded.
      *
      * @example ike_sa_not_established
      *
@@ -186,14 +185,14 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $status;
 
     /**
-     * @description The health check configurations of the IPsec-VPN connection.
+     * @description The health check configuration of the IPsec-VPN connection.
      *
      * @var vcoHealthCheck
      */
     public $vcoHealthCheck;
 
     /**
-     * @description The BGP configurations of the IPsec-VPN connection.
+     * @description The BGP configuration of the IPsec-VPN connection.
      *
      * @var vpnBgpConfig
      */

@@ -11,7 +11,7 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
     /**
      * @description The certificate ID.
      *
-     * > The certificate ID is generated after the SSL certificate is associated with the VPN gateway. It is not the ID of the SSL certificate. You can call [ListVpnCertificateAssociations](~~203359~~) to query certificate IDs.
+     * >  The certificate ID refers to the ID generated after the SSL certificate is associated with a VPN gateway. It is not the ID of the certificate itself. You can call [ListVpnCertificateAssociations](~~448813~~) to query certificate IDs.
      * @example 6bfe4218-ea1d****
      *
      * @var string

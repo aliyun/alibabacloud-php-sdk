@@ -13,9 +13,10 @@ class tunnelOptionsSpecification extends Model
 {
     /**
      * @description Specifies whether to enable the dead peer detection (DPD) feature. Valid values:
-     * - **true**: DPD is enabled. The IPsec initiator sends DPD packets to verify the existence and availability of the IPsec peer. If no response is received from the peer within a specified period of time, the IPsec peer is considered disconnected. Then, the ISAKMP SA, IPsec SA, and IPsec tunnel are deleted.
      *
-     * - **false**: DPD is disabled. The IPsec initiator does not send DPD packets.
+     *   **true**: DPD is enabled. The IPsec initiator sends DPD packets to verify the existence and availability of the IPsec peer. If no response is received from the peer within a specified period of time, the IPsec peer is considered disconnected. Then, the ISAKMP SA, IPsec SA, and IPsec tunnel are deleted.
+     *   **false**: DPD is disabled. The IPsec initiator does not send DPD packets.
+     *
      * @example true
      *
      * @var bool
@@ -25,10 +26,9 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description Specifies whether to enable NAT traversal. Valid values:
      *
-     * - **true**
+     *   **true**: NAT traversal is enabled. After NAT traversal is enabled, the initiator does not check the UDP ports during Internet Key Exchange (IKE) negotiations and can automatically discover NAT gateway devices along the IPsec-VPN tunnel.
+     *   **false**: NAT traversal is disabled.
      *
-     * After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec tunnel.
-     * - **false**
      * @example true
      *
      * @var bool
@@ -36,7 +36,7 @@ class tunnelOptionsSpecification extends Model
     public $enableNatTraversal;
 
     /**
-     * @description If you want to attach the IPsec connection to a VPN gateway that uses a ShangMi (SM) certificate, set the value to the peer CA certificate.
+     * @description The peer certificate authority (CA) certificate when you want to attach the IPsec connection to a virtual private network (VPN) gateway that uses a ShangMi (SM) certificate.
      *
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
@@ -45,21 +45,22 @@ class tunnelOptionsSpecification extends Model
     public $remoteCaCertificate;
 
     /**
-     * @description The BGP configurations.
+     * @description The Border Gateway Protocol (BGP) configurations of the tunnel.
      *
+     * If the BGP feature is not enabled for the tunnel, you must call the [ModifyVpnConnectionAttribute](~~120381~~) operation to enable the BGP feature for the tunnel and configure BGP.
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
 
     /**
-     * @description The IKE settings for Phase 1 negotiations.
+     * @description The configurations of IKE Phase 1.
      *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
-     * @description The IPsec settings for Phase 2 negotiations.
+     * @description The configurations of IPsec Phase 2.
      *
      * @var tunnelIpsecConfig
      */

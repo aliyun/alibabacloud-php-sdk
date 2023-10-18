@@ -13,7 +13,7 @@ class ipv6Gateway extends Model
      * @description The state of the IPv6 gateway. Valid values:
      *
      *   **Normal**: The IPv6 gateway runs as expected.
-     *   **FinancialLocked**: The IPv6 gateway is locked due to overdue payments.
+     *   **FinancialLocked:** The IPv6 gateway is locked due to overdue payments.
      *
      * @example Normal
      *
@@ -51,7 +51,7 @@ class ipv6Gateway extends Model
     /**
      * @description The billing method of the IPv6 gateway.
      *
-     * The value is set to **PostPaid**. This value indicates the pay-as-you-go billing method.
+     * Only **PostPaid** may be returned, which indicates that the IPv6 gateway uses the pay-as-you-go billing method.
      * @example PostPaid
      *
      * @var string
@@ -77,7 +77,7 @@ class ipv6Gateway extends Model
     public $name;
 
     /**
-     * @description The region ID of the IPv6 gateway.
+     * @description The ID of the region in which the IPv6 gateway is deployed.
      *
      * @example cn-huhehaote
      *
@@ -95,7 +95,7 @@ class ipv6Gateway extends Model
     public $resourceGroupId;
 
     /**
-     * @description The state of the IPv6 gateway. Valid values:
+     * @description The status of the IPv6 gateway. Valid values:
      *
      *   **Pending**: The IPv6 gateway is being configured.
      *   **Available**: The IPv6 gateway is available.
@@ -107,7 +107,7 @@ class ipv6Gateway extends Model
     public $status;
 
     /**
-     * @description The list of tags.
+     * @description The information about the tags.
      *
      * @var tags
      */

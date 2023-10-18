@@ -37,7 +37,7 @@ class ipv6Address extends Model
     public $associatedInstanceType;
 
     /**
-     * @description The IPv6 address.
+     * @description The IPv6 address of the instance.
      *
      * @example 2408:XXXX:153:3921:851c:c435:7b12:1c5f
      *
@@ -82,10 +82,10 @@ class ipv6Address extends Model
     /**
      * @description The service provider of the IPv6 address. Valid values:
      *
-     *   **BGP**: Alibaba Cloud Border Gateway Protocol (BGP) IPv6. This is the default value.
-     *   **ChinaMobile**: China Mobile (single ISP).
-     *   **ChinaUnicom**: China Unicom (single ISP).
-     *   **ChinaTelecom**: China Telecom (single ISP).
+     *   **BGP** (default)
+     *   **ChinaMobile**
+     *   **ChinaUnicom**
+     *   **ChinaTelecom**
      *
      * @example BGP
      *
@@ -96,8 +96,8 @@ class ipv6Address extends Model
     /**
      * @description The type of communication supported by the IPv6 address. Valid values:
      *
-     *   **Private**: communication within private networks
-     *   **Public**: communication over the Internet
+     *   **Private**
+     *   **Public**
      *
      * @example Private
      *
@@ -121,8 +121,8 @@ class ipv6Address extends Model
     /**
      * @description The status of the IPv6 address. Valid values:
      *
-     *   **Pending**: being configured
-     *   **Available**: available
+     *   **Pending**
+     *   **Available**
      *
      * @example Available
      *

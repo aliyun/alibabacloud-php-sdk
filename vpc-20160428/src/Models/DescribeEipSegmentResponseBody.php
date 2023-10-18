@@ -17,7 +17,7 @@ class DescribeEipSegmentResponseBody extends Model
     public $eipSegments;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeEipSegmentResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeEipSegmentResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F7A6301A-64BA-41EC-8284-8F4838C15D1F
      *
@@ -44,7 +44,7 @@ class DescribeEipSegmentResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned.
+     * @description The total number of entries returned.
      *
      * @example 10
      *

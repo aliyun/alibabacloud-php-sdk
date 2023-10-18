@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddCommonBandwidthPackageIpResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 01FDDD49-C4B7-4D2A-A8E5-A93915C450A6
      *

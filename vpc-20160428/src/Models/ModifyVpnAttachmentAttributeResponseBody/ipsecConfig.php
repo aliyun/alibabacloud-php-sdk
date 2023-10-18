@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipsecConfig extends Model
 {
     /**
-     * @description The authentication algorithm that was used in Phase 2 negotiations.
+     * @description The authentication algorithm that is used in Phase 2 negotiations.
      *
      * @example md5
      *
@@ -18,7 +18,7 @@ class ipsecConfig extends Model
     public $ipsecAuthAlg;
 
     /**
-     * @description The encryption algorithm that was used in Phase 2 negotiations.
+     * @description The encryption algorithm that is used in Phase 2 negotiations.
      *
      * @example aes
      *
@@ -27,7 +27,7 @@ class ipsecConfig extends Model
     public $ipsecEncAlg;
 
     /**
-     * @description The SA lifetime that was determined by Phase 2 negotiations. Unit: seconds.
+     * @description The SA lifetime that is determined by Phase 2 negotiations. Unit: seconds.
      *
      * @example 86400
      *
@@ -36,7 +36,7 @@ class ipsecConfig extends Model
     public $ipsecLifetime;
 
     /**
-     * @description The Diffie-Hellman key exchange algorithm that was used in Phase 2 negotiations.
+     * @description The DH key exchange algorithm that is used in Phase 2 negotiations.
      *
      * @example group2
      *

@@ -47,8 +47,8 @@ class services extends Model
     /**
      * @description Indicate whether the endpoint service supports the access policy. Valid values:
      *
-     *   **false**: no
-     *   **true**: yes
+     *   **false**
+     *   **true**
      *
      * @example true
      *

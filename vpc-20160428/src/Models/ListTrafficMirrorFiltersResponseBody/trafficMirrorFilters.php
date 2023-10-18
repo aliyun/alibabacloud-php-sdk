@@ -51,7 +51,7 @@ class trafficMirrorFilters extends Model
     public $trafficMirrorFilterDescription;
 
     /**
-     * @description The ID of the filter.
+     * @description The ID of the traffic mirror filter.
      *
      * @example tmf-j6cmls82xnc86vtpe****
      *

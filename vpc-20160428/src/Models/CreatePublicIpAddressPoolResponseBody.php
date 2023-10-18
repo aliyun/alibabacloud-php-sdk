@@ -18,7 +18,7 @@ class CreatePublicIpAddressPoolResponseBody extends Model
     public $pulbicIpAddressPoolId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AllocateIpv6InternetBandwidthRequest extends Model
 {
     /**
-     * @description The Internet bandwidth that you want to purchase for the IPv6 gateway. Valid values: **1 to 5000**. Unit: Mbit/s.
+     * @description The Internet bandwidth of the IPv6 gateway. Unit: Mbit/s. Valid values: **1 to 5000**.
      *
      * @example 2
      *
@@ -20,9 +20,9 @@ class AllocateIpv6InternetBandwidthRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must ensure that the value is unique among all requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -30,10 +30,10 @@ class AllocateIpv6InternetBandwidthRequest extends Model
     public $clientToken;
 
     /**
-     * @description The metering method of the Internet bandwidth of the IPv6 gateway. Valid values:
+     * @description The metering method of the Internet bandwidth for the IPv6 address. Valid values:
      *
-     *   **PayByTraffic**: the pay-by-data-transfer metering method
-     *   **PayByBandwidth**: the pay-by-bandwidth metering method
+     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth** (default): pay-by-bandwidth
      *
      * @example PayByBandwidth
      *
@@ -70,7 +70,7 @@ class AllocateIpv6InternetBandwidthRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      *
      * @example cn-huhehaote
      *

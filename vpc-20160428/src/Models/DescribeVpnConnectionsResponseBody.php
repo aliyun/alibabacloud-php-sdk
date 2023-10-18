@@ -46,7 +46,7 @@ class DescribeVpnConnectionsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The tag value.
+     * @description The information about the IPsec-VPN connection.
      *
      * @var vpnConnections
      */

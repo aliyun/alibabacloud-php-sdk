@@ -27,8 +27,9 @@ class tunnelBgpConfig extends Model
     public $localBgpIp;
 
     /**
-     * @description The CIDR block of the tunnel. The CIDR block must fall into 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+     * @description The CIDR block of the tunnel.
      *
+     * The CIDR block must fall into 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
      * @example 169.254.11.0/30
      *
      * @var string

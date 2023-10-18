@@ -10,12 +10,19 @@ use AlibabaCloud\Tea\Model;
 class publicIpAddressPoolList extends Model
 {
     /**
+     * @description The service type of the IP address pool. Valid values:
+     *
+     *   **CloudBox**: the cloud box service type. Only cloud box users can select this type.
+     *   **Default** (default): the general service type.
+     *
+     * @example CloudBox
+     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @description The region ID of the IP address pool.
+     * @description The time when the IP address pool was created. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2022-05-10T01:37:38Z
      *
@@ -24,11 +31,7 @@ class publicIpAddressPoolList extends Model
     public $creationTime;
 
     /**
-     * @description The status of the IP address pool. Valid values:
-     *
-     *   **Created**: The IP address pool is available.
-     *   **Deleting**: The IP address pool is being deleted.
-     *   **Modifying**: The IP address pool is being modified.
+     * @description The information about the IP address pool.
      *
      * @example AddressPoolDescription
      *
@@ -37,7 +40,10 @@ class publicIpAddressPoolList extends Model
     public $description;
 
     /**
-     * @description The number of occupied IP addresses in the public IP address pool.
+     * @description Indicates whether the IP address pool has idle IP addresses. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -46,8 +52,21 @@ class publicIpAddressPoolList extends Model
     public $ipAddressRemaining;
 
     /**
-     * @description The time when the IP address pool was created. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The line type. Valid values:
      *
+     *   **BGP**: BGP (Multi-ISP) line
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro line
+     *
+     * If you are allowed to use single-ISP bandwidth, one of the following values may be returned:
+     *
+     *   **ChinaTelecom**
+     *   **ChinaUnicom**
+     *   **ChinaMobile**
+     *   **ChinaTelecom_L2**
+     *   **ChinaUnicom_L2**
+     *   **ChinaMobile_L2**
+     *
+     * If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
      * @example BGP
      *
      * @var string
@@ -55,21 +74,8 @@ class publicIpAddressPoolList extends Model
     public $isp;
 
     /**
-     * @description The line type.
+     * @description The name of the IP address pool.
      *
-     *   **BGP**: BGP (Multi-ISP) lines
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines
-     *
-     * If you are allowed to use single-ISP bandwidth, one of the following values is returned:
-     *
-     *   **ChinaTelecom**: China Telecom
-     *   **ChinaUnicom**: China Unicom
-     *   **ChinaMobile**: China Mobile
-     *   **ChinaTelecom_L2**: China Telecom L2
-     *   **ChinaUnicom_L2**: China Unicom L2
-     *   **ChinaMobile_L2**: China Mobile L2
-     *
-     * If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
      * @example AddressPoolName
      *
      * @var string
@@ -77,10 +83,7 @@ class publicIpAddressPoolList extends Model
     public $name;
 
     /**
-     * @description Indicates whether the IP address pool has idle IP addresses. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The Alibaba Cloud account to which the IP address pool belongs.
      *
      * @example 121012345612****
      *
@@ -89,7 +92,7 @@ class publicIpAddressPoolList extends Model
     public $ownerId;
 
     /**
-     * @description The list of IP address pools.
+     * @description The ID of the IP address pool.
      *
      * @example pippool-6wetvn6fumkgycssx****
      *
@@ -98,7 +101,7 @@ class publicIpAddressPoolList extends Model
     public $publicIpAddressPoolId;
 
     /**
-     * @description The ID of the IP address pool.
+     * @description The ID of the region in which the IP address pool that you want to query resides.
      *
      * @example cn-chengdu
      *
@@ -107,10 +110,7 @@ class publicIpAddressPoolList extends Model
     public $regionId;
 
     /**
-     * @description Indicates whether the IP address pool is shared.
-     *
-     *   **Shared**: The IP address pool is shared.
-     *   An empty value indicates that the IP address pool is not shared.
+     * @description The ID of the resource group to which the IP address pool belongs.
      *
      * @example rg-acfmxazb4pcdvf****
      *
@@ -119,7 +119,10 @@ class publicIpAddressPoolList extends Model
     public $resourceGroupId;
 
     /**
-     * @description The Alibaba Cloud account to which the IP address pool belongs.
+     * @description Indicates whether the IP address pool is shared.
+     *
+     *   Only **Shared** may be returned.
+     *   An empty value indicates that the IP address pool is not shared.
      *
      * @example Shared
      *
@@ -128,7 +131,11 @@ class publicIpAddressPoolList extends Model
     public $shareType;
 
     /**
-     * @description The name of the IP address pool.
+     * @description The status of the IP address pool. Valid values:
+     *
+     *   **Created**
+     *   **Deleting**
+     *   **Modifying**
      *
      * @example Created
      *
@@ -137,14 +144,14 @@ class publicIpAddressPoolList extends Model
     public $status;
 
     /**
-     * @description The ID of the resource group to which the IP address pool belongs.
+     * @description The tags.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The description of the IP address pool.
+     * @description The total number of IP addresses in the public IP address pool.
      *
      * @example 100
      *
@@ -153,7 +160,7 @@ class publicIpAddressPoolList extends Model
     public $totalIpNum;
 
     /**
-     * @description The total number of IP addresses in the public IP address pool.
+     * @description The number of occupied IP addresses in the public IP address pool.
      *
      * @example 20
      *
@@ -162,11 +169,20 @@ class publicIpAddressPoolList extends Model
     public $usedIpNum;
 
     /**
+     * @description The user type. Valid values:
+     *
+     *   **admin**: administrator. An administrator can delete, modify, and query IP address pools and allocate elastic IP addresses (EIPs) to IP address pools.
+     *   **user**: regular user. A regular user can only allocate EIPs to IP address pools and query IP address pools. A regular user cannot modify or delete IP address pools.
+     *
+     * @example admin
+     *
      * @var bool
      */
     public $userType;
 
     /**
+     * @description The zones of the IP address pool. This parameter is returned only when BizType is set to CloudBox.
+     *
      * @var string[]
      */
     public $zones;

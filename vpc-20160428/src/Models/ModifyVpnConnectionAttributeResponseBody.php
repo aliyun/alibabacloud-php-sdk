@@ -24,8 +24,9 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The ID of the customer gateway.
+     * @description The ID of the customer gateway associated with the IPsec-VPN connection.
      *
+     * This parameter is returned only for single-tunnel IPsec-VPN connections.
      * @example cgw-p0w2jemrcj5u61un8****
      *
      * @var string
@@ -44,8 +45,8 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     /**
      * @description Indicates whether IPsec negotiations immediately start after the configuration takes effect. Valid values:
      *
-     *   **true:** IPsec negotiations immediately start after the configuration takes effect.
-     *   **false:** IPsec negotiations start when inbound traffic is detected.
+     *   **true**: IPsec negotiations immediately start after the configuration takes effect.
+     *   **false**: IPsec negotiations start when inbound traffic is detected.
      *
      * @example false
      *
@@ -54,11 +55,12 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $effectImmediately;
 
     /**
-     * @description Indicates whether DPD is enabled. Valid values:
+     * @description Indicates whether the DPD feature is enabled for the IPsec-VPN connection. Valid values:
      *
-     *   **false:** The DPD feature is disabled.
-     *   **true:** The DPD feature is enabled.
+     *   **false**
+     *   **true**
      *
+     * This parameter is returned only for single-tunnel IPsec-VPN connections.
      * @example true
      *
      * @var bool
@@ -66,11 +68,12 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $enableDpd;
 
     /**
-     * @description Indicates whether NAT traversal is enabled. Valid values:
+     * @description Indicates whether NAT traversal is enabled for the IPsec-VPN connection. Valid values: Valid values:
      *
-     *   **false:** NAT traversal is disabled.
-     *   **true:** NAT traversal is enabled.
+     *   **false**
+     *   **true**
      *
+     * This parameter is returned only for single-tunnel IPsec-VPN connections.
      * @example true
      *
      * @var bool
@@ -79,8 +82,9 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
 
     /**
      * @description Indicates whether BGP is enabled for the tunnel. Valid values:
-     * - **true**
-     * - **false**
+     *
+     *   **true**
+     *   **false**
      *
      * This parameter is returned only by dual-tunnel IPsec-VPN connections.
      * @example true
@@ -90,14 +94,18 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $enableTunnelsBgp;
 
     /**
-     * @description The configurations of Phase 1 negotiations.
+     * @description The configuration of Phase 1 negotiations.
+     *
+     **IkeConfig** parameters are returned only for single-tunnel IPsec-VPN connections.
      *
      * @var ikeConfig
      */
     public $ikeConfig;
 
     /**
-     * @description The configurations of Phase 2 negotiations.
+     * @description The configuration of Phase 2 negotiations.
+     *
+     **IpsecConfig** parameters are returned only for single-tunnel IPsec-VPN connections.
      *
      * @var ipsecConfig
      */
@@ -131,7 +139,7 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $remoteSubnet;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7DB79D0C-5F27-4AB5-995B-79BE55102F90
      *
@@ -140,7 +148,7 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The tunnel configurations of the IPsec-VPN connection.
+     * @description The tunnel configuration of the IPsec-VPN connection.
      *
      **TunnelOptionsSpecification** parameters are returned only for dual-tunnel IPsec-VPN connections.
      *
@@ -149,14 +157,18 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $tunnelOptionsSpecification;
 
     /**
-     * @description The health check configurations.
+     * @description The health check configuration.
+     *
+     **VcoHealthCheck** parameters are returned only for single-tunnel IPsec-VPN connections.
      *
      * @var vcoHealthCheck
      */
     public $vcoHealthCheck;
 
     /**
-     * @description The BGP configurations.
+     * @description The BGP configuration.
+     *
+     **VpnBgpConfig** parameters are returned only for single-tunnel IPsec-VPN connections.
      *
      * @var vpnBgpConfig
      */

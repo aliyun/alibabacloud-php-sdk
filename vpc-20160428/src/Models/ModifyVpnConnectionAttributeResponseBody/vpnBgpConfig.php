@@ -11,8 +11,8 @@ class vpnBgpConfig extends Model
     /**
      * @description Indicates whether BGP is enabled. Valid values:
      *
-     *   **true:** BGP is enabled.
-     *   **false:** BGP is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -48,7 +48,7 @@ class vpnBgpConfig extends Model
     public $peerAsn;
 
     /**
-     * @description The BGP IP address on the data center side.
+     * @description The BGP IP address of the data center.
      *
      * @example 169.254.11.2
      *
@@ -57,10 +57,10 @@ class vpnBgpConfig extends Model
     public $peerBgpIp;
 
     /**
-     * @description The negotiation status of BGP. Valid values:
+     * @description The negotiation state of BGP. Valid values:
      *
-     *   **success:** normal.
-     *   **false:** abnormal.
+     *   **success**: normal
+     *   **false**: abnormal
      *
      * @example success
      *
@@ -69,7 +69,7 @@ class vpnBgpConfig extends Model
     public $status;
 
     /**
-     * @description The CIDR block of the IPsec tunnel.
+     * @description The BGP CIDR block of the IPsec-VPN connection.
      *
      * @example 169.254.11.0/30
      *

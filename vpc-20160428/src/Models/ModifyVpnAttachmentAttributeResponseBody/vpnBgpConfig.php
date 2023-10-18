@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class vpnBgpConfig extends Model
 {
     /**
-     * @description Indicates whether BGP is enabled for the IPsec-VPN connection.
+     * @description Indicates whether BGP is enabled for the IPsec-VPN connection. Valid values:
      *
-     *   **true:** BGP is enabled.
-     *   **false:** BGP is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -57,10 +57,10 @@ class vpnBgpConfig extends Model
     public $peerBgpIp;
 
     /**
-     * @description The negotiation status of BGP.
+     * @description The negotiation state of BGP. Valid values:
      *
-     *   **success:** normal.
-     *   **false:** abnormal.
+     *   **success**: normal
+     *   **false**: abnormal
      *
      * @example false
      *

@@ -47,6 +47,10 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
     public $services;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $totalCount;

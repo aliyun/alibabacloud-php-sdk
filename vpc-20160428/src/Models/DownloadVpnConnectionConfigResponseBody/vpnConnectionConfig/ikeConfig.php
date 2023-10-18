@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ikeConfig extends Model
 {
     /**
-     * @description The IKE authentication algorithm. Valid values: **sha1** and **MD5**.
+     * @description The authentication algorithm in the IKE phase.
      *
      * @example sha1
      *
@@ -18,7 +18,7 @@ class ikeConfig extends Model
     public $ikeAuthAlg;
 
     /**
-     * @description The IKE encryption algorithm.
+     * @description The encryption algorithm in the IKE phase.
      *
      * @example aes
      *
@@ -27,7 +27,7 @@ class ikeConfig extends Model
     public $ikeEncAlg;
 
     /**
-     * @description The IKE lifetime. Unit: seconds.
+     * @description The lifetime in the IKE phase. Unit: seconds.
      *
      * @example 86400
      *
@@ -36,7 +36,10 @@ class ikeConfig extends Model
     public $ikeLifetime;
 
     /**
-     * @description The IKE mode. Valid values: **main** and **aggressive**. The **main** mode offers higher security. If NAT traversal is enabled, we recommend that you use the **aggressive** mode.
+     * @description The IKE negotiation mode. Valid values:
+     *
+     *   **main**: This mode offers higher security during negotiations.
+     *   **aggressive**: This mode is faster and has a higher success rate.
      *
      * @example main
      *
@@ -45,7 +48,7 @@ class ikeConfig extends Model
     public $ikeMode;
 
     /**
-     * @description The DH group.
+     * @description The DH group in the IKE phase.
      *
      * @example group2
      *
@@ -63,7 +66,7 @@ class ikeConfig extends Model
     public $ikeVersion;
 
     /**
-     * @description The local ID. The default value is the IP address of the VPN gateway. You can specify the value as an IP address or in the FQDN format.
+     * @description The identifier of the customer gateway. FQDN and IP formats are supported. The default value is the IP address of the customer gateway.
      *
      * @example 116.62.XX.XX
      *
@@ -81,7 +84,7 @@ class ikeConfig extends Model
     public $psk;
 
     /**
-     * @description The peer ID. The default value is the IP address of the customer gateway. You can specify the value as an IP address or in the fully qualified domain name (FQDN) format.
+     * @description The identifier of the VPN gateway. FQDN and IP formats are supported. The default value is the IP address of the VPN gateway.
      *
      * @example 139.196.XX.XX
      *

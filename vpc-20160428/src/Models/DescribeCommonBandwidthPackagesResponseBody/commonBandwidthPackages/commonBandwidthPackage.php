@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class commonBandwidthPackage extends Model
 {
     /**
-     * @description The maximum bandwidth of the EIP bandwidth plan. Unit: Mbit/s.
+     * @description The maximum bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
      *
      * @example 20
      *
@@ -21,7 +21,7 @@ class commonBandwidthPackage extends Model
     public $bandwidth;
 
     /**
-     * @description The ID of the EIP bandwidth plan.
+     * @description The ID of the Internet Shared Bandwidth instance.
      *
      * @example cbwp-bp1t3sm1ffzmshdki****
      *
@@ -30,16 +30,23 @@ class commonBandwidthPackage extends Model
     public $bandwidthPackageId;
 
     /**
+     * @description The service type of the Internet Shared Bandwidth instance. Valid values:
+     *
+     *   **CloudBox** The cloud box. Only cloud box users can select this type.
+     *   **Default** (default): The general service type.
+     *
+     * @example CloudBox
+     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @description The service state of the EIP bandwidth plan.
+     * @description The service status of the Internet Shared Bandwidth instance. Valid values:
      *
-     *   **Normal**: The EIP bandwidth plan works as expected.
-     *   **FinancialLocked**: The EIP bandwidth plan has an overdue payment.
-     *   **Unactivated**: The EIP bandwidth plan is not activated.
+     *   **Normal**: The Internet Shared Bandwidth instance runs as expected.
+     *   **FinancialLocked**: An overdue payment occurs in the Internet Shared Bandwidth instance
+     *   **Unactivated**: The Internet Shared Bandwidth instance is not activated.
      *
      * @example Normal
      *
@@ -48,7 +55,7 @@ class commonBandwidthPackage extends Model
     public $businessStatus;
 
     /**
-     * @description The time when the EIP bandwidth plan was created. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The time when the Internet Shared Bandwidth instance was created. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2017-06-28T06:39:20Z
      *
@@ -57,10 +64,10 @@ class commonBandwidthPackage extends Model
     public $creationTime;
 
     /**
-     * @description Indicates whether deletion protection was enabled.
+     * @description Indicates whether deletion protection is enabled. Valid values:
      *
-     *   **true**: Deletion protection was enabled.
-     *   **false**: Deletion protection was disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -69,7 +76,7 @@ class commonBandwidthPackage extends Model
     public $deletionProtection;
 
     /**
-     * @description The description of the EIP bandwidth plan.
+     * @description The description of the Internet Shared Bandwidth instance.
      *
      * @example none
      *
@@ -78,7 +85,7 @@ class commonBandwidthPackage extends Model
     public $description;
 
     /**
-     * @description The time when the EIP bandwidth plan expired. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The time when the Internet Shared Bandwidth instance expired. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2019-01-15T03:08:37Z
      *
@@ -87,10 +94,10 @@ class commonBandwidthPackage extends Model
     public $expiredTime;
 
     /**
-     * @description Indicates whether the information about pending orders was returned.
+     * @description Indicates whether the information about pending orders is returned. Valid values:
      *
-     *   **false**: The information about pending orders was not returned.
-     *   **true**: The information about pending orders was returned.
+     *   **false**
+     *   **true**
      *
      * @example false
      *
@@ -99,19 +106,19 @@ class commonBandwidthPackage extends Model
     public $hasReservationData;
 
     /**
-     * @description The line type.
+     * @description The line type. Valid values:
      *
-     *   **BGP**: BGP (Multi-ISP) lines. BGP (Multi-ISP) lines are available in all regions.
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. BGP (Multi-ISP) Pro lines are available only in the China (Hong Kong), Singapore, Philippines (Manila), Malaysia (Kuala Lumpur), Indonesia (Jakarta), and Thailand (Bangkok) regions.
+     *   **BGP**: BGP (Multi-ISP) line The BGP (Multi-ISP) line is supported in all regions.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro line The BGP (Multi-ISP) Pro line is supported in the China (Hong Kong), Singapore (Singapore), Japan (Tokyo), Philippines (Manila), Malaysia (Kuala Lumpur), Indonesia (Jakarta), and Thailand (Bangkok) regions.
      *
      * If you are allowed to use single-ISP bandwidth, one of the following values is returned:
      *
-     *   **ChinaTelecom**: China Telecom
-     *   **ChinaUnicom**: China Unicom
-     *   **ChinaMobile**: China Mobile
-     *   **ChinaTelecom_L2**: China Telecom L2
-     *   **ChinaUnicom_L2**: China Unicom L2
-     *   **ChinaMobile_L2**: China Mobile L2
+     *   **ChinaTelecom**
+     *   **ChinaUnicom**
+     *   **ChinaMobile**
+     *   **ChinaTelecom_L2**
+     *   **ChinaUnicom_L2**
+     *   **ChinaMobile_L2**
      *
      * If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
      * @example BGP
@@ -121,9 +128,9 @@ class commonBandwidthPackage extends Model
     public $ISP;
 
     /**
-     * @description The billing method of the EIP bandwidth plan.
+     * @description The billing method of the Internet Shared Bandwidth instance. Valid value:
      *
-     **PostPaid**: the pay-as-you-go billing method
+     **PostPaid**: pay-as-you-go
      *
      * @example PostPaid
      *
@@ -132,9 +139,9 @@ class commonBandwidthPackage extends Model
     public $instanceChargeType;
 
     /**
-     * @description The metering method of the EIP bandwidth plan.
+     * @description The metering method of the Internet Shared Bandwidth instance. Valid value:
      *
-     **PayByTraffic**: the pay-by-data-transfer metering method.
+     **PayByTraffic**
      *
      * @example PayByBandwidth
      *
@@ -143,7 +150,7 @@ class commonBandwidthPackage extends Model
     public $internetChargeType;
 
     /**
-     * @description The name of the EIP bandwidth plan.
+     * @description The name of the Internet Shared Bandwidth instance.
      *
      * @example abc
      *
@@ -152,16 +159,16 @@ class commonBandwidthPackage extends Model
     public $name;
 
     /**
-     * @description The elastic IP addresses (EIPs) associated with the EIP bandwidth plan.
+     * @description The elastic IP addresses (EIPs) that are associated with the Internet Shared Bandwidth instance.
      *
      * @var publicIpAddresses
      */
     public $publicIpAddresses;
 
     /**
-     * @description The percentage of the minimum bandwidth commitment. **20** is returned.
+     * @description The percentage of the minimum bandwidth commitment. Only **20** is returned.
      *
-     * >  This parameter is available only on the Alibaba Cloud China site.
+     * >  This parameter is supported only on the Alibaba Cloud China site.
      * @example 20
      *
      * @var int
@@ -169,7 +176,7 @@ class commonBandwidthPackage extends Model
     public $ratio;
 
     /**
-     * @description The region ID of the EIP bandwidth plan.
+     * @description The ID of the region where the Internet Shared Bandwidth instance resides.
      *
      * @example cn-hangzhou
      *
@@ -187,7 +194,7 @@ class commonBandwidthPackage extends Model
     public $reservationActiveTime;
 
     /**
-     * @description The new maximum bandwidth. Unit: Mbit/s.
+     * @description The new maximum bandwidth after the configurations are changed. Unit: Mbit/s.
      *
      * @example 1000
      *
@@ -196,9 +203,9 @@ class commonBandwidthPackage extends Model
     public $reservationBandwidth;
 
     /**
-     * @description The new metering method.
+     * @description The metering method after the configurations are changed. Valid value:
      *
-     **PayByTraffic**: the pay-by-data-transfer metering method
+     **PayByTraffic**
      *
      * @example PayByBandwidth
      *
@@ -207,11 +214,11 @@ class commonBandwidthPackage extends Model
     public $reservationInternetChargeType;
 
     /**
-     * @description The renewal method.
+     * @description The renewal method. Valid values:
      *
-     *   **RENEWCHANGE**: renewal with an upgrade or a downgrade
-     *   **TEMP_UPGRADE**: temporary upgrade
-     *   **UPGRADE**: upgrade
+     *   **RENEWCHANGE**: renewal with a specification change
+     *   **TEMP_UPGRADE**: renewal with a temporary upgrade
+     *   **UPGRADE**: renewal with an upgrade
      *
      * @example RENEWCHANGE
      *
@@ -229,19 +236,20 @@ class commonBandwidthPackage extends Model
     public $resourceGroupId;
 
     /**
-     * @description The edition of Anti-DDoS.
+     * @description The editions of Anti-DDoS.
      *
-     * - If this parameter is empty, it indicates that Anti-DDoS Origin Basic was enabled.
-     * - If **AntiDDoS_Enhanced** is returned, it indicates that Anti-DDoS Pro/Premium was enabled.
+     *   If this parameter is empty, Anti-DDoS Origin Basic is enabled.
+     *   If **AntiDDoS_Enhanced** is returned, Anti-DDoS Pro/Premium is enabled.
+     *
      * @var securityProtectionTypes
      */
     public $securityProtectionTypes;
 
     /**
-     * @description Indicates whether the EIP bandwidth plan was created by the service account.
+     * @description Indicates whether the resource is created by the service account. Valid values:
      *
-     *   **0**: The EIP bandwidth plan was not created by the service account.
-     *   **1**: The EIP bandwidth plan was created by the service account.
+     *   **0**: The resource is not created by the service account.
+     *   **1**: The resource is created by the service account.
      *
      * @example 1
      *
@@ -250,10 +258,10 @@ class commonBandwidthPackage extends Model
     public $serviceManaged;
 
     /**
-     * @description The status of the EIP bandwidth plan. Valid values:
+     * @description The status of the Internet Shared Bandwidth instance. Valid values:
      *
-     *   **Available**: The EIP bandwidth plan is available.
-     *   **Modifying**: The EIP bandwidth plan is being modified.
+     *   **Available**: The Internet Shared Bandwidth instance is available.
+     *   **Modifying**: The Internet Shared Bandwidth instance is being modified.
      *
      * @example Available
      *
@@ -262,11 +270,17 @@ class commonBandwidthPackage extends Model
     public $status;
 
     /**
+     * @description The tag that is added to the Internet Shared Bandwidth instance.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The zone of the Internet Shared Bandwidth instance. This parameter is returned only when BizType is set to CloudBox. If BizType is set to Default, an empty value is returned.
+     *
+     * @example ap-southeast-1-lzdvn-cb
+     *
      * @var string
      */
     public $zone;

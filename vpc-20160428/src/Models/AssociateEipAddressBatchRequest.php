@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AssociateEipAddressBatchRequest extends Model
 {
     /**
-     * @description The ID of the instance to be associated with EIPs.
+     * @description The ID of the instance with which you want to associate the EIPs.
      *
      * The instance can be a NAT gateway or a secondary ENI.
      * @example ngw-hp3akk9irtd69jad****
@@ -19,10 +19,10 @@ class AssociateEipAddressBatchRequest extends Model
     public $bindedInstanceId;
 
     /**
-     * @description The type of instance with which you want to associate the EIPs. Valid values:
+     * @description The type of the instance with which you want to associate the EIPs. Valid values:
      *
-     *   **Nat**: a NAT gateway
-     *   **NetworkInterface**: a secondary ENI
+     *   **Nat**: NAT gateway
+     *   **NetworkInterface**: secondary ENI
      *
      * @example Nat
      *
@@ -33,9 +33,9 @@ class AssociateEipAddressBatchRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can only contain ASCII characters.
+     * You can use the client to generate a token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not specify this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-0016e04115b
      *
      * @var string
@@ -43,6 +43,9 @@ class AssociateEipAddressBatchRequest extends Model
     public $clientToken;
 
     /**
+     * @description The EIPs to be associated with the instance.
+     *
+     * You must enter at least one EIP. You can enter up to 50 EIPs.
      * @var string[]
      */
     public $instanceIds;
@@ -50,7 +53,7 @@ class AssociateEipAddressBatchRequest extends Model
     /**
      * @description The association mode. Set the value to **MULTI_BINDED**, which specifies the Multi-EIP-to-ENI mode.
      *
-     * This parameter is required only if **InstanceType** is set to **NetworkInterface**.
+     * This parameter is required only when **BindedInstanceType** is set to **NetworkInterface**.
      * @example MULTI_BINDED
      *
      * @var string
@@ -63,9 +66,8 @@ class AssociateEipAddressBatchRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the EIPs belong.
+     * @description The ID of the region to which the EIPs belong. You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string

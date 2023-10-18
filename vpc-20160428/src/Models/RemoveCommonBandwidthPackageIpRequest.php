@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveCommonBandwidthPackageIpRequest extends Model
 {
     /**
-     * @description The ID of the EIP bandwidth plan.
+     * @description The ID of the Internet Shared Bandwidth instance.
      *
      * @example cbwp-2ze2ic1xd2qeqk145****
      *
@@ -20,9 +20,9 @@ class RemoveCommonBandwidthPackageIpRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -30,9 +30,9 @@ class RemoveCommonBandwidthPackageIpRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the EIP.
+     * @description The EIP ID.
      *
-     * You can call the [DescribeEipAddresses](~~36018~~) operation to query the most recent region list.
+     * You can call the [DescribeEipAddresses](~~36018~~) operation to query EIP IDs.
      * @example eip-2zeerraiwb7uj6i0d****
      *
      * @var string
@@ -50,7 +50,7 @@ class RemoveCommonBandwidthPackageIpRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the EIP bandwidth plan.
+     * @description The region ID of the Internet Shared Bandwidth instance.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou

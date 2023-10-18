@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddCommonBandwidthPackageIpRequest extends Model
 {
     /**
-     * @description The ID of the EIP bandwidth plan.
+     * @description The ID of the Internet Shared Bandwidth instance.
      *
      * @example cbwp-2ze2ic1xd2qeqasdf****
      *
@@ -20,9 +20,9 @@ class AddCommonBandwidthPackageIpRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -30,9 +30,9 @@ class AddCommonBandwidthPackageIpRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the EIP.
+     * @description The EIP ID.
      *
-     * You can call the [DescribeEipAddresses](~~36018~~) operation to query the most recent region list.
+     * You can call the [DescribeEipAddresses](~~36018~~) operation to query EIP IDs.
      * @example eip-2zeerraiwb7uqwed****
      *
      * @var string
@@ -40,7 +40,7 @@ class AddCommonBandwidthPackageIpRequest extends Model
     public $ipInstanceId;
 
     /**
-     * @description The type of IP address. Set the value to **EIP** to associate an EIP with the EIP bandwidth plan.
+     * @description The type of the IP address. Set the value to **EIP** to associate EIPs with the Internet Shared Bandwidth instance.
      *
      * @example EIP
      *
@@ -59,7 +59,7 @@ class AddCommonBandwidthPackageIpRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the EIP bandwidth plan.
+     * @description The region ID of the Internet Shared Bandwidth instance.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou

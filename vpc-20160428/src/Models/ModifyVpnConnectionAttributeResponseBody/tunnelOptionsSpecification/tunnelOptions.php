@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class tunnelOptions extends Model
 {
     /**
-     * @description The ID of the customer gateway that is associated with the tunnel.
+     * @description The ID of the customer gateway associated with the tunnel.
      *
      * @example cgw-p0wy363lucf1uyae8****
      *
@@ -21,10 +21,11 @@ class tunnelOptions extends Model
     public $customerGatewayId;
 
     /**
-     * @description Indicates whether DPD is enabled for the tunnel. Valid values:
+     * @description Indicates whether the DPD feature is enabled for the tunnel. Valid values:
      *
-     * - **false**
-     * - **true**
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var bool
@@ -34,8 +35,9 @@ class tunnelOptions extends Model
     /**
      * @description Indicates whether NAT traversal is enabled for the tunnel. Valid values:
      *
-     * - **false**
-     * - **true**
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var bool
@@ -52,9 +54,9 @@ class tunnelOptions extends Model
     public $internetIp;
 
     /**
-     * @description The CA certificate used by the IPsec peer.
+     * @description The CA certificate of the tunnel peer.
      *
-     * This parameter is returned only by VPN gateways that use SM certificates.
+     * This parameter is returned only if the VPN gateway is of the SM type.
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
      * @var string
@@ -64,8 +66,9 @@ class tunnelOptions extends Model
     /**
      * @description The tunnel role. Valid values:
      *
-     * - **master**
-     * - **slave**
+     *   **master**: The tunnel is an active tunnel.
+     *   **slave**: The tunnel is a standby tunnel.
+     *
      * @example master
      *
      * @var string
@@ -75,9 +78,10 @@ class tunnelOptions extends Model
     /**
      * @description The tunnel status. Valid values:
      *
-     * - **active**
-     * - **updating**
-     * - **deleting**
+     *   **active**
+     *   **updating**
+     *   **deleting**
+     *
      * @example active
      *
      * @var string
@@ -85,7 +89,7 @@ class tunnelOptions extends Model
     public $state;
 
     /**
-     * @description The BGP configurations.
+     * @description The BGP configuration.
      *
      * @var tunnelBgpConfig
      */

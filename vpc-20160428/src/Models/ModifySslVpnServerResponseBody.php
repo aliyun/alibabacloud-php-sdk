@@ -56,8 +56,8 @@ class ModifySslVpnServerResponseBody extends Model
     /**
      * @description Indicates whether two-factor authentication is enabled.
      *
-     *   **true**: enabled
-     *   **false** (default): disabled
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -138,7 +138,7 @@ class ModifySslVpnServerResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DF11D6F6-E35A-41C3-9B20-6FC8A901FE65
      *

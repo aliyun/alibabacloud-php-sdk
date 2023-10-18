@@ -11,8 +11,8 @@ class ModifyVpnGatewayAttributeRequest extends Model
     /**
      * @description Specifies whether to automatically advertise BGP routes to the virtual private cloud (VPC). Valid values:
      *
-     *   **true:** yes.
-     *   **false:** no.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -23,7 +23,7 @@ class ModifyVpnGatewayAttributeRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The value of RequestId may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 123e4567-e89b-12d3-a456-4266****
      *
      * @var string
@@ -43,7 +43,7 @@ class ModifyVpnGatewayAttributeRequest extends Model
     /**
      * @description The new name of the VPN gateway.
      *
-     * The name must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 2 to 100 characters in length and cannot start with `http://` or `https://`. It must start with a letter and can contain letters, digits, underscores (\_), hyphens (-), and periods (.). Other characters are not supported.
      * @example myvpn
      *
      * @var string

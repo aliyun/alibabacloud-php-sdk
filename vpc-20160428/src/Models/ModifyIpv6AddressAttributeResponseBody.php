@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpv6AddressAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D560AF68-4CE8-4A5C-B3FE-469F558094D0
      *

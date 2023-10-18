@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonBandwidthPackagesResponseBody extends Model
 {
     /**
-     * @description The details of the EIP bandwidth plan.
+     * @description The details of the Internet Shared Bandwidth instance.
      *
      * @var commonBandwidthPackages
      */
     public $commonBandwidthPackages;
 
     /**
-     * @description The number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeCommonBandwidthPackagesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeCommonBandwidthPackagesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 20E6FD1C-7321-4DAD-BDFD-EC8769E4AA33
      *

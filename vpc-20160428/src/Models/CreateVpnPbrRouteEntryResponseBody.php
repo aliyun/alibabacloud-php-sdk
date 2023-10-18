@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnPbrRouteEntryResponseBody extends Model
 {
     /**
-     * @description The timestamp generated when the policy-based route was created. Unit: milliseconds.
+     * @description The time when the policy-based route was created.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1492747187000
      *
      * @var int
@@ -37,7 +37,7 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $nextHop;
 
     /**
-     * @description The tunneling protocol. The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
+     * @description The tunneling protocol. The value is **Ipsec**.
      *
      * @example Ipsec
      *
@@ -55,7 +55,7 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $priority;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
      *
@@ -94,7 +94,7 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $state;
 
     /**
-     * @description The ID of the VPN gateway.
+     * @description The VPN gateway ID.
      *
      * @example vpn-bp1cmw7jh1nfe43m9****
      *
@@ -103,7 +103,7 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $vpnInstanceId;
 
     /**
-     * @description The weight of the policy-based route.
+     * @description The weight of the policy-based route. Valid values:
      *
      *   **100**: The IPsec-VPN connection associated with the policy-based route serves as an active connection.
      *   **0**: The IPsec-VPN connection associated with the policy-based route serves as a standby connection.

@@ -11,7 +11,7 @@ class DescribeSnatTableEntriesRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
-     * >  You must set at least one of the **SnatTableId** and **NatGatewayId** parameters.
+     * >  You must specify at least one of **SnatTableId** and **NatGatewayId**.
      * @example ngw-bp1uewa15k4iy5770****
      *
      * @var string
@@ -29,7 +29,7 @@ class DescribeSnatTableEntriesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -38,7 +38,7 @@ class DescribeSnatTableEntriesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -47,7 +47,7 @@ class DescribeSnatTableEntriesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the NAT gateway.
+     * @description The ID of the region where you want to create the NAT gateway.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -98,7 +98,7 @@ class DescribeSnatTableEntriesRequest extends Model
     /**
      * @description The ID of the SNAT table.
      *
-     * >  You must set at least one of the **SnatTableId** and **NatGatewayId** parameters.
+     * >  You must specify at least one of **SnatTableId** and **NatGatewayId**.
      * @example stb-8vbczigrhop8x5u3t****
      *
      * @var string

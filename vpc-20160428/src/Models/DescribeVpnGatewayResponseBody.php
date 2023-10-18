@@ -66,6 +66,7 @@ class DescribeVpnGatewayResponseBody extends Model
 
     /**
      * @description The second IP address assigned by the system to create an IPsec-VPN connection.
+     *
      * This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
      * @example 47.91.XX.XX
      *
@@ -106,7 +107,10 @@ class DescribeVpnGatewayResponseBody extends Model
     public $endTime;
 
     /**
-     * @description - If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
+     * @description *   If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
+     *
+     *   If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the address is the first IP address used to create an IPsec-VPN connection. The address cannot be used to create an SSL-VPN connection.
+     *
      * If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the system assigns two IP addresses to the VPN gateway to create two encrypted tunnels.
      * @example 47.22.XX.XX
      *

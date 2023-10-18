@@ -11,7 +11,7 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The value of RequestId for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the value of RequestId as the client token. The value of RequestId is different for each API request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -40,7 +40,7 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     /**
      * @description The type of the instance for which you want to create an egress-only rule.
      *
-     * Set the value to **Ipv6Address** (default). This value specifies the IPv6 address type.
+     * Default value: **Ipv6Address**
      * @example Ipv6Address
      *
      * @var string
@@ -77,9 +77,9 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the IPv6 gateway.
+     * @description The ID of the region in which the IPv6 gateway is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
      * @example cn-huhehaote
      *
      * @var string

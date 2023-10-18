@@ -90,6 +90,8 @@ class CreateHaVipRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag of the resource.
+     *
      * @var tag[]
      */
     public $tag;

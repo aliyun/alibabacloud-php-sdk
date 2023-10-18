@@ -11,8 +11,8 @@ class ingressRules extends Model
     /**
      * @description The action of the inbound rule. Valid values:
      *
-     *   **accept**: accepts network traffic.
-     *   **drop**: does not collect network traffic.
+     *   **accept**
+     *   **drop**
      *
      * @example accept
      *
@@ -50,10 +50,10 @@ class ingressRules extends Model
     /**
      * @description The protocol that is used by the inbound traffic to be mirrored. Valid values:
      *
-     *   **ALL**: all protocols
-     *   **ICMP**: ICMP
-     *   **TCP**: TCP
-     *   **UDP**: UDP
+     *   **ALL**
+     *   **ICMP**
+     *   **TCP**
+     *   **UDP**
      *
      * @example ALL
      *
@@ -82,8 +82,8 @@ class ingressRules extends Model
     /**
      * @description The direction of the network traffic. Valid values:
      *
-     *   **egress**: outbound
-     *   **ingress**: inbound
+     *   **egress**
+     *   **ingress**
      *
      * @example ingress
      *

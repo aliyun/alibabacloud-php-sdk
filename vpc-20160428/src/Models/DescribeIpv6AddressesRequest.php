@@ -28,6 +28,13 @@ class DescribeIpv6AddressesRequest extends Model
     public $associatedInstanceType;
 
     /**
+     * @description Specifies whether to return information about pending orders. Valid values:
+     *
+     *   **false** (default)
+     *   **true**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $includeReservationData;
@@ -42,7 +49,7 @@ class DescribeIpv6AddressesRequest extends Model
     public $ipv6Address;
 
     /**
-     * @description The ID of the IPv6 address that you want to query. You can enter at most 20 IPv6 IDs in each API request. Separate IPv6 IDs with commas (,).
+     * @description The ID of the IPv6 address that you want to query. You can enter at most 20 IPv6 address IDs in each API request. Separate IPv6 address IDs with commas (,).
      *
      * @example ipv6-2zen5j4axcp5l5qyy****
      *
@@ -72,8 +79,8 @@ class DescribeIpv6AddressesRequest extends Model
     /**
      * @description The type of communication supported by the IPv6 address. Valid values:
      *
-     *   **Private**: communication within private networks
-     *   **Public**: communication over the Internet
+     *   **Private**
+     *   **Public**
      *
      * @example Private
      *

@@ -19,7 +19,7 @@ class CreateIpsecServerResponseBody extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the IPsec server.
+     * @description The IPsec server ID.
      *
      * @example iss-bp1jougp8cfsbo8y9****
      *
@@ -28,7 +28,7 @@ class CreateIpsecServerResponseBody extends Model
     public $ipsecServerId;
 
     /**
-     * @description The name of the IPsec server.
+     * @description The IPsec server name.
      *
      * @example test
      *
@@ -46,7 +46,7 @@ class CreateIpsecServerResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 690A967E-D4CD-4B69-8C78-94FE828BA10B
      *

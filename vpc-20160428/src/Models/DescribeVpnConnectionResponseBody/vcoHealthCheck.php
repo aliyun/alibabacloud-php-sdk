@@ -18,10 +18,10 @@ class vcoHealthCheck extends Model
     public $dip;
 
     /**
-     * @description Indicates whether health checks are enabled.
+     * @description Indicates whether the health check feature is enabled for the IPsec-VPN connection. Valid values:
      *
-     *   **false**: disabled
-     *   **true**: enabled
+     *   **false**
+     *   **true**
      *
      * @example true
      *
@@ -30,7 +30,7 @@ class vcoHealthCheck extends Model
     public $enable;
 
     /**
-     * @description The interval of health check retries. Unit: seconds.
+     * @description The interval between two consecutive health checks. Unit: seconds.
      *
      * @example 3
      *
@@ -39,10 +39,10 @@ class vcoHealthCheck extends Model
     public $interval;
 
     /**
-     * @description Indicates whether advertised routes are withdrawn when the health check fails.
+     * @description Indicates whether advertised routes are withdrawn when the health check fails. Valid values:
      *
-     *   **revoke_route**: published routes are withdrawn.
-     *   **reserve_route**: published routes are not withdrawn.
+     *   **revoke_route**: Advertised routes are withdrawn.
+     *   **reserve_route**: Advertised routes are not withdrawn.
      *
      * @example revoke_route
      *
@@ -69,9 +69,9 @@ class vcoHealthCheck extends Model
     public $sip;
 
     /**
-     * @description The status of the health check.
+     * @description The state of the health check. Valid values:
      *
-     *   **failed**: abnormal
+     *   **failed**
      *   **success**: normal
      *
      * @example failed

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnatTableEntriesResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeSnatTableEntriesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 5
      *
@@ -28,7 +28,7 @@ class DescribeSnatTableEntriesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6D7E89B1-1C5B-412B-8585-4908E222EED5
      *
@@ -37,14 +37,14 @@ class DescribeSnatTableEntriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the SNAT entries.
+     * @description Details of SNAT entries.
      *
      * @var snatTableEntries
      */
     public $snatTableEntries;
 
     /**
-     * @description The number of entries returned.
+     * @description The number of returned entries.
      *
      * @example 1
      *

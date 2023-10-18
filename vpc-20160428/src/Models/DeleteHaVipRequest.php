@@ -30,15 +30,11 @@ class DeleteHaVipRequest extends Model
     public $haVipId;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $ownerId;
@@ -53,15 +49,11 @@ class DeleteHaVipRequest extends Model
     public $regionId;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $resourceOwnerId;

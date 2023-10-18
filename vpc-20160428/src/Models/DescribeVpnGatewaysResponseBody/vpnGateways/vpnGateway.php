@@ -13,8 +13,8 @@ class vpnGateway extends Model
     /**
      * @description Indicates whether BGP routes are automatically advertised to the VPC. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -25,8 +25,8 @@ class vpnGateway extends Model
     /**
      * @description The payment status of the VPN gateway.
      *
-     *   **Normal:** The VPN gateway is running as expected.
-     *   **FinancialLocked**: The VPN gateway is locked due to overdue payments.
+     *   **Normal**
+     *   **FinancialLocked**
      *
      * @example Normal
      *
@@ -37,7 +37,7 @@ class vpnGateway extends Model
     /**
      * @description The billing method of the VPN gateway.
      *
-     * The value is set to **POSTPAY**, which indicates the pay-as-you-go billing method.
+     * The value is fixed as **POSTPAY**, which indicates the pay-as-you-go billing method.
      * @example Example value for the China site (aliyun.com): Prepay. Example value for the International site (alibabacloud.com): POSTPAY.
      *
      * @var string
@@ -47,7 +47,7 @@ class vpnGateway extends Model
     /**
      * @description The timestamp when the VPN gateway was created. Unit: milliseconds.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1515383700000
      *
      * @var int
@@ -84,10 +84,10 @@ class vpnGateway extends Model
     public $disasterRecoveryVSwitchId;
 
     /**
-     * @description The BGP status of the VPN gateway.
+     * @description Indicates whether BGP is enabled for the VPN gateway.
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -98,7 +98,7 @@ class vpnGateway extends Model
     /**
      * @description The timestamp when the VPN gateway expires. Unit: milliseconds.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1518105600000
      *
      * @var int
@@ -106,7 +106,10 @@ class vpnGateway extends Model
     public $endTime;
 
     /**
-     * @description - If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
+     * @description *   If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
+     *
+     *   If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the address is the first IP address used to create an IPsec-VPN connection. The address cannot be used to create an SSL-VPN connection.
+     *
      * If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the system assigns two IP addresses to the VPN gateway to create two encrypted tunnels.
      * @example 47.12.XX.XX
      *
@@ -117,8 +120,8 @@ class vpnGateway extends Model
     /**
      * @description Indicates whether IPsec-VPN is enabled for the VPN gateway.
      *
-     *   **enable**: enabled
-     *   **disable**: disabled
+     *   **enable**
+     *   **disable**
      *
      * @example enable
      *
@@ -138,8 +141,8 @@ class vpnGateway extends Model
     /**
      * @description The network type of the VPN gateway.
      *
-     *   **public**: public VPN gateway
-     *   **private**: private VPN gateway
+     *   **public**
+     *   **private**
      *
      * @example public
      *
@@ -148,7 +151,7 @@ class vpnGateway extends Model
     public $networkType;
 
     /**
-     * @description The information about the pending orders.
+     * @description The information about pending orders.
      *
      * >  This parameter is returned only when **IncludeReservationData** is set to **true**.
      * @var reservationData
@@ -176,8 +179,8 @@ class vpnGateway extends Model
     /**
      * @description Indicates whether SSL-VPN is enabled for the VPN gateway.
      *
-     *   **enable**: enabled
-     *   **disable**: disabled
+     *   **enable**
+     *   **disable**
      *
      * @example enable
      *
@@ -196,10 +199,13 @@ class vpnGateway extends Model
     public $sslVpnInternetIp;
 
     /**
-     * @description The status of the pending order.
+     * @description The status of the VPN gateway. Valid values:
      *
-     *   **1**: indicates that the order for renewal or the order for renewal with a specification change has not taken effect.
-     *   **2**: indicates that the order for a temporary upgrade has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specification.
+     *   **init**
+     *   **provisioning**
+     *   **active**
+     *   **updating**
+     *   **deleting**
      *
      * @example active
      *
@@ -212,27 +218,27 @@ class vpnGateway extends Model
      *
      *   **VpnEnableBgp**: indicates whether the VPN gateway supports BGP. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      *   **VisuallySsl**: indicates whether the VPN gateway allows you to view information about connected SSL clients.
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      *   **PbrPriority**: indicates whether the VPN gateway allows you to configure priorities for policy-based routes.
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      *   **VpnNewImage**: indicates whether the VPN gateway is upgraded.
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
-     *   **description**: the description of the VPN gateway. This parameter is for internal system use only.
+     *   **description**
      *
-     *   **VpnVersion**: the version of the VPN gateway.
+     *   **VpnVersion**
      *
      * @example {\"VpnEnableBgp\":\"true\",\"VisuallySsl\":\"true\",\"PbrPriority\":\"true\",\"VpnNewImage\":\"true\",\"description\":\"forwarding1.3.7\",\"VpnVersion\":\"v1.2.4\"}
      *
@@ -241,7 +247,7 @@ class vpnGateway extends Model
     public $tag;
 
     /**
-     * @description The list of tags added to the VPN gateway.
+     * @description The tags to be added to the VPN gateway.
      *
      * @var tags
      */
@@ -257,7 +263,7 @@ class vpnGateway extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC to which the VPN gateway belongs.
+     * @description The ID of the virtual private cloud (VPC) to which the VPN gateway belongs.
      *
      * @example vpc-bp1m3i0kn1nd4wiw9****
      *
@@ -277,7 +283,7 @@ class vpnGateway extends Model
     /**
      * @description The type of the VPN gateway.
      *
-     * The value is set to **Normal**, which indicates a standard NAT gateway.
+     * Only **Normal** may be returned, which indicates a standard NAT gateway.
      * @example Normal
      *
      * @var string

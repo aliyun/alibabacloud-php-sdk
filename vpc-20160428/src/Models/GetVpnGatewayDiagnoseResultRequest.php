@@ -11,7 +11,10 @@ class GetVpnGatewayDiagnoseResultRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The ID of each request may be different.
+     **
+     *
+     **Description** If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+     *
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -19,7 +22,7 @@ class GetVpnGatewayDiagnoseResultRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the diagnostic.
+     * @description The ID of the diagnostic operation.
      *
      * When you call the [DiagnoseVpnGateway](~~469751~~) operation, the system returns a corresponding ID.
      * @example vpndgn-uf6kuxbe3iv028k3s****
@@ -31,7 +34,7 @@ class GetVpnGatewayDiagnoseResultRequest extends Model
     /**
      * @description The region ID of the VPN gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-qingdao
      *
      * @var string

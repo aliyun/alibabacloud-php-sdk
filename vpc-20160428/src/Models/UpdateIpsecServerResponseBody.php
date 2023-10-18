@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateIpsecServerResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B61C08E5-403A-46A2-96C1-F7B1216DB10C
      *

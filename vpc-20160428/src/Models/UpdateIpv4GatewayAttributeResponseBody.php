@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateIpv4GatewayAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 671CEB03-C98D-5916-950C-C55B0BD06621
      *

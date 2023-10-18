@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The tag key that is added to the Internet Shared Bandwidth instance.
+     *
+     * @example KeyTest
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value that is added to the Internet Shared Bandwidth instance.
+     *
+     * @example ValueTest
+     *
      * @var string
      */
     public $value;

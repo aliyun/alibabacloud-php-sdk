@@ -11,7 +11,7 @@ class ModifyIpv6AddressAttributeRequest extends Model
     /**
      * @description The description of the IPv6 address.
      *
-     * It must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. The name must start with a letter but cannot start with `http://` or `https://`.
+     * It must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. The name must start with a letter and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -30,7 +30,7 @@ class ModifyIpv6AddressAttributeRequest extends Model
     /**
      * @description The name of the IPv6 address.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter. The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter. The name must start with a letter and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string

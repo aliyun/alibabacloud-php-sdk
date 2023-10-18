@@ -57,7 +57,7 @@ class CreateBgpPeerRequest extends Model
      *   **IPv4**: This is the default value.
      *   **IPv6**: IPv6 is supported only if the VBR for which you want to create the BGP group has IPv6 enabled.
      *
-     * @example ipv4
+     * @example IPv4
      *
      * @var string
      */

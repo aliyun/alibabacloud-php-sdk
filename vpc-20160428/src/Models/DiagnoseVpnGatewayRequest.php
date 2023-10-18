@@ -11,7 +11,7 @@ class DiagnoseVpnGatewayRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The ID of each request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string

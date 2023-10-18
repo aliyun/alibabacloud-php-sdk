@@ -21,7 +21,7 @@ class DescribeIpv6GatewaysRequest extends Model
     /**
      * @description The name of the IPv6 gateway.
      *
-     * The name must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter. It cannot start with `http://` or `https://`.
+     * The name must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
      * @example ipv6GW
      *
      * @var string
@@ -39,7 +39,7 @@ class DescribeIpv6GatewaysRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -48,7 +48,7 @@ class DescribeIpv6GatewaysRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -57,9 +57,8 @@ class DescribeIpv6GatewaysRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the IPv6 gateway is deployed.
+     * @description The ID of the region in which the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
      *
-     * >  IPv6 gateways are available in the following regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), China (Hong Kong), Philippines (Manila), Singapore, US (Virginia), and Germany (Frankfurt).
      * @example cn-huhehaote
      *
      * @var string
@@ -86,6 +85,8 @@ class DescribeIpv6GatewaysRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The information about the tags.
+     *
      * @var tags[]
      */
     public $tags;

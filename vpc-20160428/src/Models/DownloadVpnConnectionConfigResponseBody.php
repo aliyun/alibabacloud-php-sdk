@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DownloadVpnConnectionConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0C68048B-0F70-40DA-B8AE-1B79B5CF62E3
      *
@@ -19,7 +19,7 @@ class DownloadVpnConnectionConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The configuration of the IPsec-VPN connection.
+     * @description The configurations of the peer gateway device.
      *
      * @var vpnConnectionConfig
      */

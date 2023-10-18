@@ -19,7 +19,7 @@ class DescribeVpnConnectionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the IPsec-VPN connection is established.
+     * @description The ID of the region where the IPsec-VPN connection is created.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou

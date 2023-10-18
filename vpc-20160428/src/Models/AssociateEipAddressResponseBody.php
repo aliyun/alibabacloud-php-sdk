@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AssociateEipAddressResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *

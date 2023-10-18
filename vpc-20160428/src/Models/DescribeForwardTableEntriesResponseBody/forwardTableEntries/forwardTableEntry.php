@@ -80,9 +80,9 @@ class forwardTableEntry extends Model
     /**
      * @description The protocol. Valid values:
      *
-     *   **TCP**: The NAT gateway forwards TCP packets.
-     *   **UDP**: The NAT gateway forwards UDP packets.
-     *   **Any**: The NAT gateway forwards packets of all protocols.
+     *   **TCP**
+     *   **UDP**
+     *   **Any**
      *
      * @example TCP
      *
@@ -91,6 +91,10 @@ class forwardTableEntry extends Model
     public $ipProtocol;
 
     /**
+     * @description The ID of the NAT gateway to which the DNAT entry belongs.
+     *
+     * @example ngw-bp1uewa15k4iy5770****
+     *
      * @var string
      */
     public $natGatewayId;
@@ -98,9 +102,9 @@ class forwardTableEntry extends Model
     /**
      * @description The status of the DNAT entry. Valid values:
      *
-     *   **Pending**: being created or modified
-     *   **Available**: available
-     *   **Deleting**: being deleted
+     *   **Pending**
+     *   **Available**
+     *   **Deleting**
      *
      * @example Available
      *

@@ -17,7 +17,7 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $endpoints;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 20
      *
@@ -26,10 +26,10 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
      *
      *   If no value is returned for **NextToken**, no next queries are sent.
-     *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+     *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -38,7 +38,7 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0AB1129F-32C1-5E4D-9E22-E4A859CA46EB
      *
@@ -47,7 +47,7 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries returned.
      *
      * @example 10
      *

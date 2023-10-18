@@ -11,9 +11,9 @@ class ModifyVpnPbrRouteEntryWeightRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example d7d24a21-f4ba-4454-9173-b3828dae492b
      *
      * @var string
@@ -42,7 +42,7 @@ class ModifyVpnPbrRouteEntryWeightRequest extends Model
     public $nextHop;
 
     /**
-     * @description The tunneling protocol. Set the value to **Ipsec**.
+     * @description The tunneling protocol. The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
      *
      * @example Ipsec
      *
@@ -67,7 +67,7 @@ class ModifyVpnPbrRouteEntryWeightRequest extends Model
      *
      *   If the route was assigned a priority, this parameter is optional.
      *
-     * If you set this parameter, set the value to the priority that was assigned to the route. Otherwise, the operation fails.
+     * If you specify this parameter, set the value to the priority that was assigned to the policy-based route. Otherwise, the operation fails.
      * @example 10
      *
      * @var int

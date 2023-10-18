@@ -50,6 +50,11 @@ class CreatePhysicalConnectionRequest extends Model
     public $description;
 
     /**
+     * @var string[]
+     */
+    public $deviceAdvancedCapacity;
+
+    /**
      * @description The connectivity provider of the Express Connect circuit. Valid values:
      *
      *   **CT**: China Telecom
@@ -176,6 +181,7 @@ class CreatePhysicalConnectionRequest extends Model
         'circuitCode'                   => 'CircuitCode',
         'clientToken'                   => 'ClientToken',
         'description'                   => 'Description',
+        'deviceAdvancedCapacity'        => 'DeviceAdvancedCapacity',
         'lineOperator'                  => 'LineOperator',
         'name'                          => 'Name',
         'ownerAccount'                  => 'OwnerAccount',
@@ -210,6 +216,9 @@ class CreatePhysicalConnectionRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->deviceAdvancedCapacity) {
+            $res['DeviceAdvancedCapacity'] = $this->deviceAdvancedCapacity;
         }
         if (null !== $this->lineOperator) {
             $res['LineOperator'] = $this->lineOperator;
@@ -282,6 +291,11 @@ class CreatePhysicalConnectionRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DeviceAdvancedCapacity'])) {
+            if (!empty($map['DeviceAdvancedCapacity'])) {
+                $model->deviceAdvancedCapacity = $map['DeviceAdvancedCapacity'];
+            }
         }
         if (isset($map['LineOperator'])) {
             $model->lineOperator = $map['LineOperator'];

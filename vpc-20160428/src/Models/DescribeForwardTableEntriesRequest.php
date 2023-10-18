@@ -55,7 +55,10 @@ class DescribeForwardTableEntriesRequest extends Model
     /**
      * @description The ID of the DNAT table.
      *
-     * >  You must set at least one of the **ForwardTableId** and **NatGatewayId** parameters.
+     **
+     *
+     **Description** You must specify at least one of **ForwardTableId** and **NatGatewayId**.
+     *
      * @example ftb-bp1mbjubq34hlcqpa****
      *
      * @var string
@@ -87,9 +90,9 @@ class DescribeForwardTableEntriesRequest extends Model
     /**
      * @description The protocol. Valid values:
      *
-     *   **TCP**: The NAT gateway forwards TCP packets.
-     *   **UDP**: The NAT gateway forwards UDP packets.
-     *   **Any**: The NAT gateway forwards packets of all protocols.
+     *   **TCP**
+     *   **UDP**
+     *   **Any**
      *
      * @example TCP
      *
@@ -100,7 +103,10 @@ class DescribeForwardTableEntriesRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
-     * >  You must set at least one of the **ForwardTableId** and **NatGatewayId** parameters.
+     **
+     *
+     **Description** You must specify at least one of **ForwardTableId** and **NatGatewayId**.
+     *
      * @example ngw-bp1uewa15k4iy5770****
      *
      * @var string
@@ -118,7 +124,7 @@ class DescribeForwardTableEntriesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -127,7 +133,7 @@ class DescribeForwardTableEntriesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -136,7 +142,7 @@ class DescribeForwardTableEntriesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the NAT gateway.
+     * @description The ID of the region where you want to create the NAT gateway.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou

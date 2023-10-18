@@ -54,7 +54,7 @@ class vpnBgpConfig extends Model
     public $peerBgpIp;
 
     /**
-     * @description The negotiation status of the BGP routing protocol. Valid values:
+     * @description The negotiation state of the BGP routing protocol. Valid values:
      *
      *   **success**: normal
      *   **false**: abnormal
@@ -66,7 +66,7 @@ class vpnBgpConfig extends Model
     public $status;
 
     /**
-     * @description The CIDR block of the IPsec tunnel. The CIDR block falls within 169.254.0.0/16. The mask of the CIDR block is 30 bits in length.
+     * @description The BGP CIDR block of the IPsec-VPN connection. The CIDR block falls within 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
      *
      * @example 169.254.10.0/30
      *

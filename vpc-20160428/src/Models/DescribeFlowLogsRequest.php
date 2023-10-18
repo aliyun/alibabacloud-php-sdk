@@ -12,7 +12,7 @@ class DescribeFlowLogsRequest extends Model
     /**
      * @description The description of the flow log.
      *
-     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example This is my Flowlog.
      *
      * @var string
@@ -31,7 +31,7 @@ class DescribeFlowLogsRequest extends Model
     /**
      * @description The name of the flow log.
      *
-     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example myFlowlog
      *
      * @var string
@@ -123,7 +123,7 @@ class DescribeFlowLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource from which traffic is captured. Valid values:
+     * @description The type of resource from which traffic is captured. Valid values:
      *
      *   **NetworkInterface**: elastic network interface (ENI)
      *   **VSwitch**: all ENIs in a vSwitch
@@ -138,9 +138,9 @@ class DescribeFlowLogsRequest extends Model
     /**
      * @description The status of the flow log. Valid values:
      *
-     *   **Active**: enabled
-     *   **Activating**: being enabled
-     *   **Inactive**: disabled
+     *   **Active**
+     *   **Activating**
+     *   **Inactive**
      *
      * @example Active
      *

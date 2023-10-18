@@ -20,9 +20,9 @@ class ipv6InternetBandwidth extends Model
     /**
      * @description The status of the Internet bandwidth of the IPv6 address. Valid values:
      *
-     *   **Normal**: normal
-     *   **FinancialLocked**: locked due to overdue payments
-     *   **SecurityLocked**: locked due to security reasons
+     *   **Normal**
+     *   **FinancialLocked**
+     *   **SecurityLocked**
      *
      * @example Normal
      *
@@ -31,15 +31,21 @@ class ipv6InternetBandwidth extends Model
     public $businessStatus;
 
     /**
+     * @description Indicates whether renewal data is included.
+     *
+     *   **false**
+     *   **true** This parameter returns **true** only if **IncludeReservationData** is set to **true** and some orders have not taken effect.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $hasReservationData;
 
     /**
-     * @description The billing method of the Internet bandwidth of the IPv6 address. Valid values:
+     * @description The billing method of the Internet bandwidth of the IPv6 address.
      *
-     **PostPaid**: pay-as-you-go
-     *
+     * Only **PostPaid** may be returned, which indicates the pay-as-you-go billing method.
      * @example PostPaid
      *
      * @var string
@@ -68,21 +74,40 @@ class ipv6InternetBandwidth extends Model
     public $ipv6InternetBandwidthId;
 
     /**
+     * @description The time when the renewal took effect. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
+     *
+     * @example 2021-05-23T16:00:00Z
+     *
      * @var string
      */
     public $reservationActiveTime;
 
     /**
+     * @description The maximum bandwidth after the renewal takes effect. Unit: Mbit/s.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $reservationBandwidth;
 
     /**
+     * @description The metering method that is used after the renewal takes effect.
+     *
+     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth**: pay-by-bandwidth
+     *
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $reservationInternetChargeType;
 
     /**
+     * @description The type of the renewal order. Only **RENEW** may be returned, which indicates that the order is placed for service renewal.
+     *
+     * @example RENEW
+     *
      * @var string
      */
     public $reservationOrderType;

@@ -10,20 +10,28 @@ use AlibabaCloud\Tea\Model;
 class ListTrafficMirrorFiltersResponseBody extends Model
 {
     /**
+     * @description The number of entries returned.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The maximum number of entries returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If no value is returned for **NextToken**, no next queries are sent.
-     *   If the return value of **NextToken** is not empty, the value indicates the token that is used for the next query.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that is used for the next query.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -32,7 +40,7 @@ class ListTrafficMirrorFiltersResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 739CA01C-92EB-4C69-BCC0-280149C6F41E
      *

@@ -21,10 +21,11 @@ class tunnelOptions extends Model
     public $customerGatewayId;
 
     /**
-     * @description Indicates whether DPD is enabled for the tunnel. Valid values:
+     * @description Indicates whether the DPD feature is enabled for the tunnel. Valid values:
      *
-     * - **false**
-     * - **true**
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var string
@@ -32,10 +33,11 @@ class tunnelOptions extends Model
     public $enableDpd;
 
     /**
-     * @description Indicates whether NAT traversal is enabled for the tunnel.
+     * @description Indicates whether NAT traversal is enabled for the tunnel. Valid values:
      *
-     * - **false**
-     * - **true**
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var string
@@ -52,8 +54,9 @@ class tunnelOptions extends Model
     public $internetIp;
 
     /**
-     * @description The CA certificate of the tunnel peer. This parameter is returned only if the VPN gateway is of the ShangMi (SM) type.
+     * @description The CA certificate of the tunnel peer.
      *
+     * This parameter is returned only if the VPN gateway is of the ShangMi (SM) type.
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
      * @var string
@@ -63,8 +66,9 @@ class tunnelOptions extends Model
     /**
      * @description The tunnel role. Valid values:
      *
-     * - **master**
-     * - **slave**
+     *   **master**: The tunnel is an active tunnel.
+     *   **slave**: The tunnel is a standby tunnel.
+     *
      * @example master
      *
      * @var string
@@ -74,9 +78,10 @@ class tunnelOptions extends Model
     /**
      * @description The tunnel status. Valid values:
      *
-     * - **active**
-     * - **updating**
-     * - **deleting**
+     *   **active**
+     *   **updating**
+     *   **deleted**
+     *
      * @example active
      *
      * @var string
@@ -84,12 +89,12 @@ class tunnelOptions extends Model
     public $state;
 
     /**
-     * @description The status of the IPsec-VPN connection. Valid values:
+     * @description The state of the IPsec-VPN connection. Valid values:
      *
      *   **ike_sa_not_established**: Phase 1 negotiations failed.
-     *   **ike_sa_established**: Phase 1 negotiations were successful.
+     *   **ike_sa_established**: Phase 1 negotiations succeeded.
      *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
-     *   **ipsec_sa_established**: Phase 2 negotiations were successful.
+     *   **ipsec_sa_established**: Phase 2 negotiations succeeded.
      *
      * @example ipsec_sa_established
      *
@@ -98,7 +103,7 @@ class tunnelOptions extends Model
     public $status;
 
     /**
-     * @description The BGP configurations.
+     * @description The BGP configuration.
      *
      * @var tunnelBgpConfig
      */
@@ -114,22 +119,23 @@ class tunnelOptions extends Model
     public $tunnelId;
 
     /**
-     * @description The configurations of Phase 1 negotiations.
+     * @description The configuration of Phase 1 negotiations.
      *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
-     * @description The configurations of Phase 2 negotiations.
+     * @description The configuration of Phase 2 negotiations.
      *
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;
 
     /**
-     * @description The zone where the tunnel is deployed. You can call [DescribeZones](~~36064~~) to query zone IDs.
+     * @description The zone of the tunnel.
      *
+     * You can call [DescribeZones](~~36064~~) to query zone IDs and mapping between zone IDs and zone names.
      * @example ap-southeast-5a
      *
      * @var string

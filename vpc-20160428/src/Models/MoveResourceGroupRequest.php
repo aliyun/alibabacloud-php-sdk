@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which the cloud resource is to be moved.
+     * @description The ID of the resource group to which you want to move the resource.
      *
-     * >  You can use resource groups to manage resources owned by your Alibaba Cloud account. Resource groups simplify the resource and permission management of your Alibaba Cloud account. For more information, see [What is resource management?](~~94475~~).
+     * >  You can use resource groups to facilitate resource grouping and permission management for an Alibaba Cloud. For more information, see [What is resource management?](~~94475~~)
      * @example rg-acfm3peow3k****
      *
      * @var string
@@ -39,7 +39,7 @@ class MoveResourceGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the instance that you want to move.
+     * @description The resource ID.
      *
      * @example vpc-hp31psbg8ec3023s6****
      *
@@ -58,11 +58,21 @@ class MoveResourceGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The type of the resource for which you want to modify the resource group. Valid values:
      *
-     *   **vpc**: a virtual private cloud (VPC)
-     *   **eip**: an elastic IP address (EIP)
-     *   **bandwidthpackage**: an EIP bandwidth plan
+     *   **Vpc**
+     *   **Eip**
+     *   **BandwidthPackage**
+     *   **PrefixList**
+     *   **PublicIpAddressPool**
+     *   **FlowLog**
+     *   **HaVip**
+     *   **TrafficMirrorFilter**
+     *   **TrafficMirrorSession**
+     *   **IPv4Gateway**
+     *   **IPv6Gateway**
+     *   **DhcpOptionsSet**
+     *   **GatewayEndpoint**
      *
      * @example vpc
      *

@@ -21,10 +21,11 @@ class tunnelOptions extends Model
     public $customerGatewayId;
 
     /**
-     * @description Indicates whether DPD is enabled for the tunnel. Valid values:
+     * @description Indicates whether the DPD feature is enabled for the tunnel. Valid values:
      *
-     * - **false**
-     * - **true**
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var string
@@ -34,8 +35,9 @@ class tunnelOptions extends Model
     /**
      * @description Indicates whether NAT traversal is enabled for the tunnel. Valid values:
      *
-     * - **false**
-     * - **true**
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var string
@@ -64,8 +66,9 @@ class tunnelOptions extends Model
     /**
      * @description The tunnel role. Valid values:
      *
-     * - **master**
-     * - **slave**
+     *   **master**: The tunnel is an active tunnel.
+     *   **slave**: The tunnel is a standby tunnel.
+     *
      * @example master
      *
      * @var string
@@ -74,9 +77,11 @@ class tunnelOptions extends Model
 
     /**
      * @description The tunnel status. Valid values:
-     * - **active**
-     * - **updating**
-     * - **deleting**
+     *
+     *   **active**
+     *   **updating**
+     *   **deleted**
+     *
      * @example active
      *
      * @var string
@@ -84,12 +89,12 @@ class tunnelOptions extends Model
     public $state;
 
     /**
-     * @description The status of the IPsec-VPN connection. Valid values:
+     * @description The state of the IPsec-VPN connection. Valid values:
      *
      *   **ike_sa_not_established**: Phase 1 negotiations failed.
-     *   **ike_sa_established**: Phase 1 negotiations were successful.
+     *   **ike_sa_established**: Phase 1 negotiations succeeded.
      *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
-     *   **ipsec_sa_established**: Phase 2 negotiations were successful.
+     *   **ipsec_sa_established**: Phase 2 negotiations succeeded.
      *
      * @example ipsec_sa_established
      *

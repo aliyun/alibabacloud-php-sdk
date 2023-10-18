@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the fine-grained monitoring instance.
+     * @description The ID of the instance whose fine-grained monitoring configurations you want to query.
      *
      * @example eip-wz9fi6qboho9fwgx7****
      *
@@ -18,7 +18,7 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The type of the monitoring instance that is queried. The value is set to **EIP**.
+     * @description The type of instance for which you want to query fine-grained monitoring. Only **EIP** may be returned.
      *
      * @example EIP
      *
@@ -27,7 +27,7 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
     public $instanceType;
 
     /**
-     * @description The name of the log project of Log Service.
+     * @description The name of the project.
      *
      * @example hdmonitor-cn-shenzhen-1658206966225390
      *
@@ -36,7 +36,7 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
     public $logProject;
 
     /**
-     * @description The name of the Logstore of Log Service.
+     * @description The name of the Logstore.
      *
      * @example hdmonitor
      *
@@ -45,7 +45,7 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
     public $logStore;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
      *
@@ -56,8 +56,8 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
     /**
      * @description Indicates whether the operation is performed. Valid values:
      *
-     *   **true**: The operation is performed.
-     *   **false**: The operation is not performed.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

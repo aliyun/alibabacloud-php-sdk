@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetVpcGatewayEndpointAttributeResponseBody extends Model
 {
     /**
-     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-08-27T01:58:37Z
      *
@@ -48,12 +48,12 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     /**
      * @description The status of the gateway endpoint. Valid values:
      *
-     *   **Creating**: being created
-     *   **Created**: created
-     *   **Modifying**: being modified
-     *   **Associating**: being associated
-     *   **Dissociating**: being disassociated
-     *   **Deleting**: being deleted
+     *   **Creating**
+     *   **Created**
+     *   **Modifying**
+     *   **Associating**
+     *   **Dissociating**
+     *   **Deleting**
      *
      * @example Created
      *
@@ -71,7 +71,7 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $policyDocument;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A1122D0F-7B3B-5445-BB19-17F27F97FE1C
      *
@@ -80,6 +80,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the gateway endpoint belongs.
+     *
      * @example rg-acfmxvfvazb4p****
      *
      * @var string
@@ -103,6 +105,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $serviceName;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;

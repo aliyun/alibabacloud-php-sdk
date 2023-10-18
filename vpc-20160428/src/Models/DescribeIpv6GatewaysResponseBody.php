@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6GatewaysResponseBody extends Model
 {
     /**
-     * @description The details about the IPv6 gateways.
+     * @description The information about the IPv6 gateway.
      *
      * @var ipv6Gateways
      */
     public $ipv6Gateways;
 
     /**
-     * @description The number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeIpv6GatewaysResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeIpv6GatewaysResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E3A06196-3E7C-490D-8F39-CB4B5A0CE8AD
      *

@@ -85,6 +85,8 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

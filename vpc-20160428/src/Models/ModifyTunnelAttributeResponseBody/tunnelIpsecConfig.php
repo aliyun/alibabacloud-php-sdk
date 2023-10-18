@@ -36,7 +36,7 @@ class tunnelIpsecConfig extends Model
     public $ipsecLifetime;
 
     /**
-     * @description The Diffie-Hellman group.
+     * @description The DH group.
      *
      * @example group2
      *

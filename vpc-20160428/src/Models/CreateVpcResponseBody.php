@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
@@ -18,7 +18,7 @@ class CreateVpcResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmxazb4ph6aiy****
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipsecConfig extends Model
 {
     /**
-     * @description The IPsec authentication algorithm.
+     * @description The authentication algorithm in the IPsec phase.
      *
      * @example sha1
      *
@@ -18,7 +18,7 @@ class ipsecConfig extends Model
     public $ipsecAuthAlg;
 
     /**
-     * @description The IPsec encryption algorithm.
+     * @description The encryption algorithm in the IPsec phase.
      *
      * @example aes
      *
@@ -27,7 +27,7 @@ class ipsecConfig extends Model
     public $ipsecEncAlg;
 
     /**
-     * @description The IPsec lifetime. Unit: seconds.
+     * @description The lifetime in the IPsec phase. Unit: seconds.
      *
      * @example 86400
      *
@@ -36,7 +36,7 @@ class ipsecConfig extends Model
     public $ipsecLifetime;
 
     /**
-     * @description The DH group.
+     * @description The DH group in the IPsec phase.
      *
      * @example group2
      *

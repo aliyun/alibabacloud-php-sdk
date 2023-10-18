@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eipSegment extends Model
 {
     /**
-     * @description The time when the contiguous EIP group was created. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
+     * @description The time when the contiguous EIP group was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2020-03-06T12:30:07Z
      *
@@ -72,11 +72,11 @@ class eipSegment extends Model
     public $segment;
 
     /**
-     * @description The status of the contiguous EIP group.
+     * @description The status of the contiguous EIP group. Valid values:
      *
-     *   **Allocating**: being allocated
-     *   **Allocated**: allocated
-     *   **Releasing**: being released
+     *   **Allocating**
+     *   **Allocated**
+     *   **Releasing**
      *
      * @example Allocated
      *
@@ -85,6 +85,10 @@ class eipSegment extends Model
     public $status;
 
     /**
+     * @description The zone of the contiguous EIP group.
+     *
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zone;

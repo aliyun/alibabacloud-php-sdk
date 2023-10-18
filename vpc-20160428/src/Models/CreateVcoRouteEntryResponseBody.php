@@ -11,7 +11,7 @@ class CreateVcoRouteEntryResponseBody extends Model
     /**
      * @description The timestamp when the destination-based route was created. Unit: milliseconds.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1658387202664
      *
      * @var int
@@ -47,7 +47,7 @@ class CreateVcoRouteEntryResponseBody extends Model
     public $overlayMode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example CFC4D13B-E680-3985-95B1-87AA155481DF
      *
@@ -84,7 +84,7 @@ class CreateVcoRouteEntryResponseBody extends Model
     public $vpnConnectionId;
 
     /**
-     * @description The weight of the destination-based route.
+     * @description The weight of the destination-based route. Valid values:
      *
      *   **0**: a low priority
      *   **100**: a high priority

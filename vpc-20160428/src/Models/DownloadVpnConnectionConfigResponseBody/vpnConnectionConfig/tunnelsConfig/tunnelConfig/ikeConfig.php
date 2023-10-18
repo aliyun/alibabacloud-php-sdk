@@ -38,8 +38,9 @@ class ikeConfig extends Model
     /**
      * @description The IKE negotiation mode. Valid values:
      *
-     * - **main**: This mode offers higher security during negotiations.
-     * - **aggressive**: This mode is faster and has a higher success rate.
+     *   **main**: This mode offers higher security during negotiations.
+     *   **aggressive**: This mode is faster and has a higher success rate.
+     *
      * @example main
      *
      * @var string

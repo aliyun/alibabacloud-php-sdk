@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnRouteEntryWeightResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
      *

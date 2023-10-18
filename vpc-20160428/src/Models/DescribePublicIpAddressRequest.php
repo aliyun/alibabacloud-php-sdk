@@ -19,7 +19,7 @@ class DescribePublicIpAddressRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribePublicIpAddressRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Valid values: **1** to **100**. Default value: **100**.
      * @example 100
@@ -38,9 +38,8 @@ class DescribePublicIpAddressRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region that you want to query.
+     * @description The region that you want to query. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

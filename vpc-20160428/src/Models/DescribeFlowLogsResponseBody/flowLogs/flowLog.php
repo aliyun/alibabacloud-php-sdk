@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class flowLog extends Model
 {
     /**
-     * @description The sampling interval of the flow log. Unit: seconds.
+     * @description The sampling interval of the flow log. Unit: minutes.
      *
      * @example 10
      *
@@ -22,8 +22,8 @@ class flowLog extends Model
     /**
      * @description The business status of the flow log. Valid values:
      *
-     *   **Normal**: active
-     *   **FinancialLocked**: locked due to overdue payments
+     *   **Normal**
+     *   **FinancialLocked**
      *
      * @example Normal
      *
@@ -50,11 +50,24 @@ class flowLog extends Model
     public $description;
 
     /**
+     * @description If the flow log failed to be delivered, you can troubleshoot based on the following error messages that may be returned:
+     *
+     *   **UnavaliableTarget**: The Logstore of SLS is unavailable and cannot receive logs. Check whether the Logstore is available.
+     *   **ProjectNotExist**: The project of SLS does not exist. We recommend that you delete the project and create a new one.
+     *   **UnknownError**: An internal error occurred. Try again later.
+     *
+     * @example UnavaliableTarget
+     *
      * @var string
      */
     public $flowLogDeliverErrorMessage;
 
     /**
+     * @description Indicates whether the flow log is delivered. Valid values:
+     * - **SUCCESS**
+     * - **FAILED**
+     * @example FAILED
+     *
      * @var string
      */
     public $flowLogDeliverStatus;
@@ -125,7 +138,7 @@ class flowLog extends Model
     /**
      * @description The type of the resource from which traffic is captured. Valid values:
      *
-     *   **NetworkInterface**: an ENI
+     *   **NetworkInterface**: ENI
      *   **VSwitch**: all ENIs in a vSwitch
      *   **VPC**: all ENIs in a VPC
      *
@@ -139,9 +152,9 @@ class flowLog extends Model
      * @description The hosting type of the cloud service.
      *
      *   This parameter can be empty, which indicates that the flow log is created by the user.
-     *   If this parameter is not empty, the value is fixed as **sls**. The value sls indicates that the flow log is created in the Log Service console.
+     *   If this parameter is not empty, the value is set to **sls**. The value sls indicates that the flow log is created in the Simple Log Service (SLS) console.
      *
-     * >  A flow log that is created in the Log Service console can be displayed in the VPC list. However, you cannot modify, start, stop, or delete the flow log in the VPC console. If you want to manage the flow log, you can log on to the [Log Service console](https://sls.console.aliyun.com) and perform required operations.
+     * > A flow log that is created in the SLS console can be displayed in the VPC list. However, you cannot modify, start, stop, or delete the flow log in the VPC console. If you want to manage the flow log, you can log on to the [SLS console](https://sls.console.aliyun.com) and perform required operations.
      * @example sls
      *
      * @var string
@@ -151,9 +164,9 @@ class flowLog extends Model
     /**
      * @description The status of the flow log. Valid values:
      *
-     *   **Active**: enabled
-     *   **Activating**: being enabled
-     *   **Inactive**: disabled
+     *   **Active**
+     *   **Activating**
+     *   **Inactive**
      *
      * @example Active
      *
@@ -162,19 +175,19 @@ class flowLog extends Model
     public $status;
 
     /**
-     * @description An array that consists of the details of the returned tags.
+     * @description The list of tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The scope of the traffic that you want to capture. Valid values:
+     * @description The sampling scope of the traffic that is collected. Valid values:
      *
      *   **all** (default value): all traffic
      *   **internetGateway**: Internet traffic
      *
-     * >  By default, the traffic path feature is unavailable. To use this feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex).
+     * > By default, the traffic path feature is unavailable. To use this feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex).
      * @var trafficPath
      */
     public $trafficPath;

@@ -36,10 +36,11 @@ class tunnelIkeConfig extends Model
     public $ikeLifetime;
 
     /**
-     * @description The IKE negotiation mode. Valid values:
+     * @description The IKE negotiation mode.
      *
-     * - **main**: This mode offers higher security during negotiations.
-     * - **aggressive**: This mode is faster and has a higher success rate.
+     *   **main**: This mode offers higher security during negotiations.
+     *   **aggressive**: This mode is faster and has a higher success rate.
+     *
      * @example main
      *
      * @var string
@@ -56,7 +57,7 @@ class tunnelIkeConfig extends Model
     public $ikePfs;
 
     /**
-     * @description The IKE version.
+     * @description The version of the IKE protocol.
      *
      * @example ikev1
      *
@@ -65,7 +66,7 @@ class tunnelIkeConfig extends Model
     public $ikeVersion;
 
     /**
-     * @description The identifier on the Alibaba Cloud side.
+     * @description The identifier of the tunnel on the Alibaba Cloud side.
      *
      * @example 47.21.XX.XX
      *
@@ -83,7 +84,7 @@ class tunnelIkeConfig extends Model
     public $psk;
 
     /**
-     * @description The peer identifier.
+     * @description The identifier of the tunnel peer.
      *
      * @example 47.42.XX.XX
      *

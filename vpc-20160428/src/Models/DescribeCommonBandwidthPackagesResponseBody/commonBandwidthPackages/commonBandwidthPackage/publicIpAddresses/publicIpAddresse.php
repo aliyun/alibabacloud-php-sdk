@@ -18,10 +18,10 @@ class publicIpAddresse extends Model
     public $allocationId;
 
     /**
-     * @description Indicates whether the EIP is associated with the EIP bandwidth plan.
+     * @description Indicates whether the EIP is associated with the Internet Shared Bandwidth instance. Valid values:
      *
-     *   **BINDED**: The EIP is associated with the EIP bandwidth plan.
-     *   **BINDING**: The EIP is being associated with the EIP bandwidth plan.
+     *   **BINDED**
+     *   **BINDING**
      *
      * @example BINDED
      *

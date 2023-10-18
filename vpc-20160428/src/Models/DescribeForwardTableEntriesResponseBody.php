@@ -17,7 +17,7 @@ class DescribeForwardTableEntriesResponseBody extends Model
     public $forwardTableEntries;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeForwardTableEntriesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeForwardTableEntriesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A6C4A8B1-7561-4509-949C-20DEB40D71E6
      *

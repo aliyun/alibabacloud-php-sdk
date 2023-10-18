@@ -38,8 +38,9 @@ class tunnelIkeConfig extends Model
     /**
      * @description The IKE negotiation mode. Valid values:
      *
-     * - **main**: This mode offers higher security during negotiations.
-     * - **aggressive**: This mode is faster and has a higher success rate.
+     *   **main:** This mode offers higher security during negotiations.
+     *   **aggressive:** This mode is faster and has a higher success rate.
+     *
      * @example main
      *
      * @var string
@@ -47,7 +48,7 @@ class tunnelIkeConfig extends Model
     public $ikeMode;
 
     /**
-     * @description The Diffie-Hellman group.
+     * @description The DH group.
      *
      * @example group2
      *
@@ -56,10 +57,10 @@ class tunnelIkeConfig extends Model
     public $ikePfs;
 
     /**
-     * @description The version of the IKE protocol.
+     * @description The IKE version. Valid values:
      *
-     * - **ikev1**
-     * - **ikev2**
+     *   **ikev1**
+     *   **ikev2**
      *
      * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
      * @example ikev2
@@ -69,7 +70,7 @@ class tunnelIkeConfig extends Model
     public $ikeVersion;
 
     /**
-     * @description The tunnel identifier. The identifier supports FQDNs and IP addresses. The default identifier is the tunnel IP address.
+     * @description The tunnel identifier. The identifier supports FQDNs and IP addresses. The default value is the tunnel IP address.
      *
      * @example 47.XX.XX.87
      *

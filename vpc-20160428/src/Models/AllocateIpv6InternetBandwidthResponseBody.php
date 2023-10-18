@@ -27,7 +27,7 @@ class AllocateIpv6InternetBandwidthResponseBody extends Model
     public $ipv6AddressId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6972A26E-99B1-4367-9890-FBDEBB0F5E7D
      *

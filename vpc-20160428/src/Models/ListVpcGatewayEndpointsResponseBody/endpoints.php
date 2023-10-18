@@ -17,7 +17,7 @@ class endpoints extends Model
     public $associatedRouteTables;
 
     /**
-     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-09-08T08:43:04Z
      *
@@ -79,6 +79,8 @@ class endpoints extends Model
     public $policyDocument;
 
     /**
+     * @description The ID of the resource group to which the gateway endpoint belongs.
+     *
      * @example rg-acfmxvfvazb4p****
      *
      * @var string
@@ -95,6 +97,8 @@ class endpoints extends Model
     public $serviceName;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;
