@@ -349,6 +349,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvStatusRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvStatusResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectRequest;
@@ -10309,6 +10311,52 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDcdnKvWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDcdnKvStatusRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDcdnKvStatusResponse
+     */
+    public function getDcdnKvStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDcdnKvStatus',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDcdnKvStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDcdnKvStatusRequest $request
+     *
+     * @return GetDcdnKvStatusResponse
+     */
+    public function getDcdnKvStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDcdnKvStatusWithOptions($request, $runtime);
     }
 
     /**
