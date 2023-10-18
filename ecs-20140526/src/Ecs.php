@@ -5329,6 +5329,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->autoReleaseTime)) {
             $query['AutoReleaseTime'] = $request->autoReleaseTime;
         }
+        if (!Utils::isUnset($request->creditSpecification)) {
+            $query['CreditSpecification'] = $request->creditSpecification;
+        }
         if (!Utils::isUnset($request->dataDisk)) {
             $query['DataDisk'] = $request->dataDisk;
         }
@@ -5519,6 +5522,9 @@ class Ecs extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->autoReleaseTime)) {
             $query['AutoReleaseTime'] = $request->autoReleaseTime;
+        }
+        if (!Utils::isUnset($request->creditSpecification)) {
+            $query['CreditSpecification'] = $request->creditSpecification;
         }
         if (!Utils::isUnset($request->dataDisk)) {
             $query['DataDisk'] = $request->dataDisk;

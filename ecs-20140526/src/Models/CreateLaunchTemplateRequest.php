@@ -32,6 +32,11 @@ class CreateLaunchTemplateRequest extends Model
     public $autoReleaseTime;
 
     /**
+     * @var string
+     */
+    public $creditSpecification;
+
+    /**
      * @description The data disks.
      *
      * @var dataDisk[]
@@ -450,6 +455,7 @@ class CreateLaunchTemplateRequest extends Model
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
         'autoReleaseTime'             => 'AutoReleaseTime',
+        'creditSpecification'         => 'CreditSpecification',
         'dataDisk'                    => 'DataDisk',
         'deletionProtection'          => 'DeletionProtection',
         'deploymentSetId'             => 'DeploymentSetId',
@@ -508,6 +514,9 @@ class CreateLaunchTemplateRequest extends Model
         }
         if (null !== $this->autoReleaseTime) {
             $res['AutoReleaseTime'] = $this->autoReleaseTime;
+        }
+        if (null !== $this->creditSpecification) {
+            $res['CreditSpecification'] = $this->creditSpecification;
         }
         if (null !== $this->dataDisk) {
             $res['DataDisk'] = [];
@@ -682,6 +691,9 @@ class CreateLaunchTemplateRequest extends Model
         }
         if (isset($map['AutoReleaseTime'])) {
             $model->autoReleaseTime = $map['AutoReleaseTime'];
+        }
+        if (isset($map['CreditSpecification'])) {
+            $model->creditSpecification = $map['CreditSpecification'];
         }
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {

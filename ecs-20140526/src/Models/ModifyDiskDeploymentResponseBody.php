@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskDeploymentResponseBody extends Model
 {
     /**
+     * @example D69846D9-F17F-51C0-8AC6-B4B71777****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example t-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $taskId;

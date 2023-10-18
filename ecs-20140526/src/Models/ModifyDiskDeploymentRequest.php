@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskDeploymentRequest extends Model
 {
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $diskCategory;
 
     /**
+     * @example d-bp131n0q38u3a4zi****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -34,6 +40,8 @@ class ModifyDiskDeploymentRequest extends Model
     public $ownerId;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $performanceLevel;
@@ -49,6 +57,8 @@ class ModifyDiskDeploymentRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example dbsc-cn-c4d2uea****
+     *
      * @var string
      */
     public $storageClusterId;
