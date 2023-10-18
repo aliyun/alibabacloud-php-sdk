@@ -28,6 +28,11 @@ class DescribeRuleHitsTopRuleIdRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $isGroupResource;
+
+    /**
      * @description The region where the WAF instance resides. Valid values:
      *
      *   **cn-hangzhou:** the Chinese mainland.
@@ -83,6 +88,7 @@ class DescribeRuleHitsTopRuleIdRequest extends Model
     protected $_name = [
         'endTimestamp'                   => 'EndTimestamp',
         'instanceId'                     => 'InstanceId',
+        'isGroupResource'                => 'IsGroupResource',
         'regionId'                       => 'RegionId',
         'resource'                       => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
@@ -102,6 +108,9 @@ class DescribeRuleHitsTopRuleIdRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->isGroupResource) {
+            $res['IsGroupResource'] = $this->isGroupResource;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -135,6 +144,9 @@ class DescribeRuleHitsTopRuleIdRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IsGroupResource'])) {
+            $model->isGroupResource = $map['IsGroupResource'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

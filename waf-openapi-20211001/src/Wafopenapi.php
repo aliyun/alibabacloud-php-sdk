@@ -2126,6 +2126,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->isGroupResource)) {
+            $query['IsGroupResource'] = $request->isGroupResource;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }

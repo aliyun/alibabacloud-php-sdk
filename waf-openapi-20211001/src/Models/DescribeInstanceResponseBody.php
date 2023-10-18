@@ -37,10 +37,9 @@ class DescribeInstanceResponseBody extends Model
     /**
      * @description Indicates whether the WAF instance has overdue payments. Valid values:
      *
-     *   **0:** The WAF instance has overdue payments.
-     *   **1:** The WAF instance does not have overdue payments.
+     *   **0**: The WAF instance does not have overdue payments.
+     *   **1**: The WAF instance has overdue payments.
      *
-     * >  This parameter is returned only when the value of the **PayType** parameter is **POSTPAY**.
      * @example 1
      *
      * @var string

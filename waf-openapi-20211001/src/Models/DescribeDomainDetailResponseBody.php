@@ -70,6 +70,8 @@ class DescribeDomainDetailResponseBody extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The information about the SM certificate.
+     *
      * @var SM2CertDetail
      */
     public $SM2CertDetail;

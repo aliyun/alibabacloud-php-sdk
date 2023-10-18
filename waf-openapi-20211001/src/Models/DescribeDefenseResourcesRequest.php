@@ -78,7 +78,7 @@ class DescribeDefenseResourcesRequest extends Model
     public $sourceIp;
 
     /**
-     * @description The tag of the resource. You can specify up to 20 tags.
+     * @description The tags of the resources that you want to query. You can specify up to 20 tags.
      *
      * @var tag[]
      */

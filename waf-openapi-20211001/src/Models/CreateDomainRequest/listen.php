@@ -31,7 +31,7 @@ class listen extends Model
     public $cipherSuite;
 
     /**
-     * @description The custom cipher suites.
+     * @description The custom cipher suite that you want to add.
      *
      * @var string[]
      */
@@ -62,7 +62,7 @@ class listen extends Model
     public $exclusiveIp;
 
     /**
-     * @description Specifies whether to enable the HTTP to HTTPS redirection feature. This parameter is available only if you specify HttpsPorts and leave HttpPorts empty. Valid values:
+     * @description Specifies whether to enable HTTP to HTTPS redirection. This parameter is available only if you specify HttpsPorts and leave HttpPorts empty. Valid values:
      *
      *   **true**
      *   **false**
@@ -76,7 +76,7 @@ class listen extends Model
     /**
      * @description Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
      *
-     *   true
+     *   **true**
      *   **false** (default)
      *
      * @example true
@@ -114,7 +114,7 @@ class listen extends Model
     /**
      * @description The type of the protection resource. Valid values:
      *
-     *   **share:** shared cluster. This is the default value.
+     *   **share:** a shared cluster. This is the default value.
      *   **gslb:** shared cluster-based intelligent load balancing.
      *
      * @example share
@@ -145,7 +145,7 @@ class listen extends Model
     public $SM2CertId;
 
     /**
-     * @description Specifies whether to enable the SM certificate.
+     * @description Specifies whether to enable the ShangMi (SM) certificate.
      *
      * @example true
      *
@@ -180,7 +180,7 @@ class listen extends Model
     public $xffHeaderMode;
 
     /**
-     * @description The custom header field that you want WAF to use to obtain the IP address of a client.
+     * @description The custom header field that you want WAF to use to obtain the actual IP address of a client.
      *
      * @var string[]
      */

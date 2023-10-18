@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description 跟踪cookie开关状态。
+     * @description The status of the tracking cookie.
      *
-     * - **0**：表示关闭。
+     *   **0:** disabled.
+     *   **1:** enabled.
      *
-     * - **1**：表示开启。
      * @example 1
      *
      * @var int
@@ -21,11 +21,11 @@ class resources extends Model
     public $acwCookieStatus;
 
     /**
-     * @description 跟踪cookie的secure属性状态。
+     * @description The status of the secure attribute of the tracking cookie.
      *
-     * - **0**：表示关闭。
+     *   **0:** disabled.
+     *   **1:** enabled.
      *
-     * - **1**：表示开启。
      * @example 0
      *
      * @var int
@@ -33,11 +33,11 @@ class resources extends Model
     public $acwSecureStatus;
 
     /**
-     * @description 滑块cookie的secure属性状态。
+     * @description The status of the secure attribute of the slider verification cookie.
      *
-     * - **0**：表示关闭。
+     *   **0:** disabled.
+     *   **1:** enabled.
      *
-     * - **1**：表示开启。
      * @example 0
      *
      * @var int
@@ -45,7 +45,7 @@ class resources extends Model
     public $acwV3SecureStatus;
 
     /**
-     * @description An array of custom XFF headers that are used to identify the originating IP addresses of clients. If the value of the XffStatus parameter is 1 and the CustomHeaders field is left empty, the first IP address in the XFF header is the originating IP address of the client.
+     * @description The custom XFF headers that are used to identify the originating IP addresses of clients. If the value of XffStatus is 1 and CustomHeaders is left empty, the first IP address in the XFF header is the originating IP address of the client.
      *
      * @var string[]
      */
@@ -61,7 +61,7 @@ class resources extends Model
     public $description;
 
     /**
-     * @description The description of the protected object. Different key-value pairs in a map indicate different properties of the protected object.
+     * @description The details of the protected object. Different key-value pairs in a map indicate different properties of the protected object.
      *
      * @var mixed[]
      */

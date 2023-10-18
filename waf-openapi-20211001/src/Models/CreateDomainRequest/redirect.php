@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class redirect extends Model
 {
     /**
-     * @description The back-to-origin IP addresses or domain names.
+     * @description The IP addresses or domain names of the origin server.
      *
      * @var string[]
      */
@@ -72,7 +72,7 @@ class redirect extends Model
     public $keepaliveRequests;
 
     /**
-     * @description The timeout period of persistent connections that are in the Idle state. Unit: seconds. Valid values: 1 to 60. Default value: 15.
+     * @description The timeout period of persistent connections that are in the Idle state. Valid values: 1 to 60. Default value: 15. Unit: seconds.
      *
      * > This parameter specifies the period of time during which a reused persistent connection is allowed to remain in the Idle state before the persistent connection is released.
      * @example 15
@@ -104,9 +104,9 @@ class redirect extends Model
     public $readTimeout;
 
     /**
-     * @description The key-value pairs that you want to use to mark the requests that pass through the WAF instance.
+     * @description The key-value pairs that you want to use to label the requests that pass through the WAF instance.
      *
-     * WAF adds the key-value pairs to the request headers. This way, the requests that pass through WAF are identified.
+     * WAF automatically adds the key-value pairs to request headers. This way, the backend service can identify requests that pass through WAF.
      * @var requestHeaders[]
      */
     public $requestHeaders;
@@ -124,7 +124,7 @@ class redirect extends Model
     public $retry;
 
     /**
-     * @description The forwarding rules that you want to configure for the domain name that you want to add to WAF in hybrid cloud mode. Set this parameter to a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
+     * @description The forwarding rules that you want to configure for the domain name that you want to add to WAF in hybrid cloud mode. Set the value to a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
      *
      *   **rs:** The back-to-origin IP addresses or CNAMEs. The value must be of the ARRAY type.
      *   **location:** The name of the protection node. The value must be of the STRING type.
@@ -149,9 +149,9 @@ class redirect extends Model
     public $sniEnabled;
 
     /**
-     * @description The value of the custom SNI field. If you do not specify this parameter, the value of the **Host** field in the request header is used. If you want WAF to use an SNI field value that is different from the value of the Host field in back-to-origin requests, you can specify a custom value for the SNI field.
+     * @description The value of the SNI field. If you do not specify this parameter, the **Host** field value in the request header is used. If you want WAF to use an SNI field value that is different from the Host field value in back-to-origin requests, you can specify a custom value for the SNI field.
      *
-     * > This parameter is available only if you set **SniEnabled** to **true**.
+     * > You must specify this parameter only if you set **SniEnabled** to **true**.
      * @example www.aliyundoc.com
      *
      * @var string

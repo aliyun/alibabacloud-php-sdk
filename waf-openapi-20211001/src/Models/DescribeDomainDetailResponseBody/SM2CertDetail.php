@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class SM2CertDetail extends Model
 {
     /**
+     * @description The domain name of your website.
+     *
+     * @example test.aliyundoc.com
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The end of the validity period of the SSL certificate. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1665590400000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The ID of the SSL certificate.
+     *
+     * @example 123-cn-hangzhou
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the SSL certificate.
+     *
+     * @example test-sm2-cert-name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description All domain names that are bound to the certificate.
+     *
      * @var string[]
      */
     public $sans;
 
     /**
+     * @description The beginning of the validity period of the SSL certificate. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1657551525000
+     *
      * @var int
      */
     public $startTime;
