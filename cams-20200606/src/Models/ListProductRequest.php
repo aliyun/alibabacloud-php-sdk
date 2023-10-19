@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProductRequest extends Model
 {
     /**
+     * @description The cursor that points to the end of the page of the returned data.
+     *
      * @example kdkii48jfjjei3
      *
      * @var string
@@ -16,6 +18,8 @@ class ListProductRequest extends Model
     public $after;
 
     /**
+     * @description The cursor that points to the beginning of the page of the returned data.
+     *
      * @example wiidkd939kek93
      *
      * @var string
@@ -23,7 +27,7 @@ class ListProductRequest extends Model
     public $before;
 
     /**
-     * @description CatalogId
+     * @description The ID of the product catalog.
      *
      * @example 29398389292
      *
@@ -32,6 +36,8 @@ class ListProductRequest extends Model
     public $catalogId;
 
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example C29398388383
      *
      * @var string
@@ -39,6 +45,9 @@ class ListProductRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The fields. Separate multiple fields with commas (,).
+     *
+     * see [product fields](~~2579419~~)
      * @example id,name
      *
      * @var string
@@ -46,6 +55,8 @@ class ListProductRequest extends Model
     public $fields;
 
     /**
+     * @description The number of products to be queried. Valid values: 1 to 1000.
+     *
      * @example 73
      *
      * @var int
@@ -68,7 +79,7 @@ class ListProductRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Waba Id。
+     * @description The ID of the WhatsApp Business account (WABA).
      *
      * @example 38487474747
      *

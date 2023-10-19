@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetCommerceSettingRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetCommerceSettingResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusRequest;
@@ -90,6 +92,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\SubmitIsvCustomerTermsRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SubmitIsvCustomerTermsResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateCommerceSettingRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateCommerceSettingResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -1266,6 +1270,52 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @param GetCommerceSettingRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetCommerceSettingResponse
+     */
+    public function getCommerceSettingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCommerceSetting',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCommerceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCommerceSettingRequest $request
+     *
+     * @return GetCommerceSettingResponse
+     */
+    public function getCommerceSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCommerceSettingWithOptions($request, $runtime);
+    }
+
+    /**
      * The ID of the phone number.
      *   *
      * @param GetMigrationVerifyCodeRequest $request GetMigrationVerifyCodeRequest
@@ -1418,10 +1468,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetWhatsappConnectionCatalogRequest $request
-     * @param RuntimeOptions                      $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetWhatsappConnectionCatalogRequest $request GetWhatsappConnectionCatalogRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWhatsappConnectionCatalogResponse
+     * @return GetWhatsappConnectionCatalogResponse GetWhatsappConnectionCatalogResponse
      */
     public function getWhatsappConnectionCatalogWithOptions($request, $runtime)
     {
@@ -1461,9 +1513,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetWhatsappConnectionCatalogRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetWhatsappConnectionCatalogRequest $request GetWhatsappConnectionCatalogRequest
      *
-     * @return GetWhatsappConnectionCatalogResponse
+     * @return GetWhatsappConnectionCatalogResponse GetWhatsappConnectionCatalogResponse
      */
     public function getWhatsappConnectionCatalog($request)
     {
@@ -1595,10 +1649,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ListProductRequest $request
-     * @param RuntimeOptions     $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ListProductRequest $request ListProductRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProductResponse
+     * @return ListProductResponse ListProductResponse
      */
     public function listProductWithOptions($request, $runtime)
     {
@@ -1653,9 +1709,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ListProductRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ListProductRequest $request ListProductRequest
      *
-     * @return ListProductResponse
+     * @return ListProductResponse ListProductResponse
      */
     public function listProduct($request)
     {
@@ -1665,10 +1723,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ListProductCatalogRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ListProductCatalogRequest $request ListProductCatalogRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProductCatalogResponse
+     * @return ListProductCatalogResponse ListProductCatalogResponse
      */
     public function listProductCatalogWithOptions($request, $runtime)
     {
@@ -1720,9 +1780,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ListProductCatalogRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ListProductCatalogRequest $request ListProductCatalogRequest
      *
-     * @return ListProductCatalogResponse
+     * @return ListProductCatalogResponse ListProductCatalogResponse
      */
     public function listProductCatalog($request)
     {
@@ -2433,6 +2495,58 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAccountWebhookWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCommerceSettingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateCommerceSettingResponse
+     */
+    public function updateCommerceSettingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cartEnable)) {
+            $query['CartEnable'] = $request->cartEnable;
+        }
+        if (!Utils::isUnset($request->catalogVisible)) {
+            $query['CatalogVisible'] = $request->catalogVisible;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCommerceSetting',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCommerceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCommerceSettingRequest $request
+     *
+     * @return UpdateCommerceSettingResponse
+     */
+    public function updateCommerceSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCommerceSettingWithOptions($request, $runtime);
     }
 
     /**

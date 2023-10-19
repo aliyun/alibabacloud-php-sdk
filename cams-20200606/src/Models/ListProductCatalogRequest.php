@@ -9,20 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListProductCatalogRequest extends Model
 {
     /**
-     * @example 示例值示例值
+     * @description The cursor that points to the end of the page of the returned data.
+     *
+     * @example kdkii48jfjjei3
      *
      * @var string
      */
     public $after;
 
     /**
-     * @example 示例值示例值
+     * @description The cursor that points to the beginning of the page of the returned data.
+     *
+     * @example wiidkd939kek93
      *
      * @var string
      */
     public $before;
 
     /**
+     * @description The Business Manager ID.
+     *
      * @example 28
      *
      * @var int
@@ -30,13 +36,17 @@ class ListProductCatalogRequest extends Model
     public $businessId;
 
     /**
-     * @example 示例值
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
+     * @example 293483938849493
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description The fields. Separate multiple fields with commas (,).
+     * see  [catalog fields](~~2579419~~)
      * @example id,name
      *
      * @var string
@@ -44,6 +54,8 @@ class ListProductCatalogRequest extends Model
     public $fields;
 
     /**
+     * @description The number of catalogs to be queried. Valid values: 1 to 1000.
+     *
      * @example 73
      *
      * @var int

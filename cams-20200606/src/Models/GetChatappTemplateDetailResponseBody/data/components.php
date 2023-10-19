@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\data;
 
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\data\components\buttons;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\data\components\cards;
 use AlibabaCloud\Tea\Model;
 
 class components extends Model
@@ -33,6 +34,11 @@ class components extends Model
      * @var string
      */
     public $caption;
+
+    /**
+     * @var cards[]
+     */
+    public $cards;
 
     /**
      * @description Whatsapp Authentication模板验证码有效期（分钟），只在Whatsapp类型消息，Category为Authentication并且Component Type为Footer时有效（此信息显示在Footer位置）
@@ -116,6 +122,13 @@ class components extends Model
     public $longitude;
 
     /**
+     * @example $(offerExpirationTimeMs)
+     *
+     * @var string
+     */
+    public $offerExpirationTimeMs;
+
+    /**
      * @description The text of the message that you want to send.
      *
      * @example Hello
@@ -167,10 +180,16 @@ class components extends Model
      * @var string
      */
     public $url;
+
+    /**
+     * @var bool
+     */
+    public $hasExpiration;
     protected $_name = [
         'addSecretRecommendation' => 'AddSecretRecommendation',
         'buttons'                 => 'Buttons',
         'caption'                 => 'Caption',
+        'cards'                   => 'Cards',
         'codeExpirationMinutes'   => 'CodeExpirationMinutes',
         'duration'                => 'Duration',
         'fileName'                => 'FileName',
@@ -180,10 +199,12 @@ class components extends Model
         'locationAddress'         => 'LocationAddress',
         'locationName'            => 'LocationName',
         'longitude'               => 'Longitude',
+        'offerExpirationTimeMs'   => 'OfferExpirationTimeMs',
         'text'                    => 'Text',
         'thumbUrl'                => 'ThumbUrl',
         'type'                    => 'Type',
         'url'                     => 'Url',
+        'hasExpiration'           => 'hasExpiration',
     ];
 
     public function validate()
@@ -207,6 +228,15 @@ class components extends Model
         }
         if (null !== $this->caption) {
             $res['Caption'] = $this->caption;
+        }
+        if (null !== $this->cards) {
+            $res['Cards'] = [];
+            if (null !== $this->cards && \is_array($this->cards)) {
+                $n = 0;
+                foreach ($this->cards as $item) {
+                    $res['Cards'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->codeExpirationMinutes) {
             $res['CodeExpirationMinutes'] = $this->codeExpirationMinutes;
@@ -235,6 +265,9 @@ class components extends Model
         if (null !== $this->longitude) {
             $res['Longitude'] = $this->longitude;
         }
+        if (null !== $this->offerExpirationTimeMs) {
+            $res['OfferExpirationTimeMs'] = $this->offerExpirationTimeMs;
+        }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -246,6 +279,9 @@ class components extends Model
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
+        }
+        if (null !== $this->hasExpiration) {
+            $res['hasExpiration'] = $this->hasExpiration;
         }
 
         return $res;
@@ -274,6 +310,15 @@ class components extends Model
         if (isset($map['Caption'])) {
             $model->caption = $map['Caption'];
         }
+        if (isset($map['Cards'])) {
+            if (!empty($map['Cards'])) {
+                $model->cards = [];
+                $n            = 0;
+                foreach ($map['Cards'] as $item) {
+                    $model->cards[$n++] = null !== $item ? cards::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['CodeExpirationMinutes'])) {
             $model->codeExpirationMinutes = $map['CodeExpirationMinutes'];
         }
@@ -301,6 +346,9 @@ class components extends Model
         if (isset($map['Longitude'])) {
             $model->longitude = $map['Longitude'];
         }
+        if (isset($map['OfferExpirationTimeMs'])) {
+            $model->offerExpirationTimeMs = $map['OfferExpirationTimeMs'];
+        }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
@@ -312,6 +360,9 @@ class components extends Model
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+        if (isset($map['hasExpiration'])) {
+            $model->hasExpiration = $map['hasExpiration'];
         }
 
         return $model;

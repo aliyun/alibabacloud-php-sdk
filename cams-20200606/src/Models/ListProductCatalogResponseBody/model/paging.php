@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class paging extends Model
 {
     /**
+     * @description The cursors for pagination.
+     *
      * @var cursors
      */
     public $cursors;

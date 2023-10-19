@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var mixed[][]
      */
     public $data;
 
     /**
+     * @description The pagination details.
+     *
      * @var paging
      */
     public $paging;

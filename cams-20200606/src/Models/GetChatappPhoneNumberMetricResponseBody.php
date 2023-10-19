@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class GetChatappPhoneNumberMetricResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example NONE
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     *   A value of OK indicates that the call is successful.
+     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *
      * @example OK
      *
      * @var string
@@ -22,11 +31,15 @@ class GetChatappPhoneNumberMetricResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error message returned.
+     *
      * @example None
      *
      * @var string
@@ -34,6 +47,8 @@ class GetChatappPhoneNumberMetricResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1612C226-E271-4CFE-9F18-4066D******
      *
      * @var string

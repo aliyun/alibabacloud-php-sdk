@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest;
 
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest\components\buttons;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest\components\cards;
 use AlibabaCloud\Tea\Model;
 
 class components extends Model
@@ -34,6 +35,11 @@ class components extends Model
      * @var string
      */
     public $caption;
+
+    /**
+     * @var cards[]
+     */
+    public $cards;
 
     /**
      * @description The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER in a WhatsApp message template. The validity period of the verification code is displayed in the footer.
@@ -85,6 +91,11 @@ class components extends Model
      * @var string
      */
     public $format;
+
+    /**
+     * @var bool
+     */
+    public $hasExpiration;
 
     /**
      * @description The text of the message that you want to send.
@@ -139,11 +150,13 @@ class components extends Model
         'addSecretRecommendation' => 'AddSecretRecommendation',
         'buttons'                 => 'Buttons',
         'caption'                 => 'Caption',
+        'cards'                   => 'Cards',
         'codeExpirationMinutes'   => 'CodeExpirationMinutes',
         'duration'                => 'Duration',
         'fileName'                => 'FileName',
         'fileType'                => 'FileType',
         'format'                  => 'Format',
+        'hasExpiration'           => 'HasExpiration',
         'text'                    => 'Text',
         'thumbUrl'                => 'ThumbUrl',
         'type'                    => 'Type',
@@ -172,6 +185,15 @@ class components extends Model
         if (null !== $this->caption) {
             $res['Caption'] = $this->caption;
         }
+        if (null !== $this->cards) {
+            $res['Cards'] = [];
+            if (null !== $this->cards && \is_array($this->cards)) {
+                $n = 0;
+                foreach ($this->cards as $item) {
+                    $res['Cards'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->codeExpirationMinutes) {
             $res['CodeExpirationMinutes'] = $this->codeExpirationMinutes;
         }
@@ -186,6 +208,9 @@ class components extends Model
         }
         if (null !== $this->format) {
             $res['Format'] = $this->format;
+        }
+        if (null !== $this->hasExpiration) {
+            $res['HasExpiration'] = $this->hasExpiration;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
@@ -226,6 +251,15 @@ class components extends Model
         if (isset($map['Caption'])) {
             $model->caption = $map['Caption'];
         }
+        if (isset($map['Cards'])) {
+            if (!empty($map['Cards'])) {
+                $model->cards = [];
+                $n            = 0;
+                foreach ($map['Cards'] as $item) {
+                    $model->cards[$n++] = null !== $item ? cards::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['CodeExpirationMinutes'])) {
             $model->codeExpirationMinutes = $map['CodeExpirationMinutes'];
         }
@@ -240,6 +274,9 @@ class components extends Model
         }
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
+        }
+        if (isset($map['HasExpiration'])) {
+            $model->hasExpiration = $map['HasExpiration'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];

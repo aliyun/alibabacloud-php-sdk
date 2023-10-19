@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetWhatsappConnectionCatalogRequest extends Model
 {
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example C2020939922929292
      *
      * @var string
@@ -31,7 +33,7 @@ class GetWhatsappConnectionCatalogRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Waba Id。
+     * @description The WABA ID.
      *
      * @example 292939399393
      *

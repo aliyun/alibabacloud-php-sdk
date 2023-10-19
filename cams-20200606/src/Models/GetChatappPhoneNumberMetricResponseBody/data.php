@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Delivered count
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $deliveredCount;
 
     /**
+     * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1667196043904
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $end;
 
     /**
+     * @description The granularity at which bills are queried.
+     *
      * @example DAILY
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $granularity;
 
     /**
+     * @description The business phone number.
+     *
      * @example 861380000
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $phoneNumber;
 
     /**
+     * @description Sent count
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $sentCount;
 
     /**
+     * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1669619491000
      *
      * @var int

@@ -19,6 +19,13 @@ class buttons extends Model
     public $autofillText;
 
     /**
+     * @example 202039ksjs
+     *
+     * @var string
+     */
+    public $couponCode;
+
+    /**
      * @description 扩展字段
      *
      * @var extendAttrs
@@ -113,6 +120,7 @@ class buttons extends Model
     public $urlType;
     protected $_name = [
         'autofillText'  => 'AutofillText',
+        'couponCode'    => 'CouponCode',
         'extendAttrs'   => 'ExtendAttrs',
         'isOptOut'      => 'IsOptOut',
         'packageName'   => 'PackageName',
@@ -133,6 +141,9 @@ class buttons extends Model
         $res = [];
         if (null !== $this->autofillText) {
             $res['AutofillText'] = $this->autofillText;
+        }
+        if (null !== $this->couponCode) {
+            $res['CouponCode'] = $this->couponCode;
         }
         if (null !== $this->extendAttrs) {
             $res['ExtendAttrs'] = null !== $this->extendAttrs ? $this->extendAttrs->toMap() : null;
@@ -175,6 +186,9 @@ class buttons extends Model
         $model = new self();
         if (isset($map['AutofillText'])) {
             $model->autofillText = $map['AutofillText'];
+        }
+        if (isset($map['CouponCode'])) {
+            $model->couponCode = $map['CouponCode'];
         }
         if (isset($map['ExtendAttrs'])) {
             $model->extendAttrs = extendAttrs::fromMap($map['ExtendAttrs']);

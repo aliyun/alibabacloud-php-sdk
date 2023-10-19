@@ -10,37 +10,57 @@ use AlibabaCloud\Tea\Model;
 class ListProductCatalogResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
-     * @example 示例值示例值
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](~~196974~~).
+     *
+     * @example OK
      *
      * @var string
      */
     public $code;
 
     /**
-     * @example 示例值
+     * @description The error message.
+     *
+     * @example None
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The returned results.
+     *
      * @var model_
      */
     public $model;
 
     /**
-     * @example 示例值示例值
+     * @description The request ID.
+     *
+     * @example 90E63D28-E31D-1EB2-8939-A9486641****
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

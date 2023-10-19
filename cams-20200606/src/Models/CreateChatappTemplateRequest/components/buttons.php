@@ -18,6 +18,13 @@ class buttons extends Model
     public $autofillText;
 
     /**
+     * @example 29838isue8
+     *
+     * @var string
+     */
+    public $couponCode;
+
+    /**
      * @description The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY in a WhatsApp message template. After you configure message sending in the ChatApp Message Service console, marketing messages will not be sent to customers if they click this button.
      *
      * @example false
@@ -109,6 +116,7 @@ class buttons extends Model
     public $urlType;
     protected $_name = [
         'autofillText'  => 'AutofillText',
+        'couponCode'    => 'CouponCode',
         'isOptOut'      => 'IsOptOut',
         'packageName'   => 'PackageName',
         'phoneNumber'   => 'PhoneNumber',
@@ -128,6 +136,9 @@ class buttons extends Model
         $res = [];
         if (null !== $this->autofillText) {
             $res['AutofillText'] = $this->autofillText;
+        }
+        if (null !== $this->couponCode) {
+            $res['CouponCode'] = $this->couponCode;
         }
         if (null !== $this->isOptOut) {
             $res['IsOptOut'] = $this->isOptOut;
@@ -167,6 +178,9 @@ class buttons extends Model
         $model = new self();
         if (isset($map['AutofillText'])) {
             $model->autofillText = $map['AutofillText'];
+        }
+        if (isset($map['CouponCode'])) {
+            $model->couponCode = $map['CouponCode'];
         }
         if (isset($map['IsOptOut'])) {
             $model->isOptOut = $map['IsOptOut'];

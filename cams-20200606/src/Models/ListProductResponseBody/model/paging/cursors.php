@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class cursors extends Model
 {
     /**
-     * @example 示例值
+     * @description The cursor that points to the end of the page of the returned data.
+     *
+     * @example sjsuueu83838
      *
      * @var string
      */
     public $after;
 
     /**
-     * @example 示例值示例值示例值
+     * @description The cursor that points to the beginning of the page of the returned data.
+     *
+     * @example sjjsjdjjdjd83883
      *
      * @var string
      */

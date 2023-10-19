@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EnableWhatsappROIMetricRequest extends Model
+class GetCommerceSettingRequest extends Model
 {
     /**
-     * @description The space ID of the user under the independent software vendor (ISV) account.
-     *
      * @example 293483938849493
      *
      * @var string
@@ -18,16 +16,14 @@ class EnableWhatsappROIMetricRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
-     *
-     * @example skdi3kksloslikdkkdk
+     * @example 手机号码
      *
      * @var string
      */
-    public $isvCode;
+    public $phoneNumber;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
-        'isvCode'     => 'IsvCode',
+        'phoneNumber' => 'PhoneNumber',
     ];
 
     public function validate()
@@ -40,8 +36,8 @@ class EnableWhatsappROIMetricRequest extends Model
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
-        if (null !== $this->isvCode) {
-            $res['IsvCode'] = $this->isvCode;
+        if (null !== $this->phoneNumber) {
+            $res['PhoneNumber'] = $this->phoneNumber;
         }
 
         return $res;
@@ -50,7 +46,7 @@ class EnableWhatsappROIMetricRequest extends Model
     /**
      * @param array $map
      *
-     * @return EnableWhatsappROIMetricRequest
+     * @return GetCommerceSettingRequest
      */
     public static function fromMap($map = [])
     {
@@ -58,8 +54,8 @@ class EnableWhatsappROIMetricRequest extends Model
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
-        if (isset($map['IsvCode'])) {
-            $model->isvCode = $map['IsvCode'];
+        if (isset($map['PhoneNumber'])) {
+            $model->phoneNumber = $map['PhoneNumber'];
         }
 
         return $model;

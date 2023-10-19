@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Click Statistics
+     *
      * @var cliented[]
      */
     public $cliented;
 
     /**
+     * @description Delivered count
+     *
      * @example 6
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $deliveredCount;
 
     /**
+     * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1668138331485
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $end;
 
     /**
+     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
+     *
      * @example en
      *
      * @var string
@@ -36,6 +44,8 @@ class data extends Model
     public $language;
 
     /**
+     * @description Read count
+     *
      * @example 3
      *
      * @var int
@@ -43,6 +53,8 @@ class data extends Model
     public $readCount;
 
     /**
+     * @description Sent count
+     *
      * @example 10
      *
      * @var int
@@ -50,6 +62,8 @@ class data extends Model
     public $sentCount;
 
     /**
+     * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1673919240001
      *
      * @var int
@@ -57,6 +71,8 @@ class data extends Model
     public $start;
 
     /**
+     * @description The code of the message template.
+     *
      * @example 83837774838*****
      *
      * @var string
