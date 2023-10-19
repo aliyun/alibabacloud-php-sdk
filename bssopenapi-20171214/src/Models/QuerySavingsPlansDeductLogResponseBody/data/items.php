@@ -9,18 +9,22 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The total number of entries.
+     * @description The billable item for which the fee is deducted.
      *
      * @var string
      */
     public $billModule;
 
     /**
+     * @description The service for which the fee is deducted.
+     *
      * @var string
      */
     public $deductCommodity;
 
     /**
+     * @description The deducted amount.
+     *
      * @example 0.52
      *
      * @var string
@@ -28,7 +32,7 @@ class items extends Model
     public $deductFee;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the instance for which the fee is deducted.
      *
      * @example i-XXXXXXXXX
      *
@@ -37,6 +41,8 @@ class items extends Model
     public $deductInstanceId;
 
     /**
+     * @description The deduction rate.
+     *
      * @example 1.0
      *
      * @var string
@@ -44,7 +50,7 @@ class items extends Model
     public $deductRate;
 
     /**
-     * @description The billable item for which the fee is deducted.
+     * @description The discount used for the current deduction.
      *
      * @example 0.069
      *
@@ -53,7 +59,7 @@ class items extends Model
     public $discountRate;
 
     /**
-     * @description The page number of the returned page.
+     * @description The end of the billing cycle for which the fee is deducted.
      *
      * @example 2020-12-01 01:00:00
      *
@@ -62,7 +68,7 @@ class items extends Model
     public $endTime;
 
     /**
-     * @description The service for which the fee is deducted.
+     * @description The ID of the savings plan instance.
      *
      * @example spn-xxxxxxx
      *
@@ -78,7 +84,10 @@ class items extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the instance for which the fee is deducted.
+     * @description The type of the savings plan. Valid values:
+     *
+     *   universal: general-purpose
+     *   ecs: ECS compute
      *
      * @example ecs
      *
@@ -96,7 +105,7 @@ class items extends Model
     public $startTime;
 
     /**
-     * @description The number of the page to return.
+     * @description The ID of the user.
      *
      * @example 1906589291020438
      *

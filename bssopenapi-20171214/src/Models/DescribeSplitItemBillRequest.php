@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSplitItemBillRequest extends Model
 {
     /**
+     * @description The ID of the member. If you specify this parameter, the bills of the member are queried. If you do not specify this parameter, the bills of the current account are queried by default.
+     *
      * @example 123
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeSplitItemBillRequest extends Model
     public $billOwnerId;
 
     /**
+     * @description The billing cycle. Specify the parameter in the YYYY-MM format.
+     *
      * @example 2020-03
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeSplitItemBillRequest extends Model
     public $billingCycle;
 
     /**
+     * @description The billing date. This parameter is required only when the Granularity parameter is set to DAILY. Format: YYYY-MM-DD.
+     *
      * @example 2020-03-02
      *
      * @var string
@@ -31,6 +37,12 @@ class DescribeSplitItemBillRequest extends Model
     public $billingDate;
 
     /**
+     * @description The granularity at which bills are queried. Valid values:
+     *
+     *   MONTHLY: queries bills on a monthly basis. The data that you query is the same as the data that is queried by billing cycles in the Split Bill module of the User Center console.
+     *   DAILY: queries bills on a daily basis. The data that you query is the same as the data that is queried by days in the Split Bill module of the User Center console.
+     *
+     * If you specify DAILY for this parameter, the BillingDate parameter is required.
      * @example Monthly
      *
      * @var string
@@ -38,6 +50,8 @@ class DescribeSplitItemBillRequest extends Model
     public $granularity;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-kjhdskjgshfdlkjfdh
      *
      * @var string
@@ -45,6 +59,8 @@ class DescribeSplitItemBillRequest extends Model
     public $instanceID;
 
     /**
+     * @description The maximum number of entries to query. Default value: 20. Maximum value: 300.
+     *
      * @example 20
      *
      * @var int
@@ -52,6 +68,8 @@ class DescribeSplitItemBillRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. The parameter must be left empty or set to the value of the NextToken parameter returned in the last call. Otherwise, an error is returned. If the parameter is left empty, the data is queried from the first entry.
+     *
      * @example CAESEgoQCg4KCmd
      *
      * @var string
@@ -64,6 +82,8 @@ class DescribeSplitItemBillRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -71,6 +91,8 @@ class DescribeSplitItemBillRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -78,6 +100,8 @@ class DescribeSplitItemBillRequest extends Model
     public $productType;
 
     /**
+     * @description The ID of the split item.
+     *
      * @example i-kjhdskjgshfdlkjfdh
      *
      * @var string
@@ -85,6 +109,8 @@ class DescribeSplitItemBillRequest extends Model
     public $splitItemID;
 
     /**
+     * @description The billing method. Valid values: Subscription: the subscription billing method. PayAsYouGo: the pay-as-you-go billing method. This parameter must be used with the ProductCode parameter.
+     *
      * @example PayAsYouGo
      *
      * @var string
@@ -92,6 +118,8 @@ class DescribeSplitItemBillRequest extends Model
     public $subscriptionType;
 
     /**
+     * @description The tags that are used to filter split bills. You can specify multiple tag values. If you specify multiple tag values, split bills that match one of the tag values are queried.
+     *
      * @var tagFilter[]
      */
     public $tagFilter;

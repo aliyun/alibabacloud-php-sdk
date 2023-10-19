@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageTotalResponseBody extends Model
 {
     /**
-     * @description The total savings.
+     * @description The response code.
      *
      * @example Success
      *
@@ -19,14 +19,14 @@ class DescribeResourceUsageTotalResponseBody extends Model
     public $code;
 
     /**
-     * @description The usage of deduction plans within the specified period.
+     * @description The queried data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The total costs of pay-as-you-go instances.
+     * @description The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
      *
      * @example Successful!
      *
@@ -35,7 +35,7 @@ class DescribeResourceUsageTotalResponseBody extends Model
     public $message;
 
     /**
-     * @description The status code.
+     * @description The request ID.
      *
      * @example 364C7C81-5E5E-51A0-B738-1969D2671B05
      *
@@ -44,7 +44,7 @@ class DescribeResourceUsageTotalResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The operation that you want to perform. Set the value to DescribeResourceUsageTotal.
+     * @description Indicates whether the request was successful.
      *
      * @example True
      *

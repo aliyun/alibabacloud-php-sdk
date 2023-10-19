@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceCoverageTotalResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to DescribeResourceCoverageTotal.
+     * @description The status code.
      *
      * @example Success
      *
@@ -19,14 +19,14 @@ class DescribeResourceCoverageTotalResponseBody extends Model
     public $code;
 
     /**
-     * @description The information about the total coverage data of deduction plans.
+     * @description The returned data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The type of deduction plans whose total coverage data is queried. Valid values: RI and SCU.
+     * @description The message returned.
      *
      * @example Successful!
      *
@@ -35,7 +35,7 @@ class DescribeResourceCoverageTotalResponseBody extends Model
     public $message;
 
     /**
-     * @description The coverage rate of deduction plans within the specified period.
+     * @description The ID of the request.
      *
      * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
      *
@@ -44,7 +44,7 @@ class DescribeResourceCoverageTotalResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range to query. The beginning is included in the time range. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     * @description Indicates whether the operation was successful.
      *
      * @example true
      *

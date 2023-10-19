@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class availableDuration extends Model
 {
     /**
+     * @description The name of the validity period.
+     *
      * @example 6 Month
      *
      * @var string
@@ -16,6 +18,12 @@ class availableDuration extends Model
     public $name;
 
     /**
+     * @description The unit of the validity period for the resource plan. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * Default value: Month.
      * @example Month
      *
      * @var string
@@ -23,6 +31,8 @@ class availableDuration extends Model
     public $unit;
 
     /**
+     * @description The value of the validity period.
+     *
      * @example 6
      *
      * @var int

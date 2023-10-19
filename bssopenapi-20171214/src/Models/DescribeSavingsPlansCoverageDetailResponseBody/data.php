@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the account.
+     * @description The data entries.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The data entries.
+     * @description The token of the next page.
      *
      * @example eyJwYWdlTnVtIjoyLCJwYWdlU2l6ZSI6MTB9
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $nextToken;
 
     /**
-     * @description The token of the next page.
+     * @description The total number of entries.
      *
      * @example 400
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The amount deducted with credit refund.
+     *
      * @example 0
      *
      * @var float
@@ -16,6 +18,8 @@ class items extends Model
     public $adjustAmount;
 
     /**
+     * @description The ID of the account to which the bill belongs.
+     *
      * @example 185xxxx3489
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $billAccountID;
 
     /**
+     * @description The name of the account to which the bill belongs.
+     *
      * @example test@test.aliyunid.com
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $billAccountName;
 
     /**
+     * @description The billing date. Format: YYYY-MM-DD. This parameter is not supported.
+     *
      * @example 2020-01-20
      *
      * @var string
@@ -37,11 +45,17 @@ class items extends Model
     public $billingDate;
 
     /**
+     * @description The billable item.
+     *
+     * @example Bandwidth
+     *
      * @var string
      */
     public $billingItem;
 
     /**
+     * @description The code of the billable item.
+     *
      * @example disk
      *
      * @var string
@@ -49,11 +63,17 @@ class items extends Model
     public $billingItemCode;
 
     /**
+     * @description The billing method.
+     *
+     * @example Other
+     *
      * @var string
      */
     public $billingType;
 
     /**
+     * @description The type of the business.
+     *
      * @example trusteeship
      *
      * @var string
@@ -61,6 +81,8 @@ class items extends Model
     public $bizType;
 
     /**
+     * @description The amount paid in cash. The amount deducted with credit refund is not included.
+     *
      * @example 0
      *
      * @var float
@@ -68,6 +90,8 @@ class items extends Model
     public $cashAmount;
 
     /**
+     * @description The code of the commodity. The code is the same as that displayed in the Split Bill module of the User Center console.
+     *
      * @example rds
      *
      * @var string
@@ -75,11 +99,17 @@ class items extends Model
     public $commodityCode;
 
     /**
+     * @description The cost center.
+     *
+     * @example Not allocated
+     *
      * @var string
      */
     public $costUnit;
 
     /**
+     * @description The type of currency. Valid values: CNY, USD, and JPY.
+     *
      * @example CNY
      *
      * @var string
@@ -87,6 +117,8 @@ class items extends Model
     public $currency;
 
     /**
+     * @description The amount deducted with vouchers.
+     *
      * @example 0
      *
      * @var float
@@ -94,6 +126,8 @@ class items extends Model
     public $deductedByCashCoupons;
 
     /**
+     * @description The amount deducted with coupons.
+     *
      * @example 0
      *
      * @var float
@@ -101,6 +135,8 @@ class items extends Model
     public $deductedByCoupons;
 
     /**
+     * @description The amount deducted with prepaid cards.
+     *
      * @example 0
      *
      * @var float
@@ -108,6 +144,8 @@ class items extends Model
     public $deductedByPrepaidCard;
 
     /**
+     * @description The amount deducted with resource plans.
+     *
      * @example 0
      *
      * @var string
@@ -115,6 +153,8 @@ class items extends Model
     public $deductedByResourcePackage;
 
     /**
+     * @description The configurations of the instance.
+     *
      * @example CPU:12
      *
      * @var string
@@ -122,6 +162,8 @@ class items extends Model
     public $instanceConfig;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-kjhdskjgshfdlkjfdh
      *
      * @var string
@@ -129,6 +171,8 @@ class items extends Model
     public $instanceID;
 
     /**
+     * @description The type of the instance.
+     *
      * @example ecs.sn1ne.3xlarge
      *
      * @var string
@@ -136,6 +180,8 @@ class items extends Model
     public $instanceSpec;
 
     /**
+     * @description The public IP address.
+     *
      * @example 34.xx.x.x
      *
      * @var string
@@ -143,6 +189,8 @@ class items extends Model
     public $internetIP;
 
     /**
+     * @description The private IP address.
+     *
      * @example 192.xx.xx.xx
      *
      * @var string
@@ -150,6 +198,8 @@ class items extends Model
     public $intranetIP;
 
     /**
+     * @description The discount amount.
+     *
      * @example 0
      *
      * @var float
@@ -157,6 +207,8 @@ class items extends Model
     public $invoiceDiscount;
 
     /**
+     * @description The type of the bill. Valid values: SubscriptionOrder: the subscription bill. PayAsYouGoBill: the pay-as-you-go bill. Refund: the refund. Adjustment: the adjustment bill.
+     *
      * @example PayAsYouGoBill
      *
      * @var string
@@ -164,6 +216,8 @@ class items extends Model
     public $item;
 
     /**
+     * @description The name of the split item.
+     *
      * @example iZ28bycvyb4Z
      *
      * @var string
@@ -171,6 +225,8 @@ class items extends Model
     public $itemName;
 
     /**
+     * @description The unit price.
+     *
      * @example 0.12
      *
      * @var string
@@ -178,11 +234,17 @@ class items extends Model
     public $listPrice;
 
     /**
+     * @description The unit of the unit price.
+     *
+     * @example CNY/GB
+     *
      * @var string
      */
     public $listPriceUnit;
 
     /**
+     * @description The name of the instance.
+     *
      * @example nick
      *
      * @var string
@@ -190,6 +252,8 @@ class items extends Model
     public $nickName;
 
     /**
+     * @description The amount that is unsettled.
+     *
      * @example 0.1
      *
      * @var float
@@ -197,6 +261,8 @@ class items extends Model
     public $outstandingAmount;
 
     /**
+     * @description The ID of the account that owns the resource. This parameter is returned in multi-account scenario.
+     *
      * @example 169***013
      *
      * @var string
@@ -204,6 +270,8 @@ class items extends Model
     public $ownerID;
 
     /**
+     * @description The amount paid in cash. The amount deducted with credit refund is included.
+     *
      * @example 0
      *
      * @var float
@@ -211,6 +279,8 @@ class items extends Model
     public $paymentAmount;
 
     /**
+     * @description The code of the service. The code is the same as that displayed in the Split Bill module of the User Center console.
+     *
      * @example rds
      *
      * @var string
@@ -218,6 +288,8 @@ class items extends Model
     public $pipCode;
 
     /**
+     * @description The pretax amount.
+     *
      * @example 0
      *
      * @var float
@@ -225,6 +297,8 @@ class items extends Model
     public $pretaxAmount;
 
     /**
+     * @description The pretax gross amount.
+     *
      * @example 0
      *
      * @var float
@@ -232,6 +306,8 @@ class items extends Model
     public $pretaxGrossAmount;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -239,16 +315,26 @@ class items extends Model
     public $productCode;
 
     /**
+     * @description The details of the service.
+     *
+     * @example ApsaraDB RDS
+     *
      * @var string
      */
     public $productDetail;
 
     /**
+     * @description The name of the service.
+     *
+     * @example ApsaraDB RDS
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -256,16 +342,26 @@ class items extends Model
     public $productType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example Default resource group
+     *
      * @var string
      */
     public $resourceGroup;
 
     /**
+     * @description The duration of the service.
+     *
      * @example 20
      *
      * @var string
@@ -273,11 +369,17 @@ class items extends Model
     public $servicePeriod;
 
     /**
+     * @description The unit of the service duration.
+     *
+     * @example Hour
+     *
      * @var string
      */
     public $servicePeriodUnit;
 
     /**
+     * @description The ID of the account to which the split bill belongs.
+     *
      * @example 12**122
      *
      * @var string
@@ -285,6 +387,8 @@ class items extends Model
     public $splitAccountID;
 
     /**
+     * @description The name of the account to which the split item belongs.
+     *
      * @example test**1122
      *
      * @var string
@@ -292,6 +396,8 @@ class items extends Model
     public $splitAccountName;
 
     /**
+     * @description The billing cycle in which the bill is split.
+     *
      * @example 2021-06
      *
      * @var string
@@ -299,6 +405,8 @@ class items extends Model
     public $splitBillingCycle;
 
     /**
+     * @description The day on which the bill is split.
+     *
      * @example 2021-06-01
      *
      * @var string
@@ -306,6 +414,8 @@ class items extends Model
     public $splitBillingDate;
 
     /**
+     * @description The code of the split item.
+     *
      * @example rds
      *
      * @var string
@@ -313,6 +423,8 @@ class items extends Model
     public $splitCommodityCode;
 
     /**
+     * @description The ID of the split item.
+     *
      * @example i-28bycvyb4
      *
      * @var string
@@ -320,6 +432,8 @@ class items extends Model
     public $splitItemID;
 
     /**
+     * @description The name of the split item.
+     *
      * @example iZ28bycvyb4Z
      *
      * @var string
@@ -327,11 +441,17 @@ class items extends Model
     public $splitItemName;
 
     /**
+     * @description The details of the service.
+     *
+     * @example ApsaraDB RDS
+     *
      * @var string
      */
     public $splitProductDetail;
 
     /**
+     * @description The billing method. Valid values: Subscription: the subscription billing method. PayAsYouGo: the pay-as-you-go billing method.
+     *
      * @example PayAsYouGo
      *
      * @var string
@@ -339,6 +459,8 @@ class items extends Model
     public $subscriptionType;
 
     /**
+     * @description The tag of the resource. If tags added to resources change, the bills generated during the period in which resources and tags are associated are returned.
+     *
      * @example key:testKey value:testValue; key:testKey1 value:testValues1
      *
      * @var string
@@ -346,6 +468,8 @@ class items extends Model
     public $tag;
 
     /**
+     * @description The amount of resource usage.
+     *
      * @example 100
      *
      * @var string
@@ -353,6 +477,8 @@ class items extends Model
     public $usage;
 
     /**
+     * @description The unit of usage.
+     *
      * @example GB
      *
      * @var string
@@ -360,6 +486,10 @@ class items extends Model
     public $usageUnit;
 
     /**
+     * @description The zone.
+     *
+     * @example Qingdao Zone B
+     *
      * @var string
      */
     public $zone;

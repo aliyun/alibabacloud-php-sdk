@@ -4,48 +4,38 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillResponseBody\data;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeSplitItemBillResponseBody extends Model
+class DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponseBody extends Model
 {
     /**
-     * @description The status code.
-     *
-     * @example Success
+     * @example 200
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description The data returned.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error message returned.
-     *
-     * @example Successful!
+     * @example Successful！
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
+     * @example EAE08A27-386C-579E-966D-8853EC3C5D0E
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
      * @example true
      *
      * @var bool
@@ -88,7 +78,7 @@ class DescribeSplitItemBillResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSplitItemBillResponseBody
+     * @return DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class QuerySavingsPlansInstanceResponseBody extends Model
 {
     /**
-     * @description The prepaid amount.
+     * @description The error code.
      *
      * @example Success
      *
@@ -19,14 +19,14 @@ class QuerySavingsPlansInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description The commitment.
+     * @description The return data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The details about the instances.
+     * @description The message returned.
      *
      * @example Successful
      *
@@ -35,7 +35,7 @@ class QuerySavingsPlansInstanceResponseBody extends Model
     public $message;
 
     /**
-     * @description The return data.
+     * @description The ID of the request.
      *
      * @example 61293E7A-3406-4447-8620-EC88B0AA66AD
      *
@@ -44,7 +44,7 @@ class QuerySavingsPlansInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The region.
+     * @description Indicates whether the operation was successful.
      *
      * @example true
      *

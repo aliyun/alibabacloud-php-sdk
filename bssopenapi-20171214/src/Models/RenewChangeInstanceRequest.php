@@ -24,6 +24,11 @@ class RenewChangeInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var parameter[]
      */
     public $parameter;
@@ -51,6 +56,7 @@ class RenewChangeInstanceRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'instanceId'  => 'InstanceId',
+        'ownerId'     => 'OwnerId',
         'parameter'   => 'Parameter',
         'productCode' => 'ProductCode',
         'productType' => 'ProductType',
@@ -69,6 +75,9 @@ class RenewChangeInstanceRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->parameter) {
             $res['Parameter'] = [];
@@ -105,6 +114,9 @@ class RenewChangeInstanceRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Parameter'])) {
             if (!empty($map['Parameter'])) {

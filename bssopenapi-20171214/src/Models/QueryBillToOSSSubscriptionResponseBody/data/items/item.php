@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
-     * @description The owner ID of the OSS bucket.
+     * @description The owner ID of the Object Storage Service (OSS) bucket.
      *
      * @example 1369168081849304
      *
@@ -18,7 +18,7 @@ class item extends Model
     public $bucketOwnerId;
 
     /**
-     * @description The directory of the OSS bucket.
+     * @description The path in the OSS bucket.
      *
      * @example Billing/BillingItemDetailMonthly/
      *
@@ -27,6 +27,10 @@ class item extends Model
     public $bucketPath;
 
     /**
+     * @description The maximum number of data rows in a single file. If the number of data rows in a bill exceeds the upper limit, the bill is split into multiple files. Then, multiple files are merged and compressed into a package.
+     *
+     * @example 300000
+     *
      * @var int
      */
     public $rowLimitPerFile;
@@ -42,6 +46,11 @@ class item extends Model
 
     /**
      * @description The code of the language.
+     *
+     * Valid values:
+     *
+     *   en: English
+     *   zh: Chinese
      *
      * @example zh
      *
@@ -61,8 +70,8 @@ class item extends Model
     /**
      * @description The type of the subscribed bill. Valid values:
      *
-     *   BillingItemDetailForBillingPeriod: bill of a billable item
-     *   InstanceDetailForBillingPeriod: bill of an instance
+     *   BillingItemDetailForBillingPeriod: the bill of a billable item.
+     *   InstanceDetailForBillingPeriod: the bill of an instance.
      *
      * @example BillingItemDetailForBillingPeriod
      *

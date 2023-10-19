@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class property extends Model
 {
     /**
+     * @description The name of the property.
+     *
      * @example region
      *
      * @var string
@@ -16,6 +18,8 @@ class property extends Model
     public $name;
 
     /**
+     * @description The value of the property.
+     *
      * @example cn-shenzhen
      *
      * @var string

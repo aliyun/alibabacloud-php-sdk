@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The details about the instances.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The type of the savings plan. Valid values:
-     *
-     *   universal: general-purpose
-     *   ecs: ECS compute
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -29,7 +26,7 @@ class data extends Model
     public $pageNum;
 
     /**
-     * @description The key of the tag to query.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -38,10 +35,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The language of the return data. Valid values:
-     *
-     *   ZH: Chinese
-     *   EN: English
+     * @description The total number of entries.
      *
      * @example 100
      *

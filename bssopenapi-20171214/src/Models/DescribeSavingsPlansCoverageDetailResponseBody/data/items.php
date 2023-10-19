@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The region.
+     * @description The coverage.
      *
      * @example 0.9
      *
@@ -18,7 +18,7 @@ class items extends Model
     public $coveragePercentage;
 
     /**
-     * @description The specifications.
+     * @description The currency.
      *
      * @example CNY
      *
@@ -27,7 +27,7 @@ class items extends Model
     public $currency;
 
     /**
-     * @description The start time.
+     * @description The deducted amount.
      *
      * @example 100
      *
@@ -36,6 +36,8 @@ class items extends Model
     public $deductAmount;
 
     /**
+     * @description The end time.
+     *
      * @example 2021-05-05 15:00:00
      *
      * @var string
@@ -43,7 +45,7 @@ class items extends Model
     public $endPeriod;
 
     /**
-     * @description The currency.
+     * @description The ID of the instance.
      *
      * @example spn-a1fhs54c243hP22
      *
@@ -52,7 +54,7 @@ class items extends Model
     public $instanceId;
 
     /**
-     * @description The pay-as-you-go cost.
+     * @description The specifications.
      *
      * @example 7th_generation_X86_group
      *
@@ -61,7 +63,12 @@ class items extends Model
     public $instanceSpec;
 
     /**
-     * @description The coverage.
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @description The pay-as-you-go cost.
      *
      * @example 200
      *
@@ -70,14 +77,14 @@ class items extends Model
     public $postpaidCost;
 
     /**
-     * @description The deducted amount.
+     * @description The region.
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description The total expenditure.
+     * @description The start time.
      *
      * @example 2021-05-05 14:00:00
      *
@@ -86,7 +93,7 @@ class items extends Model
     public $startPeriod;
 
     /**
-     * @description The username of the account.
+     * @description The total expenditure.
      *
      * @example 100
      *
@@ -95,7 +102,7 @@ class items extends Model
     public $totalAmount;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the account.
      *
      * @example 2831685687844416
      *
@@ -104,7 +111,7 @@ class items extends Model
     public $userId;
 
     /**
-     * @description The end time.
+     * @description The username of the account.
      *
      * @example tester1@test.aliyun.com
      *
@@ -118,6 +125,7 @@ class items extends Model
         'endPeriod'          => 'EndPeriod',
         'instanceId'         => 'InstanceId',
         'instanceSpec'       => 'InstanceSpec',
+        'ownerId'            => 'OwnerId',
         'postpaidCost'       => 'PostpaidCost',
         'region'             => 'Region',
         'startPeriod'        => 'StartPeriod',
@@ -150,6 +158,9 @@ class items extends Model
         }
         if (null !== $this->instanceSpec) {
             $res['InstanceSpec'] = $this->instanceSpec;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->postpaidCost) {
             $res['PostpaidCost'] = $this->postpaidCost;
@@ -198,6 +209,9 @@ class items extends Model
         }
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpec = $map['InstanceSpec'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PostpaidCost'])) {
             $model->postpaidCost = $map['PostpaidCost'];

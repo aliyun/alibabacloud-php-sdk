@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSavingsPlansCoverageTotalRequest extends Model
 {
     /**
-     * @description The status code.
+     * @description The ID of the account for which you want to query coverage summary. If you do not set this parameter, the data of the current Alibaba Cloud account and its RAM users is queried. To query the data of a RAM user, specify the ID of the RAM user.
      *
      * @example 123745698925000
      *
@@ -18,7 +18,7 @@ class DescribeSavingsPlansCoverageTotalRequest extends Model
     public $billOwnerId;
 
     /**
-     * @description The time granularity at which coverage summary are queried. Valid values: MONTH, DAY, and HOUR.
+     * @description The end of the time range to query. The end is excluded from the time range. If you do not set this parameter, the end time is the current time. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example 2021-07-20 00:00:00
      *
@@ -27,7 +27,7 @@ class DescribeSavingsPlansCoverageTotalRequest extends Model
     public $endPeriod;
 
     /**
-     * @description The ID of the account for which you want to query coverage summary. If you do not set this parameter, the data of the current Alibaba Cloud account and its RAM users is queried. To query the data of a RAM user, specify the ID of the RAM user.
+     * @description The time granularity at which coverage summary are queried. Valid values: MONTH, DAY, and HOUR.
      *
      * @example HOUR
      *
@@ -36,7 +36,7 @@ class DescribeSavingsPlansCoverageTotalRequest extends Model
     public $periodType;
 
     /**
-     * @description The end of the time range to query. The end is excluded from the time range. If you do not set this parameter, the end time is the current time. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The beginning of the time range to query. The beginning is included in the time range. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example 2021-07-15 00:00:00
      *

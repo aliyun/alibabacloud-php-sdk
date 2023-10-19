@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageTotalRequest extends Model
 {
     /**
+     * @description The ID of the account whose data you want to query. If you do not specify this parameter, the data of the current account and its linked accounts is queried. To query the data of a linked account, specify the ID of the linked account. You can specify only one account ID.
+     *
      * @example 123745698925000
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeResourceUsageTotalRequest extends Model
     public $billOwnerId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format. The specified time is excluded from the time range. If you do not specify this parameter, this parameter is set to the current time.
+     *
      * @example 2021-01-02 00:00:00
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeResourceUsageTotalRequest extends Model
     public $endPeriod;
 
     /**
+     * @description The time granularity at which the data is queried. Valid values: MONTH, DAY, and HOUR.
+     *
      * @example HOUR
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeResourceUsageTotalRequest extends Model
     public $periodType;
 
     /**
+     * @description The type of the resource plan. Valid values: RI and SCU.
+     *
      * @example RI
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeResourceUsageTotalRequest extends Model
     public $resourceType;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format. The specified time is included in the time range.
+     *
      * @example 2021-01-01 00:00:00
      *
      * @var string

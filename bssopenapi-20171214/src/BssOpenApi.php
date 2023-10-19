@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceAmortizedCostBy
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceAmortizedCostByConsumePeriodResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceBillResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeProductAmortizedCostByAmortizationPeriodRequest;
@@ -1521,6 +1523,76 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest $request
+     * @param RuntimeOptions                                                 $runtime
+     *
+     * @return DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse
+     */
+    public function describeInstanceDeductAmortizedCostByAmortizationPeriodWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->billOwnerIdList)) {
+            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+        }
+        if (!Utils::isUnset($request->billUserIdList)) {
+            $body['BillUserIdList'] = $request->billUserIdList;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $body['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->costUnitCode)) {
+            $body['CostUnitCode'] = $request->costUnitCode;
+        }
+        if (!Utils::isUnset($request->instanceIdList)) {
+            $body['InstanceIdList'] = $request->instanceIdList;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productDetail)) {
+            $body['ProductDetail'] = $request->productDetail;
+        }
+        if (!Utils::isUnset($request->subscriptionType)) {
+            $body['SubscriptionType'] = $request->subscriptionType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceDeductAmortizedCostByAmortizationPeriod',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest $request
+     *
+     * @return DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse
+     */
+    public function describeInstanceDeductAmortizedCostByAmortizationPeriod($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceDeductAmortizedCostByAmortizationPeriodWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePricingModuleRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1717,7 +1789,9 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * The amount of the resources deducted from a deduction plan.
+     * 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     *   * 2\\. You can call this operation to query the coverage details of RIs or SCUs.
+     *   * 3\\. You can call this operation to query coverage details at an hourly, daily, or monthly granularity.
      *   *
      * @param DescribeResourceCoverageDetailRequest $request DescribeResourceCoverageDetailRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -1768,7 +1842,9 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * The amount of the resources deducted from a deduction plan.
+     * 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     *   * 2\\. You can call this operation to query the coverage details of RIs or SCUs.
+     *   * 3\\. You can call this operation to query coverage details at an hourly, daily, or monthly granularity.
      *   *
      * @param DescribeResourceCoverageDetailRequest $request DescribeResourceCoverageDetailRequest
      *
@@ -1782,7 +1858,8 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Indicates whether the operation was successful.
+     * The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     *   * You can call this operation to query the total coverage data of RIs or SCUs.
      *   *
      * @param DescribeResourceCoverageTotalRequest $request DescribeResourceCoverageTotalRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -1827,7 +1904,8 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Indicates whether the operation was successful.
+     * The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     *   * You can call this operation to query the total coverage data of RIs or SCUs.
      *   *
      * @param DescribeResourceCoverageTotalRequest $request DescribeResourceCoverageTotalRequest
      *
@@ -2220,7 +2298,9 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * The code of the service.
+     * *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
+     *   * *   You can query split bills that were generated within the last 12 months by calling this operation.
+     *   * *   You can query split bills only after you enable the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in the User Center console.
      *   *
      * @param DescribeSplitItemBillRequest $request DescribeSplitItemBillRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2289,7 +2369,9 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * The code of the service.
+     * *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
+     *   * *   You can query split bills that were generated within the last 12 months by calling this operation.
+     *   * *   You can query split bills only after you enable the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in the User Center console.
      *   *
      * @param DescribeSplitItemBillRequest $request DescribeSplitItemBillRequest
      *
@@ -5328,6 +5410,9 @@ class BssOpenApi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         if (!Utils::isUnset($request->parameter)) {
             $query['Parameter'] = $request->parameter;
         }
@@ -5902,10 +5987,38 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param SubscribeBillToOSSRequest $request
-     * @param RuntimeOptions            $runtime
+     * Before you call this operation, take note of the following items:
+     *   * *   You can subscribe to only one type of bill at a time.
+     *   * *   The bills generated on the previous day are pushed on a daily basis the next day after you subscribe to the bills. The full-data bills for the previous month are pushed on the fourth day of each month. The monthly bills in the PDF format for the previous month are pushed on the fourth day of each month.
+     *   * *   The daily bills may be delayed. The delayed bills are pushed the next day after they are generated. The delayed bills may include the bills that should have been pushed on the previous day. We recommend that you query the full-data bills for the previous month at the beginning of each month.
+     *   * *   The bill subscriber must have the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
+     *   * *   The SubscribeBillToOSS operation has the same functionality as the Save Expense Details to OSS Bucket feature in User Center.
+     *   * *   To subscribe to the bills stored in an OSS bucket, make sure that the directory name specified for the OSS bucket conforms to the following naming rules:
+     *   * 1.  1.  The directory name can contain only UTF-8 characters and cannot contain emoticons.
+     *   * 2.  2.  Forward slashes (/) are used to separate paths and can be used to create subdirectories with ease. The directory name cannot start with a forward slash (/), a backslash (\\\\), or consecutive forward slashes (/).
+     *   * 3.  3.  The name of a subdirectory cannot be set to two consecutive periods (..).
+     *   * 4.  4.  The directory name must be 1 to 254 characters in length.
+     *   * *   File names:
+     *   *     *   **BillingItemDetailForBillingPeriod** (Detailed bills of billable items)
+     *   *         *   File name format for a daily push: `UID_BillingItemDetail_YYYYMMDD`. Example: `169**_BillingItemDetail_20190310`.
+     *   *         *   File name format for a full-data push at the beginning of the next month: `UID_BillingItemDetail_YYYYMM`. Example: `169**_BillingItemDetail_201903`.
+     *   *     *   **InstanceDetailForBillingPeriod** (Detailed bills of instances)
+     *   *         *   File name format for a daily push: `UID_InstanceDetail_YYYYMMDD`. Example: `169**_InstanceDetail_20190310`.
+     *   *         *   File name format for a full-data push at the beginning of the next month: `UID_InstanceDetail_YYYYMM`. Example: `169**_InstanceDetail_201903`.
+     *   *     *   **InstanceDetailMonthly** (Instance-based bills summarized by billing cycle)
+     *   *         *   File name format for a daily push: `UID_InstanceDetailMonthly_YYYYMM`. Example: `169**_InstanceDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **BillingItemDetailMonthly** (Billable item-based bills summarized by billing cycle)
+     *   *         *   File name format for a daily push: `UID_BillingItemDetailMonthly_YYYYMM`. Example: `169**_BillingItemDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **SplitItemDetailDaily** (Split bills summarized by day)
+     *   *         *   File name format for a daily push: `UID_SplitItemDetailDaily_YYYYMM`. Example: `169**_SplitItemDetailDaily_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **MonthBill** (Monthly bill in the PDF format)
+     *   *         *   File name format for a monthly push: `UID_MonthBill_YYYYMM`. Example: `169**_MonthBill_201903`. The bill for the previous month is pushed on the fourth day of each month.
+     *   * *   The bills of the MonthBill type are PDF files, whereas the bills of other types are CSV files. If the number of data rows in a bill exceeds a threshold, the bill is automatically split into multiple CSV files. Then, the multiple CSV files are automatically merged and compressed into a ZIP file that has the same name format as the original file.
+     *   *
+     * @param SubscribeBillToOSSRequest $request SubscribeBillToOSSRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubscribeBillToOSSResponse
+     * @return SubscribeBillToOSSResponse SubscribeBillToOSSResponse
      */
     public function subscribeBillToOSSWithOptions($request, $runtime)
     {
@@ -5951,9 +6064,37 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param SubscribeBillToOSSRequest $request
+     * Before you call this operation, take note of the following items:
+     *   * *   You can subscribe to only one type of bill at a time.
+     *   * *   The bills generated on the previous day are pushed on a daily basis the next day after you subscribe to the bills. The full-data bills for the previous month are pushed on the fourth day of each month. The monthly bills in the PDF format for the previous month are pushed on the fourth day of each month.
+     *   * *   The daily bills may be delayed. The delayed bills are pushed the next day after they are generated. The delayed bills may include the bills that should have been pushed on the previous day. We recommend that you query the full-data bills for the previous month at the beginning of each month.
+     *   * *   The bill subscriber must have the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
+     *   * *   The SubscribeBillToOSS operation has the same functionality as the Save Expense Details to OSS Bucket feature in User Center.
+     *   * *   To subscribe to the bills stored in an OSS bucket, make sure that the directory name specified for the OSS bucket conforms to the following naming rules:
+     *   * 1.  1.  The directory name can contain only UTF-8 characters and cannot contain emoticons.
+     *   * 2.  2.  Forward slashes (/) are used to separate paths and can be used to create subdirectories with ease. The directory name cannot start with a forward slash (/), a backslash (\\\\), or consecutive forward slashes (/).
+     *   * 3.  3.  The name of a subdirectory cannot be set to two consecutive periods (..).
+     *   * 4.  4.  The directory name must be 1 to 254 characters in length.
+     *   * *   File names:
+     *   *     *   **BillingItemDetailForBillingPeriod** (Detailed bills of billable items)
+     *   *         *   File name format for a daily push: `UID_BillingItemDetail_YYYYMMDD`. Example: `169**_BillingItemDetail_20190310`.
+     *   *         *   File name format for a full-data push at the beginning of the next month: `UID_BillingItemDetail_YYYYMM`. Example: `169**_BillingItemDetail_201903`.
+     *   *     *   **InstanceDetailForBillingPeriod** (Detailed bills of instances)
+     *   *         *   File name format for a daily push: `UID_InstanceDetail_YYYYMMDD`. Example: `169**_InstanceDetail_20190310`.
+     *   *         *   File name format for a full-data push at the beginning of the next month: `UID_InstanceDetail_YYYYMM`. Example: `169**_InstanceDetail_201903`.
+     *   *     *   **InstanceDetailMonthly** (Instance-based bills summarized by billing cycle)
+     *   *         *   File name format for a daily push: `UID_InstanceDetailMonthly_YYYYMM`. Example: `169**_InstanceDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **BillingItemDetailMonthly** (Billable item-based bills summarized by billing cycle)
+     *   *         *   File name format for a daily push: `UID_BillingItemDetailMonthly_YYYYMM`. Example: `169**_BillingItemDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **SplitItemDetailDaily** (Split bills summarized by day)
+     *   *         *   File name format for a daily push: `UID_SplitItemDetailDaily_YYYYMM`. Example: `169**_SplitItemDetailDaily_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
+     *   *     *   **MonthBill** (Monthly bill in the PDF format)
+     *   *         *   File name format for a monthly push: `UID_MonthBill_YYYYMM`. Example: `169**_MonthBill_201903`. The bill for the previous month is pushed on the fourth day of each month.
+     *   * *   The bills of the MonthBill type are PDF files, whereas the bills of other types are CSV files. If the number of data rows in a bill exceeds a threshold, the bill is automatically split into multiple CSV files. Then, the multiple CSV files are automatically merged and compressed into a ZIP file that has the same name format as the original file.
+     *   *
+     * @param SubscribeBillToOSSRequest $request SubscribeBillToOSSRequest
      *
-     * @return SubscribeBillToOSSResponse
+     * @return SubscribeBillToOSSResponse SubscribeBillToOSSResponse
      */
     public function subscribeBillToOSS($request)
     {

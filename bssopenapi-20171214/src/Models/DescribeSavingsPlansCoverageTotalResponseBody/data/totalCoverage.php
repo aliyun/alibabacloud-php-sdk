@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class totalCoverage extends Model
 {
     /**
-     * @description The total deducted amount.
+     * @description The total coverage.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class totalCoverage extends Model
     public $coveragePercentage;
 
     /**
-     * @description Queries the coverage summary of savings plans.
+     * @description The total deducted amount.
      *
      * @example 100
      *

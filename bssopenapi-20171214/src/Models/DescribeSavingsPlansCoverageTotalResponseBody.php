@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSavingsPlansCoverageTotalResponseBody extends Model
 {
     /**
-     * @description The message returned.
+     * @description The status code.
      *
      * @example Success
      *
@@ -19,14 +19,14 @@ class DescribeSavingsPlansCoverageTotalResponseBody extends Model
     public $code;
 
     /**
-     * @description The coverage in different periods.
+     * @description The return data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The message returned.
      *
      * @example Successful!
      *
@@ -35,7 +35,7 @@ class DescribeSavingsPlansCoverageTotalResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the operation was successful.
+     * @description The ID of the request.
      *
      * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
      *
@@ -44,7 +44,7 @@ class DescribeSavingsPlansCoverageTotalResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The return data.
+     * @description Indicates whether the operation was successful.
      *
      * @example true
      *

@@ -2,51 +2,59 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageDetailResponseBody;
+namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponseBody;
 
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageDetailResponseBody\data\items;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponseBody\data\items;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The data entries.
+     * @example 185766xxxx
      *
+     * @var string
+     */
+    public $accountID;
+
+    /**
+     * @example test@test.aliyunid.com
+     *
+     * @var string
+     */
+    public $accountName;
+
+    /**
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The number of entries returned on the current page.
-     *
-     * @example 200
+     * @example 20
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token of the next page.
-     *
-     * @example eyJwYWdlTnVtIjoyLCJwYWdlU2l6ZSI6MTB9
+     * @example CAESEgoQCg4KCmdtdF9jcmVhdGUEARgBIkgKCQBwhGmPcAEAAAo7AzYAAAAxTDgwMDcxMjg3ZDJhNmM3ZDguTDgwMDAwMDAwMDAwMzE1MTIuTDgwMDcyZDMyZTJkYzg3N2U
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 10000
+     * @example 400
      *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'items'      => 'Items',
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'totalCount' => 'TotalCount',
+        'accountID'   => 'AccountID',
+        'accountName' => 'AccountName',
+        'items'       => 'Items',
+        'maxResults'  => 'MaxResults',
+        'nextToken'   => 'NextToken',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -56,6 +64,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountID) {
+            $res['AccountID'] = $this->accountID;
+        }
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -86,6 +100,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountID'])) {
+            $model->accountID = $map['AccountID'];
+        }
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];

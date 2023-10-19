@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QuerySavingsPlansDeductLogRequest extends Model
 {
     /**
-     * @description The type of the instance ID based on which the data is queried. Valid values:
-     *
-     *   spn: queries data based on the ID of the savings plan instance.
-     *   product: queries data based on the ID of the cloud service instance.
+     * @description The end of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example 2022-01-05 00:00:00
      *
@@ -21,7 +18,7 @@ class QuerySavingsPlansDeductLogRequest extends Model
     public $endTime;
 
     /**
-     * @description The message returned.
+     * @description The ID of the instance.
      *
      * @example spn-XXXXXXX
      *
@@ -30,7 +27,10 @@ class QuerySavingsPlansDeductLogRequest extends Model
     public $instanceId;
 
     /**
-     * @description The error code.
+     * @description The type of the instance ID based on which the data is queried. Valid values:
+     *
+     *   spn: queries data based on the ID of the savings plan instance.
+     *   product: queries data based on the ID of the cloud service instance.
      *
      * @example spn
      *
@@ -39,7 +39,10 @@ class QuerySavingsPlansDeductLogRequest extends Model
     public $instanceType;
 
     /**
-     * @description The end of the billing cycle for which the fee is deducted.
+     * @description The language of the return data. Valid values:
+     *
+     *   ZH: Chinese
+     *   EN: English
      *
      * @example ZH
      *
@@ -48,7 +51,7 @@ class QuerySavingsPlansDeductLogRequest extends Model
     public $locale;
 
     /**
-     * @description The ID of the instance.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -57,7 +60,7 @@ class QuerySavingsPlansDeductLogRequest extends Model
     public $pageNum;
 
     /**
-     * @description The operation that you want to perform. Set the value to QuerySavingsPlansDeductLog.
+     * @description The number of entries to return on each page.
      *
      * @example 20
      *

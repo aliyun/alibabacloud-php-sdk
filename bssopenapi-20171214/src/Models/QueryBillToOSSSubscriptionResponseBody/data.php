@@ -28,7 +28,7 @@ class data extends Model
     public $accountName;
 
     /**
-     * @description The details of the subscribed bills.
+     * @description The details of the subscribed bill.
      *
      * @var items
      */

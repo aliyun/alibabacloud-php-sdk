@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The coverage.
+     * @description The coverage in different periods.
      *
      * @var periodCoverage[]
      */
     public $periodCoverage;
 
     /**
-     * @description The total coverage.
+     * @description The coverage summary.
      *
      * @var totalCoverage
      */

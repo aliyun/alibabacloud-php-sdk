@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class periodCoverage extends Model
 {
     /**
-     * @description The returned data.
+     * @description The coverage rate of deduction plans within the specified period.
      *
      * @example 0.1
      *
@@ -18,8 +18,9 @@ class periodCoverage extends Model
     public $coveragePercentage;
 
     /**
-     * @description The ID of the request.
+     * @description The period.
      *
+     * The value is in the format of yyyyMMddHH.
      * @example 2020110100
      *
      * @var string
