@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class districts extends Model
 {
     /**
-     * @example 330000
-     *
      * @var string
      */
     public $districtCode;

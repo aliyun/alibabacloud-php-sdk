@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponseBody\module;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelPricePullResponseBody\module;
 use AlibabaCloud\Tea\Model;
 
-class FlightOrderQueryResponseBody extends Model
+class HotelPricePullResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $message;
@@ -25,16 +29,24 @@ class FlightOrderQueryResponseBody extends Model
     public $module;
 
     /**
+     * @example 9BCDD5DE-E6CB-5C25-93B9-9BE178A0AA56
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description traceId
+     *
+     * @example 210f079e16603757182131635d866a
+     *
      * @var string
      */
     public $traceId;
@@ -42,7 +54,7 @@ class FlightOrderQueryResponseBody extends Model
         'code'      => 'code',
         'message'   => 'message',
         'module'    => 'module',
-        'requestId' => 'requestId',
+        'requestId' => 'request_id',
         'success'   => 'success',
         'traceId'   => 'traceId',
     ];
@@ -64,7 +76,7 @@ class FlightOrderQueryResponseBody extends Model
             $res['module'] = null !== $this->module ? $this->module->toMap() : null;
         }
         if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+            $res['request_id'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -79,7 +91,7 @@ class FlightOrderQueryResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return FlightOrderQueryResponseBody
+     * @return HotelPricePullResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -93,8 +105,8 @@ class FlightOrderQueryResponseBody extends Model
         if (isset($map['module'])) {
             $model->module = module::fromMap($map['module']);
         }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['request_id'])) {
+            $model->requestId = $map['request_id'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

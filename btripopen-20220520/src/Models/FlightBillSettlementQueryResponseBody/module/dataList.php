@@ -557,6 +557,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $travelerMemberTypeName;
+
+    /**
+     * @var string
+     */
     public $travelerName;
 
     /**
@@ -661,6 +666,7 @@ class dataList extends Model
         'trade'                  => 'trade',
         'travelerId'             => 'traveler_id',
         'travelerJobNo'          => 'traveler_job_no',
+        'travelerMemberTypeName' => 'traveler_member_type_name',
         'travelerName'           => 'traveler_name',
         'upgradeCost'            => 'upgrade_cost',
         'voucherType'            => 'voucher_type',
@@ -936,6 +942,9 @@ class dataList extends Model
         }
         if (null !== $this->travelerJobNo) {
             $res['traveler_job_no'] = $this->travelerJobNo;
+        }
+        if (null !== $this->travelerMemberTypeName) {
+            $res['traveler_member_type_name'] = $this->travelerMemberTypeName;
         }
         if (null !== $this->travelerName) {
             $res['traveler_name'] = $this->travelerName;
@@ -1221,6 +1230,9 @@ class dataList extends Model
         }
         if (isset($map['traveler_job_no'])) {
             $model->travelerJobNo = $map['traveler_job_no'];
+        }
+        if (isset($map['traveler_member_type_name'])) {
+            $model->travelerMemberTypeName = $map['traveler_member_type_name'];
         }
         if (isset($map['traveler_name'])) {
             $model->travelerName = $map['traveler_name'];

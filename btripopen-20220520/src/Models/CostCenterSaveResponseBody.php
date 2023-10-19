@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CostCenterSaveResponseBody extends Model
 {
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $code;
@@ -27,24 +25,16 @@ class CostCenterSaveResponseBody extends Model
     public $module;
 
     /**
-     * @example C61ECFF6-606B-5F66-B81D-D77369043A5F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description traceId
-     *
-     * @example 21041ce316577904808056433edbb2
-     *
      * @var string
      */
     public $traceId;

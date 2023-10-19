@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class passengerSegmentInfoList extends Model
 {
     /**
-     * @example CA1982
-     *
      * @var string
      */
     public $flightNo;
@@ -21,8 +19,6 @@ class passengerSegmentInfoList extends Model
     public $passengerName;
 
     /**
-     * @example 23112
-     *
      * @var string
      */
     public $userId;

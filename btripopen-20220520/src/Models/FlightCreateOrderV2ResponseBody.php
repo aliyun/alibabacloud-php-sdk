@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class FlightCreateOrderV2ResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
@@ -22,33 +20,21 @@ class FlightCreateOrderV2ResponseBody extends Model
     public $message;
 
     /**
-     * @description module
-     *
      * @var module
      */
     public $module;
 
     /**
-     * @description requestId
-     *
-     * @example 210bc60a16916593445203790d2a16
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description traceId
-     *
-     * @example 2103ad0716827336456723986d4bda
-     *
      * @var string
      */
     public $traceId;

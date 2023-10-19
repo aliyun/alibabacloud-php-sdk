@@ -277,6 +277,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPreValidateShrinkReque
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelPricePullHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelPricePullRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelPricePullResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelPricePullShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoResponse;
@@ -6364,6 +6368,79 @@ class BtripOpen extends OpenApiClient
         $headers = new HotelOrderQueryHeaders([]);
 
         return $this->hotelOrderQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelPricePullRequest $tmpReq
+     * @param HotelPricePullHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return HotelPricePullResponse
+     */
+    public function hotelPricePullWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new HotelPricePullShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->hotelIds)) {
+            $request->hotelIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelIds, 'hotel_ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $query['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->checkIn)) {
+            $query['check_in'] = $request->checkIn;
+        }
+        if (!Utils::isUnset($request->checkOut)) {
+            $query['check_out'] = $request->checkOut;
+        }
+        if (!Utils::isUnset($request->cityCode)) {
+            $query['city_code'] = $request->cityCode;
+        }
+        if (!Utils::isUnset($request->hotelIdsShrink)) {
+            $query['hotel_ids'] = $request->hotelIdsShrink;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['payment_type'] = $request->paymentType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelPricePull',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/prices/action/pull',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelPricePullResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelPricePullRequest $request
+     *
+     * @return HotelPricePullResponse
+     */
+    public function hotelPricePull($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelPricePullHeaders([]);
+
+        return $this->hotelPricePullWithOptions($request, $headers, $runtime);
     }
 
     /**

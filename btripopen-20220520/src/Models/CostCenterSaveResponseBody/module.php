@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
-     * @example 17690
-     *
      * @var int
      */
     public $id;

@@ -15,8 +15,6 @@ class module extends Model
     public $citys;
 
     /**
-     * @example 108800
-     *
      * @var string
      */
     public $proviceCode;

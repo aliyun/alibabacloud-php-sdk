@@ -393,6 +393,11 @@ class dataList extends Model
     public $settlementType;
 
     /**
+     * @var string
+     */
+    public $star;
+
+    /**
      * @example 1
      *
      * @var int
@@ -435,6 +440,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $travelerMemberTypeName;
+
+    /**
+     * @var string
+     */
     public $travelerName;
 
     /**
@@ -444,78 +454,80 @@ class dataList extends Model
      */
     public $voucherType;
     protected $_name = [
-        'alipayTradeNo'      => 'alipay_trade_no',
-        'applyArrCityCode'   => 'apply_arr_city_code',
-        'applyArrCityName'   => 'apply_arr_city_name',
-        'applyDepCityCode'   => 'apply_dep_city_code',
-        'applyDepCityName'   => 'apply_dep_city_name',
-        'applyExtendField'   => 'apply_extend_field',
-        'applyId'            => 'apply_id',
-        'averageNights'      => 'average_nights',
-        'billRecordTime'     => 'bill_record_time',
-        'bookReason'         => 'book_reason',
-        'bookTime'           => 'book_time',
-        'bookerId'           => 'booker_id',
-        'bookerJobNo'        => 'booker_job_no',
-        'bookerName'         => 'booker_name',
-        'brandGroup'         => 'brand_group',
-        'brandName'          => 'brand_name',
-        'businessTripResult' => 'business_trip_result',
-        'capitalDirection'   => 'capital_direction',
-        'cascadeDepartment'  => 'cascade_department',
-        'checkInDate'        => 'check_in_date',
-        'checkoutDate'       => 'checkout_date',
-        'city'               => 'city',
-        'cityCode'           => 'city_code',
-        'cityCounty'         => 'city_county',
-        'cityCountyCode'     => 'city_county_code',
-        'corpRefundFee'      => 'corp_refund_fee',
-        'corpTotalFee'       => 'corp_total_fee',
-        'costCenter'         => 'cost_center',
-        'costCenterNumber'   => 'cost_center_number',
-        'department'         => 'department',
-        'departmentId'       => 'department_id',
-        'exceedReason'       => 'exceed_reason',
-        'feeType'            => 'fee_type',
-        'fees'               => 'fees',
-        'fines'              => 'fines',
-        'fuPointFee'         => 'fu_point_fee',
-        'hotelName'          => 'hotel_name',
-        'index'              => 'index',
-        'invoiceTitle'       => 'invoice_title',
-        'isEarlyDeparture'   => 'is_early_departure',
-        'isNegotiation'      => 'is_negotiation',
-        'isShareStr'         => 'is_share_str',
-        'nights'             => 'nights',
-        'orderId'            => 'order_id',
-        'orderPrice'         => 'order_price',
-        'orderType'          => 'order_type',
-        'overApplyId'        => 'over_apply_id',
-        'personRefundFee'    => 'person_refund_fee',
-        'personSettlePrice'  => 'person_settle_price',
-        'primaryId'          => 'primary_id',
-        'projectCode'        => 'project_code',
-        'projectName'        => 'project_name',
-        'promotionFee'       => 'promotion_fee',
-        'remark'             => 'remark',
-        'reserveRule'        => 'reserve_rule',
-        'roomNo'             => 'room_no',
-        'roomNumber'         => 'room_number',
-        'roomPrice'          => 'room_price',
-        'roomType'           => 'room_type',
-        'serviceFee'         => 'service_fee',
-        'settlementFee'      => 'settlement_fee',
-        'settlementGrantFee' => 'settlement_grant_fee',
-        'settlementTime'     => 'settlement_time',
-        'settlementType'     => 'settlement_type',
-        'status'             => 'status',
-        'taxRate'            => 'tax_rate',
-        'thirdItineraryId'   => 'third_itinerary_id',
-        'totalNights'        => 'total_nights',
-        'travelerId'         => 'traveler_id',
-        'travelerJobNo'      => 'traveler_job_no',
-        'travelerName'       => 'traveler_name',
-        'voucherType'        => 'voucher_type',
+        'alipayTradeNo'          => 'alipay_trade_no',
+        'applyArrCityCode'       => 'apply_arr_city_code',
+        'applyArrCityName'       => 'apply_arr_city_name',
+        'applyDepCityCode'       => 'apply_dep_city_code',
+        'applyDepCityName'       => 'apply_dep_city_name',
+        'applyExtendField'       => 'apply_extend_field',
+        'applyId'                => 'apply_id',
+        'averageNights'          => 'average_nights',
+        'billRecordTime'         => 'bill_record_time',
+        'bookReason'             => 'book_reason',
+        'bookTime'               => 'book_time',
+        'bookerId'               => 'booker_id',
+        'bookerJobNo'            => 'booker_job_no',
+        'bookerName'             => 'booker_name',
+        'brandGroup'             => 'brand_group',
+        'brandName'              => 'brand_name',
+        'businessTripResult'     => 'business_trip_result',
+        'capitalDirection'       => 'capital_direction',
+        'cascadeDepartment'      => 'cascade_department',
+        'checkInDate'            => 'check_in_date',
+        'checkoutDate'           => 'checkout_date',
+        'city'                   => 'city',
+        'cityCode'               => 'city_code',
+        'cityCounty'             => 'city_county',
+        'cityCountyCode'         => 'city_county_code',
+        'corpRefundFee'          => 'corp_refund_fee',
+        'corpTotalFee'           => 'corp_total_fee',
+        'costCenter'             => 'cost_center',
+        'costCenterNumber'       => 'cost_center_number',
+        'department'             => 'department',
+        'departmentId'           => 'department_id',
+        'exceedReason'           => 'exceed_reason',
+        'feeType'                => 'fee_type',
+        'fees'                   => 'fees',
+        'fines'                  => 'fines',
+        'fuPointFee'             => 'fu_point_fee',
+        'hotelName'              => 'hotel_name',
+        'index'                  => 'index',
+        'invoiceTitle'           => 'invoice_title',
+        'isEarlyDeparture'       => 'is_early_departure',
+        'isNegotiation'          => 'is_negotiation',
+        'isShareStr'             => 'is_share_str',
+        'nights'                 => 'nights',
+        'orderId'                => 'order_id',
+        'orderPrice'             => 'order_price',
+        'orderType'              => 'order_type',
+        'overApplyId'            => 'over_apply_id',
+        'personRefundFee'        => 'person_refund_fee',
+        'personSettlePrice'      => 'person_settle_price',
+        'primaryId'              => 'primary_id',
+        'projectCode'            => 'project_code',
+        'projectName'            => 'project_name',
+        'promotionFee'           => 'promotion_fee',
+        'remark'                 => 'remark',
+        'reserveRule'            => 'reserve_rule',
+        'roomNo'                 => 'room_no',
+        'roomNumber'             => 'room_number',
+        'roomPrice'              => 'room_price',
+        'roomType'               => 'room_type',
+        'serviceFee'             => 'service_fee',
+        'settlementFee'          => 'settlement_fee',
+        'settlementGrantFee'     => 'settlement_grant_fee',
+        'settlementTime'         => 'settlement_time',
+        'settlementType'         => 'settlement_type',
+        'star'                   => 'star',
+        'status'                 => 'status',
+        'taxRate'                => 'tax_rate',
+        'thirdItineraryId'       => 'third_itinerary_id',
+        'totalNights'            => 'total_nights',
+        'travelerId'             => 'traveler_id',
+        'travelerJobNo'          => 'traveler_job_no',
+        'travelerMemberTypeName' => 'traveler_member_type_name',
+        'travelerName'           => 'traveler_name',
+        'voucherType'            => 'voucher_type',
     ];
 
     public function validate()
@@ -717,6 +729,9 @@ class dataList extends Model
         if (null !== $this->settlementType) {
             $res['settlement_type'] = $this->settlementType;
         }
+        if (null !== $this->star) {
+            $res['star'] = $this->star;
+        }
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -734,6 +749,9 @@ class dataList extends Model
         }
         if (null !== $this->travelerJobNo) {
             $res['traveler_job_no'] = $this->travelerJobNo;
+        }
+        if (null !== $this->travelerMemberTypeName) {
+            $res['traveler_member_type_name'] = $this->travelerMemberTypeName;
         }
         if (null !== $this->travelerName) {
             $res['traveler_name'] = $this->travelerName;
@@ -945,6 +963,9 @@ class dataList extends Model
         if (isset($map['settlement_type'])) {
             $model->settlementType = $map['settlement_type'];
         }
+        if (isset($map['star'])) {
+            $model->star = $map['star'];
+        }
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
@@ -962,6 +983,9 @@ class dataList extends Model
         }
         if (isset($map['traveler_job_no'])) {
             $model->travelerJobNo = $map['traveler_job_no'];
+        }
+        if (isset($map['traveler_member_type_name'])) {
+            $model->travelerMemberTypeName = $map['traveler_member_type_name'];
         }
         if (isset($map['traveler_name'])) {
             $model->travelerName = $map['traveler_name'];

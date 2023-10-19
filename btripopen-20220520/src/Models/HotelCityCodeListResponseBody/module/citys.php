@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class citys extends Model
 {
     /**
-     * @example 445222
-     *
      * @var string
      */
     public $cityCode;

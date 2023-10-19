@@ -11,8 +11,6 @@ class FlightCreateOrderV2Headers extends Model
     public $commonHeaders;
 
     /**
-     * @example feth00jqwis
-     *
      * @var string
      */
     public $xAcsBtripCorpToken;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @example 182873
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $hotelStatus;

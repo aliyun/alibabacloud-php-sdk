@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class flightRefundTicketInfoList extends Model
 {
     /**
-     * @example 2022-07-20T10:40Z
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @example 2022-07-20T10:40Z
-     *
      * @var string
      */
     public $gmtModify;
 
     /**
-     * @example 43667
-     *
      * @var int
      */
     public $refundOrderId;
@@ -35,22 +29,16 @@ class flightRefundTicketInfoList extends Model
     public $refundReason;
 
     /**
-     * @example 100
-     *
      * @var float
      */
     public $refundTicketFee;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $refundType;
 
     /**
-     * @example 000-13232
-     *
      * @var string
      */
     public $ticketNo;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class travelers extends Model
 {
     /**
-     * @example 1991-01-22
-     *
      * @var string
      */
     public $birthday;
@@ -26,8 +24,6 @@ class travelers extends Model
     public $certNo;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $certType;
@@ -83,8 +79,6 @@ class travelers extends Model
     public $passengerName;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $passengerType;
@@ -105,8 +99,6 @@ class travelers extends Model
     public $projectTitle;
 
     /**
-     * @example 18155711459129970552412
-     *
      * @var string
      */
     public $userId;

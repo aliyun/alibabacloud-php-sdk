@@ -6,11 +6,13 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class FlightRefundPreCalHeaders extends Model
+class HotelPricePullHeaders extends Model
 {
     public $commonHeaders;
 
     /**
+     * @example feth00jqwls
+     *
      * @var string
      */
     public $xAcsBtripCorpToken;
@@ -38,7 +40,7 @@ class FlightRefundPreCalHeaders extends Model
     /**
      * @param array $map
      *
-     * @return FlightRefundPreCalHeaders
+     * @return HotelPricePullHeaders
      */
     public static function fromMap($map = [])
     {
