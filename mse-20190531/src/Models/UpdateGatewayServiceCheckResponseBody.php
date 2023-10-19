@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayServiceCheckResponseBody extends Model
 {
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateGatewayServiceCheckResponseBody extends Model
     public $code;
 
     /**
+     * @description The service ID of the operation.
+     *
      * @example 12
      *
      * @var int
@@ -23,6 +27,8 @@ class UpdateGatewayServiceCheckResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +36,8 @@ class UpdateGatewayServiceCheckResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
      * @example OK
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateGatewayServiceCheckResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 62CBFCB8-DDC6-588C-BF1B-88828AF*****
      *
      * @var string
@@ -44,6 +54,8 @@ class UpdateGatewayServiceCheckResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

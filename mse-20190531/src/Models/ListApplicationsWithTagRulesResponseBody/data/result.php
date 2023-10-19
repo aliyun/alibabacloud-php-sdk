@@ -37,7 +37,7 @@ class result extends Model
     public $namespace;
 
     /**
-     * @description The details of the rule.
+     * @description The queried rules.
      *
      * @var routeRules[]
      */

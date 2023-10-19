@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListClustersResponseBody;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListClustersResponseBody\data\maintenancePeriod;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -144,6 +145,11 @@ class data extends Model
     public $intranetDomain;
 
     /**
+     * @var maintenancePeriod
+     */
+    public $maintenancePeriod;
+
+    /**
      * @description The edition of the cluster.
      *
      * @example mse_pro
@@ -184,26 +190,27 @@ class data extends Model
      */
     public $vpcId;
     protected $_name = [
-        'appVersion'       => 'AppVersion',
-        'canUpdate'        => 'CanUpdate',
-        'chargeType'       => 'ChargeType',
-        'clusterAliasName' => 'ClusterAliasName',
-        'clusterName'      => 'ClusterName',
-        'clusterType'      => 'ClusterType',
-        'createTime'       => 'CreateTime',
-        'endDate'          => 'EndDate',
-        'initStatus'       => 'InitStatus',
-        'instanceCount'    => 'InstanceCount',
-        'instanceId'       => 'InstanceId',
-        'internetAddress'  => 'InternetAddress',
-        'internetDomain'   => 'InternetDomain',
-        'intranetAddress'  => 'IntranetAddress',
-        'intranetDomain'   => 'IntranetDomain',
-        'mseVersion'       => 'MseVersion',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'tags'             => 'Tags',
-        'versionCode'      => 'VersionCode',
-        'vpcId'            => 'VpcId',
+        'appVersion'        => 'AppVersion',
+        'canUpdate'         => 'CanUpdate',
+        'chargeType'        => 'ChargeType',
+        'clusterAliasName'  => 'ClusterAliasName',
+        'clusterName'       => 'ClusterName',
+        'clusterType'       => 'ClusterType',
+        'createTime'        => 'CreateTime',
+        'endDate'           => 'EndDate',
+        'initStatus'        => 'InitStatus',
+        'instanceCount'     => 'InstanceCount',
+        'instanceId'        => 'InstanceId',
+        'internetAddress'   => 'InternetAddress',
+        'internetDomain'    => 'InternetDomain',
+        'intranetAddress'   => 'IntranetAddress',
+        'intranetDomain'    => 'IntranetDomain',
+        'maintenancePeriod' => 'MaintenancePeriod',
+        'mseVersion'        => 'MseVersion',
+        'resourceGroupId'   => 'ResourceGroupId',
+        'tags'              => 'Tags',
+        'versionCode'       => 'VersionCode',
+        'vpcId'             => 'VpcId',
     ];
 
     public function validate()
@@ -257,6 +264,9 @@ class data extends Model
         }
         if (null !== $this->intranetDomain) {
             $res['IntranetDomain'] = $this->intranetDomain;
+        }
+        if (null !== $this->maintenancePeriod) {
+            $res['MaintenancePeriod'] = null !== $this->maintenancePeriod ? $this->maintenancePeriod->toMap() : null;
         }
         if (null !== $this->mseVersion) {
             $res['MseVersion'] = $this->mseVersion;
@@ -329,6 +339,9 @@ class data extends Model
         }
         if (isset($map['IntranetDomain'])) {
             $model->intranetDomain = $map['IntranetDomain'];
+        }
+        if (isset($map['MaintenancePeriod'])) {
+            $model->maintenancePeriod = maintenancePeriod::fromMap($map['MaintenancePeriod']);
         }
         if (isset($map['MseVersion'])) {
             $model->mseVersion = $map['MseVersion'];

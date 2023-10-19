@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsWithTagRulesResponseBody extends Model
 {
     /**
-     * @description The details of the data.
+     * @description The response parameters.
      *
      * @var data
      */

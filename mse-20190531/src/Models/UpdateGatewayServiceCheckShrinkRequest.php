@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayServiceCheckShrinkRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateGatewayServiceCheckShrinkRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description Specifies whether to enable the health check.
+     *
      * @example true
      *
      * @var bool
@@ -23,11 +27,15 @@ class UpdateGatewayServiceCheckShrinkRequest extends Model
     public $check;
 
     /**
+     * @description The expected status code, which is required if the health check protocol is HTTP.
+     *
      * @var string
      */
     public $expectedStatusesShrink;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-8d410698bd7f4628ab76b*****72dd1d
      *
      * @var string
@@ -35,6 +43,8 @@ class UpdateGatewayServiceCheckShrinkRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The healthy threshold of the health check.
+     *
      * @example 2
      *
      * @var int
@@ -42,6 +52,8 @@ class UpdateGatewayServiceCheckShrinkRequest extends Model
     public $healthyThreshold;
 
     /**
+     * @description The health check domain name, which is optional if the health check protocol is HTTP.
+     *
      * @example example.com
      *
      * @var string
@@ -49,6 +61,8 @@ class UpdateGatewayServiceCheckShrinkRequest extends Model
     public $httpHost;
 
     /**
+     * @description The health check path, which is required if the health check protocol is HTTP.
+     *
      * @example /healthz
      *
      * @var string
@@ -56,6 +70,8 @@ class UpdateGatewayServiceCheckShrinkRequest extends Model
     public $httpPath;
 
     /**
+     * @description The interval at which the health check is performed.
+     *
      * @example 2
      *
      * @var int
@@ -63,6 +79,11 @@ class UpdateGatewayServiceCheckShrinkRequest extends Model
     public $interval;
 
     /**
+     * @description The health check protocol. Valid values:
+     *
+     *   HTTP
+     *   TCP
+     *
      * @example HTTP
      *
      * @var string
@@ -70,6 +91,8 @@ class UpdateGatewayServiceCheckShrinkRequest extends Model
     public $protocol;
 
     /**
+     * @description The ID of the service.
+     *
      * @example 12
      *
      * @var string
@@ -77,6 +100,8 @@ class UpdateGatewayServiceCheckShrinkRequest extends Model
     public $serviceId;
 
     /**
+     * @description The timeout period of responses to the health check. Unit: seconds.
+     *
      * @example 5
      *
      * @var int
@@ -84,6 +109,8 @@ class UpdateGatewayServiceCheckShrinkRequest extends Model
     public $timeout;
 
     /**
+     * @description The unhealthy threshold of the health check.
+     *
      * @example 2
      *
      * @var int

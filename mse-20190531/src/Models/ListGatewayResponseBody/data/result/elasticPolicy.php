@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class elasticPolicy extends Model
 {
     /**
+     * @description Indicates whether auto scale-out is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +19,10 @@ class elasticPolicy extends Model
     public $elastic;
 
     /**
+     * @description The type of auto scale-out. Valid value:
+     *
+     *   CronHPA: scale-out by time
+     *
      * @example CronHPA
      *
      * @var string
@@ -24,6 +30,8 @@ class elasticPolicy extends Model
     public $elasticType;
 
     /**
+     * @description The maximum number of instances that are automatically scaled out. This parameter is used for horizontal scale-out.
+     *
      * @example 10
      *
      * @var int
@@ -31,6 +39,8 @@ class elasticPolicy extends Model
     public $maxReplica;
 
     /**
+     * @description The time policy list for auto scale-out.
+     *
      * @var timePolicyList[]
      */
     public $timePolicyList;

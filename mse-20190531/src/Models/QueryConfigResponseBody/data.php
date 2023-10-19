@@ -94,6 +94,11 @@ class data extends Model
     public $configSecretSupported;
 
     /**
+     * @var bool
+     */
+    public $consoleUIEnabled;
+
+    /**
      * @description Indicates whether access port 8761 was enabled for Eureka. If this port is disabled, applications cannot use the Eureka protocol for service registration and discovery.
      *
      * @example true
@@ -318,6 +323,7 @@ class data extends Model
         'configContentLimit'           => 'ConfigContentLimit',
         'configSecretEnabled'          => 'ConfigSecretEnabled',
         'configSecretSupported'        => 'ConfigSecretSupported',
+        'consoleUIEnabled'             => 'ConsoleUIEnabled',
         'eurekaSupported'              => 'EurekaSupported',
         'extendedTypesEnable'          => 'ExtendedTypesEnable',
         'initLimit'                    => 'InitLimit',
@@ -372,6 +378,9 @@ class data extends Model
         }
         if (null !== $this->configSecretSupported) {
             $res['ConfigSecretSupported'] = $this->configSecretSupported;
+        }
+        if (null !== $this->consoleUIEnabled) {
+            $res['ConsoleUIEnabled'] = $this->consoleUIEnabled;
         }
         if (null !== $this->eurekaSupported) {
             $res['EurekaSupported'] = $this->eurekaSupported;
@@ -474,6 +483,9 @@ class data extends Model
         }
         if (isset($map['ConfigSecretSupported'])) {
             $model->configSecretSupported = $map['ConfigSecretSupported'];
+        }
+        if (isset($map['ConsoleUIEnabled'])) {
+            $model->consoleUIEnabled = $map['ConsoleUIEnabled'];
         }
         if (isset($map['EurekaSupported'])) {
             $model->eurekaSupported = $map['EurekaSupported'];

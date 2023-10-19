@@ -83,6 +83,11 @@ class UpdateConfigRequest extends Model
     public $configType;
 
     /**
+     * @var bool
+     */
+    public $consoleUIEnabled;
+
+    /**
      * @example true
      *
      * @var bool
@@ -260,6 +265,7 @@ class UpdateConfigRequest extends Model
         'configAuthEnabled'        => 'ConfigAuthEnabled',
         'configSecretEnabled'      => 'ConfigSecretEnabled',
         'configType'               => 'ConfigType',
+        'consoleUIEnabled'         => 'ConsoleUIEnabled',
         'eurekaSupported'          => 'EurekaSupported',
         'extendedTypesEnable'      => 'ExtendedTypesEnable',
         'initLimit'                => 'InitLimit',
@@ -307,6 +313,9 @@ class UpdateConfigRequest extends Model
         }
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
+        }
+        if (null !== $this->consoleUIEnabled) {
+            $res['ConsoleUIEnabled'] = $this->consoleUIEnabled;
         }
         if (null !== $this->eurekaSupported) {
             $res['EurekaSupported'] = $this->eurekaSupported;
@@ -394,6 +403,9 @@ class UpdateConfigRequest extends Model
         }
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
+        }
+        if (isset($map['ConsoleUIEnabled'])) {
+            $model->consoleUIEnabled = $map['ConsoleUIEnabled'];
         }
         if (isset($map['EurekaSupported'])) {
             $model->eurekaSupported = $map['EurekaSupported'];

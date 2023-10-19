@@ -72,7 +72,10 @@ class slb extends Model
     public $statusDesc;
 
     /**
-     * @description Indicates whether the instance was deployed on the public network or internal network.
+     * @description The network type. Valid values:
+     *
+     *   PUB_NET
+     *   PRIVATE_NET
      *
      * @example PUB_NET
      *

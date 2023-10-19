@@ -59,6 +59,8 @@ class result extends Model
     public $currentVersion;
 
     /**
+     * @description Indicates whether auto scale-out is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -66,6 +68,8 @@ class result extends Model
     public $elastic;
 
     /**
+     * @description The ID of the elastic gateway. This parameter is returned if auto scale-out is used.
+     *
      * @example mse_ingresselastic_public_cn-uqm3d0*****
      *
      * @var string
@@ -73,11 +77,15 @@ class result extends Model
     public $elasticInstanceId;
 
     /**
+     * @description The auto scale-out policy.
+     *
      * @var elasticPolicy
      */
     public $elasticPolicy;
 
     /**
+     * @description The number of replicas that are automatically scaled out.
+     *
      * @example 2
      *
      * @var int
@@ -85,6 +93,10 @@ class result extends Model
     public $elasticReplica;
 
     /**
+     * @description The type of auto scale-out. Valid value:
+     *
+     *   CronHPA: scale-out by time
+     *
      * @example CronHPA
      *
      * @var string
@@ -233,7 +245,7 @@ class result extends Model
     public $primaryUser;
 
     /**
-     * @description The region in which the gateway resides.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -251,7 +263,7 @@ class result extends Model
     public $replica;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-97hg87vi****
      *
@@ -291,8 +303,8 @@ class result extends Model
      *   1: The gateway failed to be created.
      *   2: The gateway is running.
      *   3: The gateway is being changed.
-     *   4: The gateway is scaling down.
-     *   6: The gateway is scaling up.
+     *   4: The gateway is scaling in.
+     *   6: The gateway is scaling out.
      *   8: The gateway is being deleted.
      *   9: The gateway is suspended and is to be released.
      *   10: The gateway is restarting.
@@ -334,6 +346,8 @@ class result extends Model
     public $tag;
 
     /**
+     * @description The total number of replicas, including the number of replicas that are automatically scaled out.
+     *
      * @example 4
      *
      * @var int
@@ -350,6 +364,8 @@ class result extends Model
     public $upgrade;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the gateway belongs.
+     *
      * @example vpc-uf6heojei217tv14*****
      *
      * @var string

@@ -12,8 +12,8 @@ class routeRules extends Model
     /**
      * @description Indicates whether the alert rule is enabled. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -67,7 +67,7 @@ class routeRules extends Model
     public $rules;
 
     /**
-     * @description The status of the application.
+     * @description The status.
      *
      * @example 1
      *

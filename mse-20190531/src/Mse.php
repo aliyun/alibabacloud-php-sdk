@@ -10102,6 +10102,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->configType)) {
             $query['ConfigType'] = $request->configType;
         }
+        if (!Utils::isUnset($request->consoleUIEnabled)) {
+            $query['ConsoleUIEnabled'] = $request->consoleUIEnabled;
+        }
         if (!Utils::isUnset($request->eurekaSupported)) {
             $query['EurekaSupported'] = $request->eurekaSupported;
         }

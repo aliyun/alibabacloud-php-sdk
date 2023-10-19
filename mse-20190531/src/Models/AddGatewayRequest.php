@@ -86,8 +86,11 @@ class AddGatewayRequest extends Model
     public $internetSlbSpec;
 
     /**
-     * @description 网关产品类型：
-     * - mse_serverless：Serverless
+     * @description The MSE instance type. Valid values:
+     *
+     *   mse_pro: ordinary instance.
+     *   mse_serverless: serverless instance.
+     *
      * @example mse_pro
      *
      * @var string
@@ -104,8 +107,12 @@ class AddGatewayRequest extends Model
     public $name;
 
     /**
-     * @description 购买Serverless实例时指定NLB的网络类型：
-     * - privatepubnet：公网+私网
+     * @description The network type of the Network Load Balancer (NLB) instance when the serverless NLB instance is purchased. Valid values:
+     *
+     *   pubnet
+     *   privatenet
+     *   privatepubnet
+     *
      * @example pubnet
      *
      * @var string
@@ -129,14 +136,7 @@ class AddGatewayRequest extends Model
     public $region;
 
     /**
-     * @description The specifications of the Internet-facing SLB instance. Valid values:
-     *
-     *   slb.s1.small
-     *   slb.s2.small
-     *   slb.s2.medium
-     *   slb.s3.small
-     *   slb.s3.medium
-     *   slb.s3.large
+     * @description The number of nodes.
      *
      * @example 2
      *
@@ -182,7 +182,12 @@ class AddGatewayRequest extends Model
     public $slbSpec;
 
     /**
-     * @description The number of nodes.
+     * @description The node specifications. Valid values:
+     *
+     *   MSE_GTW\_16\_32\_200\_c(16C32G)
+     *   MSE_GTW\_2\_4\_200\_c(2C4G)
+     *   MSE_GTW\_4\_8\_200\_c(4C8G)
+     *   MSE_GTW\_8\_16\_200\_c(8C16G)
      *
      * @example MSE_GTW_2_4_200_c
      *

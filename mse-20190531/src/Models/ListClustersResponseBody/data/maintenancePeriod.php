@@ -2,42 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\elasticPolicy;
+namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListClustersResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
-class timePolicyList extends Model
+class maintenancePeriod extends Model
 {
     /**
-     * @description The expected number of replicas for auto scale-out.
-     *
-     * @example 4
-     *
-     * @var int
-     */
-    public $desiredReplica;
-
-    /**
-     * @description The end time of auto scale-out.
-     *
-     * @example 09:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The start time of auto scale-out.
-     *
-     * @example 07:00
-     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'desiredReplica' => 'DesiredReplica',
-        'endTime'        => 'EndTime',
-        'startTime'      => 'StartTime',
+        'endTime'   => 'EndTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -47,9 +29,6 @@ class timePolicyList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->desiredReplica) {
-            $res['DesiredReplica'] = $this->desiredReplica;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -63,14 +42,11 @@ class timePolicyList extends Model
     /**
      * @param array $map
      *
-     * @return timePolicyList
+     * @return maintenancePeriod
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DesiredReplica'])) {
-            $model->desiredReplica = $map['DesiredReplica'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
