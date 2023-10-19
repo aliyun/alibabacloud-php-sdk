@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\authentication;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\network;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\quotaInfo;
 use AlibabaCloud\Tea\Model;
 
 class CreateAppRequest extends Model
@@ -46,6 +47,11 @@ class CreateAppRequest extends Model
     public $network;
 
     /**
+     * @var quotaInfo
+     */
+    public $quotaInfo;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -58,14 +64,21 @@ class CreateAppRequest extends Model
      * @var string
      */
     public $version;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
         'appName'        => 'appName',
         'authentication' => 'authentication',
         'chargeType'     => 'chargeType',
         'description'    => 'description',
         'network'        => 'network',
+        'quotaInfo'      => 'quotaInfo',
         'regionId'       => 'regionId',
         'version'        => 'version',
+        'dryRun'         => 'dryRun',
     ];
 
     public function validate()
@@ -96,11 +109,17 @@ class CreateAppRequest extends Model
                 }
             }
         }
+        if (null !== $this->quotaInfo) {
+            $res['quotaInfo'] = null !== $this->quotaInfo ? $this->quotaInfo->toMap() : null;
+        }
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
         if (null !== $this->version) {
             $res['version'] = $this->version;
+        }
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
         }
 
         return $res;
@@ -135,11 +154,17 @@ class CreateAppRequest extends Model
                 }
             }
         }
+        if (isset($map['quotaInfo'])) {
+            $model->quotaInfo = quotaInfo::fromMap($map['quotaInfo']);
+        }
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
         if (isset($map['version'])) {
             $model->version = $map['version'];
+        }
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         return $model;

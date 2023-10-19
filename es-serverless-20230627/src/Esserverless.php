@@ -67,6 +67,10 @@ class Esserverless extends OpenApiClient
     public function createAppWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['dryRun'] = $request->dryRun;
+        }
         $body = [];
         if (!Utils::isUnset($request->appName)) {
             $body['appName'] = $request->appName;
@@ -83,6 +87,9 @@ class Esserverless extends OpenApiClient
         if (!Utils::isUnset($request->network)) {
             $body['network'] = $request->network;
         }
+        if (!Utils::isUnset($request->quotaInfo)) {
+            $body['quotaInfo'] = $request->quotaInfo;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $body['regionId'] = $request->regionId;
         }
@@ -91,6 +98,7 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
