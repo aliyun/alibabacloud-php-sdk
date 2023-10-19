@@ -239,6 +239,11 @@ class CreateVpnAttachmentRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -271,6 +276,7 @@ class CreateVpnAttachmentRequest extends Model
         'regionId'             => 'RegionId',
         'remoteCaCert'         => 'RemoteCaCert',
         'remoteSubnet'         => 'RemoteSubnet',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'tags'                 => 'Tags',
@@ -333,6 +339,9 @@ class CreateVpnAttachmentRequest extends Model
         }
         if (null !== $this->remoteSubnet) {
             $res['RemoteSubnet'] = $this->remoteSubnet;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -411,6 +420,9 @@ class CreateVpnAttachmentRequest extends Model
         }
         if (isset($map['RemoteSubnet'])) {
             $model->remoteSubnet = $map['RemoteSubnet'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -38,7 +38,7 @@ class AddCommonBandwidthPackageIpsRequest extends Model
     public $ipInstanceIds;
 
     /**
-     * @description The type of the IP address. Set the value to **EIP** to associate EIPs with the Internet Shared Bandwidth instance.
+     * @description The type of the IP address. Set the value to **EIP** to associate EIPs with the EIP bandwidth plan.
      *
      * @example EIP
      *
@@ -59,7 +59,7 @@ class AddCommonBandwidthPackageIpsRequest extends Model
     /**
      * @description The region ID of the Internet Shared Bandwidth instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~448570~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

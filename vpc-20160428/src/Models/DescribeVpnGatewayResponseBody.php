@@ -169,6 +169,11 @@ class DescribeVpnGatewayResponseBody extends Model
     public $reservationData;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The maximum bandwidth of the VPN gateway. Unit: Mbit/s.
      *
      * @example 5
@@ -315,6 +320,7 @@ class DescribeVpnGatewayResponseBody extends Model
         'networkType'                => 'NetworkType',
         'requestId'                  => 'RequestId',
         'reservationData'            => 'ReservationData',
+        'resourceGroupId'            => 'ResourceGroupId',
         'spec'                       => 'Spec',
         'sslMaxConnections'          => 'SslMaxConnections',
         'sslVpn'                     => 'SslVpn',
@@ -379,6 +385,9 @@ class DescribeVpnGatewayResponseBody extends Model
         }
         if (null !== $this->reservationData) {
             $res['ReservationData'] = null !== $this->reservationData ? $this->reservationData->toMap() : null;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
@@ -469,6 +478,9 @@ class DescribeVpnGatewayResponseBody extends Model
         }
         if (isset($map['ReservationData'])) {
             $model->reservationData = reservationData::fromMap($map['ReservationData']);
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];

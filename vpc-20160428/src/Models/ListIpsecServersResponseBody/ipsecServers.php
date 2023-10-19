@@ -159,6 +159,11 @@ class ipsecServers extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the VPN gateway.
      *
      * @example vpn-bp1q8bgx4xnkm2ogj****
@@ -183,6 +188,7 @@ class ipsecServers extends Model
         'psk'                    => 'Psk',
         'pskEnabled'             => 'PskEnabled',
         'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
         'vpnGatewayId'           => 'VpnGatewayId',
     ];
 
@@ -240,6 +246,9 @@ class ipsecServers extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->vpnGatewayId) {
             $res['VpnGatewayId'] = $this->vpnGatewayId;
@@ -303,6 +312,9 @@ class ipsecServers extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['VpnGatewayId'])) {
             $model->vpnGatewayId = $map['VpnGatewayId'];

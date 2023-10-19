@@ -74,6 +74,11 @@ class DescribeVpnGatewaysRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -129,6 +134,7 @@ class DescribeVpnGatewaysRequest extends Model
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
         'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
         'status'                 => 'Status',
@@ -164,6 +170,9 @@ class DescribeVpnGatewaysRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -221,6 +230,9 @@ class DescribeVpnGatewaysRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

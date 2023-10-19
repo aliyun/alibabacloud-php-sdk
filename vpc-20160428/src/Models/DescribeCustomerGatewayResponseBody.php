@@ -83,6 +83,11 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The list of tags added to the customer gateway.
      *
      * @var tags
@@ -97,6 +102,7 @@ class DescribeCustomerGatewayResponseBody extends Model
         'ipAddress'         => 'IpAddress',
         'name'              => 'Name',
         'requestId'         => 'RequestId',
+        'resourceGroupId'   => 'ResourceGroupId',
         'tags'              => 'Tags',
     ];
 
@@ -130,6 +136,9 @@ class DescribeCustomerGatewayResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -169,6 +178,9 @@ class DescribeCustomerGatewayResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

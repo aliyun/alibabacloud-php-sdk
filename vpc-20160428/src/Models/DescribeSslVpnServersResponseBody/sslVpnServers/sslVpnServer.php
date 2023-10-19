@@ -150,6 +150,11 @@ class sslVpnServer extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the SSL server.
      *
      * @example vss-bp15j3du13gq1dgey****
@@ -182,6 +187,7 @@ class sslVpnServer extends Model
         'port'                  => 'Port',
         'proto'                 => 'Proto',
         'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
         'sslVpnServerId'        => 'SslVpnServerId',
         'vpnGatewayId'          => 'VpnGatewayId',
     ];
@@ -237,6 +243,9 @@ class sslVpnServer extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sslVpnServerId) {
             $res['SslVpnServerId'] = $this->sslVpnServerId;
@@ -300,6 +309,9 @@ class sslVpnServer extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SslVpnServerId'])) {
             $model->sslVpnServerId = $map['SslVpnServerId'];

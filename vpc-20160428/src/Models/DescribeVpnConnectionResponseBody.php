@@ -200,6 +200,11 @@ class DescribeVpnConnectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The bandwidth specification of the IPsec-VPN connection. Unit: **Mbit/s**.
      *
      * @example 1000M
@@ -335,6 +340,7 @@ class DescribeVpnConnectionResponseBody extends Model
         'remoteCaCertificate'        => 'RemoteCaCertificate',
         'remoteSubnet'               => 'RemoteSubnet',
         'requestId'                  => 'RequestId',
+        'resourceGroupId'            => 'ResourceGroupId',
         'spec'                       => 'Spec',
         'state'                      => 'State',
         'status'                     => 'Status',
@@ -409,6 +415,9 @@ class DescribeVpnConnectionResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
@@ -511,6 +520,9 @@ class DescribeVpnConnectionResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];

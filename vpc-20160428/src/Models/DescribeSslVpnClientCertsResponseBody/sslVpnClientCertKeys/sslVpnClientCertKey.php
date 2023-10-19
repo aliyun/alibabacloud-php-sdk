@@ -47,6 +47,11 @@ class sslVpnClientCertKey extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the SSL client certificate.
      *
      * @example vsc-bp1n8wcf134yl0osr****
@@ -81,6 +86,7 @@ class sslVpnClientCertKey extends Model
         'endTime'            => 'EndTime',
         'name'               => 'Name',
         'regionId'           => 'RegionId',
+        'resourceGroupId'    => 'ResourceGroupId',
         'sslVpnClientCertId' => 'SslVpnClientCertId',
         'sslVpnServerId'     => 'SslVpnServerId',
         'status'             => 'Status',
@@ -104,6 +110,9 @@ class sslVpnClientCertKey extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sslVpnClientCertId) {
             $res['SslVpnClientCertId'] = $this->sslVpnClientCertId;
@@ -137,6 +146,9 @@ class sslVpnClientCertKey extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SslVpnClientCertId'])) {
             $model->sslVpnClientCertId = $map['SslVpnClientCertId'];

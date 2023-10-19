@@ -18,7 +18,7 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $instanceId;
 
     /**
-     * @description The type of the instance. Set the value to **EIP**.
+     * @description The instance type. Set the value to **EIP**.
      *
      * @example EIP
      *

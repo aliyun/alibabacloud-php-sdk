@@ -61,6 +61,11 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'createTime'        => 'CreateTime',
         'customerGatewayId' => 'CustomerGatewayId',
@@ -68,6 +73,7 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
         'ipAddress'         => 'IpAddress',
         'name'              => 'Name',
         'requestId'         => 'RequestId',
+        'resourceGroupId'   => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -94,6 +100,9 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

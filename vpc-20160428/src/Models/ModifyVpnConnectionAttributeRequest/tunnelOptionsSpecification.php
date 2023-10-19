@@ -46,6 +46,11 @@ class tunnelOptionsSpecification extends Model
     public $remoteCaCertificate;
 
     /**
+     * @var string
+     */
+    public $role;
+
+    /**
      * @description The BGP configuration to be modified for the IPsec tunnel.
      *
      * @var tunnelBgpConfig
@@ -79,6 +84,7 @@ class tunnelOptionsSpecification extends Model
         'enableDpd'           => 'EnableDpd',
         'enableNatTraversal'  => 'EnableNatTraversal',
         'remoteCaCertificate' => 'RemoteCaCertificate',
+        'role'                => 'Role',
         'tunnelBgpConfig'     => 'TunnelBgpConfig',
         'tunnelId'            => 'TunnelId',
         'tunnelIkeConfig'     => 'TunnelIkeConfig',
@@ -100,6 +106,9 @@ class tunnelOptionsSpecification extends Model
         }
         if (null !== $this->remoteCaCertificate) {
             $res['RemoteCaCertificate'] = $this->remoteCaCertificate;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->tunnelBgpConfig) {
             $res['TunnelBgpConfig'] = null !== $this->tunnelBgpConfig ? $this->tunnelBgpConfig->toMap() : null;
@@ -133,6 +142,9 @@ class tunnelOptionsSpecification extends Model
         }
         if (isset($map['RemoteCaCertificate'])) {
             $model->remoteCaCertificate = $map['RemoteCaCertificate'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['TunnelBgpConfig'])) {
             $model->tunnelBgpConfig = tunnelBgpConfig::fromMap($map['TunnelBgpConfig']);

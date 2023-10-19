@@ -148,6 +148,11 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The tunnel configuration of the IPsec-VPN connection.
      *
      **TunnelOptionsSpecification** parameters are returned only for dual-tunnel IPsec-VPN connections.
@@ -205,6 +210,7 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
         'name'                       => 'Name',
         'remoteSubnet'               => 'RemoteSubnet',
         'requestId'                  => 'RequestId',
+        'resourceGroupId'            => 'ResourceGroupId',
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
         'vcoHealthCheck'             => 'VcoHealthCheck',
         'vpnBgpConfig'               => 'VpnBgpConfig',
@@ -257,6 +263,9 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tunnelOptionsSpecification) {
             $res['TunnelOptionsSpecification'] = null !== $this->tunnelOptionsSpecification ? $this->tunnelOptionsSpecification->toMap() : null;
@@ -323,6 +332,9 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['TunnelOptionsSpecification'])) {
             $model->tunnelOptionsSpecification = tunnelOptionsSpecification::fromMap($map['TunnelOptionsSpecification']);

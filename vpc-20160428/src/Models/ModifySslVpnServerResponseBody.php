@@ -147,6 +147,11 @@ class ModifySslVpnServerResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the SSL server.
      *
      * @example vss-bp18q7hzj6largv4v****
@@ -179,6 +184,7 @@ class ModifySslVpnServerResponseBody extends Model
         'proto'                 => 'Proto',
         'regionId'              => 'RegionId',
         'requestId'             => 'RequestId',
+        'resourceGroupId'       => 'ResourceGroupId',
         'sslVpnServerId'        => 'SslVpnServerId',
         'vpnGatewayId'          => 'VpnGatewayId',
     ];
@@ -234,6 +240,9 @@ class ModifySslVpnServerResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sslVpnServerId) {
             $res['SslVpnServerId'] = $this->sslVpnServerId;
@@ -297,6 +306,9 @@ class ModifySslVpnServerResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SslVpnServerId'])) {
             $model->sslVpnServerId = $map['SslVpnServerId'];

@@ -161,6 +161,11 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The bandwidth specification of the IPsec-VPN connection.
      *
      * A value of **M** in the response indicates **Mbit/s**.
@@ -231,6 +236,7 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
         'networkType'        => 'NetworkType',
         'remoteSubnet'       => 'RemoteSubnet',
         'requestId'          => 'RequestId',
+        'resourceGroupId'    => 'ResourceGroupId',
         'spec'               => 'Spec',
         'status'             => 'Status',
         'vcoHealthCheck'     => 'VcoHealthCheck',
@@ -290,6 +296,9 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
@@ -365,6 +374,9 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
