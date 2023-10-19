@@ -54,12 +54,18 @@ class GetAuthorityTemplateItemResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
         'authorityTemplateItemList' => 'AuthorityTemplateItemList',
         'errorCode'                 => 'ErrorCode',
         'errorMessage'              => 'ErrorMessage',
         'requestId'                 => 'RequestId',
         'success'                   => 'Success',
+        'tid'                       => 'Tid',
     ];
 
     public function validate()
@@ -83,6 +89,9 @@ class GetAuthorityTemplateItemResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -110,6 +119,9 @@ class GetAuthorityTemplateItemResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;
