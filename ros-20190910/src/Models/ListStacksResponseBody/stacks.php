@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class stacks extends Model
 {
     /**
-     * @description The ID of the stack.
+     * @description The time when the stack was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2022-03-10T06:44:36
      *
@@ -20,16 +20,17 @@ class stacks extends Model
     public $createTime;
 
     /**
+     * @example Disabled
+     *
      * @var string
      */
     public $deletionProtection;
 
     /**
-     * @description The state of the stack on which the last successful drift detection was performed. Valid values:
+     * @description Indicates whether rollback is disabled when the stack fails to be created. Valid values:
      *
-     *   DRIFTED: Drift detection is being performed on the stack.
-     *   NOT_CHECKED: No successful drift detection is performed on the stack.
-     *   IN_SYNC: The stack is being synchronized.
+     *   true
+     *   false (default)
      *
      * @example false
      *
@@ -38,7 +39,7 @@ class stacks extends Model
     public $disableRollback;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The time when the most recent successful drift detection was performed on the stack.
      *
      * @example 2022-03-10T06:46:36
      *
@@ -47,12 +48,15 @@ class stacks extends Model
     public $driftDetectionTime;
 
     /**
+     * @description The supplementary information that is returned when an error occurs on a stack operation.
+     *
+     * > This parameter is returned only if an error occurs on a stack operation. The system returns at least one sub-property. For example, an error occurred when an API operation of another Alibaba Cloud service was called.
      * @var operationInfo
      */
     public $operationInfo;
 
     /**
-     * @description The error message.
+     * @description The ID of the parent stack.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf692****
      *
@@ -61,7 +65,7 @@ class stacks extends Model
     public $parentStackId;
 
     /**
-     * @description The error code.
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -70,7 +74,7 @@ class stacks extends Model
     public $regionId;
 
     /**
-     * @description The logical ID of the resource on which an operation fails to be performed.
+     * @description The ID of the resource group.
      *
      * @example rg-aek2frunvw7****
      *
@@ -79,6 +83,11 @@ class stacks extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the stack is a managed stack. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -86,6 +95,8 @@ class stacks extends Model
     public $serviceManaged;
 
     /**
+     * @description The name of the service to which the managed stack belongs.
+     *
      * @example ACVS
      *
      * @var string
@@ -93,7 +104,11 @@ class stacks extends Model
     public $serviceName;
 
     /**
-     * @description The name of the API operation that belongs to another Alibaba Cloud service.
+     * @description The state of the stack on which the most recent successful drift detection was performed. Valid values:
+     *
+     *   DRIFTED: The stack has drifted.
+     *   NOT_CHECKED: No successful drift detection is performed on the stack.
+     *   IN_SYNC: The stack is being synchronized.
      *
      * @example IN_SYNC
      *
@@ -102,7 +117,7 @@ class stacks extends Model
     public $stackDriftStatus;
 
     /**
-     * @description The ID of the request that is initiated to call the API operation of another Alibaba Cloud service.
+     * @description The stack ID.
      *
      * @example 67805444-a605-45ee-a57f-83908ff6****
      *
@@ -111,7 +126,7 @@ class stacks extends Model
     public $stackId;
 
     /**
-     * @description The name of the service to which the managed stack belongs.
+     * @description The stack name.
      *
      * @example MyStack
      *
@@ -120,7 +135,10 @@ class stacks extends Model
     public $stackName;
 
     /**
-     * @description The type of the resource on which an operation fails to be performed.
+     * @description The stack type. Valid values:
+     *
+     *   ROS: Resource Orchestration Service (ROS) stack. The stack is created by using a ROS template.
+     *   Terraform: Terraform stack. The stack is created by using a Terraform template.
      *
      * @example ROS
      *
@@ -129,7 +147,7 @@ class stacks extends Model
     public $stackType;
 
     /**
-     * @description The name of the stack.
+     * @description The state of the stack.
      *
      * @example CREATE_COMPLETE
      *
@@ -138,7 +156,7 @@ class stacks extends Model
     public $status;
 
     /**
-     * @description The ID of the parent stack.
+     * @description The reason why the stack is in its current state.
      *
      * @example Stack CREATE completed successfully
      *
@@ -147,19 +165,15 @@ class stacks extends Model
     public $statusReason;
 
     /**
-     * @description The type of the stack. Valid values:
-     *
-     *   ROS: ROS stack. The stack is created by using a Resource Orchestration Service (ROS) template.
-     *   Terraform: Terraform stack. The stack is created by using a Terraform template.
+     * @description The tags of the stack.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The supplementary information that is returned when an operation fails to be performed on the stack.
+     * @description The timeout period that is allowed to create the stack. Unit: minutes.
      *
-     * >  This parameter is returned if an operation fails to be performed on the stack. The system returns at least one sub-property. Example: An error occurred when the API operation of another Alibaba Cloud service was called.
      * @example 60
      *
      * @var int
@@ -167,7 +181,7 @@ class stacks extends Model
     public $timeoutInMinutes;
 
     /**
-     * @description The timeout period that is allowed to create the stack. Unit: minutes.
+     * @description The time when the stack was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2022-03-10T07:44:36
      *

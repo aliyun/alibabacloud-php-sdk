@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class sourceResources extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The ID of the resource.
      *
      * @example vpc-bp1m6fww66xbntjyc****
@@ -26,6 +31,7 @@ class sourceResources extends Model
      */
     public $resourceType;
     protected $_name = [
+        'regionId'     => 'RegionId',
         'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
     ];
@@ -37,6 +43,9 @@ class sourceResources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -55,6 +64,9 @@ class sourceResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
