@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eventBridgeConfig extends Model
 {
     /**
-     * @description The Arn that is authorized by a RAM user to EventBridge.
+     * @description The ID of the region where the EventBridge instance is located.
      *
      * @example cn-beijing
      *
@@ -18,7 +18,7 @@ class eventBridgeConfig extends Model
     public $eventBridgeRegionId;
 
     /**
-     * @description The event source.
+     * @description The event bus.
      *
      * @example testBus
      *
@@ -27,7 +27,7 @@ class eventBridgeConfig extends Model
     public $eventBus;
 
     /**
-     * @description The ID of the region where the EventBridge instance is located.
+     * @description The event source.
      *
      * @example baas_driver
      *
@@ -36,7 +36,7 @@ class eventBridgeConfig extends Model
     public $eventSource;
 
     /**
-     * @description Configuration items of the third-party OpenID Connect authentication method
+     * @description The Arn that is authorized by a RAM user to EventBridge.
      *
      * @example acs:ram::1933122015759***:role/adminoidcaliyun
      *

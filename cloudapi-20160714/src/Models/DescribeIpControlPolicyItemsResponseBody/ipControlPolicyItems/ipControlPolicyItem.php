@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipControlPolicyItem extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 11112
      *
      * @var string
@@ -16,6 +18,8 @@ class ipControlPolicyItem extends Model
     public $appId;
 
     /**
+     * @description The IP addresses or CIDR blocks.
+     *
      * @example 113.125.XX.XX;101.11.XX.XX
      *
      * @var string
@@ -23,6 +27,8 @@ class ipControlPolicyItem extends Model
     public $cidrIp;
 
     /**
+     * @description The time when the policy was created. The time is displayed in UTC.
+     *
      * @example 2018-01-17T06:20:08Z
      *
      * @var string
@@ -30,6 +36,8 @@ class ipControlPolicyItem extends Model
     public $createTime;
 
     /**
+     * @description The time when the policy was modified. The time is displayed in UTC.
+     *
      * @example 2018-01-17T06:25:13Z
      *
      * @var string
@@ -37,6 +45,8 @@ class ipControlPolicyItem extends Model
     public $modifiedTime;
 
     /**
+     * @description The ID of the policy.
+     *
      * @example P151617000829241
      *
      * @var string

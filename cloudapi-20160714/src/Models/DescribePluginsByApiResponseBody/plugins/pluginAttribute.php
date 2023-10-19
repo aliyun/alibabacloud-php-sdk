@@ -18,7 +18,7 @@ class pluginAttribute extends Model
     public $createdTime;
 
     /**
-     * @description The description of the plug-in.
+     * @description The plug-in description.
      *
      * @example Traffic throttling
      *
@@ -45,7 +45,7 @@ class pluginAttribute extends Model
     public $pluginData;
 
     /**
-     * @description The ID of the plug-in.
+     * @description The plug-in ID.
      *
      * @example 9a3f1a5279434f2ba74ccd91c295af9f
      *
@@ -54,7 +54,7 @@ class pluginAttribute extends Model
     public $pluginId;
 
     /**
-     * @description The name of the plug-in.
+     * @description The plug-in name.
      *
      * @example firstPlugin
      *
@@ -63,7 +63,7 @@ class pluginAttribute extends Model
     public $pluginName;
 
     /**
-     * @description The type of the plug-in.
+     * @description The plug-in type.
      *
      * @example trafficControl
      *

@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ossConfig extends Model
 {
     /**
+     * @example GetObject
+     *
      * @var string
      */
     public $action;
 
     /**
-     * @description Configuration items of EventBridge
+     * @description The OSS bucket.
      *
      * @example cbg-db
      *
@@ -23,12 +25,14 @@ class ossConfig extends Model
     public $bucketName;
 
     /**
+     * @example /folder/test.json
+     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The OSS bucket.
+     * @description The ID of the region where the OSS instance is located.
      *
      * @example cn-hangzhou
      *

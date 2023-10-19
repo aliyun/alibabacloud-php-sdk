@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eventBridgeConfig extends Model
 {
     /**
-     * @description The ID of the region where EventBridge is deployed.
+     * @description The ID of the region where the EventBridge instance is located.
      *
      * @example cn-beijing
      *
@@ -27,7 +27,7 @@ class eventBridgeConfig extends Model
     public $eventBus;
 
     /**
-     * @description The event source.
+     * @description The event source of the managed rule.
      *
      * @example baas_driver
      *
@@ -36,7 +36,7 @@ class eventBridgeConfig extends Model
     public $eventSource;
 
     /**
-     * @description The ARN of the RAM role that is assigned to EventBridge.
+     * @description The Arn that is authorized by a RAM user to EventBridge.
      *
      * @example acs:ram::1933122015759***:role/adminoidcaliyun
      *

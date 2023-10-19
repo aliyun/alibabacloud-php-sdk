@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyTrafficControlResponseBody extends Model
 {
     /**
-     * @description Modifies the settings of a custom throttling policy.
+     * @description The ID of the request.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *

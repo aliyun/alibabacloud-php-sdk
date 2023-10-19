@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class ImportSwaggerResponseBody extends Model
 {
     /**
+     * @description The APIs that failed to be created based on the Swagger-compliant data imported this time.
+     *
      * @var failed
      */
     public $failed;
 
     /**
+     * @description The models that failed to be imported based on the Swagger-compliant data imported this time.
+     *
      * @var modelFailed
      */
     public $modelFailed;
 
     /**
+     * @description The models that were imported based on the Swagger-compliant data imported this time.
+     *
      * @var modelSuccess
      */
     public $modelSuccess;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 647CEF05-404C-4125-B3D7-44792EB77392
      *
      * @var string
@@ -35,6 +43,8 @@ class ImportSwaggerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The APIs that were created based on the Swagger-compliant data imported this time.
+     *
      * @var success
      */
     public $success;

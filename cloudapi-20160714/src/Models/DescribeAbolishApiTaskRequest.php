@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAbolishApiTaskRequest extends Model
 {
     /**
+     * @description The ID of the unpublishing operation.
+     *
      * @example fc54****dd4c4***ad7edd7****39401
      *
      * @var string

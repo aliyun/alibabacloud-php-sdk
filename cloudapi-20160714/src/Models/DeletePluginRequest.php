@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePluginRequest extends Model
 {
     /**
+     * @description The ID of the plug-in to be deleted.
+     *
      * @example 9a3f1a5279434f2ba74ccd91c295af9f
      *
      * @var string
@@ -22,6 +24,8 @@ class DeletePluginRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tag of objects that match the rule. You can specify multiple tags.
+     *
      * @var tag[]
      */
     public $tag;

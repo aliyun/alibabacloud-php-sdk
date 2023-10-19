@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class errorCodeSample extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code.
      *
      * @example Error
      *
@@ -18,16 +18,16 @@ class errorCodeSample extends Model
     public $code;
 
     /**
-     * @description The description of the error.
+     * @description The description.
      *
-     * @example Error description
+     * @example Description
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The error message.
      *
      * @example error message
      *

@@ -15,6 +15,8 @@ class discoveryConfig extends Model
     public $nacosConfig;
 
     /**
+     * @example NACOS
+     *
      * @var string
      */
     public $rcType;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class apiImportSwaggerFailed extends Model
 {
     /**
+     * @description The error message returned.
+     *
+     * @example api already exists : apiUid ===> 8e274ec61cf6468e83b68371956831cb
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The HTTP method of the API.
+     *
      * @example post
      *
      * @var string
@@ -21,6 +27,8 @@ class apiImportSwaggerFailed extends Model
     public $httpMethod;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /http/get/mapping
      *
      * @var string

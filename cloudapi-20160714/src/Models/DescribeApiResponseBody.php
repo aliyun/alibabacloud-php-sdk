@@ -21,7 +21,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiResponseBody extends Model
 {
     /**
-     * @description The region ID of the API.
+     * @description If **AuthType** is set to **APP**, this value must be passed to specify the signature algorithm. If you do not specify a value, HmacSHA256 is used by default. Valid values:
+     *
+     *   HmacSHA256
+     *   HmacSHA1,HmacSHA256
      *
      * @example HmacSHA256
      *
@@ -30,7 +33,7 @@ class DescribeApiResponseBody extends Model
     public $allowSignatureMethod;
 
     /**
-     * @description The format of the response from the backend service. Valid values: JSON, TEXT, BINARY, XML, and HTML.
+     * @description The ID of the API.
      *
      * @example 8afff6c8c4c6447abb035812e4d66b65
      *
@@ -39,7 +42,7 @@ class DescribeApiResponseBody extends Model
     public $apiId;
 
     /**
-     * @description Specifies whether to enable backend services.
+     * @description The name of the API, which is unique in the group.
      *
      * @example ApiName
      *
@@ -48,96 +51,18 @@ class DescribeApiResponseBody extends Model
     public $apiName;
 
     /**
-     * @description If **AuthType** is set to **APP**, this value must be passed to specify the signature algorithm. If you do not specify a value, HmacSHA256 is used by default. Valid values:
+     * @description If **AuthType** is set to **APP**, the valid values are:
      *
-     *   HmacSHA256
-     *   HmacSHA1,HmacSHA256
+     *   **DEFAULT**: The default value that is used if no other values are passed. This value means that the setting of the group is used.
+     *   **DISABLE**: The authentication is disabled.
+     *   **HEADER**: AppCode can be placed in the Header parameter for authentication.
+     *   **HEADER_QUERY**: AppCode can be placed in the Header or Query parameter for authentication.
      *
      * @example HEADER
      *
      * @var string
      */
     public $appCodeAuthType;
-
-    /**
-     * @description The last modification time of the API.
-     *
-     * @example APP
-     *
-     * @var string
-     */
-    public $authType;
-
-    /**
-     * @description The ID of the backend service.
-     *
-     * @var backendConfig
-     */
-    public $backendConfig;
-
-    /**
-     * @description Backend configurations
-     *
-     * @example true
-     *
-     * @var bool
-     */
-    public $backendEnable;
-
-    /**
-     * @description Description
-     *
-     * @var constantParameters
-     */
-    public $constantParameters;
-
-    /**
-     * @description The name of the API, which is unique in the group.
-     *
-     * @example 2016-07-28T09:50:43Z
-     *
-     * @var string
-     */
-    public $createdTime;
-
-    /**
-     * @description Examples
-     *
-     * @var customSystemParameters
-     */
-    public $customSystemParameters;
-
-    /**
-     * @description The name of the runtime environment. Valid values: RELEASE and TEST.
-     *
-     * @var deployedInfos
-     */
-    public $deployedInfos;
-
-    /**
-     * @description The name of the API group.
-     *
-     * @example Api description
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @description The returned description of the API.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $disableInternet;
-
-    /**
-     * @description Error codes
-     *
-     * @var errorCodeSamples
-     */
-    public $errorCodeSamples;
 
     /**
      * @description The security authentication method of the API. Valid values:
@@ -151,6 +76,89 @@ class DescribeApiResponseBody extends Model
      *
      *   **APPOPENID**: The OpenID Connect account authentication method is used. Only applications authorized by OpenID Connect can call the API. If this method is selected, the OpenIdConnectConfig parameter is required.
      *
+     * @example APP
+     *
+     * @var string
+     */
+    public $authType;
+
+    /**
+     * @description Backend configurations
+     *
+     * @var backendConfig
+     */
+    public $backendConfig;
+
+    /**
+     * @description Specifies whether to enable backend services.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $backendEnable;
+
+    /**
+     * @description System parameters sent by API Gateway to the backend service
+     *
+     * @var constantParameters
+     */
+    public $constantParameters;
+
+    /**
+     * @description The creation time of the API.
+     *
+     * @example 2016-07-28T09:50:43Z
+     *
+     * @var string
+     */
+    public $createdTime;
+
+    /**
+     * @description Custom system parameters
+     *
+     * @var customSystemParameters
+     */
+    public $customSystemParameters;
+
+    /**
+     * @description The API publishing status.
+     *
+     * @var deployedInfos
+     */
+    public $deployedInfos;
+
+    /**
+     * @description The description of the API.
+     *
+     * @example Api description
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description Specifies whether to limit API calls to within the VPC. Valid values:
+     *
+     *   **true**: Only API calls from the VPC are supported.
+     *   **false**: API calls from the VPC and Internet are both supported.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $disableInternet;
+
+    /**
+     * @description The sample error codes returned by the backend service.
+     *
+     * @var errorCodeSamples
+     */
+    public $errorCodeSamples;
+
+    /**
+     * @description The sample error response from the backend service.
+     *
      * @example 400
      *
      * @var string
@@ -158,10 +166,10 @@ class DescribeApiResponseBody extends Model
     public $failResultSample;
 
     /**
-     * @description Specifies whether to make the API public. Valid values:
+     * @description Specifies whether to carry the header : X-Ca-Nonce when calling an API. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent reply attacks. Valid values:
      *
-     *   **PUBLIC**: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.
-     *   **PRIVATE**: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     *   **true**: This field is forcibly checked when an API is requested to prevent replay attacks.
+     *   **false**: This field is not checked.
      *
      * @example true
      *
@@ -170,10 +178,7 @@ class DescribeApiResponseBody extends Model
     public $forceNonceCheck;
 
     /**
-     * @description Specifies whether to enable the Mock mode. Valid values:
-     *
-     *   OPEN: The Mock mode is enabled.
-     *   CLOSED: The Mock mode is not enabled.
+     * @description The ID of the API group.
      *
      * @example 08ae4aa0f95e4321849ee57f4e0b3077
      *
@@ -182,7 +187,7 @@ class DescribeApiResponseBody extends Model
     public $groupId;
 
     /**
-     * @description The ID of the API group.
+     * @description The name of the API group.
      *
      * @example ApiTest
      *
@@ -191,7 +196,10 @@ class DescribeApiResponseBody extends Model
     public $groupName;
 
     /**
-     * @description The result returned for service mocking.
+     * @description Specifies whether to enable the Mock mode. Valid values:
+     *
+     *   OPEN: The Mock mode is enabled.
+     *   CLOSED: The Mock mode is not enabled.
      *
      * @example CLOSED
      *
@@ -200,7 +208,7 @@ class DescribeApiResponseBody extends Model
     public $mock;
 
     /**
-     * @description The creation time of the API.
+     * @description The result returned for service mocking.
      *
      * @example test result
      *
@@ -209,7 +217,7 @@ class DescribeApiResponseBody extends Model
     public $mockResult;
 
     /**
-     * @description The ID of the request.
+     * @description The last modification time of the API.
      *
      * @example 2016-07-28T13:13:12Z
      *
@@ -218,20 +226,14 @@ class DescribeApiResponseBody extends Model
     public $modifiedTime;
 
     /**
-     * @description The OpenID Connect mode. Valid values:
-     *
-     *   **IDTOKEN**: indicates the APIs that are called by clients to obtain tokens. If you specify this value, the PublicKeyId parameter and the PublicKey parameter are required.
-     *   **BUSINESS**: indicates business APIs. Tokens are used to call the business APIs. If you specify this value, the IdTokenParamName parameter is required.
+     * @description Configuration items of the third-party OpenID Connect authentication method
      *
      * @var openIdConnectConfig
      */
     public $openIdConnectConfig;
 
     /**
-     * @description Specifies whether to carry the header : X-Ca-Nonce when calling an API. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent reply attacks. Valid values:
-     *
-     *   **true**: This field is forcibly checked when an API is requested to prevent replay attacks.
-     *   **false**: This field is not checked.
+     * @description The region ID of the API.
      *
      * @example cn-qingdao
      *
@@ -240,14 +242,14 @@ class DescribeApiResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The body model.
+     * @description The configuration items of API requests sent by the consumer to API Gateway.
      *
      * @var requestConfig
      */
     public $requestConfig;
 
     /**
-     * @description The description of the API.
+     * @description The ID of the request.
      *
      * @example D0FF585F-7966-40CF-BC60-75DB070B23D5<
      *
@@ -256,14 +258,14 @@ class DescribeApiResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The JSON Schema used for JSON validation when **ParameterType** is set to String.
+     * @description The parameters of API requests sent by the consumer to API Gateway.
      *
      * @var requestParameters
      */
     public $requestParameters;
 
     /**
-     * @description The sample response from the backend service.
+     * @description The returned description of the API.
      *
      * @example {}
      *
@@ -272,12 +274,7 @@ class DescribeApiResponseBody extends Model
     public $resultBodyModel;
 
     /**
-     * @description If **AuthType** is set to **APP**, the valid values are:
-     *
-     *   **DEFAULT**: The default value that is used if no other values are passed. This value means that the setting of the group is used.
-     *   **DISABLE**: The authentication is disabled.
-     *   **HEADER**: AppCode can be placed in the Header parameter for authentication.
-     *   **HEADER_QUERY**: AppCode can be placed in the Header or Query parameter for authentication.
+     * @description The sample response from the backend service.
      *
      * @example 200
      *
@@ -286,12 +283,7 @@ class DescribeApiResponseBody extends Model
     public $resultSample;
 
     /**
-     * @description The type of the two-way communication API. Valid values:
-     *
-     *   **COMMON**: general APIs
-     *   **REGISTER**: registered APIs
-     *   **UNREGISTER**: unregistered APIs
-     *   **NOTIFY**: downstream notification
+     * @description The format of the response from the backend service. Valid values: JSON, TEXT, BINARY, XML, and HTML.
      *
      * @example JSON
      *
@@ -300,35 +292,38 @@ class DescribeApiResponseBody extends Model
     public $resultType;
 
     /**
-     * @description The application name in AONE.
+     * @description The configuration items of API requests sent by API Gateway to the backend service.
      *
      * @var serviceConfig
      */
     public $serviceConfig;
 
     /**
-     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     * @description The parameters of API requests sent by API Gateway to the backend service.
      *
      * @var serviceParameters
      */
     public $serviceParameters;
 
     /**
-     * @description The corresponding frontend parameter name. It must be included in RequestParametersObject and matches ApiParameterName in RequestParameter data.
+     * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
      *
      * @var serviceParametersMap
      */
     public $serviceParametersMap;
 
     /**
-     * @description Examples
+     * @description System parameters sent by API Gateway to the backend service
      *
      * @var systemParameters
      */
     public $systemParameters;
 
     /**
-     * @description The sample error response from the backend service.
+     * @description Specifies whether to make the API public. Valid values:
+     *
+     *   **PUBLIC**: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.
+     *   **PRIVATE**: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
      *
      * @example PUBLIC
      *
@@ -337,10 +332,12 @@ class DescribeApiResponseBody extends Model
     public $visibility;
 
     /**
-     * @description Specifies whether to limit API calls to within the VPC. Valid values:
+     * @description The type of the two-way communication API. Valid values:
      *
-     *   **true**: Only API calls from the VPC are supported.
-     *   **false**: API calls from the VPC and Internet are both supported.
+     *   **COMMON**: general APIs
+     *   **REGISTER**: registered APIs
+     *   **UNREGISTER**: unregistered APIs
+     *   **NOTIFY**: downstream notification
      *
      * @example COMMON
      *

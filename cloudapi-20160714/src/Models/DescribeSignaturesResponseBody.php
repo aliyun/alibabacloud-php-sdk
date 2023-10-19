@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSignaturesResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeSignaturesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The returned signature information. It is an array consisting of SignatureInfo data.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeSignaturesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The total number of returned entries.
+     * @description The ID of the request.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
@@ -37,14 +37,14 @@ class DescribeSignaturesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the backend signature key.
+     * @description The returned signature information. It is an array consisting of SignatureInfo data.
      *
      * @var signatureInfos
      */
     public $signatureInfos;
 
     /**
-     * @description The last modification time of the key.
+     * @description The total number of returned entries.
      *
      * @example 20
      *

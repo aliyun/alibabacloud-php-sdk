@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class datasetInfo extends Model
 {
     /**
+     * @description The creation time (UTC) of the dataset.
+     *
      * @example 2022-09-21T12:58:43Z
      *
      * @var string
@@ -16,6 +18,8 @@ class datasetInfo extends Model
     public $createdTime;
 
     /**
+     * @description The ID of the dataset.
+     *
      * @example 62b91a790a693238********
      *
      * @var string
@@ -23,6 +27,8 @@ class datasetInfo extends Model
     public $datasetId;
 
     /**
+     * @description The name of the dataset.
+     *
      * @example DatasetName
      *
      * @var string
@@ -30,6 +36,12 @@ class datasetInfo extends Model
     public $datasetName;
 
     /**
+     * @description The type of the dataset. Valid values:
+     *
+     *   JWT_BLOCKING: a JSON Web Token (JWT) blacklist
+     *   IP_WHITELIST_CIDR : an IP address whitelist
+     *   PARAMETER_ACCESS : parameter-based access control
+     *
      * @example JWT_BLOCKING
      *
      * @var string
@@ -37,6 +49,8 @@ class datasetInfo extends Model
     public $datasetType;
 
     /**
+     * @description The last modification time (UTC) of the dataset.
+     *
      * @example 2022-09-21T12:58:43Z
      *
      * @var string

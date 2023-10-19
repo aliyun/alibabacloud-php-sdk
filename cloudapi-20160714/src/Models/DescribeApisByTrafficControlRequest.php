@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByTrafficControlRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeApisByTrafficControlRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *
      * @example 10
      *
@@ -27,12 +27,16 @@ class DescribeApisByTrafficControlRequest extends Model
     public $pageSize;
 
     /**
+     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
+     *
+     * @example 9abe3317-3e22-4957-ab9f-dd893d0ac956
+     *
      * @var string
      */
     public $securityToken;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The ID of the throttling policy that you want to query.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *

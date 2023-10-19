@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiTrafficDataResponseBody extends Model
 {
     /**
+     * @description The returned downlink traffic data of API calls. It is an array consisting of MonitorItem data.
+     *
      * @var callDownloads
      */
     public $callDownloads;
 
     /**
+     * @description The returned uplink traffic data of API calls. It is an array consisting of MonitorItem data.
+     *
      * @var callUploads
      */
     public $callUploads;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ001
      *
      * @var string

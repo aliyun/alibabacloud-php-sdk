@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpControlPolicyItemResponseBody extends Model
 {
     /**
-     * @description Modifies a policy in an access control list (ACL).
+     * @description The ID of the request.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *

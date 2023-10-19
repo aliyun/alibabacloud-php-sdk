@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupQpsRequest extends Model
 {
     /**
+     * @description The end time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
+     *
      * @example 2022-08-23T07:27:44Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeGroupQpsRequest extends Model
     public $endTime;
 
     /**
+     * @description The API group ID.
+     *
      * @example 264c60db9f764345a13ac5c825b229b9
      *
      * @var string
@@ -28,6 +32,12 @@ class DescribeGroupQpsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The environment to which the API group is published. Valid values:
+     *
+     *   **RELEASE**: the production environment
+     *   **PRE**: the staging environment
+     *   **TEST**: the test environment
+     *
      * @example RELEASE
      *
      * @var string
@@ -35,6 +45,8 @@ class DescribeGroupQpsRequest extends Model
     public $stageName;
 
     /**
+     * @description The start time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
+     *
      * @example 2022-08-12T06:09:52Z
      *
      * @var string

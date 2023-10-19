@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipControlInfo extends Model
 {
     /**
-     * @description The time when the ACL was created. The time is displayed in UTC.
+     * @description The name of the ACL.
      *
      * @example 2018-01-17T05:48:11Z
      *
@@ -18,7 +18,7 @@ class ipControlInfo extends Model
     public $createTime;
 
     /**
-     * @description The description of the ACL.
+     * @description The time when the ACL was modified. The time is displayed in UTC.
      *
      * @example description
      *
@@ -27,7 +27,7 @@ class ipControlInfo extends Model
     public $description;
 
     /**
-     * @description The ID of the ACL.
+     * @description The total number of returned entries.
      *
      * @example 7ea91319a34d48a09b5c9c871d9768b1
      *
@@ -36,7 +36,7 @@ class ipControlInfo extends Model
     public $ipControlId;
 
     /**
-     * @description The name of the ACL.
+     * @description The type of the ACL.
      *
      * @example testControl11
      *
@@ -45,7 +45,7 @@ class ipControlInfo extends Model
     public $ipControlName;
 
     /**
-     * @description The type of the ACL.
+     * @description The information about the ACL. The information is an array of IpControlInfo data. The information does not include specific policies.
      *
      * @example ALLOW
      *
@@ -54,7 +54,7 @@ class ipControlInfo extends Model
     public $ipControlType;
 
     /**
-     * @description The time when the ACL was modified. The time is displayed in UTC.
+     * @description The ID of the ACL.
      *
      * @example 2018-01-17T06:00:38Z
      *
@@ -63,7 +63,7 @@ class ipControlInfo extends Model
     public $modifiedTime;
 
     /**
-     * @description The ID of the region in which the ACL is deployed.
+     * @description The description of the ACL.
      *
      * @example cn-qingdao
      *

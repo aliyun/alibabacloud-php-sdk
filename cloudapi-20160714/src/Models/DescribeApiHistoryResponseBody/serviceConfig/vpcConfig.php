@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vpcConfig extends Model
 {
     /**
-     * @description The ID of the Elastic Compute Service (ECS) or Server Load Balancer (SLB) instance in the VPC.
+     * @description The IDs of the ELB and SLB instances in the VPC.
      *
      * @example i-bp1h497hkijewv2***
      *
@@ -45,7 +45,7 @@ class vpcConfig extends Model
     public $vpcId;
 
     /**
-     * @description The protocol of the VPC.
+     * @description The VPC protocol.
      *
      * @example HTTP
      *

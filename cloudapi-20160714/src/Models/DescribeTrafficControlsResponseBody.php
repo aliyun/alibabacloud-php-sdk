@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrafficControlsResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeTrafficControlsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The returned throttling policy information. It is an array consisting of TrafficControl data.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeTrafficControlsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The total number of returned entries.
+     * @description The ID of the request.
      *
      * @example 93D91A99-F093-4596-87BA-3C4FBFD3FD8A
      *
@@ -37,7 +37,7 @@ class DescribeTrafficControlsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The default throttling value for each user.
+     * @description The total number of returned entries.
      *
      * @example 1
      *
@@ -46,7 +46,7 @@ class DescribeTrafficControlsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The default throttling value for each API.
+     * @description The returned throttling policy information. It is an array consisting of TrafficControl data.
      *
      * @var trafficControls
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIpControlResponseBody extends Model
 {
     /**
+     * @description The ID of the ACL.
+     *
      * @example 7ea91319a34d48a09b5c9c871d9768b1
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateIpControlResponseBody extends Model
     public $ipControlId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CE5722A6-AE78-4741-A9B0-6C817D360510
      *
      * @var string

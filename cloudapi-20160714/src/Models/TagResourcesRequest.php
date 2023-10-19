@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The ID of the resource.
+     *
      * @example 285bb759342649a1b70c2093a772e087
      *
      * @var string[]
@@ -17,7 +19,11 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **TagResources**.
+     * @description The type of the resource. Tags are bound to API groups, plug-ins, and applications. You can use tags to manage cloud resources by group. Valid values:
+     *
+     *   **apiGroup**
+     *   **plugin**
+     *   **app**
      *
      * @example apiGroup
      *
@@ -31,6 +37,8 @@ class TagResourcesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tag of objects that match the lifecycle rule. You can specify multiple tags.
+     *
      * @example 2021022811
      *
      * @var tag[]

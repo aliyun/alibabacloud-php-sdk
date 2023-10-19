@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class functionComputeConfig extends Model
 {
     /**
-     * @description The ContentType header used when a backend HTTP service is called. Valid values:
+     * @description The ContentType header type used when you call the backend service over HTTP.
      *
-     *   **DEFAULT:** the default header in API Gateway
-     *   **CUSTOM:** a custom header
-     *   **CLIENT:** the ContentType header specified by the client
+     *   **DEFAULT: the default header type in API Gateway.**
+     *   **CUSTOM: a custom header type.**
+     *   **CLIENT: the ContentType header type of the client.
      *
      * @example DEFAULT
      *
@@ -67,7 +67,7 @@ class functionComputeConfig extends Model
     public $method;
 
     /**
-     * @description Indicates whether the backend receives only the service path.
+     * @description The backend only receives the service path.
      *
      * @example false
      *
@@ -94,7 +94,7 @@ class functionComputeConfig extends Model
     public $qualifier;
 
     /**
-     * @description The region in which the instance resides.
+     * @description The region where the API is located.
      *
      * @example cn-beijing
      *
@@ -103,7 +103,7 @@ class functionComputeConfig extends Model
     public $regionId;
 
     /**
-     * @description The ARN of the RAM role assumed by API Gateway to access Function Compute.
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role to be assumed by API Gateway to access Function Compute.
      *
      * @example acs:ram::111***:role/aliyunserviceroleforsas
      *

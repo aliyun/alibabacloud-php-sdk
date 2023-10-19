@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class purchasedApiGroupAttribute extends Model
 {
     /**
+     * @description The billing method.
+     *
      * @example POSTPAID
      *
      * @var string
@@ -16,6 +18,8 @@ class purchasedApiGroupAttribute extends Model
     public $billingType;
 
     /**
+     * @description The description of the API group.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class purchasedApiGroupAttribute extends Model
     public $description;
 
     /**
+     * @description The time when the API group expires.
+     *
      * @example 2021-12-19T00:00:00
      *
      * @var string
@@ -30,6 +36,8 @@ class purchasedApiGroupAttribute extends Model
     public $expireTime;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example 8e91f23f88f94348855b82c9a73209f3
      *
      * @var string
@@ -37,6 +45,8 @@ class purchasedApiGroupAttribute extends Model
     public $groupId;
 
     /**
+     * @description The name of the API group.
+     *
      * @example group1
      *
      * @var string
@@ -44,6 +54,8 @@ class purchasedApiGroupAttribute extends Model
     public $groupName;
 
     /**
+     * @description The maximum number of calls.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +63,8 @@ class purchasedApiGroupAttribute extends Model
     public $invokeTimesMax;
 
     /**
+     * @description The current number of calls.
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +72,8 @@ class purchasedApiGroupAttribute extends Model
     public $invokeTimesNow;
 
     /**
+     * @description The time when the API group was purchased.
+     *
      * @example 2021-12-19T00:00:00
      *
      * @var string
@@ -65,6 +81,8 @@ class purchasedApiGroupAttribute extends Model
     public $purchasedTime;
 
     /**
+     * @description The ID of the region where the API group is located.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -72,6 +90,11 @@ class purchasedApiGroupAttribute extends Model
     public $regionId;
 
     /**
+     * @description The status of the API group.
+     *
+     *   **NORMAL**: The API group is normal.
+     *   **DELETE**: The API group is deleted.
+     *
      * @example NORMAL
      *
      * @var string

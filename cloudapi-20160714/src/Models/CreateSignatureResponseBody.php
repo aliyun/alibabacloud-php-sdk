@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSignatureResponseBody extends Model
 {
     /**
-     * @description The name of the back-end signature key.
+     * @description The ID of the request.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
@@ -18,10 +18,7 @@ class CreateSignatureResponseBody extends Model
     public $requestId;
 
     /**
-     * @description *   This API is intended for API providers.
-     *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
-     *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
-     *   The QPS limit on this operation is 50 per user.
+     * @description The ID of the back-end signature key.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -30,7 +27,7 @@ class CreateSignatureResponseBody extends Model
     public $signatureId;
 
     /**
-     * @description Creates a backend signature key.
+     * @description The name of the back-end signature key.
      *
      * @example backendsignature
      *

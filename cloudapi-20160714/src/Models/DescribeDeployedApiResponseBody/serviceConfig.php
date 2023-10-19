@@ -12,17 +12,17 @@ use AlibabaCloud\Tea\Model;
 class serviceConfig extends Model
 {
     /**
-     * @description The backend configuration items when the backend service is Function Compute.
+     * @description Backend configuration items when the backend service is Function Compute
      *
      * @var functionComputeConfig
      */
     public $functionComputeConfig;
 
     /**
-     * @description Indicates whether the Mock mode is enabled. Valid values:
+     * @description Specifies whether to enable the Mock mode. Valid values:
      *
-     *   **TRUE:** The Mock mode is enabled.
-     *   **FALSE:** The Mock mode is not enabled.
+     *   **TRUE: The Mock mode is enabled.**
+     *   **FALSE: The Mock mode is not enabled.
      *
      * @example TRUE
      *
@@ -31,7 +31,7 @@ class serviceConfig extends Model
     public $mock;
 
     /**
-     * @description The mock headers.
+     * @description The simulated Headers.
      *
      * @var mockHeaders
      */
@@ -47,7 +47,7 @@ class serviceConfig extends Model
     public $mockResult;
 
     /**
-     * @description The status code returned for service mock.
+     * @description The status code returned for service mocking.
      *
      * @example 200
      *
@@ -56,7 +56,7 @@ class serviceConfig extends Model
     public $mockStatusCode;
 
     /**
-     * @description The URL that is used to call the backend service. If the complete URL of a backend service is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of ServiceAddress is **http://api.a.com:8080**.``
+     * @description The URL used to call the back-end service. If the complete back-end service URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of ServiceAddress is **http://api.a.com:8080**.``
      *
      * @example http://api.a.com:8080
      *
@@ -65,7 +65,7 @@ class serviceConfig extends Model
     public $serviceAddress;
 
     /**
-     * @description The HTTP method that is used to call a backend service. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
+     * @description The HTTP method used to call a backend service. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
      *
      * @example POST
      *
@@ -74,8 +74,6 @@ class serviceConfig extends Model
     public $serviceHttpMethod;
 
     /**
-     * @description The path that is used to call the backend service. If the complete URL of a backend service is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of the **ServicePath** parameter is `/object/add`.
-     *
      * @example /object/add
      *
      * @var string
@@ -83,7 +81,7 @@ class serviceConfig extends Model
     public $servicePath;
 
     /**
-     * @description The backend service protocol. Only HTTP, HTTPS, and Function Compute are supported.
+     * @description The backend service protocol. Currently, only HTTP, HTTPS, and FunctionCompute are supported.
      *
      * @example HTTP
      *
@@ -92,7 +90,7 @@ class serviceConfig extends Model
     public $serviceProtocol;
 
     /**
-     * @description The timeout period of the backend service. Unit: milliseconds.
+     * @description The timeout period of the backend service, in millisecond.
      *
      * @example 1000
      *
@@ -101,9 +99,9 @@ class serviceConfig extends Model
     public $serviceTimeout;
 
     /**
-     * @description Indicates whether to enable the VPC channel. Valid values:
+     * @description Specifies whether to enable the VPC channel. Valid values:
      *
-     *   **TRUE**: The VPC channel is enabled. You can enable a VPC channel only after you create the corresponding access authorization for the VPC.
+     *   **TRUE**: The VPC channel is enabled. You must create the corresponding VPC access authorization before you can enable a VPC channel.
      *   **FALSE**: The VPC channel is not enabled.
      *
      * @example TRUE
@@ -113,7 +111,7 @@ class serviceConfig extends Model
     public $serviceVpcEnable;
 
     /**
-     * @description The configuration items of the VPC channel.
+     * @description Configuration items related to VPC channels
      *
      * @var vpcConfig
      */

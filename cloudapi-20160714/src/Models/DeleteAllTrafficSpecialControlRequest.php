@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteAllTrafficSpecialControlRequest extends Model
 {
     /**
+     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
+     *
+     * @example fa876ffb-caab-4f0a-93b3-3409f2fa5199
+     *
      * @var string
      */
     public $securityToken;
 
     /**
-     * @description *   This API is intended for API providers.
+     * @description The ID of the throttling policy.
      *
      * @example tf123456
      *

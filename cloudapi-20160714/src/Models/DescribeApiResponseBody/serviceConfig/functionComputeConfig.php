@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class functionComputeConfig extends Model
 {
     /**
-     * @description The API request path.
+     * @description The ContentType header type used when you call the backend service over HTTP.
+     *
+     *   **DEFAULT**: the default header type in API Gateway
+     *   **CUSTOM**: a custom header type
+     *   **CLIENT**: the ContentType header type of the client
      *
      * @example DEFAULT
      *
@@ -18,7 +22,7 @@ class functionComputeConfig extends Model
     public $contentTypeCatagory;
 
     /**
-     * @description The region where the Function Compute instance is located.
+     * @description The value of the ContentType header when the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
      *
      * @example application/x-www-form-urlencoded; charset=UTF-8
      *
@@ -27,7 +31,7 @@ class functionComputeConfig extends Model
     public $contentTypeValue;
 
     /**
-     * @description The value of the ContentType header when the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
+     * @description The root path of Function Compute.
      *
      * @example https://1227****64334133.ap-southeast-1-int***al.fc.aliyuncs.com/201****-15/proxy/test****ice.LATEST/testHttp/
      *
@@ -36,7 +40,7 @@ class functionComputeConfig extends Model
     public $fcBaseUrl;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role to be assumed by API Gateway to access Function Compute.
+     * @description The type of the Function Compute instance.
      *
      * @example HttpTrigger
      *
@@ -45,11 +49,7 @@ class functionComputeConfig extends Model
     public $fcType;
 
     /**
-     * @description The ContentType header type used when you call the backend service over HTTP.
-     *
-     *   **DEFAULT**: the default header type in API Gateway
-     *   **CUSTOM**: a custom header type
-     *   **CLIENT**: the ContentType header type of the client
+     * @description The function name defined in Function Compute.
      *
      * @example edge_function
      *
@@ -58,7 +58,7 @@ class functionComputeConfig extends Model
     public $functionName;
 
     /**
-     * @description The root path of Function Compute.
+     * @description The request method.
      *
      * @example GET
      *
@@ -67,7 +67,7 @@ class functionComputeConfig extends Model
     public $method;
 
     /**
-     * @description The function name defined in Function Compute.
+     * @description The backend only receives the service path.
      *
      * @example false
      *
@@ -76,7 +76,7 @@ class functionComputeConfig extends Model
     public $onlyBusinessPath;
 
     /**
-     * @description The service name defined in Function Compute.
+     * @description The API request path.
      *
      * @example /api/offline/cacheData
      *
@@ -85,7 +85,7 @@ class functionComputeConfig extends Model
     public $path;
 
     /**
-     * @description Information when the backend service is OSS
+     * @description The alias of the function.
      *
      * @example 2
      *
@@ -94,7 +94,7 @@ class functionComputeConfig extends Model
     public $qualifier;
 
     /**
-     * @description The backend only receives the service path.
+     * @description The region where the Function Compute instance is located.
      *
      * @example cn-qingdao
      *
@@ -103,7 +103,7 @@ class functionComputeConfig extends Model
     public $regionId;
 
     /**
-     * @description The request method.
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role to be assumed by API Gateway to access Function Compute.
      *
      * @example acs:ram::111***:role/aliyunserviceroleforsas
      *
@@ -112,7 +112,7 @@ class functionComputeConfig extends Model
     public $roleArn;
 
     /**
-     * @description The alias of the function.
+     * @description The service name defined in Function Compute.
      *
      * @example fcservicename
      *

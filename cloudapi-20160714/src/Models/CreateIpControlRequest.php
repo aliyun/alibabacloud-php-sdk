@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIpControlRequest extends Model
 {
     /**
+     * @description The description. The description can be up to 200 characters in length.
+     *
      * @example test
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateIpControlRequest extends Model
     public $description;
 
     /**
+     * @description The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (\_). The name cannot start with an underscore (\_).``
+     *
      * @example controlNameTest
      *
      * @var string
@@ -24,11 +28,18 @@ class CreateIpControlRequest extends Model
     public $ipControlName;
 
     /**
+     * @description The information about the policies. The information is an array of ipcontrolpolicys data.
+     *
      * @var ipControlPolicys[]
      */
     public $ipControlPolicys;
 
     /**
+     * @description The type of the ACL. Valid values:
+     *
+     *   **ALLOW**: an IP address whitelist
+     *   **REFUSE**: an IP address blacklist
+     *
      * @example ALLOW
      *
      * @var string

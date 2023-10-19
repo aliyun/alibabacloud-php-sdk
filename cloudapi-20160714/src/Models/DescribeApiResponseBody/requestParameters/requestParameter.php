@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestParameter extends Model
 {
     /**
-     * @description The hash values that can be entered when **ParameterType** is set to Int, Long, Float, Double, or String. Separate different values with commas (,), such as 1,2,3,4,9 or A,B,C,E,F.
+     * @description The name of the parameter.
      *
      * @example age
      *
@@ -18,7 +18,7 @@ class requestParameter extends Model
     public $apiParameterName;
 
     /**
-     * @description The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
+     * @description The type of the array element.
      *
      * @example String
      *
@@ -27,7 +27,7 @@ class requestParameter extends Model
     public $arrayItemsType;
 
     /**
-     * @description The name of the parameter.
+     * @description The default value.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class requestParameter extends Model
     public $defaultValue;
 
     /**
-     * @description Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
+     * @description Examples
      *
      * @example 20
      *
@@ -45,16 +45,16 @@ class requestParameter extends Model
     public $demoValue;
 
     /**
-     * @description Age
+     * @description Description
      *
-     * @example The type of a request parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
+     * @example Age
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     * @description The order in the document.
      *
      * @example 0
      *
@@ -63,7 +63,7 @@ class requestParameter extends Model
     public $docOrder;
 
     /**
-     * @description The maximum parameter length when **ParameterType** is set to String.
+     * @description Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
      *
      * @example PUBLIC
      *
@@ -72,7 +72,7 @@ class requestParameter extends Model
     public $docShow;
 
     /**
-     * @description Examples
+     * @description The hash values that can be entered when **ParameterType** is set to Int, Long, Float, Double, or String. Separate different values with commas (,), such as 1,2,3,4,9 or A,B,C,E,F.
      *
      * @example boy,girl
      *
@@ -81,7 +81,7 @@ class requestParameter extends Model
     public $enumValue;
 
     /**
-     * @description The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
+     * @description The JSON Schema used for JSON validation when **ParameterType** is set to String.
      *
      * @example JSON
      *
@@ -90,7 +90,7 @@ class requestParameter extends Model
     public $jsonScheme;
 
     /**
-     * @description The parameters of API requests sent by API Gateway to the backend service.
+     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
      *
      * @example HEAD
      *
@@ -99,7 +99,7 @@ class requestParameter extends Model
     public $location;
 
     /**
-     * @description The default value.
+     * @description The maximum parameter length when **ParameterType** is set to String.
      *
      * @example 123456
      *
@@ -108,7 +108,7 @@ class requestParameter extends Model
     public $maxLength;
 
     /**
-     * @description The type of the array element.
+     * @description The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
      *
      * @example 123456
      *
@@ -117,7 +117,7 @@ class requestParameter extends Model
     public $maxValue;
 
     /**
-     * @description The order in the document.
+     * @description The minimum parameter length when **ParameterType** is set to String.
      *
      * @example 123456
      *
@@ -126,7 +126,7 @@ class requestParameter extends Model
     public $minLength;
 
     /**
-     * @description Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
+     * @description The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
      *
      * @example 123456
      *
@@ -135,7 +135,7 @@ class requestParameter extends Model
     public $minValue;
 
     /**
-     * @description The regular expression used for parameter validation when **ParameterType** is set to String.
+     * @description The type of a request parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
      *
      * @example String
      *
@@ -144,7 +144,7 @@ class requestParameter extends Model
     public $parameterType;
 
     /**
-     * @description The minimum parameter length when **ParameterType** is set to String.
+     * @description The regular expression used for parameter validation when **ParameterType** is set to String.
      *
      * @example xxx
      *
@@ -153,7 +153,7 @@ class requestParameter extends Model
     public $regularExpression;
 
     /**
-     * @description Description
+     * @description Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
      *
      * @example OPTIONAL
      *

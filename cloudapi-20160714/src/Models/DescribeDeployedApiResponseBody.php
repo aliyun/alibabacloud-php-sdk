@@ -41,7 +41,7 @@ class DescribeDeployedApiResponseBody extends Model
     public $apiId;
 
     /**
-     * @description The name of the API.
+     * @description The name of the API
      *
      * @example weather
      *
@@ -50,13 +50,13 @@ class DescribeDeployedApiResponseBody extends Model
     public $apiName;
 
     /**
-     * @description The authentication method of the API. Valid values:
+     * @description The security authentication method of the API. Valid values:
      *
-     *   **APP:** Only authorized apps are allowed to call the API.
+     *   **APP: Only authorized applications can call the API.**
      *
-     *   **ANONYMOUS**: The API can be anonymously called. In this mode, you must take note of the following rules:
+     *   **ANONYMOUS: The API can be anonymously called. In this mode, you must take note of the following rules:**
      *
-     *   All users who have obtained the API service information can call this API. API Gateway does not authenticate callers and cannot set user-specific throttling policies. If the API is made public, set API-specific throttling policies.
+     *   All users who have obtained the API service information can call this API. API Gateway does not authenticate callers and cannot set user-specific throttling policies. If you make this API public, set API-specific throttling policies.
      *
      * @example APP
      *
@@ -88,7 +88,7 @@ class DescribeDeployedApiResponseBody extends Model
     public $deployedTime;
 
     /**
-     * @description The description of the parameter.
+     * @description The description.
      *
      * @example Api description
      *
@@ -97,10 +97,10 @@ class DescribeDeployedApiResponseBody extends Model
     public $description;
 
     /**
-     * @description *   Indicates whether to call the API only in an internal network. If this parameter is set to **true**, the API can be called only in an internal network.
-     *   If this parameter is set to **false**, the API can be called over the Internet and in an internal network.
+     * @description *   Specifies whether to set DisableInternet to **true** to limit API calls to within the VPC.
+     *   If you set DisableInternet to **false**, the limit is lifted.
      *
-     * > If you do not configure this parameter when you modify the API, the original value is used.
+     * >  If you do not set this parameter, the original value is not modified.
      * @example true
      *
      * @var bool
@@ -125,8 +125,8 @@ class DescribeDeployedApiResponseBody extends Model
     public $failResultSample;
 
     /**
-     * @description *   Indicates whether to forcibly check X-Ca-Nonce. If the **ForceNonceCheck** parameter is set to **true**, X-Ca-Nonce is forcibly checked. X-Ca-Nonce is the unique identifier of a request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
-     *   If the **ForceNonceCheck** parameter is set to **false**, the X-Ca-Nonce is not checked. Default value: false.
+     * @description *   Specifies whether to set **ForceNonceCheck** to **true** to force the check of X-Ca-Nonce during the request. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
+     *   If you set **ForceNonceCheck** to **false**, the check is not performed. The default value is false when you create an API.
      *
      * @example true
      *
@@ -160,7 +160,7 @@ class DescribeDeployedApiResponseBody extends Model
     public $openIdConnectConfig;
 
     /**
-     * @description The region in which the API group resides.
+     * @description The region to which the API group belongs.
      *
      * @example cn-beijing
      *
@@ -169,7 +169,7 @@ class DescribeDeployedApiResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The configuration items of API requests sent by the consumer to API Gateway.
+     * @description Configuration items of API requests sent by the consumer to API Gateway.
      *
      * For more information, see [RequestConfig](~~43985~~).
      * @var requestConfig
@@ -201,7 +201,7 @@ class DescribeDeployedApiResponseBody extends Model
     public $resultBodyModel;
 
     /**
-     * @description The returned description of the API.
+     * @description The return description of the API.
      *
      * @var resultDescriptions
      */
@@ -250,11 +250,11 @@ class DescribeDeployedApiResponseBody extends Model
     public $serviceParametersMap;
 
     /**
-     * @description The environment in which the API runs. Valid values:
+     * @description The name of the runtime environment. Valid values:
      *
-     *   **RELEASE**: the production environment
-     *   **PRE**: the pre-release environment
-     *   **TEST**: the test environment
+     *   **RELEASE**
+     *   **PRE: the pre-release environment**
+     *   **TEST**
      *
      * @example RELEASE
      *
@@ -263,17 +263,17 @@ class DescribeDeployedApiResponseBody extends Model
     public $stageName;
 
     /**
-     * @description The system parameters.
+     * @description System parameters
      *
      * @var systemParameters
      */
     public $systemParameters;
 
     /**
-     * @description Indicates whether the API is public. Valid values:
+     * @description Specifies whether to make the API public. Valid values:
      *
-     *   **PUBLIC:** The API is public. If this parameter is set to PUBLIC, the API is displayed on the APIs page for all users after the API is published to the production environment.
-     *   **PRIVATE:** The API is private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     *   **PUBLIC: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.**
+     *   **PRIVATE: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
      *
      * @example PUBLIC
      *

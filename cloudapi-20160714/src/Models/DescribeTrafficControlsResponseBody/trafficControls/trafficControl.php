@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class trafficControl extends Model
 {
     /**
-     * @description The description of the throttling policy.
+     * @description The default throttling value for each API.
      *
      * @example 20000
      *
@@ -19,7 +19,7 @@ class trafficControl extends Model
     public $apiDefault;
 
     /**
-     * @description The creation time (UTC) of the throttling policy.
+     * @description The default throttling value for each app.
      *
      * @example 8000
      *
@@ -28,10 +28,7 @@ class trafficControl extends Model
     public $appDefault;
 
     /**
-     * @description The type of the special throttling policy. Valid values:
-     *
-     *   **APP**
-     *   **USER**
+     * @description The creation time (UTC) of the throttling policy.
      *
      * @example 2016-01-27T10:19:39Z
      *
@@ -40,7 +37,7 @@ class trafficControl extends Model
     public $createdTime;
 
     /**
-     * @description The name of the throttling policy.
+     * @description The description of the throttling policy.
      *
      * @example test
      *
@@ -49,11 +46,7 @@ class trafficControl extends Model
     public $description;
 
     /**
-     * @description The unit to be used in the throttling policy. Valid values:
-     *
-     *   MINUTE
-     *   HOUR
-     *   DAY
+     * @description The last modification time (UTC) of the throttling policy.
      *
      * @example 2016-01-27T10:34:38Z
      *
@@ -62,14 +55,14 @@ class trafficControl extends Model
     public $modifiedTime;
 
     /**
-     * @description The returned information about a special throttling policy. It is an array consisting of Special data.
+     * @description The returned information about a special throttling policy. It is an array consisting of SpecialPolicy data.
      *
      * @var specialPolicies
      */
     public $specialPolicies;
 
     /**
-     * @description The returned information about a special throttling policy. It is an array consisting of SpecialPolicy data.
+     * @description The ID of the throttling policy.
      *
      * @example cfed6c970d45481dbe136d6b5ac68c41
      *
@@ -78,7 +71,7 @@ class trafficControl extends Model
     public $trafficControlId;
 
     /**
-     * @description The ID of the throttling policy.
+     * @description The name of the throttling policy.
      *
      * @example wulingtestq1
      *
@@ -87,7 +80,11 @@ class trafficControl extends Model
     public $trafficControlName;
 
     /**
-     * @description The default throttling value for each app.
+     * @description The unit to be used in the throttling policy. Valid values:
+     *
+     *   MINUTE
+     *   HOUR
+     *   DAY
      *
      * @example Minute
      *
@@ -96,7 +93,7 @@ class trafficControl extends Model
     public $trafficControlUnit;
 
     /**
-     * @description The last modification time (UTC) of the throttling policy.
+     * @description The default throttling value for each user.
      *
      * @example 15000
      *

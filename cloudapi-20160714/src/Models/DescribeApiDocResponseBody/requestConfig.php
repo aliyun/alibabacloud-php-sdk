@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class requestConfig extends Model
 {
     /**
+     * @description This parameter takes effect only when the RequestMode parameter is set to MAPPING.********
+     *
+     * The server data transmission method used for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data in key-value pairs is transmitted as forms. STREAM indicates that data is transmitted as byte streams.
      * @example STREAM
      *
      * @var string
@@ -16,6 +19,8 @@ class requestConfig extends Model
     public $bodyFormat;
 
     /**
+     * @description The description of the request body.
+     *
      * @example fwefwef
      *
      * @var string
@@ -23,6 +28,8 @@ class requestConfig extends Model
     public $postBodyDescription;
 
     /**
+     * @description The HTTP method used to make the request. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
+     *
      * @example POST
      *
      * @var string
@@ -30,6 +37,12 @@ class requestConfig extends Model
     public $requestHttpMethod;
 
     /**
+     * @description The request mode. Valid values:
+     *
+     *   MAPPING: Parameters are mapped. Unknown parameters are filtered out.
+     *   PASSTHROUGH: Parameters are passed through.
+     *   MAPPING_PASSTHROUGH: Parameters are mapped. Unknown parameters are passed through.
+     *
      * @example MAPPING
      *
      * @var string
@@ -37,6 +50,8 @@ class requestConfig extends Model
     public $requestMode;
 
     /**
+     * @description The API request path. If the complete API URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the API request path is ` /object/add  `.
+     *
      * @example /api/billing/test/[type]
      *
      * @var string
@@ -44,6 +59,8 @@ class requestConfig extends Model
     public $requestPath;
 
     /**
+     * @description The protocol type supported by the API. Valid values: HTTP and HTTPS. Separate multiple values with commas (,), such as "HTTP,HTTPS".
+     *
      * @example HTTP
      *
      * @var string

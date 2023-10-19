@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImportSwaggerRequest extends Model
 {
     /**
+     * @description The Swagger text content.
+     *
      * @example "A Swagger API definition in YAML"
      *
      * @var string
@@ -16,7 +18,10 @@ class ImportSwaggerRequest extends Model
     public $data;
 
     /**
-     * @description 382271
+     * @description The Swagger text format:
+     *
+     *   json
+     *   yaml
      *
      * @example yaml
      *
@@ -25,6 +30,8 @@ class ImportSwaggerRequest extends Model
     public $dataFormat;
 
     /**
+     * @description The pre-inspection.
+     *
      * @example true
      *
      * @var bool
@@ -32,7 +39,7 @@ class ImportSwaggerRequest extends Model
     public $dryRun;
 
     /**
-     * @description Creates an API by importing Swagger-compliant data.
+     * @description The global conditions.
      *
      * @example {}
      *
@@ -41,13 +48,18 @@ class ImportSwaggerRequest extends Model
     public $globalCondition;
 
     /**
+     * @description The ID of the API group to which the Swagger is imported.
+     *
+     * @example 0009db9c828549768a200320714b8930
+     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description 8e274ec61cf6468e83b68371956831cb
+     * @description Specifies whether to overwrite the existing API.
      *
+     * APIs with the same HTTP request type and backend request path are considered the same.
      * @example true
      *
      * @var bool

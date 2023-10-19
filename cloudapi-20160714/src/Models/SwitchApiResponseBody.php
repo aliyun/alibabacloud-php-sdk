@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SwitchApiResponseBody extends Model
 {
     /**
-     * @description Switches the definition of an API in a specified runtime environment to a historical version.
+     * @description The ID of the request.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ001
      *

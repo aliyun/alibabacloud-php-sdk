@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppResponseBody extends Model
 {
     /**
+     * @description The unique ID of the application.
+     *
      * @example 20112314518278
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateAppResponseBody extends Model
     public $appId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BA20890E-75C7-41BC-9C8B-73276B58F550
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateAppResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the tag exists. If the value is **true**, the tag exists. If the value is **false**, the tag does not exist.
+     *
      * @example false
      *
      * @var bool

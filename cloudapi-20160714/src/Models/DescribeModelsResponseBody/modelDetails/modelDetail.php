@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class modelDetail extends Model
 {
     /**
-     * @description The URI of the model.
+     * @description The time when the model was created.
      *
      * @example 2019-01-29T11:07:48Z
      *
@@ -18,7 +18,7 @@ class modelDetail extends Model
     public $createdTime;
 
     /**
-     * @description The name of the model.
+     * @description The definition of the model description.
      *
      * @example Model Description
      *
@@ -27,7 +27,7 @@ class modelDetail extends Model
     public $description;
 
     /**
-     * @description The definition of the model.
+     * @description The ID of the API group to which the model belongs.
      *
      * @example 30e792398d6c4569b04c0e53a3494381
      *
@@ -36,7 +36,7 @@ class modelDetail extends Model
     public $groupId;
 
     /**
-     * @description *   Fuzzy queries are supported.
+     * @description The ID of the model.
      *
      * @example 766c0b9538a04bdf974953b5576783ba
      *
@@ -45,7 +45,7 @@ class modelDetail extends Model
     public $modelId;
 
     /**
-     * @description The ID of the model.
+     * @description The name of the model.
      *
      * @example Test
      *
@@ -54,7 +54,7 @@ class modelDetail extends Model
     public $modelName;
 
     /**
-     * @description Obtains the created models of an API group.
+     * @description The URI of the model.
      *
      * @example https://apigateway.aliyun.com/models/30e792398d6c4569b04c0e53a3494381/766c0b9538a04bdf974953b5576783ba
      *
@@ -63,7 +63,7 @@ class modelDetail extends Model
     public $modelRef;
 
     /**
-     * @description The definition of the model description.
+     * @description The last modification time of the model.
      *
      * @example 2019-01-29T11:07:48Z
      *
@@ -72,7 +72,7 @@ class modelDetail extends Model
     public $modifiedTime;
 
     /**
-     * @description The time when the model was created.
+     * @description The definition of the model.
      *
      * @example {\"type\":\"object\",\"properties\":{\"id\":{\"format\":\"int64\",\"maximum\":100,\"exclusiveMaximum\":true,\"type\":\"integer\"},\"name\":{\"maxLength\":10,\"type\":\"string\"}}}
      *

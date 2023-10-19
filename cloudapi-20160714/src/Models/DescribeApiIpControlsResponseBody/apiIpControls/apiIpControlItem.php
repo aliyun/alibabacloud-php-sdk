@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class apiIpControlItem extends Model
 {
     /**
-     * @description The name of the ACL.
+     * @description The ID of the API.
      *
      * @example 46fbb52840d146f186e38e8e70fc8c90
      *
@@ -18,7 +18,7 @@ class apiIpControlItem extends Model
     public $apiId;
 
     /**
-     * @description Queries the access control lists (ACLs) that are bound to all the APIs in an API group in a specified environment.
+     * @description The name of the API.
      *
      * @example testapi
      *
@@ -27,7 +27,7 @@ class apiIpControlItem extends Model
     public $apiName;
 
     /**
-     * @description The ID of the ACL.
+     * @description The time of binding.
      *
      * @example 2016-07-23T08:28:48Z
      *
@@ -36,7 +36,7 @@ class apiIpControlItem extends Model
     public $boundTime;
 
     /**
-     * @description The name of the API.
+     * @description The ID of the ACL.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -45,10 +45,8 @@ class apiIpControlItem extends Model
     public $ipControlId;
 
     /**
-     * @description *   This operation is intended for API callers.
-     *   If an optional parameter is not specified, all results are returned on separate pages.
+     * @description The name of the ACL.
      *
-     * ·
      * @example testControlName
      *
      * @var string

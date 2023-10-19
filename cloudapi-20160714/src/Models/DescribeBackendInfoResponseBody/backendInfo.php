@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class backendInfo extends Model
 {
     /**
+     * @description The ID of the backend service.
+     *
      * @example 6fc978bb63574146b766863dd7bdf661
      *
      * @var string
@@ -17,11 +19,15 @@ class backendInfo extends Model
     public $backendId;
 
     /**
+     * @description The time when the backend service was created.
+     *
      * @var backendModels[]
      */
     public $backendModels;
 
     /**
+     * @description The name of the backend service.
+     *
      * @example testoss2
      *
      * @var string
@@ -29,6 +35,8 @@ class backendInfo extends Model
     public $backendName;
 
     /**
+     * @description The type of the backend service.
+     *
      * @example HTTP
      *
      * @var string
@@ -36,6 +44,8 @@ class backendInfo extends Model
     public $backendType;
 
     /**
+     * @description The time when the backend service was created.
+     *
      * @example 2021-11-22T11:10:46+08:00
      *
      * @var string
@@ -43,6 +53,8 @@ class backendInfo extends Model
     public $createdTime;
 
     /**
+     * @description The description of the backend service.
+     *
      * @example add
      *
      * @var string
@@ -50,6 +62,8 @@ class backendInfo extends Model
     public $description;
 
     /**
+     * @description The time when the backend service was modified.
+     *
      * @example 2017-12-11T15:18:09+08:00
      *
      * @var string

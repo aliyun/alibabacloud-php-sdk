@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeployedApisResponseBody extends Model
 {
     /**
+     * @description The returned API information. It is an array consisting of DeployedApiItem data.
+     *
      * @var deployedApis
      */
     public $deployedApis;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeDeployedApisResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDeployedApisResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ002
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDeployedApisResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 2
      *
      * @var int

@@ -96,6 +96,8 @@ class DescribeApisRequest extends Model
     public $securityToken;
 
     /**
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

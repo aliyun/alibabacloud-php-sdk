@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppRequest extends Model
 {
     /**
+     * @description The AppCode of the application.
+     *
      * @example 3aaf905a0a1f4f0eabc6d891dfa08afc
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateAppRequest extends Model
     public $appCode;
 
     /**
+     * @description The key of the application that is used to make an API call.
+     *
      * @example 60030986
      *
      * @var string
@@ -24,6 +28,8 @@ class CreateAppRequest extends Model
     public $appKey;
 
     /**
+     * @description The name of the application. The name must be 4 to 26 characters in length. The name can contain letters, digits, and underscores (\_), and must start with a letter.
+     *
      * @example CreateAppTest
      *
      * @var string
@@ -31,6 +37,8 @@ class CreateAppRequest extends Model
     public $appName;
 
     /**
+     * @description The password of the application.
+     *
      * @example nzyNqFkRWB2uLw86
      *
      * @var string
@@ -38,6 +46,8 @@ class CreateAppRequest extends Model
     public $appSecret;
 
     /**
+     * @description The description of the application. The description can be up to 180 characters in length.
+     *
      * @example test
      *
      * @var string
@@ -55,6 +65,8 @@ class CreateAppRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tag of objects that match the rule. You can specify multiple tags.
+     *
      * @example Key， Value
      *
      * @var tag[]

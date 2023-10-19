@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiImportSwaggerSuccess extends Model
 {
     /**
+     * @description Specifies that the operation is CREATE or MODIFY.
+     *
      * @example CREATE
      *
      * @var string
@@ -16,11 +18,17 @@ class apiImportSwaggerSuccess extends Model
     public $apiOperation;
 
     /**
+     * @description The UID of the imported API.
+     *
+     * @example 8e274ec61cf6468e83b68371956831cb
+     *
      * @var string
      */
     public $apiUid;
 
     /**
+     * @description The HTTP method of the API.
+     *
      * @example get
      *
      * @var string
@@ -28,6 +36,8 @@ class apiImportSwaggerSuccess extends Model
     public $httpMethod;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /http/get/mapping
      *
      * @var string

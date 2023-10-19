@@ -36,7 +36,7 @@ class requestParameter extends Model
     public $defaultValue;
 
     /**
-     * @description The sample value.
+     * @description Example
      *
      * @example 20
      *
@@ -45,7 +45,7 @@ class requestParameter extends Model
     public $demoValue;
 
     /**
-     * @description The parameter description.
+     * @description Description
      *
      * @example parameter description
      *
@@ -63,7 +63,7 @@ class requestParameter extends Model
     public $docOrder;
 
     /**
-     * @description Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
+     * @description Specifies whether the document is public. Valid values: PUBLIC and PRIVATE.
      *
      * @example PUBLIC
      *
@@ -72,7 +72,7 @@ class requestParameter extends Model
     public $docShow;
 
     /**
-     * @description The hash values that can be entered when **ParameterType** is set to Int, Long, Float, Double, or String. Separate different values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
+     * @description The hash values that can be entered when ParameterType is set to Int, Long, Float, Double, or String. Separate different values with commas (,), such as 1,2,3,4,9 or A,B,C,E,F.
      *
      * @example boy,girl
      *
@@ -99,7 +99,7 @@ class requestParameter extends Model
     public $location;
 
     /**
-     * @description The maximum length of the **ParameterType** parameter when the parameter is set to String.
+     * @description The maximum parameter length when ParameterType is set to String.
      *
      * @example 123456
      *
@@ -108,7 +108,7 @@ class requestParameter extends Model
     public $maxLength;
 
     /**
-     * @description The maximum value of the **ParameterType** parameter when the parameter is set to Int, Long, Float, or Double.
+     * @description The maximum parameter value when ParameterType is set to Int, Long, Float, or Double.
      *
      * @example 123456
      *
@@ -117,7 +117,7 @@ class requestParameter extends Model
     public $maxValue;
 
     /**
-     * @description The minimum length of the **ParameterType** parameter when the parameter is set to String.
+     * @description The minimum parameter length when ParameterType is set to String.
      *
      * @example 123456
      *
@@ -126,7 +126,7 @@ class requestParameter extends Model
     public $minLength;
 
     /**
-     * @description The minimum value of the **ParameterType** parameter when the parameter is set to Int, Long, Float, or Double.
+     * @description The minimum parameter value when ParameterType is set to Int, Long, Float, or Double.
      *
      * @example 123456
      *
@@ -135,7 +135,7 @@ class requestParameter extends Model
     public $minValue;
 
     /**
-     * @description The type of the parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
+     * @description The type of a request parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
      *
      * @example String
      *
@@ -144,7 +144,7 @@ class requestParameter extends Model
     public $parameterType;
 
     /**
-     * @description The regular expression used for parameter validation when **ParameterType** is set to String.
+     * @description The regular expression used for parameter validation when ParameterType is set to String.
      *
      * @example xxx
      *
@@ -153,7 +153,7 @@ class requestParameter extends Model
     public $regularExpression;
 
     /**
-     * @description Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
+     * @description Indicates whether the parameter is required. Valid values: REQUIRED and OPTIONAL.
      *
      * @example OPTIONAL
      *

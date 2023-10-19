@@ -18,6 +18,10 @@ class ResetAppSecretRequest extends Model
     public $appKey;
 
     /**
+     * @description The new AppKey that you set must be globally unique.
+     *
+     * @example testAppKey
+     *
      * @var string
      */
     public $newAppKey;

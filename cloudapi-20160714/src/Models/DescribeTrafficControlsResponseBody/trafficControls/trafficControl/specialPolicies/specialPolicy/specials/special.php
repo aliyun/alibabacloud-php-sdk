@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class special extends Model
 {
     /**
-     * @description Queries custom throttling policies and their details. Conditional queries are supported.
+     * @description The AppId or user account corresponding to SpecialType.
      *
      * @example test_wg@aliyun.com
      *
@@ -18,9 +18,7 @@ class special extends Model
     public $specialKey;
 
     /**
-     * @description *   This API is intended for API providers.
-     *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
-     *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
+     * @description The throttling value.
      *
      * @example 100
      *

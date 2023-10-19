@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAbolishApiTaskResponseBody extends Model
 {
     /**
+     * @description The result returned.
+     *
      * @var apiAbolishResults
      */
     public $apiAbolishResults;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E8515BA6-81CD-4191-A7CF-C4FCDD3C0D99
      *
      * @var string

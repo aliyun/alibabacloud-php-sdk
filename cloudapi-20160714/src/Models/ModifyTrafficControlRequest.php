@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyTrafficControlRequest extends Model
 {
     /**
-     * @description The default throttling value for each app.
+     * @description The default throttling value for each API.
      *
      * @example 10000
      *
@@ -18,7 +18,7 @@ class ModifyTrafficControlRequest extends Model
     public $apiDefault;
 
     /**
-     * @description ThrottlingTestDescription
+     * @description The default throttling value for each app.
      *
      * @example 10000
      *
@@ -27,29 +27,40 @@ class ModifyTrafficControlRequest extends Model
     public $appDefault;
 
     /**
-     * @description The ID of the request.
+     * @description The description of the throttling policy.
      *
-     * @example *   This API is intended for API providers.
-     *   The modifications take effect on the bound APIs instantly.
-     *   The QPS limit on this operation is 50 per user.
+     * @example ThrottlingTestDescription
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
+     *
+     * @example 4223a10e-eed3-46a6-8b7c-23003f488153
+     *
      * @var string
      */
     public $securityToken;
 
     /**
-     * @description ThrottlingTest
+     * @description The ID of the throttling policy.
      *
      * @example tf123456
      *
      * @var string
      */
     public $trafficControlId;
+
+    /**
+     * @description The throttling policy name. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\_). It cannot start with an underscore.
+     *
+     * @example ThrottlingTest
+     *
+     * @var string
+     */
+    public $trafficControlName;
 
     /**
      * @description The unit to be used in the throttling policy. Valid values:
@@ -59,15 +70,6 @@ class ModifyTrafficControlRequest extends Model
      *   **HOUR**
      *   **DAY**
      *
-     * @example The default throttling value for each API.
-     *
-     * @var string
-     */
-    public $trafficControlName;
-
-    /**
-     * @description The default throttling value for each user.
-     *
      * @example HOUR
      *
      * @var string
@@ -75,7 +77,7 @@ class ModifyTrafficControlRequest extends Model
     public $trafficControlUnit;
 
     /**
-     * @description The description of the throttling policy.
+     * @description The default throttling value for each user.
      *
      * @example 10000
      *

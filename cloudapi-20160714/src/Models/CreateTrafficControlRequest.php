@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficControlRequest extends Model
 {
     /**
-     * @description The default throttling value for each app.
+     * @description The default throttling value for each API.
      *
      * @example 10000
      *
@@ -18,7 +18,7 @@ class CreateTrafficControlRequest extends Model
     public $apiDefault;
 
     /**
-     * @description ThrottlingTestDescription
+     * @description The default throttling value for each app.
      *
      * @example 10000
      *
@@ -27,18 +27,31 @@ class CreateTrafficControlRequest extends Model
     public $appDefault;
 
     /**
-     * @description The ID of the throttling policy.
+     * @description The description of the throttling policy.
      *
-     * @example The ID of the request.
+     * @example ThrottlingTestDescription
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
+     *
+     * @example 436fa39b-b3b9-40c5-ae5d-ce3e000e38c5
+     *
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @description The name of the throttling policy. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\_). It cannot start with an underscore.
+     *
+     * @example ThrottlingTest
+     *
+     * @var string
+     */
+    public $trafficControlName;
 
     /**
      * @description The unit to be used in the throttling policy. Valid values:
@@ -48,15 +61,6 @@ class CreateTrafficControlRequest extends Model
      *   **HOUR**
      *   **DAY**
      *
-     * @example The default throttling value for each API.
-     *
-     * @var string
-     */
-    public $trafficControlName;
-
-    /**
-     * @description The default throttling value for each user.
-     *
      * @example MINUTE
      *
      * @var string
@@ -64,7 +68,7 @@ class CreateTrafficControlRequest extends Model
     public $trafficControlUnit;
 
     /**
-     * @description The description of the throttling policy.
+     * @description The default throttling value for each user.
      *
      * @example 10000
      *

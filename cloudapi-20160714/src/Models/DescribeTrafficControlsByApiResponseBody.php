@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrafficControlsByApiResponseBody extends Model
 {
     /**
-     * @description The ID of the throttling policy.
+     * @description The ID of the request.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
@@ -19,7 +19,7 @@ class DescribeTrafficControlsByApiResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The binding time of the policy.
+     * @description The returned throttling policy information. It is an array consisting of TrafficControlItem data.
      *
      * @var trafficControlItems
      */

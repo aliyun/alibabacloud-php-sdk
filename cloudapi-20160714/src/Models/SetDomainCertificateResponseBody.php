@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDomainCertificateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7
      *
      * @var string

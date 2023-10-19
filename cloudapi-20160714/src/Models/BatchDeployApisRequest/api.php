@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class api extends Model
 {
     /**
-     * @description Publishes multiple APIs at a time.
+     * @description The ID of the API.
      *
-     * @example 58928
+     * @example 2b35dd68345b472f8051647306a16415
      *
      * @var string
      */
     public $apiUid;
 
     /**
-     * @description The APIs that you want to operate.
+     * @description The ID of the API group.
      *
-     * @example The ID of the request.
+     * @example b4f5c342b8bc4ef88ccda0332402e0fa
      *
      * @var string
      */

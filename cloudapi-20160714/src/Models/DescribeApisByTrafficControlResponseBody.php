@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByTrafficControlResponseBody extends Model
 {
     /**
-     * @description Indicates whether the API is public. Valid values:
-     *
-     *   **PUBLIC**
-     *   **PRIVATE**
+     * @description The returned API information. It is an array consisting of ApiInfo data.
      *
      * @var apiInfos
      */
     public $apiInfos;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -29,7 +26,7 @@ class DescribeApisByTrafficControlResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The returned API information. It is an array consisting of ApiInfo data.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -38,7 +35,7 @@ class DescribeApisByTrafficControlResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The total number of returned entries.
+     * @description The ID of the request.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
@@ -47,7 +44,7 @@ class DescribeApisByTrafficControlResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The binding time of the API.
+     * @description The total number of returned entries.
      *
      * @example 20
      *

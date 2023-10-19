@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveIpControlPolicyItemRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the ACL. The ID is unique.
      *
      * @example 7ea91319a34d48a09b5c9c871d9768b1
      *
@@ -18,7 +18,7 @@ class RemoveIpControlPolicyItemRequest extends Model
     public $ipControlId;
 
     /**
-     * @description *   This operation is intended for API providers.
+     * @description The ID of a policy. Separate multiple IDs with semicolons (;). A maximum of 100 IDs can be entered.
      *
      * @example P151533572852362;P151533557750260
      *

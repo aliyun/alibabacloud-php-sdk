@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class serviceConfig extends Model
 {
     /**
-     * @description The status code returned for service mocking.
+     * @description The application name in AONE.
      *
      * @example ib-blank
      *
@@ -23,7 +23,11 @@ class serviceConfig extends Model
     public $aoneAppName;
 
     /**
-     * @description The URL used to call the back-end service. If the complete back-end service URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of **ServiceAddress** is `http://api.a.com:8080`.
+     * @description The ContentType header type used when you call the backend service over HTTP.
+     *
+     *   **DEFAULT**: the default header type in API Gateway
+     *   **CUSTOM**: a custom header type
+     *   **CLIENT**: the ContentType header type of the client
      *
      * @example CUSTOM
      *
@@ -32,7 +36,7 @@ class serviceConfig extends Model
     public $contentTypeCatagory;
 
     /**
-     * @description The protocol used by the backend service. Valid values: HTTP and HTTPS.
+     * @description The value of the ContentType header when the ServiceProtocol parameter is set to HTTP and the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
      *
      * @example application/x-www-form-urlencoded; charset=UTF-8
      *
@@ -41,18 +45,105 @@ class serviceConfig extends Model
     public $contentTypeValue;
 
     /**
-     * @description The event bus.
+     * @description Configuration items of EventBridge
      *
      * @var eventBridgeConfig
      */
     public $eventBridgeConfig;
 
     /**
-     * @description The type of the Function Compute instance.
+     * @description Backend configuration items when the backend service is Function Compute
      *
      * @var functionComputeConfig
      */
     public $functionComputeConfig;
+
+    /**
+     * @description Specifies whether to enable the Mock mode. Valid values:
+     *
+     *   **TRUE**: The Mock mode is enabled.
+     *   **FALSE**: The Mock mode is not enabled.
+     *
+     * @example TRUE
+     *
+     * @var string
+     */
+    public $mock;
+
+    /**
+     * @description The simulated headers.
+     *
+     * @var mockHeaders
+     */
+    public $mockHeaders;
+
+    /**
+     * @description The result returned when the Mock mode is enabled.
+     *
+     * @example test result
+     *
+     * @var string
+     */
+    public $mockResult;
+
+    /**
+     * @description The status code returned for service mocking.
+     *
+     * @example 200
+     *
+     * @var int
+     */
+    public $mockStatusCode;
+
+    /**
+     * @description Information when the backend service is OSS
+     *
+     * @var ossConfig
+     */
+    public $ossConfig;
+
+    /**
+     * @description The URL used to call the back-end service. If the complete back-end service URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of ServiceAddress is **http://api.a.com:8080**.``
+     *
+     * @example http://api.a.com:8080
+     *
+     * @var string
+     */
+    public $serviceAddress;
+
+    /**
+     * @description The HTTP method used to call a backend service. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
+     *
+     * @example POST
+     *
+     * @var string
+     */
+    public $serviceHttpMethod;
+
+    /**
+     * @example /object/add
+     *
+     * @var string
+     */
+    public $servicePath;
+
+    /**
+     * @description The protocol used by the backend service. Valid values: HTTP and HTTPS.
+     *
+     * @example HTTP
+     *
+     * @var string
+     */
+    public $serviceProtocol;
+
+    /**
+     * @description The timeout period of the backend service. Unit: milliseconds.
+     *
+     * @example 1000
+     *
+     * @var int
+     */
+    public $serviceTimeout;
 
     /**
      * @description Specifies whether to enable the VPC channel. Valid values:
@@ -64,103 +155,10 @@ class serviceConfig extends Model
      *
      * @var string
      */
-    public $mock;
-
-    /**
-     * @description The value of the HTTP header.
-     *
-     * @var mockHeaders
-     */
-    public $mockHeaders;
-
-    /**
-     * @description The HTTP method used to call a backend service. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
-     *
-     * @example test result
-     *
-     * @var string
-     */
-    public $mockResult;
-
-    /**
-     * @description The value of the ContentType header when the ServiceProtocol parameter is set to HTTP and the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
-     *
-     * @example 200
-     *
-     * @var int
-     */
-    public $mockStatusCode;
-
-    /**
-     * @description The ID of the region where the OSS instance is located.
-     *
-     * @var ossConfig
-     */
-    public $ossConfig;
-
-    /**
-     * @description Specifies whether to enable the Mock mode. Valid values:
-     *
-     *   **TRUE**: The Mock mode is enabled.
-     *   **FALSE**: The Mock mode is not enabled.
-     *
-     * @example http://api.a.com:8080
-     *
-     * @var string
-     */
-    public $serviceAddress;
-
-    /**
-     * @description The timeout period of the backend service. Unit: milliseconds.
-     *
-     * @example POST
-     *
-     * @var string
-     */
-    public $serviceHttpMethod;
-
-    /**
-     * @description The ContentType header type used when you call the backend service over HTTP.
-     *
-     *   **DEFAULT**: the default header type in API Gateway
-     *   **CUSTOM**: a custom header type
-     *   **CLIENT**: the ContentType header type of the client
-     *
-     * @example /object/add
-     *
-     * @var string
-     */
-    public $servicePath;
-
-    /**
-     * @description The path used to call the back-end service. If the complete back-end service path is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, **ServicePath** is `/object/add`.
-     *
-     * @example HTTP
-     *
-     * @var string
-     */
-    public $serviceProtocol;
-
-    /**
-     * @description The simulated headers.
-     *
-     * @example 1000
-     *
-     * @var int
-     */
-    public $serviceTimeout;
-
-    /**
-     * @description The result returned when the Mock mode is enabled.
-     *
-     * @example TRUE
-     *
-     * @var string
-     */
     public $serviceVpcEnable;
 
     /**
-     * @description The ID of the VPC.
+     * @description Configuration items related to VPC channels
      *
      * @var vpcConfig
      */

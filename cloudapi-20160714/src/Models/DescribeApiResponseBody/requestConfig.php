@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class requestConfig extends Model
 {
     /**
-     * @description The request mode. Valid values: MAPPING and PASSTHROUGH.
+     * @description This parameter takes effect only when the RequestMode parameter is set to MAPPING.********
      *
+     * The server data transmission method used for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data in key-value pairs is transmitted as forms. STREAM indicates that data is transmitted as byte streams.
      * @example STREAM
      *
      * @var string
@@ -18,14 +19,16 @@ class requestConfig extends Model
     public $bodyFormat;
 
     /**
-     * @description The API request path. If the complete API URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the API request path is ` /object/add  `.
+     * @description The body model.
+     *
+     * @example https://apigateway.aliyun.com/models/3a240a127dcc4afd9ab1bf7e947b4095/9e2df550e85b4121a79ec33e2619eaab
      *
      * @var string
      */
     public $bodyModel;
 
     /**
-     * @description The protocol type supported by the API. Valid values: HTTP and HTTPS. Separate multiple values with commas (,), such as "HTTP,HTTPS".
+     * @description The description of the request body.
      *
      * @example fwefwef
      *
@@ -34,9 +37,8 @@ class requestConfig extends Model
     public $postBodyDescription;
 
     /**
-     * @description This parameter takes effect only when the RequestMode parameter is set to MAPPING.********
+     * @description The HTTP method used to make the request. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
      *
-     * The server data transmission method used for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data in key-value pairs is transmitted as forms. STREAM indicates that data is transmitted as byte streams.
      * @example POST
      *
      * @var string
@@ -44,7 +46,7 @@ class requestConfig extends Model
     public $requestHttpMethod;
 
     /**
-     * @description The description of the request body.
+     * @description The request mode. Valid values: MAPPING and PASSTHROUGH.
      *
      * @example MAPPING
      *
@@ -53,7 +55,7 @@ class requestConfig extends Model
     public $requestMode;
 
     /**
-     * @description The HTTP method used to make the request. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
+     * @description The API request path. If the complete API URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the API request path is ` /object/add  `.
      *
      * @example /api/billing/test/[type]
      *
@@ -62,7 +64,7 @@ class requestConfig extends Model
     public $requestPath;
 
     /**
-     * @description The configuration items of API requests sent by API Gateway to the backend service.
+     * @description The protocol type supported by the API. Valid values: HTTP and HTTPS. Separate multiple values with commas (,), such as "HTTP,HTTPS".
      *
      * @example HTTP
      *

@@ -20,16 +20,24 @@ class backendConfig extends Model
     public $discoveryConfig;
 
     /**
+     * @description The information about the backend service that is EventBridge.
+     *
      * @var eventBridgeConfig
      */
     public $eventBridgeConfig;
 
     /**
+     * @description The information about the backend service whose type is FC_EVENT or FC_HTTP.
+     *
      * @var functionComputeConfig
      */
     public $functionComputeConfig;
 
     /**
+     * @description The host of the backend service.
+     *
+     * @example www.host.com
+     *
      * @var string
      */
     public $httpTargetHostName;
@@ -40,11 +48,15 @@ class backendConfig extends Model
     public $mockConfig;
 
     /**
+     * @description The information about the backend service whose type is OSS.
+     *
      * @var ossConfig
      */
     public $ossConfig;
 
     /**
+     * @description The URL of the backend service.
+     *
      * @example 10.0.0.1
      *
      * @var string
@@ -52,6 +64,13 @@ class backendConfig extends Model
     public $serviceAddress;
 
     /**
+     * @var int
+     */
+    public $serviceTimeout;
+
+    /**
+     * @description The type of the backend service.
+     *
      * @example VPC
      *
      * @var string
@@ -59,6 +78,8 @@ class backendConfig extends Model
     public $type;
 
     /**
+     * @description The information about the virtual private cloud (VPC). This parameter is available only for backend services whose type is VPC.
+     *
      * @var vpcConfig
      */
     public $vpcConfig;
@@ -70,6 +91,7 @@ class backendConfig extends Model
         'mockConfig'            => 'MockConfig',
         'ossConfig'             => 'OssConfig',
         'serviceAddress'        => 'ServiceAddress',
+        'serviceTimeout'        => 'ServiceTimeout',
         'type'                  => 'Type',
         'vpcConfig'             => 'VpcConfig',
     ];
@@ -101,6 +123,9 @@ class backendConfig extends Model
         }
         if (null !== $this->serviceAddress) {
             $res['ServiceAddress'] = $this->serviceAddress;
+        }
+        if (null !== $this->serviceTimeout) {
+            $res['ServiceTimeout'] = $this->serviceTimeout;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -140,6 +165,9 @@ class backendConfig extends Model
         }
         if (isset($map['ServiceAddress'])) {
             $model->serviceAddress = $map['ServiceAddress'];
+        }
+        if (isset($map['ServiceTimeout'])) {
+            $model->serviceTimeout = $map['ServiceTimeout'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

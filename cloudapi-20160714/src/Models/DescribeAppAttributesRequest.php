@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppAttributesRequest extends Model
 {
     /**
+     * @description The AppCode of the app.
+     *
      * @example 23552160
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeAppAttributesRequest extends Model
     public $appCode;
 
     /**
+     * @description The ID of the app.
+     *
      * @example 20112314518278
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeAppAttributesRequest extends Model
     public $appId;
 
     /**
+     * @description The app key that is used to make an API call.
+     *
      * @example 203708622
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeAppAttributesRequest extends Model
     public $appKey;
 
     /**
+     * @description The name of the app.
+     *
      * @example testApp
      *
      * @var string
@@ -38,6 +46,8 @@ class DescribeAppAttributesRequest extends Model
     public $appName;
 
     /**
+     * @description Specifies whether to enable tag verification.
+     *
      * @example true
      *
      * @var bool
@@ -50,6 +60,8 @@ class DescribeAppAttributesRequest extends Model
     public $extend;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -57,6 +69,8 @@ class DescribeAppAttributesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -69,6 +83,11 @@ class DescribeAppAttributesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The order. Valid values: asc and desc. Default value: desc.
+     *
+     *   asc: The apps are displayed in ascending order of modification time.
+     *   desc: The apps are displayed in descending order of modification time.
+     *
      * @example desc
      *
      * @var string
@@ -76,6 +95,8 @@ class DescribeAppAttributesRequest extends Model
     public $sort;
 
     /**
+     * @description The tag of objects that match the rule. You can specify multiple tags.
+     *
      * @example Key， Value
      *
      * @var tag[]

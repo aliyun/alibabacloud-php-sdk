@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to delete all tags. This parameter is valid only when the **TagKey.N**parameter is not specified. Default value: false. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -18,6 +21,8 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
+     * @description The resource IDs.
+     *
      * @example 285bb759342649a1b70c2093a772e087
      *
      * @var string[]
@@ -25,9 +30,12 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The key of tag N.
+     * @description The type of the resource. Tags are bound to API groups, plug-ins, and applications. You can use tags to manage cloud resources by group. Valid values:
      *
-     * Valid values of N: `1 to 20.`
+     *   **apiGroup**
+     *   **plugin**
+     *   **app**
+     *
      * @example apiGroup
      *
      * @var string
@@ -35,11 +43,17 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
+     *
+     * @example 0f96f124-1276-4f81-b52b-c554240beb4c
+     *
      * @var string
      */
     public $securityToken;
 
     /**
+     * @description The tag keys of the resource.
+     *
      * @example env
      *
      * @var string[]

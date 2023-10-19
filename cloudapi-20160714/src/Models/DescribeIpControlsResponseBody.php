@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpControlsResponseBody extends Model
 {
     /**
-     * @description The information about the ACL. The information is an array that consists of IpControlInfo data. The information does not include specific policies.
+     * @description The number of entries returned per page.
      *
      * @var ipControlInfos
      */
     public $ipControlInfos;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeIpControlsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The page number of the returned page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeIpControlsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
@@ -44,7 +44,7 @@ class DescribeIpControlsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
+     * @description The ID of the request.
      *
      * @example 1
      *

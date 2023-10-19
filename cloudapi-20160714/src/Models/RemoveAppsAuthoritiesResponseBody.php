@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveAppsAuthoritiesResponseBody extends Model
 {
     /**
-     * @description Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+     * @description The ID of the request.
      *
      * @example D6E46F10-F26C-4AA0-BB69-FE2743D9AE62
      *

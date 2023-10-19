@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vpcConfig extends Model
 {
     /**
-     * @description The port number that corresponds to the instance.
+     * @description The ID of the ECS or SLB instance in the VPC.
      *
      * @example i-bp1h497hkijewv2***
      *
@@ -18,7 +18,7 @@ class vpcConfig extends Model
     public $instanceId;
 
     /**
-     * @description Backend configuration items when the backend service is Function Compute
+     * @description The name of the VPC access authorization.
      *
      * @example glmall-app-test
      *
@@ -27,7 +27,7 @@ class vpcConfig extends Model
     public $name;
 
     /**
-     * @description The name of the VPC access authorization.
+     * @description The port number that corresponds to the instance.
      *
      * @example 8080
      *
@@ -36,7 +36,7 @@ class vpcConfig extends Model
     public $port;
 
     /**
-     * @description The VPC protocol.
+     * @description The ID of the VPC.
      *
      * @example vpc-2zeafsc3fygk1***
      *
@@ -45,7 +45,7 @@ class vpcConfig extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the ECS or SLB instance in the VPC.
+     * @description The VPC protocol.
      *
      * @example HTTP
      *

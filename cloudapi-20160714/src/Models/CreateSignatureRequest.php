@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateSignatureRequest extends Model
 {
     /**
+     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
+     *
+     * @example fa876ffb-caab-4f0a-93b3-3409f2fa5199
+     *
      * @var string
      */
     public $securityToken;
 
     /**
-     * @description The ID of the request.
+     * @description The Key value of the key. The value must be 6 to 20 characters in length and can contain letters, digits, and underscores (\_). It must start with a letter.
      *
      * @example qwertyuiop
      *
@@ -23,7 +27,7 @@ class CreateSignatureRequest extends Model
     public $signatureKey;
 
     /**
-     * @description The Secret value of the key. The value must be 6 to 30 characters in length and can contain letters, digits, and special characters. Special characters include underscores (\_), at signs (@), number signs (#), exclamation points (!), and asterisks (\*). The value must start with a letter.
+     * @description The displayed name of the key. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\_). It must start with a letter.
      *
      * @example backendsignature
      *
@@ -32,7 +36,7 @@ class CreateSignatureRequest extends Model
     public $signatureName;
 
     /**
-     * @description The ID of the back-end signature key.
+     * @description The Secret value of the key. The value must be 6 to 30 characters in length and can contain letters, digits, and special characters. Special characters include underscores (\_), at signs (@), number signs (#), exclamation points (!), and asterisks (\*). The value must start with a letter.
      *
      * @example asdfghjkl
      *

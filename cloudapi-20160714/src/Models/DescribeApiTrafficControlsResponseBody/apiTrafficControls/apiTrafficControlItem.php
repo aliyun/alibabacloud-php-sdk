@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class apiTrafficControlItem extends Model
 {
     /**
-     * @description The name of the throttling policy.
+     * @description The ID of the API.
      *
      * @example 46fbb52840d146f186e38e8e70fc8c90
      *
@@ -18,7 +18,7 @@ class apiTrafficControlItem extends Model
     public $apiId;
 
     /**
-     * @description Queries the throttling policies bound to all members of an API group in a specified environment.
+     * @description API operation
      *
      * @example testapi
      *
@@ -27,7 +27,7 @@ class apiTrafficControlItem extends Model
     public $apiName;
 
     /**
-     * @description The ID of the throttling policy.
+     * @description The binding time of the throttling policy.
      *
      * @example 2016-07-23T08:28:48Z
      *
@@ -36,7 +36,7 @@ class apiTrafficControlItem extends Model
     public $boundTime;
 
     /**
-     * @description API operation
+     * @description The ID of the throttling policy.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -45,8 +45,7 @@ class apiTrafficControlItem extends Model
     public $trafficControlId;
 
     /**
-     * @description *   This API is intended for API providers.
-     *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+     * @description The name of the throttling policy.
      *
      * @example backendsignature
      *

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class nacosConfig extends Model
 {
     /**
+     * @example A5FIDxxxxxx
+     *
      * @var string
      */
     public $accessKey;
 
     /**
+     * @example PASSWORD
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @example cluster1
+     *
      * @var string
      */
     public $clusters;
 
     /**
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example public
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example password
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example dl5loxxxxxx
+     *
      * @var string
      */
     public $secretKey;
 
     /**
+     * @example http://1xx.2xx.3xx.4xx:8848
+     *
      * @var string
      */
     public $serverAddress;
 
     /**
+     * @example service-provider
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example username
+     *
      * @var string
      */
     public $userName;

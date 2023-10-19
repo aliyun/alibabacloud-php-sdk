@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serviceParameter extends Model
 {
     /**
-     * @description The data type of the back-end service parameter.
+     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
      *
      * @example HEAD
      *
@@ -18,7 +18,7 @@ class serviceParameter extends Model
     public $location;
 
     /**
-     * @description The name of the backend service parameter.
+     * @description The data type of the back-end service parameter.
      *
      * @example String
      *
@@ -27,7 +27,7 @@ class serviceParameter extends Model
     public $parameterType;
 
     /**
-     * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
+     * @description The name of the backend service parameter.
      *
      * @example clientIp
      *

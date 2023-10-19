@@ -9,15 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteSignatureRequest extends Model
 {
     /**
+     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
+     *
+     * @example 9abe3317-3e22-4957-ab9f-dd893d0ac956
+     *
      * @var string
      */
     public $securityToken;
 
     /**
-     * @description *   This API is intended for API providers.
-     *   This API operation deletes an existing backend signature key.
-     *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
-     *   The QPS limit on this operation is 50 per user.
+     * @description The ID of the key to be deleted.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *

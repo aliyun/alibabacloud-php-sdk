@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiDocResponseBody extends Model
 {
     /**
+     * @description The ID of the API.
+     *
      * @example b24be7e59a104e52bffbf432cc9272af
      *
      * @var string
@@ -19,11 +21,17 @@ class DescribeApiDocResponseBody extends Model
     public $apiId;
 
     /**
+     * @description The name of the API
+     *
+     * @example ObtainKeywordQRCodeAddress
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The security authentication method. Valid values: APP, ANONYMOUS, and APPOPENID, indicating respectively Alibaba Cloud application authentication, anonymous authentication, and third-party OpenID Connect account authentication.
+     *
      * @example APP
      *
      * @var string
@@ -31,6 +39,8 @@ class DescribeApiDocResponseBody extends Model
     public $authType;
 
     /**
+     * @description The publishing time.
+     *
      * @example 2022-07-13T16:00:33Z
      *
      * @var string
@@ -38,11 +48,18 @@ class DescribeApiDocResponseBody extends Model
     public $deployedTime;
 
     /**
+     * @description The API description.
+     *
+     * @example Lynk\&Co Digital Mall OMS-UAT
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description *   Specifies whether to set **DisableInternet** to **true** to limit API calls to within the VPC.
+     *   If you set **DisableInternet** to **false**, the limit is lifted. The default value is false when you create an API.
+     *
      * @example true
      *
      * @var bool
@@ -50,11 +67,15 @@ class DescribeApiDocResponseBody extends Model
     public $disableInternet;
 
     /**
+     * @description The sample error codes returned by the backend service.
+     *
      * @var errorCodeSamples
      */
     public $errorCodeSamples;
 
     /**
+     * @description The sample error response from the backend service.
+     *
      * @example {"errorCode":"fail","errorMessage":"param invalid"}
      *
      * @var string
@@ -62,6 +83,9 @@ class DescribeApiDocResponseBody extends Model
     public $failResultSample;
 
     /**
+     * @description *   Specifies whether to set **ForceNonceCheck** to **true** to force the check of X-Ca-Nonce during the request. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
+     *   If you set **ForceNonceCheck** to **false**, the check is not performed. The default value is false when you create an API.
+     *
      * @example true
      *
      * @var bool
@@ -69,6 +93,8 @@ class DescribeApiDocResponseBody extends Model
     public $forceNonceCheck;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example f51d08c5b7c84342905544ebaec26d35
      *
      * @var string
@@ -76,11 +102,17 @@ class DescribeApiDocResponseBody extends Model
     public $groupId;
 
     /**
+     * @description The name of the API group.
+     *
+     * @example Member Age Transaction Service
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The region ID of the API group.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -88,11 +120,15 @@ class DescribeApiDocResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The returned API frontend definition information. It is an array consisting of RequestConfig data.
+     *
      * @var requestConfig
      */
     public $requestConfig;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F253FB5F-9AE1-5DDA-99B5-46BE00A3719E
      *
      * @var string
@@ -100,11 +136,15 @@ class DescribeApiDocResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned frontend input parameters in the API. It is an array consisting of RequestParameter data.
+     *
      * @var requestParameters
      */
     public $requestParameters;
 
     /**
+     * @description The sample response.
+     *
      * @example {\n  \"status\": 0,\n  \"data\": {\n    \"count\": 1,\n    \"list\": [\n      \"352\"\n    ]\n  },\n  \"message\": \"success\"\n}
      *
      * @var string
@@ -112,6 +152,8 @@ class DescribeApiDocResponseBody extends Model
     public $resultSample;
 
     /**
+     * @description The return value type.
+     *
      * @example JSON
      *
      * @var string
@@ -119,6 +161,11 @@ class DescribeApiDocResponseBody extends Model
     public $resultType;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
      * @example RELEASE
      *
      * @var string
@@ -126,6 +173,8 @@ class DescribeApiDocResponseBody extends Model
     public $stageName;
 
     /**
+     * @description Indicates whether the API is public. Valid values: PUBLIC and PRIVATE.
+     *
      * @example PUBLIC
      *
      * @var string

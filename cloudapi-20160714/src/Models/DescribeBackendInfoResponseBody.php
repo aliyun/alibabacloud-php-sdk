@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackendInfoResponseBody extends Model
 {
     /**
+     * @description The information about the backend service.
+     *
      * @var backendInfo
      */
     public $backendInfo;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0AA90E87-3506-5AA6-AFFB-A4D53B4F6231
      *
      * @var string

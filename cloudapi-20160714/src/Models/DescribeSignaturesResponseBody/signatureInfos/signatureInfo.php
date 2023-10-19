@@ -9,8 +9,7 @@ use AlibabaCloud\Tea\Model;
 class signatureInfo extends Model
 {
     /**
-     * @description *   This API is intended for API providers.
-     *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
+     * @description The creation time of the key.
      *
      * @example 2016-07-23T08:28:48Z
      *
@@ -19,7 +18,7 @@ class signatureInfo extends Model
     public $createdTime;
 
     /**
-     * @description The Secret value of the backend signature key.
+     * @description The last modification time of the key.
      *
      * @example 2016-07-24T08:28:48Z
      *
@@ -28,7 +27,7 @@ class signatureInfo extends Model
     public $modifiedTime;
 
     /**
-     * @description Queries backend signature keys.
+     * @description The region where the key is located.
      *
      * @example cn-qingdao
      *
@@ -37,7 +36,7 @@ class signatureInfo extends Model
     public $regionId;
 
     /**
-     * @description The name of the backend signature key.
+     * @description The ID of the backend signature key.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -46,7 +45,7 @@ class signatureInfo extends Model
     public $signatureId;
 
     /**
-     * @description The region where the key is located.
+     * @description The Key value of the backend signature key.
      *
      * @example qwertyuiop
      *
@@ -55,7 +54,7 @@ class signatureInfo extends Model
     public $signatureKey;
 
     /**
-     * @description The creation time of the key.
+     * @description The name of the backend signature key.
      *
      * @example backendsignature
      *
@@ -64,7 +63,7 @@ class signatureInfo extends Model
     public $signatureName;
 
     /**
-     * @description The Key value of the backend signature key.
+     * @description The Secret value of the backend signature key.
      *
      * @example asdfghjkl
      *

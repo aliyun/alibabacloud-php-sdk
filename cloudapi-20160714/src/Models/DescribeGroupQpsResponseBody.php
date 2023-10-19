@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupQpsResponseBody extends Model
 {
     /**
+     * @description The number of requests directed to the API group.
+     *
      * @var groupQps
      */
     public $groupQps;
 
     /**
+     * @description The request ID.
+     *
      * @example D6E46F10-F26C-4AA0-BB69-FE2743D9AE62
      *
      * @var string

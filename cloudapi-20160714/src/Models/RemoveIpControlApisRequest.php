@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RemoveIpControlApisRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The IDs of the APIs from which you want to unbind the ACL.
+     *
+     *   If this parameter is not specified, the ACL is unbound from all the APIs in the specified environment of the API group.
+     *   The IDs of APIs that you want to query. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
      *
      * @example 123
      *
@@ -18,10 +21,7 @@ class RemoveIpControlApisRequest extends Model
     public $apiIds;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **TEST**
+     * @description The ID of the API group.
      *
      * @example 0009db9c828549768a200320714b8930
      *
@@ -30,10 +30,7 @@ class RemoveIpControlApisRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the API to be managed.
-     *
-     *   If this parameter is not specified, all APIs of the API group are unbound in the specified environment by default.
-     *   The IDs of the APIs that you want to query. Separate multiple IDs with commas (,). A maximum of 100 IDs can be entered.
+     * @description The ID of the ACL.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -47,8 +44,10 @@ class RemoveIpControlApisRequest extends Model
     public $securityToken;
 
     /**
-     * @description *   This API is intended for API providers.
-     *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
      *
      * @example TEST
      *

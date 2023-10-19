@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveTrafficControlApisResponseBody extends Model
 {
     /**
-     * @description Unbinds a specified throttling policy from APIs.
+     * @description The ID of the request.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *

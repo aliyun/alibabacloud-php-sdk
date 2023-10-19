@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class deployedInfo extends Model
 {
     /**
-     * @description auditing
+     * @description The deployment status. Valid values: DEPLOYED and NONDEPLOYED.
      *
      * @example DEPLOYED
      *
@@ -18,7 +18,7 @@ class deployedInfo extends Model
     public $deployedStatus;
 
     /**
-     * @description The deployment status. Valid values: DEPLOYED and NONDEPLOYED.
+     * @description The effective version.
      *
      * @example xxx
      *
@@ -27,7 +27,7 @@ class deployedInfo extends Model
     public $effectiveVersion;
 
     /**
-     * @description The effective version.
+     * @description The name of the runtime environment. Valid values: RELEASE and TEST.
      *
      * @example RELEASE
      *

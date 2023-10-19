@@ -9,10 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateApiRequest extends Model
 {
     /**
-     * @description If the **AuthType** is **APP** authentication, you need to pass this value to specify the signature algorithm. If you do not specify this parameter, the default value HmacSHA256 is used. Valid values:
+     * @description The type of the two-way communication API.
      *
-     *   HmacSHA256
-     *   HmacSHA1,HmacSHA256
+     *   **COMMON**: normal APIs
+     *   **REGISTER**: registered APIs
+     *   **UNREGISTER**: unregistered APIs
+     *   **NOTIFY**: downstream notification APIs
      *
      * @example HmacSHA256
      *
@@ -30,12 +32,7 @@ class CreateApiRequest extends Model
     public $apiName;
 
     /**
-     * @description If the **AuthType** parameter is set to **APP**, the valid values are:
-     *
-     *   **DEFAULT**: The default value that is used if no other values are passed. This value indicates that the settings of the group are used.
-     *   **DISABLE**: The authentication is disabled.
-     *   **HEADER**: AppCode can be placed in the Header parameter for authentication.
-     *   **HEADER_QUERY**: AppCode can be placed in the Header or Query parameter for authentication.
+     * @description The IDof the backend service
      *
      * @example HEADER
      *
@@ -44,11 +41,9 @@ class CreateApiRequest extends Model
     public $appCodeAuthType;
 
     /**
-     * @description API安全认证类型，目前可以取值：
+     * @description The configuration items of API requests sent by the consumer to API Gateway.
      *
-     * - **APP**：只允许已授权的APP调用
-     * - **ANONYMOUS**：允许匿名调用，设置为允许匿名调用需要注意：
-     * 任何能够获取该API服务信息的人，都将能够调用该API。网关不会对调用者做身份认证，也无法设置按用户的流量控制，若开放该API请设置好按API的流量控制。
+     * For more information, see [RequestConfig](~~43985~~).
      * @example APP
      *
      * @var string
@@ -65,7 +60,7 @@ class CreateApiRequest extends Model
     public $backendEnable;
 
     /**
-     * @description The IDof the backend service
+     * @description Specifies whether to enable backend services.
      *
      * @example a0305308908c4740aba9cbfd63ba99b7
      *
@@ -88,8 +83,12 @@ class CreateApiRequest extends Model
     public $description;
 
     /**
-     * @description *   Specifies whether to set **DisableInternet** to **true** to limit API calls to within the VPC.
-     *   If you set **DisableInternet** to **false**, the limit is lifted. The default value is false when you create an API.
+     * @description If **AuthType** is set to **APP**, the valid values are:
+     *
+     *   **DEFAULT**: The default value that is used if no other values are passed. This value means that the setting of the group is used.
+     *   **DISABLE**: The authentication is disabled.
+     *   **HEADER**: AppCode can be placed in the Header parameter for authentication.
+     *   **HEADER_QUERY**: AppCode can be placed in the Header or Query parameter for authentication.
      *
      * @example true
      *
@@ -108,8 +107,8 @@ class CreateApiRequest extends Model
     public $failResultSample;
 
     /**
-     * @description *   Specifies whether to set **ForceNonceCheck** to **true** to force the check of X-Ca-Nonce during the request. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
-     *   If you set **ForceNonceCheck** to **false**, the check is not performed. The default value is false when you create an API.
+     * @description *   Specifies whether to set **DisableInternet** to **true** to limit API calls to within the VPC.
+     *   If you set **DisableInternet** to **false**, the limit is lifted. The default value is false when you create an API.
      *
      * @example true
      *
@@ -127,7 +126,10 @@ class CreateApiRequest extends Model
     public $groupId;
 
     /**
-     * @description The switch status of ACL. Valid values:- **on** and **off**.
+     * @description If the **AuthType** is **APP** authentication, you need to pass this value to specify the signature algorithm. If you do not specify this parameter, the default value HmacSHA256 is used. Valid values:
+     *
+     *   HmacSHA256
+     *   HmacSHA1,HmacSHA256
      *
      * @example {\"openIdApiType\":null,\"idTokenParamName\":null,\"publicKeyId\":null,\"publicKey\":null}
      *
@@ -136,9 +138,9 @@ class CreateApiRequest extends Model
     public $openIdConnectConfig;
 
     /**
-     * @description The configuration items of API requests sent by the consumer to API Gateway.
+     * @description The configuration items of API requests sent by API Gateway to the backend service.
      *
-     * For more information, see [RequestConfig](~~43985~~).
+     * For more information, see [ServiceConfig](~~43987~~).
      * @example {"RequestProtocol":"HTTP","RequestHttpMethod":"GET","RequestPath":"/v3/getUserTest/[userId]","BodyFormat":"FORM","PostBodyDescription":""}
      *
      * @var string
@@ -151,7 +153,8 @@ class CreateApiRequest extends Model
     public $requestParameters;
 
     /**
-     * @description The return description of the API.
+     * @description *   Specifies whether to set **ForceNonceCheck** to **true** to force the check of X-Ca-Nonce during the request. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
+     *   If you set **ForceNonceCheck** to **false**, the check is not performed. The default value is false when you create an API.
      *
      * @example {}
      *
@@ -170,7 +173,7 @@ class CreateApiRequest extends Model
     public $resultSample;
 
     /**
-     * @description The format of the response from the backend service. Valid values: JSON, TEXT, BINARY, XML, and HTML. Default value: JSON.
+     * @description The sample response from the backend service.
      *
      * @example HTML
      *
@@ -184,9 +187,9 @@ class CreateApiRequest extends Model
     public $securityToken;
 
     /**
-     * @description The configuration items of API requests sent by API Gateway to the backend service.
+     * @description The parameters of API requests sent by the consumer to API Gateway.
      *
-     * For more information, see [ServiceConfig](~~43987~~).
+     * For more information, see [RequestParameter](~~43986~~).
      * @example {"ServiceProtocol":"HTTP","ServiceHttpMethod":"GET","ServiceAddress":"http://www.customerdomain.com","ServiceTimeout":"1000","ServicePath":"/v3/getUserTest/[userId]"}
      *
      * @var string
@@ -221,12 +224,7 @@ class CreateApiRequest extends Model
     public $visibility;
 
     /**
-     * @description The type of the two-way communication API.
-     *
-     *   **COMMON**: common API
-     *   **REGISTER**: registered API
-     *   **UNREGISTER**: unregistered API
-     *   **NOTIFY**: downstream notification API
+     * @description The return description of the API.
      *
      * @example COMMON
      *

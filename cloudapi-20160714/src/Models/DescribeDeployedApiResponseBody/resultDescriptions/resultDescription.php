@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resultDescription extends Model
 {
     /**
-     * @description The description of the parameter.
+     * @description The description.
      *
      * @example result description
      *
@@ -35,7 +35,7 @@ class resultDescription extends Model
     public $key;
 
     /**
-     * @description Indicates whether the parameter is required.
+     * @description Specifies whether the parameter is required.
      *
      * @example true
      *

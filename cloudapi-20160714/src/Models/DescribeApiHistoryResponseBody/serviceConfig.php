@@ -14,11 +14,11 @@ use AlibabaCloud\Tea\Model;
 class serviceConfig extends Model
 {
     /**
-     * @description The ContentType header that is used if the ServiceProtocol parameter is set to HTTP. Valid values:
+     * @description The ContentType header type used when you call the backend service over HTTP.
      *
-     *   DEFAULT: the default header in API Gateway
-     *   CUSTOM: a custom header
-     *   CLIENT: the ContentType header of the client
+     *   DEFAULT: the default header type in API Gateway
+     *   CUSTOM: a custom header type
+     *   CLIENT: the ContentType header type of the client
      *
      * @example CUSTOM
      *
@@ -27,7 +27,7 @@ class serviceConfig extends Model
     public $contentTypeCatagory;
 
     /**
-     * @description The value of the ContentType header if the ServiceProtocol parameter is set to HTTP and the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
+     * @description The value of the ContentType header when the ServiceProtocol parameter is set to HTTP and the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
      *
      * @example application/json
      *
@@ -36,24 +36,24 @@ class serviceConfig extends Model
     public $contentTypeValue;
 
     /**
-     * @description The configuration items of EventBridge.
+     * @description Configuration items of EventBridge
      *
      * @var eventBridgeConfig
      */
     public $eventBridgeConfig;
 
     /**
-     * @description The configuration items of the backend service whose type is Function Compute.
+     * @description Backend configuration items when the backend service is Function Compute
      *
      * @var functionComputeConfig
      */
     public $functionComputeConfig;
 
     /**
-     * @description Indicates whether the mock mode is enabled. Valid values:
+     * @description Specifies whether to enable the MOCK mode. Valid values:
      *
-     *   TRUE
-     *   FALSE
+     *   TRUE: The Mock mode is enabled.
+     *   FALSE: The Mock mode is not enabled.
      *
      * @example TRUE
      *
@@ -62,14 +62,14 @@ class serviceConfig extends Model
     public $mock;
 
     /**
-     * @description The mock headers.
+     * @description The simulated Headers.
      *
      * @var mockHeaders
      */
     public $mockHeaders;
 
     /**
-     * @description The result that is returned if the Mock parameter is set to TRUE.
+     * @description The result returned when the Mock mode is enabled.
      *
      * @example test result
      *
@@ -78,7 +78,7 @@ class serviceConfig extends Model
     public $mockResult;
 
     /**
-     * @description The status code that is returned for service mocking.
+     * @description The status code returned for service mocking.
      *
      * @example 200
      *
@@ -87,14 +87,14 @@ class serviceConfig extends Model
     public $mockStatusCode;
 
     /**
-     * @description The configuration items of the backend service whose type is Object Storage Service (OSS).
+     * @description Information when the backend service is OSS
      *
      * @var ossConfig
      */
     public $ossConfig;
 
     /**
-     * @description The URL that is used to call the backend service.
+     * @description The URL used to call the backend service.
      *
      * @example http://api.a.com:8080
      *
@@ -103,7 +103,7 @@ class serviceConfig extends Model
     public $serviceAddress;
 
     /**
-     * @description The HTTP request method that is used if the ServiceProtocol parameter is set to HTTP. Valid values: PUT, GET, POST, DELETE, PATCH, HEAD, OPTIONS, and ANY.
+     * @description The HTTP request method used when calling the backend service. Valid values: PUT, GET, POST, DELETE, PATCH, HEAD, OPTIONS, and ANY.
      *
      * @example POST
      *
@@ -112,7 +112,7 @@ class serviceConfig extends Model
     public $serviceHttpMethod;
 
     /**
-     * @description The path that is used when the backend service is called.
+     * @description The path used when you call the backend service.
      *
      * @example /object/add
      *
@@ -121,7 +121,7 @@ class serviceConfig extends Model
     public $servicePath;
 
     /**
-     * @description The protocol of the backend service. Only HTTP, HTTPS, and Function Compute are supported.
+     * @description The backend service protocol. Currently, only HTTP, HTTPS, and FunctionCompute are supported.
      *
      * @example HTTP
      *
@@ -130,7 +130,7 @@ class serviceConfig extends Model
     public $serviceProtocol;
 
     /**
-     * @description The timeout period of the backend service. Unit: milliseconds.
+     * @description The timeout period of the backend service, in millisecond.
      *
      * @example 1000
      *
@@ -139,12 +139,12 @@ class serviceConfig extends Model
     public $serviceTimeout;
 
     /**
-     * @description Indicates whether the VPC channel is enabled. Valid values:
+     * @description Specifies whether to enable the VPC channel. Valid values:
      *
-     *   TRUE
-     *   FALSE
+     *   TRUE: The VPC channel is enabled.
+     *   FALSE: The VPC channel is not enabled.
      *
-     * Before you can enable the VPC channel, make sure that a VPC authorization is added.
+     * You must create the corresponding VPC access authorization before you can enable a VPC channel.
      * @example TRUE
      *
      * @var string
@@ -152,14 +152,14 @@ class serviceConfig extends Model
     public $serviceVpcEnable;
 
     /**
-     * @description The configuration items of the VPC channel.
+     * @description Configuration items related to VPC channels
      *
      * @var vpcConfig
      */
     public $vpcConfig;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The ID of the VPC.
      *
      * @example vpc-uf6kg9x8sx2tbxxxx
      *

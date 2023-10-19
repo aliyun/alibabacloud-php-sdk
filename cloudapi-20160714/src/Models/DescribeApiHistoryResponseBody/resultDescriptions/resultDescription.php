@@ -18,7 +18,7 @@ class resultDescription extends Model
     public $description;
 
     /**
-     * @description Indicates whether a subnode exists.
+     * @description Specifies whether a subnode exists.
      *
      * @example true
      *
@@ -45,7 +45,7 @@ class resultDescription extends Model
     public $key;
 
     /**
-     * @description Indicates whether the parameter is required.
+     * @description Specifies whether the parameter is required.
      *
      * @example true
      *

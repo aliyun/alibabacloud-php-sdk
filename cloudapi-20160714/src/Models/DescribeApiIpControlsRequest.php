@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiIpControlsRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     * @description The IDs of APIs. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
      *
      * @example 123,234
      *
@@ -18,7 +18,7 @@ class DescribeApiIpControlsRequest extends Model
     public $apiIds;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The ID of the API group.
      *
      * @example 0009db9c828549768a200320714b8930
      *
@@ -27,7 +27,7 @@ class DescribeApiIpControlsRequest extends Model
     public $groupId;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class DescribeApiIpControlsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *
      * @example 10
      *
@@ -50,7 +50,10 @@ class DescribeApiIpControlsRequest extends Model
     public $securityToken;
 
     /**
-     * @description The IDs of APIs. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
+     * @description The runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
      *
      * @example test
      *

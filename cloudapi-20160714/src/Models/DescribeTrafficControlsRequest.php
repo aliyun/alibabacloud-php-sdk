@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrafficControlsRequest extends Model
 {
     /**
-     * @description The name of the throttling policy.
+     * @description The specified API ID. This parameter must be specified together with GroupId and StageName.
      *
      * @example 3b81fd160f5645e097cc8855d75a1cf6
      *
@@ -18,10 +18,7 @@ class DescribeTrafficControlsRequest extends Model
     public $apiId;
 
     /**
-     * @description The environment name. This parameter must be specified together with GroupId and ApiId. Valid values:********
-     *
-     *   **RELEASE**
-     *   **TEST**
+     * @description The specified group ID. This parameter must be specified together with ApiId and StageName.
      *
      * @example 0009db9c828549768a200320714b8930
      *
@@ -30,7 +27,7 @@ class DescribeTrafficControlsRequest extends Model
     public $groupId;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -39,7 +36,7 @@ class DescribeTrafficControlsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *
      * @example 10
      *
@@ -48,12 +45,19 @@ class DescribeTrafficControlsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
+     *
+     * @example 436fa39b-b3b9-40c5-ae5d-ce3e000e38c5
+     *
      * @var string
      */
     public $securityToken;
 
     /**
-     * @description ThrottlingTest
+     * @description The environment name. This parameter must be specified together with GroupId and ApiId. Valid values:********
+     *
+     *   **RELEASE**
+     *   **TEST**
      *
      * @example RELEASE
      *
@@ -62,7 +66,7 @@ class DescribeTrafficControlsRequest extends Model
     public $stageName;
 
     /**
-     * @description The specified API ID. This parameter must be specified together with GroupId and StageName.
+     * @description The ID of the throttling policy.
      *
      * @example tf123456
      *
@@ -71,9 +75,9 @@ class DescribeTrafficControlsRequest extends Model
     public $trafficControlId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The name of the throttling policy.
      *
-     * @example The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     * @example ThrottlingTest
      *
      * @var string
      */

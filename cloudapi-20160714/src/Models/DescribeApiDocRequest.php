@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiDocRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
      * @example 3b81fd160f5645e097cc8855d75a1cf6
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeApiDocRequest extends Model
     public $apiId;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example 123
      *
      * @var string
@@ -28,6 +32,12 @@ class DescribeApiDocRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST.**
+     *
+     * If this parameter is not specified, the default value is used, which is RELEASE.
      * @example RELEASE
      *
      * @var string

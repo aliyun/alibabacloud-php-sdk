@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeModelsResponseBody extends Model
 {
     /**
-     * @description The ID of the API group to which the model belongs.
+     * @description The returned information about models. It is an array consisting of ModelDetail data.
      *
      * @var modelDetails
      */
     public $modelDetails;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeModelsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The returned information about models. It is an array consisting of ModelDetail data.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeModelsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The total number of returned entries.
+     * @description The ID of the request.
      *
      * @example 40306469-2FB5-417A-B723-AF1F4A4FA204
      *
@@ -44,7 +44,7 @@ class DescribeModelsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The last modification time of the model.
+     * @description The total number of returned entries.
      *
      * @example 1
      *

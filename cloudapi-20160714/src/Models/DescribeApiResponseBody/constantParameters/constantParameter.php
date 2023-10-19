@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class constantParameter extends Model
 {
     /**
-     * @description The parameters of API requests sent by the consumer to API Gateway.
+     * @description The value of the parameter.
      *
      * @example constance
      *
@@ -18,7 +18,7 @@ class constantParameter extends Model
     public $constantValue;
 
     /**
-     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     * @description Description
      *
      * @example constance
      *
@@ -27,7 +27,7 @@ class constantParameter extends Model
     public $description;
 
     /**
-     * @description The name of the backend service parameter.
+     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
      *
      * @example HEAD
      *
@@ -36,7 +36,7 @@ class constantParameter extends Model
     public $location;
 
     /**
-     * @description The value of the parameter.
+     * @description The name of the backend service parameter.
      *
      * @example constance
      *

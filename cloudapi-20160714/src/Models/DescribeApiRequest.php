@@ -18,7 +18,7 @@ class DescribeApiRequest extends Model
     public $apiId;
 
     /**
-     * @description The ID of the API.
+     * @description The ID of the API group.
      *
      * @example 123
      *
