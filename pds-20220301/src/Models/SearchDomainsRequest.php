@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SearchDomainsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @example 50
      *
      * @var int
@@ -34,10 +39,11 @@ class SearchDomainsRequest extends Model
      */
     public $orderBy;
     protected $_name = [
-        'limit'   => 'limit',
-        'marker'  => 'marker',
-        'name'    => 'name',
-        'orderBy' => 'order_by',
+        'instanceId' => 'instance_id',
+        'limit'      => 'limit',
+        'marker'     => 'marker',
+        'name'       => 'name',
+        'orderBy'    => 'order_by',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class SearchDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['instance_id'] = $this->instanceId;
+        }
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
@@ -71,6 +80,9 @@ class SearchDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['instance_id'])) {
+            $model->instanceId = $map['instance_id'];
+        }
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }

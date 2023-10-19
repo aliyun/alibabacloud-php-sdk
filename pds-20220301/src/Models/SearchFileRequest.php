@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchFileRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,16 @@ class SearchFileRequest extends Model
     public $driveId;
 
     /**
+     * @example url,thumbnail
+     *
+     * @var string
+     */
+    public $fields;
+
+    /**
+     * @description The maximum number of results to return. Valid values: 1 to 100.
+     *
+     * The number of returned results must be less than or equal to the specified number.
      * @example 50
      *
      * @var int
@@ -23,6 +35,8 @@ class SearchFileRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\
+     * By default, this parameter is left empty.
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -30,6 +44,24 @@ class SearchFileRequest extends Model
     public $marker;
 
     /**
+     * @description The field by which to sort the returned results. Default value: created_at. Valid values:
+     *
+     *   created_at: sorts the results by the time when the file was created.
+     *   updated_at: sorts the results by the time when the file was modified.
+     *   size: sorts the results by the size of the file.
+     *   name: sorts the results by the name of the file.
+     *
+     * The order in which you want to sort the returned results. Valid values:
+     *
+     *   ASC: sorts the results in ascending order.
+     *   DESC: sorts the results in descending order.
+     *
+     * You must specify this parameter in the \<field name> \<ASC or DESC> format. Separate multiple field names with commas (,). A preceding field has a higher priority than a following field. Examples:
+     *
+     *   If you want to sort the results based on the file name in ascending order, set this parameter to "name ASC".
+     *   If you want to sort the results based on the creation time in descending order, set this parameter to "created_at DESC".
+     *   If you want to sort the results based on the creation time in descending order first, and then sort the results based on the file name in ascending order if the creation time is the same, set this parameter to "created_at DESC,name ASC".
+     *
      * @example name
      *
      * @var string
@@ -37,6 +69,8 @@ class SearchFileRequest extends Model
     public $orderBy;
 
     /**
+     * @description The search condition. Fuzzy searches based on the file name or directory name are supported. The search condition can be up to 4,096 characters in length.
+     *
      * @example not name=123
      *
      * @var string
@@ -44,6 +78,8 @@ class SearchFileRequest extends Model
     public $query;
 
     /**
+     * @description Specifies whether to return the total number of retrieved files.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +87,7 @@ class SearchFileRequest extends Model
     public $returnTotalCount;
     protected $_name = [
         'driveId'          => 'drive_id',
+        'fields'           => 'fields',
         'limit'            => 'limit',
         'marker'           => 'marker',
         'orderBy'          => 'order_by',
@@ -67,6 +104,9 @@ class SearchFileRequest extends Model
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
+        }
+        if (null !== $this->fields) {
+            $res['fields'] = $this->fields;
         }
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
@@ -97,6 +137,9 @@ class SearchFileRequest extends Model
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
+        }
+        if (isset($map['fields'])) {
+            $model->fields = $map['fields'];
         }
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];

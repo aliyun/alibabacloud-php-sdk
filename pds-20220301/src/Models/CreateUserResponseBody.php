@@ -93,7 +93,7 @@ class CreateUserResponseBody extends Model
     public $updatedAt;
 
     /**
-     * @var string[]
+     * @var mixed[]
      */
     public $userData;
 

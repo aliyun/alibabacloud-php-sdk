@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateIdentityToBenefitPkgMappingRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateIdentityToBenefitPkgMappingResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateOrderRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateShareLinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateShareLinkResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateSimilarImageClusterTaskRequest;
@@ -162,6 +164,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\ListUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListUserResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\MoveFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\MoveFileResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\QueryOrderPriceRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\QueryOrderPriceResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveFaceGroupFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveFaceGroupFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveGroupMemberRequest;
@@ -1185,6 +1189,79 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->createIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateOrderRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateOrderResponse
+     */
+    public function createOrderWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $body['auto_pay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $body['auto_renew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->code)) {
+            $body['code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['instance_id'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $body['order_type'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->package)) {
+            $body['package'] = $request->package;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $body['period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $body['period_unit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->totalSize)) {
+            $body['total_size'] = $request->totalSize;
+        }
+        if (!Utils::isUnset($request->userCount)) {
+            $body['user_count'] = $request->userCount;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrder',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/domain/create_order',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOrderResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOrderRequest $request
+     *
+     * @return CreateOrderResponse
+     */
+    public function createOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOrderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2493,6 +2570,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->shareId)) {
             $body['share_id'] = $request->shareId;
+        }
+        if (!Utils::isUnset($request->thumbnailProcesses)) {
+            $body['thumbnail_processes'] = $request->thumbnailProcesses;
         }
         if (!Utils::isUnset($request->urlExpireSec)) {
             $body['url_expire_sec'] = $request->urlExpireSec;
@@ -4541,6 +4621,73 @@ class Pds extends OpenApiClient
     }
 
     /**
+     * @param QueryOrderPriceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryOrderPriceResponse
+     */
+    public function queryOrderPriceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->code)) {
+            $body['code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['instance_id'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $body['order_type'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->package)) {
+            $body['package'] = $request->package;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $body['period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $body['period_unit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->totalSize)) {
+            $body['total_size'] = $request->totalSize;
+        }
+        if (!Utils::isUnset($request->userCount)) {
+            $body['user_count'] = $request->userCount;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderPrice',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/domain/query_order_price',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryOrderPriceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryOrderPriceRequest $request
+     *
+     * @return QueryOrderPriceResponse
+     */
+    public function queryOrderPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryOrderPriceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param RemoveFaceGroupFileRequest $request
      * @param string[]                   $headers
      * @param RuntimeOptions             $runtime
@@ -4927,6 +5074,9 @@ class Pds extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['instance_id'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->limit)) {
             $body['limit'] = $request->limit;
         }
@@ -5042,6 +5192,9 @@ class Pds extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->driveId)) {
             $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $body['fields'] = $request->fields;
         }
         if (!Utils::isUnset($request->limit)) {
             $body['limit'] = $request->limit;

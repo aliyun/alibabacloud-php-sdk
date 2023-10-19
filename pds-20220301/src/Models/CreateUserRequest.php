@@ -66,7 +66,7 @@ class CreateUserRequest extends Model
     /**
      * @example md
      *
-     * @var string
+     * @var mixed[]
      */
     public $userData;
 

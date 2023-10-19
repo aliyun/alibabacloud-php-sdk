@@ -37,17 +37,23 @@ class GetFileRequest extends Model
     public $shareId;
 
     /**
+     * @var ImageProcess[]
+     */
+    public $thumbnailProcesses;
+
+    /**
      * @example 100
      *
      * @var int
      */
     public $urlExpireSec;
     protected $_name = [
-        'driveId'      => 'drive_id',
-        'fields'       => 'fields',
-        'fileId'       => 'file_id',
-        'shareId'      => 'share_id',
-        'urlExpireSec' => 'url_expire_sec',
+        'driveId'            => 'drive_id',
+        'fields'             => 'fields',
+        'fileId'             => 'file_id',
+        'shareId'            => 'share_id',
+        'thumbnailProcesses' => 'thumbnail_processes',
+        'urlExpireSec'       => 'url_expire_sec',
     ];
 
     public function validate()
@@ -68,6 +74,14 @@ class GetFileRequest extends Model
         }
         if (null !== $this->shareId) {
             $res['share_id'] = $this->shareId;
+        }
+        if (null !== $this->thumbnailProcesses) {
+            $res['thumbnail_processes'] = [];
+            if (null !== $this->thumbnailProcesses && \is_array($this->thumbnailProcesses)) {
+                foreach ($this->thumbnailProcesses as $key => $val) {
+                    $res['thumbnail_processes'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
         }
         if (null !== $this->urlExpireSec) {
             $res['url_expire_sec'] = $this->urlExpireSec;
@@ -95,6 +109,9 @@ class GetFileRequest extends Model
         }
         if (isset($map['share_id'])) {
             $model->shareId = $map['share_id'];
+        }
+        if (isset($map['thumbnail_processes'])) {
+            $model->thumbnailProcesses = $map['thumbnail_processes'];
         }
         if (isset($map['url_expire_sec'])) {
             $model->urlExpireSec = $map['url_expire_sec'];

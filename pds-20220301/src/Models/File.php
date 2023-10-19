@@ -158,37 +158,43 @@ class File extends Model
      * @var string[]
      */
     public $userTags;
+
+    /**
+     * @var VideoMediaMetadata
+     */
+    public $videoMediaMetadata;
     protected $_name = [
-        'category'          => 'category',
-        'contentHash'       => 'content_hash',
-        'contentHashName'   => 'content_hash_name',
-        'contentType'       => 'content_type',
-        'crc64Hash'         => 'crc64_hash',
-        'createdAt'         => 'created_at',
-        'description'       => 'description',
-        'domainId'          => 'domain_id',
-        'downloadUrl'       => 'download_url',
-        'driveId'           => 'drive_id',
-        'fileExtension'     => 'file_extension',
-        'fileId'            => 'file_id',
-        'hidden'            => 'hidden',
-        'investigationInfo' => 'investigation_info',
-        'labels'            => 'labels',
-        'localCreatedAt'    => 'local_created_at',
-        'localModifiedAt'   => 'local_modified_at',
-        'name'              => 'name',
-        'parentFileId'      => 'parent_file_id',
-        'revisionId'        => 'revision_id',
-        'size'              => 'size',
-        'starred'           => 'starred',
-        'status'            => 'status',
-        'thumbnail'         => 'thumbnail',
-        'thumbnailUrls'     => 'thumbnail_urls',
-        'trashedAt'         => 'trashed_at',
-        'type'              => 'type',
-        'updatedAt'         => 'updated_at',
-        'uploadId'          => 'upload_id',
-        'userTags'          => 'user_tags',
+        'category'           => 'category',
+        'contentHash'        => 'content_hash',
+        'contentHashName'    => 'content_hash_name',
+        'contentType'        => 'content_type',
+        'crc64Hash'          => 'crc64_hash',
+        'createdAt'          => 'created_at',
+        'description'        => 'description',
+        'domainId'           => 'domain_id',
+        'downloadUrl'        => 'download_url',
+        'driveId'            => 'drive_id',
+        'fileExtension'      => 'file_extension',
+        'fileId'             => 'file_id',
+        'hidden'             => 'hidden',
+        'investigationInfo'  => 'investigation_info',
+        'labels'             => 'labels',
+        'localCreatedAt'     => 'local_created_at',
+        'localModifiedAt'    => 'local_modified_at',
+        'name'               => 'name',
+        'parentFileId'       => 'parent_file_id',
+        'revisionId'         => 'revision_id',
+        'size'               => 'size',
+        'starred'            => 'starred',
+        'status'             => 'status',
+        'thumbnail'          => 'thumbnail',
+        'thumbnailUrls'      => 'thumbnail_urls',
+        'trashedAt'          => 'trashed_at',
+        'type'               => 'type',
+        'updatedAt'          => 'updated_at',
+        'uploadId'           => 'upload_id',
+        'userTags'           => 'user_tags',
+        'videoMediaMetadata' => 'video_media_metadata',
     ];
 
     public function validate()
@@ -287,6 +293,9 @@ class File extends Model
         }
         if (null !== $this->userTags) {
             $res['user_tags'] = $this->userTags;
+        }
+        if (null !== $this->videoMediaMetadata) {
+            $res['video_media_metadata'] = null !== $this->videoMediaMetadata ? $this->videoMediaMetadata->toMap() : null;
         }
 
         return $res;
@@ -391,6 +400,9 @@ class File extends Model
         }
         if (isset($map['user_tags'])) {
             $model->userTags = $map['user_tags'];
+        }
+        if (isset($map['video_media_metadata'])) {
+            $model->videoMediaMetadata = VideoMediaMetadata::fromMap($map['video_media_metadata']);
         }
 
         return $model;
