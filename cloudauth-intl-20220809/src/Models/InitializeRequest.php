@@ -14,6 +14,16 @@ class InitializeRequest extends Model
     public $authorize;
 
     /**
+     * @var string
+     */
+    public $callbackToken;
+
+    /**
+     * @var string
+     */
+    public $callbackUrl;
+
+    /**
      * @example *
      *
      * @var string
@@ -152,6 +162,8 @@ class InitializeRequest extends Model
     public $serviceLevel;
     protected $_name = [
         'authorize'         => 'Authorize',
+        'callbackToken'     => 'CallbackToken',
+        'callbackUrl'       => 'CallbackUrl',
         'crop'              => 'Crop',
         'docScanMode'       => 'DocScanMode',
         'docType'           => 'DocType',
@@ -183,6 +195,12 @@ class InitializeRequest extends Model
         $res = [];
         if (null !== $this->authorize) {
             $res['Authorize'] = $this->authorize;
+        }
+        if (null !== $this->callbackToken) {
+            $res['CallbackToken'] = $this->callbackToken;
+        }
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
         }
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
@@ -258,6 +276,12 @@ class InitializeRequest extends Model
         $model = new self();
         if (isset($map['Authorize'])) {
             $model->authorize = $map['Authorize'];
+        }
+        if (isset($map['CallbackToken'])) {
+            $model->callbackToken = $map['CallbackToken'];
+        }
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
         }
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];

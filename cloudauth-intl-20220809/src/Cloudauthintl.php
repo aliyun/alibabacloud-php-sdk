@@ -1046,6 +1046,12 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->authorize)) {
             $query['Authorize'] = $request->authorize;
         }
+        if (!Utils::isUnset($request->callbackToken)) {
+            $query['CallbackToken'] = $request->callbackToken;
+        }
+        if (!Utils::isUnset($request->callbackUrl)) {
+            $query['CallbackUrl'] = $request->callbackUrl;
+        }
         if (!Utils::isUnset($request->crop)) {
             $query['Crop'] = $request->crop;
         }
