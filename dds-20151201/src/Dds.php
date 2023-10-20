@@ -56,6 +56,10 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupsResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterRecoverTimeRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterRecoverTimeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceEncryptionKeyRequest;
@@ -188,6 +192,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\SwitchDBInstanceHARequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\SwitchDBInstanceHAResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\TransferClusterBackupRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\TransferClusterBackupResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\TransformInstanceChargeTypeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\TransformInstanceChargeTypeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\TransformToPrePaidRequest;
@@ -2286,6 +2292,122 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBackupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClusterBackupsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeClusterBackupsResponse
+     */
+    public function describeClusterBackupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->isOnlyGetClusterBackUp)) {
+            $query['IsOnlyGetClusterBackUp'] = $request->isOnlyGetClusterBackUp;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterBackups',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterBackupsRequest $request
+     *
+     * @return DescribeClusterBackupsResponse
+     */
+    public function describeClusterBackups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterBackupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClusterRecoverTimeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeClusterRecoverTimeResponse
+     */
+    public function describeClusterRecoverTimeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterRecoverTime',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterRecoverTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterRecoverTimeRequest $request
+     *
+     * @return DescribeClusterRecoverTimeResponse
+     */
+    public function describeClusterRecoverTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterRecoverTimeWithOptions($request, $runtime);
     }
 
     /**
@@ -7035,6 +7157,64 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TransferClusterBackupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TransferClusterBackupResponse
+     */
+    public function transferClusterBackupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransferClusterBackup',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransferClusterBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TransferClusterBackupRequest $request
+     *
+     * @return TransferClusterBackupResponse
+     */
+    public function transferClusterBackup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->transferClusterBackupWithOptions($request, $runtime);
     }
 
     /**
