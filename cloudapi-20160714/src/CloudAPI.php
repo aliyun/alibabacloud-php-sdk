@@ -10662,6 +10662,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->authValidTime)) {
+            $query['AuthValidTime'] = $request->authValidTime;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }

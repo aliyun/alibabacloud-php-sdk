@@ -46,6 +46,10 @@ class appAttribute extends Model
     public $description;
 
     /**
+     * @description Extended Fields.
+     *
+     * @example 110461946884
+     *
      * @var string
      */
     public $extend;

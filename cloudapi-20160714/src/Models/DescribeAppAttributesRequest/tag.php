@@ -19,7 +19,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The key of the tag.
+     * @description The value of the tag.
      *
      * N can be an integer from 1 to 20.``
      * @example \" \"

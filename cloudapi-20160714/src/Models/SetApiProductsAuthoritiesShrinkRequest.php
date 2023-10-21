@@ -23,6 +23,11 @@ class SetApiProductsAuthoritiesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $authValidTime;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -32,6 +37,7 @@ class SetApiProductsAuthoritiesShrinkRequest extends Model
     protected $_name = [
         'apiProductIdsShrink' => 'ApiProductIds',
         'appId'               => 'AppId',
+        'authValidTime'       => 'AuthValidTime',
         'description'         => 'Description',
         'securityToken'       => 'SecurityToken',
     ];
@@ -48,6 +54,9 @@ class SetApiProductsAuthoritiesShrinkRequest extends Model
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->authValidTime) {
+            $res['AuthValidTime'] = $this->authValidTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -72,6 +81,9 @@ class SetApiProductsAuthoritiesShrinkRequest extends Model
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['AuthValidTime'])) {
+            $model->authValidTime = $map['AuthValidTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
