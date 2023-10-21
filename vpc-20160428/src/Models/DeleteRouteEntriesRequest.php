@@ -40,6 +40,8 @@ class DeleteRouteEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The information about the routes that you want to delete.
+     *
      * @var routeEntries[]
      */
     public $routeEntries;

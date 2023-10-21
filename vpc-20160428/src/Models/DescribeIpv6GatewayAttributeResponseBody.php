@@ -50,6 +50,11 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $expiredTime;
 
     /**
+     * @var string
+     */
+    public $gatewayRouteTableId;
+
+    /**
      * @description The metering method of the IPv6 gateway.
      *
      * @example PostPaid
@@ -131,19 +136,20 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
      */
     public $vpcId;
     protected $_name = [
-        'businessStatus'     => 'BusinessStatus',
-        'creationTime'       => 'CreationTime',
-        'description'        => 'Description',
-        'expiredTime'        => 'ExpiredTime',
-        'instanceChargeType' => 'InstanceChargeType',
-        'ipv6GatewayId'      => 'Ipv6GatewayId',
-        'name'               => 'Name',
-        'regionId'           => 'RegionId',
-        'requestId'          => 'RequestId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'status'             => 'Status',
-        'tags'               => 'Tags',
-        'vpcId'              => 'VpcId',
+        'businessStatus'      => 'BusinessStatus',
+        'creationTime'        => 'CreationTime',
+        'description'         => 'Description',
+        'expiredTime'         => 'ExpiredTime',
+        'gatewayRouteTableId' => 'GatewayRouteTableId',
+        'instanceChargeType'  => 'InstanceChargeType',
+        'ipv6GatewayId'       => 'Ipv6GatewayId',
+        'name'                => 'Name',
+        'regionId'            => 'RegionId',
+        'requestId'           => 'RequestId',
+        'resourceGroupId'     => 'ResourceGroupId',
+        'status'              => 'Status',
+        'tags'                => 'Tags',
+        'vpcId'               => 'VpcId',
     ];
 
     public function validate()
@@ -164,6 +170,9 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->gatewayRouteTableId) {
+            $res['GatewayRouteTableId'] = $this->gatewayRouteTableId;
         }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
@@ -215,6 +224,9 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['GatewayRouteTableId'])) {
+            $model->gatewayRouteTableId = $map['GatewayRouteTableId'];
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];

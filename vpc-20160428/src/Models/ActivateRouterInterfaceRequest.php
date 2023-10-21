@@ -14,7 +14,7 @@ class ActivateRouterInterfaceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the router interface belongs.
+     * @description The region ID of the router interface.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowLogAttributeRequest extends Model
 {
     /**
-     * @description The new sampling interval of the flow log. Unit: seconds. Valid values: **1**, **5**, and **10**.
+     * @description The new sampling interval of the flow log. Unit: minutes. Valid values: **1**, **5**, and **10**.
      *
      * @example 1
      *
@@ -20,7 +20,7 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @description The new description of the flow log.
      *
-     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example This is my Flowlog.
      *
      * @var string
@@ -39,7 +39,7 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @description The new name of the flow log.
      *
-     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example myFlowlog
      *
      * @var string

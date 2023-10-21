@@ -18,7 +18,7 @@ class CreateDhcpOptionsSetResponseBody extends Model
     public $dhcpOptionsSetId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
@@ -27,6 +27,8 @@ class CreateDhcpOptionsSetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the DHCP options set belongs.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string

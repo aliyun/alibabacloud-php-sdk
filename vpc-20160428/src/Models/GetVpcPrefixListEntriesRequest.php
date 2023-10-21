@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetVpcPrefixListEntriesRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -18,10 +18,10 @@ class GetVpcPrefixListEntriesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query and no next queries are to be sent, ignore this parameter.
-     *   If a next query is to be performed, set the value to the NextToken value returned in the last call to the ListenerCertificates operation.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -51,7 +51,7 @@ class GetVpcPrefixListEntriesRequest extends Model
     /**
      * @description The region ID of the prefix list.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query available regions.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

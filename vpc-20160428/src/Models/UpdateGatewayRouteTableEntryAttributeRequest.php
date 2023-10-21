@@ -52,6 +52,11 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     public $dryRun;
 
     /**
+     * @var string
+     */
+    public $gatewayRouteTableId;
+
+    /**
      * @description The ID of the gateway route table that you want to modify.
      *
      * @example vtb-5ts0ohchwkp3dydt2****
@@ -131,6 +136,7 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
         'description'             => 'Description',
         'destinationCidrBlock'    => 'DestinationCidrBlock',
         'dryRun'                  => 'DryRun',
+        'gatewayRouteTableId'     => 'GatewayRouteTableId',
         'IPv4GatewayRouteTableId' => 'IPv4GatewayRouteTableId',
         'name'                    => 'Name',
         'nextHopId'               => 'NextHopId',
@@ -160,6 +166,9 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->gatewayRouteTableId) {
+            $res['GatewayRouteTableId'] = $this->gatewayRouteTableId;
         }
         if (null !== $this->IPv4GatewayRouteTableId) {
             $res['IPv4GatewayRouteTableId'] = $this->IPv4GatewayRouteTableId;
@@ -211,6 +220,9 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['GatewayRouteTableId'])) {
+            $model->gatewayRouteTableId = $map['GatewayRouteTableId'];
         }
         if (isset($map['IPv4GatewayRouteTableId'])) {
             $model->IPv4GatewayRouteTableId = $map['IPv4GatewayRouteTableId'];

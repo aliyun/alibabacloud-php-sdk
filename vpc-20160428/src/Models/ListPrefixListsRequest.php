@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListPrefixListsRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -19,10 +19,10 @@ class ListPrefixListsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query and no next queries are to be sent, ignore this parameter.
-     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -41,6 +41,8 @@ class ListPrefixListsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The IDs of prefix lists to be queried. Valid values of **N** are **1** to **100**, which specifies that you can query up to 100 prefix lists at a time.
+     *
      * @example pl-m5estsqsdqwg88hjf****
      *
      * @var string[]
@@ -50,7 +52,7 @@ class ListPrefixListsRequest extends Model
     /**
      * @description The name of the prefix list to query.
      *
-     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example name
      *
      * @var string
@@ -87,6 +89,8 @@ class ListPrefixListsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

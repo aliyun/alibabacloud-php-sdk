@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class routeEntry extends Model
 {
     /**
-     * @description The description of the router entry.
+     * @description The description of the route. The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      *
      * @example RouteEntryDescription
      *
@@ -19,7 +19,10 @@ class routeEntry extends Model
     public $description;
 
     /**
-     * @description The destination CIDR block of the route entry.
+     * @description The destination CIDR block of the route. The destination CIDR block supports IPv4 and IPv6. Make sure that the destination CIDR block meets the following requirements:
+     *
+     *   The destination CIDR block is not 100.64.0.0/10 or a subset of 100.64.0.0/10.
+     *   The destination CIDR block of each route in the route table is unique.
      *
      * @example 192.168.0.1/24
      *
@@ -28,7 +31,7 @@ class routeEntry extends Model
     public $destinationCidrBlock;
 
     /**
-     * @description The ID of the next hop.
+     * @description The ID of the instance associated with the next hop.
      *
      * @example ri-2zeo3xzyf38r4urzd****
      *
@@ -37,11 +40,16 @@ class routeEntry extends Model
     public $instanceId;
 
     /**
-     * @description The type of the route.
+     * @description The type of the next hop. Valid values:
      *
-     *   **local**: a vSwitch route
-     *   **service**: a cloud service route
-     *   **classicLink**: a route added by the system after ClassicLink is enabled
+     *   **Instance** (default): an Elastic Compute Service (ECS) instance
+     *   **HaVip**: a high-availability virtual IP address (HAVIP).
+     *   **VpnGateway**: a VPN gateway
+     *   **NatGateway**: a NAT gateway
+     *   **NetworkInterface**: a secondary elastic network interface (ENI)
+     *   **RouterInterface**: a router interface
+     *   **IPv6Gateway**: an IPv6 gateway
+     *   **Attachment**: a transit router
      *
      * @example local
      *
@@ -50,13 +58,15 @@ class routeEntry extends Model
     public $nextHopType;
 
     /**
-     * @description The list of next hops of equal-cost multi-path routing (ECMP) routes.
+     * @description The information about the next hop.
      *
      * @var nextHops
      */
     public $nextHops;
 
     /**
+     * @description The ID of the route.
+     *
      * @example rte-bp1mnnr2al0naomnpxxx
      *
      * @var string
@@ -64,8 +74,9 @@ class routeEntry extends Model
     public $routeEntryId;
 
     /**
-     * @description The name of the route entry.
+     * @description The route name.
      *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
      * @example test
      *
      * @var string
@@ -73,7 +84,7 @@ class routeEntry extends Model
     public $routeEntryName;
 
     /**
-     * @description The ID of the route table to which the route entry belongs.
+     * @description The route table ID.
      *
      * @example vtb-bp145q7glnuzdvzu2****
      *
@@ -82,11 +93,11 @@ class routeEntry extends Model
     public $routeTableId;
 
     /**
-     * @description The state of the route entry.
+     * @description The route status. Valid values:
      *
-     *   **Pending**: The route entry is being configured.
-     *   **Available**: The route entry is available.
-     *   **Modifying**: The route entry is being modified.
+     *   **Pending**
+     *   **Available**
+     *   **Modifying**
      *
      * @example Pending
      *
@@ -95,11 +106,12 @@ class routeEntry extends Model
     public $status;
 
     /**
-     * @description The type of the route entry.
+     * @description The route type. Valid values:
      *
-     *   **System** : a system route entry
-     *   **Custom**: a custom route entry
-     *   **BGP**: a BGP route entry
+     *   **Custom**
+     *   **System**
+     *   **BGP**
+     *   **CEN**
      *
      * @example System
      *

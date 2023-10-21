@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class nextHop extends Model
 {
     /**
-     * @description Indicates whether the next hop feature is enabled.
+     * @description Indicates whether the route is available. Valid values:
      *
-     *   **0**: The next hop feature is disabled.
-     *   **1**: The next hop feature is enabled.
+     *   **0**: unavailable
+     *   **1**: available
      *
      * @example 0
      *
@@ -30,15 +30,16 @@ class nextHop extends Model
     public $nextHopId;
 
     /**
-     * @description The type of the next hop.
+     * @description The type of the next hop. Valid values:
      *
-     *   **Instance**: The next hop is an Elastic Compute Service (ECS) instance.
-     *   **HaVip**: The next hop is a high-availability virtual IP address (HAVIP).
-     *   **VpnGateway**: The next hop is a VPN gateway.
-     *   **NatGateway**: The next hop is a NAT gateway.
-     *   **NetworkInterface**: The next hop is a secondary elastic network interface (ENI).
-     *   **RouterInterface**: The next hop is a router interface.
-     *   **IPv6Gateway**: The next hop is an IPv6 gateway.
+     *   **Instance**: an ECS instance
+     *   **HaVip**: an HAVIP
+     *   **VpnGateway**: a VPN gateway
+     *   **NatGateway**: a NAT gateway
+     *   **NetworkInterface**: a secondary ENI
+     *   **RouterInterface**: a router interface
+     *   **IPv6Gateway**: an IPv6 gateway
+     *   **Attachment**: a transit router
      *
      * @example HaVip
      *
@@ -47,7 +48,7 @@ class nextHop extends Model
     public $nextHopType;
 
     /**
-     * @description The route weight of the next hop.
+     * @description The weight of the route.
      *
      * @example 80
      *

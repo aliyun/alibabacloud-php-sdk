@@ -28,7 +28,7 @@ class prefixLists extends Model
     /**
      * @description The IP version of the prefix list. Valid values:
      *
-     *   **IPv4**
+     *   **IPV4**
      *   **IPV6**
      *
      * @example IPV4
@@ -118,7 +118,7 @@ class prefixLists extends Model
      * @description Indicates whether the prefix list is shared. Valid values:
      *
      *   **Shared**: The prefix list is shared.
-     *   If an empty value is returned, it indicates that the prefix list is not shared.
+     *   If an empty value is returned, the prefix list is not shared.
      *
      * @example Shared
      *
@@ -140,7 +140,7 @@ class prefixLists extends Model
     public $status;
 
     /**
-     * @description The list of tags that are added to the resource group.
+     * @description The tags.
      *
      * @var tags[]
      */

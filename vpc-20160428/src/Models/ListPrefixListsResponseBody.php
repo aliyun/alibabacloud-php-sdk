@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListPrefixListsResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page. Valid values: **1** to **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -19,10 +19,10 @@ class ListPrefixListsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If no value is returned for **NextToken**, no next queries are sent.
-     *   If a value is returned for **NextToken**, the value indicates the token that is used for the next query.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value indicates the token that is used for the next request to retrieve a new page of results.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -38,7 +38,7 @@ class ListPrefixListsResponseBody extends Model
     public $prefixLists;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DF72F7BB-5DFA-529C-887E-B0BB70D89C4F
      *

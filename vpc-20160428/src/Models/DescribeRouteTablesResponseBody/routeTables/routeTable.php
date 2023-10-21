@@ -13,6 +13,7 @@ class routeTable extends Model
     /**
      * @description The time when the route table was created.
      *
+     * The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format in UTC.
      * @example 2017-08-22T10:40:25Z
      *
      * @var string
@@ -20,7 +21,7 @@ class routeTable extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the resource group to which the elastic IP address (EIP) belongs.
+     * @description The ID of the resource group to which the route table belongs.
      *
      * @example rg-acfmxazb4ph****
      *
@@ -29,14 +30,14 @@ class routeTable extends Model
     public $resourceGroupId;
 
     /**
-     * @description Detailed information about the route entry.
+     * @description The information about the route.
      *
      * @var routeEntrys
      */
     public $routeEntrys;
 
     /**
-     * @description The ID of the route table to which the route entry belongs.
+     * @description The ID of the route table.
      *
      * @example vtb-bp145q7glnuzdvzu2****
      *
@@ -45,6 +46,11 @@ class routeTable extends Model
     public $routeTableId;
 
     /**
+     * @description The type of the route table. Valid values:
+     *
+     *   **Custom**
+     *   **System**
+     *
      * @example System
      *
      * @var string
@@ -52,10 +58,10 @@ class routeTable extends Model
     public $routeTableType;
 
     /**
-     * @description The state of the route table.
+     * @description The status of the route table. Valid values:
      *
-     *   **Pending**: The route table is being configured.
-     *   **Available**: The route table is available.
+     *   **Pending**
+     *   **Available**
      *
      * @example Available
      *
@@ -64,7 +70,7 @@ class routeTable extends Model
     public $status;
 
     /**
-     * @description The ID of the vRouter.
+     * @description The vRouter ID.
      *
      * @example vrt-bp1lhl0taikrteen8****
      *
@@ -73,7 +79,7 @@ class routeTable extends Model
     public $VRouterId;
 
     /**
-     * @description The list of vSwitches that belong to the VPC.
+     * @description The vSwitch ID.
      *
      * @var vSwitchIds
      */

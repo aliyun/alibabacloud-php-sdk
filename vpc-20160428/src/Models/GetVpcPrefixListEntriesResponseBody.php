@@ -19,10 +19,10 @@ class GetVpcPrefixListEntriesResponseBody extends Model
     public $count;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If no value is returned for **NextToken**, no next queries are sent.
-     *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value indicates the token that is used for the next request to retrieve a new page of results.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -38,7 +38,7 @@ class GetVpcPrefixListEntriesResponseBody extends Model
     public $prefixListEntry;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *

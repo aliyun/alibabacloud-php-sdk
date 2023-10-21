@@ -798,7 +798,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
+     * 、After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
      *   * >  You cannot activate a router interface that has overdue payments.
      *   *
      * @param ActivateRouterInterfaceRequest $request ActivateRouterInterfaceRequest
@@ -844,7 +844,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
+     * 、After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
      *   * >  You cannot activate a router interface that has overdue payments.
      *   *
      * @param ActivateRouterInterfaceRequest $request ActivateRouterInterfaceRequest
@@ -2517,6 +2517,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->gatewayId)) {
             $query['GatewayId'] = $request->gatewayId;
         }
+        if (!Utils::isUnset($request->gatewayType)) {
+            $query['GatewayType'] = $request->gatewayType;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -4142,10 +4145,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateDhcpOptionsSetRequest $request
-     * @param RuntimeOptions              $runtime
+     * *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](~~448820~~) to query the status of the task.
+     *   *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
+     *   *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
+     *   *
+     * @param CreateDhcpOptionsSetRequest $request CreateDhcpOptionsSetRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDhcpOptionsSetResponse
+     * @return CreateDhcpOptionsSetResponse CreateDhcpOptionsSetResponse
      */
     public function createDhcpOptionsSetWithOptions($request, $runtime)
     {
@@ -4215,9 +4222,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateDhcpOptionsSetRequest $request
+     * *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](~~448820~~) to query the status of the task.
+     *   *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
+     *   *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
+     *   *
+     * @param CreateDhcpOptionsSetRequest $request CreateDhcpOptionsSetRequest
      *
-     * @return CreateDhcpOptionsSetResponse
+     * @return CreateDhcpOptionsSetResponse CreateDhcpOptionsSetResponse
      */
     public function createDhcpOptionsSet($request)
     {
@@ -10462,11 +10473,11 @@ class Vpc extends OpenApiClient
 
     /**
      * When you call this operation, take note of the following items:
-     *   * *   You can delete only route entries that are in the **Available** state.
-     *   * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
-     *   * *   **DeleteRouteEntries** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of a route entry.
-     *   *     *   If the route entry is in the **Deleting** state, the route entry is being deleted.
-     *   *     *   If you cannot query the route entry, the route entry is deleted.
+     *   * *   You can delete only routes that are in the **Available** state.
+     *   * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
+     *   * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
+     *   *     *   If the route is in the **Deleting** state, the route is being deleted.
+     *   *     *   If you cannot query the route, the route is deleted.
      *   * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
      *   *
      * @param DeleteRouteEntriesRequest $request DeleteRouteEntriesRequest
@@ -10519,11 +10530,11 @@ class Vpc extends OpenApiClient
 
     /**
      * When you call this operation, take note of the following items:
-     *   * *   You can delete only route entries that are in the **Available** state.
-     *   * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
-     *   * *   **DeleteRouteEntries** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of a route entry.
-     *   *     *   If the route entry is in the **Deleting** state, the route entry is being deleted.
-     *   *     *   If you cannot query the route entry, the route entry is deleted.
+     *   * *   You can delete only routes that are in the **Available** state.
+     *   * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
+     *   * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
+     *   *     *   If the route is in the **Deleting** state, the route is being deleted.
+     *   *     *   If you cannot query the route, the route is deleted.
      *   * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
      *   *
      * @param DeleteRouteEntriesRequest $request DeleteRouteEntriesRequest
@@ -11211,7 +11222,7 @@ class Vpc extends OpenApiClient
      *   * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
      *   * *   You can delete only vSwitches that are in the **Available** state.
      *   * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
-     *   * *   **DeleteVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+     *   * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
      *   *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
      *   *     *   If you cannot query the vSwitch, the vSwitch is deleted.
      *   * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
@@ -11266,7 +11277,7 @@ class Vpc extends OpenApiClient
      *   * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
      *   * *   You can delete only vSwitches that are in the **Available** state.
      *   * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
-     *   * *   **DeleteVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a vSwitch:
+     *   * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
      *   *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
      *   *     *   If you cannot query the vSwitch, the vSwitch is deleted.
      *   * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
@@ -13926,11 +13937,17 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
@@ -17381,6 +17398,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayId)) {
             $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayType)) {
+            $query['GatewayType'] = $request->gatewayType;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -26688,6 +26708,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->gatewayRouteTableId)) {
+            $query['GatewayRouteTableId'] = $request->gatewayRouteTableId;
         }
         if (!Utils::isUnset($request->IPv4GatewayRouteTableId)) {
             $query['IPv4GatewayRouteTableId'] = $request->IPv4GatewayRouteTableId;

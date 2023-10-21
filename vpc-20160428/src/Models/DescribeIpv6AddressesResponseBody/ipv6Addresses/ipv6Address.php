@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6AddressesResponseBody\ipv6Addresses;
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6AddressesResponseBody\ipv6Addresses\ipv6Address\ipv6InternetBandwidth;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6AddressesResponseBody\ipv6Addresses\ipv6Address\tags;
 use AlibabaCloud\Tea\Model;
 
 class ipv6Address extends Model
@@ -44,6 +45,11 @@ class ipv6Address extends Model
      * @var string
      */
     public $ipv6Address;
+
+    /**
+     * @var string
+     */
+    public $ipv6AddressDescription;
 
     /**
      * @description The ID of the IPv6 address.
@@ -119,6 +125,11 @@ class ipv6Address extends Model
     public $realBandwidth;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The status of the IPv6 address. Valid values:
      *
      *   **Pending**
@@ -129,6 +140,11 @@ class ipv6Address extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags
+     */
+    public $tags;
 
     /**
      * @description The ID of the vSwitch to which the IPv6 address belongs.
@@ -152,6 +168,7 @@ class ipv6Address extends Model
         'associatedInstanceId'   => 'AssociatedInstanceId',
         'associatedInstanceType' => 'AssociatedInstanceType',
         'ipv6Address'            => 'Ipv6Address',
+        'ipv6AddressDescription' => 'Ipv6AddressDescription',
         'ipv6AddressId'          => 'Ipv6AddressId',
         'ipv6AddressName'        => 'Ipv6AddressName',
         'ipv6GatewayId'          => 'Ipv6GatewayId',
@@ -159,7 +176,9 @@ class ipv6Address extends Model
         'ipv6Isp'                => 'Ipv6Isp',
         'networkType'            => 'NetworkType',
         'realBandwidth'          => 'RealBandwidth',
+        'resourceGroupId'        => 'ResourceGroupId',
         'status'                 => 'Status',
+        'tags'                   => 'Tags',
         'vSwitchId'              => 'VSwitchId',
         'vpcId'                  => 'VpcId',
     ];
@@ -183,6 +202,9 @@ class ipv6Address extends Model
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
         }
+        if (null !== $this->ipv6AddressDescription) {
+            $res['Ipv6AddressDescription'] = $this->ipv6AddressDescription;
+        }
         if (null !== $this->ipv6AddressId) {
             $res['Ipv6AddressId'] = $this->ipv6AddressId;
         }
@@ -204,8 +226,14 @@ class ipv6Address extends Model
         if (null !== $this->realBandwidth) {
             $res['RealBandwidth'] = $this->realBandwidth;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -237,6 +265,9 @@ class ipv6Address extends Model
         if (isset($map['Ipv6Address'])) {
             $model->ipv6Address = $map['Ipv6Address'];
         }
+        if (isset($map['Ipv6AddressDescription'])) {
+            $model->ipv6AddressDescription = $map['Ipv6AddressDescription'];
+        }
         if (isset($map['Ipv6AddressId'])) {
             $model->ipv6AddressId = $map['Ipv6AddressId'];
         }
@@ -258,8 +289,14 @@ class ipv6Address extends Model
         if (isset($map['RealBandwidth'])) {
             $model->realBandwidth = $map['RealBandwidth'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

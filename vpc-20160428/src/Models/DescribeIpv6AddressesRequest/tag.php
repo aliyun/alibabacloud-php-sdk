@@ -2,28 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDhcpOptionsSetRequest;
+namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6AddressesRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
-     * @description The key of tag N to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
-     *
-     * A tag key can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
-     * @example FinanceDept
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
-     *
-     * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
-     * @example FinanceJoshua
-     *
      * @var string
      */
     public $value;

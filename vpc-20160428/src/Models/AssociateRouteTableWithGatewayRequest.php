@@ -45,6 +45,11 @@ class AssociateRouteTableWithGatewayRequest extends Model
     /**
      * @var string
      */
+    public $gatewayType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -84,6 +89,7 @@ class AssociateRouteTableWithGatewayRequest extends Model
         'clientToken'          => 'ClientToken',
         'dryRun'               => 'DryRun',
         'gatewayId'            => 'GatewayId',
+        'gatewayType'          => 'GatewayType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -107,6 +113,9 @@ class AssociateRouteTableWithGatewayRequest extends Model
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
+        }
+        if (null !== $this->gatewayType) {
+            $res['GatewayType'] = $this->gatewayType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -146,6 +155,9 @@ class AssociateRouteTableWithGatewayRequest extends Model
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
+        }
+        if (isset($map['GatewayType'])) {
+            $model->gatewayType = $map['GatewayType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

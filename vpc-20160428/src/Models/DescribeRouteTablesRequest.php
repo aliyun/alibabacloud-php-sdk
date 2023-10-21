@@ -19,7 +19,7 @@ class DescribeRouteTablesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeRouteTablesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -37,8 +37,9 @@ class DescribeRouteTablesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the virtual private cloud (VPC) to which the route table belongs.
+     * @description The region ID of the VPC to which the route table belongs.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,7 +47,7 @@ class DescribeRouteTablesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the route table belongs.
+     * @description The ID of the resource group to which the route table to be queried belongs.
      *
      * @example rg-acfmxazccb4ph****
      *
@@ -76,6 +77,7 @@ class DescribeRouteTablesRequest extends Model
     /**
      * @description The name of the route table that you want to query.
      *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
      * @example RouteTable-1
      *
      * @var string
@@ -83,7 +85,7 @@ class DescribeRouteTablesRequest extends Model
     public $routeTableName;
 
     /**
-     * @description The ID of the vRouter or VBR to which the route table belongs.
+     * @description The ID of the router to which the route table belongs.
      *
      * @example vtb-bp1krxxzp0c29fmon****
      *
@@ -94,8 +96,8 @@ class DescribeRouteTablesRequest extends Model
     /**
      * @description The type of the router to which the route table belongs. Valid values:
      *
-     *   **VRouter**: a vRouter
-     *   **VBR**: a virtual border router (VBR)
+     *   **VRouter** (default)
+     *   **VBR**
      *
      * @example VRouter
      *
@@ -104,11 +106,12 @@ class DescribeRouteTablesRequest extends Model
     public $routerType;
 
     /**
-     * @description The type of route table that you want to query. Valid values:
+     * @description The route type. Valid values:
      *
-     *   **System** : a system route table
-     *   **Custom**: a custom route table
-     *   **BGP**: a Border Gateway Protocol (BGP) route table
+     *   **Custom**
+     *   **System**
+     *   **BGP**
+     *   **CEN**
      *
      * @example custom
      *
@@ -117,9 +120,8 @@ class DescribeRouteTablesRequest extends Model
     public $type;
 
     /**
-     * @description The ID of the vRouter to which the route table belongs.
+     * @description The ID of the vRouter.
      *
-     * After you set this parameter, **RouterType** is automatically set to **VRouter**.
      * @example vtb-bp1krxxzp0c29fmon****
      *
      * @var string
