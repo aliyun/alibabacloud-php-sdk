@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRouterMulticastDomainsResponseBody extends Model
 {
     /**
-     * @description $.parameters[8].schema.example
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -19,7 +19,10 @@ class ListTransitRouterMulticastDomainsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description $.parameters[8].schema.enumValueTitles
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -28,7 +31,7 @@ class ListTransitRouterMulticastDomainsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description $.parameters[7].schema.enumValueTitles
+     * @description The request ID.
      *
      * @example 8A0F93D1-FD6C-56FC-B6D2-668FC92D12D2
      *
@@ -37,7 +40,7 @@ class ListTransitRouterMulticastDomainsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description $.parameters[8].schema.description
+     * @description The total number of entries returned.
      *
      * @example 1
      *
@@ -46,12 +49,8 @@ class ListTransitRouterMulticastDomainsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description {
-     * "MaxResults": 20,
-     * "NextToken": "FFmyTO70tTpLG6I3FmYAXGKPd****",
-     * {
-     * "TransitRouterMulticastDomainId": "tr-mcast-domain-3r3bvbypxqheej****",
-     * }
+     * @description The information about the multicast domain.
+     *
      * @var transitRouterMulticastDomains[]
      */
     public $transitRouterMulticastDomains;

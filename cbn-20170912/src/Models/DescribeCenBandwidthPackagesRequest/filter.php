@@ -9,7 +9,18 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeCenBandwidthPackages**.
+     * @description The filter conditions. You can use filter conditions to filter the bandwidth plans that you want to query. The following filter conditions are supported:
+     *
+     *   **CenId**: CEN instance ID
+     *
+     *   **Status**: bandwidth plan status. Valid values:
+     *
+     *   **Idle**: not associated with a CEN instance.
+     *   **InUse**: associated with a CEN instance.
+     *
+     *   **CenBandwidthPackageId**: bandwidth plan ID
+     *
+     *   **Name**: bandwidth plan name You can specify one or more filter conditions. The maximum value of **N** is **5**.
      *
      * @example CenId
      *
@@ -18,11 +29,7 @@ class filter extends Model
     public $key;
 
     /**
-     * @description The status of the bandwidth plan. Valid values:
-     *
-     *   **Normal**: normal
-     *   **FinancialLocked**: locked due to overdue payments
-     *   **SecurityLocked**: locked due to security reasons
+     * @description Specify a filter value based on the **Key** parameter. You can specify multiple filter values for each **Key**. The logical operator between filter values is **OR**. If one filter value is matched, the filter condition is matched.
      *
      * @example Idle
      *

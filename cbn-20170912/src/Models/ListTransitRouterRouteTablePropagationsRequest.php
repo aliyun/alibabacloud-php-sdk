@@ -69,7 +69,7 @@ class ListTransitRouterRouteTablePropagationsRequest extends Model
     public $transitRouterAttachmentId;
 
     /**
-     * @description The ID of the next hop.
+     * @description The ID of the network instance.
      *
      * @example vpc-bp1h8vbrbcgohcju5****
      *
@@ -78,7 +78,7 @@ class ListTransitRouterRouteTablePropagationsRequest extends Model
     public $transitRouterAttachmentResourceId;
 
     /**
-     * @description The type of next hop. Valid values:
+     * @description The type of the network instance. Valid values:
      *
      *   **VPC**: virtual private cloud (VPC)
      *   **VBR**: virtual border router (VBR)

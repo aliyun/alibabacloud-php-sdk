@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTransitRouteTableAggregationResponseBody extends Model
 {
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -17,11 +19,18 @@ class DescribeTransitRouteTableAggregationResponseBody extends Model
     public $count;
 
     /**
+     * @description A list of aggregate routes.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The token that determines the start point of the next query. Valid values:
+     *
+     *   If **NextToken** is not returned, it indicates that no additional results exist.
+     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -29,6 +38,8 @@ class DescribeTransitRouteTableAggregationResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0C2EE7A8-74D4-4081-8236-CEBDE3BBCF50
      *
      * @var string
@@ -36,6 +47,8 @@ class DescribeTransitRouteTableAggregationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

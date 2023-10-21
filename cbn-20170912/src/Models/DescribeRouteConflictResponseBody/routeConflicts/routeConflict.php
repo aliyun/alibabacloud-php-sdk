@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class routeConflict extends Model
 {
     /**
+     * @description The destination CIDR block of the overlapping route.
+     *
      * @example 172.16.0.0/16
      *
      * @var string
@@ -16,6 +18,8 @@ class routeConflict extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The ID of the peer network instance on which the overlapping routes are found.
+     *
      * @example ccn-0q3b7oviikmm9h****
      *
      * @var string
@@ -23,6 +27,12 @@ class routeConflict extends Model
     public $instanceId;
 
     /**
+     * @description The type of the peer network instance on which the overlapping routes are found.
+     *
+     *   **VPC**: VPC
+     *   **VBR**: VBR
+     *   **CCN**: CCN instance
+     *
      * @example CCN
      *
      * @var string
@@ -30,6 +40,8 @@ class routeConflict extends Model
     public $instanceType;
 
     /**
+     * @description The region ID of the peer network instance on which the overlapping routes are found is deployed.
+     *
      * @example ccn-cn-shanghai
      *
      * @var string
@@ -37,6 +49,11 @@ class routeConflict extends Model
     public $regionId;
 
     /**
+     * @description The cause of the route error. Valid values:
+     *
+     *   **conflict**: The routes have the same destination CIDR block.
+     *   **overflow**: The number of routes in the route table configured on another network instance has reached the upper limit.
+     *
      * @example conflict
      *
      * @var string

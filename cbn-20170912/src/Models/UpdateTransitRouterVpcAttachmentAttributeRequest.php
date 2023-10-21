@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
 {
     /**
-     * @description 是否允许企业版转发路由器自动发布路由到VPC实例。
+     * @description Specifies whether to allow the Enterprise Edition transit router to advertise routes to the VPC. Valid values:
      *
-     * - **false**（默认值）：否。
-     * - **true**：是。
+     *   **false:** (default)
+     *   **true**
+     *
      * @example true
      *
      * @var bool

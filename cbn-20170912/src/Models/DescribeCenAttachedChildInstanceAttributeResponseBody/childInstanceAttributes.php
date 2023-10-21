@@ -29,14 +29,14 @@ class childInstanceAttributes extends Model
     public $ipv6CidrBlock;
 
     /**
-     * @description The information about the IPv6 CIDR blocks of the VPC.
+     * @description The IPv6 CIDR blocks of the VPC.
      *
      * @var ipv6CidrBlocks
      */
     public $ipv6CidrBlocks;
 
     /**
-     * @description The secondary IPv4 CIDR block of the VPC.
+     * @description The information about the VPC secondary CIDR block.
      *
      * @var secondaryCidrBlocks
      */

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The list of the filter conditions.
+     * @description The tag keys.
      *
+     * You can specify at most 20 tag keys.
      * @example tagtest
      *
      * @var string
@@ -18,8 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The description of the CEN instance.
+     * @description The tag values.
      *
+     * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
      * @example tagtest
      *
      * @var string

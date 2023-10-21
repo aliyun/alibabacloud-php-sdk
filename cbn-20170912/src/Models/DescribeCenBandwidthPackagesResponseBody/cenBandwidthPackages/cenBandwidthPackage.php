@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class cenBandwidthPackage extends Model
 {
     /**
-     * @description The ID of the bandwidth plan.
+     * @description The maximum bandwidth of the bandwidth plan.
      *
      * @example 2
      *
@@ -21,7 +21,7 @@ class cenBandwidthPackage extends Model
     public $bandwidth;
 
     /**
-     * @description The maximum bandwidth of the bandwidth plan.
+     * @description The billing method of the bandwidth plan.
      *
      * @example PREPAY
      *
@@ -30,7 +30,11 @@ class cenBandwidthPackage extends Model
     public $bandwidthPackageChargeType;
 
     /**
-     * @description The ID of the request.
+     * @description The status of the bandwidth plan. Valid values:
+     *
+     *   **Normal**: running as expected.
+     *   **FinancialLocked**: locked due to overdue payments.
+     *   **SecurityLocked**: locked due to security reasons
      *
      * @example Normal
      *
@@ -39,7 +43,7 @@ class cenBandwidthPackage extends Model
     public $businessStatus;
 
     /**
-     * @description The ID of the connected area.
+     * @description The ID of the bandwidth plan.
      *
      * @example cenbwp-4c2zaavbvh5x****
      *
@@ -48,12 +52,14 @@ class cenBandwidthPackage extends Model
     public $cenBandwidthPackageId;
 
     /**
+     * @description A list of CEN instances that are associated with the bandwidth plan.
+     *
      * @var cenIds
      */
     public $cenIds;
 
     /**
-     * @description The connected regions.
+     * @description The time when the bandwidth plan was created. The time is displayed in the ISO8601 standard in the YYYY-MM-DDThh:mmZ format.
      *
      * @example 2021-02-01T11:14Z
      *
@@ -62,7 +68,7 @@ class cenBandwidthPackage extends Model
     public $creationTime;
 
     /**
-     * @description The timeout period of the bandwidth plan.
+     * @description The description of the bandwidth plan.
      *
      * @example cen
      *
@@ -71,7 +77,7 @@ class cenBandwidthPackage extends Model
     public $description;
 
     /**
-     * @description The new billing method.
+     * @description The time when the bandwidth plan expires.
      *
      * @example 2021-09-08T16:00Z
      *
@@ -80,7 +86,13 @@ class cenBandwidthPackage extends Model
     public $expiredTime;
 
     /**
-     * @description The name of the bandwidth plan.
+     * @description The ID of the area that you want to query. Valid values:
+     *
+     *   **china**: Chinese mainland.
+     *   **asia-pacific**: Asia Pacific
+     *   **europe**: Europe
+     *   **australia**: Australia
+     *   **north-america**: North America
      *
      * @example china
      *
@@ -89,7 +101,13 @@ class cenBandwidthPackage extends Model
     public $geographicRegionAId;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the other area connected by the bandwidth plan. Valid values:
+     *
+     *   **china**: Chinese mainland.
+     *   **asia-pacific**: Asia Pacific
+     *   **europe**: Europe
+     *   **australia**: Australia
+     *   **north-america**: North America
      *
      * @example north-america
      *
@@ -98,7 +116,7 @@ class cenBandwidthPackage extends Model
     public $geographicRegionBId;
 
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the connected area.
      *
      * @example north-america_china
      *
@@ -107,8 +125,12 @@ class cenBandwidthPackage extends Model
     public $geographicSpanId;
 
     /**
-     * @description Queries details about Cloud Enterprise Network (CEN) bandwidth plans within the current Alibaba Cloud account.
+     * @description Indicates whether renewal data is included.
      *
+     *   **true**
+     *   **false**
+     *
+     * >  This parameter returns **true** only when the **IncludeReservationData** parameter is set to **true** and a pending order exists.
      * @example false
      *
      * @var string
@@ -116,22 +138,11 @@ class cenBandwidthPackage extends Model
     public $hasReservationData;
 
     /**
-     * @description The filter condition.
+     * @description Indicates whether the bandwidth plan supports cross-border communication.
      *
-     * You can use filter conditions to filter the bandwidth plans that you want to query. The following filter conditions are supported:
+     *   **false**
+     *   **true**
      *
-     *   **CenId**: CEN instance ID
-     *
-     *   **Status**: bandwidth plan status. Valid values:
-     *
-     *   **Idle**: not associated with a CEN instance.
-     *   **InUse**: associated with a CEN instance.
-     *
-     *   **CenBandwidthPackageId**: bandwidth plan ID
-     *
-     *   **Name**: bandwidth plan name
-     *
-     * You can specify one or more filter conditions. The maximum value of **N** is **5**.
      * @example false
      *
      * @var bool
@@ -139,10 +150,7 @@ class cenBandwidthPackage extends Model
     public $isCrossBorder;
 
     /**
-     * @description The renewal method.
-     *
-     *   **TEMP_UPGRADE**: temporary upgrade
-     *   **UPGRADE**: upgrade
+     * @description The name of the bandwidth plan.
      *
      * @example test
      *
@@ -151,14 +159,14 @@ class cenBandwidthPackage extends Model
     public $name;
 
     /**
-     * @description DescribeCenBandwidthPackages
+     * @description The details about the connected regions.
      *
      * @var orginInterRegionBandwidthLimits
      */
     public $orginInterRegionBandwidthLimits;
 
     /**
-     * @description The maximum bandwidth value for the inter-region connection.
+     * @description The expiration time of the temporary upgrade.
      *
      * @example 2021-08-30T16:00Z
      *
@@ -167,10 +175,7 @@ class cenBandwidthPackage extends Model
     public $reservationActiveTime;
 
     /**
-     * @description The logical operator between the filter conditions. Valid values:
-     *
-     *   **false** (default): **AND** Bandwidth plans that meet all filter conditions are returned.
-     *   **true**: **OR** Bandwidth plans that meet one of the filter conditions are returned.
+     * @description The bandwidth value to which the bandwidth plan is restored when the temporary upgrade ends.
      *
      * @example 10
      *
@@ -179,10 +184,7 @@ class cenBandwidthPackage extends Model
     public $reservationBandwidth;
 
     /**
-     * @description Indicates whether the bandwidth plan is associated with a CEN instance.
-     *
-     *   **Idle**: no
-     *   **InUse**: yes
+     * @description The new billing method.
      *
      * @example PREPAY
      *
@@ -191,7 +193,10 @@ class cenBandwidthPackage extends Model
     public $reservationInternetChargeType;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The renewal method.
+     *
+     *   **TEMP_UPGRADE**: temporary upgrade
+     *   **UPGRADE**: upgrade
      *
      * @example UPGRADE
      *
@@ -200,12 +205,19 @@ class cenBandwidthPackage extends Model
     public $reservationOrderType;
 
     /**
+     * @description The ID of the resource group to which the ACL belongs.
+     *
+     * @example rg-aekzoyr5k36****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description Indicates whether the bandwidth plan is associated with a CEN instance.
+     *
+     *   **Idle**
+     *   **InUse**
      *
      * @example InUse
      *
@@ -214,6 +226,8 @@ class cenBandwidthPackage extends Model
     public $status;
 
     /**
+     * @description The tags of the bandwidth plan.
+     *
      * @var tags
      */
     public $tags;

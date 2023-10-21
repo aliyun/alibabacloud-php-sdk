@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class cenRouteEntry extends Model
 {
     /**
-     * @description The autonomous system (AS) paths of the routes.
+     * @description The AS paths of the routes.
      *
      * @var asPaths
      */
@@ -27,7 +27,7 @@ class cenRouteEntry extends Model
     public $cenRouteMapRecords;
 
     /**
-     * @description The community attributes of the route entry.
+     * @description The community attributes of the route entries.
      *
      * @var communities
      */
@@ -59,7 +59,7 @@ class cenRouteEntry extends Model
     public $nextHopInstanceId;
 
     /**
-     * @description The ID of the region where the instance specified as the next hop in the route belongs.
+     * @description The region ID of the instance specified as the next hop in the route.
      *
      * @example cn-hangzhou
      *
@@ -70,27 +70,28 @@ class cenRouteEntry extends Model
     /**
      * @description The type of the instance specified as the next hop in the route. Valid values:
      *
-     *   **Instance**: Elastic Compute Service (ECS) instance.
-     *   **HaVip**: high-availability virtual IP address (HAVIP).
-     *   **RouterInterface**: router interface.
-     *   **NetworkInterface**: elastic network interface (ENI).
-     *   **VpnGateway**: VPN gateway.
-     *   **IPv6Gateway**: IPv6 gateway.
-     *   **NatGateway**: NAT gateway.
-     *   **Attachment**: network instance connection.
-     *   **service**: cloud service.
-     *   **VBR**: VBR.
-     *   **CCN**: CCN instance.
-     *   **VPC**: VPC.
-     *   **local**: system route. No next hop is specified.
-     *   **TR**: transit router.
-     *   \*\*BlackHole\*\*: blackhole route. No next hop is specified.
-     *   \*\*EcRouterInterface\*\*: router interface for Express Connect
-     *   **HealthCheck**: health check.
-     *   **AS**: access gateway for CCN.
-     *   **classicLink**: classic network-type instance.
-     *   **GatewayEndpoint**: gateway endpoint.
-     *   **CPE**: data center connected to the VBR.
+     *   **Instance**: an ECS instance
+     *   **HaVip**: an HAVIP
+     *   **RouterInterface**: a router interface
+     *   **NetworkInterface**: an ENI
+     *   **VpnGateway**: a VPN gateway
+     *   **IPv6Gateway**: an IPv6 gateway
+     *   **Ipv4Gateway**: an IPv4 gateway
+     *   **NatGateway**: a NAT gateway
+     *   **Attachment**: a network instance connection
+     *   **service**: a cloud service
+     *   **VBR**: a VBR
+     *   **CCN**: a CCN instance
+     *   **VPC**: a VPC
+     *   **local**: a system route (no next hop is specified)
+     *   **TR**: a transit router
+     *   **BlackHole**: a blackhole route (no next hop is specified)
+     *   **EcRouterInterface**: a router interface for Express Connect
+     *   **HealthCheck**: a health check
+     *   **AS**: an access gateway for CCN
+     *   **classic**: a classic network-type instance
+     *   **GatewayEndpoint**: a gateway endpoint
+     *   **CPE**: a data center connected to a VBR
      *
      * @example VBR
      *
@@ -101,8 +102,8 @@ class cenRouteEntry extends Model
     /**
      * @description Indicates whether the route is allowed to be advertised to or withdrawn from the CEN instance. Valid values:
      *
-     *   **true**: The route is allowed to be advertised to or withdrawn from the CEN instance.
-     *   **false**: The route is not allowed to be advertised to or withdrawn from the CEN instance.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -111,10 +112,10 @@ class cenRouteEntry extends Model
     public $operationalMode;
 
     /**
-     * @description Indicates whether the route is advertised to the CEN instance. Valid values: Valid values:
+     * @description Indicates whether the route is advertised to the CEN instance. Valid values:
      *
-     *   **Published**: The route is advertised to the CEN instance.
-     *   **NonPublished**: The route is not advertised to the CEN instance.
+     *   **Published**
+     *   **NonPublished**
      *
      * @example Published
      *
@@ -123,7 +124,7 @@ class cenRouteEntry extends Model
     public $publishStatus;
 
     /**
-     * @description The ID of the route table.
+     * @description The route table ID.
      *
      * @example vtb-bp1r9pvl4xen8s9ju****
      *
@@ -132,12 +133,12 @@ class cenRouteEntry extends Model
     public $routeTableId;
 
     /**
-     * @description The status of the route. Valid values:
+     * @description The route status. Valid values:
      *
-     *   **Active**: available
-     *   **Candidate**: standby
-     *   **Rejected**: rejected
-     *   **Prohibited**: prohibited
+     *   **Active**: available routes
+     *   **Candidate**: standby routes
+     *   **Rejected**: rejected routes
+     *   **Prohibited**: prohibited routes
      *
      * @example Active
      *
@@ -146,9 +147,9 @@ class cenRouteEntry extends Model
     public $status;
 
     /**
-     * @description The type of the route. Valid values: Valid values:
+     * @description The route type. Valid values:
      *
-     *   **CEN**: advertised by CEN
+     *   **CEN**: route that is advertised through CEN
      *   **System**: system route
      *   **Custom**: custom route
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableTransitRouterRouteTablePropagationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example A7C43F99-B1E5-4A53-AB64-4BAE8AF4484E
      *
      * @var string

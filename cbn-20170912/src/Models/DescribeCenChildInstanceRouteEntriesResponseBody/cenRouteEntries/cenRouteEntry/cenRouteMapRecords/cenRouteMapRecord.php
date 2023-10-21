@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class cenRouteMapRecord extends Model
 {
     /**
-     * @description The ID of the region in which the routing policy is applied.
+     * @description The region ID of the routing policy.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class cenRouteMapRecord extends Model
     public $regionId;
 
     /**
-     * @description The ID of the routing policy.
+     * @description The routing policy ID.
      *
      * @example cenrmap-w4yf7toozfol3q****
      *

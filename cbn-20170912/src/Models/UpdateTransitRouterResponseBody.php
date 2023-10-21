@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTransitRouterResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example E9963DD7-998B-4F92-892D-8293CB49EE81
      *
      * @var string

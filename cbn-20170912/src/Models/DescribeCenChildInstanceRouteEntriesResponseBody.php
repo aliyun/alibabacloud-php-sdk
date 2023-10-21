@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenChildInstanceRouteEntriesResponseBody extends Model
 {
     /**
-     * @description The information about the routes.
+     * @description The information about the route.
      *
      * @var cenRouteEntries
      */

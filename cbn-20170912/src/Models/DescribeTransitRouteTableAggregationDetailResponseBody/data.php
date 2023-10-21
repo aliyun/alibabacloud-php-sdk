@@ -32,7 +32,7 @@ class data extends Model
      *   **Configured**: The aggregate route is advertised to the VPC.
      *   **Configuring**: The aggregate route is being advertised.
      *   **ConfigFailed**: The aggregate route failed to be advertised.
-     *   **PartialConfigured**: Some content of the aggregate route failed to be advertised.
+     *   **PartialConfigured**: Failed to advertise the aggregate route to some VPCs.
      *   **Deleting**: The aggregate route is being deleted.
      *
      * @example Configured

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenBandwidthPackagesRequest extends Model
 {
     /**
-     * @description The description of the bandwidth plan.
+     * @description The filter configurations.
      *
      * @var filter[]
      */
@@ -20,8 +20,8 @@ class DescribeCenBandwidthPackagesRequest extends Model
     /**
      * @description Specifies whether to include renewal data. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -30,13 +30,10 @@ class DescribeCenBandwidthPackagesRequest extends Model
     public $includeReservationData;
 
     /**
-     * @description The ID of the other connected area of the bandwidth plan. Valid values:
+     * @description The logical operator between the filter conditions. Valid values:
      *
-     *   **china**: Chinese mainland.
-     *   **asia-pacific**: Asia Pacific
-     *   **europe**: Europe
-     *   **australia**: Australia
-     *   **north-america**: North America
+     *   **false** (default): **AND** Bandwidth plans that meet all filter conditions are returned.
+     *   **true**: **OR** Bandwidth plans that meet one of the filter conditions are returned.
      *
      * @example false
      *
@@ -55,9 +52,8 @@ class DescribeCenBandwidthPackagesRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specify a filter value based on the **Key** parameter.
+     * @description The number of the page to return. Default value: **1**.
      *
-     * You can specify multiple values for a **filter key**. The logical relation among multiple filter values is **OR**. If a bandwidth package matches one of the values that you specify, the bandwidth package matches the filter condition.
      * @example 1
      *
      * @var int
@@ -65,7 +61,7 @@ class DescribeCenBandwidthPackagesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the peer region.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 2
      *
@@ -74,6 +70,10 @@ class DescribeCenBandwidthPackagesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfnwjeo4tv****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -89,6 +89,9 @@ class DescribeCenBandwidthPackagesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The information about the tags.
+     *
+     * You can specify at most 20 tags in each call.
      * @var tag[]
      */
     public $tag;

@@ -27,11 +27,11 @@ class conflict extends Model
     public $instanceId;
 
     /**
-     * @description The type of the peer network instance on which the overlapping routes are found. Valid values: Valid values:
+     * @description The type of the peer network instance on which the overlapping routes are found. Valid values:
      *
-     *   **VPC**: VPC
-     *   **VBR**: VBR
-     *   **CCN**: CCN instance
+     *   **VPC**
+     *   **VBR**
+     *   **CCN**
      *
      * @example CCN
      *
@@ -40,7 +40,7 @@ class conflict extends Model
     public $instanceType;
 
     /**
-     * @description The ID of the region where the peer network instance on which the overlapping routes are found is deployed.
+     * @description The region ID of the peer network instance on which the overlapping routes are found.
      *
      * @example ccn-cn-shanghai
      *

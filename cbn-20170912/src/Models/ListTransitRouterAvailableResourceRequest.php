@@ -19,8 +19,9 @@ class ListTransitRouterAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the zone.
+     * @description The region ID of the Enterprise Edition transit router.
      *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example ap-southeast-2
      *
      * @var string
@@ -38,7 +39,13 @@ class ListTransitRouterAvailableResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description A list of zones.
+     * @description Specifies whether to query only the zones in which the multicast feature is supported. Valid values:
+     *
+     *   **true**
+     *
+     * After you call **ListTransitRouterAvailableResource**, if no zone is returned, it indicates that the Enterprise Edition transit router does not support the multicast feature.
+     *
+     *   **false** (default)
      *
      * @example false
      *

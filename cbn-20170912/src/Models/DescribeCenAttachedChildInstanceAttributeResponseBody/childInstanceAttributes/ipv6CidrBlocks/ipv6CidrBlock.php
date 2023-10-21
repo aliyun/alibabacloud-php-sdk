@@ -18,14 +18,14 @@ class ipv6CidrBlock extends Model
     public $ipv6CidrBlock;
 
     /**
-     * @description The type of the IPv6 CIDR block. Valid values:
+     * @description The type of the IPv6 CIDR block of the VPC. Valid values:
      *
-     * **BGP** (default): Alibaba Cloud Border Gateway Protocol (BGP) IPv6
-     * **ChinaMobile:** China Mobile (single line)
-     * **ChinaUnicom:** China Unicom (single line)
-     * **ChinaTelecom:** China Telecom (single line)
+     *   BGP (default): Alibaba Cloud Border Gateway Protocol (BGP) IPv6
+     *   ChinaMobile: China Mobile (single line)
+     *   ChinaUnicom: China Unicom (single line)
+     *   ChinaTelecom: China Telecom (single line)
      *
-     * > If your Alibaba Cloud account has the required permissions to activate single-ISP bandwidth, you can set Ipv6Isp to ChinaTelecom, ChinaUnicom, or ChinaMobile.
+     * >  If you are on the whitelist of single-line bandwidth, you can set this parameter to ChinaTelecom, ChinaUnicom, or ChinaMobile.
      * @example BGP
      *
      * @var string

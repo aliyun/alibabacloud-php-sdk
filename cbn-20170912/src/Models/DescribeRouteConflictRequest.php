@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteConflictRequest extends Model
 {
     /**
+     * @description The ID of the network instance that you want to query.
+     *
      * @example ccn-0q3b7oviikmm9h****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeRouteConflictRequest extends Model
     public $childInstanceId;
 
     /**
+     * @description The ID of the region where the network instance is deployed.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example ccn-cn-shanghai
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeRouteConflictRequest extends Model
     public $childInstanceRegionId;
 
     /**
+     * @description The ID of the route table that is configured on the network instance.
+     *
      * @example vtb-bp174d1gje79u1g4t****
      *
      * @var string
@@ -30,6 +37,12 @@ class DescribeRouteConflictRequest extends Model
     public $childInstanceRouteTableId;
 
     /**
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**: virtual private cloud (VPC)
+     *   **VBR**: virtual border router (VBR)
+     *   **CCN**: Cloud Connect Network (CCN) instance
+     *
      * @example CCN
      *
      * @var string
@@ -37,6 +50,8 @@ class DescribeRouteConflictRequest extends Model
     public $childInstanceType;
 
     /**
+     * @description The destination CIDR block of the conflicting route.
+     *
      * @example 172.16.0.0/16
      *
      * @var string
@@ -54,7 +69,7 @@ class DescribeRouteConflictRequest extends Model
     public $ownerId;
 
     /**
-     * @description Queries conflicting routes on a network instance.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -63,6 +78,8 @@ class DescribeRouteConflictRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     *
      * @example 10
      *
      * @var int

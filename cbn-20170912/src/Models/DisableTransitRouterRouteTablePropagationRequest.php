@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DisableTransitRouterRouteTablePropagationRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -18,6 +21,11 @@ class DisableTransitRouterRouteTablePropagationRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run. Default values:
+     *
+     *   **false** (default): performs a dry run and sends the request.
+     *   **true**: performs a dry run. The system checks the required parameters and the request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *
      * @example false
      *
      * @var bool
@@ -45,11 +53,8 @@ class DisableTransitRouterRouteTablePropagationRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The ID of the network instance connection.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example tr-attach-vx6iwhjr1x1j78****
      *
      * @var string
@@ -57,10 +62,7 @@ class DisableTransitRouterRouteTablePropagationRequest extends Model
     public $transitRouterAttachmentId;
 
     /**
-     * @description Specifies whether to perform a dry run to check information such as the permissions and the instance status. Default values:
-     *
-     *   **false** (default): performs a dry run and sends the request.
-     *   **true**: performs a dry run. The system checks the required parameters and the request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
+     * @description The ID of the route table of the Enterprise Edition transit router.
      *
      * @example vtb-bp1dudbh2d5na6b50****
      *

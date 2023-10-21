@@ -11,8 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCensRequest extends Model
 {
     /**
-     * @description The key of the tag.
+     * @description The filter conditions.
      *
+     * You can specify at most five filter conditions in each call.
      * @var filter[]
      */
     public $filter;
@@ -37,11 +38,8 @@ class DescribeCensRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The value of the filter condition.
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
      *
-     * This parameter sets the value of a filter **key**. You can specify multiple values for a filter **key**. The logical operator among multiple filter values is **OR**. If a CEN instance matches one or more of the values that you specify, the CEN instance matches the filter condition.
-     *
-     * You can specify at most five values in each filter condition.
      * @example 10
      *
      * @var int
@@ -49,6 +47,10 @@ class DescribeCensRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group to which the CEN instance belongs.
+     *
+     * @example rg-acfm3unpnuw****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -64,8 +66,9 @@ class DescribeCensRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     * @description The tags.
      *
+     * You can specify at most 20 tags in each call.
      * @var tag[]
      */
     public $tag;

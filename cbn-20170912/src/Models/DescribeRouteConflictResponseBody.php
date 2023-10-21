@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteConflictResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeRouteConflictResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeRouteConflictResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example EE3A2CC7-41F1-58DB-8306-CFC99D9C747B
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeRouteConflictResponseBody extends Model
     public $requestId;
 
     /**
+     * @description A list of overlapping routes.
+     *
      * @var routeConflicts
      */
     public $routeConflicts;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

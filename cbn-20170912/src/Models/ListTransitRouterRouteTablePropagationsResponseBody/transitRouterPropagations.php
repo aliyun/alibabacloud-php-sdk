@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class transitRouterPropagations extends Model
 {
     /**
-     * @description The ID of the next hop.
+     * @description The ID of the network instance.
      *
      * @example vpc-bp1h8vbrbcgohcju5****
      *
@@ -18,7 +18,7 @@ class transitRouterPropagations extends Model
     public $resourceId;
 
     /**
-     * @description The type of next hop. Valid values:
+     * @description The type of the network instance. Valid values:
      *
      *   **VPC**: VPC
      *   **VBR**: VBR
@@ -37,7 +37,6 @@ class transitRouterPropagations extends Model
      *   **Enabling**: being enabled
      *   **Disabling**: being disabled
      *   **Active**: available
-     *   **Deleted**: deleted
      *
      * @example Active
      *

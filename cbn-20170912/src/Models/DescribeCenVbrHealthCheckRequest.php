@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenVbrHealthCheckRequest extends Model
 {
     /**
-     * @description The ID of the VBR.
+     * @description The ID of the CEN instance.
      *
      * @example cen-6hpdgj7ni6pz1k****
      *
@@ -28,7 +28,7 @@ class DescribeCenVbrHealthCheckRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class DescribeCenVbrHealthCheckRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -56,7 +56,7 @@ class DescribeCenVbrHealthCheckRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The ID of the VBR.
      *
      * @example vbr-bp1kznorjeembsuhl****
      *
@@ -65,17 +65,18 @@ class DescribeCenVbrHealthCheckRequest extends Model
     public $vbrInstanceId;
 
     /**
-     * @description The ID of the region where the VBR is deployed.
+     * @description The ID of the Alibaba Cloud account that owns the VBR.
      *
-     * @example 253460731706911258
+     * @example 1250123456123456
      *
      * @var int
      */
     public $vbrInstanceOwnerId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeCenVbrHealthCheck**.
+     * @description The ID of the region where the VBR is deployed.
      *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

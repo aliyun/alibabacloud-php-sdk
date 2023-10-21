@@ -9,19 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRouterAvailableResourceResponseBody extends Model
 {
     /**
+     * @description A list of zone IDs.
+     *
      * @var string[]
      */
     public $availableZones;
 
     /**
-     * @description ListTransitRouterAvailableResource
+     * @description A list of primary zones.
      *
      * @var string[]
      */
     public $masterZones;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B4F480E0-4E76-5E43-9966-8322C28A158A
      *
@@ -30,14 +32,14 @@ class ListTransitRouterAvailableResourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListTransitRouterAvailableResource**.
+     * @description A list of secondary zone IDs.
      *
      * @var string[]
      */
     public $slaveZones;
 
     /**
-     * @description 是否为支持组播功能的可用区信息。
+     * @description Indicates whether the zone supports the multicast feature.
      *
      * @example false
      *

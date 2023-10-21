@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vbrHealthCheck extends Model
 {
     /**
-     * @description The number of probe packets that are sent during the health check.
+     * @description The ID of the CEN instance.
      *
      * @example cen-6hpdgj7ni6pz1k****
      *
@@ -18,6 +18,8 @@ class vbrHealthCheck extends Model
     public $cenId;
 
     /**
+     * @description The time interval at which probe packets are sent during the health check. Unit: seconds.
+     *
      * @example 2
      *
      * @var int
@@ -25,6 +27,15 @@ class vbrHealthCheck extends Model
     public $healthCheckInterval;
 
     /**
+     * @description Indicates whether probing is enabled. Valid values:
+     *
+     *   **true**: yes
+     *
+     * If probing is enabled, the system does not switch to another route when the detected route is not reachable.
+     *
+     *   **false**: no
+     *
+     * If probing is disabled and a redundant route is specified, the system switches to the redundant route when the detected route is not reachable.
      * @example false
      *
      * @var bool
@@ -32,6 +43,8 @@ class vbrHealthCheck extends Model
     public $healthCheckOnly;
 
     /**
+     * @description The source IP address of the health check.
+     *
      * @example 172.XX.XX.1
      *
      * @var string
@@ -48,7 +61,7 @@ class vbrHealthCheck extends Model
     public $healthCheckTargetIp;
 
     /**
-     * @description The ID of the request.
+     * @description The number of probe packets that are sent during the health check.
      *
      * @example 8
      *
@@ -57,7 +70,7 @@ class vbrHealthCheck extends Model
     public $healthyThreshold;
 
     /**
-     * @description The source IP address of the health check.
+     * @description The ID of the VBR.
      *
      * @example vbr-bp1kznorjeembsuhl****
      *
@@ -66,7 +79,7 @@ class vbrHealthCheck extends Model
     public $vbrInstanceId;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the region where the VBR is deployed.
      *
      * @example cn-hangzhou
      *

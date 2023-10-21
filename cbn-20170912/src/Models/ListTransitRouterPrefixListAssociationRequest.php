@@ -19,6 +19,8 @@ class ListTransitRouterPrefixListAssociationRequest extends Model
     public $nextHop;
 
     /**
+     * @description The ID of the network instance associated with the next hop connection.
+     *
      * @example vpc-6eh7fp9hdqa2wv85t****
      *
      * @var string
@@ -106,6 +108,11 @@ class ListTransitRouterPrefixListAssociationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The status of the prefix list. Valid values:
+     *
+     *   **Active**
+     *   **Updating**
+     *
      * @example Active
      *
      * @var string

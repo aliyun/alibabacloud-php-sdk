@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The description of the aggregate route.
+     *
      * @example desctest
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $description;
 
     /**
+     * @description The name of the aggregate route.
+     *
      * @example nametest
      *
      * @var string
@@ -23,6 +27,9 @@ class data extends Model
     public $name;
 
     /**
+     * @description The type of the aggregate route.
+     *
+     * The valid value is **Static**, which indicates a static route. By default, aggregate routes advertised to a VPC are considered custom routes.
      * @example Static
      *
      * @var string
@@ -30,6 +37,9 @@ class data extends Model
     public $routeType;
 
     /**
+     * @description The cope of networks to which the aggregate route is advertised.
+     *
+     * The valid value is **VPC**, which indicates that the aggregate route is advertised to all virtual private clouds (VPCs) that are in associated forwarding correlation with the Enterprise Edition transit router and have route synchronization enabled.
      * @example VPC
      *
      * @var string
@@ -37,6 +47,14 @@ class data extends Model
     public $scope;
 
     /**
+     * @description The status of the advertisement of the aggregate route. Valid values:
+     *
+     *   **AllConfigured**: The aggregate route is advertised to all VPCs.
+     *   **Configuring**: The aggregate route is being advertised.
+     *   **ConfigFailed**: The aggregate route failed to be advertised.
+     *   **PartialConfigured**: Failed to advertise the aggregate route to some VPCs.
+     *   **Deleting**: The aggregate route is being deleted.
+     *
      * @example AllConfigured
      *
      * @var string
@@ -44,6 +62,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The ID of the route table of the Enterprise Edition transit router.
+     *
      * @example vtb-6ehgc262hr170qgyc****
      *
      * @var string
@@ -51,6 +71,8 @@ class data extends Model
     public $trRouteTableId;
 
     /**
+     * @description The destination CIDR block of the aggregate route.
+     *
      * @example 192.168.10.0/24
      *
      * @var string

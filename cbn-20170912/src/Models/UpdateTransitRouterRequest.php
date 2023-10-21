@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateTransitRouterRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **UpdateTransitRouter**.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -18,9 +21,11 @@ class UpdateTransitRouterRequest extends Model
     public $clientToken;
 
     /**
-     * @description The name of the transit router.
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -38,8 +43,9 @@ class UpdateTransitRouterRequest extends Model
     public $ownerId;
 
     /**
-     * @description Modifies the name and description of a transit router.
+     * @description The region ID of the transit router.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -57,6 +63,9 @@ class UpdateTransitRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The description of the transit router.
+     *
+     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
      * @example testdesc
      *
      * @var string
@@ -64,7 +73,7 @@ class UpdateTransitRouterRequest extends Model
     public $transitRouterDescription;
 
     /**
-     * @description UpdateTransitRouter
+     * @description The transit router ID.
      *
      * @example tr-uf654ttymmljlvh2x****
      *
@@ -73,8 +82,9 @@ class UpdateTransitRouterRequest extends Model
     public $transitRouterId;
 
     /**
-     * @description WB656982
+     * @description The transit router name.
      *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example testname
      *
      * @var string

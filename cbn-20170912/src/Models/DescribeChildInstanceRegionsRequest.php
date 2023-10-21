@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeChildInstanceRegionsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values: zh-CN (Chinese, which is the default language), en-US (English), and ja (Japanese).
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;

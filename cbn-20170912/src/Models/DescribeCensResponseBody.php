@@ -10,16 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCensResponseBody extends Model
 {
     /**
-     * @description The value of the tag.
+     * @description The information about the CEN instance.
      *
      * @var cens
      */
     public $cens;
 
     /**
-     * @description The level of CIDR block overlapping.
-     *
-     **REDUCED**: Overlapped CIDR blocks are allowed. This value specifies that CIDR blocks can overlap but CIDR blocks cannot be duplicates.
+     * @description The number of the page returned.
      *
      * @example 1
      *
@@ -28,11 +26,7 @@ class DescribeCensResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The status of the CEN instance.
-     *
-     *   **Creating**: The CEN instance is being created.
-     *   **Active**: The CEN instance is running.
-     *   **Deleting**: The instance is being deleted.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -41,7 +35,7 @@ class DescribeCensResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group to which the CEN instance belongs.
+     * @description The request ID.
      *
      * @example 2BFA6822-240E-4E27-B4C8-AA400EF7474D
      *
@@ -50,7 +44,7 @@ class DescribeCensResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The IDs of the bandwidth plans that are associated with the CEN instance.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

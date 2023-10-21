@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRouterMulticastDomainsRequest extends Model
 {
     /**
-     * @description The tags of the multicast domain.
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
      * @example cen-a7syd349kne38g****
      *
@@ -21,7 +21,7 @@ class ListTransitRouterMulticastDomainsRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -29,7 +29,7 @@ class ListTransitRouterMulticastDomainsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the multicast domain.
+     * @description The number of entries to return on each page. Default value: **20**.
      *
      * @example 20
      *
@@ -38,7 +38,10 @@ class ListTransitRouterMulticastDomainsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The ID of the request.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   If a value is returned for NextToken, specify the value in the next request to retrieve a new page of results.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -57,8 +60,9 @@ class ListTransitRouterMulticastDomainsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the transit router.
+     * @description The region ID of the transit router.
      *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example ap-southeast-2
      *
      * @var string
@@ -76,14 +80,15 @@ class ListTransitRouterMulticastDomainsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The information about the multicast domain.
+     * @description The tags.
      *
+     * You can specify at most 20 tags in each call.
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The description of the multicast domain.
+     * @description The transit router ID.
      *
      * @example tr-p0wr9p28r92d598y6****
      *
@@ -92,7 +97,7 @@ class ListTransitRouterMulticastDomainsRequest extends Model
     public $transitRouterId;
 
     /**
-     * @description The ID of the multicast domain.
+     * @description The multicast domain ID.
      *
      * @example tr-mcast-domain-3r3bvbypxqheej****
      *

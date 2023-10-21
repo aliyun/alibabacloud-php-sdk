@@ -11,19 +11,15 @@ use AlibabaCloud\Tea\Model;
 class cen extends Model
 {
     /**
+     * @description The IDs of the bandwidth plans that are associated with the CEN instance.
+     *
      * @var cenBandwidthPackageIds
      */
     public $cenBandwidthPackageIds;
 
     /**
-     * @description The filter condition. Valid values:
+     * @description The CEN instance ID.
      *
-     *   **CenId**: the ID of a CEN instance.
-     *   **Name**: the name of a CEN instance.
-     *
-     * By default, the logical operator among filter conditions is **AND**. Information about a CEN instance is returned only if the CEN instance matches all filter conditions.
-     *
-     * You can specify at most five filter conditions in each call.
      * @example cen-0xyeagctz5sfg9****
      *
      * @var string
@@ -31,8 +27,9 @@ class cen extends Model
     public $cenId;
 
     /**
-     * @description The tags.
+     * @description The time when the CEN instance was created.
      *
+     * The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
      * @example 2019-10-22T07:44Z
      *
      * @var string
@@ -40,7 +37,7 @@ class cen extends Model
     public $creationTime;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The description of the CEN instance.
      *
      * @example desctest
      *
@@ -49,7 +46,10 @@ class cen extends Model
     public $description;
 
     /**
-     * @description The number of the page returned.
+     * @description Indicates whether IPv6 is enabled for the CEN instance.
+     *
+     *   **ENABLE**
+     *   **DISABLED**
      *
      * @example DISABLED
      *
@@ -58,7 +58,7 @@ class cen extends Model
     public $ipv6Level;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The CEN instance name.
      *
      * @example nametest
      *
@@ -67,7 +67,9 @@ class cen extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The level of CIDR block overlapping.
+     *
+     **REDUCED**: Overlapped CIDR blocks are allowed. This value specifies that CIDR blocks can overlap but CIDR blocks cannot be duplicates.
      *
      * @example REDUCED
      *
@@ -76,7 +78,7 @@ class cen extends Model
     public $protectionLevel;
 
     /**
-     * @description The values of the filter condition.
+     * @description The ID of the resource group to which the CEN instance belongs.
      *
      * @example rg-acfm3unpnuw****
      *
@@ -85,10 +87,11 @@ class cen extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether IPv6 is enabled for the CEN instance.
+     * @description The status of the CEN instance.
      *
-     *   **ENABLE**: enabled
-     *   **DISABLED**: disabled
+     *   **Creating**
+     *   **Active**
+     *   **Deleting**
      *
      * @example Active
      *
@@ -97,9 +100,8 @@ class cen extends Model
     public $status;
 
     /**
-     * @description The tag keys of the resources.
+     * @description The IDs of the tags that are added to the CEN instance.
      *
-     * You can specify at most 20 tag keys.
      * @var tags
      */
     public $tags;

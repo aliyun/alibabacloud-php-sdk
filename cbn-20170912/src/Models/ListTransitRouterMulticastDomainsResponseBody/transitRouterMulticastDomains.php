@@ -10,18 +10,28 @@ use AlibabaCloud\Tea\Model;
 class transitRouterMulticastDomains extends Model
 {
     /**
+     * @description The CEN instance ID.
+     *
+     * @example cen-a7syd349kne38g****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @description The region ID of the transit router.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * @example ap-southeast-2
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description WB656982
+     * @description The status of the multicast domain.
      *
+     * The valid value is **Active**, which indicates that the multicast domain is available.
      * @example Active
      *
      * @var string
@@ -29,11 +39,15 @@ class transitRouterMulticastDomains extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The transit router ID.
+     *
      * @example tr-bp1c23ijrl6d6c226h***
      *
      * @var string
@@ -41,7 +55,7 @@ class transitRouterMulticastDomains extends Model
     public $transitRouterId;
 
     /**
-     * @description ListTransitRouterMulticastDomains
+     * @description The description of the multicast domain.
      *
      * @example desctest
      *
@@ -50,12 +64,8 @@ class transitRouterMulticastDomains extends Model
     public $transitRouterMulticastDomainDescription;
 
     /**
-     * @description <ListTransitRouterMulticastDomainsResponse>
-     * <MaxResults>20</MaxResults>
-     * <NextToken>FFmyTO70tTpLG6I3FmYAXGKPd****</NextToken>
-     * <TransitRouterMulticastDomains>
-     * <TransitRouterMulticastDomainId>tr-mcast-domain-3r3bvbypxqheej****</TransitRouterMulticastDomainId>
-     * </ListTransitRouterMulticastDomainsResponse>
+     * @description The ID of the multicast domain.
+     *
      * @example tr-mcast-domain-3r3bvbypxqheej****
      *
      * @var string
@@ -63,7 +73,7 @@ class transitRouterMulticastDomains extends Model
     public $transitRouterMulticastDomainId;
 
     /**
-     * @description Queries the information about a multicast domain.
+     * @description The name of the multicast domain.
      *
      * @example nametest
      *

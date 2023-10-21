@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class orginInterRegionBandwidthLimit extends Model
 {
     /**
-     * @description WB01235021
+     * @description The maximum bandwidth value for the inter-region connection.
      *
      * @example 1
      *
@@ -18,6 +18,8 @@ class orginInterRegionBandwidthLimit extends Model
     public $bandwidthLimit;
 
     /**
+     * @description The connected regions.
+     *
      * @example north-america_china
      *
      * @var string
@@ -25,6 +27,8 @@ class orginInterRegionBandwidthLimit extends Model
     public $geographicSpanId;
 
     /**
+     * @description The ID of the local region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +36,8 @@ class orginInterRegionBandwidthLimit extends Model
     public $localRegionId;
 
     /**
+     * @description The ID of the peer region.
+     *
      * @example us-west-1
      *
      * @var string

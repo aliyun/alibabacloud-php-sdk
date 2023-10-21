@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteTransitRouterCidrRequest extends Model
 {
     /**
-     * @description The ID of the transit router.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426****
      *
      * @var string
@@ -18,7 +19,10 @@ class DeleteTransitRouterCidrRequest extends Model
     public $clientToken;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteTransitRouterCidr**.
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request.
      *
      * @example false
      *
@@ -37,8 +41,9 @@ class DeleteTransitRouterCidrRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the region where the transit router is deployed.
      *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example ap-southeast-2
      *
      * @var string
@@ -56,9 +61,9 @@ class DeleteTransitRouterCidrRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the region where the transit router is deployed.
+     * @description The ID of the CIDR block.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * You can call the [ListTransitRouterCidr](~~462772~~) operation to query the ID of a CIDR block.
      * @example cidr-0zv0q9crqpntzz****
      *
      * @var string
@@ -66,9 +71,8 @@ class DeleteTransitRouterCidrRequest extends Model
     public $transitRouterCidrId;
 
     /**
-     * @description The ID of the transit router CIDR block.
+     * @description The ID of the transit router.
      *
-     * You can call [ListTransitRouterCidr](~~462772~~) to query the ID of a transit router CIDR block.
      * @example tr-p0w3x8c9em72a40nw****
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenVbrHealthCheckResponseBody extends Model
 {
     /**
-     * @description The health check configuration of the VBR.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -19,15 +19,8 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description Indicates whether probing is enabled. Valid values:
+     * @description The number of entries returned per page.
      *
-     *   **true**: yes
-     *
-     * If probing is enabled, the system does not switch to another route when the detected route is not reachable.
-     *
-     *   **false**: no
-     *
-     * If probing is disabled and a redundant route is specified, the system switches to the redundant route when the detected route is not reachable.
      * @example 10
      *
      * @var int
@@ -35,7 +28,7 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The ID of the request.
      *
      * @example B8C9702E-304A-4E18-AC89-BE2D91C2C176
      *
@@ -44,9 +37,8 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the Alibaba Cloud account that owns the VBR.
+     * @description The total number of entries returned.
      *
-     * >  The parameter is required if the VBR and the CEN instance belong to different Alibaba Cloud accounts.
      * @example 1
      *
      * @var int
@@ -54,7 +46,7 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The page number of the returned page.
+     * @description The health check configuration of the VBR.
      *
      * @var vbrHealthChecks
      */

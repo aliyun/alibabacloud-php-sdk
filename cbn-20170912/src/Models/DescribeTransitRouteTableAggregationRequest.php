@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeTransitRouteTableAggregationRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeTransitRouteTableAggregationRequest extends Model
     public $clientToken;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +28,11 @@ class DescribeTransitRouteTableAggregationRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -50,6 +60,8 @@ class DescribeTransitRouteTableAggregationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The destination CIDR block of the aggregate route.
+     *
      * @example 192.168.10.0/24
      *
      * @var string
@@ -57,6 +69,8 @@ class DescribeTransitRouteTableAggregationRequest extends Model
     public $transitRouteTableAggregationCidr;
 
     /**
+     * @description The ID of the route table of the Enterprise Edition transit router.
+     *
      * @example vtb-6ehgc262hr170qgyc****
      *
      * @var string

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenBandwidthPackagesResponseBody extends Model
 {
     /**
-     * @description The expiration time of the temporary upgrade.
+     * @description The details about the bandwidth plan.
      *
      * @var cenBandwidthPackages
      */
     public $cenBandwidthPackages;
 
     /**
-     * @description A list of CEN instances that are associated with the bandwidth plan.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeCenBandwidthPackagesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the source region.
+     * @description The number of entries returned per page.
      *
      * @example 2
      *
@@ -35,13 +35,7 @@ class DescribeCenBandwidthPackagesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the area that you want to query. Valid values:
-     *
-     *   **china**: Chinese mainland.
-     *   **asia-pacific**: Asia Pacific
-     *   **europe**: Europe
-     *   **australia**: Australia
-     *   **north-america**: North America
+     * @description The request ID.
      *
      * @example 9D7E2400-2755-4AF5-9B73-12565E4F73A0
      *
@@ -50,7 +44,7 @@ class DescribeCenBandwidthPackagesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The bandwidth value to which the bandwidth plan is rolled back when the temporary upgrade ends.
+     * @description The total number of entries returned.
      *
      * @example 2
      *
