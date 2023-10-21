@@ -18,7 +18,7 @@ class hbaItem extends Model
     public $address;
 
     /**
-     * @description The name of the database that the specified users are allowed to access.
+     * @description The name of the database.
      *
      * @example all
      *
@@ -27,7 +27,7 @@ class hbaItem extends Model
     public $database;
 
     /**
-     * @description The mask of the instance.
+     * @description The mask of the IP address.
      *
      * @example null
      *
@@ -54,7 +54,7 @@ class hbaItem extends Model
     public $option;
 
     /**
-     * @description The priority of the instance.
+     * @description The priority.
      *
      * @example 3
      *
@@ -63,11 +63,12 @@ class hbaItem extends Model
     public $priorityId;
 
     /**
-     * @description The type of the connection.
+     * @description The connection type. Valor:
      *
-     * - **host**: The record matches TCP/IP connections, including SSL connections and non-SSL connections.
-     * - **hostssl**: The record matches only TCP/IP connections that are established over SSL.
-     * - **hostnossl**: The record matches only TCP/IP connections that are not established over SSL.
+     *   **host**: The record matches TCP/IP connections, including SSL connections and non-SSL connections.
+     *   **hostssl**: The record matches only TCP/IP connections that are established over SSL.
+     *   **hostnossl**: The record matches only TCP/IP connections that are not established over SSL connections.
+     *
      * @example host
      *
      * @var string
@@ -75,7 +76,7 @@ class hbaItem extends Model
     public $type;
 
     /**
-     * @description The username of the account that is used to connect to the instance.
+     * @description The username of the account.
      *
      * @example all
      *

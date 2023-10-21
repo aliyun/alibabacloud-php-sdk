@@ -19,7 +19,7 @@ class DescribeSlotsRequest extends Model
     public $clientToken;
 
     /**
-     * @description 实例ID。可调用[DescribeDBInstances](~~26232~~)查询。
+     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
      *
      * @example pgm-bp102g323jd4****
      *
@@ -38,7 +38,7 @@ class DescribeSlotsRequest extends Model
     public $ownerId;
 
     /**
-     * @description 资源组ID，可以为空。
+     * @description The ID of the resource group. You can leave this parameter empty.
      *
      * @example rg-acfmy*****
      *

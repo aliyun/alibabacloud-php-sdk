@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
-     * @description The ID of the destination region where the cross-region log backup file is stored.
+     * @description The ID of the destination region within which the cross-region backup file is stored.
      *
      * @example cn-shanghai
      *
@@ -54,7 +54,7 @@ class item extends Model
     public $crossLogBackupSize;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example 8161055
      *
@@ -63,7 +63,7 @@ class item extends Model
     public $instanceId;
 
     /**
-     * @description The time when the download URL of the cross-region log backup file expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the URL expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-06-30T15:00:00Z
      *
@@ -72,7 +72,7 @@ class item extends Model
     public $linkExpiredTime;
 
     /**
-     * @description The start time of the cross-region log backup file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The start time of the cross-region log backup file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-05-30T12:10:00Z
      *
@@ -81,7 +81,7 @@ class item extends Model
     public $logBeginTime;
 
     /**
-     * @description The end time of the cross-region log backup file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The end time of the cross-region log backup file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-05-30T20:10:00Z
      *

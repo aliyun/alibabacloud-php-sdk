@@ -78,8 +78,8 @@ class item extends Model
     /**
      * @description The RDS edition of the instance. Valid values:
      *
-     *   **Basic**: Basic Edition.
-     *   **HighAvailability**: High-availability Edition.
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability**: RDS High-availability Edition
      *   **Finance**: Enterprise Edition. This edition is supported only by the China site (aliyun.com).
      *
      * @example HighAvailability
@@ -116,7 +116,7 @@ class item extends Model
     public $crossBackupId;
 
     /**
-     * @description The ID of the destination region where the cross-region data backup file of the instance is stored.
+     * @description The ID of the region in which the cross-region backup files of the instance are stored.
      *
      * @example cn-shanghai
      *
@@ -156,7 +156,7 @@ class item extends Model
      *
      *   **local_ssd**: local SSD. This is the recommended storage type.
      *   **cloud_ssd**: standard SSD.
-     *   **cloud_essd**: enhanced SSD (ESSD).
+     *   **cloud_essd**: enhanced SSD (ESSD)
      *
      * @example ssd
      *
@@ -165,7 +165,7 @@ class item extends Model
     public $DBInstanceStorageType;
 
     /**
-     * @description The engine of the database.
+     * @description The database engine of the instance.
      *
      * @example mysql
      *
@@ -174,7 +174,7 @@ class item extends Model
     public $engine;
 
     /**
-     * @description The version of the database engine.
+     * @description The database engine version of the instance.
      *
      * @example 5.6
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseConfigRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-t4nnu1my39qr8642q
      *
@@ -18,8 +18,9 @@ class ModifyDatabaseConfigRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
+     * >  You can specify only one database name.
      * @example testDB
      *
      * @var string
@@ -27,7 +28,7 @@ class ModifyDatabaseConfigRequest extends Model
     public $DBName;
 
     /**
-     * @description The name of the database property expected to be modified.
+     * @description The name of the database property that you want to modify.
      *
      * @example compatibility_level
      *
@@ -36,7 +37,7 @@ class ModifyDatabaseConfigRequest extends Model
     public $databasePropertyName;
 
     /**
-     * @description The database property value that is expected to be modified.
+     * @description The value of the database property that you want to modify.
      *
      * @example 150
      *

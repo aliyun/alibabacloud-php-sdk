@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hbaItem extends Model
 {
     /**
-     * @description The IP address of the instance.
+     * @description The IP address.
      *
      * @example 0.0.0.0/0
      *
@@ -27,7 +27,7 @@ class hbaItem extends Model
     public $database;
 
     /**
-     * @description The mask of the instance.
+     * @description The mask of the IP address.
      *
      * @example null
      *
@@ -54,7 +54,7 @@ class hbaItem extends Model
     public $option;
 
     /**
-     * @description The priority of the configuration item in the pg_hba.conf file.
+     * @description The priority.
      *
      * @example 0
      *
@@ -63,7 +63,7 @@ class hbaItem extends Model
     public $priorityId;
 
     /**
-     * @description The type of the connection.
+     * @description The connection type.
      *
      * @example host
      *
@@ -72,7 +72,7 @@ class hbaItem extends Model
     public $type;
 
     /**
-     * @description The username of the account that was used to connect to the instance.
+     * @description The username of the account.
      *
      * @example ldapuser
      *

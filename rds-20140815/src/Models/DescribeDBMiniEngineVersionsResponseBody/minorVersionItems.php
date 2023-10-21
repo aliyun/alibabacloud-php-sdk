@@ -37,8 +37,12 @@ class minorVersionItems extends Model
     public $engineVersion;
 
     /**
-     * @description 内核版本过期状态：vaild-有效；expired-过期
+     * @description 内核版本过期状态。返回值如下：
      *
+     * - **vaild**：有效
+     * - **expired**：过期
+     *
+     * > 下线状态为Offline时，表示版本已下线，此时忽略过期状态。下线状态为Online时，过期状态为expired，表示版本已超过生命周期；过期状态为vaild，表示版本仍在生命周期内。
      * @example vaild
      *
      * @var string

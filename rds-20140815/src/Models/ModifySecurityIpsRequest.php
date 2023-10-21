@@ -51,7 +51,7 @@ class ModifySecurityIpsRequest extends Model
     public $freshWhiteListReadins;
 
     /**
-     * @description The method that is used to modify the IP address whitelist. Valid values:
+     * @description The method that is used to modify the whitelist. Valid values:
      *
      *   **Cover**: Use the IP addresses and CIDR blocks that are specified in the **SecurityIps** parameter to overwrite the existing IP addresses and CIDR blocks in the IP address whitelist.
      *   **Append**: Add the IP addresses and CIDR blocks that are specified in the **SecurityIps** parameter to the IP address whitelist.

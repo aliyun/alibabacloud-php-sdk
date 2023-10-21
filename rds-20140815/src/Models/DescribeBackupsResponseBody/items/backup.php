@@ -19,7 +19,7 @@ class backup extends Model
     /**
      * @description The URL that is used to download the backup set over the Internet. If the backup set cannot be downloaded, null is returned.
      *
-     * > For example, if BackupMethod of an ApsaraDB RDS for SQL Server instance is set to **Snapshot**, a null string is returned.
+     * >  For example, if BackupMethod of an ApsaraDB RDS for SQL Server instance is set to **Snapshot**, a null string is returned.
      * @example http://rdsbak-hz-v3.oss-cn-hangzhou.aliyuncs.com/xxxxx
      *
      * @var string
@@ -59,7 +59,7 @@ class backup extends Model
     /**
      * @description The URL that is used to download the backup set over an internal network. If the backup set cannot be downloaded, null is returned.
      *
-     * > For example, if BackupMethod of an ApsaraDB RDS for SQL Server instance is set to **Snapshot**, a null string is returned.
+     * >  For example, if BackupMethod of an ApsaraDB RDS for SQL Server instance is set to **Snapshot**, a null string is returned.
      * @example http://rdsbak-hz-v3.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx
      *
      * @var string
@@ -92,7 +92,7 @@ class backup extends Model
     public $backupMode;
 
     /**
-     * @description The backup size. Unit: bytes.
+     * @description The size of the data backup file. Unit: bytes.
      *
      * @example 2167808
      *
@@ -101,7 +101,7 @@ class backup extends Model
     public $backupSize;
 
     /**
-     * @description The start time of the backup task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @description The start time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
      *
      * @example 2019-02-03T12:20:00Z
      *
@@ -110,7 +110,7 @@ class backup extends Model
     public $backupStartTime;
 
     /**
-     * @description The status of the backup set.
+     * @description The state of the backup set.
      *
      * @example Success
      *
@@ -121,8 +121,8 @@ class backup extends Model
     /**
      * @description The backup type of the backup set. Valid values:
      *
-     *   **FullBackup**: full backup
-     *   **IncrementalBackup**: incremental backup
+     *   **FullBackup**
+     *   **IncrementalBackup**
      *
      * @example FullBackup
      *
@@ -142,7 +142,7 @@ class backup extends Model
     /**
      * @description The point in time at which the data in the backup set is consistent. The return value of this parameter is a timestamp.
      *
-     * > If the instance runs MySQL 5.6, a timestamp is returned. Otherwise, the value 0 is returned.
+     * >  If the instance runs MySQL 5.6, a timestamp is returned. Otherwise, the value 0 is returned.
      * @example 1576506856
      *
      * @var int
@@ -155,7 +155,7 @@ class backup extends Model
      *   0: the standard mode. This mode supports full backups and incremental backups.
      *   1: the copy-only mode. This mode supports only full backups.
      *
-     * > This parameter is returned only when the instance runs SQL Server.
+     * >  This parameter is returned only when the instance runs SQL Server.
      * @example 0
      *
      * @var string
@@ -163,7 +163,7 @@ class backup extends Model
     public $copyOnlyBackup;
 
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -181,7 +181,7 @@ class backup extends Model
     public $encryption;
 
     /**
-     * @description The No. of the instance that generates the backup set. This parameter is used to indicate whether the instance that generates the backup set is a primary instance or a secondary instance.
+     * @description The ID of the instance that generates the backup set. This parameter is used to indicate whether the instance that generates the backup set is a primary instance or a secondary instance.
      *
      * @example 5882781
      *
@@ -204,11 +204,11 @@ class backup extends Model
     /**
      * @description The status of the backup set that is used to restore individual databases or tables. Valid values:
      *
-     *   **OK**: The backup set is normal.
-     *   **LARGE**: The backup set contains an abnormally large number of tables. It cannot be used to restore individual databases or tables.
-     *   **EMPTY**: The backup set is generated from a failed backup task.
+     *   **OK**: The data backup file is normal.
+     *   **LARGE**: The data backup file contains an abnormally large number of tables. It cannot be used to restore individual databases or tables.
+     *   **EMPTY**: The data backup file is generated from a failed backup task.
      *
-     * > If an empty string is returned, the backup set cannot be used to restore individual databases or tables.
+     * >  If an empty string is returned, the data backup file cannot be used to restore individual databases or tables.
      * @example OK
      *
      * @var string
@@ -216,7 +216,7 @@ class backup extends Model
     public $metaStatus;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *

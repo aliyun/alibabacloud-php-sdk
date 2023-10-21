@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePromoteActivityResponseBody extends Model
 {
     /**
+     * @example 22973492**********
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example 268**
+     *
      * @var string
      */
     public $bid;
 
     /**
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $isActivity;
 
     /**
+     * @example 94CB8D93-017A-5AE7-A118-6E0F89D93C0A
+     *
      * @var string
      */
     public $requestId;

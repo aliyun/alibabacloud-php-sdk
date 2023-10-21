@@ -18,6 +18,21 @@ class DBClusterNode extends Model
     public $classCode;
 
     /**
+     * @var string
+     */
+    public $classType;
+
+    /**
+     * @var string
+     */
+    public $cpu;
+
+    /**
+     * @var string
+     */
+    public $memory;
+
+    /**
      * @description The node ID.
      *
      * @example rn-****
@@ -55,12 +70,21 @@ class DBClusterNode extends Model
      * @var string
      */
     public $nodeZoneId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'classCode'    => 'ClassCode',
+        'classType'    => 'ClassType',
+        'cpu'          => 'Cpu',
+        'memory'       => 'Memory',
         'nodeId'       => 'NodeId',
         'nodeRegionId' => 'NodeRegionId',
         'nodeRole'     => 'NodeRole',
         'nodeZoneId'   => 'NodeZoneId',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -73,6 +97,15 @@ class DBClusterNode extends Model
         if (null !== $this->classCode) {
             $res['ClassCode'] = $this->classCode;
         }
+        if (null !== $this->classType) {
+            $res['ClassType'] = $this->classType;
+        }
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -84,6 +117,9 @@ class DBClusterNode extends Model
         }
         if (null !== $this->nodeZoneId) {
             $res['NodeZoneId'] = $this->nodeZoneId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -100,6 +136,15 @@ class DBClusterNode extends Model
         if (isset($map['ClassCode'])) {
             $model->classCode = $map['ClassCode'];
         }
+        if (isset($map['ClassType'])) {
+            $model->classType = $map['ClassType'];
+        }
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
@@ -111,6 +156,9 @@ class DBClusterNode extends Model
         }
         if (isset($map['NodeZoneId'])) {
             $model->nodeZoneId = $map['NodeZoneId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

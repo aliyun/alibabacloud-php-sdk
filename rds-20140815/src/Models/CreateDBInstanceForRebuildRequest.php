@@ -57,7 +57,7 @@ class CreateDBInstanceForRebuildRequest extends Model
      *
      * Default value: Classic.
      *
-     * > : If you set this parameter to **VPC**, you must also specify **VpcId** and **VSwitchId**.
+     * >  The **VPCId** and **VSwitchId** parameters must be specified when this parameter is set to **VPC**.
      * @example VPC
      *
      * @var string
@@ -92,7 +92,7 @@ class CreateDBInstanceForRebuildRequest extends Model
      *   **Year**
      *   **Month**
      *
-     * > : If you set PayType to **Prepaid**, you must also specify this parameter.
+     * >  This parameter must be specified when the PayType parameter is set to **Prepaid**.
      * @example Month
      *
      * @var string

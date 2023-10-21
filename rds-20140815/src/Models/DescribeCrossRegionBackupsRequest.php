@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossRegionBackupsRequest extends Model
 {
     /**
-     * @description The ID of the cross-region data backup file.
+     * @description The ID of the backup file.
      *
      * @example 603524***
      *
@@ -28,7 +28,7 @@ class DescribeCrossRegionBackupsRequest extends Model
     public $crossBackupId;
 
     /**
-     * @description The ID of the destination region where the cross-region data backup file is stored.
+     * @description The ID of the region in which the cross-region data backup file is stored.
      *
      * @example cn-shanghai
      *
@@ -37,7 +37,7 @@ class DescribeCrossRegionBackupsRequest extends Model
     public $crossBackupRegion;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -60,7 +60,7 @@ class DescribeCrossRegionBackupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     * @description The page number. Valid values: any non-zero positive integer.
      *
      * Default value: **1**.
      * @example 1
@@ -70,7 +70,7 @@ class DescribeCrossRegionBackupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values:
+     * @description The number of entries per page. Valid values:
      *
      *   **30**
      *   **50**
@@ -84,7 +84,7 @@ class DescribeCrossRegionBackupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

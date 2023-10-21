@@ -11,7 +11,7 @@ class TerminateMigrateTaskRequest extends Model
     /**
      * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
      *
-     * @example rm-bp159vfbuxxxxx9b5
+     * @example rm-bp159vfbu******
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class TerminateMigrateTaskRequest extends Model
     /**
      * @description The ID of the migration task. You can call the [DescribeMigrateTasks](~~64563~~) operation to query the ID of the migration task.
      *
-     * @example 56254xxxxx
+     * @example 56254****
      *
      * @var string
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyPGHbaConfigLogResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example pgm-bp1lymyn1v3i****
      *
@@ -35,7 +35,7 @@ class DescribeModifyPGHbaConfigLogResponseBody extends Model
     public $logItemCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6D797E6B-E157-510C-A27F-6F9E6DA40633
      *

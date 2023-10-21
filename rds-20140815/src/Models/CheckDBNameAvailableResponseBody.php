@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CheckDBNameAvailableResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
-     * > If this operation returns only the ID of the request, the database name conforms to the naming conventions. If an error message is returned, the database name is duplicate or does not conform to the naming conventions.
+     * >  If this operation returns only the ID of the request, the database name conforms to the naming conventions. If an error message is returned, the database name is duplicate or does not conform to the naming conventions.
      * @example 6EF82B07-28D2-48D1-B5D6-7E78FED277C7
      *
      * @var string

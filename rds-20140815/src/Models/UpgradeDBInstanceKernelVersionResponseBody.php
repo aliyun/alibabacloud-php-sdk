@@ -38,7 +38,7 @@ class UpgradeDBInstanceKernelVersionResponseBody extends Model
     /**
      * @description The ID of the task.
      *
-     * @example 226917711
+     * @example 226917****
      *
      * @var string
      */

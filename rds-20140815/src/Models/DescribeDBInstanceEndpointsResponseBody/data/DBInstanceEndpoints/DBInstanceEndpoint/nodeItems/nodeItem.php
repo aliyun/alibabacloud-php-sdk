@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodeItem extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-u****
      *
@@ -18,7 +18,7 @@ class nodeItem extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example rn-****13p6tum4289h
      *

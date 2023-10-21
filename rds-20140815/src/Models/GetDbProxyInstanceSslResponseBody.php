@@ -17,7 +17,7 @@ class GetDbProxyInstanceSslResponseBody extends Model
     public $dbProxyCertListItems;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D330E60C-8AAA-4D63-8F64-5B78F4692F98
      *

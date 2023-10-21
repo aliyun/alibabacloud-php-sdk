@@ -29,15 +29,9 @@ class dbProxyEndpointItems extends Model
     /**
      * @description The type of the proxy terminal.
      *
-     * Valid values:
+     *   Custom: custom proxy terminal
+     *   RWSplit: default proxy terminal
      *
-     *   Custom
-     *
-     * <!-- -->
-     *
-     *   RWSplit
-     *
-     * <!-- -->
      * @example RWSplit
      *
      * @var string
@@ -47,15 +41,9 @@ class dbProxyEndpointItems extends Model
     /**
      * @description The read and write attributes of the proxy terminal.
      *
-     * Valid values:
+     *   ReadOnly: The proxy terminal supports only read requests.
+     *   ReadWrite: The proxy terminal supports read and write requests.
      *
-     *   ReadOnly
-     *
-     * <!-- -->
-     *
-     *   ReadWrite
-     *
-     * <!-- -->
      * @example ReadWrite
      *
      * @var string

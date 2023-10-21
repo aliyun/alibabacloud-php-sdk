@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePGHbaConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-bp1*****
      *
@@ -20,7 +20,7 @@ class DescribePGHbaConfigResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description An array that consists of the default configuration items in the pg_hba.conf file.
+     * @description The default configuration items of the pg_hba.conf file.
      *
      * @var defaultHbaItems
      */
@@ -36,13 +36,11 @@ class DescribePGHbaConfigResponseBody extends Model
     public $hbaModifyTime;
 
     /**
-     * @description The status of the previous modification to the pg_hba.conf file.
+     * @description The status of the previous modification to the pg_hba.conf file. Valid values:
      *
-     * Valid values:
-     *
-     *   **success**: The modification is successful.
-     *   **setting**: The modification is being applied.
-     *   **failed**: The modification fails.
+     *   **success**
+     *   **setting**
+     *   **failed**
      *
      * @example success
      *
@@ -60,7 +58,7 @@ class DescribePGHbaConfigResponseBody extends Model
     public $modifyStatusReason;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A147A124-A147-5CCF-9609-B73C028848DF
      *
@@ -69,7 +67,7 @@ class DescribePGHbaConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the current configuration items in the pg_hba.conf file.
+     * @description The current configuration items of the pg_hba.conf file.
      *
      * @var runningHbaItems
      */

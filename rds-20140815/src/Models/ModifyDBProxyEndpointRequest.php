@@ -30,7 +30,7 @@ class ModifyDBProxyEndpointRequest extends Model
     public $configDBProxyFeatures;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-bp145737x5bi6****
      *
@@ -39,14 +39,10 @@ class ModifyDBProxyEndpointRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~140955~~) operation to query the ID of the proxy endpoint.
+     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~610507~~) operation to query the ID of the proxy endpoint.
      *
-     * >
-     *
-     *   If the instance runs MySQL and you set **DbEndpointOperator** to **Delete** or **Modify**, you must specify DBProxyEndpointId.
-     *
-     *   If the instance runs PostgreSQL and you set **DbEndpointOperator** to **Delete**, **Modify**, or **Create**, you must specify DBProxyEndpointId.
-     *
+     * > *   If the instance runs MySQL and you set **DbEndpointOperator** to **Delete** or **Modify**, you must specify DBProxyEndpointId.
+     * > *   If the instance runs PostgreSQL and you set **DbEndpointOperator** to **Delete**, **Modify**, or **Create**, you must specify DBProxyEndpointId.
      * @example gos787jog2wk0y****
      *
      * @var string
@@ -54,7 +50,7 @@ class ModifyDBProxyEndpointRequest extends Model
     public $DBProxyEndpointId;
 
     /**
-     * @description An internal parameter. You do not need to specify this parameter.
+     * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example normal
      *
@@ -90,12 +86,8 @@ class ModifyDBProxyEndpointRequest extends Model
      *   **ReadWrite**: The proxy terminal connects to the primary instance and can receive both read and write requests.
      *   **ReadOnly**: The proxy terminal does not connect to the primary instance and can receive only read requests. This is the default value.
      *
-     * >
-     *
-     *   If you set **DbEndpointOperator** to **Create**, you must also specify DbEndpointReadWriteMode.
-     *
-     *   If the instance runs MySQL and you change the value of this parameter from **ReadWrite** to **ReadOnly**, the transaction splitting feature is disabled.
-     *
+     * > *   If you set **DbEndpointOperator** to **Create**, you must also specify DbEndpointReadWriteMode.
+     * > *   If the instance runs MySQL and you change the value of this parameter from **ReadWrite** to **ReadOnly**, the transaction splitting feature is disabled.
      * @example ReadWrite
      *
      * @var string
@@ -144,15 +136,15 @@ class ModifyDBProxyEndpointRequest extends Model
      *
      *   Standard instance: `{"ID of the primary instance":"Weight","ID of the read-only instance":"Weight"...}`
      *
-     * Example: `{"rm-uf6wjk5xxxx":"500","rr-tfhfgk5xxx":"200"...}`
+     * Example: `{"rm-uf6wjk5****":"500","rr-tfhfgk5xxx":"200"...}`
      *
-     *   Instance on RDS Cluster Edition: `{"ID of the read-only instance ID":"Weight","DBClusterNode":{"ID of the primary node":"Weight","ID of the secondary node ID":"Weight","ID of the secondary node ID":"Weight"...}}`
+     *   Instance on RDS Cluster Edition: `{"ID of the read-only instance":"Weight","DBClusterNode":{"ID of the primary node":"Weight","ID of the secondary node":"Weight","ID of the secondary node":"Weight"...}}`
      *
-     * Example: `{"rr-tfhfgk5xxx":"200","DBClusterNode":{"rn-2z****":"0","rn-2z****":"400","rn-2z****":"400"...}}`
+     * Example: `{"rr-tfhfgk5****":"200","DBClusterNode":{"rn-2z****":"0","rn-2z****":"400","rn-2z****":"400"...}}`
      *
      **
      *
-     **Note****DBClusterNode** is required if the instance runs RDS Cluster Edition. The DBClusterNode parameter includes information about **IDs** and **weights** of the primary and secondary nodes.
+     **Note** **DBClusterNode** is required if the instance runs RDS Cluster Edition. The DBClusterNode parameter includes information about **IDs** and **weights** of the primary and secondary nodes..
      *
      * @example {"rm-uf6wjk5xxxx":"500","rr-tfhfgk5xxx":"200"...}
      *
@@ -161,7 +153,7 @@ class ModifyDBProxyEndpointRequest extends Model
     public $readOnlyInstanceWeight;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

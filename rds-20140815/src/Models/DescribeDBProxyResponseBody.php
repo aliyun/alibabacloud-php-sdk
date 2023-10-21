@@ -83,23 +83,11 @@ class DescribeDBProxyResponseBody extends Model
     /**
      * @description The status of the proxy instance.
      *
-     * Valid values:
+     *   DBInstanceClassChanging: The specifications of the proxy instance are being changed.
+     *   Creating: The proxy instance is being created.
+     *   Running: The proxy instance is being running.
+     *   Deleting: The proxy instance is being deleted.
      *
-     *   DBInstanceClassChanging
-     *
-     * <!-- -->
-     *
-     *   Creating
-     *
-     * <!-- -->
-     *
-     *   Running
-     *
-     * <!-- -->
-     *
-     *   Deleting
-     *
-     * <!-- -->
      * @example Running
      *
      * @var string
@@ -109,15 +97,10 @@ class DescribeDBProxyResponseBody extends Model
     /**
      * @description The type of the database proxy that is enabled on the instance.
      *
-     * Valid values:
+     *   1: shared proxy
+     *   2: dedicated proxy
      *
-     *   1
-     *
-     * <!-- -->
-     *
-     *   2
-     *
-     * <!-- -->
+     * >  ApsaraDB RDS for PostgreSQL instances support only dedicated proxies.
      * @example 2
      *
      * @var string
@@ -127,15 +110,9 @@ class DescribeDBProxyResponseBody extends Model
     /**
      * @description The status of the database proxy.
      *
-     * Valid values:
+     *   Shutdown: disabled
+     *   Startup: enabled
      *
-     *   Shutdown
-     *
-     * <!-- -->
-     *
-     *   Startup
-     *
-     * <!-- -->
      * @example Startup
      *
      * @var string

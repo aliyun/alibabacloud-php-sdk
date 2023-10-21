@@ -18,7 +18,7 @@ class endpointConnectItems extends Model
     public $dbProxyEndpointConnectString;
 
     /**
-     * @description The network type of the proxy endpoint. Valid values:
+     * @description The network type of the instance. Valid values:
      *
      *   **0**: Internet
      *   **1**: classic network

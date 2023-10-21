@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderForCreateDBNodesResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example rm-bp18623g3upv7wz8k
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateOrderForCreateDBNodesResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The order ID.
+     *
      * @example 503576619180646
      *
      * @var int
@@ -23,6 +27,8 @@ class CreateOrderForCreateDBNodesResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example 6622370F-436E-5325-B1C0-BF61E33877B5
      *
      * @var string

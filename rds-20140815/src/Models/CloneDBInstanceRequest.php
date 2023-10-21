@@ -73,12 +73,13 @@ class CloneDBInstanceRequest extends Model
      *   **cluster**: RDS Cluster Edition for MySQL.
      *   **Finance**: RDS Enterprise Edition. This edition is available only on the China site (aliyun.com).
      *
-     **Serverless instances**
+     **Serverless instance**
      *
      *   **serverless_basic**: RDS Serverless Basic Edition. This edition is available only for instances that run MySQL and PostgreSQL.
      *   **serverless_standard**: RDS Serverless High-availability Edition for MySQL.
-     *   **serverless_ha** RDS Serverless High-availability Edition for SQL Server.
+     *   **serverless_ha**: RDS Serverless High-availability Edition for SQL Server.
      *
+     * >  You do not need to configure this parameter. The value of this parameter is the same as that of the original instance.
      * @example HighAvailability
      *
      * @var string

@@ -11,7 +11,7 @@ class MigrateDBInstanceResponseBody extends Model
     /**
      * @description The serial number of the task in the migration task queue. When the serial number becomes 0, the system starts the migration.
      *
-     * @example 2245016
+     * @example 224****
      *
      * @var int
      */
@@ -29,7 +29,7 @@ class MigrateDBInstanceResponseBody extends Model
     /**
      * @description The ID of the task.
      *
-     * @example 108246861
+     * @example 10824****
      *
      * @var int
      */

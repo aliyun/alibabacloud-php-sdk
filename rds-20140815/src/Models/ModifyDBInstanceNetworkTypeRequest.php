@@ -19,7 +19,7 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $classicExpiredDays;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -47,7 +47,7 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The internal IP address of the instance. The internal IP address must be within the CIDR block supported by the specified vSwitch. ApsaraDB RDS automatically assigns an internal IP address to the instance based on the values of the **VPCId** and **VSwitchId** parameters.
+     * @description The internal IP address of the instance. The internal IP address must be within the CIDR block supported by the specified vSwitch. The system automatically assigns a private IP address to an instance based on the values of **VPCId** and **VSwitchId**.
      *
      * @example 172.10.40.25
      *
@@ -58,7 +58,7 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     /**
      * @description The number of days for which you want to retain the read/write splitting endpoint of the classic network type. Valid values: **1 to 120**. Default value: **7**.
      *
-     * > This parameter takes effect only when a read/write splitting endpoint of the classic network type exists and the **RetainClassic** parameter is set to **True**.
+     * >  This parameter takes effect only when a read/write splitting endpoint of the classic network type exists and the **RetainClassic** parameter is set to **True**.
      * @example 7
      *
      * @var int
@@ -66,9 +66,9 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $readWriteSplittingClassicExpiredDays;
 
     /**
-     * @description The internal IP address that corresponds to the read/write splitting endpoint of the instance. The internal IP address must be within the CIDR block supported by the specified vSwitch. The system automatically assigns an internal IP address to the read-only instance based on the values of the **VPCId** and **VSwitchId** parameters.
+     * @description The internal IP address that corresponds to the read/write splitting endpoint of the instance. The internal IP address must be within the CIDR block supported by the specified vSwitch. The system automatically assigns a private IP address to an instance based on the values of **VPCId** and **VSwitchId**.
      *
-     * > This value is valid when a read/write splitting endpoint of the classic network type exists.
+     * >  This parameter is valid when a read/write splitting endpoint of the classic network type exists.
      * @example 192.168.0.22
      *
      * @var string
@@ -89,9 +89,8 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
      * @description Specifies whether to retain the classic network endpoint. Valid values:
      *
      *   **True**: retains the classic network endpoint.
-     *   **False**: does not retain the classic network endpoint.
+     *   **False** (default): does not retain the classic network endpoint.
      *
-     * Default value: **False**.
      * @example True
      *
      * @var string
@@ -99,7 +98,7 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $retainClassic;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-uf6f7l4fg90xxxxxx
      *

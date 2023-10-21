@@ -54,7 +54,7 @@ class DescribeBackupsRequest extends Model
     public $backupType;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -97,7 +97,7 @@ class DescribeBackupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *

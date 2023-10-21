@@ -44,7 +44,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $clientCACert;
 
     /**
-     * @description The content of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. This parameter is not supported now.
+     * @description The time when the public key of the CA that issues client certificates expires. This parameter is supported only when the instance runs PostgreSQL with cloud disks. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. This parameter is not supported now.
      *
      * @example -
      *
@@ -135,7 +135,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $requireUpdate;
 
     /**
-     * @description The server certificate that needs to be updated. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+     * @description The server certificate that needs to be updated. This parameter is supported only when the instance runs PostgreSQL with cloud disk.
      *
      * @example -
      *
@@ -153,7 +153,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $requireUpdateReason;
 
     /**
-     * @description The time when the server certificate was created. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is valid only when CAType is set to aliyun.
+     * @description The time when the server certificate was created. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is valid only when the CAType parameter value is aliyun.
      *
      * @example -
      *
@@ -190,7 +190,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $SSLExpireTime;
 
     /**
-     * @description The URL of the certificate that is used to issue the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+     * @description The URL of the certificate that is used to issue the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disk.
      *
      * @example -
      *

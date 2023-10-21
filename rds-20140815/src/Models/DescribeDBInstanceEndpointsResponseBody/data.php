@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description An array that consists of details of the endpoint.
+     * @description The information of the endpoints of the instance.
      *
      * @var DBInstanceEndpoints
      */

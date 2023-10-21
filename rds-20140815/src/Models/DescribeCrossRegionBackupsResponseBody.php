@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossRegionBackupsResponseBody extends Model
 {
     /**
-     * @description The end of the time range that is queried.
+     * @description The end of the time range to query.
      *
      * @example 2019-06-15T12:10:00Z
      *
@@ -19,14 +19,14 @@ class DescribeCrossRegionBackupsResponseBody extends Model
     public $endTime;
 
     /**
-     * @description An array that consists of details of the cross-region data backup files.
+     * @description The cross-region data backup files.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number of the returned page. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: **1**.
      * @example 1
@@ -54,7 +54,7 @@ class DescribeCrossRegionBackupsResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 60912B41-7579-4B5D-B289-8856030F0A6A
      *
@@ -63,7 +63,7 @@ class DescribeCrossRegionBackupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that is queried.
+     * @description The beginning of the time range to query.
      *
      * @example 2019-05-30T12:10:00Z
      *
@@ -72,7 +72,7 @@ class DescribeCrossRegionBackupsResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of entries that are returned.
      *
      * @example 100
      *

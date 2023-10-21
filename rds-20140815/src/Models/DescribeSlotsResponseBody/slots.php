@@ -18,8 +18,21 @@ class slots extends Model
     public $database;
 
     /**
-     * @description The extension that is used by the replication slot.
+     * @description The extension used by the replication slot.
      *
+     * Valid values:
+     *
+     *   test_decoding
+     *
+     * <!-- -->
+     *
+     *   pgoutput
+     *
+     * <!-- -->
+     *
+     *   wal2json
+     *
+     * <!-- -->
      * @example test_decoding
      *
      * @var string
@@ -56,6 +69,15 @@ class slots extends Model
     /**
      * @description The type of the replication slot.
      *
+     * Valid values:
+     *
+     *   physical
+     *
+     * <!-- -->
+     *
+     *   logical
+     *
+     * <!-- -->
      * @example logical
      *
      * @var string
@@ -63,7 +85,7 @@ class slots extends Model
     public $slotType;
 
     /**
-     * @description The current Replication Slot corresponds to the specific delay of the logical subscription of the subscriber, in seconds (s)
+     * @description The latency of the logical subscription on the subscriber node that corresponds to the current replication slot. Unit: seconds.
      *
      * @example 0
      *
@@ -72,7 +94,7 @@ class slots extends Model
     public $subReplayLag;
 
     /**
-     * @description Indicates whether the replication slot is temporary.
+     * @description Indicates whether the replication slot is a temporary replication slot.
      *
      * Valid values:
      *
@@ -90,7 +112,7 @@ class slots extends Model
     public $temporary;
 
     /**
-     * @description The number of logs that are accumulated for the replication slot.
+     * @description The number of logs accumulated in the replication slot.
      *
      * @example 16 MB
      *

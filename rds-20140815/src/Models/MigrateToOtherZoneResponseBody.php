@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class MigrateToOtherZoneResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *

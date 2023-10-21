@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CalculateDBInstanceWeightRequest extends Model
 {
     /**
-     * @description The ID of the primary instance.
+     * @description The ID of the primary instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

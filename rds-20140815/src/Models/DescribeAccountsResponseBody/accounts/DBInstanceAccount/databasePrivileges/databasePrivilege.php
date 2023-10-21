@@ -11,11 +11,11 @@ class databasePrivilege extends Model
     /**
      * @description The type of the permissions. Valid values:
      *
-     *   **ReadWrite**: read and write permissions
-     *   **ReadOnly**: read-only permissions
-     *   **DDLOnly**: DDL-only permissions
-     *   **DMLOnly**: DML-only permissions
-     *   **Custom**: custom permissions (You can modify the permissions of the account by using SQL commands.)
+     *   **ReadWrite**: read and write permissions.
+     *   **ReadOnly**: read-only permissions.
+     *   **DDLOnly**: DDL-only permissions.
+     *   **DMLOnly**: DML-only permissions.
+     *   **Custom**: custom permissions. You can modify the permissions of the account by using SQL commands.
      *
      * @example ReadWrite
      *

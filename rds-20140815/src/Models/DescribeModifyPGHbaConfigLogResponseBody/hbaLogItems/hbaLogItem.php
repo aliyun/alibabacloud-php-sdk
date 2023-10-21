@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class hbaLogItem extends Model
 {
     /**
-     * @description The configuration of the pg_hba.conf file after the modification was made.
+     * @description The configurations of the pg_hba.conf file after modification.
      *
      * @var afterHbaItems
      */
     public $afterHbaItems;
 
     /**
-     * @description The configuration of the pg_hba.conf file before the modification was made.
+     * @description The configurations of the pg_hba.conf file before modification.
      *
      * @var beforeHbaItems
      */

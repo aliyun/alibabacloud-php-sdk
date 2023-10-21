@@ -32,7 +32,7 @@ class DescribeMigrateTasksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     * @description The page number. Valid values: any non-zero positive integer.
      *
      * Default value: **1**.
      * @example 1

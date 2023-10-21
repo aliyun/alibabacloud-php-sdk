@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceEndpoint extends Model
 {
     /**
-     * @description An array that consists of the details of the endpoint.
+     * @description The information about the endpoint.
      *
      * @var addressItems
      */
@@ -38,8 +38,8 @@ class DBInstanceEndpoint extends Model
     /**
      * @description The type of the endpoint. Valid values:
      *
-     *   **Primary**: read/write endpoint of the instance
-     *   **Readonly**: read-only endpoint of the instance
+     *   **Primary**: the read/write endpoint of the instance
+     *   **Readonly**: the read-only endpoint of the instance
      *
      * @example Readonly
      *
@@ -48,7 +48,7 @@ class DBInstanceEndpoint extends Model
     public $endpointType;
 
     /**
-     * @description An array consisting of the details of the node that is configured for the endpoint.
+     * @description The information about the node that is configured for the endpoint.
      *
      * @var nodeItems
      */

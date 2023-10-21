@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePromoteActivityRequest extends Model
 {
     /**
+     * @example 22973492**********
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $dbInstanceName;
@@ -24,6 +28,8 @@ class DescribeDBInstancePromoteActivityRequest extends Model
     public $ownerId;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $resourceGroupId;

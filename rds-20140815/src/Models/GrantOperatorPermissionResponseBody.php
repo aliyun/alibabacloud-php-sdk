@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GrantOperatorPermissionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 842B73C8-5776-4BD9-9872-69C8C46DD7D3
      *

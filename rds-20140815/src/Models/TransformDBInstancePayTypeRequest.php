@@ -14,12 +14,8 @@ class TransformDBInstancePayTypeRequest extends Model
      *   **true**
      *   **false**
      *
-     * >
-     *
-     *   This parameter is valid only when you change the billing method from pay-as-you-go to subscription.
-     *
-     *   All strings except **true** are considered **false**.
-     *
+     * > - This parameter is valid only when you change the billing method from pay-as-you-go to subscription.
+     * > - All strings except **true** are considered **false**.
      * @example true
      *
      * @var string

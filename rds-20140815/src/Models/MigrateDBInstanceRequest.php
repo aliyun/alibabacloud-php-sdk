@@ -11,7 +11,7 @@ class MigrateDBInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * @example rm-uf6wjk5xxxxxxx
+     * @example rm-uf6wjk5******
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class MigrateDBInstanceRequest extends Model
     /**
      * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the ID of the dedicated cluster.
      *
-     * @example dhg-4nxxxxxxx
+     * @example dhg-4n******
      *
      * @var string
      */
@@ -76,7 +76,7 @@ class MigrateDBInstanceRequest extends Model
     /**
      * @description The ID of the host to which you want to migrate the primary instance. You can call the [DescribeDedicatedHosts](~~200944~~) operation to obtain the ID of the host.
      *
-     * @example i-bpxxxxxxx1
+     * @example i-bp******
      *
      * @var string
      */
@@ -85,7 +85,7 @@ class MigrateDBInstanceRequest extends Model
     /**
      * @description The ID of the host to which you want to migrate the secondary instance. You can call the [DescribeDedicatedHosts](~~200944~~) operation to obtain the ID of the host.
      *
-     * @example i-bpxxxxxxx2
+     * @example i-bp******
      *
      * @var string
      */

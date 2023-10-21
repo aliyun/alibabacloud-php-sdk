@@ -28,7 +28,7 @@ class CreateMigrateTaskRequest extends Model
      *
      * Default value: **AsyncExecuteDBCheck** (compatible with SQL Server 2008 R2).
      *
-     * > When you set **IsOnlineDB** to **True**, the value of this parameter is valid.
+     * >  This parameter is valid when IsOnlineDB is set to **True**.
      * @example AsyncExecuteDBCheck
      *
      * @var string

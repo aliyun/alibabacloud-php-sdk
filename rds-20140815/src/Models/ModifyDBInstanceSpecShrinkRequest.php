@@ -113,14 +113,14 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $dedicatedHostGroupId;
 
     /**
-     * @description The type of the change that you want to perform on the instance. Valid values:
+     * @description The type of change that you want to perform on the instance. Valid values:
      *
      *   **Up** (default): upgrades a subscription instance, or upgrades or downgrades a pay-as-you-go instance.
      *   **Down**: downgrades a subscription instance.
      *   **TempUpgrade**: performs auto scaling on a subscription instance that runs SQL Server. This value is required for auto scaling.
      *   **Serverless**: modifies the auto scaling settings of a serverless instance This value is required if you want to modify the auto scaling settings of a serverless instance.
      *
-     * > If you want to change only the value of the **DBInstanceStorageType** parameter, you can leave the Direction parameter empty. For example, if you want to change the storage type of the instance from standard SSD to ESSD, you do not need to specify the Direction parameter.
+     * >  If you specify only **DBInstanceStorageType**, you can leave Direction empty. For example, if you want to change only the storage type of the instance from standard SSD to ESSD, you do not need to specify Direction.
      * @example Up
      *
      * @var string
@@ -233,9 +233,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $switchTime;
 
     /**
-     * @description The minor engine version of the instance. This parameter is required only when you create an instance that runs PostgreSQL.
+     * @description The number of the minor version.
      *
-     * > For more information about minor engine versions, see [Release notes for AliPG](~~126002~~).
+     * >  For more information about minor engine versions, see [Release notes for AliPG](~~126002~~).
      * @example rds_postgres_1200_20200830
      *
      * @var string

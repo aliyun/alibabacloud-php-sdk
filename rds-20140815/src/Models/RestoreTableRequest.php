@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RestoreTableRequest extends Model
 {
     /**
-     * @description The ID of the backup set.
+     * @description The ID of the backup set. You can call the [DescribeBackups](~~26273~~) operation to obtain the ID of the backup set.
      *
-     * You can call the [DescribeBackups](~~26273~~) operation to obtain the ID of the backup set.
-     *
-     * > You must specify at least one of **BackupId** and **RestoreTime**.
+     * > You must specify at least one of BackupId or **RestoreTime** parameters.
      * @example 9026262
      *
      * @var string
@@ -74,12 +72,8 @@ class RestoreTableRequest extends Model
     /**
      * @description The point in time to which you want to restore data. The point in time must fall within the specified log backup retention period. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
-     * >
-     *
-     *   You must specify at least one of **BackupId** and **RestoreTime**.
-     *
-     *   You must enable the log backup feature. For more information, see [Back up an ApsaraDB RDS for MySQL instance](~~98818~~).
-     *
+     * > *   You must specify at least one of **BackupId** and **RestoreTime**.
+     * > *   You must enable the log backup feature. For more information, see [Back up an ApsaraDB RDS for MySQL instance](~~98818~~).
      * @example 2011-06-11T16:00:00Z
      *
      * @var string

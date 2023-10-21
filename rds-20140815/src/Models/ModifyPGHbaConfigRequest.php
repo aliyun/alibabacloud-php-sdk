@@ -19,7 +19,7 @@ class ModifyPGHbaConfigRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example pgm-bp1lymyn1v3i****
      *
@@ -28,7 +28,7 @@ class ModifyPGHbaConfigRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The details of the AD domain.
+     * @description An array that consists of the details of the AD domain services.
      *
      * @var hbaItem[]
      */

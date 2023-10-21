@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossRegionLogBackupFilesResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -19,7 +19,7 @@ class DescribeCrossRegionLogBackupFilesResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The end of the time range queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The end of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-06-15T12:10:00Z
      *
@@ -28,14 +28,14 @@ class DescribeCrossRegionLogBackupFilesResponseBody extends Model
     public $endTime;
 
     /**
-     * @description An array that consists of cross-region log backup files.
+     * @description The cross-region log backup files.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number of the returned page. Pages start from page 1.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: **1**.
      * @example 1
@@ -45,7 +45,7 @@ class DescribeCrossRegionLogBackupFilesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of cross-region log backup files on the current page.
+     * @description The number of cross-region backup files on the current page.
      *
      * @example 30
      *
@@ -63,7 +63,7 @@ class DescribeCrossRegionLogBackupFilesResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DAC241E8-28E6-49DA-BFB0-B2DD090885C1
      *
@@ -72,7 +72,7 @@ class DescribeCrossRegionLogBackupFilesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The beginning of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-05-30T12:10:00Z
      *
@@ -81,7 +81,7 @@ class DescribeCrossRegionLogBackupFilesResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of entries that are returned.
      *
      * @example 100
      *

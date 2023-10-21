@@ -19,7 +19,7 @@ class DBInstanceAccount extends Model
     public $accountDescription;
 
     /**
-     * @description The username of the account.
+     * @description The name of the database account.
      *
      * @example test1
      *
@@ -58,7 +58,7 @@ class DBInstanceAccount extends Model
      *   **t**: yes
      *   **f**: no
      *
-     * > This parameter is returned only for instances that run PostgreSQL.
+     * >  This parameter is returned only for instances that run PostgreSQL.
      * @example f
      *
      * @var string
@@ -71,7 +71,7 @@ class DBInstanceAccount extends Model
      *   **t**: yes
      *   **f**: no
      *
-     * > This parameter is returned only for instances that run PostgreSQL.
+     * >  This parameter is returned only for instances that run PostgreSQL.
      * @example t
      *
      * @var string
@@ -84,7 +84,7 @@ class DBInstanceAccount extends Model
      *   **t**: yes
      *   **f**: no
      *
-     * > This parameter is returned only for instances that run PostgreSQL.
+     * >  This parameter is returned only for instances that run PostgreSQL.
      * @example t
      *
      * @var string
@@ -125,7 +125,7 @@ class DBInstanceAccount extends Model
      *   **t**: yes
      *   **f**: no
      *
-     * > This parameter is returned only for instances that run PostgreSQL.
+     * >  This parameter is returned only for instances that run PostgreSQL.
      * @example t
      *
      * @var string
@@ -139,7 +139,7 @@ class DBInstanceAccount extends Model
      *   **Empty**: The expiration time is not specified.
      *   **Actual expiration time** in the format of *yyyy-MM-dd*T*HH:mm:ss*Z in UTC. Example: 2022-10-01T00:00:00Z.
      *
-     * > This parameter is returned only for instances that run PostgreSQL.
+     * >  This parameter is returned only for instances that run PostgreSQL.
      * @example 2022-10-01T00:00:00Z
      *
      * @var string

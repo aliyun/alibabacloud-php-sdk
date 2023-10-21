@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class addressItem extends Model
 {
     /**
-     * @description The endpoint of the instance.
+     * @description The endpoints of the instance.
      *
      * @example rm****.mysql.rds.aliyuncs.com
      *
@@ -18,7 +18,7 @@ class addressItem extends Model
     public $connectionString;
 
     /**
-     * @description The IP address of the endpoint.
+     * @description The IP address.
      *
      * @example 10.71.XX.XX
      *
@@ -48,7 +48,7 @@ class addressItem extends Model
     public $port;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-bp12u14ecz****
      *
@@ -57,7 +57,7 @@ class addressItem extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The VPC ID.
      *
      * @example vpc-bp17xdic25d****
      *

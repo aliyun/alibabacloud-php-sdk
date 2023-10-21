@@ -15,14 +15,9 @@ class CreateDBInstanceRequest extends Model
      *
      * Valid values: **1** to **20**. Default value: **1**.
      *
-     * >
-     *
-     *   If you want to create multiple ApsaraDB RDS for MySQL instances at a time by using a single request, you can add tags to all the instances by using the **Tag.Key** parameter and the **Tag.Value** parameter. After the instances are created, you can manage the instances based on the tags.
-     *
-     *   After you submit a request to create multiple ApsaraDB RDS for MySQL instances, this operation returns **TaskId**, **RequestId**, and **Message**. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the details of an instance.
-     *
-     *   If the value of the **Engine** parameter is not **MySQL** and the value of the Amount parameter is greater than **1**, this operation fails and returns an error code `InvalidParam.Engine`.
-     *
+     * > *   If you want to create multiple ApsaraDB RDS for MySQL instances at a time by using a single request, you can add tags to all the instances by using the **Tag.Key** parameter and the **Tag.Value** parameter. After the instances are created, you can manage the instances based on the tags.
+     * > *   After you submit a request to create multiple ApsaraDB RDS for MySQL instances, this operation returns **TaskId**, **RequestId**, and **Message**. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the details of an instance.
+     * > *   If the value of the **Engine** parameter is not **MySQL** and the value of the Amount parameter is greater than **1**, this operation fails and returns an error code `InvalidParam.Engine`.
      * @example 2
      *
      * @var int
@@ -32,10 +27,10 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description Specifies whether to automatically complete the payment. Valid values:
      *
-     *   **true**: automatically completes the payment. You must make sure that your account balance is sufficient.
-     *   **false**: does not automatically complete the payment. An unpaid order is generated.
+     *   **true**: enables the feature. Make sure that your account balance is sufficient.
+     *   **false**: disables the feature. An unpaid order is generated.
      *
-     * > : The default value is true. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can pay for the order in the ApsaraDB RDS console.
+     * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to pay for the order.
      * @example true
      *
      * @var bool
@@ -48,12 +43,8 @@ class CreateDBInstanceRequest extends Model
      *   **true**
      *   **false**
      *
-     * >
-     *
-     *   The auto-renewal cycle is one month for a monthly subscription.
-     *
-     *   The auto-renewal cycle is one year for a yearly subscription.
-     *
+     * > *   The auto-renewal cycle is one month for a monthly subscription.
+     * > *   The auto-renewal cycle is one year for a yearly subscription.
      * @example true
      *
      * @var string
@@ -107,7 +98,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The RDS edition of the instance. Valid values:
      *
-     *   Regular RDS instance
+     *   Regular instance
      *
      *   **Basic**: RDS Basic Edition
      *   **HighAvailability**: RDS High-availability Edition
@@ -118,13 +109,10 @@ class CreateDBInstanceRequest extends Model
      *   Serverless instance
      *
      *   **serverless_basic**: RDS Serverless Basic Edition. This edition is available only for instances that run MySQL and PostgreSQL.
-     *   **serverless_standard**: RDS Serverless High-availability Edition for MySQL
+     *   **serverless_standard**: RDS Serverless High-availability Edition. This edition is available only for instances that run MySQL and PostgreSQL.
      *   **serverless_ha** RDS Serverless High-availability Edition for SQL Server.
      *
-     **
-     *
-     **Note**: This parameter is required if you want to create a serverless instance.
-     *
+     * > This parameter must be specified when you create a serverless instance.
      * @example HighAvailability
      *
      * @var string
@@ -175,14 +163,15 @@ class CreateDBInstanceRequest extends Model
     public $createStrategy;
 
     /**
-     * @description The instance type. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     * @description The instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~).
      *
-     * To create a serverless instance, set this parameter to one of the following values:
+     * To create a serverless instance, configure this parameter based on the following rules:
      *
      *   If you want to create a serverless instance that runs MySQL on RDS Basic Edition, set this parameter to **mysql.n2.serverless.1c**.
      *   If you want to create a serverless instance that runs MySQL on RDS High-availability Edition, set this parameter to **mysql.n2.serverless.2c**.
      *   If you want to create a serverless instance that runs SQL Server, set this parameter to **mssql.mem2.serverless.s2**.
-     *   If you want to create a serverless instance that runs PostgreSQL, set this parameter to **pg.n2.serverless.1c**.
+     *   If you want to create a serverless instance that runs PostgreSQL on RDS Basic Edition, set this parameter to **pg.n2.serverless.1c**
+     *   If you want to create a serverless instance that runs PostgreSQL on RDS High-availability Edition, set this parameter to **pg.n2.serverless.2c**
      *
      * @example rds.mysql.s1.small
      *
@@ -224,7 +213,7 @@ class CreateDBInstanceRequest extends Model
      *   **local_ssd**: local SSD. This is the recommended storage type.
      *   **cloud_ssd**: standard SSD. This storage type is not recommended. Standard SSDs are no longer available for purchase in some Alibaba Cloud regions.
      *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1).
-     *   **cloud_essd2**: ESSD of PL2
+     *   **cloud_essd2**: ESSD of PL2.
      *   **cloud_essd3**: ESSD of PL3.
      *
      * The default value of this parameter is determined by the instance type specified by the **DBInstanceClass** parameter.
@@ -232,7 +221,7 @@ class CreateDBInstanceRequest extends Model
      *   If the instance type specifies the local SSD storage type, the default value of this parameter is **local_ssd**.
      *   If the instance type specifies the standard SSD or ESSD storage type, the default value of this parameter is **cloud_essd**.
      *
-     * > : Serverless instances support only ESSDs of PL 1. For a serverless instance, you must set this parameter to **cloud_essd**.
+     * >  Serverless instances use only ESSDs of PL1. If you create a serverless instance, you must set this parameter to **cloud_essd**.
      * @example cloud_essd
      *
      * @var string
@@ -274,12 +263,8 @@ class CreateDBInstanceRequest extends Model
      *   The time zone of the instance is not in UTC. For more information, see [Time zones](~~297356~~).
      *   You can specify this parameter only when the instance runs PostgreSQL with standard SSDs or ESSDs.
      *
-     * >
-     *
-     *   You can specify the time zone when you create a primary instance. You cannot specify the time zone when you create a read-only instance. Read-only instances inherit the time zone of their primary instance.
-     *
-     *   If you do not specify this parameter, the system automatically assigns the default time zone of the region in which the instance resides.
-     *
+     * > *   You can specify the time zone when you create a primary instance. You cannot specify the time zone when you create a read-only instance. Read-only instances inherit the time zone of their primary instance.
+     * > *   If you do not specify this parameter, the system automatically assigns the default time zone of the region in which the instance resides.
      * @example +08:00
      *
      * @var string
@@ -325,9 +310,11 @@ class CreateDBInstanceRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the key that is used for disk encryption in the region in which the instance resides. If you specify the EncryptionKey parameter, disk encryption is automatically enabled. In this case, you must also specify the **RoleARN** parameter. Disk encryption cannot be disabled after it is enabled.
+     * @description The ID of the key that is used to encrypt data on standard SSDs or ESSDs in the region of the instance. If you specify the EncryptionKey parameter, cloud disk encryption is automatically enabled. In this case, you must also specify the **RoleARN** parameter. Cloud disk encryption cannot be disabled after it is enabled.
      *
      * You can obtain the ID of the key from the Key Management Service (KMS) console. You can also create a key. For more information, see [Create a CMK](~~181610~~).
+     *
+     * >  This parameter is optional when you create an ApsaraDB RDS for PostgreSQL instance. You need to only specify the **RoleARN** parameter to create an instance that has cloud disk encryption enabled by using the obtained key ID.
      * @example 0d24*****-da7b-4786-b981-9a164dxxxxxx
      *
      * @var string
@@ -377,17 +364,12 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **VPC**: a VPC
-     *   **Classic**: the classic network
+     *   **VPC**: virtual private cloud (VPC)
+     *   **Classic**: classic network
      *
-     * >
-     *
-     *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-     *
-     *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-     *
-     *   RDS instances that run SQL Server Basic and SQL Server Web can reside in the classic network and virtual private clouds (VPCs). If the instance runs other database engines, you must set this parameter to **VPC**.
-     *
+     * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+     * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+     * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engines, you must set this parameter to **VPC**.
      * @example Classic
      *
      * @var string
@@ -414,7 +396,7 @@ class CreateDBInstanceRequest extends Model
      *   **Year**
      *   **Month**
      *
-     * > : If you set PayType to **Prepaid**, you must also specify this parameter.
+     * >  If you set the PayType parameter to **Prepaid**, you must specify the UsedTime parameter.
      * @example Year
      *
      * @var string
@@ -486,18 +468,18 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The settings of the serverless instance. This parameter is required when you create a serverless instance.
      *
-     * > : ApsaraDB RDS for MariaDB does not support serverless instances.
+     * >  ApsaraDB RDS for MariaDB does not support serverless instances.
      * @var serverlessConfig
      */
     public $serverlessConfig;
 
     /**
-     * @description Specifies whether to enable the automatic storage expansion feature for the instance. This feature is supported if your RDS instance runs MySQL or PostgreSQL. Valid values:
+     * @description Specifies whether to enable the automatic storage expansion feature for the instance. The feature is supported if the instance runs MySQL or PostgreSQL. Valid values:
      *
      *   **Enable**: enables the feature.
      *   **Disable** (default): disables the feature.
      *
-     * > : After the instance is created, you can call the [ModifyDasInstanceConfig](~~610391~~) operation to adjust the settings of automatic storage expansion for the instance. For more information, see [Configure automatic storage expansion for an ApsaraDB RDS for MySQL instance](~~173826~~).
+     * >  After the instance is created, you can call the [ModifyDasInstanceConfig](~~610391~~) operation to adjust the settings of automatic storage expansion for the instance. For more information, see [Configure automatic storage expansion for an ApsaraDB RDS for MySQL instance](~~173826~~).
      * @example Disable
      *
      * @var string
@@ -505,7 +487,7 @@ class CreateDBInstanceRequest extends Model
     public $storageAutoScale;
 
     /**
-     * @description The thresholdon which automatic storage expansion is triggered. Unit: percent. Valid values:
+     * @description The threshold based on which automatic storage expansion is triggered. Unit: percent. Valid values:
      *
      *   **10**
      *   **20**
@@ -513,7 +495,7 @@ class CreateDBInstanceRequest extends Model
      *   **40**
      *   **50**
      *
-     * > : If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
+     * >  If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
      * @example 50
      *
      * @var int
@@ -523,12 +505,8 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The maximum storage capacity that is allowed for automatic storage expansion. The storage capacity of the instance cannot exceed the maximum storage capacity. Unit: GB.
      *
-     * >
-     *
-     *   Valid values: an integer greater than or equal to 0.
-     *
-     *   If you set **StorageAutoScale** to **Enable**, you must specify this parameter.
-     *
+     * > *   Valid values: an integer greater than or equal to 0.
+     * > *   If you set **StorageAutoScale** to **Enable**, you must specify this parameter.
      * @example 2000
      *
      * @var int
@@ -602,19 +580,14 @@ class CreateDBInstanceRequest extends Model
      *   xcluster: The instance runs MySQL 5.7 on RDS Enterprise Edition.
      *   xcluster80: The instance runs MySQL 8.0 on RDS Enterprise Edition.
      *
-     **
-     *
-     **Note**: You can call the [DescribeDBMiniEngineVersions](~~610643~~) operation to query the minor engine version. For more information about minor engine versions, see [Release notes of minor AliSQL versions](~~96060~~).
+     * > You can call the [DescribeDBMiniEngineVersions](~~610643~~) operation to query the minor engine version. For more information about minor engine versions, see [Release notes of minor AliSQL versions](~~96060~~).
      *
      *   If you create an instance that runs PostgreSQL, the value is in the following format: `rds_postgres_<Major engine version>00_<Minor engine version>`. Example: `rds_postgres_1400_20220830`. The following list describes the fields in the example value:
      *
      *   1400: The major engine version is PostgreSQL 14.
      *   20220830: the AliPG version. You can call the [DescribeDBMiniEngineVersions](~~610643~~) operation to query the AliPG version. For more information about minor engine versions, see [Release notes for AliPG](~~126002~~).
      *
-     **
-     *
-     **Note**: If you configure the **BabelfishConfig** parameter for your instance that runs PostgreSQL and set the babelfishEnabled field to true, the value of this parameter is in the following format: `rds_postgres_Major engine version00_AliPG version_babelfish`.
-     *
+     * > If you configure the **BabelfishConfig** parameter for your instance that runs PostgreSQL and set the babelfishEnabled field to true, the value of this parameter is in the following format: `rds_postgres_Major engine version00_AliPG version_babelfish`.
      * @example rds_20200229
      *
      * @var string
@@ -622,12 +595,12 @@ class CreateDBInstanceRequest extends Model
     public $targetMinorVersion;
 
     /**
-     * @description The subscription duration of the instance.
+     * @description The subscription duration of the instance. Valid values:
      *
      *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1 to 5**.
      *   If you set the **Period** parameter to **Month**, the value of the **UsedTime** parameter ranges from **1 to 11**.
      *
-     * > : If you set the PayType parameter to **Prepaid**, you must specify this parameter.
+     * >  If you set the PayType parameter to **Prepaid**, you must specify the UsedTime parameter.
      * @example 2
      *
      * @var string
@@ -687,7 +660,11 @@ class CreateDBInstanceRequest extends Model
     public $zoneId;
 
     /**
-     * @description The ID of the zone in which the secondary instance resides. If you set the ZoneIdSlave1 parameter and the **ZoneId** parameter to the same value, the single-zone deployment method is used. If you set the ZoneIdSlave1 parameter and the **ZoneId** parameter to different values, the multi-zone deployment method is used.
+     * @description The zone ID of the secondary instance.
+     *
+     *   If you set this parameter to **Auto**, the multi-zone deployment method is used and the zone of the secondary instance is automatically configured.
+     *   If you set this parameter to the same value as the **ZoneId** parameter, the single-zone deployment method is used.
+     *   If you set this parameter to a value that is different from the value of the **ZoneId** parameter, the multiple-zone deployment method is used.
      *
      * @example cn-hangzhou-c
      *
@@ -696,7 +673,11 @@ class CreateDBInstanceRequest extends Model
     public $zoneIdSlave1;
 
     /**
-     * @description The ID of the zone in which the secondary instance or logger instance resides. If you set the ZoneIdSlave2 parameter to the same value as the **ZoneId** parameter, the single-zone deployment method is used. If you set the ZoneIdSlave2 parameter to a different value from the **ZoneId** parameter, the multi-zone deployment method is used.
+     * @description The ID of the zone in which the secondary instance or logger instance resides.
+     *
+     *   If you set this parameter to **Auto**, the multi-zone deployment method is used and the zone of the secondary instance or logger instance is automatically configured.
+     *   If you set this parameter to the same value as the **ZoneId** parameter, the single-zone deployment method is used.
+     *   If you set this parameter to a value that is different from the value of the **ZoneId** parameter, the multiple-zone deployment method is used.
      *
      * @example cn-hangzhou-d
      *

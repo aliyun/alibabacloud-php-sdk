@@ -19,7 +19,7 @@ class DescribeSlotsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of information about replication slots.
+     * @description Details about the replication slot.
      *
      * @var slots[]
      */

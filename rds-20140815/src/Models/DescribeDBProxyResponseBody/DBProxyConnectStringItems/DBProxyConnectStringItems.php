@@ -20,15 +20,9 @@ class DBProxyConnectStringItems extends Model
     /**
      * @description The network type of the proxy endpoint.
      *
-     * Valid values:
+     *   OuterString: Internet
+     *   InnerString: internal network
      *
-     *   OuterString
-     *
-     * <!-- -->
-     *
-     *   InnerString
-     *
-     * <!-- -->
      * @example InnerString
      *
      * @var string
@@ -38,19 +32,10 @@ class DBProxyConnectStringItems extends Model
     /**
      * @description The network type of the database proxy.
      *
-     * Valid values:
+     *   0: Internet
+     *   1: classic network
+     *   2: virtual private cloud (VPC)
      *
-     *   0
-     *
-     * <!-- -->
-     *
-     *   1
-     *
-     * <!-- -->
-     *
-     *   2
-     *
-     * <!-- -->
      * @example 2
      *
      * @var string

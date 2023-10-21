@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceWeight extends Model
 {
     /**
-     * @description The ID of instance.
+     * @description The instance ID
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -18,7 +18,7 @@ class DBInstanceWeight extends Model
     public $DBInstanceId;
 
     /**
-     * @description The role of the instance. Valid values:
+     * @description The type of the instance. Valid values:
      *
      *   **Master**: primary instance
      *   **Readonly**: read-only instance
@@ -30,7 +30,7 @@ class DBInstanceWeight extends Model
     public $DBInstanceType;
 
     /**
-     * @description The threshold for the latency of data replication from the primary instance to the read-only instances. The read-only instances start to synchronize data from the primary instance after the time specified by the **ReadonlyInstanceSQLDelayedTime** parameter elapses. Unit: seconds.
+     * @description The latency at which the read-only instances replicate data. The read-only instances replicate data from the primary instance at the latency that is specified by the **ReadonlyInstanceSQLDelayedTime** parameter. Unit: seconds.
      *
      * @example 30
      *
@@ -39,7 +39,7 @@ class DBInstanceWeight extends Model
     public $readonlyInstanceSQLDelayedTime;
 
     /**
-     * @description The read weight that ApsaraDB RDS calculates in real time for the instance.
+     * @description The read weight that the system calculates in real time for the instance.
      *
      * @example 100
      *

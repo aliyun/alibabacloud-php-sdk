@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogBackupFilesRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -37,7 +37,7 @@ class DescribeLogBackupFilesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: **1**.
      * @example 1
@@ -66,7 +66,7 @@ class DescribeLogBackupFilesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The beginning of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2018-10-01T08:40Z
      *

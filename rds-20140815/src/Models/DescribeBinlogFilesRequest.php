@@ -38,7 +38,7 @@ class DescribeBinlogFilesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Pages start from page 1.
+     * @description The page number. Valid values: any non-zero positive integer.
      *
      * Default value: **1**.
      * @example 1
@@ -48,7 +48,7 @@ class DescribeBinlogFilesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
+     * @description The number of entries to return on each page.
      *
      * Valid values: **30** to **100**.
      *

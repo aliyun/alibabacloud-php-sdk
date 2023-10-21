@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeWhitelistTemplateRequest extends Model
 {
     /**
-     * @description 资源组ID。 关于资源组的更多信息，请参见什么是资源组。
+     * @description The resource group ID.
      *
      * @example rg-acfmy****
      *
@@ -28,7 +28,7 @@ class DescribeWhitelistTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the whitelist template. You can call the DescribeAllWhitelistTemplate operation to obtain the ID of the whitelist template.
+     * @description The ID of the whitelist template. You can call the [DescribeAllWhitelistTemplate](~~2412075~~) operation to obtain the ID of the whitelist template.
      *
      * @example 1012
      *

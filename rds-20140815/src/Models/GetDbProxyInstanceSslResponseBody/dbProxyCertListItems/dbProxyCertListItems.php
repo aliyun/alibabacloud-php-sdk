@@ -18,7 +18,7 @@ class dbProxyCertListItems extends Model
     public $certCommonName;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-t4n3axxxxx
      *
@@ -45,7 +45,7 @@ class dbProxyCertListItems extends Model
     public $endpointType;
 
     /**
-     * @description The time when the certificate expires.
+     * @description The time at which the certificate expires.
      *
      * @example 2021-12-16T08:43:20Z
      *

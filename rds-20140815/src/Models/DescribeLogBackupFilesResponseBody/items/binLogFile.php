@@ -36,7 +36,7 @@ class binLogFile extends Model
     public $intranetDownloadLink;
 
     /**
-     * @description The expiration time of the URL. The time follows the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The expiration time of the URL. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-03-01T15:04:13Z
      *

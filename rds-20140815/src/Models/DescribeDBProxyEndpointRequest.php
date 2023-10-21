@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBProxyEndpointRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-bp1ja4f56s7us****
      *
@@ -18,7 +18,7 @@ class DescribeDBProxyEndpointRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The proxy endpoint that you want to query. You can call the [DescribeDBProxy](~~141055~~) operation to query the proxy endpoint.
+     * @description The proxy endpoint that you want to query. You can call the [DescribeDBProxy](~~610506~~) operation to query the proxy endpoint.
      *
      * @example testproxy****.rwlb.rds.aliyuncs.com
      *
@@ -27,7 +27,7 @@ class DescribeDBProxyEndpointRequest extends Model
     public $DBProxyConnectString;
 
     /**
-     * @description The name of the proxy terminal to which the proxy endpoint belongs. You can call the [DescribeDBProxy](~~141055~~) operation to query the name of the proxy terminal.
+     * @description The name of the proxy terminal to which the proxy endpoint belongs. You can call the [DescribeDBProxy](~~610506~~) operation to query the name of the proxy terminal.
      *
      * @example keaxncrjluwu0gue****
      *
@@ -36,7 +36,7 @@ class DescribeDBProxyEndpointRequest extends Model
     public $DBProxyEndpointId;
 
     /**
-     * @description An internal parameter. You do not need to specify this parameter.
+     * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example normal
      *
@@ -50,7 +50,7 @@ class DescribeDBProxyEndpointRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

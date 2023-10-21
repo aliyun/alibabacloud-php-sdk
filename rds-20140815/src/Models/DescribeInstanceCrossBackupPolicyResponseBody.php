@@ -11,8 +11,8 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     /**
      * @description The status of the cross-region backup feature on the instance. Valid values:
      *
-     *   **Disable**: The feature is disabled.
-     *   **Enable**: The feature is enabled.
+     *   **Disable**
+     *   **Enable**
      *
      * @example Enable
      *
@@ -30,7 +30,7 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     public $backupEnabledTime;
 
     /**
-     * @description The ID of the region in which the cross-region backup files of the instance is stored.
+     * @description The ID of the destination region where the cross-region backup files of the instance are stored.
      *
      * @example cn-shanghai
      *
@@ -48,9 +48,9 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     public $crossBackupType;
 
     /**
-     * @description The name of the instance. It must be 2 to 256 characters in length. The name can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The name of the instance. It must be 2 to 256 characters in length. The value can contain letters, digits, underscores (\_), and hyphens (-), and must start with a letter.
      *
-     * > The name cannot start with http:// or https://.
+     * >  The value cannot start with http:// or https://.
      * @example Test database
      *
      * @var string
@@ -58,7 +58,7 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -76,7 +76,7 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     public $DBInstanceStatus;
 
     /**
-     * @description The type of the database engine.
+     * @description The database engine of the instance.
      *
      * @example mysql
      *
@@ -85,7 +85,7 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version.
      *
      * @example 5.6
      *
@@ -99,7 +99,7 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
      *   **Unlock**: The instance is not locked.
      *   **ManualLock**: The instance is manually locked.
      *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-     *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
+     *   **LockByRestoration**: The instance is automatically locked before a rollback.
      *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
      *
      * @example Unlock
@@ -111,8 +111,8 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     /**
      * @description The status of the cross-region log backup feature on the instance. Valid values:
      *
-     *   **Disable**: The feature is disabled.
-     *   **Enable**: The feature is enabled.
+     *   **Disable**
+     *   **Enable**
      *
      * @example Enable
      *
@@ -121,7 +121,7 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     public $logBackupEnabled;
 
     /**
-     * @description The time when cross-region log backup was enabled on the instance. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The time when cross-region log backup was enabled on the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-06-12T05:44:21Z
      *
@@ -139,7 +139,7 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example CB7667B2-72C8-497B-9BD8-3B343CEF51AB
      *

@@ -27,10 +27,12 @@ class DescribeDBInstanceTDEResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The key method for instance level TDE encryption, with values:
-     * - **Aliyun_Generate_Key**
-     * - **Customer_Provided_Key**
-     * - **Unknown**
+     * @description The method that is used to generate the key for TDE at the instance level. Valid values:
+     *
+     *   **Aliyun_Generate_Key**
+     *   **Customer_Provided_Key**
+     *   **Unknown**
+     *
      * @example Aliyun_Generate_Key
      *
      * @var string

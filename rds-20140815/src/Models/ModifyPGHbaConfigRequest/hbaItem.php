@@ -20,7 +20,7 @@ class hbaItem extends Model
     /**
      * @description The name of the database. If you set this parameter to all, the specified users are allowed to access all databases on the instance.
      *
-     * If you specify multiple users, separate the usernames with commas (,).
+     * If you specify multiple entries, separate the entries with commas (,).
      * @example all
      *
      * @var string
@@ -28,7 +28,7 @@ class hbaItem extends Model
     public $database;
 
     /**
-     * @description The mask of the instance. If the value of the **Address** parameter is an IP address, you can use this parameter to specify the mask of the IP address.
+     * @description The mask of the IP address. If the value of the **Address** parameter is an IP address, you can use this parameter to specify the mask of the IP address.
      *
      * @example 0
      *
@@ -37,7 +37,7 @@ class hbaItem extends Model
     public $mask;
 
     /**
-     * @description The authentication method. Valid values: authorization_code and refresh_token.
+     * @description The authentication method. Valid values:
      *
      *   **trust**
      *   **reject**
@@ -58,7 +58,7 @@ class hbaItem extends Model
     public $method;
 
     /**
-     * @description Optional. The value of this parameter varies based on the value of the Method parameter. In this topic, LDAP is used as an example. You must configure this parameter. For more information, see [Authentication Methods](https://www.postgresql.org/docs/11/auth-methods.html).
+     * @description The options of the authentication method. In this topic, LDAP is used as an example. You must configure this parameter. For more information, see [Authentication Methods](https://www.postgresql.org/docs/11/auth-methods.html).
      *
      * @example ldapserver=The private IP address of the ECS instance ldapbasedn="CN=Users,DC=pgsqldomain,DC=net" ldapbinddn="CN=The username of the administrator user of the AD domain controller, CN=Users,DC=pgsqldomain,DC=net" ldapbindpasswd="The password of the administrator user of the AD domain controller" ldapsearchattribute="sAMAccountName"
      *
@@ -81,11 +81,11 @@ class hbaItem extends Model
      *
      * Valid values:
      *
-     *   **host**: The AD domain verifies TCP/IP connections, including SSL connections and non-SSL connections.
+     *   **host**: The record matches TCP/IP connections, including SSL connections and non-SSL connections.
      *   **hostssl**: The record matches only TCP/IP connections that are established over SSL.
-     *   **hostnossl**: The record matches only TCP/IP connections that are not established over SSL.
+     *   **hostnossl**: The record matches only TCP/IP connections that are not established over SSL connections.
      *
-     * > You can set this parameter to hostssl only when SSL encryption is enabled for the instance. For more information, see [Configure SSL encryption for an ApsaraDB RDS for PostgreSQL instance](~~229518~~).
+     * >  You can set this parameter to hostssl only when SSL encryption is enabled for the instance. For more information, see Configure SSL encryption for an ApsaraDB RDS for PostgreSQL instance.[](~~229518~~)
      * @example host
      *
      * @var string
@@ -93,7 +93,7 @@ class hbaItem extends Model
     public $type;
 
     /**
-     * @description The user who is allowed to access the specified databases. You must specify the user that is used to log on to the RDS instance. If you specify multiple users, separate the usernames with commas (,).
+     * @description The user who is allowed to access the specified databases. You must specify the user that is used to log on to the RDS instance. If you specify multiple entries, separate the entries with commas (,).
      *
      * @example ldapuser
      *

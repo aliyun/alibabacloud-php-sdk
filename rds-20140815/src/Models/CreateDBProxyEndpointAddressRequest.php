@@ -18,7 +18,7 @@ class CreateDBProxyEndpointAddressRequest extends Model
     public $connectionStringPrefix;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-t4n3axxxxx
      *
@@ -41,7 +41,7 @@ class CreateDBProxyEndpointAddressRequest extends Model
     public $DBProxyConnectStringNetType;
 
     /**
-     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~140955~~) operation to query the ID of the proxy endpoint.
+     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~610507~~) operation to query the ID of the proxy endpoint.
      *
      * @example ta9um4xxxxx
      *
@@ -50,7 +50,7 @@ class CreateDBProxyEndpointAddressRequest extends Model
     public $DBProxyEndpointId;
 
     /**
-     * @description An internal parameter. You do not need to specify this parameter.
+     * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example normal
      *
@@ -71,7 +71,7 @@ class CreateDBProxyEndpointAddressRequest extends Model
     public $DBProxyNewConnectStringPort;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -89,9 +89,9 @@ class CreateDBProxyEndpointAddressRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the VPC to which the proxy endpoint belongs. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the ID of the VPC.
+     * @description The ID of the VPC to which the proxy endpoint belongs. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the VPC ID of the instance.
      *
-     * > This parameter must be specified when **DBProxyConnectStringNetType** is set to **VPC**.
+     * >  This parameter must be specified when DBProxyConnectStringNetType is set to **VPC**.
      * @example vpc-bpxxxxxx
      *
      * @var string
@@ -99,9 +99,9 @@ class CreateDBProxyEndpointAddressRequest extends Model
     public $VPCId;
 
     /**
-     * @description The ID of the vSwitch that is associated with the specified VPC. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the ID of the vSwitch.
+     * @description The ID of the vSwitch that is associated with the specified VPC. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the vSwitch ID of the instance.
      *
-     * > This parameter must be specified when **DBProxyConnectStringNetType** is set to **VPC**.
+     * >  This parameter must be specified when DBProxyConnectStringNetType is set to **VPC**.
      * @example vsw-bpxxxxxx
      *
      * @var string

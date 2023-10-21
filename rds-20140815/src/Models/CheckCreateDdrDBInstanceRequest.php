@@ -11,7 +11,7 @@ class CheckCreateDdrDBInstanceRequest extends Model
     /**
      * @description The ID of the backup set that is used for the restoration. You can call the [DescribeCrossRegionBackups](~~121733~~) operation to query the ID of the backup set.
      *
-     * > : If you set **RestoreType** to **0**, you must also specify this parameter.
+     * > If you set **RestoreType** to **0**, you must also specify this parameter.
      * @example 14358
      *
      * @var string
@@ -98,7 +98,7 @@ class CheckCreateDdrDBInstanceRequest extends Model
     /**
      * @description The point in time to which you want to restore data. The point in time that you specify must be earlier than the current time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     * > : If you set **RestoreType** to **1**, you must also specify this parameter.
+     * > If you set **RestoreType** to **1**, you must also specify this parameter.
      * @example 2019-05-30T03:29:10Z
      *
      * @var string
@@ -121,7 +121,7 @@ class CheckCreateDdrDBInstanceRequest extends Model
     /**
      * @description The ID of the source instance if you want to restore data to a point in time.
      *
-     * > : If you set **RestoreType** to **1**, you must also specify this parameter.
+     * > If you set **RestoreType** to **1**, you must also specify this parameter.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -131,7 +131,7 @@ class CheckCreateDdrDBInstanceRequest extends Model
     /**
      * @description The region ID of the source instance if you want to restore data to a point in time.
      *
-     * > : If you set **RestoreType** to **1**, you must also specify this parameter.
+     * > If you set **RestoreType** to **1**, you must also specify this parameter.
      * @example cn-hangzhou
      *
      * @var string

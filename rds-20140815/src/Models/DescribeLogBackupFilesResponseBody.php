@@ -17,7 +17,7 @@ class DescribeLogBackupFilesResponseBody extends Model
     public $items;
 
     /**
-     * @description The page number.
+     * @description The page number of the page returned.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeLogBackupFilesResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F8EC669C-FC85-43D7-AF06-C3641626B37E
      *

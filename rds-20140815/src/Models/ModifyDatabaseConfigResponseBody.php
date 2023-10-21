@@ -9,13 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseConfigResponseBody extends Model
 {
     /**
-     * @description The response code returned. Valid values:
-     *
-     *   **200**: success
-     *   **400**: client error
-     *   **401**: identity authentication failed
-     *   **404**: request page not found
-     *   **500**: server error
+     * @description The code.
      *
      * @example 200
      *
@@ -24,7 +18,7 @@ class ModifyDatabaseConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example success
      *
@@ -33,7 +27,7 @@ class ModifyDatabaseConfigResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8B993DA9-5272-5414-94E3-4CA8BA0146C2
      *

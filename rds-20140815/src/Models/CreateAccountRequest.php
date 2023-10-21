@@ -21,8 +21,6 @@ class CreateAccountRequest extends Model
     /**
      * @description The username of the account.
      *
-     * >
-     *
      *   The value must be unique.
      *
      *   The value must start with a lowercase letter, and end with a lowercase letter or a digit.
@@ -49,7 +47,6 @@ class CreateAccountRequest extends Model
     /**
      * @description The password of the account.
      *
-     * >
      *
      *   The value must be 8 to 32 characters in length.
      *

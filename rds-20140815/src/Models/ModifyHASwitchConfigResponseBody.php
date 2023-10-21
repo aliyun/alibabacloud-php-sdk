@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyHASwitchConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B6AE1448-D846-4831-B1C7-CFF3E99D5470
      *

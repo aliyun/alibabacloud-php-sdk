@@ -11,10 +11,10 @@ class CreateReadOnlyDBInstanceRequest extends Model
     /**
      * @description Specifies whether to enable the automatic payment feature. Valid values:
      *
-     * 1.  **true**: enables the feature. You must make sure that your account balance is sufficient.
+     * 1.  **true**: enables the feature. Make sure that your account balance is sufficient.
      * 2.  **false**: disables the feature. An unpaid order is generated.
      *
-     * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+     * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
      * @example false
      *
      * @var bool
@@ -149,7 +149,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
      *   **true**: enables the feature.
      *   **false** (default): disables the feature.
      *
-     * > This feature can be enabled only when you set the **PayType** parameter to **Postpaid**.
+     * >  You can enable the release protection feature for the read-only instance only when you set the **Billing Method** parameter to **Pay-As-You-Go**.
      * @example true
      *
      * @var bool
@@ -237,8 +237,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $period;
 
     /**
-     * @description Supports initializing the port when creating a read-only instance on the RDS MySQL master instance. Valid values: **1000 to 65534**.
+     * @description 支持在RDS MySQL主实例创建只读实例时初始化端口。
      *
+     * 取值范围：1000~65534
      * @example 3306
      *
      * @var string

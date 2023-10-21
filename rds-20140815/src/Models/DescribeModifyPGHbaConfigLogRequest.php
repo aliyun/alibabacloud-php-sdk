@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyPGHbaConfigLogRequest extends Model
 {
     /**
-     * @description This parameter is reserved. You do not need to specify this parameter.
+     * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeModifyPGHbaConfigLogRequest extends Model
     public $clientToken;
 
     /**
-     * @description You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example pgm-bp1lymyn1v3i****
      *
@@ -27,7 +27,7 @@ class DescribeModifyPGHbaConfigLogRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
      *
      * @example 2021-11-25T06:00:40Z
      *
@@ -65,7 +65,7 @@ class DescribeModifyPGHbaConfigLogRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in Coordinated Universal Time (UTC).
      *
      * @example 2021-11-25T05:00:40Z
      *

@@ -13,7 +13,8 @@ class MigrateToOtherZoneRequest extends Model
      *
      *   **Basic**: RDS Basic Edition
      *   **HighAvailability**: RDS High-availability Edition
-     *   **AlwaysOn**: RDS Cluster Edition
+     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
+     *   **cluster**: RDS Cluster Edition for MySQL
      *   **Finance**: RDS Enterprise Edition
      *
      * @example HighAvailability
@@ -33,7 +34,7 @@ class MigrateToOtherZoneRequest extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -52,13 +53,13 @@ class MigrateToOtherZoneRequest extends Model
     public $DBInstanceStorage;
 
     /**
-     * @description The time when you want to migrate the instance. Valid values:
+     * @description The effective time. Valid values:
      *
      *   **Immediate**: The instance is immediately migrated. This is the default value.
      *   **MaintainTime**: The instance is migrated during the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](~~26249~~).
      *   **ScheduleTime**: The instance is migrated at the point in time that you specify.
      *
-     * > If you set this parameter to **ScheduleTime**, you must also specify **SwitchTime**.
+     * >  If you set this parameter to **ScheduleTime**, you must specify the **SwitchTime** parameter.
      * @example Immediate
      *
      * @var string
@@ -109,7 +110,7 @@ class MigrateToOtherZoneRequest extends Model
     public $switchTime;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the instance belongs. Do not change the VPC of the instance when you migrate the instance across zones.
+     * @description The ID of the virtual private cloud (VPC). Do not change the VPC of the instance when you migrate the instance across zones.
      *
      *   This parameter must be specified when the instance resides in a VPC.
      *   If the instance runs SQL Server, you can change the VPC of the instance.
@@ -121,7 +122,7 @@ class MigrateToOtherZoneRequest extends Model
     public $VPCId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      *   This parameter must be specified when the instance resides in a VPC. You can call the [DescribeVSwitches](~~35748~~) operation to query the vSwitch ID.
      *   If the instance runs PostgreSQL or SQL Server and a secondary zone is specified for the instance, you can specify multiple vSwitch IDs, each of which corresponds to a zone. Separate the vSwitch IDs with commas (,).
@@ -133,7 +134,7 @@ class MigrateToOtherZoneRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the destination zone. You can call the [DescribeRegions](~~26243~~) operation to query the most recent zone list.
+     * @description The zone ID of the new instance. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou-b
      *
