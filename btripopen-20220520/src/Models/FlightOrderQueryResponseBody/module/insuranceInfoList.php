@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class insuranceInfoList extends Model
 {
     /**
+     * @example 100
+     *
      * @var float
      */
     public $amount;
 
     /**
+     * @example 345-987-098
+     *
      * @var string
      */
     public $insuranceNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class multiRefundCalList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canApplyRefund;
@@ -19,16 +21,22 @@ class multiRefundCalList extends Model
     public $name;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $preRefundMoney;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $refundFee;
 
     /**
+     * @example 124
+     *
      * @var string
      */
     public $userId;

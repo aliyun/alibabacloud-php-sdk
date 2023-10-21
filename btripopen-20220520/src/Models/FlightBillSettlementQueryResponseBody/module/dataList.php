@@ -323,6 +323,11 @@ class dataList extends Model
     public $invoiceTitle;
 
     /**
+     * @var string
+     */
+    public $itemType;
+
+    /**
      * @example 5334916421
      *
      * @var string
@@ -577,6 +582,11 @@ class dataList extends Model
      * @var int
      */
     public $voucherType;
+
+    /**
+     * @var string
+     */
+    public $voyageName;
     protected $_name = [
         'advanceDay'             => 'advance_day',
         'airlineCorpCode'        => 'airline_corp_code',
@@ -630,6 +640,7 @@ class dataList extends Model
         'insuranceFee'           => 'insurance_fee',
         'insuranceNumber'        => 'insurance_number',
         'invoiceTitle'           => 'invoice_title',
+        'itemType'               => 'item_type',
         'itineraryNum'           => 'itinerary_num',
         'itineraryPrice'         => 'itinerary_price',
         'mileage'                => 'mileage',
@@ -670,6 +681,7 @@ class dataList extends Model
         'travelerName'           => 'traveler_name',
         'upgradeCost'            => 'upgrade_cost',
         'voucherType'            => 'voucher_type',
+        'voyageName'             => 'voyage_name',
     ];
 
     public function validate()
@@ -835,6 +847,9 @@ class dataList extends Model
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
         }
+        if (null !== $this->itemType) {
+            $res['item_type'] = $this->itemType;
+        }
         if (null !== $this->itineraryNum) {
             $res['itinerary_num'] = $this->itineraryNum;
         }
@@ -954,6 +969,9 @@ class dataList extends Model
         }
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
+        }
+        if (null !== $this->voyageName) {
+            $res['voyage_name'] = $this->voyageName;
         }
 
         return $res;
@@ -1123,6 +1141,9 @@ class dataList extends Model
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
         }
+        if (isset($map['item_type'])) {
+            $model->itemType = $map['item_type'];
+        }
         if (isset($map['itinerary_num'])) {
             $model->itineraryNum = $map['itinerary_num'];
         }
@@ -1242,6 +1263,9 @@ class dataList extends Model
         }
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
+        }
+        if (isset($map['voyage_name'])) {
+            $model->voyageName = $map['voyage_name'];
         }
 
         return $model;

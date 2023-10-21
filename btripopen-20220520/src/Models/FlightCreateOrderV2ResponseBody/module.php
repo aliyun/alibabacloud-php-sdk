@@ -14,26 +14,36 @@ class module extends Model
     public $asyncCreateOrderKey;
 
     /**
+     * @example 2023-08-10 17:42:32
+     *
      * @var string
      */
     public $latestPayTime;
 
     /**
+     * @example 1017002195798359369
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example cheshiapi002kwl
+     *
      * @var string
      */
     public $outOrderId;
 
     /**
+     * @example 32
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 51000
+     *
      * @var int
      */
     public $totalPrice;

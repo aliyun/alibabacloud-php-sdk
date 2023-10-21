@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class FlightRefundPreCalShrinkRequest extends Model
 {
     /**
+     * @example dis123
+     *
      * @var string
      */
     public $disOrderId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $isVoluntary;

@@ -14,11 +14,15 @@ class returnReason extends Model
     public $extendDesc;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $person;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $reasonCode;
@@ -29,11 +33,15 @@ class returnReason extends Model
     public $reasonShow;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $reasonType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $volunteer;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class HotelIndexInfoRequest extends Model
 {
     /**
+     * @example 330000
+     *
      * @var string
      */
     public $cityCode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $hotelStatus;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1038882
+     *
      * @var string
      */
     public $pageToken;

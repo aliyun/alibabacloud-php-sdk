@@ -14,6 +14,11 @@ class subCorpIdList extends Model
     public $departIds;
 
     /**
+     * @var string
+     */
+    public $email;
+
+    /**
      * @example 0
      *
      * @var int
@@ -42,6 +47,7 @@ class subCorpIdList extends Model
     public $subCorpId;
     protected $_name = [
         'departIds'     => 'depart_ids',
+        'email'         => 'email',
         'leaveStatus'   => 'leave_status',
         'managerUserId' => 'manager_user_id',
         'positionLevel' => 'position_level',
@@ -57,6 +63,9 @@ class subCorpIdList extends Model
         $res = [];
         if (null !== $this->departIds) {
             $res['depart_ids'] = $this->departIds;
+        }
+        if (null !== $this->email) {
+            $res['email'] = $this->email;
         }
         if (null !== $this->leaveStatus) {
             $res['leave_status'] = $this->leaveStatus;
@@ -86,6 +95,9 @@ class subCorpIdList extends Model
             if (!empty($map['depart_ids'])) {
                 $model->departIds = $map['depart_ids'];
             }
+        }
+        if (isset($map['email'])) {
+            $model->email = $map['email'];
         }
         if (isset($map['leave_status'])) {
             $model->leaveStatus = $map['leave_status'];

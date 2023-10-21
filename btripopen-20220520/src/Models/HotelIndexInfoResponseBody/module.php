@@ -15,11 +15,15 @@ class module extends Model
     public $items;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 182873
+     *
      * @var string
      */
     public $pageToken;

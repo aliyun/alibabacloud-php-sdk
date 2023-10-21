@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class flightInfoList extends Model
 {
     /**
+     * @example MU
+     *
      * @var string
      */
     public $airlineCode;
@@ -19,6 +21,8 @@ class flightInfoList extends Model
     public $airlineName;
 
     /**
+     * @example LHW
+     *
      * @var string
      */
     public $arrAirportCode;
@@ -34,6 +38,8 @@ class flightInfoList extends Model
     public $arrCityAdCode;
 
     /**
+     * @example LHW
+     *
      * @var string
      */
     public $arrCityCode;
@@ -44,21 +50,29 @@ class flightInfoList extends Model
     public $arrCityName;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $arrTime;
 
     /**
+     * @example V
+     *
      * @var string
      */
     public $cabin;
 
     /**
+     * @example Y
+     *
      * @var string
      */
     public $cabinLevel;
 
     /**
+     * @example NGB
+     *
      * @var string
      */
     public $depAirportCode;
@@ -74,6 +88,8 @@ class flightInfoList extends Model
     public $depCityAdCode;
 
     /**
+     * @example NGB
+     *
      * @var string
      */
     public $depCityCode;
@@ -84,16 +100,22 @@ class flightInfoList extends Model
     public $depCityName;
 
     /**
+     * @example 2022-07-20T10:40Z
+     *
      * @var string
      */
     public $depTime;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $flightMile;
 
     /**
+     * @example MU3849
+     *
      * @var string
      */
     public $flightNo;

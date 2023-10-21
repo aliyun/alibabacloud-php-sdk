@@ -16,6 +16,8 @@ class FlightCreateOrderV2Request extends Model
     public $asyncCreateOrderKey;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $asyncCreateOrderMode;
@@ -36,11 +38,15 @@ class FlightCreateOrderV2Request extends Model
     public $contactInfo;
 
     /**
+     * @example cheshiapi
+     *
      * @var string
      */
     public $isvName;
 
     /**
+     * @example 7fb731deeb4510b86c17e8c8c25740_11
+     *
      * @var string
      */
     public $otaItemId;

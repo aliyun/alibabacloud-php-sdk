@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $flightChange;
 
     /**
+     * @example FlightItem_996677504
+     *
      * @var string
      */
     public $itemUnitId;
@@ -26,11 +30,15 @@ class module extends Model
     public $multiRefundCalList;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $preRefundMoney;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $refundFee;
@@ -41,6 +49,8 @@ class module extends Model
     public $returnReason;
 
     /**
+     * @example 882sudu23s923j9d2
+     *
      * @var string
      */
     public $sessionId;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class HotelIndexInfoResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
@@ -25,16 +29,22 @@ class HotelIndexInfoResponseBody extends Model
     public $module;
 
     /**
+     * @example 407543AF-2BD9-5890-BD92-9D1AB7218B27
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 21041ce316577904808056433edbb2
+     *
      * @var string
      */
     public $traceId;
