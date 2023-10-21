@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceResourceRequest\labels;
 use AlibabaCloud\Tea\Model;
 
 class UpdateWorkspaceResourceRequest extends Model
@@ -23,6 +24,11 @@ class UpdateWorkspaceResourceRequest extends Model
     public $isDefault;
 
     /**
+     * @var labels[]
+     */
+    public $labels;
+
+    /**
      * @example MaxCompute
      *
      * @var string
@@ -30,14 +36,27 @@ class UpdateWorkspaceResourceRequest extends Model
     public $productType;
 
     /**
+     * @var string[]
+     */
+    public $resourceIds;
+
+    /**
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var mixed[]
+     */
+    public $spec;
     protected $_name = [
         'groupName'    => 'GroupName',
         'isDefault'    => 'IsDefault',
+        'labels'       => 'Labels',
         'productType'  => 'ProductType',
+        'resourceIds'  => 'ResourceIds',
         'resourceType' => 'ResourceType',
+        'spec'         => 'Spec',
     ];
 
     public function validate()
@@ -53,11 +72,26 @@ class UpdateWorkspaceResourceRequest extends Model
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
+        if (null !== $this->labels) {
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
+        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
         }
 
         return $res;
@@ -77,11 +111,28 @@ class UpdateWorkspaceResourceRequest extends Model
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n             = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+        if (isset($map['ResourceIds'])) {
+            if (!empty($map['ResourceIds'])) {
+                $model->resourceIds = $map['ResourceIds'];
+            }
+        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
         }
 
         return $model;

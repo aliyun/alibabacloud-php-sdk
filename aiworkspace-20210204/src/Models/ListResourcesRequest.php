@@ -16,6 +16,11 @@ class ListResourcesRequest extends Model
     public $groupName;
 
     /**
+     * @var string
+     */
+    public $labels;
+
+    /**
      * @example ListResourceByWorkspace
      *
      * @var string
@@ -44,6 +49,11 @@ class ListResourcesRequest extends Model
     public $productTypes;
 
     /**
+     * @var string
+     */
+    public $quotaIds;
+
+    /**
      * @example resource
      *
      * @var string
@@ -63,6 +73,11 @@ class ListResourcesRequest extends Model
     public $verbose;
 
     /**
+     * @var string
+     */
+    public $verboseFields;
+
+    /**
      * @example 123
      *
      * @var string
@@ -70,13 +85,16 @@ class ListResourcesRequest extends Model
     public $workspaceId;
     protected $_name = [
         'groupName'     => 'GroupName',
+        'labels'        => 'Labels',
         'option'        => 'Option',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'productTypes'  => 'ProductTypes',
+        'quotaIds'      => 'QuotaIds',
         'resourceName'  => 'ResourceName',
         'resourceTypes' => 'ResourceTypes',
         'verbose'       => 'Verbose',
+        'verboseFields' => 'VerboseFields',
         'workspaceId'   => 'WorkspaceId',
     ];
 
@@ -90,6 +108,9 @@ class ListResourcesRequest extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+        if (null !== $this->labels) {
+            $res['Labels'] = $this->labels;
+        }
         if (null !== $this->option) {
             $res['Option'] = $this->option;
         }
@@ -102,6 +123,9 @@ class ListResourcesRequest extends Model
         if (null !== $this->productTypes) {
             $res['ProductTypes'] = $this->productTypes;
         }
+        if (null !== $this->quotaIds) {
+            $res['QuotaIds'] = $this->quotaIds;
+        }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
@@ -110,6 +134,9 @@ class ListResourcesRequest extends Model
         }
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
+        }
+        if (null !== $this->verboseFields) {
+            $res['VerboseFields'] = $this->verboseFields;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -129,6 +156,9 @@ class ListResourcesRequest extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+        if (isset($map['Labels'])) {
+            $model->labels = $map['Labels'];
+        }
         if (isset($map['Option'])) {
             $model->option = $map['Option'];
         }
@@ -141,6 +171,9 @@ class ListResourcesRequest extends Model
         if (isset($map['ProductTypes'])) {
             $model->productTypes = $map['ProductTypes'];
         }
+        if (isset($map['QuotaIds'])) {
+            $model->quotaIds = $map['QuotaIds'];
+        }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
@@ -149,6 +182,9 @@ class ListResourcesRequest extends Model
         }
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];
+        }
+        if (isset($map['VerboseFields'])) {
+            $model->verboseFields = $map['VerboseFields'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

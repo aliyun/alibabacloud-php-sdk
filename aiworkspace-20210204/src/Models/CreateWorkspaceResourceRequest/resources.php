@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest;
 
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest\resources\labels;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest\resources\quotas;
 use AlibabaCloud\Tea\Model;
 
@@ -29,6 +30,11 @@ class resources extends Model
      * @var bool
      */
     public $isDefault;
+
+    /**
+     * @var labels[]
+     */
+    public $labels;
 
     /**
      * @example ResourceName
@@ -69,6 +75,7 @@ class resources extends Model
         'envType'      => 'EnvType',
         'groupName'    => 'GroupName',
         'isDefault'    => 'IsDefault',
+        'labels'       => 'Labels',
         'name'         => 'Name',
         'productType'  => 'ProductType',
         'quotas'       => 'Quotas',
@@ -92,6 +99,15 @@ class resources extends Model
         }
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -137,6 +153,15 @@ class resources extends Model
         }
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
+        }
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n             = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

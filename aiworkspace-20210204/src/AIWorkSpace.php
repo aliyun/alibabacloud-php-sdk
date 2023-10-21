@@ -1381,11 +1381,17 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;
         }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
         if (!Utils::isUnset($request->option)) {
             $query['Option'] = $request->option;
         }
         if (!Utils::isUnset($request->productType)) {
             $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
         }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
@@ -2517,6 +2523,9 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;
         }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
         if (!Utils::isUnset($request->option)) {
             $query['Option'] = $request->option;
         }
@@ -2529,6 +2538,9 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->productTypes)) {
             $query['ProductTypes'] = $request->productTypes;
         }
+        if (!Utils::isUnset($request->quotaIds)) {
+            $query['QuotaIds'] = $request->quotaIds;
+        }
         if (!Utils::isUnset($request->resourceName)) {
             $query['ResourceName'] = $request->resourceName;
         }
@@ -2537,6 +2549,9 @@ class AIWorkSpace extends OpenApiClient
         }
         if (!Utils::isUnset($request->verbose)) {
             $query['Verbose'] = $request->verbose;
+        }
+        if (!Utils::isUnset($request->verboseFields)) {
+            $query['VerboseFields'] = $request->verboseFields;
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $query['WorkspaceId'] = $request->workspaceId;
@@ -3325,11 +3340,20 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->isDefault)) {
             $body['IsDefault'] = $request->isDefault;
         }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
         if (!Utils::isUnset($request->productType)) {
             $body['ProductType'] = $request->productType;
         }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $body['ResourceIds'] = $request->resourceIds;
+        }
         if (!Utils::isUnset($request->resourceType)) {
             $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['Spec'] = $request->spec;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

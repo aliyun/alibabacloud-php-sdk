@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListResourcesResponseBod
 
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListResourcesResponseBody\resources\encryption;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListResourcesResponseBody\resources\executor;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListResourcesResponseBody\resources\labels;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListResourcesResponseBody\resources\quotas;
 use AlibabaCloud\Tea\Model;
 
@@ -57,6 +58,11 @@ class resources extends Model
     public $isDefault;
 
     /**
+     * @var labels[]
+     */
+    public $labels;
+
+    /**
      * @example ResourceName
      *
      * @var string
@@ -101,6 +107,7 @@ class resources extends Model
         'groupName'     => 'GroupName',
         'id'            => 'Id',
         'isDefault'     => 'IsDefault',
+        'labels'        => 'Labels',
         'name'          => 'Name',
         'productType'   => 'ProductType',
         'quotas'        => 'Quotas',
@@ -136,6 +143,15 @@ class resources extends Model
         }
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -193,6 +209,15 @@ class resources extends Model
         }
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
+        }
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n             = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
