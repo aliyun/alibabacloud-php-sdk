@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class attachLabels extends Model
 {
     /**
-     * @description The conditions that are used to filter logs imported from Log Service.
+     * @description The tag key of the metric.
      *
      * @example app_service
      *
@@ -18,9 +18,8 @@ class attachLabels extends Model
     public $name;
 
     /**
-     * @description The name of the namespace.
+     * @description The tag value of the metric.
      *
-     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
      * @example testValue
      *
      * @var string

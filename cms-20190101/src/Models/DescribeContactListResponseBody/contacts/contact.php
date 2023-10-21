@@ -12,10 +12,7 @@ use AlibabaCloud\Tea\Model;
 class contact extends Model
 {
     /**
-     * @description The status of the email address. Valid values:
-     *
-     *   PENDING: The email address is not activated. Alert notifications can be sent to the email address only after the email address is activated.
-     *   OK: The email address is activated and can receive alert notifications.
+     * @description The alert notification method.
      *
      * @var channels
      */
@@ -30,15 +27,16 @@ class contact extends Model
     public $channelsState;
 
     /**
-     * @description The alert notification method.
+     * @description The alert contact groups.
      *
      * @var contactGroups
      */
     public $contactGroups;
 
     /**
-     * @description The name of the alert contact.
+     * @description The timestamp when the alert contact was created.
      *
+     * Unit: milliseconds.
      * @example 1552356159000
      *
      * @var int
@@ -46,16 +44,18 @@ class contact extends Model
     public $createTime;
 
     /**
-     * @description The alert contacts.
+     * @description The description of the alert contact.
      *
      * @var string
      */
     public $desc;
 
     /**
-     * @description The timestamp when the alert contact was created.
+     * @description The language in which the alert information is displayed. Valid values:
      *
-     * Unit: milliseconds.
+     *   zh-cn: simplified Chinese
+     *   en: English
+     *
      * @example zh-cn
      *
      * @var string
@@ -63,9 +63,8 @@ class contact extends Model
     public $lang;
 
     /**
-     * @description The number of the page to return.
+     * @description The name of the alert contact.
      *
-     * Default value: 1.
      * @example Alice
      *
      * @var string
@@ -73,8 +72,9 @@ class contact extends Model
     public $name;
 
     /**
-     * @description The email address of the alert contact.
+     * @description The timestamp when the alert contact was updated.
      *
+     * Unit: milliseconds.
      * @example 1552356159000
      *
      * @var int

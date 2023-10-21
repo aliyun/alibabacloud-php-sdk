@@ -10,13 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleTargetsResponseBody extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the resource. Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
+     * @description The HTTP status code.
      *
-     *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
-     *   {userId}: the ID of the Alibaba Cloud account.
-     *   {regionId}: the region ID of the message queue or topic.
-     *   {Resource type}`: the type of the resource for which alerts are triggered. Valid values: - **queues** - **topics** {Resource name}: the name of the resource. - If the resource type is set to **queues**, the resource name is the name of the message queue. - If the resource type is set to **topics**, the resource name is the name of the topic.`
-     *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -24,7 +20,7 @@ class DescribeMetricRuleTargetsResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the resource for which alerts are triggered.
+     * @description The error message.
      *
      * @example User not authorized to operate on the specified resource.
      *
@@ -33,9 +29,8 @@ class DescribeMetricRuleTargetsResponseBody extends Model
     public $message;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the request.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 786E92D2-AC66-4250-B76F-F1E2FCDDBA1C
      *
      * @var string
@@ -43,7 +38,10 @@ class DescribeMetricRuleTargetsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *
@@ -52,7 +50,7 @@ class DescribeMetricRuleTargetsResponseBody extends Model
     public $success;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeMetricRuleTargets**.
+     * @description The information about the resource for which alerts are triggered.
      *
      * @var targets
      */

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorStatisticsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call is successful.
      * @example 200
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeSiteMonitorStatisticsResponseBody extends Model
     public $code;
 
     /**
+     * @description The statistics of the specified metric.
+     *
      * @example 100
      *
      * @var string
@@ -23,11 +28,17 @@ class DescribeSiteMonitorStatisticsResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example Succcessful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 3AD2724D-E317-4BFB-B422-D6691D071BE1
      *
      * @var string
@@ -35,6 +46,11 @@ class DescribeSiteMonitorStatisticsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   true: The call is successful.
+     *   false: The call fails.
+     *
      * @example true
      *
      * @var string

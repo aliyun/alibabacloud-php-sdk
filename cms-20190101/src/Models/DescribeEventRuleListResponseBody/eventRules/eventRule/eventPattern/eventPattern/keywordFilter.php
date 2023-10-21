@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class keywordFilter extends Model
 {
     /**
+     * @description The keywords that are used to match events.
+     *
      * @var keywords
      */
     public $keywords;
 
     /**
+     * @description The relationship between multiple keywords in a condition. Valid values:
+     *
+     *   OR: The relationship between keywords is OR.
+     *   NOT: The keyword is excluded. The value NOT indicates that all events that do not contain the keywords are matched.
+     *
      * @example OR
      *
      * @var string

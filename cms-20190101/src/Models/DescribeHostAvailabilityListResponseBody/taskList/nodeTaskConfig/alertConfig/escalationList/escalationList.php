@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class escalationList extends Model
 {
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
-     *
-     * @example Value
-     *
-     * @var string
-     */
-    public $aggregate;
-
-    /**
      * @description The method used to calculate metric values that trigger alerts. Valid values:
      *
      *   Value: the value of the HTTP status code
@@ -26,6 +17,21 @@ class escalationList extends Model
      *   TelnetLatency: the average Telnet response time
      *   Average: the average Ping packet loss rate
      *
+     * @example Value
+     *
+     * @var string
+     */
+    public $aggregate;
+
+    /**
+     * @description The name of the metric. Valid values:
+     *
+     *   HttpStatus: HTTP status code
+     *   HttpLatency: HTTP response time
+     *   TelnetStatus: Telnet status code
+     *   TelnetLatency: Telnet response time
+     *   PingLostRate: Ping packet loss rate
+     *
      * @example HttpStatus
      *
      * @var string
@@ -33,7 +39,13 @@ class escalationList extends Model
     public $metricName;
 
     /**
-     * @description This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
+     * @description The comparison operator that is used in the alert rule. Valid values:
+     *
+     *   `>`
+     *   `>=`
+     *   `<`
+     *   `<=`
+     *   `=`
      *
      * @example =
      *
@@ -42,7 +54,7 @@ class escalationList extends Model
     public $operator;
 
     /**
-     * @description Queries availability monitoring tasks.
+     * @description The consecutive number of times for which the metric value is measured before an alert is triggered.
      *
      * @example 3
      *
@@ -51,7 +63,7 @@ class escalationList extends Model
     public $times;
 
     /**
-     * @description The consecutive number of times for which the metric value is measured before an alert is triggered.
+     * @description The alert threshold.
      *
      * @example 400
      *

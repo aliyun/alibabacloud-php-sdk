@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The ID of the template.
+     *
      * @example 123****
      *
      * @var string

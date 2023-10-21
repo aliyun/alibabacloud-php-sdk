@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactListResponseBody extends Model
 {
     /**
-     * @description The description of the alert contact.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,21 +20,14 @@ class DescribeContactListResponseBody extends Model
     public $code;
 
     /**
-     * @description The status of the phone number. Valid values:
+     * @description The alert contacts.
      *
-     *   PENDING: The phone number is not activated. Alert notifications can be sent to the phone number by using text messages only after the phone number is activated.
-     *   OK: The phone number is activated and can receive alert notifications.
-     *
-     * >  This parameter can be returned only on the China site (aliyun.com).
      * @var contacts
      */
     public $contacts;
 
     /**
-     * @description The language in which the alert information is displayed. Valid values:
-     *
-     *   zh-cn: simplified Chinese
-     *   en: English
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -42,9 +36,8 @@ class DescribeContactListResponseBody extends Model
     public $message;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the request.
      *
-     * Default value: 100.
      * @example 06D5ECC2-B9BE-42A4-8FA3-1A610FB08B83
      *
      * @var string
@@ -52,7 +45,10 @@ class DescribeContactListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The TradeManager ID of the alert contact.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

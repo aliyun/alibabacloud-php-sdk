@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentProcessesRequest extends Model
 {
     /**
-     * @description The returned message.
+     * @description The ID of the instance.
      *
      * @example i-hp3hl3cx1pbahzy8****
      *

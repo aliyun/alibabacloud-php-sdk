@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomMetricListResponseBody extends Model
 {
     /**
-     * @description The reported custom metrics that are found in the query.
+     * @description The HTTP status code.
      *
+     * >  The value 200 indicates that the call is successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeCustomMetricListResponseBody extends Model
     public $code;
 
     /**
-     * @description >  You can call the DescribeMetricList operation to query the metrics of a cloud service. For more information, see [DescribeMetricList](~~51936~~).
+     * @description The returned message.
      *
      * @example success
      *
@@ -27,7 +28,7 @@ class DescribeCustomMetricListResponseBody extends Model
     public $message;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The ID of the request.
      *
      * @example 1AF425E4-1DEA-54F2-910A-8117C9686140
      *
@@ -36,6 +37,8 @@ class DescribeCustomMetricListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The reported custom metrics that are found in the query.
+     *
      * @example {\"all\":0,\"size\":10,\"param\":{\"metric\":\"{\\\"metricName\\\":\\\"cpu_total\\\",\\\"groupId\\\":7378****,\\\"project\\\":\\\"acs_customMetric_120886317861****\\\",\\\"dimension\\\":\\\"sampleName1=value1&sampleName2=value2\\\",\\\"status\\\":1}\",\"service\":\"metric-center.aliyun-inc.com\"},\"page\":1,\"list\":[]}
      *
      * @var string

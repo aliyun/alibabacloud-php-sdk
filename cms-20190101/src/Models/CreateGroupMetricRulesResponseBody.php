@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupMetricRulesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call is successful.
      * @example 200
      *
      * @var int
@@ -17,6 +20,8 @@ class CreateGroupMetricRulesResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example The Request is not authorization.
      *
      * @var string
@@ -24,6 +29,8 @@ class CreateGroupMetricRulesResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 461CF2CD-2FC3-4B26-8645-7BD27E7D0F1D
      *
      * @var string
@@ -31,11 +38,16 @@ class CreateGroupMetricRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the alert rules.
+     *
      * @var resources
      */
     public $resources;
 
     /**
+     * @description Indicates whether the call is successful. Valid value:
+     *
+     * - false: The call fails.
      * @example true
      *
      * @var bool

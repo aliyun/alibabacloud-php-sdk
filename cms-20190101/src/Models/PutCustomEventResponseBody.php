@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutCustomEventResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **PutCustomEvent**.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,6 +19,8 @@ class PutCustomEventResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -25,6 +28,8 @@ class PutCustomEventResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 131DD9C8-9A32-4428-AD2E-4E3013B6E3A7
      *
      * @var string

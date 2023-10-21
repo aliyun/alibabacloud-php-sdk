@@ -11,15 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveMetricRuleListResponseBody extends Model
 {
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     * @description The details of the alert rules.
      *
      * @var alertList
      */
     public $alertList;
 
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -27,14 +28,14 @@ class DescribeActiveMetricRuleListResponseBody extends Model
     public $code;
 
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     * @description The details of the alert rules.
      *
      * @var datapoints
      */
     public $datapoints;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example The Request is not authorization.
      *
@@ -43,10 +44,7 @@ class DescribeActiveMetricRuleListResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example F82E6667-7811-4BA0-842F-5B2DC42BBAAD
      *
@@ -55,7 +53,10 @@ class DescribeActiveMetricRuleListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the alert rules.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

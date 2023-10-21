@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @description 报警模板的标签键。
+     *
+     * @example label1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description 报警模板的标签值。
+     *
+     * @example value1
+     *
      * @var string
      */
     public $value;

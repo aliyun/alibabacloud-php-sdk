@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomEventCountRequest extends Model
 {
     /**
-     * @description The returned message. If the call was successful, the value success is returned. If the call failed, an error message is returned.
+     * @description The end of the time range to query.
      *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552220485596
      *
      * @var string
@@ -18,10 +19,7 @@ class DescribeCustomEventCountRequest extends Model
     public $endTime;
 
     /**
-     * @description The keywords that are contained in the content of the custom event to query. You can use a logical operator between keywords.
-     *
-     *   If you need to query the custom event whose content contains a and b, set the value to a and b.
-     *   If you need to query the custom event whose content contains a or b, set the value to a or b.
+     * @description The ID of the custom event.
      *
      * @example 123
      *
@@ -30,9 +28,8 @@ class DescribeCustomEventCountRequest extends Model
     public $eventId;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The ID of the application group.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 12345
      *
      * @var string
@@ -40,7 +37,7 @@ class DescribeCustomEventCountRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the application group.
+     * @description The name of the custom event.
      *
      * @example BABEL_BUY
      *
@@ -54,9 +51,11 @@ class DescribeCustomEventCountRequest extends Model
     public $regionId;
 
     /**
-     * @description The end of the time range to query.
+     * @description The keywords that are contained in the content of the custom event to query. You can use a logical operator between keywords.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *   If you need to query the custom event whose content contains a and b, set the value to a and b.
+     *   If you need to query the custom event whose content contains a or b, set the value to a or b.
+     *
      * @example cms
      *
      * @var string
@@ -64,9 +63,9 @@ class DescribeCustomEventCountRequest extends Model
     public $searchKeywords;
 
     /**
-     * @description The HTTP status code.
+     * @description The beginning of the time range to query.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552209685596
      *
      * @var string

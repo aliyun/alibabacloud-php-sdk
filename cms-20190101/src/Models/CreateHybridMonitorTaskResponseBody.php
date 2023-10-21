@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateHybridMonitorTaskResponseBody extends Model
 {
     /**
-     * @description The alias of the aggregation result.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class CreateHybridMonitorTaskResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The error message.
      *
      * @example yamlConfigFail
      *
@@ -27,7 +28,7 @@ class CreateHybridMonitorTaskResponseBody extends Model
     public $message;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The ID of the request.
      *
      * @example 28CEA2E0-3E90-51B2-A7E8-B1ED75534E49
      *
@@ -36,6 +37,11 @@ class CreateHybridMonitorTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var string
@@ -43,6 +49,8 @@ class CreateHybridMonitorTaskResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the metric import task.
+     *
      * @example 36****
      *
      * @var int

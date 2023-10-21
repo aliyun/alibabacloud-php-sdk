@@ -18,6 +18,9 @@ class DescribeMonitoringAgentAccessKeyResponseBody extends Model
     public $accessKey;
 
     /**
+     * @description The status code.
+     *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -25,6 +28,8 @@ class DescribeMonitoringAgentAccessKeyResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example The specified resource is not found.
      *
      * @var string
@@ -32,7 +37,7 @@ class DescribeMonitoringAgentAccessKeyResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C0F655E9-D793-51E6-BD78-CABBCCFC1047
      *
@@ -41,9 +46,8 @@ class DescribeMonitoringAgentAccessKeyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The HTTP status code.
+     * @description The AccessKey secret that is required to install the agent.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example sBjNOUhLylrxMX-Xv1****
      *
      * @var string
@@ -51,7 +55,10 @@ class DescribeMonitoringAgentAccessKeyResponseBody extends Model
     public $secretKey;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeMonitoringAgentAccessKey**.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of the site monitoring tasks that were deleted.
+     *
      * @example 0
      *
      * @var int

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyMetricRuleBlackListResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The error code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -18,6 +19,8 @@ class ModifyMetricRuleBlackListResponseBody extends Model
     public $code;
 
     /**
+     * @description The number of blacklist policies that are modified.
+     *
      * @example 1
      *
      * @var string
@@ -25,7 +28,7 @@ class ModifyMetricRuleBlackListResponseBody extends Model
     public $count;
 
     /**
-     * @description The number of blacklist policies that are modified.
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -34,7 +37,7 @@ class ModifyMetricRuleBlackListResponseBody extends Model
     public $message;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The request ID.
      *
      * @example 008773AE-1D86-3231-90F9-1AF7F808F9CE
      *
@@ -43,6 +46,11 @@ class ModifyMetricRuleBlackListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

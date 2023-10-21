@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyGroupMonitoringAgentProcessResponseBody extends Model
 {
     /**
-     * @description The number of times for which the threshold can be consecutively exceeded. Valid values of N: 1 to 200. Default value: 3.
+     * @description The HTTP status code.
      *
-     * >  A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,7 +19,7 @@ class ModifyGroupMonitoringAgentProcessResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -28,6 +28,8 @@ class ModifyGroupMonitoringAgentProcessResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7985D471-3FA8-4EE9-8F4B-45C19DF3D36F
      *
      * @var string
@@ -35,6 +37,11 @@ class ModifyGroupMonitoringAgentProcessResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool

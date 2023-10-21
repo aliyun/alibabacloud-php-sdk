@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class BatchCreateInstantSiteMonitorResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -17,7 +20,7 @@ class BatchCreateInstantSiteMonitorResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The information about the site monitoring task.
      *
      * @example [{"taskName": "HangZhou_ECS1", "taskId": "679fbe4f-b80b-4706-91b2-5427b43e****"}]
      *
@@ -26,9 +29,8 @@ class BatchCreateInstantSiteMonitorResponseBody extends Model
     public $data;
 
     /**
-     * @description The type of the site monitoring task.
+     * @description The returned message.
      *
-     * >  You must create at least one site monitoring task. You must specify all of the `Address`, `TaskName`, and `TaskType` parameters in each request.
      * @example successful
      *
      * @var string
@@ -36,7 +38,7 @@ class BatchCreateInstantSiteMonitorResponseBody extends Model
     public $message;
 
     /**
-     * @description The returned message.
+     * @description The ID of the request.
      *
      * @example 7AE72720-2C96-5446-9F2B-308C7CEDFF1A
      *
@@ -45,7 +47,10 @@ class BatchCreateInstantSiteMonitorResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the site monitoring task.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

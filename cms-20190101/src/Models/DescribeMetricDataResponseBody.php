@@ -9,13 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricDataResponseBody extends Model
 {
     /**
-     * @description The monitoring data. The value includes the following fields:
+     * @description The HTTP status code.
      *
-     *   `timestamp`: the timestamp when the alert was triggered.
-     *   `userId`: the ID of the user for which the alert was triggered.
-     *   `instanceId`: the ID of the instance for which the alert was triggered.
-     *   `Minimum`, `Average`, and `Maximum`: the aggregation methods.
-     *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -23,6 +19,13 @@ class DescribeMetricDataResponseBody extends Model
     public $code;
 
     /**
+     * @description The monitoring data. The value includes the following fields:
+     *
+     *   `timestamp`: the timestamp when the alert was triggered.
+     *   `userId`: the ID of the user for which the alert was triggered.
+     *   `instanceId`: the ID of the instance for which the alert was triggered.
+     *   `Minimum`, `Average`, and `Maximum`: the aggregation methods.
+     *
      * @example [{\"timestamp\":1618368900000,\"Average\":95.8291666666667,\"Minimum\":65.48,\"Maximum\":100.0},{\"timestamp\":1618368960000,\"Average\":95.8683333333333,\"Minimum\":67.84,\"Maximum\":100.0}]
      *
      * @var string
@@ -30,7 +33,7 @@ class DescribeMetricDataResponseBody extends Model
     public $datapoints;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -39,6 +42,9 @@ class DescribeMetricDataResponseBody extends Model
     public $message;
 
     /**
+     * @description The statistical period of the monitoring data.
+     *
+     * Unit: seconds.
      * @example 60
      *
      * @var string
@@ -46,6 +52,8 @@ class DescribeMetricDataResponseBody extends Model
     public $period;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 6A5F022D-AC7C-460E-94AE-B9E75083D027
      *
      * @var string

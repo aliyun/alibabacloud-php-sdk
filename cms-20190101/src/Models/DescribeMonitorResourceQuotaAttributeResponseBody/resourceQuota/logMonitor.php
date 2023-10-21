@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logMonitor extends Model
 {
     /**
-     * @description The used quota of events that can be reported in event monitoring in your purchased plan. The product of multiplying the value and 10,000 indicates the used quota.
+     * @description The total quota of processed log data in log monitoring. Unit: MB/min.
      *
      * @example 150
      *
@@ -18,7 +18,7 @@ class logMonitor extends Model
     public $quotaLimit;
 
     /**
-     * @description The details about the resource quotas of CloudMonitor.
+     * @description The quota of processed log data in log monitoring in your resource plan. Unit: MB/min.
      *
      * @example 150
      *
@@ -27,7 +27,7 @@ class logMonitor extends Model
     public $quotaPackage;
 
     /**
-     * @description The used quota of alert text messages in your purchased resource plan.
+     * @description The used quota of processed log data in log monitoring in your resource plan. Unit: MB/min.
      *
      * @example 80
      *

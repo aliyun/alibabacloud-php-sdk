@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description Indicates whether the call succeeds. Valid values:
-     *
-     *   true: The call succeeds.
-     *   false: The call fails.
+     * @description The details of the generated alert rule.
      *
      * @var alertResults[]
      */
     public $alertResults;
 
     /**
-     * @description The returned information.
+     * @description The ID of the application group to which the alert template is applied.
      *
      * @example 123456
      *

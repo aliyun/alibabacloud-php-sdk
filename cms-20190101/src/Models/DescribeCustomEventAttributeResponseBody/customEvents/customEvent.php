@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class customEvent extends Model
 {
     /**
-     * @description The ID of the custom event.
+     * @description The content of the custom event.
      *
      * @example requestId:4975A6F3-19AC-4C01-BAD2-034DA07FEBB5, info:{"autoPay":false,"autoUseCoupon":false,"bid":"26842","buyerId":118935342242****,"commodities":[{"aliyunProduceCode":"cms","chargeType":"PREPAY","commodityCode":"cms_call_num","components":[{"componentCode":"phone_count","instanceProperty":[{"code":"phone_count","value":"500"}],"moduleAttrStatus":1}],"duration":6,"free":false,"orderParams":{"aliyunProduceCode":"cms"},"orderType":"BUY","prePayPostCharge":false,"pricingCycle":"Month","quantity":1,"refundSpecCode":"","renewChange":false,"specCode":"cms_call_num","specUpdate":false,"syncToSubscription":false,"upgradeInquireFinancialValue":true}],"fromApp":"commonbuy","orderParams":{"priceCheck":"true"},"payerId":118935342242****,"requestId":"ade3ad32-f58b-45d7-add4-ac542be3d8ec","skipChannel":false,"userId":118935342242****}
      *
@@ -18,7 +18,7 @@ class customEvent extends Model
     public $content;
 
     /**
-     * @description The content of the custom event.
+     * @description The ID of the application group.
      *
      * @example 12345
      *
@@ -27,7 +27,7 @@ class customEvent extends Model
     public $groupId;
 
     /**
-     * @description Queries the details of a custom event occurred in a specified time period.
+     * @description The ID of the custom event.
      *
      * @example 123
      *
@@ -36,7 +36,7 @@ class customEvent extends Model
     public $id;
 
     /**
-     * @description The ID of the application group.
+     * @description The name of the custom event.
      *
      * @example BABEL_CHECK
      *
@@ -45,8 +45,9 @@ class customEvent extends Model
     public $name;
 
     /**
-     * @description The name of the custom event.
+     * @description The time when the custom event occurred.
      *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552199984000
      *
      * @var string

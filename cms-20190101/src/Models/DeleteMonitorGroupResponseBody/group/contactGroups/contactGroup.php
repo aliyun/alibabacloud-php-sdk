@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class contactGroup extends Model
 {
     /**
-     * @description Deletes an application group.
+     * @description The name of the alert group.
      *
      * @example ECS_Group
      *

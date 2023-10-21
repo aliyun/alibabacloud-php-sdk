@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](~~114916~~) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
      * @example ecs
      *
      * @var string
@@ -19,7 +19,7 @@ class instances extends Model
     public $category;
 
     /**
-     * @description The ID of the request.
+     * @description The instance ID.
      *
      * @example i-2ze26xj5wwy12****
      *
@@ -28,7 +28,7 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example test-instance-ecs
      *
@@ -37,7 +37,7 @@ class instances extends Model
     public $instanceName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **CreateMonitorGroupInstances**.
+     * @description The region ID of the instance.
      *
      * @example cn-hangzhou
      *

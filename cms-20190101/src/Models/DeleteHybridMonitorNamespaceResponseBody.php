@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteHybridMonitorNamespaceResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteHybridMonitorNamespace**.
+     * @description The returned message.
      *
      * @example Success
      *
@@ -18,7 +18,7 @@ class DeleteHybridMonitorNamespaceResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The error message.
      *
      * @example Namespace.NotFound
      *
@@ -27,6 +27,8 @@ class DeleteHybridMonitorNamespaceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 3843D23A-FB9E-5DC8-BCCC-458768B79296
      *
      * @var string
@@ -34,6 +36,11 @@ class DeleteHybridMonitorNamespaceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

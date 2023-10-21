@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteLogMonitorResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class DeleteLogMonitorResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example metric not exist.
      *
@@ -27,10 +28,7 @@ class DeleteLogMonitorResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example 42BFFC2B-5E4D-4FDE-BCC6-E91EE33C5967
      *
@@ -39,6 +37,11 @@ class DeleteLogMonitorResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool

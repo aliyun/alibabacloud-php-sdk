@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class openApiParameters extends Model
 {
     /**
-     * @description The ID of the recipient that receives alert notifications sent by an API callback.
+     * @description The API name.
      *
      * @example PutLogs
      *
@@ -18,7 +18,13 @@ class openApiParameters extends Model
     public $action;
 
     /**
-     * @description The error message.
+     * @description The Alibaba Cloud Resource Name (ARN) of the resource. Valid values of N: 1 to 5. Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields:
+     *
+     *   Service: the code of a cloud service
+     *   Region: the region ID
+     *   Account: the ID of an Alibaba Cloud account
+     *   ResourceType: the resource type
+     *   ResourceId: the resource ID
      *
      * @example acs:log:cn-hangzhou::project/cms-log-mon***\/logstore/cxxxx***
      *
@@ -27,7 +33,7 @@ class openApiParameters extends Model
     public $arn;
 
     /**
-     * @description The region where Function Compute is deployed. Valid values of N: 1 to 5.
+     * @description The ID of the recipient that receives alert notifications sent by an API callback.
      *
      * @example 3
      *
@@ -36,7 +42,7 @@ class openApiParameters extends Model
     public $id;
 
     /**
-     * @description The region where Message Service (MNS) is deployed. Valid values of N: 1 to 5.
+     * @description The parameters of the alert callback. Specify the parameters in the JSON format.
      *
      * @example {"customField1":"value1","customField2":"$.name"}
      *
@@ -45,7 +51,7 @@ class openApiParameters extends Model
     public $jsonParams;
 
     /**
-     * @description The name of the Log Service project. Valid values of N: 1 to 5.
+     * @description The ID of the cloud service to which the API operation belongs.
      *
      * @example log
      *
@@ -54,7 +60,7 @@ class openApiParameters extends Model
     public $product;
 
     /**
-     * @description The callback URL. Valid values of N: 1 to 5.
+     * @description The region where the resource resides.
      *
      * @example cn-hangzhou
      *
@@ -63,7 +69,7 @@ class openApiParameters extends Model
     public $region;
 
     /**
-     * @description This parameter is returned if the specified alert contact groups in the request failed to be created or modified.
+     * @description The name of the role.
      *
      * @example MyRole
      *
@@ -72,7 +78,7 @@ class openApiParameters extends Model
     public $role;
 
     /**
-     * @description The name of the alert contact group.
+     * @description The version of the API.
      *
      * @example 2019-01-01
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class failData extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The information about the resource for which alerts are triggered.
      *
      * @var targets
      */

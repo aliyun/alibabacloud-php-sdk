@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutLogMonitorResponseBody extends Model
 {
     /**
-     * @description The name of the Log Service Logstore.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call is successful.
      * @example 200
      *
      * @var string
@@ -18,6 +19,8 @@ class PutLogMonitorResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the log monitoring metric.
+     *
      * @example 16****
      *
      * @var string
@@ -25,7 +28,10 @@ class PutLogMonitorResponseBody extends Model
     public $logId;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
+     *
+     *   If the call is successful, the value `successful` is returned.
+     *   If the call fails, an error message is returned. Example: `alias of aggreate must be set value.`
      *
      * @example successful
      *
@@ -34,7 +40,7 @@ class PutLogMonitorResponseBody extends Model
     public $message;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The ID of the request.
      *
      * @example 91561287-0802-5F9C-9BDE-404C50D41B06
      *
@@ -43,6 +49,11 @@ class PutLogMonitorResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   true: The call is successful.
+     *   false: The call fails.
+     *
      * @example true
      *
      * @var bool

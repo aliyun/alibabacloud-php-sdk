@@ -11,11 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorAttributeResponseBody extends Model
 {
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description The response code.
      *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -23,6 +21,8 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -30,14 +30,14 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
     public $message;
 
     /**
-     * @description The consecutive number of times for which the metric value is measured before an alert is triggered.
+     * @description The information of the alert rules that are configured for the site monitoring task.
      *
      * @var metricRules
      */
     public $metricRules;
 
     /**
-     * @description The details of the site monitoring task.
+     * @description The request ID.
      *
      * @example D17DF650-7EBD-54D0-903A-1D4E624D7402
      *
@@ -46,14 +46,17 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The interval at which the site monitoring task is executed. Unit: minutes. Valid values: 1, 5, 15, 30, and 60.
+     * @description The details of the site monitoring task.
      *
      * @var siteMonitors
      */
     public $siteMonitors;
 
     /**
-     * @description The protocol that is used by the site monitoring task. Valid values: HTTP, HTTPS, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

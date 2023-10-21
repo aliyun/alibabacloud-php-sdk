@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteGroupMonitoringAgentProcessResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class DeleteGroupMonitoringAgentProcessResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example The Request is not authorization.
      *
@@ -27,10 +28,7 @@ class DeleteGroupMonitoringAgentProcessResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example 3F6150F9-45C7-43F9-9578-A58B2E726C90
      *
@@ -39,6 +37,11 @@ class DeleteGroupMonitoringAgentProcessResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool

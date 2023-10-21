@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dimensions extends Model
 {
     /**
-     * @description The list of sending results that are categorized by notification method.
+     * @description The key of the dimension.
      *
      * @example instanceId
      *
@@ -18,7 +18,7 @@ class dimensions extends Model
     public $key;
 
     /**
-     * @description The ID of the blacklist policy.
+     * @description The value of the dimension.
      *
      * @example i-m5e1qg6uo38rztr4****
      *

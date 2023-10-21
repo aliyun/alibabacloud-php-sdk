@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleTemplateAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call is successful.
      * @example 200
      *
      * @var int
@@ -19,10 +20,7 @@ class DescribeMetricRuleTemplateAttributeResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
-     *
-     *   true: The call is successful.
-     *   false: The call fails.
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -31,7 +29,7 @@ class DescribeMetricRuleTemplateAttributeResponseBody extends Model
     public $message;
 
     /**
-     * @description The details of the alert template.
+     * @description The ID of the request.
      *
      * @example 8F3A82AD-DA92-52B0-8EC6-C059D1C3839F
      *
@@ -40,14 +38,17 @@ class DescribeMetricRuleTemplateAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The version of the alert template.
+     * @description The details of the alert template.
      *
      * @var resource
      */
     public $resource;
 
     /**
-     * @description The name of the alert template.
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   true: The call is successful.
+     *   false: The call fails.
      *
      * @example true
      *

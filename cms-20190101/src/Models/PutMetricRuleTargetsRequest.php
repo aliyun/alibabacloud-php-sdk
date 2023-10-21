@@ -15,8 +15,9 @@ class PutMetricRuleTargetsRequest extends Model
     public $regionId;
 
     /**
-     * @description The list of resources that failed to be created or modified.
+     * @description The ID of the alert rule.
      *
+     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
      * @example ae06917_75a8c43178ab66****
      *
      * @var string

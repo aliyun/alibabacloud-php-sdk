@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class browserInfo extends Model
 {
     /**
+     * @example Chrome
+     *
      * @var string
      */
     public $browser;
 
     /**
+     * @example laptop
+     *
      * @var string
      */
     public $device;

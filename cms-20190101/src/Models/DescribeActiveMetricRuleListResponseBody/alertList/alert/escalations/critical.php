@@ -9,7 +9,19 @@ use AlibabaCloud\Tea\Model;
 class critical extends Model
 {
     /**
-     * @description The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
+     * @description The comparison operator of the threshold for critical-level alerts. Valid values:
+     *
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
      * @example GreaterThanThreshold
      *
@@ -18,7 +30,7 @@ class critical extends Model
     public $comparisonOperator;
 
     /**
-     * @description Queries details about one-click alert rules.
+     * @description The statistical aggregation method for critical-level alerts.
      *
      * @example Average
      *
@@ -27,7 +39,7 @@ class critical extends Model
     public $statistics;
 
     /**
-     * @description The statistical aggregation method for critical-level alerts.
+     * @description The threshold for critical-level alerts.
      *
      * @example 99
      *
@@ -36,7 +48,7 @@ class critical extends Model
     public $threshold;
 
     /**
-     * @description The threshold for critical-level alerts.
+     * @description The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
      *
      * @example 3
      *

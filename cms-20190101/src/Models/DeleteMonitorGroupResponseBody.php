@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var int
@@ -19,14 +20,14 @@ class DeleteMonitorGroupResponseBody extends Model
     public $code;
 
     /**
-     * @description The name of the application group.
+     * @description The deleted application group.
      *
      * @var group
      */
     public $group;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example The Request is not authorization.
      *
@@ -35,7 +36,7 @@ class DeleteMonitorGroupResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description The ID of the request.
      *
      * @example CA35B3AE-4FFD-4A33-AE67-67EF68711EFA
      *
@@ -44,7 +45,7 @@ class DeleteMonitorGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The deleted application group.
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
      *
      * @example true
      *

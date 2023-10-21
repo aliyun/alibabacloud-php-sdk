@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupInstanceAttributeRequest extends Model
 {
     /**
-     * @description The keyword that is used to search for resources.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
+     * To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](~~114916~~) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
      * @example ecs
      *
      * @var string
@@ -18,9 +19,8 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     public $category;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the application group.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 123456
      *
      * @var int
@@ -28,7 +28,7 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the application group.
+     * @description The ID of the resource. Separate multiple resource IDs with commas (,). You can query the details about a maximum of 20 resources in each request.
      *
      * @example i-m5e0k0bexac8tykr****
      *
@@ -37,7 +37,7 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The ID of the vSwitch to which the instance belongs.
+     * @description The keyword that is used to search for resources.
      *
      * @example portal
      *
@@ -46,8 +46,9 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     public $keyword;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeMonitorGroupInstanceAttribute**.
+     * @description The number of the page to return.
      *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -55,9 +56,9 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
+     * @description The number of entries to return on each page.
      *
-     * To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](~~114916~~) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -70,7 +71,10 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description The error message.
+     * @description Specifies whether to return the total number of resources in the specified application group. Valid values:
+     *
+     *   true (default value)
+     *   false
      *
      * @example true
      *

@@ -14,7 +14,10 @@ class DescribeMonitorResourceQuotaAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the instance to be monitored.
+     * @description Specifies whether to return information about used quotas. Valid values:
+     *
+     *   true (default): yes
+     *   false: no
      *
      * @example true
      *

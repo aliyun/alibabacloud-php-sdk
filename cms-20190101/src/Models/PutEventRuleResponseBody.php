@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutEventRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class PutEventRuleResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The number of event-triggered alert rules that were created or modified.
      *
      * @example 1
      *
@@ -27,12 +28,7 @@ class PutEventRuleResponseBody extends Model
     public $data;
 
     /**
-     * @description The level of the event-triggered alert rule. Valid values of N: 1 to 50. Valid values:
-     *
-     *   CRITICAL: critical
-     *   WARN: warning
-     *   INFO: information
-     *   \*: all levels
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -41,6 +37,8 @@ class PutEventRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0B47C47B-E68A-4429-BB23-370E91889C7D
      *
      * @var string
@@ -48,6 +46,11 @@ class PutEventRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool

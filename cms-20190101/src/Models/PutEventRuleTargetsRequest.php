@@ -15,21 +15,29 @@ use AlibabaCloud\Tea\Model;
 class PutEventRuleTargetsRequest extends Model
 {
     /**
+     * @description The information about the alert contact groups that receive alert notifications.
+     *
      * @var contactParameters[]
      */
     public $contactParameters;
 
     /**
+     * @description The information about the recipients in Function Compute.
+     *
      * @var fcParameters[]
      */
     public $fcParameters;
 
     /**
+     * @description The information about the recipients in Message Service (MNS).
+     *
      * @var mnsParameters[]
      */
     public $mnsParameters;
 
     /**
+     * @description The parameters of API callback notification.
+     *
      * @var openApiParameters[]
      */
     public $openApiParameters;
@@ -40,11 +48,7 @@ class PutEventRuleTargetsRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the protocol. Valid values of N: 1 to 5. Valid values:
-     *
-     *   http
-     *   telnet
-     *   ping
+     * @description The name of the alert rule.
      *
      * @example testEventRule
      *
@@ -53,11 +57,15 @@ class PutEventRuleTargetsRequest extends Model
     public $ruleName;
 
     /**
+     * @description The information about the recipients in Simple Log Service.
+     *
      * @var slsParameters[]
      */
     public $slsParameters;
 
     /**
+     * @description The information about the callback URLs that are used to receive alert notifications.
+     *
      * @var webhookParameters[]
      */
     public $webhookParameters;

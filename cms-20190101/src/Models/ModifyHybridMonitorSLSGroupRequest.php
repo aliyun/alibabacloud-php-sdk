@@ -15,21 +15,24 @@ class ModifyHybridMonitorSLSGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The configurations of the Logstore group.
+     *
+     * Valid values of N: 1 to 25.
      * @var SLSGroupConfig[]
      */
     public $SLSGroupConfig;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyHybridMonitorSLSGroup**.
+     * @description The description of the Logstore group.
      *
      * @var string
      */
     public $SLSGroupDescription;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the Logstore group.
      *
-     * >  The status code 200 indicates that the call is successful.
+     * For information about how to obtain the name of a Logstore group, see [DescribeHybridMonitorSLSGroup](~~429526~~).
      * @example Logstore_test
      *
      * @var string

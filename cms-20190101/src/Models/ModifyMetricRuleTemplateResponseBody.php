@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyMetricRuleTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -18,7 +19,7 @@ class ModifyMetricRuleTemplateResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -27,6 +28,8 @@ class ModifyMetricRuleTemplateResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 9E07117F-F6AE-4F1C-81E8-36FBB4892235
      *
      * @var string
@@ -34,6 +37,11 @@ class ModifyMetricRuleTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

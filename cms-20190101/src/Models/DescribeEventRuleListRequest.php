@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventRuleListRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to DescribeEventRuleList.
+     * @description The ID of the application group.
      *
      * @example 7378****
      *
@@ -18,14 +18,15 @@ class DescribeEventRuleListRequest extends Model
     public $groupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isEnable;
 
     /**
-     * @description The HTTP status code.
+     * @description The prefix in the name of the event-triggered alert rule.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example test
      *
      * @var string
@@ -33,8 +34,9 @@ class DescribeEventRuleListRequest extends Model
     public $namePrefix;
 
     /**
-     * @description The description of the event-triggered alert rule.
+     * @description The number of the page to return.
      *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var string
@@ -42,11 +44,9 @@ class DescribeEventRuleListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The status of the event-triggered alert rule. Valid values:
+     * @description The number of entries to return on each page.
      *
-     *   ENABLED: enabled
-     *   DISABLED: disabled
-     *
+     * A minimum of one entry can be returned on each page. Default value: 10.
      * @example 10
      *
      * @var string

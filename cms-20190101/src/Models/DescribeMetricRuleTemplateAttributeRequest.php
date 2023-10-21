@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleTemplateAttributeRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The name of the alert template. You must specify at least one of the `Name` and `TemplateId` parameters.
      *
-     * >  The status code 200 indicates that the call is successful.
+     * For more information about how to query the names of alert templates, see [DescribeMetricRuleTemplateList](~~114982~~).
      * @example ECS_Template1
      *
      * @var string
@@ -24,8 +24,9 @@ class DescribeMetricRuleTemplateAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description The error message.
+     * @description The ID of the alert template. You must specify at least one of the `Name` and `TemplateId` parameters.
      *
+     * For more information about how to query the IDs of alert templates, see [DescribeMetricRuleTemplateList](~~114982~~).
      * @example 70****
      *
      * @var string

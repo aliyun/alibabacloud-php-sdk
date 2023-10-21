@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleCountResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,7 +20,7 @@ class DescribeMetricRuleCountResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example The Request is not authorization.
      *
@@ -28,17 +29,14 @@ class DescribeMetricRuleCountResponseBody extends Model
     public $message;
 
     /**
-     * @description The number of alert rules without active alerts.
+     * @description The number of alert rules in each state.
      *
      * @var metricRuleCount
      */
     public $metricRuleCount;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example FF38D33A-67C1-40EB-AB65-FAEE51EDB644
      *
@@ -47,7 +45,10 @@ class DescribeMetricRuleCountResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of alert rules in each state.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

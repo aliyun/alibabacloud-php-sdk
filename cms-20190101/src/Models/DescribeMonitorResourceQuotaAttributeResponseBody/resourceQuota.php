@@ -10,7 +10,9 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeR
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\eventMonitor;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\logMonitor;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\phone;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\siteMonitorBrowser;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\siteMonitorEcsProbe;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\siteMonitorMobile;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\siteMonitorOperatorProbe;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\siteMonitorTask;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\SMS;
@@ -19,37 +21,36 @@ use AlibabaCloud\Tea\Model;
 class resourceQuota extends Model
 {
     /**
-     * @description The details about the quota of API operation calls.
+     * @description The details about the quota of API calls.
      *
      * @var api
      */
     public $api;
 
     /**
-     * @description The quota of detection points that are provided by other carriers in site monitoring in your purchased plan.
+     * @description The details about the quota for custom monitoring.
      *
      * @var customMonitor
      */
     public $customMonitor;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The details about the quota of Hybrid Cloud Monitoring.
      *
      * @var enterpriseQuota
      */
     public $enterpriseQuota;
 
     /**
-     * @description The details about the quota of alert phone calls.
+     * @description The details about the quota for event monitoring.
      *
      * @var eventMonitor
      */
     public $eventMonitor;
 
     /**
-     * @description The total quota of detection points that are provided by Alibaba Cloud in site monitoring.
+     * @description The time when the resource plan expires.
      *
-     * >  The value indicates the maximum number of detection points provided by Alibaba Cloud that you can select for a site monitoring task.
      * @example 2021-02-28
      *
      * @var string
@@ -57,7 +58,7 @@ class resourceQuota extends Model
     public $expireTime;
 
     /**
-     * @description The operation that you want to perform. Set the value to DescribeMonitorResourceQuotaAttribute.
+     * @description The ID of the resource plan.
      *
      * @example cms_edition-cn-n6w20rn****
      *
@@ -66,51 +67,64 @@ class resourceQuota extends Model
     public $instanceId;
 
     /**
-     * @description The total quota of site monitoring tasks.
+     * @description The details about the quota for log monitoring.
      *
      * @var logMonitor
      */
     public $logMonitor;
 
     /**
-     * @description The details about the quota of alert text messages.
+     * @description The details about the quota of alert phone calls.
      *
      * @var phone
      */
     public $phone;
 
     /**
-     * @description The used quota of detection points that are provided by other carriers in site monitoring in your purchased plan.
+     * @description The details about the quota of alert text messages.
      *
      * @var SMS
      */
     public $SMS;
 
     /**
-     * @description The error message.
+     * @var siteMonitorBrowser
+     */
+    public $siteMonitorBrowser;
+
+    /**
+     * @description The details about the quota of ECS detection points for site monitoring.
      *
      * @var siteMonitorEcsProbe
      */
     public $siteMonitorEcsProbe;
 
     /**
-     * @description The total quota of API operation calls. Unit: 10,000 calls.
+     * @var siteMonitorMobile
+     */
+    public $siteMonitorMobile;
+
+    /**
+     * @description The details about the quota of carrier detection points for site monitoring.
      *
      * @var siteMonitorOperatorProbe
      */
     public $siteMonitorOperatorProbe;
 
     /**
-     * @description The quota of site monitoring tasks in your purchased plan.
+     * @description The quota of site monitoring tasks.
      *
      * @var siteMonitorTask
      */
     public $siteMonitorTask;
 
     /**
-     * @description The HTTP status code.
+     * @description The current edition of CloudMonitor. Valid values:
      *
-     * >  The HTTP status code 200 indicates that the call succeeds.
+     *   free: Free Edition
+     *   pro: Pro Edition
+     *   cms_post: pay-as-you-go
+     *
      * @example pro
      *
      * @var string
@@ -126,7 +140,9 @@ class resourceQuota extends Model
         'logMonitor'               => 'LogMonitor',
         'phone'                    => 'Phone',
         'SMS'                      => 'SMS',
+        'siteMonitorBrowser'       => 'SiteMonitorBrowser',
         'siteMonitorEcsProbe'      => 'SiteMonitorEcsProbe',
+        'siteMonitorMobile'        => 'SiteMonitorMobile',
         'siteMonitorOperatorProbe' => 'SiteMonitorOperatorProbe',
         'siteMonitorTask'          => 'SiteMonitorTask',
         'suitInfo'                 => 'SuitInfo',
@@ -166,8 +182,14 @@ class resourceQuota extends Model
         if (null !== $this->SMS) {
             $res['SMS'] = null !== $this->SMS ? $this->SMS->toMap() : null;
         }
+        if (null !== $this->siteMonitorBrowser) {
+            $res['SiteMonitorBrowser'] = null !== $this->siteMonitorBrowser ? $this->siteMonitorBrowser->toMap() : null;
+        }
         if (null !== $this->siteMonitorEcsProbe) {
             $res['SiteMonitorEcsProbe'] = null !== $this->siteMonitorEcsProbe ? $this->siteMonitorEcsProbe->toMap() : null;
+        }
+        if (null !== $this->siteMonitorMobile) {
+            $res['SiteMonitorMobile'] = null !== $this->siteMonitorMobile ? $this->siteMonitorMobile->toMap() : null;
         }
         if (null !== $this->siteMonitorOperatorProbe) {
             $res['SiteMonitorOperatorProbe'] = null !== $this->siteMonitorOperatorProbe ? $this->siteMonitorOperatorProbe->toMap() : null;
@@ -217,8 +239,14 @@ class resourceQuota extends Model
         if (isset($map['SMS'])) {
             $model->SMS = SMS::fromMap($map['SMS']);
         }
+        if (isset($map['SiteMonitorBrowser'])) {
+            $model->siteMonitorBrowser = siteMonitorBrowser::fromMap($map['SiteMonitorBrowser']);
+        }
         if (isset($map['SiteMonitorEcsProbe'])) {
             $model->siteMonitorEcsProbe = siteMonitorEcsProbe::fromMap($map['SiteMonitorEcsProbe']);
+        }
+        if (isset($map['SiteMonitorMobile'])) {
+            $model->siteMonitorMobile = siteMonitorMobile::fromMap($map['SiteMonitorMobile']);
         }
         if (isset($map['SiteMonitorOperatorProbe'])) {
             $model->siteMonitorOperatorProbe = siteMonitorOperatorProbe::fromMap($map['SiteMonitorOperatorProbe']);

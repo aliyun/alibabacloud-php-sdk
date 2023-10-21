@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class metricRule extends Model
 {
     /**
-     * @description The alert threshold.
+     * @description Indicates whether the alert rule is enabled. Valid values:
+     *
+     *   true: The alert rule is enabled.
+     *   false: The alert rule is disabled.
      *
      * @example true
      *
@@ -18,7 +21,7 @@ class metricRule extends Model
     public $actionEnable;
 
     /**
-     * @description The name of the alert rule.
+     * @description The alert contact group to which alert notifications are sent.
      *
      * @example CloudMonitor
      *
@@ -27,104 +30,7 @@ class metricRule extends Model
     public $alarmActions;
 
     /**
-     * @description The dimension of the alert rule.
-     *
-     * @example GreaterThanYesterday
-     *
-     * @var string
-     */
-    public $comparisonOperator;
-
-    /**
-     * @description The status of the alert. Valid values:
-     *
-     *   OK: normal.
-     *   ALARM: The alert is triggered.
-     *
-     * @example [{"taskId": "cc641dff-c19d-45f3-ad0a-818a0c4f****" }]
-     *
-     * @var string
-     */
-    public $dimensions;
-
-    /**
-     * @description The alert contact groups to which alert notifications are sent.
-     *
-     * @example 3
-     *
-     * @var string
-     */
-    public $evaluationCount;
-
-    /**
-     * @description Indicates whether the alert rule is enabled. Valid values:
-     *
-     *   true: The alert rule is enabled.
-     *   false: The alert rule is disabled.
-     *
-     * @example $Availability=30
-     *
-     * @var string
-     */
-    public $expression;
-
-    /**
-     * @description This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the address that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
-     *
-     * @example 2
-     *
-     * @var string
-     */
-    public $level;
-
-    /**
-     * @description The namespace of the cloud service.
-     *
-     * @example Availability
-     *
-     * @var string
-     */
-    public $metricName;
-
-    /**
-     * @description The alert contact group to which alert notifications are sent.
-     *
-     * @example acs_networkmonitor
-     *
-     * @var string
-     */
-    public $namespace;
-
-    /**
-     * @description The ID of the alert rule.
-     *
-     * @example [ "CloudMonitor"]
-     *
-     * @var string
-     */
-    public $okActions;
-
-    /**
-     * @description The expression that is used to trigger alerts.
-     *
-     * @example 15s
-     *
-     * @var string
-     */
-    public $period;
-
-    /**
-     * @description The interval at which the monitoring data is queried. The value is the same as the interval at which metric data is reported. Unit: seconds.
-     *
-     * >  If you specify a statistical period for the alert rule, raw data is queried based on the statistical period.
-     * @example bf071ae_7b7aec3817b0fdf****
-     *
-     * @var string
-     */
-    public $ruleId;
-
-    /**
-     * @description The comparison operator that is used in the alert rule. Valid values:
+     * @description The operator that is used to compare the metric value with the threshold in the alert rule. Valid values:
      *
      *   `>=`
      *   `>`
@@ -139,6 +45,102 @@ class metricRule extends Model
      *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
      *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
+     * @example GreaterThanYesterday
+     *
+     * @var string
+     */
+    public $comparisonOperator;
+
+    /**
+     * @description The dimension of the alert rule.
+     *
+     * @example [{"taskId": "cc641dff-c19d-45f3-ad0a-818a0c4f****" }]
+     *
+     * @var string
+     */
+    public $dimensions;
+
+    /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
+     *
+     * @example 3
+     *
+     * @var string
+     */
+    public $evaluationCount;
+
+    /**
+     * @description The expression that is used to trigger alerts.
+     *
+     * @example $Availability=30
+     *
+     * @var string
+     */
+    public $expression;
+
+    /**
+     * @description The alert severity. Valid values:
+     *
+     *   1: critical
+     *   2: warning
+     *   3: information
+     *
+     * @example 2
+     *
+     * @var string
+     */
+    public $level;
+
+    /**
+     * @description The metric name.
+     *
+     * @example Availability
+     *
+     * @var string
+     */
+    public $metricName;
+
+    /**
+     * @description The namespace of the cloud service.
+     *
+     * The value is in the following format: acs_service name.
+     * @example acs_networkmonitor
+     *
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @description The alert contact group that receives alert notifications.
+     *
+     * @example [ "CloudMonitor"]
+     *
+     * @var string
+     */
+    public $okActions;
+
+    /**
+     * @description The time interval. The value is the same as the interval at which metric data is reported. Unit: seconds.
+     *
+     * >  If you specify a statistical period for the alert rule, data is queried based on the statistical period.
+     * @example 15s
+     *
+     * @var string
+     */
+    public $period;
+
+    /**
+     * @description The ID of the alert rule.
+     *
+     * @example bf071ae_7b7aec3817b0fdf****
+     *
+     * @var string
+     */
+    public $ruleId;
+
+    /**
+     * @description The name of the alert rule.
+     *
      * @example rule1
      *
      * @var string
@@ -146,26 +148,16 @@ class metricRule extends Model
     public $ruleName;
 
     /**
-     * @description The severity of the alert. Valid values:
+     * @description The alert status. Valid values:
      *
-     *   1: critical
-     *   2: warning
-     *   3: information
+     *   OK: The alert rule has no active alerts.
+     *   ALARM: The alert rule has active alerts.
      *
      * @example OK
      *
      * @var string
      */
     public $stateValue;
-
-    /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
-     *
-     * @example Availability
-     *
-     * @var string
-     */
-    public $statistics;
 
     /**
      * @description The statistical method of the alert rule. Valid values:
@@ -175,6 +167,15 @@ class metricRule extends Model
      *   ErrorCodeMaximum: a status code for an alert
      *   ErrorCodeMinimum: all status codes for a set of alerts
      *   Average: response time
+     *
+     * @example Availability
+     *
+     * @var string
+     */
+    public $statistics;
+
+    /**
+     * @description The alert threshold.
      *
      * @example 30
      *

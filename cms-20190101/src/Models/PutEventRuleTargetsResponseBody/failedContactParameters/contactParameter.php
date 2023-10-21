@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class contactParameter extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The name of the alert contact group.
      *
      * @var string
      */
     public $contactGroupName;
 
     /**
+     * @description The ID of the recipient.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +25,9 @@ class contactParameter extends Model
     public $id;
 
     /**
+     * @description The alert level and the corresponding notification methods. Valid values:
+     *
+     * 4: Alert notifications are sent by using DingTalk chatbots and emails.
      * @example 3
      *
      * @var string

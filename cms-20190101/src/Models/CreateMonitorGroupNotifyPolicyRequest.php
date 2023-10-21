@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupNotifyPolicyRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The timestamp that indicates the end time of the validity period for the policy.
      *
+     * This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1623208500000
      *
      * @var int
@@ -18,9 +19,8 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     public $endTime;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the application group.
      *
-     * >  The HTTP status code 200 indicates that the call succeeds.
      * @example 7301****
      *
      * @var string
@@ -28,9 +28,8 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     public $groupId;
 
     /**
-     * @description The timestamp that indicates the end time of the validity period for the policy.
+     * @description The type of the policy. Valid value: PauseNotify.
      *
-     * This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example PauseNotify
      *
      * @var string
@@ -43,8 +42,9 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     public $regionId;
 
     /**
-     * @description The error message.
+     * @description The timestamp that indicates the start time of the validity period for the policy.
      *
+     * This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1622949300000
      *
      * @var int

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class siteMonitorEcsProbe extends Model
 {
     /**
-     * @description The used quota of site monitoring tasks in your purchased plan.
+     * @description The total quota of ECS detection points for site monitoring.
      *
+     * > The value indicates the maximum number of ECS detection points that you can select for a site monitoring task.
      * @example 5
      *
      * @var int
@@ -18,7 +19,7 @@ class siteMonitorEcsProbe extends Model
     public $quotaLimit;
 
     /**
-     * @description The quota of the time series in custom monitoring in your purchased plan.
+     * @description The quota of ECS detection points for site monitoring in your resource plan.
      *
      * @example 5
      *
@@ -27,11 +28,9 @@ class siteMonitorEcsProbe extends Model
     public $quotaPackage;
 
     /**
-     * @description Specifies whether to return information about used quotas. Valid values:
+     * @description The used quota of ECS detection points for site monitoring in your resource plan.
      *
-     *   true: to include information about used quotas. Default value: true.
-     *   false: to exclude information about used quotas.
-     *
+     * > The value indicates the total number of ECS detection points that are used by existing site monitoring tasks.
      * @example 20
      *
      * @var int

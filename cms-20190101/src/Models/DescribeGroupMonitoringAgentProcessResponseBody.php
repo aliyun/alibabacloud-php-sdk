@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupMonitoringAgentProcessResponseBody extends Model
 {
     /**
-     * @description The number of the returned page. Default value: 1.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,7 +20,7 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
     public $code;
 
     /**
-     * @description The number of entries returned on each page. Default value: 10.
+     * @description The returned message.
      *
      * @example The Request is not authorization.
      *
@@ -28,7 +29,7 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
     public $message;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of the returned page. Default value: 1.
      *
      * @example 1
      *
@@ -37,7 +38,7 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The process monitoring tasks created for the application group.
+     * @description The number of entries returned on each page. Default value: 10.
      *
      * @example 10
      *
@@ -46,16 +47,15 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the process monitoring task.
+     * @description The process monitoring tasks created for the application group.
      *
      * @var processes
      */
     public $processes;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the request.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 7985D471-3FA8-4EE9-8F4B-45C19DF3D36F
      *
      * @var string
@@ -63,7 +63,7 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned message.
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
      *
      * @example true
      *
@@ -72,7 +72,7 @@ class DescribeGroupMonitoringAgentProcessResponseBody extends Model
     public $success;
 
     /**
-     * @description The name of the process monitoring task.
+     * @description The total number of entries returned.
      *
      * @example 28
      *

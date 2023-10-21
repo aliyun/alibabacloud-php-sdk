@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eventInfo extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The content of the custom event. Valid values of N: 1 to 50.
      *
      * @example IOException
      *
@@ -18,9 +18,8 @@ class eventInfo extends Model
     public $content;
 
     /**
-     * @description The time when the custom event occurred.
+     * @description The name of the custom event. Valid values of N: 1 to 50.
      *
-     * >  You can also specify a UNIX timestamp. Example: 1552199984000. Unit: milliseconds.
      * @example myEvent
      *
      * @var string
@@ -28,9 +27,9 @@ class eventInfo extends Model
     public $eventName;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the application group. Valid values of N: 0 to 50.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * Default value: 0. This value indicates that the custom event to be reported does not belong to any application group.
      * @example 123456
      *
      * @var string
@@ -38,8 +37,9 @@ class eventInfo extends Model
     public $groupId;
 
     /**
-     * @description The content of the custom event. Valid values of N: 1 to 50.
+     * @description The time when the custom event occurred.
      *
+     * >  You can also specify a UNIX timestamp. Example: 1552199984000. Unit: milliseconds.
      * @example 20171013T170923.456+0800
      *
      * @var string

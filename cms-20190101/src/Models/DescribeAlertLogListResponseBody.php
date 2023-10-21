@@ -10,15 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogListResponseBody extends Model
 {
     /**
-     * @description The status code of the alert callback.
+     * @description The queried alert logs.
      *
      * @var alertLogList[]
      */
     public $alertLogList;
 
     /**
-     * @description The extended fields.
+     * @description The HTTP status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -26,7 +27,7 @@ class DescribeAlertLogListResponseBody extends Model
     public $code;
 
     /**
-     * @description The end timestamp of the alert logs to be queried. Unit: milliseconds.
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -35,7 +36,7 @@ class DescribeAlertLogListResponseBody extends Model
     public $message;
 
     /**
-     * @description The DingTalk chatbots of alert contacts.
+     * @description The page number.
      *
      * @example 1
      *
@@ -44,9 +45,8 @@ class DescribeAlertLogListResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The name of the metric.
+     * @description The number of entries per page.
      *
-     * >  For more information about the metrics of different cloud services, see [Appendix 1: Metrics](~~163515~~).
      * @example 10
      *
      * @var int
@@ -54,7 +54,7 @@ class DescribeAlertLogListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The name of the alert rule.
+     * @description The request ID.
      *
      * @example 1C4A3709-BF52-42EE-87B5-7435F0929585
      *
@@ -63,7 +63,10 @@ class DescribeAlertLogListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The timestamp that was generated when the alert was triggered. Unit: milliseconds.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

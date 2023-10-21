@@ -27,8 +27,9 @@ class targetList extends Model
     public $arn;
 
     /**
-     * @description The time period during which the alert rule is ineffective. Valid values of N: 1 to 200.
+     * @description The ID of the resource for which alerts are triggered.
      *
+     * For information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](~~121592~~).
      * @example 1
      *
      * @var string
@@ -36,7 +37,7 @@ class targetList extends Model
     public $id;
 
     /**
-     * @description The alert threshold. Valid values of N: 1 to 200.
+     * @description The parameters of the alert callback. The parameters are in the JSON format.
      *
      * @example {"customField1":"value1","customField2":"$.name"}
      *
@@ -45,7 +46,11 @@ class targetList extends Model
     public $jsonParams;
 
     /**
-     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule. Valid values of N: 1 to 200.
+     * @description The level of the alert. Valid values:
+     *
+     *   INFO: information
+     *   WARN: warning
+     *   CRITICAL: critical
      *
      * @example ["INFO", "WARN", "CRITICAL"]
      *

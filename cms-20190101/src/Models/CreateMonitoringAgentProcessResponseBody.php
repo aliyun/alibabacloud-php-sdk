@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitoringAgentProcessResponseBody extends Model
 {
     /**
-     * @description The error message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateMonitoringAgentProcessResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the process.
+     *
      * @example 12345
      *
      * @var int
@@ -25,7 +28,7 @@ class CreateMonitoringAgentProcessResponseBody extends Model
     public $id;
 
     /**
-     * @description The ID of the request.
+     * @description The error message.
      *
      * @example User not authorized to operate on the specified resource.
      *
@@ -34,10 +37,7 @@ class CreateMonitoringAgentProcessResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example 0DFCB47D-E7E1-4CBE-A381-8339F7B300EF
      *
@@ -46,7 +46,10 @@ class CreateMonitoringAgentProcessResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the process.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

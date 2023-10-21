@@ -11,15 +11,16 @@ use AlibabaCloud\Tea\Model;
 class logMonitor extends Model
 {
     /**
-     * @description The maximum value.
+     * @description The aggregate functions.
      *
      * @var aggregates[]
      */
     public $aggregates;
 
     /**
-     * @description The name of the Log Service project.
+     * @description The time when the log monitoring metric was created.
      *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1547431398000
      *
      * @var int
@@ -27,7 +28,7 @@ class logMonitor extends Model
     public $gmtCreate;
 
     /**
-     * @description The ID returned by Log Service.
+     * @description The ID of the application group.
      *
      * @example 12345
      *
@@ -36,14 +37,15 @@ class logMonitor extends Model
     public $groupId;
 
     /**
+     * @description The dimension based on which the data is grouped. This parameter is equivalent to the GROUP BY clause in SQL statements. If no dimension is specified, all data is aggregated based on the aggregate function.
+     *
      * @var string[]
      */
     public $groupbys;
 
     /**
-     * @description The extended field. The extended field allows you to perform basic operations on the aggregation results.
+     * @description The ID returned by Log Service.
      *
-     * Assume that you have calculated TotalNumber and 5XXNumber by aggregating the data. TotalNumber indicates the total number of HTTP requests, and 5XXNumber indicates the number of HTTP requests whose status code is greater than 499. You can calculate the server error rate by adding the following formula to the extended field: 5XXNumber/TotalNumber\*100.
      * @example 1234
      *
      * @var int
@@ -51,8 +53,9 @@ class logMonitor extends Model
     public $logId;
 
     /**
-     * @description The ID of the region where the Log Service Logstore resides.
+     * @description The extended field. The extended field allows you to perform basic operations on the aggregation results.
      *
+     * Assume that you have calculated TotalNumber and 5XXNumber by aggregating the data. TotalNumber indicates the total number of HTTP requests, and 5XXNumber indicates the number of HTTP requests whose status code is greater than 499. You can calculate the server error rate by adding the following formula to the extended field: 5XXNumber/TotalNumber\*100.
      * @example {"extend":{"errorPercent":"5XXNumber/TotalNumber*100"}}
      *
      * @var string
@@ -60,7 +63,7 @@ class logMonitor extends Model
     public $metricExpress;
 
     /**
-     * @description The ID of the application group.
+     * @description The name of the log monitoring metric. For more information, see [Appendix 1: Metrics](~~163515~~).
      *
      * @example cpu_total
      *
@@ -69,7 +72,7 @@ class logMonitor extends Model
     public $metricName;
 
     /**
-     * @description The name of the log monitoring metric. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The name of the Log Service Logstore.
      *
      * @example test-logstore
      *
@@ -78,7 +81,7 @@ class logMonitor extends Model
     public $slsLogstore;
 
     /**
-     * @description The aggregate functions.
+     * @description The name of the Log Service project.
      *
      * @example test-project
      *
@@ -87,9 +90,8 @@ class logMonitor extends Model
     public $slsProject;
 
     /**
-     * @description The time when the log monitoring metric was created.
+     * @description The ID of the region where the Log Service Logstore resides.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example cn-hangzhou
      *
      * @var string
@@ -97,21 +99,25 @@ class logMonitor extends Model
     public $slsRegionId;
 
     /**
-     * @description The dimension based on which the data is grouped. This parameter is equivalent to the GROUP BY clause in SQL statements. If no dimension is specified, all data is aggregated based on the aggregate function.
+     * @description The size of the tumbling window for calculation. Unit: seconds. The system performs an aggregation for each tumbling window.
      *
      * @var string[]
      */
     public $tumblingwindows;
 
     /**
-     * @description The name of the log field used for matching in the filter condition.
+     * @description The condition that is used to filter logs. The ValueFilter and ValueFilterRelation parameters are used in pair. The filter condition is equivalent to the WHERE clause in SQL statements.
      *
+     * If no filter condition is specified, all logs are processed. Assume that logs contain the Level field, which may be set to Error. If you need to calculate the number of times that logs of the Error level appear every minute, you can set the filter condition to Level=Error and count the number of logs that meet this condition.
      * @var valueFilter[]
      */
     public $valueFilter;
 
     /**
-     * @description The name of the Log Service Logstore.
+     * @description The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters are used in pair. Valid values:
+     *
+     *   and
+     *   or
      *
      * @example and
      *

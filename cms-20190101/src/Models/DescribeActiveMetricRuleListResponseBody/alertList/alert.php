@@ -10,9 +10,12 @@ use AlibabaCloud\Tea\Model;
 class alert extends Model
 {
     /**
-     * @description The dimensions that specify the resources for which you want to query monitoring data.
+     * @description The status of the alert rule. Valid values:
      *
-     * >  Dimensions must be organized in a JSON string and follow the required order.
+     *   OK: The alert rule has no active alert.
+     *   ALARM: The alert rule has at least one active alert.
+     *   INSUFFICIENT_DATA: The alert rule has no data.
+     *
      * @example OK
      *
      * @var string
@@ -20,7 +23,7 @@ class alert extends Model
     public $alertState;
 
     /**
-     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The alert group that receives alert notifications.
      *
      * @example ECS_Group
      *
@@ -29,11 +32,9 @@ class alert extends Model
     public $contactGroups;
 
     /**
-     * @description Indicates whether the alert rule is enabled. Valid values:
+     * @description The dimensions that specify the resources for which you want to query monitoring data.
      *
-     *   true: The alert rule is enabled.
-     *   false: The alert rule is disabled.
-     *
+     * >  Dimensions must be organized in a JSON string and follow the required order.
      * @example ""
      *
      * @var string
@@ -41,7 +42,7 @@ class alert extends Model
     public $dimensions;
 
     /**
-     * @description The time period during which the alert rule is ineffective.
+     * @description The time period during which the alert rule is effective.
      *
      * @example 00:00-23:59
      *
@@ -50,7 +51,10 @@ class alert extends Model
     public $effectiveInterval;
 
     /**
-     * @description The resources that are associated with the alert rule. A one-click alert rule is associated with all resources. The return value is fixed.
+     * @description Indicates whether the alert rule is enabled. Valid values:
+     *
+     *   true: The alert rule is enabled.
+     *   false: The alert rule is disabled.
      *
      * @example true
      *
@@ -59,7 +63,7 @@ class alert extends Model
     public $enableState;
 
     /**
-     * @description The condition for triggering info-level alerts.
+     * @description The conditions for triggering different levels of alerts.
      *
      * @var escalations
      */
@@ -73,7 +77,7 @@ class alert extends Model
     public $mailSubject;
 
     /**
-     * @description The callback URL.
+     * @description The name of the metric.
      *
      * @example cpu_total
      *
@@ -82,7 +86,7 @@ class alert extends Model
     public $metricName;
 
     /**
-     * @description The time period during which the alert rule is effective.
+     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](~~163515~~).
      *
      * @example acs_ecs_dashboard
      *
@@ -91,7 +95,7 @@ class alert extends Model
     public $namespace;
 
     /**
-     * @description The name of the alert rule.
+     * @description The time period during which the alert rule is ineffective.
      *
      * @example 00:00-06:00
      *
@@ -100,11 +104,7 @@ class alert extends Model
     public $noEffectiveInterval;
 
     /**
-     * @description The status of the alert rule. Valid values:
-     *
-     *   OK: The alert rule has no active alert.
-     *   ALARM: The alert rule has at least one active alert.
-     *   INSUFFICIENT_DATA: The alert rule has no data.
+     * @description The aggregation period of the monitoring data. Unit: seconds. The default value is the minimum aggregation period, indicating that the metric is polled at the highest frequency. Typically, you do not need to specify the minimum aggregation period.
      *
      * @example 60
      *
@@ -113,7 +113,7 @@ class alert extends Model
     public $period;
 
     /**
-     * @description The conditions for triggering different levels of alerts.
+     * @description The resources that are associated with the alert rule. A one-click alert rule is associated with all resources. The return value is fixed.
      *
      * @example [{"resource":"_ALL"}]
      *
@@ -122,7 +122,7 @@ class alert extends Model
     public $resources;
 
     /**
-     * @description The aggregation period of the monitoring data. Unit: seconds. The default value is the minimum aggregation period, indicating that the metric is polled at the highest frequency. Typically, you do not need to specify the minimum aggregation period.
+     * @description The ID of the alert rule.
      *
      * @example ruleIdxxxx
      *
@@ -131,7 +131,7 @@ class alert extends Model
     public $ruleId;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The name of the alert rule.
      *
      * @example myAlert
      *
@@ -140,7 +140,7 @@ class alert extends Model
     public $ruleName;
 
     /**
-     * @description The name of the metric.
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
      *
      * @example 86400
      *
@@ -149,7 +149,7 @@ class alert extends Model
     public $silenceTime;
 
     /**
-     * @description The alert group that receives alert notifications.
+     * @description The callback URL.
      *
      * @example http://www.aliyun.com
      *

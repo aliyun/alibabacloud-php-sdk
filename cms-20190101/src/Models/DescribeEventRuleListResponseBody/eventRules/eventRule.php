@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class eventRule extends Model
 {
     /**
-     * @description The filter keyword.
+     * @description The description of the event-triggered alert rule.
      *
      * @example Default group event rule.
      *
@@ -19,15 +19,16 @@ class eventRule extends Model
     public $description;
 
     /**
-     * @description The ID of the application group.
+     * @description The mode of the event-triggered alert rule.
      *
      * @var eventPattern
      */
     public $eventPattern;
 
     /**
-     * @description The mode of the event-triggered alert rule.
+     * @description The type of the event. Valid values:
      *
+     * - CUSTOM: custom event
      * @example SYSTEM
      *
      * @var string
@@ -35,9 +36,8 @@ class eventRule extends Model
     public $eventType;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the application group.
      *
-     * A minimum of one entry can be returned on each page. Default value: 10.
      * @example 7378****
      *
      * @var string
@@ -45,10 +45,7 @@ class eventRule extends Model
     public $groupId;
 
     /**
-     * @description The relationship between multiple keywords in a condition. Valid values:
-     *
-     *   OR: The relationship between keywords is OR.
-     *   NOT: The keyword is excluded. The value NOT indicates that all events that do not contain the keywords are matched.
+     * @description The name of the event-triggered alert rule.
      *
      * @example test_DefaultEventRule_7378****
      *
@@ -57,6 +54,8 @@ class eventRule extends Model
     public $name;
 
     /**
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met.
+     *
      * @example 86400
      *
      * @var int
@@ -64,11 +63,10 @@ class eventRule extends Model
     public $silenceTime;
 
     /**
-     * @description The level of the event. Valid values:
+     * @description The status of the event-triggered alert rule. Valid values:
      *
-     *   CRITICAL: critical
-     *   WARN: warning
-     *   INFO: information
+     *   ENABLED: enabled
+     *   DISABLED: disabled
      *
      * @example ENABLED
      *

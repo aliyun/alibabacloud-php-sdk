@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @description The tag key of the alert rule. The specified tag is contained in alert notifications.
+     *
+     * Valid values of N: 1 to 200.
      * @example key1
      *
      * @var string
@@ -16,6 +19,9 @@ class labels extends Model
     public $key;
 
     /**
+     * @description The tag value of the alert rule. The specified tag is contained in alert notifications.
+     *
+     * Valid values of N: 1 to 200.
      * @example value1
      *
      * @var string

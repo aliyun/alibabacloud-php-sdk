@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMonitorAttributeResponseBody extends Model
 {
     /**
-     * @description The returned message. If the call was successful, the value success is returned. If the call failed, an error message is returned.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,17 +20,14 @@ class DescribeLogMonitorAttributeResponseBody extends Model
     public $code;
 
     /**
-     * @description The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters are used in pair. Valid values:
-     *
-     *   and
-     *   or
+     * @description The details of the log monitoring metric.
      *
      * @var logMonitor
      */
     public $logMonitor;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message. If the call was successful, the value success is returned. If the call failed, an error message is returned.
      *
      * @example successful
      *
@@ -38,10 +36,7 @@ class DescribeLogMonitorAttributeResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example C6718537-E673-4A58-8EE1-24B8B38C7AAE
      *
@@ -50,7 +45,10 @@ class DescribeLogMonitorAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the log monitoring metric.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

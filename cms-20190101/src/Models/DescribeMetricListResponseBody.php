@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -16,7 +19,7 @@ class DescribeMetricListResponseBody extends Model
     public $code;
 
     /**
-     * @description Queries the monitoring data of a metric for a specified cloud service.
+     * @description The monitoring data.
      *
      * @example [{"timestamp":1548777660000,"userId":"120886317861****","instanceId":"i-abc","Minimum":9.92,"Average":9.92,"Maximum":9.92}]
      *
@@ -25,6 +28,8 @@ class DescribeMetricListResponseBody extends Model
     public $datapoints;
 
     /**
+     * @description The error message.
+     *
      * @example The specified resource is not found.
      *
      * @var string
@@ -32,7 +37,7 @@ class DescribeMetricListResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The paging token.
      *
      * @example 15761441850009dd70bb64cff1f0fff6d0b08ffff073be5fb1e785e2b020f7fed9b5e137bd810a6d6cff5ae****
      *
@@ -41,6 +46,8 @@ class DescribeMetricListResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The interval at which the monitoring data is queried. Unit: seconds. Valid values: 60, 300, and 900.
+     *
      * @example 60
      *
      * @var string
@@ -48,7 +55,7 @@ class DescribeMetricListResponseBody extends Model
     public $period;
 
     /**
-     * @description The monitoring data.
+     * @description The ID of the request.
      *
      * @example 3121AE7D-4AFF-4C25-8F1D-C8226EBB1F42
      *
@@ -57,7 +64,10 @@ class DescribeMetricListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

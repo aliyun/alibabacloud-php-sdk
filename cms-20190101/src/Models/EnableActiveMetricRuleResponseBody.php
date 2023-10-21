@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EnableActiveMetricRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class EnableActiveMetricRuleResponseBody extends Model
     public $code;
 
     /**
-     * @description The operation that you want to perform. Set the value to **EnableActiveMetricRule**.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -27,6 +28,8 @@ class EnableActiveMetricRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F82E6667-7811-4BA0-842F-5B2DC42BBAAD
      *
      * @var string
@@ -34,6 +37,11 @@ class EnableActiveMetricRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool

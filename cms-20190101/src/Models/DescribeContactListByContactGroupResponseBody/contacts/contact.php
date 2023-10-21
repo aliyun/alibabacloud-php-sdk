@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class contact extends Model
 {
     /**
-     * @description The email address of the alert contact.
+     * @description The alert notification targets.
      *
      * @var channels
      */
     public $channels;
 
     /**
-     * @description The description of the alert contact.
+     * @description The time when the alert contact was created.
      *
      * @example 1552314252000
      *
@@ -26,7 +26,7 @@ class contact extends Model
     public $createTime;
 
     /**
-     * @description The alert notification targets.
+     * @description The description of the alert contact.
      *
      * @example ECS
      *
@@ -35,7 +35,7 @@ class contact extends Model
     public $desc;
 
     /**
-     * @description The time when the alert contact was created.
+     * @description The name of the alert contact.
      *
      * @example Alice
      *
@@ -44,7 +44,7 @@ class contact extends Model
     public $name;
 
     /**
-     * @description The name of the alert contact.
+     * @description The time when the alert contact was modified.
      *
      * @example 1552314252000
      *

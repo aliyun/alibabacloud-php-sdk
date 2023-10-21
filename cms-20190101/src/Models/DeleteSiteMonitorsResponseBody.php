@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteSiteMonitorsResponseBody extends Model
 {
     /**
-     * @description The information about the site monitoring tasks that were deleted.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,21 +20,23 @@ class DeleteSiteMonitorsResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the site monitoring tasks that were deleted.
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message. If the call was successful, the value success is returned. If the call failed, an error message such as `TaskId not found` is returned.
      *
-     * @example The operation that you want to perform. Set the value to **DeleteSiteMonitors**.
+     * @example successful
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description Deletes one or more site monitoring tasks.
+     * @description The ID of the request.
      *
      * @example 123BCC5D-8B63-48EA-B747-9A8995BE7AA6
      *
@@ -42,6 +45,8 @@ class DeleteSiteMonitorsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates success. The value false indicates failure.
+     *
      * @example true
      *
      * @var string

@@ -10,11 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentProcessesResponseBody extends Model
 {
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description The HTTP status code.
      *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
+     * >  The value 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -22,7 +20,7 @@ class DescribeMonitoringAgentProcessesResponseBody extends Model
     public $code;
 
     /**
-     * @description The information about the processes.
+     * @description The returned message.
      *
      * @example The specified resource is not found.
      *
@@ -31,7 +29,7 @@ class DescribeMonitoringAgentProcessesResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the process.
+     * @description The information about the processes.
      *
      * @var nodeProcesses
      */
@@ -45,7 +43,10 @@ class DescribeMonitoringAgentProcessesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The name of the process.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

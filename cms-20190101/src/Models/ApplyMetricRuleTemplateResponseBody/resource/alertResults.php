@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class alertResults extends Model
 {
     /**
-     * @description The name of the alert rule.
+     * @description The response code.
      *
+     * >  The HTTP status code 200 indicates that the call succeeds.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class alertResults extends Model
     public $code;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The returned information.
      *
      * @example alert rule is creating, please wait a few minutes.
      *
@@ -27,6 +28,8 @@ class alertResults extends Model
     public $message;
 
     /**
+     * @description The ID of the alert rule.
+     *
      * @example applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****
      *
      * @var string
@@ -34,7 +37,7 @@ class alertResults extends Model
     public $ruleId;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The name of the alert rule.
      *
      * @example test123
      *
@@ -43,7 +46,10 @@ class alertResults extends Model
     public $ruleName;
 
     /**
-     * @description In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
+     * @description Indicates whether the call succeeds. Valid values:
+     *
+     *   true: The call succeeds.
+     *   false: The call fails.
      *
      * @example true
      *

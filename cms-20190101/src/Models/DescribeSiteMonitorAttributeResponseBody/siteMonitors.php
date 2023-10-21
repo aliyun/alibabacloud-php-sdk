@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class siteMonitors extends Model
 {
     /**
-     * @description The information of detection points. The information includes the carriers that provide the detection points and the cities where the detection points reside.
+     * @description The URL that is monitored by the site monitoring task.
      *
      * @example https://aliyun.com
      *
@@ -21,6 +21,8 @@ class siteMonitors extends Model
     public $address;
 
     /**
+     * @example PC
+     *
      * @var string
      */
     public $agentGroup;
@@ -31,7 +33,7 @@ class siteMonitors extends Model
     public $customSchedule;
 
     /**
-     * @description The name of the site monitoring task.
+     * @description The interval at which the site monitoring task is executed. Unit: minutes. Valid values: 1, 5, 15, 30, and 60.
      *
      * @example 1
      *
@@ -40,19 +42,21 @@ class siteMonitors extends Model
     public $interval;
 
     /**
-     * @description The name of the carrier.
+     * @description The information of detection points. The information includes the carriers that provide the detection points and the cities where the detection points reside.
      *
      * @var ispCities
      */
     public $ispCities;
 
     /**
+     * @description The extended options of the site monitoring task. The options vary based on the specified protocol. For more information, see [CreateSiteMonitor](~~115048~~).
+     *
      * @var optionJson
      */
     public $optionJson;
 
     /**
-     * @description The ID of the city.
+     * @description The ID of the site monitoring task.
      *
      * @example cc641dff-c19d-45f3-ad0a-818a0c4f****
      *
@@ -61,7 +65,7 @@ class siteMonitors extends Model
     public $taskId;
 
     /**
-     * @description The ID of the site monitoring task.
+     * @description The name of the site monitoring task.
      *
      * @example test123
      *
@@ -70,7 +74,10 @@ class siteMonitors extends Model
     public $taskName;
 
     /**
-     * @description The address that is monitored by the site monitoring task.
+     * @description The status of the site monitoring task. Valid values:
+     *
+     *   1: The task is enabled.
+     *   2: The task is disabled.
      *
      * @example 1
      *
@@ -79,10 +86,7 @@ class siteMonitors extends Model
     public $taskState;
 
     /**
-     * @description The status of the site monitoring task. Valid values:
-     *
-     *   1: The task is enabled.
-     *   2: The task is disabled.
+     * @description The protocol that is used by the site monitoring task. Valid values: HTTP, HTTPS, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
      *
      * @example HTTP
      *

@@ -17,7 +17,7 @@ class PutLogMonitorRequest extends Model
     public $aggregates;
 
     /**
-     * @description The ID of the log monitoring metric.
+     * @description The ID of the application group.
      *
      * @example 7301****
      *
@@ -31,9 +31,8 @@ class PutLogMonitorRequest extends Model
     public $groupbys;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the log monitoring metric.
      *
-     * >  The status code 200 indicates that the call is successful.
      * @example 16****
      *
      * @var string
@@ -58,10 +57,7 @@ class PutLogMonitorRequest extends Model
     public $metricExpress;
 
     /**
-     * @description The returned message.
-     *
-     *   If the call is successful, the value `successful` is returned.
-     *   If the call fails, an error message is returned. Example: `alias of aggreate must be set value.`
+     * @description The name of the metric. For more information about the metrics for cloud services, see [Appendix 1: Metrics](~~163515~~).
      *
      * @example cpu_total
      *
@@ -75,7 +71,7 @@ class PutLogMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the metric. For more information about the metrics for cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * @description The name of the Log Service Logstore.
      *
      * @example test-logstore
      *
@@ -84,7 +80,7 @@ class PutLogMonitorRequest extends Model
     public $slsLogstore;
 
     /**
-     * @description The name of the field that is specified as the dimension. Valid values of N: 1 to 10.
+     * @description The name of the Log Service project.
      *
      * @example test-project
      *
@@ -93,7 +89,7 @@ class PutLogMonitorRequest extends Model
     public $slsProject;
 
     /**
-     * @description The operation that you want to perform. Set the value to PutLogMonitor.
+     * @description The region in which the Log Service project resides.
      *
      * @example cn-hangzhou
      *
@@ -102,12 +98,8 @@ class PutLogMonitorRequest extends Model
     public $slsRegionId;
 
     /**
-     * @description The logical operator that is used between log filter conditions. Valid values:
+     * @description The size of the tumbling window for calculation. Unit: seconds. CloudMonitor performs aggregation for each tumbling window.
      *
-     *   and
-     *   or
-     *
-     * >  The ValueFilterRelation and `ValueFilter.N.Key` parameters must be used in pair.
      * @example 60,300
      *
      * @var string
@@ -115,7 +107,7 @@ class PutLogMonitorRequest extends Model
     public $tumblingwindows;
 
     /**
-     * @description The region in which the Log Service project resides.
+     * @description The unit.
      *
      * @example Percent
      *
@@ -129,8 +121,12 @@ class PutLogMonitorRequest extends Model
     public $valueFilter;
 
     /**
-     * @description The field value to be matched in the filter condition. Valid values of N: 1 to 10.
+     * @description The logical operator that is used between log filter conditions. Valid values:
      *
+     *   and
+     *   or
+     *
+     * >  The ValueFilterRelation and `ValueFilter.N.Key` parameters must be used in pair.
      * @example and
      *
      * @var string

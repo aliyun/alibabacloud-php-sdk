@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class mnsParameter extends Model
 {
     /**
+     * @description The ARN of the MNS queue.
+     *
+     * - ResourceId: the resource ID
      * @example acs:log:cn-hangzhou::project/cms-log-mon***\/logstore/cxxxx***
      *
      * @var string
@@ -16,6 +19,8 @@ class mnsParameter extends Model
     public $arn;
 
     /**
+     * @description The ID of the recipient.
+     *
      * @example 2
      *
      * @var string
@@ -23,6 +28,8 @@ class mnsParameter extends Model
     public $id;
 
     /**
+     * @description The name of the MNS queue.
+     *
      * @example testQueue
      *
      * @var string
@@ -30,6 +37,8 @@ class mnsParameter extends Model
     public $queue;
 
     /**
+     * @description The region where MNS is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +46,8 @@ class mnsParameter extends Model
     public $region;
 
     /**
+     * @description The MNS topic.
+     *
      * @example topic_sample
      *
      * @var string

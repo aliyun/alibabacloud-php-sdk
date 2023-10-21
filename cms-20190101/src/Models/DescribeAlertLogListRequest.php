@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogListRequest extends Model
 {
     /**
-     * @description The start timestamp of the alert logs to be queried. Unit: milliseconds.
+     * @description The alert contact group.
      *
      * @example ECS_Group
      *
@@ -18,7 +18,7 @@ class DescribeAlertLogListRequest extends Model
     public $contactGroup;
 
     /**
-     * @description The alert contact group.
+     * @description The end timestamp of the alert logs to be queried. Unit: milliseconds.
      *
      * @example 1610074409694
      *
@@ -27,7 +27,13 @@ class DescribeAlertLogListRequest extends Model
     public $endTime;
 
     /**
-     * @description The alert information in a JSON string.
+     * @description The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL. Valid values:
+     *
+     *   `product`: aggregates data by cloud service.
+     *   `level`: aggregates data by alert level.
+     *   `groupId`: aggregates data by application group.
+     *   `contactGroup`: aggregates data by alert contact group.
+     *   `product,metricName`: aggregates data both by cloud service and by metric.
      *
      * @example product
      *
@@ -36,7 +42,7 @@ class DescribeAlertLogListRequest extends Model
     public $groupBy;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeAlertLogList**.
+     * @description The ID of the application group.
      *
      * @example 7301****
      *
@@ -45,7 +51,7 @@ class DescribeAlertLogListRequest extends Model
     public $groupId;
 
     /**
-     * @description The name of the blacklist policy.
+     * @description The statistical period of alert logs. Unit: minutes.
      *
      * @example 360
      *
@@ -54,7 +60,10 @@ class DescribeAlertLogListRequest extends Model
     public $lastMin;
 
     /**
-     * @description The webhook URLs of alert contacts.
+     * @description The severity level and notification methods of the alert. Valid values:
+     *
+     *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
+     *   OK: No alert is generated.
      *
      * @example P4
      *
@@ -63,8 +72,9 @@ class DescribeAlertLogListRequest extends Model
     public $level;
 
     /**
-     * @description The message returned for the alert callback.
+     * @description The metric name.
      *
+     * > For more information about the metrics of different cloud services, see [Appendix 1: Metrics](~~163515~~).
      * @example IntranetInRate
      *
      * @var string
@@ -72,11 +82,9 @@ class DescribeAlertLogListRequest extends Model
     public $metricName;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description The namespace of the cloud service.
      *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
+     * > For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](~~163515~~).
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -84,9 +92,8 @@ class DescribeAlertLogListRequest extends Model
     public $namespace;
 
     /**
-     * @description The HTTP status code.
+     * @description The page number. Default value: 1.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 1
      *
      * @var int
@@ -94,13 +101,7 @@ class DescribeAlertLogListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The severity level and notification methods of the alert. Valid values:
-     *
-     *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
-     *
-     * <!---->
-     *
-     *   OK: No alert is generated.
+     * @description The number of entries per page. Default value: 10.
      *
      * @example 10
      *
@@ -109,7 +110,7 @@ class DescribeAlertLogListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The email addresses of alert contacts.
+     * @description The abbreviation of the cloud service name.
      *
      * @example ECS
      *
@@ -123,9 +124,8 @@ class DescribeAlertLogListRequest extends Model
     public $regionId;
 
     /**
-     * @description The phone numbers of alert contacts that can receive alert text messages.
+     * @description The ID of the alert rule. For more information about how to query the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
      *
-     * >  This parameter can be returned only on the China site (aliyun.com).
      * @example bc369e8_30f87e517ed2fc****
      *
      * @var string
@@ -133,10 +133,7 @@ class DescribeAlertLogListRequest extends Model
     public $ruleId;
 
     /**
-     * @description The identifier of the cloud service. Valid values:
-     *
-     *   If the cloud service is provided by Alibaba Cloud, the abbreviation of the service name is returned. Example: ECS.
-     *   If the cloud service is not provided by Alibaba Cloud, a value in the `acs_Service keyword` format is returned. Example: acs_networkmonitor.
+     * @description The name of the alert rule.
      *
      * @example test123
      *
@@ -145,7 +142,7 @@ class DescribeAlertLogListRequest extends Model
     public $ruleName;
 
     /**
-     * @description The ID of the log.
+     * @description The search keyword that is used to query alert logs.
      *
      * @example alert
      *
@@ -154,8 +151,15 @@ class DescribeAlertLogListRequest extends Model
     public $searchKey;
 
     /**
-     * @description The sending results of alert notifications.
+     * @description The status of the alert. Valid values:
      *
+     *   0: The alert is triggered or cleared.
+     *   1: The alert is ineffective.
+     *   2: The alert is muted.
+     *   3: The host is restarting.
+     *   4: No alert notification is sent.
+     *
+     * If the value of the SendStatus parameter is 0, the value P4 of the Level parameter indicates a triggered alert and the value OK indicates a cleared alert.
      * @example 0
      *
      * @var string
@@ -163,15 +167,14 @@ class DescribeAlertLogListRequest extends Model
     public $sendStatus;
 
     /**
+     * @example METRIC
+     *
      * @var string
      */
     public $sourceType;
 
     /**
-     * @description Indicates whether the alert level was changed. Valid values:
-     *
-     *   `P4->OK`: The alert level was changed from P4 to OK.
-     *   `P4->P4`: The alert level was still P4.
+     * @description The start timestamp of the alert logs to be queried. Unit: milliseconds.
      *
      * @example 1609988009694
      *

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class alertResult extends Model
 {
     /**
+     * @description The status code that is returned for the alert rule.
+     *
+     * >  The status code 200 indicates that the call is successful.
      * @example 200
      *
      * @var int
@@ -16,6 +19,8 @@ class alertResult extends Model
     public $code;
 
     /**
+     * @description The error message that is returned for the alert rule.
+     *
      * @example Metric not found.
      *
      * @var string
@@ -23,6 +28,8 @@ class alertResult extends Model
     public $message;
 
     /**
+     * @description The ID of the alert rule.
+     *
      * @example 456789
      *
      * @var string
@@ -30,6 +37,8 @@ class alertResult extends Model
     public $ruleId;
 
     /**
+     * @description The name of the alert rule.
+     *
      * @example ECS_Rule1
      *
      * @var string
@@ -37,6 +46,9 @@ class alertResult extends Model
     public $ruleName;
 
     /**
+     * @description Indicates whether the alert rule was created. Valid value:
+     *
+     * - false: The alert rule failed to be created.
      * @example true
      *
      * @var bool

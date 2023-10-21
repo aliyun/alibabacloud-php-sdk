@@ -15,9 +15,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventRuleTargetListResponseBody extends Model
 {
     /**
-     * @description The alert notification methods. Valid values:
+     * @description The HTTP status code.
      *
-     * 4: Alert notifications are sent by using DingTalk chatbots and emails.
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -25,19 +25,21 @@ class DescribeEventRuleTargetListResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The information about the recipients if alert notifications are sent to the alert contacts of an alert contact group.
      *
      * @var contactParameters
      */
     public $contactParameters;
 
     /**
+     * @description The information about the recipients in Function Compute.
+     *
      * @var fcParameters
      */
     public $fcParameters;
 
     /**
-     * @description The information about the recipients if alert notifications are sent to the alert contacts of an alert contact group.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -46,11 +48,15 @@ class DescribeEventRuleTargetListResponseBody extends Model
     public $message;
 
     /**
+     * @description The information about the recipients in Message Service (MNS).
+     *
      * @var mnsParameters
      */
     public $mnsParameters;
 
     /**
+     * @description The information about the recipients in OpenAPI Explorer.
+     *
      * @var openApiParameters
      */
     public $openApiParameters;
@@ -65,11 +71,15 @@ class DescribeEventRuleTargetListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the recipients in Log Service.
+     *
      * @var slsParameters
      */
     public $slsParameters;
 
     /**
+     * @description The information about the recipients if alert notifications are sent by sending a request to a callback URL.
+     *
      * @var webhookParameters
      */
     public $webhookParameters;

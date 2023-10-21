@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class FCParameter extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the function.
+     *
+     * - ResourceId: the resource ID
      * @example acs:log:cn-hangzhou::project/cms-log-mon***\/logstore/cxxxx***
      *
      * @var string
@@ -16,6 +19,8 @@ class FCParameter extends Model
     public $arn;
 
     /**
+     * @description The name of the function.
+     *
      * @example fcTest1
      *
      * @var string
@@ -23,6 +28,8 @@ class FCParameter extends Model
     public $functionName;
 
     /**
+     * @description The ID of the recipient.
+     *
      * @example 3
      *
      * @var string
@@ -30,6 +37,8 @@ class FCParameter extends Model
     public $id;
 
     /**
+     * @description The region where Function Compute is deployed.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -37,6 +46,8 @@ class FCParameter extends Model
     public $region;
 
     /**
+     * @description The name of the Function Compute service.
+     *
      * @example service1
      *
      * @var string

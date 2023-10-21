@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
 {
     /**
-     * @description The information about the virtual private cloud (VPC).
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var int
@@ -19,9 +20,8 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $code;
 
     /**
-     * @description The number of the page to return.
+     * @description The error message.
      *
-     * Default value: 1.
      * @example The specified resource is not found.
      *
      * @var string
@@ -29,7 +29,7 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the VPC.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -38,9 +38,8 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The total number of returned pages.
      *
-     * Default value: 10.
      * @example 2
      *
      * @var int
@@ -48,7 +47,7 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The dimensions of the resource that is associated with the application group.
+     * @description The ID of the request.
      *
      * @example 9FB8EA79-7279-4482-8D6D-3D28EEDD871A
      *
@@ -57,14 +56,17 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the instance.
+     * @description The resources that are associated with the application group.
      *
      * @var resources
      */
     public $resources;
 
     /**
-     * @description The total number of returned entries.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *
@@ -73,7 +75,7 @@ class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the resource. Separate multiple resource IDs with commas (,). You can query the details about a maximum of 20 resources in each request.
+     * @description The total number of returned entries.
      *
      * @example 12
      *

@@ -15,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class alertLogList extends Model
 {
     /**
-     * @description The details of the blacklist policy.
+     * @description The timestamp that was generated when the alert was triggered. Unit: milliseconds.
      *
      * @example 1610043776621
      *
@@ -24,13 +24,7 @@ class alertLogList extends Model
     public $alertTime;
 
     /**
-     * @description The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL. Valid values:
-     *
-     *   `product`: aggregates data by cloud service.
-     *   `level`: aggregates data by alert level.
-     *   `groupId`: aggregates data by application group.
-     *   `contactGroup`: aggregates data by alert contact group.
-     *   `product,metricName`: aggregates data both by cloud service and by metric.
+     * @description The details of the blacklist policy.
      *
      * @example BlackListDetail
      *
@@ -39,7 +33,7 @@ class alertLogList extends Model
     public $blackListDetail;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10.
+     * @description The name of the blacklist policy.
      *
      * @example {"id":123,"metricProject":"acs_ecs_dashboard","userId":1736511134389110,"uuid":"8410dbbd-7d30-41c5-94cb-***","name":"alert-***","productCategory":"ecs","instances":[{"instanceId":"host-***"}],"metrics":null,"scopeType":"USER","scopeValue":"","startTime":"0001-01-01T00:00:00Z","endTime":"9999-12-31T23:59:59.999999999+08:00","effectiveTime":null,"isEnable":true,"status":1,"gmtCreate":"2021-11-02T16:35:59+08:00","gmtModified":"2021-11-02T16:35:59+08:00","loadTime":"2021-11-02T16:36:15.213072177+08:00"}
      *
@@ -48,14 +42,7 @@ class alertLogList extends Model
     public $blackListName;
 
     /**
-     * @description The category of the alert notification method. Valid values:
-     *
-     *   Mail: email
-     *   ALIIM: TradeManager
-     *   SMS: text message
-     *   CALL: phone call
-     *   DING: DingTalk chatbot
-     *   Merged: alert merging
+     * @description The ID of the blacklist policy.
      *
      * @example 8410dbbd-7d30-41c5-94cb-*****
      *
@@ -64,75 +51,73 @@ class alertLogList extends Model
     public $blackListUUID;
 
     /**
-     * @description The name of the extended field.
+     * @description The TradeManager IDs of the alert contacts.
      *
+     * > This parameter is valid only on the China site (aliyun.com).
      * @var string[]
      */
     public $contactALIIWWList;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
+     * @description The DingTalk chatbots of the alert contacts.
      *
      * @var string[]
      */
     public $contactDingList;
 
     /**
-     * @description The alert notification method.
+     * @description The alert contact groups.
      *
      * @var string[]
      */
     public $contactGroups;
 
     /**
-     * @description The callback URL.
+     * @description The email addresses of the alert contacts.
      *
      * @var string[]
      */
     public $contactMailList;
 
     /**
-     * @description The name of the resource.
+     * @description The phone numbers of the alert contacts that receive alert phone calls.
      *
+     * > This parameter is valid only on the China site (aliyun.com).
      * @var string[]
      */
     public $contactOnCallList;
 
     /**
-     * @description The statistical period of alert logs. Unit: minutes.
+     * @description The phone numbers of the alert contacts that receive alert text messages.
      *
+     * > This parameter is valid only on the China site (aliyun.com).
      * @var string[]
      */
     public $contactSMSList;
 
     /**
-     * @description The status of the alert. Valid values:
+     * @description The dimensions of the resource that triggered alerts.
      *
-     *   0: The alert is triggered or cleared.
-     *   1: The alert is ineffective.
-     *   2: The alert is muted and not triggered in a specified period.
-     *   3: The host is restarting.
-     *   4: No alert notification is sent.
-     *
-     * If the value of the SendStatus parameter is 0, the value P4 of the Level parameter indicates a triggered alert and the value OK indicates a cleared alert.
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
-     * @description The ID of the application group.
+     * @description The webhook URLs of the alert contacts.
      *
      * @var string[]
      */
     public $dingdingWebhookList;
 
     /**
+     * @description The alert rule based on which the alert is triggered.
+     *
      * @var escalation
      */
     public $escalation;
 
     /**
-     * @description The number of the page to return. Default value: 1.
+     * @description The event name.
      *
      * @example IOHang
      *
@@ -141,14 +126,14 @@ class alertLogList extends Model
     public $eventName;
 
     /**
-     * @description The sending results of alert notifications.
+     * @description The extended fields.
      *
      * @var extendedInfo[]
      */
     public $extendedInfo;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the application group.
      *
      * @example 7301****
      *
@@ -157,7 +142,7 @@ class alertLogList extends Model
     public $groupId;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The name of the application group.
      *
      * @example ECS_Instances
      *
@@ -166,7 +151,7 @@ class alertLogList extends Model
     public $groupName;
 
     /**
-     * @description The alert contact group.
+     * @description The resource ID.
      *
      * @example i-m5e1qg6uo38rztr4****
      *
@@ -175,7 +160,7 @@ class alertLogList extends Model
     public $instanceId;
 
     /**
-     * @description The list of callback URLs.
+     * @description The resource name.
      *
      * @example portalHost
      *
@@ -184,10 +169,10 @@ class alertLogList extends Model
     public $instanceName;
 
     /**
-     * @description The HTTP status code.
+     * @description The severity level and notification methods of the alert. Valid values:
      *
-     *   If the value of the `Channel` parameter is `WEBHOOK`, the status code is 200 or 500.
-     *   If the value of the `Channel` parameter is `MAIL`, `SMS`, `SLS`, `ONCALL`, `FC`, or `MNS`, this parameter is empty or not returned.
+     *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
+     *   OK: No alert is generated.
      *
      * @example P4
      *
@@ -196,7 +181,10 @@ class alertLogList extends Model
     public $level;
 
     /**
-     * @description The key of the dimension.
+     * @description Indicates whether the alert level was changed. Valid values:
+     *
+     *   `P4->OK`: The alert level was changed from P4 to OK.
+     *   `P4->P4`: The alert level was still P4.
      *
      * @example P4->OK
      *
@@ -205,6 +193,8 @@ class alertLogList extends Model
     public $levelChange;
 
     /**
+     * @description The log ID.
+     *
      * @example 7818361[1523]@1671593992[1]
      *
      * @var string
@@ -212,7 +202,7 @@ class alertLogList extends Model
     public $logId;
 
     /**
-     * @description The name of the alert rule.
+     * @description The alert information in a JSON string.
      *
      * @example {"alertName":"e47aa0ac-4076-44db-a47d-d1083968****_Availability"}
      *
@@ -221,7 +211,7 @@ class alertLogList extends Model
     public $message;
 
     /**
-     * @description The name of the metric.
+     * @description The metric name.
      *
      * @example cpu_total
      *
@@ -230,7 +220,7 @@ class alertLogList extends Model
     public $metricName;
 
     /**
-     * @description The dimensions of the resource that triggered alerts.
+     * @description The namespace of the cloud service.
      *
      * @example acs_ecs_dashboard
      *
@@ -239,10 +229,10 @@ class alertLogList extends Model
     public $namespace;
 
     /**
-     * @description Indicates whether the alert notifications are sent.
+     * @description The identifier of the cloud service. Valid values:
      *
-     *   If the alert notifications are sent, the value "success" is returned.
-     *   If the configuration is invalid, no alert notification is sent and an error code is returned.
+     *   If the cloud service is provided by Alibaba Cloud, the abbreviation of the service name is returned. Example: ECS.
+     *   If the cloud service is not provided by Alibaba Cloud, a value in the `acs_Service keyword` format is returned. Example: acs_networkmonitor.
      *
      * @example ECS
      *
@@ -251,9 +241,8 @@ class alertLogList extends Model
     public $product;
 
     /**
-     * @description The phone numbers of alert contacts that can receive alert phone calls.
+     * @description The ID of the alert rule.
      *
-     * >  This parameter can be returned only on the China site (aliyun.com).
      * @example d582b9e9-b1c1-4f17-9279-0fe7333a****_ResponseTime
      *
      * @var string
@@ -261,30 +250,36 @@ class alertLogList extends Model
     public $ruleId;
 
     /**
-     * @description The ID of the resource.
+     * @description The name of the alert rule.
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The namespace of the cloud service.
+     * @description The details of the alert notification method.
      *
-     * >  For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](~~163515~~).
      * @var sendDetail
      */
     public $sendDetail;
 
     /**
-     * @description The details of the returned results.
+     * @description The sending results of alert notifications.
      *
      * @var sendResultList[]
      */
     public $sendResultList;
 
     /**
-     * @description The value of the dimension.
+     * @description The status of the alert. Valid values:
      *
+     *   0: The alert is triggered or cleared.
+     *   1: The alert is ineffective.
+     *   2: The alert is muted.
+     *   3: The host is restarting.
+     *   4: No alert notification is sent.
+     *
+     * If the value of the SendStatus parameter is 0, the value P4 of the Level parameter indicates a triggered alert and the value OK indicates a cleared alert.
      * @example 0
      *
      * @var string
@@ -292,7 +287,7 @@ class alertLogList extends Model
     public $sendStatus;
 
     /**
-     * @description The value of the extended field.
+     * @description The callback URLs.
      *
      * @var webhookList[]
      */

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class DeleteContactGroupResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description The returned message.
      *
      * @example success
      *
@@ -27,6 +28,8 @@ class DeleteContactGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F722BE59-2400-4A64-9C1A-AD886AED9A69
      *
      * @var string
@@ -34,6 +37,8 @@ class DeleteContactGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
      * @example true
      *
      * @var bool

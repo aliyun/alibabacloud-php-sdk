@@ -6,31 +6,19 @@ namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttr
 
 use AlibabaCloud\Tea\Model;
 
-class eventMonitor extends Model
+class siteMonitorBrowser extends Model
 {
     /**
-     * @description The total quota of events that can be reported in event monitoring. The total quota is the value that is multiplied by 10,000.
-     *
-     * @example 55
-     *
      * @var int
      */
     public $quotaLimit;
 
     /**
-     * @description The quota of events that can be reported in event monitoring in your resource plan. The total quota is the value that is multiplied by 10,000.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $quotaPackage;
 
     /**
-     * @description The used quota of events that can be reported in event monitoring in your resource plan. The total quota is the value that is multiplied by 10,000.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $quotaUsed;
@@ -63,7 +51,7 @@ class eventMonitor extends Model
     /**
      * @param array $map
      *
-     * @return eventMonitor
+     * @return siteMonitorBrowser
      */
     public static function fromMap($map = [])
     {

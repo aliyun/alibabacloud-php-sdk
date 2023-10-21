@@ -10,16 +10,15 @@ use AlibabaCloud\Tea\Model;
 class namespaceList extends Model
 {
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The list of metrics for the Alibaba Cloud service.
      *
      * @var metricList[]
      */
     public $metricList;
 
     /**
-     * @description The interval at which metrics are collected.
+     * @description The namespace for the Alibaba Cloud service.
      *
-     * Unit: seconds.
      * @example acs_ecs_dashboard
      *
      * @var string

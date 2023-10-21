@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class matchExpress extends Model
 {
     /**
+     * @description The tag values of the cloud resources. In this example, set the value of N to 1.
+     *
+     * >  If you set the `MatchExpress.N.TagValueMatchFunction` parameter, you must also set the `MatchExpress.N.TagValue` parameter.
      * @example appname
      *
      * @var string
@@ -16,6 +19,8 @@ class matchExpress extends Model
     public $tagName;
 
     /**
+     * @description The ID of the region to which the tags belong.
+     *
      * @example instance
      *
      * @var string
@@ -23,6 +28,8 @@ class matchExpress extends Model
     public $tagValue;
 
     /**
+     * @description The error message.
+     *
      * @example contains
      *
      * @var string

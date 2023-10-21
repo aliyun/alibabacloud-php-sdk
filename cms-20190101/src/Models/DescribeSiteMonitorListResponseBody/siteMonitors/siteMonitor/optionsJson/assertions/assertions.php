@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class assertions extends Model
 {
     /**
+     * @description The comparison operator of the assertion. Valid values:
+     *
+     *   contains: contains
+     *   doesNotContain: does not contain
+     *   matches: matches regular expressions
+     *   doesNotMatch: does not match regular expressions
+     *   is: equal to a numeric value or matches a character
+     *   isNot: not equal to
+     *   lessThan: less than
+     *   moreThan: greater than
+     *
      * @example lessThan
      *
      * @var string
@@ -16,12 +27,10 @@ class assertions extends Model
     public $operator;
 
     /**
-     * @description The relationship between the list of expected aliases or IP addresses and the list of DNS results. Valid values:
+     * @description The parsing path of the assertion.
      *
-     *   IN_DNS: The list of expected values is a subset of the list of DNS results.
-     *   DNS_IN: The list of DNS results is a subset of the list of expected values.
-     *   EQUAL: The list of DNS results is the same as the list of expected values.
-     *   ANY: The list of DNS results intersects with the list of expected values.
+     *   If the assertion type is `body_json`, the path is `json path`.
+     *   If the assertion type is `body_xml`, the path is `xml path`.
      *
      * @example json path
      *
@@ -30,6 +39,8 @@ class assertions extends Model
     public $property;
 
     /**
+     * @description The numeric value or character used for matching.
+     *
      * @example 1000
      *
      * @var string
@@ -37,7 +48,14 @@ class assertions extends Model
     public $target;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The type of the assertion. Valid values:
+     *
+     *   response_time: checks whether the response time meets expectations.
+     *   status_code: checks whether the HTTP status code meets expectations.
+     *   header: checks whether the fields in the response header meet expectations.
+     *   body_text: checks whether the content in the response body meets expectations by using text matching.
+     *   body_json: checks whether the content in the response body meets expectations by using JSON parsing (JSONPath).
+     *   body_xml: checks whether the content in the response body meets expectations by using XML parsing (XPath).
      *
      * @example response_time
      *

@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorResourceQuotaAttributeResponseBody extends Model
 {
     /**
-     * @description The quota of alert phone calls in your purchased resource plan. Unit: calls.
+     * @description The status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -19,7 +20,7 @@ class DescribeMonitorResourceQuotaAttributeResponseBody extends Model
     public $code;
 
     /**
-     * @description The used quota of the time series in custom monitoring in your purchased plan.
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -28,7 +29,7 @@ class DescribeMonitorResourceQuotaAttributeResponseBody extends Model
     public $message;
 
     /**
-     * @description The details about the quota of detection points that are provided by other carriers in site monitoring.
+     * @description The request ID.
      *
      * @example 31BC7201-00F2-47B2-B7B9-6A173076ACE
      *
@@ -37,7 +38,7 @@ class DescribeMonitorResourceQuotaAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total quota of alert text messages.
+     * @description The details about the resource quotas of CloudMonitor.
      *
      * @var resourceQuota
      */

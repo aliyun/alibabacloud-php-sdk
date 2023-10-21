@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMonitorListRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the application group.
      *
      * @example 123456
      *
@@ -18,7 +18,7 @@ class DescribeLogMonitorListRequest extends Model
     public $groupId;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class DescribeLogMonitorListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The keyword that is used to search for log monitoring metrics. Fuzzy match is supported.
+     * @description The number of entries to return on each page. Default value: 10
      *
      * @example 10
      *
@@ -41,7 +41,7 @@ class DescribeLogMonitorListRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the application group.
+     * @description The keyword that is used to search for log monitoring metrics. Fuzzy match is supported.
      *
      * @example test
      *

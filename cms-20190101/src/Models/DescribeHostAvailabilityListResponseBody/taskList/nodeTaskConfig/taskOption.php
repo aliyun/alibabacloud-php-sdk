@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class taskOption extends Model
 {
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     * @description The response to the HTTP request.
      *
      * @example OK
      *
@@ -18,7 +18,11 @@ class taskOption extends Model
     public $httpKeyword;
 
     /**
-     * @description The domain name or IP address that you want to monitor.
+     * @description The HTTP request method. Valid values:
+     *
+     *   GET
+     *   POST
+     *   HEAD
      *
      * @example GET
      *
@@ -27,9 +31,11 @@ class taskOption extends Model
     public $httpMethod;
 
     /**
-     * @description The end of the time period during which the alert rule is effective. Valid values: 0 to 23.
+     * @description The method to trigger an alert. The alert can be triggered based on whether the specified alert rule is included in the response body. Valid values:
      *
-     * >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
+     *   true: If the HTTP response body includes the alert rule, an alert is triggered.
+     *   false: If the HTTP response does not include the alert rule, an alert is triggered.
+     *
      * @example true
      *
      * @var bool
@@ -37,7 +43,7 @@ class taskOption extends Model
     public $httpNegative;
 
     /**
-     * @description The configurations of the alert rule.
+     * @description The content of the HTTP POST request.
      *
      * @example params1=paramsValue1
      *
@@ -46,7 +52,7 @@ class taskOption extends Model
     public $httpPostContent;
 
     /**
-     * @description The response to the HTTP request.
+     * @description The character set that is used in the HTTP response.
      *
      * @example UTF-8
      *
@@ -55,7 +61,7 @@ class taskOption extends Model
     public $httpResponseCharset;
 
     /**
-     * @description The content of the HTTP POST request.
+     * @description The URI that you want to monitor. If the TaskType parameter is set to HTTP, this parameter is required.
      *
      * @example https://www.aliyun.com
      *
@@ -64,7 +70,7 @@ class taskOption extends Model
     public $httpURI;
 
     /**
-     * @description The character set that is used in the HTTP response.
+     * @description The interval at which detection requests are sent. Unit: seconds.
      *
      * @example 60
      *
@@ -73,10 +79,7 @@ class taskOption extends Model
     public $interval;
 
     /**
-     * @description The method to trigger an alert. The alert can be triggered based on whether the specified alert rule is included in the response body. Valid values:
-     *
-     *   true: If the HTTP response body includes the alert rule, an alert is triggered.
-     *   false: If the HTTP response does not include the alert rule, an alert is triggered.
+     * @description The domain name or IP address that you want to monitor.
      *
      * @example ssh.aliyun.com
      *

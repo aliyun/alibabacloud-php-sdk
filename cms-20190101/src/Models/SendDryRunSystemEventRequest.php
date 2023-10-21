@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SendDryRunSystemEventRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to SendDryRunSystemEvent.
+     * @description The content of the system event.
      *
+     * >  The value of this parameter is a JSON object. We recommend that you include the `product`, `resourceId`, and `regionId` fields in the JSON object.
      * @example {"product":"CloudMonitor","resourceId":"acs:ecs:cn-hongkong:173651113438****:instance/{instanceId}","level":"CRITICAL","instanceName":"instanceName","regionId":"cn-hangzhou","name":"Agent_Status_Stopped","content":{"ipGroup":"0.0.0.0,0.0.0.1","tianjimonVersion":"1.2.11"},"status":"stopped"}
      *
      * @var string
@@ -18,8 +19,9 @@ class SendDryRunSystemEventRequest extends Model
     public $eventContent;
 
     /**
-     * @description The ID of the application group.
+     * @description The name of the system event.
      *
+     * >  For more information, see [DescribeSystemEventMetaList](~~114972~~).
      * @example Agent_Status_Stopped
      *
      * @var string
@@ -27,9 +29,8 @@ class SendDryRunSystemEventRequest extends Model
     public $eventName;
 
     /**
-     * @description The content of the system event.
+     * @description The ID of the application group.
      *
-     * >  The value of this parameter is a JSON object. We recommend that you include the `product`, `resourceId`, and `regionId` fields in the JSON object.
      * @example 123456
      *
      * @var string
@@ -37,9 +38,9 @@ class SendDryRunSystemEventRequest extends Model
     public $groupId;
 
     /**
-     * @description The name of the system event.
+     * @description The name of the cloud service.
      *
-     * >  For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * >  For information about the system events supported by Cloud Monitor for Alibaba Cloud services, see [System events](~~167388~~).
      * @example ecs
      *
      * @var string

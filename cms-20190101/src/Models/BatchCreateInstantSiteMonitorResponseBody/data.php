@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the site monitoring task.
+     *
      * @example 679fbe4f-b80b-4706-91b2-5427b43e****
      *
      * @var string
@@ -16,7 +18,7 @@ class data extends Model
     public $taskId;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The name of the site monitoring task.
      *
      * @example HangZhou_ECS1
      *

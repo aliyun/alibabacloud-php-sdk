@@ -10,7 +10,19 @@ use AlibabaCloud\Tea\Model;
 class alertConfig extends Model
 {
     /**
-     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
+     * @description The comparison operator of the threshold for critical-level alerts. Valid values:
+     *
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
      * @example GreaterThanOrEqualToThreshold
      *
@@ -19,7 +31,7 @@ class alertConfig extends Model
     public $comparisonOperator;
 
     /**
-     * @description The method used to calculate metric values that trigger alerts.
+     * @description The time period during which the alert rule is effective.
      *
      * @example 00:00-23:59
      *
@@ -28,7 +40,11 @@ class alertConfig extends Model
     public $effectiveInterval;
 
     /**
-     * @description The time period during which the alert rule is effective.
+     * @description The level of the alert. Valid values:
+     *
+     *   critical
+     *   warn
+     *   info
      *
      * @example warn
      *
@@ -37,7 +53,7 @@ class alertConfig extends Model
     public $escalationsLevel;
 
     /**
-     * @description The threshold for triggering alerts.
+     * @description The time period during which the alert rule is ineffective.
      *
      * @example 00:00-23:59
      *
@@ -46,9 +62,9 @@ class alertConfig extends Model
     public $noEffectiveInterval;
 
     /**
-     * @description The number of times for which the threshold can be consecutively exceeded.
+     * @description The duration of the mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Minimum value: 3600, which is equivalent to one hour. Default value: 86400, which is equivalent to one day.
      *
-     * >  A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
+     * >  Only one alert notification is sent during each mute period even if the metric value consecutively exceeds the alert threshold several times.
      * @example 86400
      *
      * @var string
@@ -56,7 +72,7 @@ class alertConfig extends Model
     public $silenceTime;
 
     /**
-     * @description Queries the process monitoring tasks for an application group.
+     * @description The method used to calculate metric values that trigger alerts.
      *
      * @example Average
      *
@@ -70,7 +86,7 @@ class alertConfig extends Model
     public $targetList;
 
     /**
-     * @description You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and set alert rules for the process monitoring task.
+     * @description The threshold for triggering alerts.
      *
      * @example 5
      *
@@ -79,8 +95,9 @@ class alertConfig extends Model
     public $threshold;
 
     /**
-     * @description The time period during which the alert rule is ineffective.
+     * @description The number of times for which the threshold can be consecutively exceeded.
      *
+     * >  A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
      * @example 3
      *
      * @var string
@@ -88,11 +105,7 @@ class alertConfig extends Model
     public $times;
 
     /**
-     * @description The level of the alert. Valid values:
-     *
-     *   critical
-     *   warn
-     *   info
+     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
      *
      * @example http://www.aliyun.com
      *

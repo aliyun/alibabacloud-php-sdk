@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PutMonitoringConfigRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically install the CloudMonitor agent on new ECS instances. Valid values:
+     * @description Specifies whether to automatically install the CloudMonitor agent on existing Elastic Compute Service (ECS) instances. Valid values:
      *
      *   true (default value)
      *   false
@@ -21,9 +21,11 @@ class PutMonitoringConfigRequest extends Model
     public $autoInstall;
 
     /**
-     * @description The HTTP status code.
+     * @description Specifies whether to automatically install the CloudMonitor agent on new ECS instances. Valid values:
      *
-     * >  The status code 200 indicates that the call was successful.
+     *   true (default value)
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutCustomMetricResponseBody extends Model
 {
     /**
-     * @description The name of the metric. Valid values of N: 1 to 21. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,6 +19,8 @@ class PutCustomMetricResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example The request has failed due to a temporary failure of the server.
      *
      * @var string
@@ -25,6 +28,8 @@ class PutCustomMetricResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 05B36C2C-5F6E-48D5-8B41-CE36DD7EE8E0
      *
      * @var string

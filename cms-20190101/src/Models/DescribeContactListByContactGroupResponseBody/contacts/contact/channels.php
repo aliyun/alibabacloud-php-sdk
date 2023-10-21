@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class channels extends Model
 {
     /**
-     * @description The webhook URL of the DingTalk chatbot.
+     * @description The TradeManager ID of the alert contact.
      *
+     * >  This parameter can be returned only on the China site (aliyun.com).
      * @example Alice
      *
      * @var string
@@ -18,9 +19,8 @@ class channels extends Model
     public $aliIM;
 
     /**
-     * @description The phone number of the alert contact.
+     * @description The webhook URL of the DingTalk chatbot.
      *
-     * >  This parameter can be returned only on the China site (aliyun.com).
      * @example https://oapi.dingtalk.com/robot/send?access_token=9bf44f8189597d07dfdd7a123455ffc112****
      *
      * @var string
@@ -28,9 +28,8 @@ class channels extends Model
     public $dingWebHook;
 
     /**
-     * @description The TradeManager ID of the alert contact.
+     * @description The email address of the alert contact.
      *
-     * >  This parameter can be returned only on the China site (aliyun.com).
      * @example alice@example.com
      *
      * @var string
@@ -38,8 +37,9 @@ class channels extends Model
     public $mail;
 
     /**
-     * @description Queries the alert contacts in an alert group.
+     * @description The phone number of the alert contact.
      *
+     * >  This parameter can be returned only on the China site (aliyun.com).
      * @example 1333333****
      *
      * @var string

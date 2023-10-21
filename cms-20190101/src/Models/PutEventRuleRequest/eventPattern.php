@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class eventPattern extends Model
 {
     /**
-     * @description The SQL condition that is used to filter events. If the content of an event meets the specified SQL condition, an alert is automatically triggered.
+     * @description The keyword that is used to filter events. If the content of an event contains the specified keyword, an alert is automatically triggered.
      *
-     * >  The syntax of SQL event filtering is consistent with the query syntax of Log Service.
      * @example Stopping
      *
      * @var string
@@ -40,8 +39,9 @@ class eventPattern extends Model
     public $nameList;
 
     /**
-     * @description The name of the event-triggered alert rule.
+     * @description The type of the cloud service. Valid values of N: 1 to 50.
      *
+     * >  You can call the DescribeSystemEventMetaList operation to query the cloud services that support event-triggered alerts. For more information, see [DescribeSystemEventMetaList](~~114972~~).
      * @example ecs
      *
      * @var string
@@ -49,8 +49,9 @@ class eventPattern extends Model
     public $product;
 
     /**
-     * @description The description of the event-triggered alert rule.
+     * @description The SQL condition that is used to filter events. If the content of an event meets the specified SQL condition, an alert is automatically triggered.
      *
+     * >  The syntax of SQL event filtering is consistent with the query syntax of Log Service.
      * @example 192.168.XX.XX and Executed
      *
      * @var string

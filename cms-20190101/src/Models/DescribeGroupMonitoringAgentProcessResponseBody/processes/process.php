@@ -11,9 +11,8 @@ use AlibabaCloud\Tea\Model;
 class process extends Model
 {
     /**
-     * @description The duration of the mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Minimum value: 3600, which is equivalent to one hour. Default value: 86400, which is equivalent to one day.
+     * @description The configurations of the alert rule.
      *
-     * >  Only one alert notification is sent during each mute period even if the metric value consecutively exceeds the alert threshold several times.
      * @var alertConfig
      */
     public $alertConfig;
@@ -26,7 +25,7 @@ class process extends Model
     public $groupId;
 
     /**
-     * @description The keyword used to match the instance name.
+     * @description The ID of the process monitoring task.
      *
      * @example 3F6150F9-45C7-43F9-9578-A58B2E72****
      *
@@ -35,9 +34,9 @@ class process extends Model
     public $id;
 
     /**
-     * @description The criteria based on which the instances are matched.
+     * @description The conditional expressions used to match the instances.
      *
-     * >  Set the value to `name`, indicating that the instances are matched based on instance name.
+     * >  Only the instances that meet the conditional expressions are monitored by the process monitoring task.
      * @var matchExpress
      */
     public $matchExpress;
@@ -50,9 +49,8 @@ class process extends Model
     public $matchExpressFilterRelation;
 
     /**
-     * @description The conditional expressions used to match the instances.
+     * @description The name of the process monitoring task.
      *
-     * >  Only the instances that meet the conditional expressions are monitored by the process monitoring task.
      * @example sshd
      *
      * @var string

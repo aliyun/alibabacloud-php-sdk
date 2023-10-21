@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description The network type.
+     * @description The name of the cloud service.
      *
      * @example ecs
      *
@@ -21,7 +21,7 @@ class resource extends Model
     public $category;
 
     /**
-     * @description The total number of returned pages.
+     * @description The description of the resource.
      *
      * @example desc_test
      *
@@ -30,7 +30,7 @@ class resource extends Model
     public $desc;
 
     /**
-     * @description The tag value.
+     * @description The dimensions of the resource that is associated with the application group.
      *
      * @example {"instanceId":"i-m5e0k0bexac8tykr****"}
      *
@@ -39,10 +39,7 @@ class resource extends Model
     public $dimension;
 
     /**
-     * @description Specifies whether to return the total number of resources in the specified application group. Valid values:
-     *
-     *   true (default value)
-     *   false
+     * @description The ID of the instance.
      *
      * @example i-m5e0k0bexac8tykr****
      *
@@ -51,7 +48,7 @@ class resource extends Model
     public $instanceId;
 
     /**
-     * @description The resources that are associated with the application group.
+     * @description The name of the instance.
      *
      * @example hostName
      *
@@ -60,7 +57,7 @@ class resource extends Model
     public $instanceName;
 
     /**
-     * @description The page number of the returned page.
+     * @description The network type.
      *
      * @example vpc
      *
@@ -81,7 +78,7 @@ class resource extends Model
     public $tags;
 
     /**
-     * @description The ID of the request.
+     * @description The information about the virtual private cloud (VPC).
      *
      * @var vpc
      */

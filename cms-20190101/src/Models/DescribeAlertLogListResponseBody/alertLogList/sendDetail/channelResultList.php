@@ -10,7 +10,15 @@ use AlibabaCloud\Tea\Model;
 class channelResultList extends Model
 {
     /**
-     * @description The queried resources.
+     * @description The method that is used to send alert notifications. Valid values:
+     *
+     *   MAIL: email
+     *   SMS: text message
+     *   WEBHOOK: alert callback
+     *   SLS: Simple Log Service
+     *   ONCALL: phone call
+     *   FC: Function Compute
+     *   MNS: Message Service queue
      *
      * @example MAIL
      *
@@ -19,7 +27,7 @@ class channelResultList extends Model
     public $channel;
 
     /**
-     * @description The details about the sending results of alert notifications.
+     * @description The sending results of alert notifications.
      *
      * @var resultList[]
      */

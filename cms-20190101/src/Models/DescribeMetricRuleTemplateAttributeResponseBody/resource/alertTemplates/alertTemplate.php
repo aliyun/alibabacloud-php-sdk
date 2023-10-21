@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class alertTemplate extends Model
 {
     /**
-     * @description The name of the alert rule.
+     * @description The abbreviation of the cloud service name.
      *
      * @example ecs
      *
@@ -20,25 +20,15 @@ class alertTemplate extends Model
     public $category;
 
     /**
-     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values:
-     *
-     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-     *   GreaterThanThreshold: greater than the threshold
-     *   LessThanOrEqualToThreshold: less than or equal to the threshold
-     *   LessThanThreshold: less than the threshold
-     *   NotEqualToThreshold: not equal to the threshold
-     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-     *   LessThanYesterday: less than the metric value at the same time yesterday
-     *   GreaterThanLastWeek: greater than the metric value at the same time last week
-     *   LessThanLastWeek: less than the metric value at the same time last week
-     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     * @description The threshold and the alert level.
      *
      * @var escalations
      */
     public $escalations;
 
     /**
+     * @description 报警模板标签。
+     *
      * @var labels
      */
     public $labels;
@@ -51,11 +41,7 @@ class alertTemplate extends Model
     public $metricName;
 
     /**
-     * @description The processing method of alerts when no monitoring data is found. Valid values:
-     *
-     *   KEEP_LAST_STATE (default value): No operation is performed.
-     *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
-     *   OK: The alert rule has no active alerts.
+     * @description The namespace of the cloud service.
      *
      * @example acs_ecs_dashboard
      *
@@ -64,7 +50,11 @@ class alertTemplate extends Model
     public $namespace;
 
     /**
-     * @description The threshold and the alert level.
+     * @description The processing method of alerts when no monitoring data is found. Valid values:
+     *
+     *   KEEP_LAST_STATE (default value): No operation is performed.
+     *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
+     *   OK: The alert rule has no active alerts.
      *
      * @example KEEP_LAST_STATE
      *
@@ -73,7 +63,7 @@ class alertTemplate extends Model
     public $noDataPolicy;
 
     /**
-     * @description The conditions for triggering Info-level alerts.
+     * @description The name of the alert rule.
      *
      * @example ECS_Rule
      *
@@ -82,7 +72,7 @@ class alertTemplate extends Model
     public $ruleName;
 
     /**
-     * @description The namespace of the cloud service.
+     * @description The dimension of the alert. It is an extended field.
      *
      * @example {"disk":"/"}
      *
@@ -91,7 +81,7 @@ class alertTemplate extends Model
     public $selector;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The callback URL to which a request is sent when an alert is triggered.
      *
      * @example https://www.aliyun.com
      *

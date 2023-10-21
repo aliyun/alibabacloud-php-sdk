@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomEventCountResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,14 +20,14 @@ class DescribeCustomEventCountResponseBody extends Model
     public $code;
 
     /**
-     * @description The number of times that the custom event occurred in the specified time period.
+     * @description The details of the custom event.
      *
      * @var customEventCounts
      */
     public $customEventCounts;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description The returned message. If the call was successful, the value success is returned. If the call failed, an error message is returned.
      *
      * @example success
      *
@@ -35,7 +36,7 @@ class DescribeCustomEventCountResponseBody extends Model
     public $message;
 
     /**
-     * @description The details of the custom event.
+     * @description The ID of the request.
      *
      * @example 60912C8D-B340-4253-ADE7-61ACDFD25CFC
      *
@@ -44,9 +45,8 @@ class DescribeCustomEventCountResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the custom event occurred.
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example true
      *
      * @var bool

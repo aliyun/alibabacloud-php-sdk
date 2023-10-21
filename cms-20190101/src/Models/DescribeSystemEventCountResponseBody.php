@@ -10,11 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemEventCountResponseBody extends Model
 {
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description The HTTP status code.
      *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -29,7 +27,7 @@ class DescribeSystemEventCountResponseBody extends Model
     public $message;
 
     /**
-     * @description The details of the system event.
+     * @description The ID of the request.
      *
      * @example C7A7B776-0ACE-5A93-9B07-DE8008D9CCDF
      *
@@ -38,7 +36,10 @@ class DescribeSystemEventCountResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the system event.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *
@@ -47,7 +48,7 @@ class DescribeSystemEventCountResponseBody extends Model
     public $success;
 
     /**
-     * @description The timestamp when the system event occurred. Unit: milliseconds.
+     * @description The details of the system event.
      *
      * @var systemEventCounts
      */

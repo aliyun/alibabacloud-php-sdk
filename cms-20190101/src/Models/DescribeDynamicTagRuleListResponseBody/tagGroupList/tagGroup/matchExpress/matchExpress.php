@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class matchExpress extends Model
 {
     /**
+     * @description The tag key.
+     *
      * @example azone-version
      *
      * @var string
@@ -16,8 +18,9 @@ class matchExpress extends Model
     public $tagKey;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The tag value.
      *
+     * The `TagValue` and `TagValueMatchFunction` parameters must be used in pairs.
      * @example *
      *
      * @var string
@@ -25,7 +28,14 @@ class matchExpress extends Model
     public $tagValue;
 
     /**
-     * @description Queries tag rules.
+     * @description The method that is used to match tag values. Valid values:
+     *
+     *   all: includes all
+     *   startWith: starts with a prefix
+     *   endWith: ends with a suffix
+     *   contains: contains
+     *   notContains: does not contain
+     *   equals: equals
      *
      * @example all
      *

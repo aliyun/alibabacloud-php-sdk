@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PutCustomEventRuleRequest extends Model
 {
     /**
-     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
+     * @description The alert contact group that receives alert notifications. Separate multiple contact groups with commas (,).
      *
      * @example ECS_Group
      *
@@ -18,7 +18,7 @@ class PutCustomEventRuleRequest extends Model
     public $contactGroups;
 
     /**
-     * @description The cycle that is used to aggregate monitoring data of the custom event. Unit: seconds. Set the value to an integral multiple of 60. Default value: 300.
+     * @description The time period during which the alert rule is effective. Valid values: 00:00 to 23:59.
      *
      * @example 00:00-23:59
      *
@@ -27,14 +27,14 @@ class PutCustomEventRuleRequest extends Model
     public $effectiveInterval;
 
     /**
-     * @description The alert threshold.
+     * @description The subject of the alert notification email.
      *
      * @var string
      */
     public $emailSubject;
 
     /**
-     * @description The alert contact group that receives alert notifications. Separate multiple contact groups with commas (,).
+     * @description The name of the custom event. For more information about how to obtain the event name, see [DescribeCustomEventAttribute](~~115262~~).
      *
      * @example HostDown
      *
@@ -43,51 +43,14 @@ class PutCustomEventRuleRequest extends Model
     public $eventName;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The ID of the application group. For more information about how to obtain the group ID, see [DescribeCustomEventAttribute](~~115262~~).
      *
-     * >  You can specify an existing ID to modify the corresponding alert rule or specify a new ID to create an alert rule.
+     * >  The value 0 indicates that the reported custom event does not belong to any application Group.
      * @example 7378****
      *
      * @var string
      */
     public $groupId;
-
-    /**
-     * @description The HTTP status code.
-     *
-     * >  The value 200 indicates that the call was successful.
-     * @example CRITICAL
-     *
-     * @var string
-     */
-    public $level;
-
-    /**
-     * @description The subject of the alert notification email.
-     *
-     * @example 60
-     *
-     * @var string
-     */
-    public $period;
-
-    /**
-     * @description The name of the alert rule.
-     *
-     * @example CustomRuleId1
-     *
-     * @var string
-     */
-    public $ruleId;
-
-    /**
-     * @description The name of the custom event. For more information about how to obtain the event name, see [DescribeCustomEventAttribute](~~115262~~).
-     *
-     * @example CustomeRule
-     *
-     * @var string
-     */
-    public $ruleName;
 
     /**
      * @description The level of the alert. Valid values:
@@ -96,6 +59,43 @@ class PutCustomEventRuleRequest extends Model
      *   WARN: warning
      *   INFO: information
      *
+     * @example CRITICAL
+     *
+     * @var string
+     */
+    public $level;
+
+    /**
+     * @description The cycle that is used to aggregate monitoring data of the custom event. Unit: seconds. Set the value to an integral multiple of 60. Default value: 300.
+     *
+     * @example 60
+     *
+     * @var string
+     */
+    public $period;
+
+    /**
+     * @description The ID of the alert rule.
+     *
+     * >  You can specify an existing ID to modify the corresponding alert rule or specify a new ID to create an alert rule.
+     * @example CustomRuleId1
+     *
+     * @var string
+     */
+    public $ruleId;
+
+    /**
+     * @description The name of the alert rule.
+     *
+     * @example CustomeRule
+     *
+     * @var string
+     */
+    public $ruleName;
+
+    /**
+     * @description The alert threshold.
+     *
      * @example 99
      *
      * @var string
@@ -103,7 +103,7 @@ class PutCustomEventRuleRequest extends Model
     public $threshold;
 
     /**
-     * @description The time period during which the alert rule is effective. Valid values: 00:00 to 23:59.
+     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
      *
      * @example https://www.aliyun.com
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagValueListRequest extends Model
 {
     /**
-     * @description The key of the tag whose values you want to query.
+     * @description The number of the page to return.
      *
-     * For more information about how to obtain a tag key, see [DescribeTagKeyList](~~145558~~).
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -19,9 +19,9 @@ class DescribeTagValueListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The HTTP status code.
+     * @description The number of entries to return on each page.
      *
-     * >  The value 200 indicates that the call was successful.
+     * Valid values: 1 to 100. Pages start from page 1. Default value: 50.
      * @example 10
      *
      * @var int
@@ -34,8 +34,9 @@ class DescribeTagValueListRequest extends Model
     public $regionId;
 
     /**
-     * @description The error message.
+     * @description The key of the tag whose values you want to query.
      *
+     * For more information about how to obtain a tag key, see [DescribeTagKeyList](~~145558~~).
      * @example tagKey1
      *
      * @var string

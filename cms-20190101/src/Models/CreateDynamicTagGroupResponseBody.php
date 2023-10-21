@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDynamicTagGroupResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -16,6 +19,8 @@ class CreateDynamicTagGroupResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the tag matching rule.
+     *
      * @example 2534dc0a-e3e5-4ae1-a2fc-75ef166c****
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateDynamicTagGroupResponseBody extends Model
     public $id;
 
     /**
+     * @description The error message.
+     *
      * @example The specified resource is not found.
      *
      * @var string
@@ -30,6 +37,8 @@ class CreateDynamicTagGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 84AC6F0B-7945-466A-AA44-99BB5A561F86
      *
      * @var string
@@ -37,6 +46,11 @@ class CreateDynamicTagGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

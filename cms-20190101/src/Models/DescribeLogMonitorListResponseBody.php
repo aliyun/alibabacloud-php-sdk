@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMonitorListResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,17 +20,14 @@ class DescribeLogMonitorListResponseBody extends Model
     public $code;
 
     /**
-     * @description The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters are used in pair. Valid values:
-     *
-     *   and
-     *   or
+     * @description The log monitoring metrics.
      *
      * @var logMonitorList[]
      */
     public $logMonitorList;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The returned message.
      *
      * @example successful
      *
@@ -38,7 +36,7 @@ class DescribeLogMonitorListResponseBody extends Model
     public $message;
 
     /**
-     * @description The total number of the returned entries.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -47,7 +45,7 @@ class DescribeLogMonitorListResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of the returned page.
+     * @description The number of entries returned on each page.
      *
      * @example 10
      *
@@ -56,10 +54,7 @@ class DescribeLogMonitorListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example 01E90080-4300-4FAA-B9AE-161956BC350D
      *
@@ -68,9 +63,11 @@ class DescribeLogMonitorListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The HTTP status code.
+     * @description Indicates whether the call was successful. Valid values:
      *
-     * >  The status code 200 indicates that the call was successful.
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -78,7 +75,7 @@ class DescribeLogMonitorListResponseBody extends Model
     public $success;
 
     /**
-     * @description The log monitoring metrics.
+     * @description The total number of the returned entries.
      *
      * @example 15
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SLSGroupConfig extends Model
 {
     /**
-     * @description The name of the Logstore group.
+     * @description The Logstore.
      *
-     * The name must be 2 to 32 characters in length and can contain uppercase letters, lowercase letters, digits, and underscores (\_). The name must start with a letter.
+     * Valid values of N: 1 to 25.
      * @example Logstore-ECS
      *
      * @var string
@@ -19,9 +19,9 @@ class SLSGroupConfig extends Model
     public $SLSLogstore;
 
     /**
-     * @description The IDs of the member accounts.
+     * @description The Simple Log Service project.
      *
-     * >  If a member uses CloudMonitor for the first time, you must make sure that the service-linked role AliyunServiceRoleForCloudMonitor is attached to the member. For more information, see [Manage the service-linked role for CloudMonitor](~~170423~~).
+     * Valid values of N: 1 to 25.
      * @example aliyun-project
      *
      * @var string
@@ -29,8 +29,9 @@ class SLSGroupConfig extends Model
     public $SLSProject;
 
     /**
-     * @description The error message.
+     * @description The region ID.
      *
+     * Valid values of N: 1 to 25.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,9 +39,9 @@ class SLSGroupConfig extends Model
     public $SLSRegion;
 
     /**
-     * @description The Logstores.
+     * @description The member ID.
      *
-     * Valid values of N: 1 to 25.
+     * > If a member uses CloudMonitor for the first time, you must make sure that the service-linked role AliyunServiceRoleForCloudMonitor is attached to the member. For more information, see [Manage the service-linked role for CloudMonitor](~~170423~~).
      * @example 120886317861****
      *
      * @var string

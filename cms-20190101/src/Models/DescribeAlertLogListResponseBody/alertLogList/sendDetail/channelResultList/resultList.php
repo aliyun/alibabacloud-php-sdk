@@ -9,13 +9,10 @@ use AlibabaCloud\Tea\Model;
 class resultList extends Model
 {
     /**
-     * @description The severity level and notification methods of the alert. Valid values:
+     * @description The HTTP status code.
      *
-     *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
-     *
-     * <!---->
-     *
-     *   OK: No alert is generated.
+     *   If the value of the `Channel` parameter is `WEBHOOK`, the status code is 200 or 500.
+     *   If the value of the `Channel` parameter is `MAIL`, `SMS`, `SLS`, `ONCALL`, `FC`, or `MNS`, this parameter is empty or not returned.
      *
      * @example 200
      *
@@ -24,7 +21,7 @@ class resultList extends Model
     public $code;
 
     /**
-     * @description The name of the application group.
+     * @description The details of the returned results.
      *
      * @example { }
      *
@@ -33,9 +30,8 @@ class resultList extends Model
     public $detail;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The request ID returned when CloudMonitor calls another cloud service.
      *
-     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
      * @example 0BDAF8A8-04DC-5F0C-90E4-724D42C4****
      *
      * @var string
@@ -43,7 +39,10 @@ class resultList extends Model
     public $requestId;
 
     /**
-     * @description The page number of the returned page.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -52,7 +51,7 @@ class resultList extends Model
     public $success;
 
     /**
-     * @description The ID of the request.
+     * @description The queried resources.
      *
      * @var string[]
      */

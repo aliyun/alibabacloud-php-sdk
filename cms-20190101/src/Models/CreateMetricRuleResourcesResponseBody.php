@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMetricRuleResourcesResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class CreateMetricRuleResourcesResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example success
      *
@@ -27,7 +28,7 @@ class CreateMetricRuleResourcesResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description The ID of the request.
      *
      * @example 0671A721-0D7A-4F11-BB77-2416325D65AB
      *
@@ -36,6 +37,8 @@ class CreateMetricRuleResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
      * @example true
      *
      * @var bool

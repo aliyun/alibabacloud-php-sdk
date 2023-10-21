@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class escalation extends Model
 {
     /**
+     * @description The description of the alert rule.
+     *
+     * > The content of the alert rule. If the metric value meets the alert condition, an alert is triggered.
      * @example $Average<90
      *
      * @var string
@@ -16,6 +19,11 @@ class escalation extends Model
     public $expression;
 
     /**
+     * @description The severity level and notification methods of the alert. Valid values:
+     *
+     *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
+     *   OK: No alert is generated.
+     *
      * @example P4
      *
      * @var string
@@ -23,6 +31,8 @@ class escalation extends Model
     public $level;
 
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
+     *
      * @example 1
      *
      * @var int

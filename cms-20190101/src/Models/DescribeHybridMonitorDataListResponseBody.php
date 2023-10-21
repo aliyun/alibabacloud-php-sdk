@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorDataListResponseBody extends Model
 {
     /**
-     * @description The name of the metric.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call is successful.
      * @example 200
      *
      * @var string
@@ -19,7 +20,7 @@ class DescribeHybridMonitorDataListResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned monitoring data.
+     * @description The error message.
      *
      * @example end timestamp must not be before start time.
      *
@@ -28,9 +29,8 @@ class DescribeHybridMonitorDataListResponseBody extends Model
     public $message;
 
     /**
-     * @description The name of the namespace.
+     * @description The ID of the request.
      *
-     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
      * @example C240412F-3F5F-50E2-ACEC-DE808EF9C4BE
      *
      * @var string
@@ -38,9 +38,11 @@ class DescribeHybridMonitorDataListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The timestamp that indicates the time when the metric value is collected.
+     * @description Indicates whether the call is successful. Valid values:
      *
-     * Unit: seconds.
+     *   true: The call is successful.
+     *   false: The call fails.
+     *
      * @example true
      *
      * @var string
@@ -48,7 +50,7 @@ class DescribeHybridMonitorDataListResponseBody extends Model
     public $success;
 
     /**
-     * @description The metric value.
+     * @description The returned monitoring data.
      *
      * @var timeSeries[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class enterpriseQuota extends Model
 {
     /**
+     * @description The ID of the instance monitored by Hybrid Cloud Monitoring.
+     *
      * @example cms_enterprise_public_cn-7mz27pd****
      *
      * @var string
@@ -16,6 +18,8 @@ class enterpriseQuota extends Model
     public $instanceId;
 
     /**
+     * @description The description of Hybrid Cloud Monitoring.
+     *
      * @example ENTERPRISE
      *
      * @var string

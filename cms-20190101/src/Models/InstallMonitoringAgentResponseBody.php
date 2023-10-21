@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class InstallMonitoringAgentResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **InstallMonitoringAgent**.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class InstallMonitoringAgentResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -27,6 +28,8 @@ class InstallMonitoringAgentResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0BDAF8A8-04DC-5F0C-90E4-724D42C41945
      *
      * @var string
@@ -34,6 +37,11 @@ class InstallMonitoringAgentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool

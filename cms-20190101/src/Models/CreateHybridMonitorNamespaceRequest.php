@@ -9,23 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateHybridMonitorNamespaceRequest extends Model
 {
     /**
-     * @description The returned message.
+     * @description The description of the namespace.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The data retention period of the namespace. Valid values:
+     * @description The name of the namespace.
      *
-     *   cms.s1.large: 15 days
-     *   cms.s1.xlarge: 32 days
-     *   cms.s1.2xlarge: 63 days
-     *   cms.s1.3xlarge (default value): 93 days
-     *   cms.s1.6xlarge: 185 days
-     *   cms.s1.12xlarge: 376 days
-     *
-     * For information about the pricing for different retention periods, see the **Pricing** section in [Billing of the dashboard feature](~~223532~~).
+     * The name can contain lowercase letters, digits, and hyphens (-).
      * @example aliyun
      *
      * @var string
@@ -38,8 +31,16 @@ class CreateHybridMonitorNamespaceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The data retention period of the namespace. Valid values:
      *
+     *   cms.s1.large: 15 days
+     *   cms.s1.xlarge: 32 days
+     *   cms.s1.2xlarge: 63 days
+     *   cms.s1.3xlarge (default value): 93 days
+     *   cms.s1.6xlarge: 185 days
+     *   cms.s1.12xlarge: 376 days
+     *
+     * For information about the pricing for different retention periods, see the **Pricing** section in [Billing of the dashboard feature](~~223532~~).
      * @example cms.s1.3xlarge
      *
      * @var string

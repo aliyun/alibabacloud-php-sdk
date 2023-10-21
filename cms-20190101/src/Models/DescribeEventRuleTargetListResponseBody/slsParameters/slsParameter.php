@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class slsParameter extends Model
 {
     /**
+     * @description The ARN of the Log Service Logstore.
+     *
+     * - ResourceId: the resource ID
      * @example acs:log:cn-hangzhou::project/cms-log-mo****\/logstore/c***
      *
      * @var string
@@ -16,6 +19,8 @@ class slsParameter extends Model
     public $arn;
 
     /**
+     * @description The ID of the recipient.
+     *
      * @example 4
      *
      * @var string
@@ -23,6 +28,8 @@ class slsParameter extends Model
     public $id;
 
     /**
+     * @description The name of the Logstore.
+     *
      * @example logstore_test
      *
      * @var string
@@ -30,6 +37,8 @@ class slsParameter extends Model
     public $logStore;
 
     /**
+     * @description The name of the project.
+     *
      * @example project_test
      *
      * @var string
@@ -37,6 +46,8 @@ class slsParameter extends Model
     public $project;
 
     /**
+     * @description The ID of the region where the Log Service project resides.
+     *
      * @example cn-hangzhou
      *
      * @var string

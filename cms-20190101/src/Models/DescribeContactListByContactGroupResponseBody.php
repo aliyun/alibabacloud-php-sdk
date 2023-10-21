@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactListByContactGroupResponseBody extends Model
 {
     /**
-     * @description The error message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,14 +20,14 @@ class DescribeContactListByContactGroupResponseBody extends Model
     public $code;
 
     /**
-     * @description The time when the alert contact was modified.
+     * @description The alert group.
      *
      * @var contacts
      */
     public $contacts;
 
     /**
-     * @description The ID of the request.
+     * @description The error message.
      *
      * @example The group is not exists.
      *
@@ -35,10 +36,7 @@ class DescribeContactListByContactGroupResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example 06D5ECC2-B9BE-42A4-8FA3-1A610FB08B83
      *
@@ -47,7 +45,10 @@ class DescribeContactListByContactGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The alert group.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

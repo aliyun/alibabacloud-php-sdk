@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class groupBy extends Model
 {
     /**
-     * @description The ID of the member account.
+     * @description The alias of the aggregation result.
      *
-     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
      * @example ApiResult
      *
      * @var string
@@ -19,9 +18,8 @@ class groupBy extends Model
     public $alias;
 
     /**
-     * @description The IDs of the member accounts. Separate multiple member account IDs with commas (,).
+     * @description The name of the key that is used to aggregate logs imported from Log Service.
      *
-     * >  This parameter is required only if you call this operation by using the management account.
      * @example code
      *
      * @var string

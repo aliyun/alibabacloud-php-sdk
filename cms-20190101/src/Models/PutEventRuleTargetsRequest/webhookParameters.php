@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class webhookParameters extends Model
 {
     /**
-     * @description The alert notification methods. Valid values of N: 1 to 5. Valid values:
+     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
      *
-     * 4: Alert notifications are sent by using DingTalk chatbots and emails.
      * @example 4
      *
      * @var string
@@ -19,8 +18,9 @@ class webhookParameters extends Model
     public $id;
 
     /**
-     * @description The region where the resource resides.
+     * @description The HTTP request method. Valid values of N: 1 to 5.
      *
+     * Valid values: GET and POST.
      * @example GET
      *
      * @var string
@@ -28,7 +28,11 @@ class webhookParameters extends Model
     public $method;
 
     /**
-     * @description The ID of the recipient.
+     * @description The name of the protocol. Valid values of N: 1 to 5. Valid values:
+     *
+     *   http
+     *   telnet
+     *   ping
      *
      * @example http
      *
@@ -37,7 +41,7 @@ class webhookParameters extends Model
     public $protocol;
 
     /**
-     * @description The name of the function. Valid values of N: 1 to 5.
+     * @description The callback URL. Valid values of N: 1 to 5.
      *
      * @example http://www.aliyun.com
      *

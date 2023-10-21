@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutContactGroupRequest extends Model
 {
     /**
-     * @description The description of the alert contact group.
+     * @description The name of the alert contact group.
      *
+     * For information about how to obtain the name of an alert contact group, see [DescribeContactGroupList](~~114922~~).
      * @example ECS_Group
      *
      * @var string
@@ -25,12 +26,8 @@ class PutContactGroupRequest extends Model
     public $contactNames;
 
     /**
-     * @description Specifies whether to enable the weekly report subscription feature. Valid values:
+     * @description The description of the alert contact group.
      *
-     *   true: The weekly report subscription feature is enabled.
-     *   false: The weekly report subscription feature is disabled.
-     *
-     * >  You can enable the weekly report subscription only for an Alibaba Cloud account that has at least five Elastic Compute Service (ECS) instances.
      * @example ECS_Alert_Group
      *
      * @var string
@@ -38,8 +35,12 @@ class PutContactGroupRequest extends Model
     public $describe;
 
     /**
-     * @description The name of the alert contact. Valid values of N: 1 to 100.
+     * @description Specifies whether to enable the weekly report subscription feature. Valid values:
      *
+     *   true: The weekly report subscription feature is enabled.
+     *   false: The weekly report subscription feature is disabled.
+     *
+     * >  You can enable the weekly report subscription only for an Alibaba Cloud account that has at least five Elastic Compute Service (ECS) instances.
      * @example true
      *
      * @var bool

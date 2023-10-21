@@ -11,6 +11,8 @@ class targets extends Model
     /**
      * @description The ARN of the resource.
      *
+     * For information about how to obtain the ARN of a resource, see [DescribeMetricRuleTargets](~~121592~~).
+     *
      * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
      *
      *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
@@ -35,7 +37,7 @@ class targets extends Model
     public $id;
 
     /**
-     * @description The ID of the resource for which alerts are triggered.
+     * @description The parameters of the alert callback. The parameters are in the JSON format.
      *
      * @example {"customField1":"value1","customField2":"$.name"}
      *
@@ -44,9 +46,12 @@ class targets extends Model
     public $jsonParams;
 
     /**
-     * @description The HTTP status code.
+     * @description The level of the alert. Valid values:
      *
-     * >  The status code 200 indicates that the call was successful.
+     *   INFO: information
+     *   WARN: warning
+     *   CRITICAL: critical
+     *
      * @example ["INFO", "WARN", "CRITICAL"]
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eventHistogram extends Model
 {
     /**
-     * @description Queries the number of times that a custom event occurred during each interval of a time period.
+     * @description The information about the number of times that the custom event occurred during an interval of a time period.
      *
      * @example 3
      *
@@ -18,7 +18,7 @@ class eventHistogram extends Model
     public $count;
 
     /**
-     * @description The beginning of an interval.
+     * @description The end of an interval.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552226750000
@@ -28,8 +28,9 @@ class eventHistogram extends Model
     public $endTime;
 
     /**
-     * @description The information about the number of times that the custom event occurred during an interval of a time period.
+     * @description The beginning of an interval.
      *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552226740000
      *
      * @var int

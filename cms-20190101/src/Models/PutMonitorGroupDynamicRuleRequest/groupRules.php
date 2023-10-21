@@ -10,10 +10,11 @@ use AlibabaCloud\Tea\Model;
 class groupRules extends Model
 {
     /**
-     * @description The logical operator used between conditional expressions in the alert rule. Valid values of N: 1 to 3. Valid values:
+     * @description The cloud service to which the alert rule is applied. Valid values of N: 1 to 3. Valid values:
      *
-     *   and: The instances that meet all the conditional expressions are automatically added to the application group.
-     *   or: The instances that meet one of the conditional expressions are automatically added to the application group.
+     *   ecs: Elastic Compute Service (ECS)
+     *   rds: ApsaraDB RDS
+     *   slb: Server Load Balancer (SLB)
      *
      * @example ecs
      *
@@ -22,10 +23,10 @@ class groupRules extends Model
     public $category;
 
     /**
-     * @description The mode for creating the alert rule. Valid values:
+     * @description The logical operator used between conditional expressions in the alert rule. Valid values of N: 1 to 3. Valid values:
      *
-     *   true: creates asynchronously
-     *   false (default value): creates synchronously
+     *   and: The instances that meet all the conditional expressions are automatically added to the application group.
+     *   or: The instances that meet one of the conditional expressions are automatically added to the application group.
      *
      * @example and
      *
@@ -34,6 +35,8 @@ class groupRules extends Model
     public $filterRelation;
 
     /**
+     * @description None.
+     *
      * @var filters[]
      */
     public $filters;

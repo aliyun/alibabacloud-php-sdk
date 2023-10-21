@@ -12,15 +12,17 @@ use AlibabaCloud\Tea\Model;
 class nodeTaskConfig extends Model
 {
     /**
-     * @description The beginning of the time period during which the alert rule is effective. Valid values: 0 to 23.
+     * @description The configurations of the alert rule.
      *
-     * >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
      * @var alertConfig
      */
     public $alertConfig;
 
     /**
-     * @description The ECS instances that are monitored.
+     * @description Indicates whether the availability monitoring task is disabled. Valid values:
+     *
+     *   true: The availability monitoring task is disabled.
+     *   false: The availability monitoring task is enabled.
      *
      * @example false
      *
@@ -29,10 +31,7 @@ class nodeTaskConfig extends Model
     public $disabled;
 
     /**
-     * @description The range of instances that are monitored by the availability monitoring task. Valid values:
-     *
-     *   GROUP: All ECS instances in the application group are monitored.
-     *   GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored.
+     * @description The ID of the application group.
      *
      * @example 12345
      *
@@ -41,10 +40,7 @@ class nodeTaskConfig extends Model
     public $groupId;
 
     /**
-     * @description Indicates whether the availability monitoring task is disabled. Valid values:
-     *
-     *   true: The availability monitoring task is disabled.
-     *   false: The availability monitoring task is enabled.
+     * @description The name of the application group.
      *
      * @example Group_ECS
      *
@@ -53,11 +49,7 @@ class nodeTaskConfig extends Model
     public $groupName;
 
     /**
-     * @description The HTTP request method. Valid values:
-     *
-     *   GET
-     *   POST
-     *   HEAD
+     * @description The ID of the availability monitoring task.
      *
      * @example 123456
      *
@@ -66,14 +58,14 @@ class nodeTaskConfig extends Model
     public $id;
 
     /**
-     * @description The interval at which detection requests are sent. Unit: seconds.
+     * @description The ECS instances that are monitored.
      *
      * @var instances
      */
     public $instances;
 
     /**
-     * @description The ID of the availability monitoring task.
+     * @description The name of the availability monitoring task.
      *
      * @example ecs_instance
      *
@@ -82,14 +74,17 @@ class nodeTaskConfig extends Model
     public $taskName;
 
     /**
-     * @description The URI that you want to monitor. If the TaskType parameter is set to HTTP, this parameter is required.
+     * @description The optional parameters of the availability monitoring task.
      *
      * @var taskOption
      */
     public $taskOption;
 
     /**
-     * @description The optional parameters of the availability monitoring task.
+     * @description The range of instances that are monitored by the availability monitoring task. Valid values:
+     *
+     *   GROUP: All ECS instances in the application group are monitored.
+     *   GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored.
      *
      * @example GROUP
      *
@@ -98,7 +93,11 @@ class nodeTaskConfig extends Model
     public $taskScope;
 
     /**
-     * @description The name of the availability monitoring task.
+     * @description The type of the availability monitoring task. Valid values:
+     *
+     *   PING
+     *   TELNET
+     *   HTTP
      *
      * @example HTTP
      *

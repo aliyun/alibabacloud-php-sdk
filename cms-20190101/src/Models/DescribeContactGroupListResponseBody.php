@@ -11,8 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactGroupListResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -20,21 +21,21 @@ class DescribeContactGroupListResponseBody extends Model
     public $code;
 
     /**
-     * @description The description of the alert group.
+     * @description The information about alert groups that were queried.
      *
      * @var contactGroupList
      */
     public $contactGroupList;
 
     /**
-     * @description The information about alert groups that were queried.
+     * @description The names of alert groups.
      *
      * @var contactGroups
      */
     public $contactGroups;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example The Request is not authorization.
      *
@@ -43,7 +44,7 @@ class DescribeContactGroupListResponseBody extends Model
     public $message;
 
     /**
-     * @description The total number of the returned entries.
+     * @description The ID of the request.
      *
      * @example 916EE694-03C2-47B6-85EE-5054E3C168D3
      *
@@ -52,7 +53,10 @@ class DescribeContactGroupListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The names of alert groups.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *
@@ -61,10 +65,7 @@ class DescribeContactGroupListResponseBody extends Model
     public $success;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The total number of the returned entries.
      *
      * @example 22
      *

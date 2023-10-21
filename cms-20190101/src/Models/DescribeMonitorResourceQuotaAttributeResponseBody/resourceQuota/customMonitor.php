@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class customMonitor extends Model
 {
     /**
-     * @description The total quota of alert phone calls. Unit: calls.
+     * @description The total quota of the time series for custom monitoring.
      *
      * @example 1200
      *
@@ -18,7 +18,7 @@ class customMonitor extends Model
     public $quotaLimit;
 
     /**
-     * @description The quota of site monitoring tasks.
+     * @description The quota of the time series for custom monitoring in your resource plan.
      *
      * @example 1000
      *
@@ -27,7 +27,7 @@ class customMonitor extends Model
     public $quotaPackage;
 
     /**
-     * @description The total quota of events that can be reported in event monitoring. The total quota is the value that is multiplied by 10,000.
+     * @description The used quota of the time series for custom monitoring in your resource plan.
      *
      * @example 8
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMonitorAttributeRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The name of the log monitoring metric. Exact match is supported.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * For more information, see [Appendix 1: Metrics](~~163515~~).
      * @example cpu_total
      *
      * @var string

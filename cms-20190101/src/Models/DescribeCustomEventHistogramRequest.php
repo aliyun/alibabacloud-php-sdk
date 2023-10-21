@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomEventHistogramRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The end of the time range to query.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552220485596
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribeCustomEventHistogramRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the application group.
+     * @description The ID of the custom event.
      *
      * @example 123
      *
@@ -28,10 +28,7 @@ class DescribeCustomEventHistogramRequest extends Model
     public $eventId;
 
     /**
-     * @description The keywords that are contained in the content of the custom event to query. You can use a logical operator between keywords.
-     *
-     *   If you need to query the custom event whose content contains a and b, set the value to a and b.
-     *   If you need to query the custom event whose content contains a or b, set the value to a or b.
+     * @description The ID of the application group.
      *
      * @example 12345
      *
@@ -40,7 +37,11 @@ class DescribeCustomEventHistogramRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the custom event.
+     * @description The level of the custom event. Valid values:
+     *
+     *   CRITICAL
+     *   WARN
+     *   INFO
      *
      * @example CRITICAL
      *
@@ -49,11 +50,7 @@ class DescribeCustomEventHistogramRequest extends Model
     public $level;
 
     /**
-     * @description The level of the custom event. Valid values:
-     *
-     *   CRITICAL
-     *   WARN
-     *   INFO
+     * @description The name of the custom event.
      *
      * @example BucketIngressBandwidth
      *
@@ -67,9 +64,11 @@ class DescribeCustomEventHistogramRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The keywords that are contained in the content of the custom event to query. You can use a logical operator between keywords.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *   If you need to query the custom event whose content contains a and b, set the value to a and b.
+     *   If you need to query the custom event whose content contains a or b, set the value to a or b.
+     *
      * @example cms
      *
      * @var string
@@ -77,7 +76,7 @@ class DescribeCustomEventHistogramRequest extends Model
     public $searchKeywords;
 
     /**
-     * @description The end of the time range to query.
+     * @description The beginning of the time range to query.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552209685596

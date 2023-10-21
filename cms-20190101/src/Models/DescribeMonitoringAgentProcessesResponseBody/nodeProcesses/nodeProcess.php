@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class nodeProcess extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The command used to obtain the number of processes. Valid value: `number`.
      *
+     * >  The `number` command obtains the number of processes that match the condition.
      * @example number
      *
      * @var string
@@ -18,7 +19,7 @@ class nodeProcess extends Model
     public $command;
 
     /**
-     * @description The user who launched the process.
+     * @description The ID of the application group.
      *
      * @example 3619****
      *
@@ -27,7 +28,7 @@ class nodeProcess extends Model
     public $groupId;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The ID of the instance.
      *
      * @example i-hp3hl3cx1pbahzy8****
      *
@@ -36,9 +37,8 @@ class nodeProcess extends Model
     public $instanceId;
 
     /**
-     * @description The command used to obtain the number of processes. Valid value: `number`.
+     * @description The ID of the process.
      *
-     * >  The `number` command obtains the number of processes that match the condition.
      * @example 234567
      *
      * @var int
@@ -46,7 +46,7 @@ class nodeProcess extends Model
     public $processId;
 
     /**
-     * @description The ID of the application group.
+     * @description The name of the process.
      *
      * @example Nginx
      *
@@ -55,9 +55,8 @@ class nodeProcess extends Model
     public $processName;
 
     /**
-     * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](~~114951~~~).
+     * @description The user who launched the process.
      *
-     * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
      * @example alice
      *
      * @var string

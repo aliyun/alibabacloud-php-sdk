@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyHybridMonitorSLSGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class ModifyHybridMonitorSLSGroupResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The error message.
      *
      * @example NotFound.SLSGroup
      *
@@ -27,6 +28,8 @@ class ModifyHybridMonitorSLSGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 66683237-7126-50F8-BBF8-D67ACC919A17
      *
      * @var string
@@ -34,6 +37,11 @@ class ModifyHybridMonitorSLSGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

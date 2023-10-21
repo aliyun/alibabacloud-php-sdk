@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyMetricRuleTemplateRequest extends Model
 {
     /**
+     * @description The details of the alert template.
+     *
      * @var alertTemplates[]
      */
     public $alertTemplates;
@@ -24,8 +26,9 @@ class ModifyMetricRuleTemplateRequest extends Model
     public $description;
 
     /**
-     * @description The name of the alert rule. Valid values of N: 1 to 200.
+     * @description The name of the alert template.
      *
+     * For information about how to obtain the name of an alert template, see [DescribeMetricRuleTemplateList](~~114982~~).
      * @example test123
      *
      * @var string
@@ -38,9 +41,9 @@ class ModifyMetricRuleTemplateRequest extends Model
     public $regionId;
 
     /**
-     * @description The HTTP status code.
+     * @description The version of the alert template. The version changes with the number of times that the alert template is modified.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * For information about how to obtain the version of an alert template, see [DescribeMetricRuleTemplateList](~~114982~~).
      * @example 0
      *
      * @var int
@@ -48,9 +51,9 @@ class ModifyMetricRuleTemplateRequest extends Model
     public $restVersion;
 
     /**
-     * @description The callback URL. Valid values of N: 1 to 200.
+     * @description The ID of the alert template.
      *
-     * The callback URL must be accessible over the Internet. CloudMonitor sends a POST request to push an alert notification to the callback URL that you specify. Only HTTP requests are supported.
+     * For information about how to obtain the ID of an alert template, see [DescribeMetricRuleTemplateList](~~114982~~).
      * @example 123456
      *
      * @var int

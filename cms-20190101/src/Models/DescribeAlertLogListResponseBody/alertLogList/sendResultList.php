@@ -9,7 +9,14 @@ use AlibabaCloud\Tea\Model;
 class sendResultList extends Model
 {
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The category of the alert notification method. Valid values:
+     *
+     *   Mail: email
+     *   ALIIM: TradeManager
+     *   SMS: text message
+     *   CALL: phone call
+     *   DING: DingTalk chatbot
+     *   Merged: alert merging
      *
      * @example Mail
      *
@@ -18,6 +25,8 @@ class sendResultList extends Model
     public $key;
 
     /**
+     * @description The alert notification methods.
+     *
      * @var string[]
      */
     public $value;

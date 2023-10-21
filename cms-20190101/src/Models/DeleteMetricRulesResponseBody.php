@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetricRulesResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The status code.
      *
+     * >  The status code 200 indicates a success.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class DeleteMetricRulesResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example The specified resource is not found.
      *
@@ -27,10 +28,7 @@ class DeleteMetricRulesResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the operation was successful. Valid values:
-     *
-     *   true: successful.
-     *   false: failed.
+     * @description The ID of the request.
      *
      * @example E5599964-8D0D-40DC-8E90-27A619384B81
      *
@@ -39,7 +37,10 @@ class DeleteMetricRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Deletes one or more alert rules.
+     * @description Indicates whether the operation was successful. Valid values:
+     *
+     *   true: successful.
+     *   false: failed.
      *
      * @example true
      *

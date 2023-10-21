@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorNamespaceListResponseBody extends Model
 {
     /**
-     * @description The account that is used to create the namespace.
+     * @description The returned message.
      *
      * @example Success
      *
@@ -19,14 +19,14 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $code;
 
     /**
-     * @description The metrics.
+     * @description The details of the namespaces.
      *
      * @var describeHybridMonitorNamespace[]
      */
     public $describeHybridMonitorNamespace;
 
     /**
-     * @description The ID of the namespace.
+     * @description The error message.
      *
      * @example Specified parameter PageSize is not valid.
      *
@@ -35,7 +35,7 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $message;
 
     /**
-     * @description The timestamp that was generated when the namespace was last modified.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of returned entries.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -53,9 +53,8 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the request.
      *
-     * A minimum of 1 entry can be returned on each page. Default value: 10.
      * @example 1EC450A4-3221-5148-B77E-2827576CFE48
      *
      * @var string
@@ -63,7 +62,10 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The namespace for the Alibaba Cloud service.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *
@@ -72,9 +74,8 @@ class DescribeHybridMonitorNamespaceListResponseBody extends Model
     public $success;
 
     /**
-     * @description The number of the page to return.
+     * @description The total number of returned entries.
      *
-     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int

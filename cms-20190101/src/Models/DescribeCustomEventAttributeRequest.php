@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomEventAttributeRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The end of the time range to query.
      *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552227965971
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeCustomEventAttributeRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the application group.
+     * @description The ID of the custom event.
      *
      * @example 123****
      *
@@ -27,10 +28,7 @@ class DescribeCustomEventAttributeRequest extends Model
     public $eventId;
 
     /**
-     * @description The keywords that are contained in the content of the custom event to query. You can use a logical operator between keywords.
-     *
-     *   If you need to query the custom event whose content contains a and b, set the value to a and b.
-     *   If you need to query the custom event whose content contains a or b, set the value to a or b.
+     * @description The ID of the application group.
      *
      * @example 123****
      *
@@ -39,7 +37,7 @@ class DescribeCustomEventAttributeRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the custom event.
+     * @description The name of the custom event.
      *
      * @example test123
      *
@@ -48,7 +46,7 @@ class DescribeCustomEventAttributeRequest extends Model
     public $name;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -57,9 +55,8 @@ class DescribeCustomEventAttributeRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The HTTP status code.
+     * @description The number of entries to return on each page.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 50
      *
      * @var int
@@ -72,9 +69,11 @@ class DescribeCustomEventAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The keywords that are contained in the content of the custom event to query. You can use a logical operator between keywords.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *   If you need to query the custom event whose content contains a and b, set the value to a and b.
+     *   If you need to query the custom event whose content contains a or b, set the value to a or b.
+     *
      * @example cms
      *
      * @var string
@@ -82,7 +81,7 @@ class DescribeCustomEventAttributeRequest extends Model
     public $searchKeywords;
 
     /**
-     * @description The end of the time range to query.
+     * @description The beginning of the time range to query.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552224365971

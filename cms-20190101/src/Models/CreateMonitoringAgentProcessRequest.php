@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitoringAgentProcessRequest extends Model
 {
     /**
-     * @description The user who launches the process.
+     * @description The ID of the instance.
      *
      * @example i-2ze51wjtwox01r8g****
      *
@@ -18,7 +18,7 @@ class CreateMonitoringAgentProcessRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the instance.
+     * @description The name of the process.
      *
      * @example java
      *
@@ -27,9 +27,8 @@ class CreateMonitoringAgentProcessRequest extends Model
     public $processName;
 
     /**
-     * @description The HTTP status code.
+     * @description The user who launches the process.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example admin
      *
      * @var string

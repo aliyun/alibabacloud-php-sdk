@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mnsParameter extends Model
 {
     /**
+     * @description The ID of the recipient.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class mnsParameter extends Model
     public $id;
 
     /**
+     * @description The name of the MNS queue.
+     *
      * @example testQueue
      *
      * @var string
@@ -23,6 +27,8 @@ class mnsParameter extends Model
     public $queue;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

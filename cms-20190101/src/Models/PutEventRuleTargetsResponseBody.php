@@ -12,8 +12,9 @@ use AlibabaCloud\Tea\Model;
 class PutEventRuleTargetsResponseBody extends Model
 {
     /**
-     * @description The name of the API operation.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -21,24 +22,28 @@ class PutEventRuleTargetsResponseBody extends Model
     public $code;
 
     /**
-     * @description The name of the queue. Valid values of N: 1 to 5.
+     * @description This parameter is returned if the specified alert contact groups in the request failed to be created or modified.
      *
      * @var failedContactParameters
      */
     public $failedContactParameters;
 
     /**
+     * @description This parameter is returned if the specified functions in the request failed to be created or modified in Function Compute.
+     *
      * @var failedFcParameters
      */
     public $failedFcParameters;
 
     /**
+     * @description This parameter is returned if the specified queues in the request failed to be created or modified in MNS.
+     *
      * @var failedMnsParameters
      */
     public $failedMnsParameters;
 
     /**
-     * @description The name of the Function Compute service. Valid values of N: 1 to 5.
+     * @description The number of resources that failed to be created or modified.
      *
      * @example 2
      *
@@ -47,7 +52,7 @@ class PutEventRuleTargetsResponseBody extends Model
     public $failedParameterCount;
 
     /**
-     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -56,9 +61,8 @@ class PutEventRuleTargetsResponseBody extends Model
     public $message;
 
     /**
-     * @description The alert notification methods. Valid values:
+     * @description The request ID.
      *
-     * 4: Alert notifications are sent by using DingTalk chatbots and emails.
      * @example 409C64DA-CF14-45DF-B463-471C790DD15A
      *
      * @var string
@@ -66,7 +70,7 @@ class PutEventRuleTargetsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The name of the role.
+     * @description Indicates whether the request was successful. Valid values: true and false.
      *
      * @example true
      *

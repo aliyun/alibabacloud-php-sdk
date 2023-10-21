@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class eventPattern extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The custom filter condition. If an event contains a specified keyword, the event triggers an alert.
      *
      * @example ECS123
      *
@@ -22,36 +22,40 @@ class eventPattern extends Model
     public $customFilters;
 
     /**
-     * @description The keywords that are used to match events.
+     * @description The type of the event-triggered alert rule.
      *
+     * `*` indicates all types of alert rules.
      * @var eventTypeList
      */
     public $eventTypeList;
 
     /**
-     * @description Queries event-triggered alert rules.
+     * @description The filter keyword.
      *
      * @var keywordFilter
      */
     public $keywordFilter;
 
     /**
-     * @description The type of the event-triggered alert rule.
+     * @description The level of the event. Valid values:
      *
-     * `*` indicates all types of alert rules.
+     *   CRITICAL: critical
+     *   WARN: warning
+     *   INFO: information
+     *
      * @var levelList
      */
     public $levelList;
 
     /**
-     * @description Indicates that logs are filtered based on the specified SQL statement. If the specified conditions are met, an alert is triggered.
+     * @description The list of event names.
      *
      * @var nameList
      */
     public $nameList;
 
     /**
-     * @description The ID of the application group.
+     * @description The abbreviation of the service name.
      *
      * @example CloudMonitor
      *
@@ -60,6 +64,8 @@ class eventPattern extends Model
     public $product;
 
     /**
+     * @description Indicates that logs are filtered based on the specified SQL statement. If the specified conditions are met, an alert is triggered.
+     *
      * @example ycccluster1 and (i-23ij0o82612 or Executed1) or Asimulated not 222
      *
      * @var string

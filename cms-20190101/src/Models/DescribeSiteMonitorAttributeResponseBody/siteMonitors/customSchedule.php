@@ -15,16 +15,22 @@ class customSchedule extends Model
     public $days;
 
     /**
+     * @example 18
+     *
      * @var int
      */
     public $endHour;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $startHour;
 
     /**
+     * @example local
+     *
      * @var string
      */
     public $timeZone;

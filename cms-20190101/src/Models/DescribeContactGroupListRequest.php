@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactGroupListRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The number of the page to return.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 10
      *
      * @var int
@@ -19,7 +18,7 @@ class DescribeContactGroupListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries to return on each page.
      *
      * @example 1
      *

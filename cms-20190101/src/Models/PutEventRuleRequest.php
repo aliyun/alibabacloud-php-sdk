@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class PutEventRuleRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **PutEventRule**.
+     * @description The description of the event-triggered alert rule.
      *
      * @var string
      */
@@ -22,9 +22,11 @@ class PutEventRuleRequest extends Model
     public $eventPattern;
 
     /**
-     * @description The type of the cloud service. Valid values of N: 1 to 50.
+     * @description The type of the event-triggered alert rule. Valid values:
      *
-     * >  You can call the DescribeSystemEventMetaList operation to query the cloud services that support event-triggered alerts. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     *   SYSTEM: system event-triggered alert rule
+     *   CUSTOM: custom event-triggered alert rule
+     *
      * @example SYSTEM
      *
      * @var string
@@ -32,12 +34,7 @@ class PutEventRuleRequest extends Model
     public $eventType;
 
     /**
-     * @description The type of the event-triggered alert rule. Valid values of N: 1 to 50. Valid values:
-     *
-     *   StatusNotification: fault notifications
-     *   Exception: exceptions
-     *   Maintenance: O\&M
-     *   \*: all types
+     * @description The ID of the application group to which the event-triggered alert rule belongs.
      *
      * @example 7378****
      *
@@ -51,9 +48,8 @@ class PutEventRuleRequest extends Model
     public $regionId;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the event-triggered alert rule.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example myRuleName
      *
      * @var string
@@ -61,7 +57,7 @@ class PutEventRuleRequest extends Model
     public $ruleName;
 
     /**
-     * @description The number of event-triggered alert rules that were created or modified.
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds.
      *
      * @example 86400
      *

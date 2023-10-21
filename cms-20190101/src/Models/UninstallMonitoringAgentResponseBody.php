@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UninstallMonitoringAgentResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The HTTP status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class UninstallMonitoringAgentResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example Successfully
      *
@@ -27,10 +28,7 @@ class UninstallMonitoringAgentResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example 466902B9-2842-40B0-B796-00FE772B6EF3
      *
@@ -39,7 +37,10 @@ class UninstallMonitoringAgentResponseBody extends Model
     public $requestId;
 
     /**
-     * @description >  This API operation is not applicable to ECS instances. To uninstall the agent from an ECS instance, see [Install and uninstall the Cloud Monitor agent](~~183482~~).
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

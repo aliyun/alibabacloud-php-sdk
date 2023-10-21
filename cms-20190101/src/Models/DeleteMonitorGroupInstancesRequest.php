@@ -9,25 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupInstancesRequest extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
-     * >  The status code 200 indicates that the call was successful.
-     * @example ecs
-     *
-     * @var string
-     */
-    public $category;
-
-    /**
-     * @description The instances to be removed from the application group. Separate multiple instances with commas (,). You can remove a maximum of 20 instances from an application group at a time.
-     *
-     * @example 123456
-     *
-     * @var int
-     */
-    public $groupId;
-
-    /**
      * @description The abbreviation of the service name. Valid values:
      *
      *   ECS: Elastic Compute Service (ECS) instances provided by Alibaba Cloud and hosts not provided by Alibaba Cloud
@@ -65,6 +46,24 @@ class DeleteMonitorGroupInstancesRequest extends Model
      *   SHAREBANDWIDTHPACKAGES: EIP Bandwidth Plan
      *   SLS: Log Service
      *   VPN: VPN Gateway
+     *
+     * @example ecs
+     *
+     * @var string
+     */
+    public $category;
+
+    /**
+     * @description The ID of the application group.
+     *
+     * @example 123456
+     *
+     * @var int
+     */
+    public $groupId;
+
+    /**
+     * @description The instances to be removed from the application group. Separate multiple instances with commas (,). You can remove a maximum of 20 instances from an application group at a time.
      *
      * @example i-a2d5q7pm3f912****,i-a2d5q7pm3f222****
      *

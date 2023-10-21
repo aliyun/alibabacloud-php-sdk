@@ -9,20 +9,13 @@ use AlibabaCloud\Tea\Model;
 class metricRuleCount extends Model
 {
     /**
+     * @description The number of alert rules with active alerts.
+     *
      * @example 5
      *
      * @var int
      */
     public $alarm;
-
-    /**
-     * @description The total number of alert rules.
-     *
-     * @example 0
-     *
-     * @var int
-     */
-    public $disable;
 
     /**
      * @description The number of disabled alert rules.
@@ -31,10 +24,19 @@ class metricRuleCount extends Model
      *
      * @var int
      */
-    public $nodata;
+    public $disable;
 
     /**
      * @description The number of alert rules without data.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $nodata;
+
+    /**
+     * @description The number of alert rules without active alerts.
      *
      * @example 40
      *
@@ -43,7 +45,7 @@ class metricRuleCount extends Model
     public $ok;
 
     /**
-     * @description The number of alert rules with active alerts.
+     * @description The total number of alert rules.
      *
      * @example 45
      *

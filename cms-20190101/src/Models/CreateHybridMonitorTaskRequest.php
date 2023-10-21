@@ -16,8 +16,12 @@ class CreateHybridMonitorTaskRequest extends Model
     public $attachLabels;
 
     /**
-     * @description The error message.
+     * @description The interval at which metrics are collected. Valid values:
      *
+     *   15
+     *   60 (default value)
+     *
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
      * @example 60
      *
      * @var string
@@ -37,15 +41,16 @@ class CreateHybridMonitorTaskRequest extends Model
     public $collectTargetType;
 
     /**
-     * @description The tag value of the metric.
+     * @description The description of the metric import task.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The conditions that are used to filter logs imported from Log Service.
+     * @description The ID of the application group.
      *
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
      * @example 3607****
      *
      * @var string
@@ -53,8 +58,9 @@ class CreateHybridMonitorTaskRequest extends Model
     public $groupId;
 
     /**
-     * @description The extended field that specifies the result of basic operations that are performed on aggregation results.
+     * @description The name of the namespace.
      *
+     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
      * @example aliyun
      *
      * @var string
@@ -67,24 +73,17 @@ class CreateHybridMonitorTaskRequest extends Model
     public $regionId;
 
     /**
-     * @description The tag key of the metric.
+     * @description The configurations of the logs that are imported from Log Service.
      *
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
      * @var SLSProcessConfig
      */
     public $SLSProcessConfig;
 
     /**
-     * @description The method that is used to filter logs imported from Log Service. Valid values:
+     * @description The ID of the member account.
      *
-     *   `contain`: contains
-     *   `notContain`: does not contain
-     *   `>`: greater than
-     *   `<`: less than
-     *   `=`: equal to
-     *   `! =`: not equal to
-     *   `>=`: greater than or equal to
-     *   `<=`: less than or equal to
-     *
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
      * @example 120886317861****
      *
      * @var string
@@ -92,8 +91,9 @@ class CreateHybridMonitorTaskRequest extends Model
     public $targetUserId;
 
     /**
-     * @description The ID of the metric import task.
+     * @description The IDs of the member accounts. Separate multiple member account IDs with commas (,).
      *
+     * >  This parameter is required only if you call this operation by using the management account.
      * @example 120886317861****
      *
      * @var string
@@ -101,9 +101,11 @@ class CreateHybridMonitorTaskRequest extends Model
     public $targetUserIdList;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the metric import task.
      *
-     * >  The status code 200 indicates that the call was successful.
+     *   If the `TaskType` parameter is set to `aliyun_fc`, enter the name of the metric import task.
+     *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the metric for logs imported from Log Service.
+     *
      * @example aliyun_task
      *
      * @var string
@@ -111,7 +113,10 @@ class CreateHybridMonitorTaskRequest extends Model
     public $taskName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **CreateHybridMonitorTask**.
+     * @description Specifies whether to create a metric import task for an Alibaba Cloud service or create a metric for logs imported from Log Service. Valid values:
+     *
+     *   aliyun_fc: creates a metric import task for an Alibaba Cloud service
+     *   aliyun_sls: creates a metric for logs imported from Log Service
      *
      * @example aliyun_fc
      *
@@ -120,12 +125,12 @@ class CreateHybridMonitorTaskRequest extends Model
     public $taskType;
 
     /**
-     * @description The interval at which metrics are collected. Valid values:
+     * @description The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
      *
-     *   15
-     *   60 (default value)
+     *   namespace: the namespace of the Alibaba Cloud service. For information about how to query the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](~~98846~~).
+     *   metric_list: the metrics of the Alibaba Cloud service. For information about how to query the metrics of an Alibaba Cloud service, see [DescribeMetricMetaList](~~98846~~).
      *
-     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
      * @example products:- namespace: acs_ecs_dashboard  metric_info:  - metric_list:    - cpu_total
      *
      * @var string

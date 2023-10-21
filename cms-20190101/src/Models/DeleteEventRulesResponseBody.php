@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventRulesResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class DeleteEventRulesResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example success
      *
@@ -27,7 +28,7 @@ class DeleteEventRulesResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description The ID of the request.
      *
      * @example E5A72B5B-4F44-438C-B68A-147FD5DC53A8
      *
@@ -36,7 +37,7 @@ class DeleteEventRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Deletes one or more event-triggered alert rules.
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
      *
      * @example true
      *

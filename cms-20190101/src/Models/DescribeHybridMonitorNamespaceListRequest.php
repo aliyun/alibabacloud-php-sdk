@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorNamespaceListRequest extends Model
 {
     /**
-     * @description Specifies whether to return the configuration details of metric import tasks for Alibaba Cloud services and the number of metric import tasks for third-party services. Valid values:
-     *
-     *   true
-     *   false (default value)
+     * @description The keyword that is used to search for namespaces.
      *
      * @example aliyun
      *
@@ -21,8 +18,9 @@ class DescribeHybridMonitorNamespaceListRequest extends Model
     public $keyword;
 
     /**
-     * @description The error message.
+     * @description The name of the namespace.
      *
+     * The name can contain uppercase letters, lowercase letters, digits, and hyphens (-).
      * @example aliyun-test
      *
      * @var string
@@ -30,8 +28,9 @@ class DescribeHybridMonitorNamespaceListRequest extends Model
     public $namespace;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeHybridMonitorNamespaceList**.
+     * @description The number of the page to return.
      *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -39,8 +38,9 @@ class DescribeHybridMonitorNamespaceListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The returned message.
+     * @description The number of entries to return on each page.
      *
+     * A minimum of 1 entry can be returned on each page. Default value: 10.
      * @example 10
      *
      * @var int
@@ -53,7 +53,10 @@ class DescribeHybridMonitorNamespaceListRequest extends Model
     public $regionId;
 
     /**
-     * @description The details of the namespaces.
+     * @description Specifies whether to return the configuration details of metric import tasks for Alibaba Cloud services and the number of metric import tasks for third-party services. Valid values:
+     *
+     *   true
+     *   false (default value)
      *
      * @example false
      *

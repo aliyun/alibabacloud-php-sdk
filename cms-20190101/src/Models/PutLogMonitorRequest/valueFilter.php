@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class valueFilter extends Model
 {
     /**
+     * @description The name of the log field that is used for matching in the filter condition. Valid values of N: 1 to 10.
+     *
+     * @example lh_source
+     *
+     * @var string
+     */
+    public $key;
+
+    /**
      * @description The method that is used to match the field value. Valid values of N: 1 to 10. Valid values:
      *
      *   `contain`: contains
@@ -18,15 +27,6 @@ class valueFilter extends Model
      *   `>=`: be greater than or equal to
      *   `<=`: be less than or equal to
      *
-     * @example lh_source
-     *
-     * @var string
-     */
-    public $key;
-
-    /**
-     * @description The size of the tumbling window for calculation. Unit: seconds. CloudMonitor performs aggregation for each tumbling window.
-     *
      * @example Operator
      *
      * @var string
@@ -34,7 +34,7 @@ class valueFilter extends Model
     public $operator;
 
     /**
-     * @description The alias of the dimension based on which the data is grouped. Valid values of N: 1 to 10.
+     * @description The field value to be matched in the filter condition. Valid values of N: 1 to 10.
      *
      * @example test
      *

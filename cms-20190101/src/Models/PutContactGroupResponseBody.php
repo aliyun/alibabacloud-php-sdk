@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutContactGroupResponseBody extends Model
 {
     /**
-     * @description The error message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class PutContactGroupResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The error message.
      *
      * @example Illegal parameters.
      *
@@ -27,10 +28,7 @@ class PutContactGroupResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example B4E30DB6-F069-5D0B-A589-2A89F7D62A57
      *
@@ -39,7 +37,10 @@ class PutContactGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description This topic provides an example on how to create an alert contact group named `ECS_Group`.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

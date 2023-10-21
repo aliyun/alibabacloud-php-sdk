@@ -24,9 +24,8 @@ class ModifyGroupMonitoringAgentProcessRequest extends Model
     public $groupId;
 
     /**
-     * @description The statistical aggregation method that is used to calculate the metric values. Valid values of N: 1 to 200.
+     * @description The ID of the process monitoring task.
      *
-     * >  Set the value to Average.
      * @example 92E3065F-0980-4E31-9AA0-BA6****
      *
      * @var string
@@ -34,19 +33,11 @@ class ModifyGroupMonitoringAgentProcessRequest extends Model
     public $id;
 
     /**
-     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values of N: 1 to 200. Valid values:
+     * @description The logical operator used between conditional expressions that are used to match instances. Valid values:
      *
-     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-     *   GreaterThanThreshold: greater than the threshold
-     *   LessThanOrEqualToThreshold: less than or equal to the threshold
-     *   LessThanThreshold: less than the threshold.
-     *   NotEqualToThreshold: not equal to the threshold
-     *   GreaterThanYesterday: greater than the metric value at the same time yesterday.
-     *   LessThanYesterday: less than the metric value at the same time yesterday
-     *   GreaterThanLastWeek: greater than the metric value at the same time last week
-     *   LessThanLastWeek: less than the metric value at the same time last week
-     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *   all
+     *   and
+     *   or
      *
      * @example and
      *

@@ -15,21 +15,24 @@ class CreateHybridMonitorSLSGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The configurations of the Logstore group.
+     *
+     * Valid values of N: 1 to 25.
      * @var SLSGroupConfig[]
      */
     public $SLSGroupConfig;
 
     /**
-     * @description The operation that you want to perform. Set the value to **CreateHybridMonitorSLSGroup**.
+     * @description The description of the Logstore group.
      *
      * @var string
      */
     public $SLSGroupDescription;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the Logstore group.
      *
-     * >  The status code 200 indicates that the call is successful.
+     * The name must be 2 to 32 characters in length and can contain uppercase letters, lowercase letters, digits, and underscores (\_). The name must start with a letter.
      * @example Logstore_test
      *
      * @var string

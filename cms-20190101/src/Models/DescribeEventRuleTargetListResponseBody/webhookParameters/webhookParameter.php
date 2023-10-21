@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class webhookParameter extends Model
 {
     /**
+     * @description The ID of the recipient.
+     *
      * @example 5
      *
      * @var string
@@ -16,6 +18,8 @@ class webhookParameter extends Model
     public $id;
 
     /**
+     * @description The HTTP request method. Valid values: GET and POST.
+     *
      * @example GET
      *
      * @var string
@@ -23,6 +27,8 @@ class webhookParameter extends Model
     public $method;
 
     /**
+     * @description The protocol type.
+     *
      * @example HTTP
      *
      * @var string
@@ -30,6 +36,8 @@ class webhookParameter extends Model
     public $protocol;
 
     /**
+     * @description The callback URL.
+     *
      * @example http://www.aliyun.com
      *
      * @var string

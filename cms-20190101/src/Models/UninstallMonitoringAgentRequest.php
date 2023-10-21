@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UninstallMonitoringAgentRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The ID of the host.
      *
-     * >  The HTTP status code 200 indicates that the call was successful.
      * @example host-****
      *
      * @var string

@@ -10,11 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostAvailabilityListResponseBody extends Model
 {
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description The HTTP status code.
      *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
+     * >  The value 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -22,7 +20,7 @@ class DescribeHostAvailabilityListResponseBody extends Model
     public $code;
 
     /**
-     * @description The total number of returned entries.
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -31,7 +29,7 @@ class DescribeHostAvailabilityListResponseBody extends Model
     public $message;
 
     /**
-     * @description The details of the availability monitoring tasks.
+     * @description The ID of the request.
      *
      * @example 4A288E86-45C3-4858-9DB0-6D85B10BD92A
      *
@@ -40,11 +38,10 @@ class DescribeHostAvailabilityListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The type of the availability monitoring task. Valid values:
+     * @description Indicates whether the call was successful. Valid values:
      *
-     *   PING
-     *   TELNET
-     *   HTTP
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *
@@ -53,14 +50,14 @@ class DescribeHostAvailabilityListResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the application group.
+     * @description The details of the availability monitoring tasks.
      *
      * @var taskList
      */
     public $taskList;
 
     /**
-     * @description The name of the application group.
+     * @description The total number of returned entries.
      *
      * @example 1
      *

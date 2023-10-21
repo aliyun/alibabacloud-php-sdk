@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class slsParameters extends Model
 {
     /**
-     * @description The name of the alert contact group. Valid values of N: 1 to 5.
+     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
      *
      * @example 5
      *
@@ -18,7 +18,7 @@ class slsParameters extends Model
     public $id;
 
     /**
-     * @description The name of the Log Service Logstore. Valid values of N: 1 to 5.
+     * @description The name of the Simple Log Service Logstore. Valid values of N: 1 to 5.
      *
      * @example testlogstore
      *
@@ -27,7 +27,7 @@ class slsParameters extends Model
     public $logStore;
 
     /**
-     * @description The parameters of the alert callback. The parameters are in the JSON format.
+     * @description The name of the Simple Log Service project. Valid values of N: 1 to 5.
      *
      * @example testproject
      *
@@ -36,7 +36,7 @@ class slsParameters extends Model
     public $project;
 
     /**
-     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+     * @description The region where Simple Log Service is deployed. Valid values of N: 1 to 5.
      *
      * @example cn-hangzhou
      *

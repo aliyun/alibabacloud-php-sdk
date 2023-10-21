@@ -9,69 +9,6 @@ use AlibabaCloud\Tea\Model;
 class alarm extends Model
 {
     /**
-     * @description The beginning of the time period during which the alert rule is effective. Unit: hours. For example, the value 23 indicates `23:59:59`.
-     *
-     * @example >
-     *
-     * @var string
-     */
-    public $comparisonOperator;
-
-    /**
-     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](~~163515~~).
-     *
-     * @example ECS_Group
-     *
-     * @var string
-     */
-    public $contactGroups;
-
-    /**
-     * @description The details of the alert rules.
-     *
-     * @example true
-     *
-     * @var string
-     */
-    public $enable;
-
-    /**
-     * @description The end of the time period during which the alert rule is effective. Unit: hours. For example, the value 00 indicates `00:00:00`.
-     *
-     * @example 24
-     *
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @description The callback URL.
-     *
-     * @example 3
-     *
-     * @var string
-     */
-    public $evaluationCount;
-
-    /**
-     * @description The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
-     *
-     * @example cpu_total
-     *
-     * @var string
-     */
-    public $metricName;
-
-    /**
-     * @description The name of the alert rule.
-     *
-     * @example acs_ecs_dashboard
-     *
-     * @var string
-     */
-    public $namespace;
-
-    /**
      * @description The comparison operator that is used in the alert rule. Valid values:
      *
      *   `>`
@@ -81,6 +18,72 @@ class alarm extends Model
      *   `=`
      *   `=`
      *
+     * @example >
+     *
+     * @var string
+     */
+    public $comparisonOperator;
+
+    /**
+     * @description The alert group that receives alert notifications.
+     *
+     * @example ECS_Group
+     *
+     * @var string
+     */
+    public $contactGroups;
+
+    /**
+     * @description Indicates whether the alert rule is enabled. Valid values:
+     *
+     *   true: The alert rule is enabled.
+     *   false: The alert rule is disabled.
+     *
+     * @example true
+     *
+     * @var string
+     */
+    public $enable;
+
+    /**
+     * @description The beginning of the time period during which the alert rule is effective. Unit: hours. For example, the value 23 indicates `23:59:59`.
+     *
+     * @example 24
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
+     *
+     * @example 3
+     *
+     * @var string
+     */
+    public $evaluationCount;
+
+    /**
+     * @description The name of the metric.
+     *
+     * @example cpu_total
+     *
+     * @var string
+     */
+    public $metricName;
+
+    /**
+     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example acs_ecs_dashboard
+     *
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @description The aggregation period of the monitoring data. Unit: seconds. The default value is the minimum aggregation period, indicating that the metric is polled at the highest frequency. Typically, you do not need to specify the minimum aggregation period.
+     *
      * @example 60
      *
      * @var string
@@ -88,7 +91,7 @@ class alarm extends Model
     public $period;
 
     /**
-     * @description The aggregation period of the monitoring data. Unit: seconds. The default value is the minimum aggregation period, indicating that the metric is polled at the highest frequency. Typically, you do not need to specify the minimum aggregation period.
+     * @description The ID of the alert rule.
      *
      * @example a151cd6023eacee2f0978e03863cc1697c89508****
      *
@@ -97,7 +100,7 @@ class alarm extends Model
     public $ruleId;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The name of the alert rule.
      *
      * @example SystemDefault_acs_rds_dashboard_CpuUsage
      *
@@ -106,7 +109,7 @@ class alarm extends Model
     public $ruleName;
 
     /**
-     * @description The name of the metric.
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
      *
      * @example 86400
      *
@@ -115,7 +118,7 @@ class alarm extends Model
     public $silenceTime;
 
     /**
-     * @description The threshold of the metric value.
+     * @description The end of the time period during which the alert rule is effective. Unit: hours. For example, the value 00 indicates `00:00:00`.
      *
      * @example 00
      *
@@ -124,7 +127,7 @@ class alarm extends Model
     public $startTime;
 
     /**
-     * @description The alert group that receives alert notifications.
+     * @description Indicates whether the alert rule is enabled.
      *
      * @example Enable
      *
@@ -133,10 +136,7 @@ class alarm extends Model
     public $state;
 
     /**
-     * @description Indicates whether the alert rule is enabled. Valid values:
-     *
-     *   true: The alert rule is enabled.
-     *   false: The alert rule is disabled.
+     * @description The statistical aggregation method.
      *
      * @example Average
      *
@@ -145,7 +145,7 @@ class alarm extends Model
     public $statistics;
 
     /**
-     * @description The statistical aggregation method.
+     * @description The threshold of the metric value.
      *
      * @example 90
      *
@@ -154,7 +154,7 @@ class alarm extends Model
     public $threshold;
 
     /**
-     * @description Indicates whether the alert rule is enabled.
+     * @description The callback URL.
      *
      * @example http://www.aliyun.com
      *

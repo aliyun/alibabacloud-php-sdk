@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorListRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The keyword to be matched.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  You can search for tasks by name or address. Fuzzy search is supported.
      * @example site
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribeSiteMonitorListRequest extends Model
     public $keyword;
 
     /**
-     * @description The number of hops for the PING protocol.
+     * @description The number of the page to return. Default value: 1.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeSiteMonitorListRequest extends Model
     public $page;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeSiteMonitorList**.
+     * @description The number of entries to return on each page. Default value: 10.
      *
      * @example 10
      *
@@ -42,10 +42,7 @@ class DescribeSiteMonitorListRequest extends Model
     public $regionId;
 
     /**
-     * @description The parsing path of the assertion.
-     *
-     *   If the assertion type is `body_json`, the path is `json path`.
-     *   If the assertion type is `body_xml`, the path is `xml path`.
+     * @description The ID of the site monitoring task.
      *
      * @example a1ecd34a-8157-44d9-b060-14950837****
      *
@@ -54,7 +51,10 @@ class DescribeSiteMonitorListRequest extends Model
     public $taskId;
 
     /**
-     * @description The ID of the site monitoring task.
+     * @description The status of the task. Valid values:
+     *
+     *   1: The task is enabled.
+     *   2: The task is disabled.
      *
      * @example 1
      *
@@ -63,7 +63,7 @@ class DescribeSiteMonitorListRequest extends Model
     public $taskState;
 
     /**
-     * @description The time when the site monitoring task was updated.
+     * @description The protocol that is used by the site monitoring task. Valid values: HTTP, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
      *
      * @example HTTP
      *

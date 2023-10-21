@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class PutResourceMetricRulesResponseBody extends Model
 {
     /**
-     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
+     * @description The HTTP status code.
      *
-     * Valid values of N: 1 to 500.
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -20,16 +20,15 @@ class PutResourceMetricRulesResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The alert rules that failed to be created for the resource.
      *
      * @var failedListResult
      */
     public $failedListResult;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The error message.
      *
-     * >  If you specify a new ID, you create a threshold-triggered alert rule.
      * @example The request processing has failed due to some unknown error.
      *
      * @var string
@@ -37,7 +36,7 @@ class PutResourceMetricRulesResponseBody extends Model
     public $message;
 
     /**
-     * @description The alert rule that failed to be created.
+     * @description The ID of the request.
      *
      * @example 15D1440E-BF24-5A41-93E4-36864635179E
      *
@@ -46,7 +45,10 @@ class PutResourceMetricRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The key of the tag.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

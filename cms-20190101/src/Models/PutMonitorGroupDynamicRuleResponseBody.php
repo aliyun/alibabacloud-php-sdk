@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutMonitorGroupDynamicRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -18,7 +19,7 @@ class PutMonitorGroupDynamicRuleResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -27,6 +28,8 @@ class PutMonitorGroupDynamicRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 3E73F1AB-D195-438A-BCA7-2F4355789C58
      *
      * @var string
@@ -34,6 +37,11 @@ class PutMonitorGroupDynamicRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

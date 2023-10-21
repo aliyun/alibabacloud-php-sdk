@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class assertions extends Model
 {
     /**
+     * @example lessThan
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example json path
+     *
      * @var string
      */
     public $property;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @example response_time
+     *
      * @var string
      */
     public $type;

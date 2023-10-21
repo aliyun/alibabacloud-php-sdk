@@ -9,16 +9,15 @@ use AlibabaCloud\Tea\Model;
 class contactParameters extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **PutEventRuleTargets**.
+     * @description The name of the alert contact group. Valid values of N: 1 to 5.
      *
      * @var string
      */
     public $contactGroupName;
 
     /**
-     * @description The HTTP request method. Valid values of N: 1 to 5.
+     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
      *
-     * Valid values: GET and POST.
      * @example 2
      *
      * @var string
@@ -26,8 +25,9 @@ class contactParameters extends Model
     public $id;
 
     /**
-     * @description The name of the event-triggered alert rule.
+     * @description The alert level and the corresponding notification methods. Valid values of N: 1 to 5. Valid values:
      *
+     * 4: Alert notifications are sent by using DingTalk chatbots and emails.
      * @example 3
      *
      * @var string

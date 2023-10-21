@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class customEventCount extends Model
 {
     /**
-     * @description Queries the number of times that a custom event occurred in a specified time period.
+     * @description The name of the custom event.
      *
      * @example BABEL_BUY
      *
@@ -18,7 +18,7 @@ class customEventCount extends Model
     public $name;
 
     /**
-     * @description >  This operation counts the number of times that a custom event occurred for each service.
+     * @description The number of times that the custom event occurred in the specified time period.
      *
      * @example 20
      *
@@ -27,8 +27,9 @@ class customEventCount extends Model
     public $num;
 
     /**
-     * @description The name of the custom event.
+     * @description The time when the custom event occurred.
      *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552267615000
      *
      * @var int

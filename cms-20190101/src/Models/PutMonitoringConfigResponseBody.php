@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutMonitoringConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var int
@@ -18,7 +19,7 @@ class PutMonitoringConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description The operation that you want to perform. Set the value to **PutMonitoringConfig**.
+     * @description The error message.
      *
      * @example Specified parameter EnableInstallAgentNewECS is not valid.
      *
@@ -27,6 +28,8 @@ class PutMonitoringConfigResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 109C8095-6FAD-4DBB-B013-6ED18CE4C0B1
      *
      * @var string
@@ -34,6 +37,11 @@ class PutMonitoringConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool

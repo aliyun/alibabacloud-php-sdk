@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
+     * @description The timestamp that indicates the time when the metric value is collected.
+     *
+     * Unit: seconds.
      * @example 1653804865
      *
      * @var string
@@ -16,6 +19,8 @@ class values extends Model
     public $ts;
 
     /**
+     * @description The metric value.
+     *
      * @example 0.13
      *
      * @var string

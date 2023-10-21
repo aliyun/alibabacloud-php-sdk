@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyMonitorGroupInstancesRequest extends Model
 {
     /**
-     * @description The ID of the region where the instance resides. Valid values of N: 1 to 2000.
+     * @description The ID of the application group.
      *
      * @example 12345
      *

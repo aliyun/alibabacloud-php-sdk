@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class siteMonitor extends Model
 {
     /**
-     * @description The site monitoring tasks that are returned.
+     * @description The URL or IP address that is monitored by the site monitoring task.
      *
      * @example https://aliyun.com
      *
@@ -19,14 +19,15 @@ class siteMonitor extends Model
     public $address;
 
     /**
+     * @example PC
+     *
      * @var string
      */
     public $agentGroup;
 
     /**
-     * @description The keyword to be matched.
+     * @description The time when the site monitoring task was created.
      *
-     * >  You can search for tasks by name or address. Fuzzy search is supported.
      * @example 2021-11-01 11:05:18
      *
      * @var string
@@ -34,11 +35,7 @@ class siteMonitor extends Model
     public $createTime;
 
     /**
-     * @description The protocol type of DNS detection. Valid values:
-     *
-     *   udp (default value)
-     *   tcp
-     *   tcp-tls
+     * @description The interval at which detection requests are sent. Unit: minutes.
      *
      * @example 1
      *
@@ -47,18 +44,14 @@ class siteMonitor extends Model
     public $interval;
 
     /**
-     * @description The number of the page to return. Default value: 1.
+     * @description The extended options of the site monitoring task. The options vary based on the specified protocol. For more information, see [CreateSiteMonitor](~~115048~~).
      *
      * @var optionsJson
      */
     public $optionsJson;
 
     /**
-     * @description The HTTP request method. Valid values:
-     *
-     *   get
-     *   post
-     *   head
+     * @description The ID of the site monitoring task.
      *
      * @example f5783760-1b39-4b6b-80e8-453d962a****
      *
@@ -67,17 +60,17 @@ class siteMonitor extends Model
     public $taskId;
 
     /**
-     * @description The number of times a failed detection request is retried.
+     * @description The name of the site monitoring task.
      *
      * @var string
      */
     public $taskName;
 
     /**
-     * @description Indicates whether MTR is automatically used to diagnose network issues if a task fails. Valid values:
+     * @description The status of the task. Valid values:
      *
-     *   false (default value): MTR is not automatically used to diagnose network issues if a task fails.
-     *   true: MTR is automatically used to diagnose network issues if a task fails.
+     *   1: The task is enabled.
+     *   2: The task is disabled.
      *
      * @example 1
      *
@@ -95,9 +88,8 @@ class siteMonitor extends Model
     public $taskType;
 
     /**
-     * @description The packet loss rate.
+     * @description The time when the site monitoring task was updated.
      *
-     * >  This parameter is returned only if the TaskType parameter is set to PING.
      * @example 2022-03-08 17:14:31
      *
      * @var string

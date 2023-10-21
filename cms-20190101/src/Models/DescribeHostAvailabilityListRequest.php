@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostAvailabilityListRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the application group.
      *
      * @example 12345
      *
@@ -18,9 +18,8 @@ class DescribeHostAvailabilityListRequest extends Model
     public $groupId;
 
     /**
-     * @description The number of the page to return.
+     * @description The ID of the availability monitoring task.
      *
-     * Pages start from page 1. Default value: 1.
      * @example 123456
      *
      * @var int
@@ -28,9 +27,8 @@ class DescribeHostAvailabilityListRequest extends Model
     public $id;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The IDs of the availability monitoring tasks. Separate multiple IDs with commas (,).
      *
-     * Default value: 10.
      * @example 123456,345678
      *
      * @var string
@@ -38,9 +36,9 @@ class DescribeHostAvailabilityListRequest extends Model
     public $ids;
 
     /**
-     * @description The HTTP status code.
+     * @description The number of the page to return.
      *
-     * >  The value 200 indicates that the call was successful.
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -48,8 +46,9 @@ class DescribeHostAvailabilityListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The error message.
+     * @description The number of entries to return on each page.
      *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -62,7 +61,7 @@ class DescribeHostAvailabilityListRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the application group.
+     * @description The name of the availability monitoring task.
      *
      * @example ecs_instance
      *

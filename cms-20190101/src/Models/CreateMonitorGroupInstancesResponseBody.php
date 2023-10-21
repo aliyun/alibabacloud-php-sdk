@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupInstancesResponseBody extends Model
 {
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -18,6 +19,8 @@ class CreateMonitorGroupInstancesResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example The Request is not authorization.
      *
      * @var string
@@ -25,6 +28,8 @@ class CreateMonitorGroupInstancesResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 1BC69FEB-56CD-4555-A0E2-02536A24A946
      *
      * @var string
@@ -32,6 +37,11 @@ class CreateMonitorGroupInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

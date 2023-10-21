@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupMetricRulesRequest extends Model
 {
     /**
+     * @description The ID of the application group.
+     *
+     * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * @example 123456
+     *
      * @var int
      */
     public $groupId;

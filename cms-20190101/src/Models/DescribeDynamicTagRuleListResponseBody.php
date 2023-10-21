@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDynamicTagRuleListResponseBody extends Model
 {
     /**
-     * @description The tag value.
+     * @description The HTTP status code.
      *
-     * The `TagValue` and `TagValueMatchFunction` parameters must be used in pairs.
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -20,9 +20,8 @@ class DescribeDynamicTagRuleListResponseBody extends Model
     public $code;
 
     /**
-     * @description The tag value.
+     * @description The error message.
      *
-     * For more information about how to obtain a tag value, see [DescribeTagKeyList](~~145557~~).
      * @example The specified resource is not found.
      *
      * @var string
@@ -30,10 +29,7 @@ class DescribeDynamicTagRuleListResponseBody extends Model
     public $message;
 
     /**
-     * @description The status of adding instances that meet the tag rule to the application group. Valid values:
-     *
-     *   `RUNNING`
-     *   `FINISH`
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -42,7 +38,7 @@ class DescribeDynamicTagRuleListResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the region to which the tags belong.
+     * @description The number of entries returned per page.
      *
      * @example 30
      *
@@ -51,12 +47,8 @@ class DescribeDynamicTagRuleListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The logical operator that is used between conditional expressions. Valid values:
+     * @description The ID of the request.
      *
-     *   `and`
-     *   `or`
-     *
-     * >  Only one logical operator can be used in a request.
      * @example 0D50523D-8D59-4A61-B58E-E2286ECFB3A9
      *
      * @var string
@@ -64,9 +56,11 @@ class DescribeDynamicTagRuleListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The tag key.
+     * @description Indicates whether the call was successful. Valid values:
      *
-     * For more information about how to obtain a tag key, see [DescribeTagKeyList](~~145558~~).
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -74,14 +68,14 @@ class DescribeDynamicTagRuleListResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the tag rule.
+     * @description The tag rules of application groups.
      *
      * @var tagGroupList
      */
     public $tagGroupList;
 
     /**
-     * @description The tag rules of application groups.
+     * @description The total number of returned entries.
      *
      * @example 2
      *

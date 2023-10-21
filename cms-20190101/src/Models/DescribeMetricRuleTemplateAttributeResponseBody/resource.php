@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description The callback URL to which a request is sent when an alert is triggered.
+     * @description The list of alert templates.
      *
      * @var alertTemplates
      */
@@ -22,7 +22,7 @@ class resource extends Model
     public $description;
 
     /**
-     * @description The ID of the alert template.
+     * @description The name of the alert template.
      *
      * @example ECS_Template1
      *
@@ -31,7 +31,7 @@ class resource extends Model
     public $name;
 
     /**
-     * @description The list of alert templates.
+     * @description The version of the alert template.
      *
      * @example 1
      *
@@ -40,7 +40,7 @@ class resource extends Model
     public $restVersion;
 
     /**
-     * @description The dimension of the alert. It is an extended field.
+     * @description The ID of the alert template.
      *
      * @example 70****
      *

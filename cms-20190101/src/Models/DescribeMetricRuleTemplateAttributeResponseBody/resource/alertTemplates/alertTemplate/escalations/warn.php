@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class warn extends Model
 {
     /**
-     * @description The threshold for Warn-level alerts.
-     *
-     * @example GreaterThanOrEqualToThreshold
-     *
-     * @var string
-     */
-    public $comparisonOperator;
-
-    /**
      * @description The comparison operator that is used to compare the metric value with the threshold. Valid values:
      *
      *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
@@ -32,6 +23,16 @@ class warn extends Model
      *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
      *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
+     * @example GreaterThanOrEqualToThreshold
+     *
+     * @var string
+     */
+    public $comparisonOperator;
+
+    /**
+     * @description The statistical method for Warn-level alerts.
+     *
+     * The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](~~163515~~).
      * @example Average
      *
      * @var string
@@ -39,7 +40,7 @@ class warn extends Model
     public $statistics;
 
     /**
-     * @description The conditions for triggering Critical-level alerts.
+     * @description The threshold for Warn-level alerts.
      *
      * @example 90
      *
@@ -48,9 +49,8 @@ class warn extends Model
     public $threshold;
 
     /**
-     * @description The statistical method for Warn-level alerts.
+     * @description The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered.
      *
-     * The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](~~163515~~).
      * @example 3
      *
      * @var int

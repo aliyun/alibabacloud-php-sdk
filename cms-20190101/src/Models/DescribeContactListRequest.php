@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactListRequest extends Model
 {
     /**
-     * @description The status of the TradeManager ID.
+     * @description The alert notification method. Valid values:
      *
-     * >  This parameter can be returned only on the China site (aliyun.com).
+     *   Mail: emails
+     *   DingWebHook: DingTalk chatbots
+     *
      * @example Mail
      *
      * @var string
@@ -19,8 +21,9 @@ class DescribeContactListRequest extends Model
     public $chanelType;
 
     /**
-     * @description The error message.
+     * @description The value specified for the alert notification method.
      *
+     * >  This parameter is required only if you set the `ChanelType` parameter to `Mail`.
      * @example Alice@example.com
      *
      * @var string
@@ -28,9 +31,8 @@ class DescribeContactListRequest extends Model
     public $chanelValue;
 
     /**
-     * @description The value specified for the alert notification method.
+     * @description The name of the alert contact.
      *
-     * >  This parameter is required only if you set the `ChanelType` parameter to `Mail`.
      * @example Alice
      *
      * @var string
@@ -38,8 +40,9 @@ class DescribeContactListRequest extends Model
     public $contactName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeContactList**.
+     * @description The number of the page to return.
      *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -47,9 +50,9 @@ class DescribeContactListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The HTTP status code.
+     * @description The number of entries to return on each page.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * Default value: 100.
      * @example 10
      *
      * @var int

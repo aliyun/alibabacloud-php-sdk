@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorAttributeRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to return the information of the alert rules that are configured for the site monitoring task. Valid values:
+     *
+     *   true: The system returns the information of the alert rules that are configured for the site monitoring task.
+     *   false (default): The system does not return the information of the alert rules that are configured for the site monitoring task.
      *
      * @example false
      *
@@ -23,9 +26,8 @@ class DescribeSiteMonitorAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the site monitoring task.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example cc641dff-c19d-45f3-ad0a-818a0c4f****
      *
      * @var string

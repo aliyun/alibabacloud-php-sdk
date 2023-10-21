@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class metricList extends Model
 {
     /**
+     * @description The metrics.
+     *
      * @var string[]
      */
     public $list;
 
     /**
+     * @description The interval at which metrics are collected.
+     *
+     * Unit: seconds.
      * @example 60
      *
      * @var int

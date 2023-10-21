@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
-     * @description The interval at which the alert rule is executed.
+     * @description The key of the tag.
      *
-     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
      * @example tagKey1
      *
      * @var string
@@ -19,9 +18,9 @@ class labels extends Model
     public $key;
 
     /**
-     * @description The subject of the alert notification email.
+     * @description The value of the tag.
      *
-     * Valid values of N: 1 to 500.
+     * >  You can use a template parameter to specify a tag value. CloudMonitor replaces the value of the template parameter with an actual tag value.
      * @example ECS
      *
      * @var string

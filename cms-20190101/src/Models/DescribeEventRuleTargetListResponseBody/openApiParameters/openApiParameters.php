@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class openApiParameters extends Model
 {
     /**
+     * @description The name of the API operation.
+     *
      * @example PutLogs
      *
      * @var string
@@ -16,6 +18,9 @@ class openApiParameters extends Model
     public $action;
 
     /**
+     * @description The ARN of the API operation.
+     *
+     * - ResourceId: the resource ID
      * @example acs:log:cn-hangzhou::project/cms-log-mon***\/logstore/cxxxx***
      *
      * @var string
@@ -23,6 +28,8 @@ class openApiParameters extends Model
     public $arn;
 
     /**
+     * @description The ID of the recipient.
+     *
      * @example 3
      *
      * @var string
@@ -30,6 +37,8 @@ class openApiParameters extends Model
     public $id;
 
     /**
+     * @description The ID of the cloud service to which the API operation belongs.
+     *
      * @example log
      *
      * @var string
@@ -37,6 +46,8 @@ class openApiParameters extends Model
     public $product;
 
     /**
+     * @description The region where the resource resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +55,8 @@ class openApiParameters extends Model
     public $region;
 
     /**
+     * @description The name of the role.
+     *
      * @example MyRole
      *
      * @var string
@@ -51,6 +64,8 @@ class openApiParameters extends Model
     public $role;
 
     /**
+     * @description The version of the API.
+     *
      * @example 2019-01-01
      *
      * @var string

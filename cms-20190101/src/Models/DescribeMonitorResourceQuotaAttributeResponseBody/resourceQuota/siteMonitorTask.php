@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class siteMonitorTask extends Model
 {
     /**
-     * @description The total quota of the time series in custom monitoring.
+     * @description The total quota of site monitoring tasks.
      *
      * @example 25
      *
@@ -18,7 +18,7 @@ class siteMonitorTask extends Model
     public $quotaLimit;
 
     /**
-     * @description The details about the quota.
+     * @description The quota of site monitoring tasks in your resource plan.
      *
      * @example 20
      *
@@ -27,7 +27,7 @@ class siteMonitorTask extends Model
     public $quotaPackage;
 
     /**
-     * @description The ID of the purchased subscription plan.
+     * @description The used quota of site monitoring tasks in your resource plan.
      *
      * @example 15
      *

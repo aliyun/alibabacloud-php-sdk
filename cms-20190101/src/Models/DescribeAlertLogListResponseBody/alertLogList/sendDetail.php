@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class sendDetail extends Model
 {
     /**
-     * @description The namespace of the cloud service.
+     * @description The list of sending results that are categorized by notification method.
      *
      * @var channelResultList[]
      */
     public $channelResultList;
 
     /**
-     * @description The alert logs.
+     * @description Indicates whether the alert notifications are sent.
+     *
+     *   If the alert notifications are sent, the value "success" is returned.
+     *   If the configuration is invalid, no alert notification is sent and an error code is returned.
      *
      * @example success
      *

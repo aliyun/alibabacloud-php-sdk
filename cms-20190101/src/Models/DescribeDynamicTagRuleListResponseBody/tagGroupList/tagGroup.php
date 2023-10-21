@@ -12,12 +12,14 @@ use AlibabaCloud\Tea\Model;
 class tagGroup extends Model
 {
     /**
+     * @description The alert contact group.
+     *
      * @var contactGroupList
      */
     public $contactGroupList;
 
     /**
-     * @description The tag key.
+     * @description The ID of the tag rule.
      *
      * @example 1536df65-a719-429d-8813-73cc40d7****
      *
@@ -26,16 +28,19 @@ class tagGroup extends Model
     public $dynamicTagRuleId;
 
     /**
-     * @description The ID of the request.
+     * @description The conditional expressions used to create an application group based on the tag.
      *
      * @var matchExpress
      */
     public $matchExpress;
 
     /**
-     * @description The number of the page to return.
+     * @description The logical operator that is used between conditional expressions. Valid values:
      *
-     * Pages start from page 1. Default value: 1.
+     *   `and`
+     *   `or`
+     *
+     * >  Only one logical operator can be used in a request.
      * @example or
      *
      * @var string
@@ -43,7 +48,7 @@ class tagGroup extends Model
     public $matchExpressFilterRelation;
 
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the region to which the tags belong.
      *
      * @example cn-hangzhou
      *
@@ -52,7 +57,10 @@ class tagGroup extends Model
     public $regionId;
 
     /**
-     * @description The alert contact group.
+     * @description The status of adding instances that meet the tag rule to the application group. Valid values:
+     *
+     *   `RUNNING`
+     *   `FINISH`
      *
      * @example FINISH
      *
@@ -61,7 +69,7 @@ class tagGroup extends Model
     public $status;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The tag key.
      *
      * @example tagkey1
      *
@@ -70,6 +78,8 @@ class tagGroup extends Model
     public $tagKey;
 
     /**
+     * @description The IDs of the alert templates.
+     *
      * @var templateIdList
      */
     public $templateIdList;

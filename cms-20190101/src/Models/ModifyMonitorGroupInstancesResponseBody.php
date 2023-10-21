@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyMonitorGroupInstancesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var int
@@ -18,7 +19,7 @@ class ModifyMonitorGroupInstancesResponseBody extends Model
     public $code;
 
     /**
-     * @description The operation that you want to perform. Set the value to ModifyMonitorGroupInstances.
+     * @description The returned message.
      *
      * @example success
      *
@@ -27,6 +28,8 @@ class ModifyMonitorGroupInstancesResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example FEC7EDB3-9B08-4AC0-A42A-329F5D14B95A
      *
      * @var string
@@ -34,6 +37,8 @@ class ModifyMonitorGroupInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
      * @example true
      *
      * @var bool

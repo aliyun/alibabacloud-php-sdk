@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ispCity extends Model
 {
     /**
-     * @description The ID of the carrier.
+     * @description The city ID.
      *
      * @example 738
      *
@@ -18,14 +18,14 @@ class ispCity extends Model
     public $city;
 
     /**
-     * @description The name of the metric.
+     * @description The city name.
      *
      * @var string
      */
     public $cityName;
 
     /**
-     * @description The information of the alert rules that are configured for the site monitoring task.
+     * @description The carrier ID.
      *
      * @example 465
      *
@@ -34,7 +34,7 @@ class ispCity extends Model
     public $isp;
 
     /**
-     * @description The name of the city.
+     * @description The carrier name.
      *
      * @var string
      */

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertingMetricRuleResourcesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $alertBeforeTime;
+
+    /**
      * @description The dimensions that specify the resources whose monitoring data you want to query.
      *
      * @example {\"userId\":\"120886317861****\",\"region\":\"cn-huhehaote\",\"queue\":\"test-0128\"}
@@ -70,13 +75,14 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
      */
     public $ruleId;
     protected $_name = [
-        'dimensions' => 'Dimensions',
-        'groupId'    => 'GroupId',
-        'namespace'  => 'Namespace',
-        'page'       => 'Page',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
-        'ruleId'     => 'RuleId',
+        'alertBeforeTime' => 'AlertBeforeTime',
+        'dimensions'      => 'Dimensions',
+        'groupId'         => 'GroupId',
+        'namespace'       => 'Namespace',
+        'page'            => 'Page',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'ruleId'          => 'RuleId',
     ];
 
     public function validate()
@@ -86,6 +92,9 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alertBeforeTime) {
+            $res['AlertBeforeTime'] = $this->alertBeforeTime;
+        }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
         }
@@ -119,6 +128,9 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertBeforeTime'])) {
+            $model->alertBeforeTime = $map['AlertBeforeTime'];
+        }
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];
         }

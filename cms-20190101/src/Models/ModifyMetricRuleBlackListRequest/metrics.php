@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
-     * @description The ID of the blacklist policy.
+     * @description The name of the metric.
      *
-     * For information about how to obtain the ID of a blacklist policy, see [DescribeMetricRuleBlackList](~~457257~~).
+     * Valid values of N: 1 to 10.
      * @example disk_utilization
      *
      * @var string
@@ -19,8 +19,9 @@ class metrics extends Model
     public $metricName;
 
     /**
-     * @description The categories of the Alibaba Cloud service. For example, ApsaraDB for Redis includes the following categories: ApsaraDB for Redis (standard architecture), ApsaraDB for Redis (cluster architecture), and ApsaraDB for Redis (read/write splitting architecture). In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
+     * @description The extended dimension of the instance. For example, `{"device":"C:"}` specifies that the blacklist policy is applied to all C disks of the specified Elastic Compute Service (ECS) instance.
      *
+     * Valid values of N: 1 to 10.
      * @example {"device":"C:"}
      *
      * @var string

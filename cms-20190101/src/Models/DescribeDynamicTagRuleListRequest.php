@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDynamicTagRuleListRequest extends Model
 {
     /**
-     * @description The total number of returned entries.
+     * @description The ID of the tag rule.
      *
      * @example 004155fa-15ba-466d-b61a-***********
      *
@@ -18,8 +18,9 @@ class DescribeDynamicTagRuleListRequest extends Model
     public $dynamicTagRuleId;
 
     /**
-     * @description The ID of the region to which the tags belong.
+     * @description The number of the page to return.
      *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var string
@@ -27,8 +28,9 @@ class DescribeDynamicTagRuleListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The conditional expressions used to create an application group based on the tag.
+     * @description The number of entries to return on each page.
      *
+     * Minimum value: 1. Default value: 30.
      * @example 30
      *
      * @var string
@@ -36,8 +38,9 @@ class DescribeDynamicTagRuleListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The error message.
+     * @description The tag key.
      *
+     * For more information about how to obtain a tag key, see [DescribeTagKeyList](~~145558~~).
      * @example tagkey1
      *
      * @var string
@@ -45,9 +48,8 @@ class DescribeDynamicTagRuleListRequest extends Model
     public $tagKey;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the region to which the tags belong.
      *
-     * Minimum value: 1. Default value: 30.
      * @example cn-hangzhou
      *
      * @var string
@@ -55,8 +57,9 @@ class DescribeDynamicTagRuleListRequest extends Model
     public $tagRegionId;
 
     /**
-     * @description The ID of the tag rule.
+     * @description The tag value.
      *
+     * For more information about how to obtain a tag value, see [DescribeTagKeyList](~~145557~~).
      * @example *
      *
      * @var string

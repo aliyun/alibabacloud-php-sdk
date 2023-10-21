@@ -23,6 +23,8 @@ class optionJson extends Model
     public $assertions;
 
     /**
+     * @description The number of retries after a DNS failure occurred.
+     *
      * @example 3
      *
      * @var int
@@ -30,6 +32,11 @@ class optionJson extends Model
     public $attempts;
 
     /**
+     * @description Indicates whether the security authentication feature is enabled. Valid values:
+     *
+     *   0: The feature is disabled.
+     *   1: The feature is enabled.
+     *
      * @example 1
      *
      * @var int
@@ -57,16 +64,22 @@ class optionJson extends Model
     public $browserInfo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $browserInsecure;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $browserTaskVersion;
 
     /**
+     * @description The cookie of the HTTP request.
+     *
      * @example lang=en
      *
      * @var string
@@ -74,21 +87,34 @@ class optionJson extends Model
     public $cookie;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $diagnosisMtr;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $diagnosisPing;
 
     /**
+     * @example www.taobao.com:www.taobao.com.danuoyi.tbcache.com
+     *
      * @var string
      */
     public $dnsHijackWhitelist;
 
     /**
+     * @description The relationship between the list of expected aliases or IP addresses and the list of DNS results. Valid values:
+     *
+     *   IN_DNS: The list of expected values is a subset of the list of DNS results.
+     *   DNS_IN: The list of DNS results is a subset of the list of expected values.
+     *   EQUAL: The list of DNS results is the same as the list of expected values.
+     *   ANY: The list of DNS results intersects with the list of expected values.
+     *
      * @example IN_DNS
      *
      * @var string
@@ -96,6 +122,9 @@ class optionJson extends Model
     public $dnsMatchRule;
 
     /**
+     * @description The IP address of the DNS server.
+     *
+     * >  This parameter is returned only if the TaskType parameter is set to DNS.
      * @example 192.168.XX.XX
      *
      * @var string
@@ -103,6 +132,14 @@ class optionJson extends Model
     public $dnsServer;
 
     /**
+     * @description The type of the DNS record. This parameter is returned only if the TaskType parameter is set to DNS. Valid values:
+     *
+     *   A (default): a record that specifies an IP address related to the specified host name or domain name.
+     *   CNAME: a record that maps multiple domain names to a domain name.
+     *   NS: a record that specifies a DNS server used to parse domain names.
+     *   MX: a record that links domain names to the address of a mail server.
+     *   TXT: a record that stores the text information of host name or domain names. The text must be 1 to 512 bytes in length. The TXT record serves as a Sender Policy Framework (SPF) record to fight against spam.
+     *
      * @example A
      *
      * @var string
@@ -120,6 +157,9 @@ class optionJson extends Model
     public $expectNonExistString;
 
     /**
+     * @description The domain name or alias to be parsed.
+     *
+     * >  This parameter is returned only if the TaskType parameter is set to DNS.
      * @example dns_server
      *
      * @var string
@@ -127,6 +167,9 @@ class optionJson extends Model
     public $expectValue;
 
     /**
+     * @description The packet loss rate.
+     *
+     * >  This parameter is returned only if the TaskType parameter is set to PING.
      * @example 0.4
      *
      * @var float
@@ -134,6 +177,8 @@ class optionJson extends Model
     public $failureRate;
 
     /**
+     * @description The header of the HTTP request.
+     *
      * @example testKey:testValue
      *
      * @var string
@@ -141,6 +186,12 @@ class optionJson extends Model
     public $header;
 
     /**
+     * @description The HTTP request method. Valid values:
+     *
+     *   get
+     *   post
+     *   head
+     *
      * @example get
      *
      * @var string
@@ -155,6 +206,11 @@ class optionJson extends Model
     public $isBase64Encode;
 
     /**
+     * @description Indicates whether the alert rule is included. Valid values:
+     *
+     *   0: The alert rule is included.
+     *   1: The alert rule is excluded.
+     *
      * @example 1
      *
      * @var int
@@ -162,11 +218,15 @@ class optionJson extends Model
     public $matchRule;
 
     /**
+     * @example tlsv1.2
+     *
      * @var string
      */
     public $minTlsVersion;
 
     /**
+     * @description The password of the SMTP, POP3, or FTP protocol.
+     *
      * @example 123****
      *
      * @var string
@@ -174,6 +234,8 @@ class optionJson extends Model
     public $password;
 
     /**
+     * @description The heartbeat of the PING protocol.
+     *
      * @example 29
      *
      * @var int
@@ -195,6 +257,8 @@ class optionJson extends Model
     public $pingType;
 
     /**
+     * @description The port number of the TCP, UDP, SMTP, or POP3 protocol.
+     *
      * @example 110
      *
      * @var int
@@ -202,6 +266,8 @@ class optionJson extends Model
     public $port;
 
     /**
+     * @description The protocol that is used to send the request.
+     *
      * @example TCP
      *
      * @var string
@@ -209,6 +275,8 @@ class optionJson extends Model
     public $protocol;
 
     /**
+     * @description The content of the HTTP request.
+     *
      * @example aa=bb
      *
      * @var string
@@ -216,6 +284,11 @@ class optionJson extends Model
     public $requestContent;
 
     /**
+     * @description The format of the HTTP request. Valid values:
+     *
+     *   hex: hexadecimal
+     *   txt: text
+     *
      * @example txt
      *
      * @var string
@@ -223,6 +296,8 @@ class optionJson extends Model
     public $requestFormat;
 
     /**
+     * @description The response to the HTTP request.
+     *
      * @example txt
      *
      * @var string
@@ -230,6 +305,11 @@ class optionJson extends Model
     public $responseContent;
 
     /**
+     * @description The format of the HTTP response. Valid values:
+     *
+     *   hex: hexadecimal
+     *   txt: text
+     *
      * @example txt
      *
      * @var string
@@ -237,16 +317,22 @@ class optionJson extends Model
     public $responseFormat;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $retryDelay;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $strictMode;
 
     /**
+     * @description The timeout period. Unit: milliseconds.
+     *
      * @example 3
      *
      * @var int
@@ -259,6 +345,8 @@ class optionJson extends Model
     public $trafficHijackElementBlacklist;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $trafficHijackElementCount;
@@ -269,6 +357,8 @@ class optionJson extends Model
     public $trafficHijackElementWhitelist;
 
     /**
+     * @description The username of the FTP, SMTP, or POP3 protocol.
+     *
      * @example testUser
      *
      * @var string
@@ -276,6 +366,8 @@ class optionJson extends Model
     public $username;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $waitTimeAfterCompletion;

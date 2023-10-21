@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetricRuleResourcesRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The resources to be disassociated from the alert rule.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example [{"instanceId":"i-uf6hm9lnlzsarrc7****"}]
      *
      * @var string
@@ -19,7 +18,7 @@ class DeleteMetricRuleResourcesRequest extends Model
     public $resources;
 
     /**
-     * @description The resources to be disassociated from the alert rule.
+     * @description The ID of the alert rule.
      *
      * @example rr-bp18017n6iolv****
      *

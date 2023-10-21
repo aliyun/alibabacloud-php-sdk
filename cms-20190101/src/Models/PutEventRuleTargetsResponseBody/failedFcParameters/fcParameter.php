@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fcParameter extends Model
 {
     /**
+     * @description The name of the function.
+     *
      * @example functionTest1
      *
      * @var string
@@ -16,6 +18,8 @@ class fcParameter extends Model
     public $functionName;
 
     /**
+     * @description The ID of the recipient.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class fcParameter extends Model
     public $id;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +36,8 @@ class fcParameter extends Model
     public $region;
 
     /**
+     * @description The name of the Function Compute service.
+     *
      * @example serviceTest1
      *
      * @var string

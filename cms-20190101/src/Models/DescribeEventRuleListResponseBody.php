@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventRuleListResponseBody extends Model
 {
     /**
-     * @description The prefix in the name of the event-triggered alert rule.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,15 +20,14 @@ class DescribeEventRuleListResponseBody extends Model
     public $code;
 
     /**
-     * @description The number of the page to return.
+     * @description The event-triggered alert rules.
      *
-     * Pages start from page 1. Default value: 1.
      * @var eventRules
      */
     public $eventRules;
 
     /**
-     * @description The event-triggered alert rules.
+     * @description The error message.
      *
      * @example User not authorized to operate on the specified resource.
      *
@@ -36,7 +36,7 @@ class DescribeEventRuleListResponseBody extends Model
     public $message;
 
     /**
-     * @description The name of the event-triggered alert rule.
+     * @description The ID of the request.
      *
      * @example D0E6D82B-16B5-422A-8136-EE5BDC01E415
      *
@@ -45,7 +45,10 @@ class DescribeEventRuleListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *
@@ -54,7 +57,7 @@ class DescribeEventRuleListResponseBody extends Model
     public $success;
 
     /**
-     * @description The list of event names.
+     * @description The total number of returned entries.
      *
      * @example 21
      *

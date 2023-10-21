@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeProductResourceTagKeyListResponseBody extends Model
 {
     /**
-     * @description The error message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,9 +20,8 @@ class DescribeProductResourceTagKeyListResponseBody extends Model
     public $code;
 
     /**
-     * @description The pagination cursor. If more entries are to be returned on the next page, a pagination cursor is returned.
+     * @description The error message.
      *
-     * >  If the value of this parameter is not null, more entries are to be returned on the next page. You can use the returned pagination cursor as a request parameter to obtain entries on the next page. If the value of this parameter is null, all the entries have been returned.
      * @example The request processing has failed due to some unknown error.
      *
      * @var string
@@ -29,8 +29,9 @@ class DescribeProductResourceTagKeyListResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The pagination cursor. If more entries are to be returned on the next page, a pagination cursor is returned.
      *
+     * >  If the value of this parameter is not null, more entries are to be returned on the next page. You can use the returned pagination cursor as a request parameter to obtain entries on the next page. If the value of this parameter is null, all the entries have been returned.
      * @example dbc2826f237e****
      *
      * @var string
@@ -38,7 +39,7 @@ class DescribeProductResourceTagKeyListResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description The ID of the request.
      *
      * @example 945ACAA9-89F2-4A62-8913-076FDEDAA8DB
      *
@@ -47,7 +48,7 @@ class DescribeProductResourceTagKeyListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The keys of tags.
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
      *
      * @example true
      *
@@ -56,7 +57,7 @@ class DescribeProductResourceTagKeyListResponseBody extends Model
     public $success;
 
     /**
-     * @description >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
+     * @description The keys of tags.
      *
      * @var tagKeys
      */

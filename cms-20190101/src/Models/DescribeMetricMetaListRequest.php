@@ -9,7 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricMetaListRequest extends Model
 {
     /**
-     * @description The page to return. Default value: 1
+     * @description The tags for filtering metrics. Specify a JSON string.
+     *
+     * Format:`[{"name":"tag name","value":"tag value"},{"name":"tag name","value":"tag value"}]`. The following tags are available:
+     *
+     *   metricCategory: the category of the metric.
+     *   alertEnable: specifies whether to report alerts for the metric.
+     *   alertUnit: the suggested unit of the metric value in alerts.
+     *   unitFactor: the factor for metric unit conversion.
+     *   minAlertPeriod: the minimum time interval to report a new alert.
+     *   productCategory: the category of the service.
      *
      * @example [{"name":"productCategory","value":"kvstore_old"}]
      *
@@ -18,7 +27,7 @@ class DescribeMetricMetaListRequest extends Model
     public $labels;
 
     /**
-     * @description The number of entries to return on each page. Default value: 30.
+     * @description The name of the metric. For more information, see [Appendix 1: Metrics](~~163515~~).
      *
      * @example CPUUtilization
      *
@@ -27,8 +36,9 @@ class DescribeMetricMetaListRequest extends Model
     public $metricName;
 
     /**
-     * @description The name of the metric. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The namespace of the service.
      *
+     * For more information, see [Appendix 1: Metrics](~~163515~~).
      * @example acs_kvstore
      *
      * @var string
@@ -36,9 +46,8 @@ class DescribeMetricMetaListRequest extends Model
     public $namespace;
 
     /**
-     * @description The response code.
+     * @description The page to return. Default value: 1
      *
-     * >  The HTTP 200 code indicates that the request was successful.
      * @example 1
      *
      * @var int
@@ -46,7 +55,7 @@ class DescribeMetricMetaListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The error message.
+     * @description The number of entries to return on each page. Default value: 30.
      *
      * @example 30
      *

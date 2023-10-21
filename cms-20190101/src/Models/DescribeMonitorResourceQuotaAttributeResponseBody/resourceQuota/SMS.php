@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SMS extends Model
 {
     /**
-     * @description The details about the quota of detection points that are provided by Alibaba Cloud in site monitoring.
+     * @description The total quota of alert text messages.
      *
      * @example 550
      *
@@ -18,7 +18,7 @@ class SMS extends Model
     public $quotaLimit;
 
     /**
-     * @description The used quota of processed log data in log monitoring in your purchased plan. Unit: MB/min.
+     * @description The quota of alert text messages in your resource plan.
      *
      * @example 500
      *
@@ -27,7 +27,7 @@ class SMS extends Model
     public $quotaPackage;
 
     /**
-     * @description The quota of events that can be reported in event monitoring in your purchased plan. The quota of events that can be reported in event monitoring.
+     * @description The used quota of alert text messages in your resource plan.
      *
      * @example 38
      *

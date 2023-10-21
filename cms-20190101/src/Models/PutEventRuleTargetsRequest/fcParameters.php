@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class fcParameters extends Model
 {
     /**
-     * @description The number of resources that failed to be created or modified.
+     * @description The name of the function. Valid values of N: 1 to 5.
      *
      * @example fc-test
      *
@@ -18,9 +18,8 @@ class fcParameters extends Model
     public $functionName;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 1
      *
      * @var string
@@ -28,7 +27,7 @@ class fcParameters extends Model
     public $id;
 
     /**
-     * @description The MNS topic.
+     * @description The region where Function Compute is deployed. Valid values of N: 1 to 5.
      *
      * @example cn-hangzhou
      *
@@ -37,7 +36,7 @@ class fcParameters extends Model
     public $region;
 
     /**
-     * @description The region where Log Service is deployed. Valid values of N: 1 to 5.
+     * @description The name of the Function Compute service. Valid values of N: 1 to 5.
      *
      * @example fc-test
      *

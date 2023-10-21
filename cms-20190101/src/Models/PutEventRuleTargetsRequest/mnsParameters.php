@@ -18,7 +18,7 @@ class mnsParameters extends Model
     public $id;
 
     /**
-     * @description The version of the API.
+     * @description The name of the MNS queue. Valid values of N: 1 to 5.
      *
      * @example queue1
      *
@@ -27,7 +27,7 @@ class mnsParameters extends Model
     public $queue;
 
     /**
-     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+     * @description The region where Message Service (MNS) is deployed. Valid values of N: 1 to 5.
      *
      * @example cn-hangzhou
      *
@@ -36,15 +36,7 @@ class mnsParameters extends Model
     public $region;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the resource. Valid values of N: 1 to 5.
-     *
-     * Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields:
-     *
-     *   Service: the code of a cloud service
-     *   Region: the region ID
-     *   Account: the ID of an Alibaba Cloud account
-     *   ResourceType: the resource type
-     *   ResourceId: the resource ID
+     * @description The MNS topic.
      *
      * @example topic_sample
      *

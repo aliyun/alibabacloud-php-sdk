@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ApplyMetricRuleTemplateRequest extends Model
 {
     /**
-     * @description The error message returned.
+     * @description The mode in which the alert template is applied. Valid values:
+     *
+     *   GROUP_INSTANCE_FIRST: The metrics in the application group take precedence. If a metric specified in the alert template does not exist in the application group, the system does not generate an alert rule for the metric based on the alert template.
+     *   ALARM_TEMPLATE_FIRST: The metrics specified in the alert template take precedence. If a metric specified in the alert template does not exist in the application group, the system still generates an alert rule for the metric based on the alert template.
      *
      * @example GROUP_INSTANCE_FIRST
      *
@@ -18,7 +21,7 @@ class ApplyMetricRuleTemplateRequest extends Model
     public $applyMode;
 
     /**
-     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
+     * @description The end of the time period during which the alert rule is effective. Valid values: 00 to 23. A value of 00 indicates 00:59 and a value of 23 indicates 23:59.
      *
      * @example 23
      *
@@ -27,10 +30,7 @@ class ApplyMetricRuleTemplateRequest extends Model
     public $enableEndTime;
 
     /**
-     * @description The mode in which the alert template is applied. Valid values:
-     *
-     *   GROUP_INSTANCE_FIRST: The metrics in the application group take precedence. If a metric specified in the alert template does not exist in the application group, the system does not generate an alert rule for the metric based on the alert template.
-     *   ALARM_TEMPLATE_FIRST: The metrics specified in the alert template take precedence. If a metric specified in the alert template does not exist in the application group, the system still generates an alert rule for the metric based on the alert template.
+     * @description The beginning of the time period during which the alert rule is effective. Valid values: 00 to 23. A value of 00 indicates 00:00 and a value of 23 indicates 23:00.
      *
      * @example 00
      *
@@ -39,8 +39,9 @@ class ApplyMetricRuleTemplateRequest extends Model
     public $enableStartTime;
 
     /**
-     * @description The beginning of the time period during which the alert rule is effective. Valid values: 00 to 23. A value of 00 indicates 00:00 and a value of 23 indicates 23:00.
+     * @description The ID of the application group to which the alert template is applied.
      *
+     * For more information about how to query the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
      * @example 123456
      *
      * @var int
@@ -48,9 +49,9 @@ class ApplyMetricRuleTemplateRequest extends Model
     public $groupId;
 
     /**
-     * @description The response code.
+     * @description The alert notification method. Valid values:
      *
-     * >  The HTTP status code 200 indicates that the call succeeds.
+     * Set the value to 4. A value of 4 indicates that alert notifications are sent by using TradeManager and DingTalk chatbots.
      * @example 4
      *
      * @var int
@@ -58,9 +59,9 @@ class ApplyMetricRuleTemplateRequest extends Model
     public $notifyLevel;
 
     /**
-     * @description The ID of the alert template.
+     * @description The mute period during which notifications are not repeatedly sent for an alert. Unit: seconds. Default value: 86400.
      *
-     * For more information about how to query the IDs of alert templates, see [DescribeMetricRuleTemplateList](~~114982~~).
+     * >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
      * @example 86400
      *
      * @var int
@@ -68,9 +69,9 @@ class ApplyMetricRuleTemplateRequest extends Model
     public $silenceTime;
 
     /**
-     * @description The alert notification method. Valid values:
+     * @description The ID of the alert template.
      *
-     * Set the value to 4. A value of 4 indicates that alert notifications are sent by using TradeManager and DingTalk chatbots.
+     * For more information about how to query the IDs of alert templates, see [DescribeMetricRuleTemplateList](~~114982~~).
      * @example 700****
      *
      * @var string
@@ -78,7 +79,7 @@ class ApplyMetricRuleTemplateRequest extends Model
     public $templateIds;
 
     /**
-     * @description The ID of the request.
+     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
      *
      * @example https://www.aliyun.com
      *

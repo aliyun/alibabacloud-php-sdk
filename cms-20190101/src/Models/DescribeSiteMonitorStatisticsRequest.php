@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorStatisticsRequest extends Model
 {
     /**
+     * @description The name of the metric. Valid values:
+     *
+     *   Availability
+     *   ErrorRate
+     *   ResponseTime
+     *
      * @example Availability
      *
      * @var string
@@ -21,6 +27,9 @@ class DescribeSiteMonitorStatisticsRequest extends Model
     public $regionId;
 
     /**
+     * @description The timestamp that specifies the beginning of the time range to query.
+     *
+     * Unit: milliseconds. The default value is 1 hour ahead of the current time.
      * @example 1576142850527
      *
      * @var string
@@ -28,6 +37,9 @@ class DescribeSiteMonitorStatisticsRequest extends Model
     public $startTime;
 
     /**
+     * @description The ID of the site monitoring task.
+     *
+     * For more information about how to obtain the ID of a site monitoring task, see [DescribeSiteMonitorList](~~115052~~).
      * @example ef4cdc8b-9dc7-43e7-810e-f950e56c****
      *
      * @var string
@@ -35,6 +47,9 @@ class DescribeSiteMonitorStatisticsRequest extends Model
     public $taskId;
 
     /**
+     * @description The statistical period.
+     *
+     * Unit: minutes. Default value: 1440 (1 day). Maximum value: 43200 (30 days).
      * @example 1440
      *
      * @var string

@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class alertConfig extends Model
 {
     /**
-     * @description The alert notification methods. Valid values:
+     * @description The end of the time period during which the alert rule is effective. Valid values: 0 to 23.
      *
-     * 0: Alert notifications are sent by using emails and DingTalk chatbots.
+     * >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
      * @example 22
      *
      * @var int
@@ -21,27 +21,16 @@ class alertConfig extends Model
     public $endTime;
 
     /**
-     * @description The comparison operator that is used in the alert rule. Valid values:
-     *
-     *   `>`
-     *   `>=`
-     *   `<`
-     *   `<=`
-     *   `=`
+     * @description The trigger conditions of the alert rule.
      *
      * @var escalationList
      */
     public $escalationList;
 
     /**
-     * @description The name of the metric. Valid values:
+     * @description The alert notification methods. Valid values:
      *
-     *   HttpStatus: HTTP status code
-     *   HttpLatency: HTTP response time
-     *   TelnetStatus: Telnet status code
-     *   TelnetLatency: Telnet response time
-     *   PingLostRate: Ping packet loss rate
-     *
+     * 0: Alert notifications are sent by using emails and DingTalk chatbots.
      * @example 1
      *
      * @var int
@@ -49,9 +38,8 @@ class alertConfig extends Model
     public $notifyType;
 
     /**
-     * @description The callback URL.
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
      *
-     * CloudMonitor pushes an alert notification to the specified callback URL by sending an HTTP POST request. Only the HTTP protocol is supported.
      * @example 86400
      *
      * @var int
@@ -59,8 +47,9 @@ class alertConfig extends Model
     public $silenceTime;
 
     /**
-     * @description The trigger conditions of the alert rule.
+     * @description The beginning of the time period during which the alert rule is effective. Valid values: 0 to 23.
      *
+     * >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
      * @example 0
      *
      * @var int
@@ -73,8 +62,9 @@ class alertConfig extends Model
     public $targetList;
 
     /**
-     * @description The alert threshold.
+     * @description The callback URL.
      *
+     * CloudMonitor pushes an alert notification to the specified callback URL by sending an HTTP POST request. Only the HTTP protocol is supported.
      * @example https://www.aliyun.com
      *
      * @var string

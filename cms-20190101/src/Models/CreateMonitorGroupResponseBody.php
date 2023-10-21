@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the application group.
+     * @description The response code.
      *
+     * >  The value 200 indicates that the call was successful.
      * @example 200
      *
      * @var int
@@ -18,7 +19,7 @@ class CreateMonitorGroupResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The ID of the application group.
      *
      * @example 1234567
      *
@@ -27,10 +28,7 @@ class CreateMonitorGroupResponseBody extends Model
     public $groupId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -39,7 +37,7 @@ class CreateMonitorGroupResponseBody extends Model
     public $message;
 
     /**
-     * @description In this example, the application group named `ECS_Group` is created.
+     * @description The ID of the request.
      *
      * @example 83C89BA6-ABD4-4398-A175-83E86C47A001
      *
@@ -48,6 +46,11 @@ class CreateMonitorGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteHybridMonitorNamespaceRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The name of the namespace.
      *
+     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
      * @example aliyun
      *
      * @var string

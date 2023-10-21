@@ -18,7 +18,7 @@ class timeSeries extends Model
     public $labels;
 
     /**
-     * @description The tag value.
+     * @description The name of the metric.
      *
      * @example AliyunEcs_cpu_total
      *
@@ -27,7 +27,7 @@ class timeSeries extends Model
     public $metricName;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The metric values that are collected at different timestamps.
      *
      * @var values[]
      */

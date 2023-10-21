@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSiteMonitorsRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description Specifies whether to delete the alert rules configured for the site monitoring tasks. Valid values:
      *
-     * >  The status code 200 indicates that the call was successful.
+     *   true (default value)
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -24,10 +26,7 @@ class DeleteSiteMonitorsRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to delete the alert rules configured for the site monitoring tasks. Valid values:
-     *
-     *   true (default value)
-     *   false
+     * @description The IDs of the site monitoring tasks that you want to delete. Separate multiple task IDs with commas (,).
      *
      * @example 01adacc2-ece5-41b6-afa2-3143ab5d****,43bd1ead-514f-4524-813e-228ce091****
      *

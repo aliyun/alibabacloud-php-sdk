@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class InstallMonitoringAgentRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description Specifies whether to install the CloudMonitor agent. Valid values:
      *
-     * >  The status code 200 indicates that the call was successful.
+     *   true (default value): yes
+     *   false: no
+     *
      * @example true
      *
      * @var bool
@@ -19,8 +21,13 @@ class InstallMonitoringAgentRequest extends Model
     public $force;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to install the CloudMonitor agent on all ECS instances that belong to the current Alibaba Cloud account. Valid values:
      *
+     *   `onlyInstallNotHasAgent`: installs the latest version of the CloudMonitor agent only on ECS instances on which the agent is not installed.
+     *   `onlyUpgradeAgent`: upgrades the CloudMonitor agent to the latest version only for ECS instances on which an earlier version of the agent is installed.
+     *   `installAndUpgrade`: installs the latest version of the CloudMonitor agent on ECS instances on which the agent is not installed, and upgrades the CloudMonitor agent to the latest version for ECS instances on which an earlier version of the agent is installed.
+     *
+     * >  If you set the InstallCommand parameter, the `InstanceIds` parameter does not take effect.
      * @example onlyInstallNotHasAgent
      *
      * @var string

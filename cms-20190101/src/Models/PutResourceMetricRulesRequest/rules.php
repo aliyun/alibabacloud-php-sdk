@@ -16,8 +16,9 @@ class rules extends Model
     public $escalations;
 
     /**
-     * @description The error message.
+     * @description The alert contact group. The alert notifications are sent to the alert contacts in the alert contact group.
      *
+     * >  An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~).
      * @example ECS_Group
      *
      * @var string
@@ -25,8 +26,9 @@ class rules extends Model
     public $contactGroups;
 
     /**
-     * @description The operation that you want to perform. Set the value to **PutResourceMetricRules**.
+     * @description The time period during which the alert rule is effective.
      *
+     * Valid values of N: 1 to 500.
      * @example 00:00-23:59
      *
      * @var string
@@ -34,16 +36,17 @@ class rules extends Model
     public $effectiveInterval;
 
     /**
-     * @description The HTTP status code.
+     * @description The subject of the alert notification email.
      *
+     * Valid values of N: 1 to 500.
      * @var string
      */
     public $emailSubject;
 
     /**
-     * @description The alert contact group. The alert notifications are sent to the alert contacts in the alert contact group.
+     * @description The interval at which the alert rule is executed.
      *
-     * >  An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~).
+     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
      * @example 60
      *
      * @var string
@@ -56,9 +59,9 @@ class rules extends Model
     public $labels;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the metric.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * For information about how to query the name of a metric, see [Appendix 1: Metrics](~~163515~~).
      * @example cpu_total
      *
      * @var string
@@ -66,79 +69,14 @@ class rules extends Model
     public $metricName;
 
     /**
-     * @description The name of the alert rule.
+     * @description The namespace of the cloud service.
      *
-     * >  If you specify a new name, you create a threshold-triggered alert rule.
+     * For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](~~163515~~).
      * @example acs_ecs_dashboard
      *
      * @var string
      */
     public $namespace;
-
-    /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
-     * @example KEEP_LAST_STATE
-     *
-     * @var string
-     */
-    public $noDataPolicy;
-
-    /**
-     * @description The time period during which the alert rule is effective.
-     *
-     * Valid values of N: 1 to 500.
-     * @example 00:00-06:00
-     *
-     * @var string
-     */
-    public $noEffectiveInterval;
-
-    /**
-     * @description The name of the metric.
-     *
-     * For information about how to query the name of a metric, see [Appendix 1: Metrics](~~163515~~).
-     * @example 60
-     *
-     * @var string
-     */
-    public $period;
-
-    /**
-     * @description The statistical methods for Warn-level alerts. Valid values:
-     *
-     *   Maximum: the maximum value
-     *   Minimum: the minimum value
-     *   Average: the average value
-     *   Availability: the availability rate
-     *
-     * >  You must set a collection of the Rules.N.Escalations.Critical.Statistics, Rules.N.Escalations.Critical.ComparisonOperator, Rules.N.Escalations.Critical.Threshold, and Rules.N.Escalations.Critical.Times parameters, a collection of the Rules.N.Escalations.Warn.Statistics, Rules.N.Escalations.Warn.ComparisonOperator, Rules.N.Escalations.Warn.Threshold, and Rules.N.Escalations.Warn.Times parameters, or a collection of the Rules.N.Escalations.Info.Statistics, Rules.N.Escalations.Info.ComparisonOperator, Rules.N.Escalations.Info.Threshold, and Rules.N.Escalations.Info.Times parameters.
-     * @example [{"instanceId":"i-uf6j91r34rnwawoo****"}]
-     *
-     * @var string
-     */
-    public $resources;
-
-    /**
-     * @description The error message.
-     *
-     * @example a151cd6023eacee2f0978e03863cc1697c89508****
-     *
-     * @var string
-     */
-    public $ruleId;
-
-    /**
-     * @description The ID of the alert rule.
-     *
-     * @example test123
-     *
-     * @var string
-     */
-    public $ruleName;
 
     /**
      * @description The method that is used to handle alerts when no monitoring data is found. Valid values:
@@ -148,6 +86,66 @@ class rules extends Model
      *   OK: The status is considered normal.
      *
      * Valid values of N: 1 to 500.
+     * @example KEEP_LAST_STATE
+     *
+     * @var string
+     */
+    public $noDataPolicy;
+
+    /**
+     * @description The time period during which the alert rule is ineffective.
+     *
+     * Valid values of N: 1 to 500.
+     * @example 00:00-06:00
+     *
+     * @var string
+     */
+    public $noEffectiveInterval;
+
+    /**
+     * @description The statistical period of the metric.
+     *
+     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * @example 60
+     *
+     * @var string
+     */
+    public $period;
+
+    /**
+     * @description The information about the resource. Examples: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` and `[{"userId":"100931896542****"}]`.
+     *
+     * For more information about the supported dimensions that are used to query resources, see [Appendix 1: Metrics](~~163515~~).
+     * @example [{"instanceId":"i-uf6j91r34rnwawoo****"}]
+     *
+     * @var string
+     */
+    public $resources;
+
+    /**
+     * @description The ID of the alert rule.
+     *
+     * >  If you specify a new ID, you create a threshold-triggered alert rule.
+     * @example a151cd6023eacee2f0978e03863cc1697c89508****
+     *
+     * @var string
+     */
+    public $ruleId;
+
+    /**
+     * @description The name of the alert rule.
+     *
+     * >  If you specify a new name, you create a threshold-triggered alert rule.
+     * @example test123
+     *
+     * @var string
+     */
+    public $ruleName;
+
+    /**
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met.
+     *
+     * >  If an alert is not cleared after the mute period ends, CloudMonitor resends an alert notification.
      * @example 86400
      *
      * @var int
@@ -155,9 +153,9 @@ class rules extends Model
     public $silenceTime;
 
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met.
+     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
      *
-     * >  If an alert is not cleared after the mute period ends, CloudMonitor resends an alert notification.
+     * Valid values of N: 1 to 500.
      * @example https://alert.aliyun.com.com:8080/callback
      *
      * @var string

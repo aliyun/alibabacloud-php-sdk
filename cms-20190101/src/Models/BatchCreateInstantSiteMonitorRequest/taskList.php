@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class taskList extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The URL or IP address that is monitored by the task.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  You must create at least one site monitoring task. You must specify all of the `Address`, `TaskName`, and `TaskType` parameters in each request.
      * @example https://www.aliyun.com
      *
      * @var string
@@ -19,8 +19,9 @@ class taskList extends Model
     public $address;
 
     /**
-     * @description The ID of the site monitoring task.
+     * @description The detection points. If you leave this parameter empty, the system randomly selects three detection points.
      *
+     * For information about how to obtain detection points, see [DescribeSiteMonitorISPCityList](~~115045~~).
      * @example [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
      *
      * @var string
@@ -28,9 +29,8 @@ class taskList extends Model
     public $ispCities;
 
     /**
-     * @description The detection points. If you leave this parameter empty, the system randomly selects three detection points.
+     * @description The extended options of the protocol that is used by the site monitoring task. The options vary based on the protocol.
      *
-     * For information about how to obtain detection points, see [DescribeSiteMonitorISPCityList](~~115045~~).
      * @example {"time_out":5000}
      *
      * @var string
@@ -38,8 +38,9 @@ class taskList extends Model
     public $optionsJson;
 
     /**
-     * @description The operation that you want to perform. Set the value to **BatchCreateInstantSiteMonitor**.
+     * @description The name of the site monitoring task.
      *
+     * >  You must create at least one site monitoring task. You must specify all of the `Address`, `TaskName`, and `TaskType` parameters in each request.
      * @example HangZhou_ECS1
      *
      * @var string
@@ -47,8 +48,9 @@ class taskList extends Model
     public $taskName;
 
     /**
-     * @description The name of the site monitoring task.
+     * @description The type of the site monitoring task.
      *
+     * >  You must create at least one site monitoring task. You must specify all of the `Address`, `TaskName`, and `TaskType` parameters in each request.
      * @example HTTP
      *
      * @var string

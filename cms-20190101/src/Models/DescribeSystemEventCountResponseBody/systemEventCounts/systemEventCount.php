@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class systemEventCount extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The description of the system event.
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description The name of the instance.
+     * @description The ID of the application group.
      *
      * @example 17285****
      *
@@ -25,7 +25,7 @@ class systemEventCount extends Model
     public $groupId;
 
     /**
-     * @description The ID of the resource.
+     * @description The name of the instance.
      *
      * @example ECS-test
      *
@@ -34,7 +34,11 @@ class systemEventCount extends Model
     public $instanceName;
 
     /**
-     * @description This topic provides an example on how to query the number of times that a system event occurred for Elastic Compute Service (`ECS`). The returned result indicates that the number of times that the specified system event occurred is 3.
+     * @description The level of the system event. Valid values:
+     *
+     *   Critical
+     *   Warn
+     *   Info
      *
      * @example Info
      *
@@ -43,11 +47,7 @@ class systemEventCount extends Model
     public $level;
 
     /**
-     * @description The level of the system event. Valid values:
-     *
-     *   Critical
-     *   Warn
-     *   Info
+     * @description The name of the system event.
      *
      * @example Instance:StateChange
      *
@@ -56,7 +56,7 @@ class systemEventCount extends Model
     public $name;
 
     /**
-     * @description The name of the system event.
+     * @description The number of times that the system event occurred.
      *
      * @example 3
      *
@@ -65,7 +65,7 @@ class systemEventCount extends Model
     public $num;
 
     /**
-     * @description The number of times that the system event occurred.
+     * @description The name of the cloud service in which the system event occurred.
      *
      * @example ECS
      *
@@ -74,7 +74,7 @@ class systemEventCount extends Model
     public $product;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -83,7 +83,7 @@ class systemEventCount extends Model
     public $regionId;
 
     /**
-     * @description The description of the system event.
+     * @description The ID of the resource.
      *
      * @example i-rj99xc6cptkk64ml****
      *
@@ -92,7 +92,7 @@ class systemEventCount extends Model
     public $resourceId;
 
     /**
-     * @description The ID of the application group.
+     * @description The status of the system event.
      *
      * @example Normal
      *
@@ -101,7 +101,7 @@ class systemEventCount extends Model
     public $status;
 
     /**
-     * @description The name of the cloud service in which the system event occurred.
+     * @description The timestamp when the system event occurred. Unit: milliseconds.
      *
      * @example 1635993751000
      *

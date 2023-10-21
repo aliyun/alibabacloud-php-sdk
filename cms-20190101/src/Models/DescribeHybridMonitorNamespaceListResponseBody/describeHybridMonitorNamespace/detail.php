@@ -9,7 +9,14 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The data retention period. Valid values:
+     *
+     *   cms.s1.large: Data is stored for 15 days.
+     *   cms.s1.xlarge: Data is stored for 32 days.
+     *   cms.s1.2xlarge: Data is stored for 63 days.
+     *   cms.s1.3xlarge: Data is stored for 93 days.
+     *   cms.s1.6xlarge: Data is stored for 185 days.
+     *   cms.s1.12xlarge: Data is stored for 376 days.
      *
      * @example cms.s1.3xlarge
      *

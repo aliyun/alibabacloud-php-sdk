@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The name of the instance.
+     * @description The tag key.
      *
      * @example instanceNetworkType
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The description of the resource.
+     * @description The tag value.
      *
      * @example VPC
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SendDryRunSystemEventResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class SendDryRunSystemEventResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example success
      *
@@ -27,10 +28,7 @@ class SendDryRunSystemEventResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The ID of the request.
      *
      * @example 486029C9-53E1-44B4-85A8-16A571A043FD
      *
@@ -39,7 +37,10 @@ class SendDryRunSystemEventResponseBody extends Model
     public $requestId;
 
     /**
-     * @description This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after an alert is triggered by the system event.
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *

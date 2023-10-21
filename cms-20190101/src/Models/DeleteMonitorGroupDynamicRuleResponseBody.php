@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupDynamicRuleResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var int
@@ -18,7 +19,7 @@ class DeleteMonitorGroupDynamicRuleResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message.
      *
      * @example success
      *
@@ -27,7 +28,7 @@ class DeleteMonitorGroupDynamicRuleResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description The ID of the request.
      *
      * @example 56B4516A-EB44-4C66-8854-0393B35F636B
      *
@@ -36,6 +37,8 @@ class DeleteMonitorGroupDynamicRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
      * @example true
      *
      * @var bool

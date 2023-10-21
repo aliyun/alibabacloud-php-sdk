@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProductResourceTagKeyListRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The pagination cursor.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example dbc2826f237e****
      *
      * @var string

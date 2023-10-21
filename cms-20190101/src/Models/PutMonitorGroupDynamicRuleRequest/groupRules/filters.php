@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
-     * @description The error message.
+     * @description The method that is used to filter instances. Valid values of N: 1 to 3. Valid values:
+     *
+     *   contains: contains
+     *   notContains: does not contain
+     *   startWith: starts with a prefix
+     *   endWith: ends with a suffix
      *
      * @example contains
      *
@@ -18,8 +23,9 @@ class filters extends Model
     public $function;
 
     /**
-     * @description The operation that you want to perform. Set the value to **PutMonitorGroupDynamicRule**.
+     * @description The name of the field based on which instances are filtered. Valid values of N: 1 to 3.
      *
+     * Only hostnames are supported. Example: hostName.
      * @example hostName
      *
      * @var string
@@ -27,9 +33,8 @@ class filters extends Model
     public $name;
 
     /**
-     * @description The HTTP status code.
+     * @description The value to be matched with the specified field. Valid values of N: 1 to 3.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example nginx
      *
      * @var string

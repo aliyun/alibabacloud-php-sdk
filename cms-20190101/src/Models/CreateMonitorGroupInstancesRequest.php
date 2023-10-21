@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupInstancesRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The ID of the application group.
      *
      * @example 3607****
      *
@@ -19,6 +19,8 @@ class CreateMonitorGroupInstancesRequest extends Model
     public $groupId;
 
     /**
+     * @description The instances that you want to add to the application group.
+     *
      * @var instances[]
      */
     public $instances;

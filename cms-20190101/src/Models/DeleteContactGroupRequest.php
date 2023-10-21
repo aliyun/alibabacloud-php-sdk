@@ -9,10 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactGroupRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The name of the alert group.
      *
-     * >  The status code 200 indicates that the call was successful.
-     * @example The returned message.
+     * @example contact_group_2019_templatedfkXQ
      *
      * @var string
      */

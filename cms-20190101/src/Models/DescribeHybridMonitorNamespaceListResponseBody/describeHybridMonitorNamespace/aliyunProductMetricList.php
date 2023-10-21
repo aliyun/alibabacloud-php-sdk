@@ -17,7 +17,7 @@ class aliyunProductMetricList extends Model
     public $namespaceList;
 
     /**
-     * @description The ID of the request.
+     * @description The account that is used to create the namespace.
      *
      * @example 120886317861****
      *

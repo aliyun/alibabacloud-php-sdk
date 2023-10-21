@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomEventHistogramResponseBody extends Model
 {
     /**
-     * @description The returned message. If the call was successful, the value success is returned. If the call failed, an error message is returned.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call was successful.
      * @example 200
      *
      * @var string
@@ -19,15 +20,14 @@ class DescribeCustomEventHistogramResponseBody extends Model
     public $code;
 
     /**
-     * @description The end of an interval.
+     * @description The information about the number of times that the custom event occurred during each interval of a time period.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @var eventHistograms
      */
     public $eventHistograms;
 
     /**
-     * @description The ID of the request.
+     * @description The returned message. If the call was successful, the value success is returned. If the call failed, an error message is returned.
      *
      * @example success
      *
@@ -36,7 +36,7 @@ class DescribeCustomEventHistogramResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description The ID of the request.
      *
      * @example 486029C9-53E1-44B4-85A8-16A571A043FD
      *
@@ -45,7 +45,7 @@ class DescribeCustomEventHistogramResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the number of times that the custom event occurred during each interval of a time period.
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
      *
      * @example true
      *

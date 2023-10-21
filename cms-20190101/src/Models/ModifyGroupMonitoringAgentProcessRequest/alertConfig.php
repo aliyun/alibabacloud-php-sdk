@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class alertConfig extends Model
 {
     /**
-     * @description The level of the alert. Valid values:
+     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values of N: 1 to 200. Valid values:
      *
-     *   INFO: information
-     *   WARN: warning
-     *   CRITICAL: critical
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold.
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday.
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
      * @example GreaterThanOrEqualToThreshold
      *
@@ -23,7 +31,7 @@ class alertConfig extends Model
     public $comparisonOperator;
 
     /**
-     * @description The error message.
+     * @description The time period during which the alert rule is effective. Valid values of N: 1 to 200.
      *
      * @example 00:00-22:59
      *
@@ -32,7 +40,11 @@ class alertConfig extends Model
     public $effectiveInterval;
 
     /**
-     * @description The time period during which the alert rule is effective. Valid values of N: 1 to 200.
+     * @description The level of the alert. Valid values of N: 1 to 200. Valid values:
+     *
+     *   critical (default value): critical
+     *   warn: warning
+     *   info: information
      *
      * @example warn
      *
@@ -41,7 +53,7 @@ class alertConfig extends Model
     public $escalationsLevel;
 
     /**
-     * @description The ID of the process monitoring task.
+     * @description The time period during which the alert rule is ineffective. Valid values of N: 1 to 200.
      *
      * @example 23:00-23:59
      *
@@ -50,12 +62,9 @@ class alertConfig extends Model
     public $noEffectiveInterval;
 
     /**
-     * @description The logical operator used between conditional expressions that are used to match instances. Valid values:
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Valid values of N: 1 to 200.
      *
-     *   all
-     *   and
-     *   or
-     *
+     * >  Only one alert notification is sent during a mute period even if the metric value exceeds the alert threshold during consecutive checks.
      * @example 86400
      *
      * @var string
@@ -63,12 +72,9 @@ class alertConfig extends Model
     public $silenceTime;
 
     /**
-     * @description The level of the alert. Valid values of N: 1 to 200. Valid values:
+     * @description The statistical aggregation method that is used to calculate the metric values. Valid values of N: 1 to 200.
      *
-     *   critical (default value): critical
-     *   warn: warning
-     *   info: information
-     *
+     * >  Set the value to Average.
      * @example Average
      *
      * @var string
@@ -81,9 +87,8 @@ class alertConfig extends Model
     public $targetList;
 
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Valid values of N: 1 to 200.
+     * @description The alert threshold. Valid values of N: 1 to 200.
      *
-     * >  Only one alert notification is sent during a mute period even if the metric value exceeds the alert threshold during consecutive checks.
      * @example 5
      *
      * @var string
@@ -91,8 +96,9 @@ class alertConfig extends Model
     public $threshold;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyGroupMonitoringAgentProcess**.
+     * @description The number of times for which the threshold can be consecutively exceeded. Valid values of N: 1 to 200. Default value: 3.
      *
+     * >  A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
      * @example 3
      *
      * @var string
@@ -100,9 +106,8 @@ class alertConfig extends Model
     public $times;
 
     /**
-     * @description The HTTP status code.
+     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule. Valid values of N: 1 to 200.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example http://www.aliyun.com
      *
      * @var string

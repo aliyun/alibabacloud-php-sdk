@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
-     * @description The timestamp that specifies the end of the time range to query.
+     * @description The tag key.
      *
-     * Unit: seconds.
      * @example instanceId
      *
      * @var string
@@ -19,7 +18,7 @@ class labels extends Model
     public $k;
 
     /**
-     * @description The ID of the request.
+     * @description The tag value.
      *
      * @example i-rj99xc6cptkk64ml****
      *

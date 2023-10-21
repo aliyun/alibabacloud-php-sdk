@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class optionsJson extends Model
 {
     /**
-     * @description The header of the HTTP request. An HTTP header is a key-value pair in which the key and the value are separated by a colon (:). The format is `key1:value1`. Each HTTP header occupies a line.
+     * @description The acceptable status code.
      *
+     * >  We recommend that you configure assertions.
      * @example 400
      *
      * @var string
@@ -19,14 +20,14 @@ class optionsJson extends Model
     public $acceptableResponseCode;
 
     /**
-     * @description The number of retries after a DNS failure occurred.
+     * @description The assertions.
      *
      * @var assertions
      */
     public $assertions;
 
     /**
-     * @description The username of the FTP, SMTP, or POP3 protocol.
+     * @description The number of retries after a DNS failure occurred.
      *
      * @example 3
      *
@@ -35,10 +36,10 @@ class optionsJson extends Model
     public $attempts;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description Indicates whether the security authentication feature is enabled. Valid values:
      *
-     *   1: The task is enabled.
-     *   2: The task is disabled.
+     *   0: The feature is enabled.
+     *   1: The feature is disabled.
      *
      * @example 1
      *
@@ -47,7 +48,10 @@ class optionsJson extends Model
     public $authentication;
 
     /**
-     * @description The page number of the returned page.
+     * @description Indicates whether the certificate is verified. Valid values:
+     *
+     *   false (default value): The certificate is not verified.
+     *   true: The certificate is verified.
      *
      * @example false
      *
@@ -56,7 +60,7 @@ class optionsJson extends Model
     public $certVerify;
 
     /**
-     * @description The returned message.
+     * @description The cookie of the HTTP request.
      *
      * @example lang=en
      *
@@ -65,7 +69,10 @@ class optionsJson extends Model
     public $cookie;
 
     /**
-     * @description The extended options of the site monitoring task. The options vary based on the specified protocol. For more information, see [CreateSiteMonitor](~~115048~~).
+     * @description Indicates whether MTR is automatically used to diagnose network issues if a task fails. Valid values:
+     *
+     *   false (default value): MTR is not automatically used to diagnose network issues if a task fails.
+     *   true: MTR is automatically used to diagnose network issues if a task fails.
      *
      * @example false
      *
@@ -74,7 +81,10 @@ class optionsJson extends Model
     public $diagnosisMtr;
 
     /**
-     * @description The cookie of the HTTP request.
+     * @description Indicates whether ping requests are automatically sent to detect network latency if a detection task fails. Valid values:
+     *
+     *   false (default value): Ping requests are not automatically sent to detect network latency if a detection task fails.
+     *   true: Ping requests are automatically sent to detect network latency if a detection task fails.
      *
      * @example false
      *
@@ -83,7 +93,12 @@ class optionsJson extends Model
     public $diagnosisPing;
 
     /**
-     * @description The URL or IP address that is monitored by the site monitoring task.
+     * @description The relationship between the list of expected aliases or IP addresses and the list of DNS results. Valid values:
+     *
+     *   IN_DNS: The list of expected values is a subset of the list of DNS results.
+     *   DNS_IN: The list of DNS results is a subset of the list of expected values.
+     *   EQUAL: The list of DNS results is the same as the list of expected values.
+     *   ANY: The list of DNS results intersects with the list of expected values.
      *
      * @example IN_DNS
      *
@@ -92,10 +107,7 @@ class optionsJson extends Model
     public $dnsMatchRule;
 
     /**
-     * @description Indicates whether the certificate is verified. Valid values:
-     *
-     *   false (default value): The certificate is not verified.
-     *   true: The certificate is verified.
+     * @description The domain name or IP address of the DNS server.
      *
      * @example 192.168.XX.XX
      *
@@ -104,10 +116,14 @@ class optionsJson extends Model
     public $dnsServer;
 
     /**
-     * @description Indicates whether the password is decoded by using the Base64 algorithm. Valid values:
+     * @description The type of the DNS record. This parameter is returned only if the TaskType parameter is set to DNS. Valid values:
      *
-     *   true: The password is decoded by using the Base64 algorithm.
-     *   false (default value): The password is not decoded by using the Base64 algorithm.
+     *   A (default value): a record that specifies an IP address related to the specified host name or domain name.
+     *   CNAME: a record that maps multiple domain names to a domain name.
+     *   NS: a record that specifies a DNS server used to parse domain names.
+     *   MX: a record that links domain names to the address of a mail server.
+     *   TXT: a record that stores the text information of host name or domain names. The text must be 1 to 512 bytes in length. The TXT record serves as a Sender Policy Framework (SPF) record to fight against spam.
+     *   AAAA: a record that maps a domain name to the relevant IPv6 address.
      *
      * @example A
      *
@@ -116,10 +132,10 @@ class optionsJson extends Model
     public $dnsType;
 
     /**
-     * @description The format of the HTTP request. Valid values:
+     * @description Indicates whether the DNS server of the carrier is used.
      *
-     *   hex: hexadecimal
-     *   txt: text
+     *   true (default value): The DNS server of the carrier is used.
+     *   false: The DNS server of the carrier is not used. The default DNS server or the specified DNS server is used.
      *
      * @example true
      *
@@ -128,11 +144,9 @@ class optionsJson extends Model
     public $enableOperatorDns;
 
     /**
-     * @description The response to the HTTP request.
+     * @description The packet loss rate.
      *
-     *   Hexadecimal format: If the request content is a byte string and cannot be represented in printable characters, you can convert the byte string to printable characters in the hexadecimal format. If you convert the byte string to printable characters in the hexadecimal format, one byte is converted to two hexadecimal characters. For example, (byte)1 is converted to `01` and (byte)27 is converted to `1B`. If the request content is a binary array in the Java format, for example, `{(byte)1, (byte)27}`, you can convert the binary array to `011b` or `011B`. Hexadecimal characters are not case-sensitive in site monitoring tasks. You can enter `011B` in the request content and set the request_format parameter to hex.
-     *   Text format: Common text refers to strings that consist of printable characters.
-     *
+     * >  This parameter is returned only if the TaskType parameter is set to PING.
      * @example 0.5
      *
      * @var float
@@ -140,7 +154,7 @@ class optionsJson extends Model
     public $failureRate;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10.
+     * @description The header of the HTTP request. An HTTP header is a key-value pair in which the key and the value are separated by a colon (:). The format is `key1:value1`. Each HTTP header occupies a line.
      *
      * @example testKey:testValue
      *
@@ -149,10 +163,11 @@ class optionsJson extends Model
     public $header;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The HTTP request method. Valid values:
      *
-     *   1: The task is enabled.
-     *   2: The task is disabled.
+     *   get
+     *   post
+     *   head
      *
      * @example get
      *
@@ -161,7 +176,10 @@ class optionsJson extends Model
     public $httpMethod;
 
     /**
-     * @description The time when the site monitoring task was created.
+     * @description Indicates whether the password is decoded by using the Base64 algorithm. Valid values:
+     *
+     *   true: The password is decoded by using the Base64 algorithm.
+     *   false (default value): The password is not decoded by using the Base64 algorithm.
      *
      * @example false
      *
@@ -170,7 +188,10 @@ class optionsJson extends Model
     public $isBase64Encode;
 
     /**
-     * @description The assertions.
+     * @description Indicates whether the alert rule is included. Valid values:
+     *
+     *   0: The alert rule is included.
+     *   1: The alert rule is not included.
      *
      * @example 0
      *
@@ -179,7 +200,7 @@ class optionsJson extends Model
     public $matchRule;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The password of the SMTP, POP3, or FTP protocol.
      *
      * @example 123****
      *
@@ -188,7 +209,7 @@ class optionsJson extends Model
     public $password;
 
     /**
-     * @description The protocol that is used by the site monitoring task. Valid values: HTTP, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
+     * @description The number of hops for the PING protocol.
      *
      * @example 20
      *
@@ -197,7 +218,7 @@ class optionsJson extends Model
     public $pingNum;
 
     /**
-     * @description The interval at which detection requests are sent. Unit: minutes.
+     * @description The port number of the TCP, UDP, SMTP, or POP3 protocol.
      *
      * @example 80
      *
@@ -206,80 +227,17 @@ class optionsJson extends Model
     public $port;
 
     /**
-     * @description The name of the site monitoring task.
+     * @description The protocol type of DNS detection. Valid values:
+     *
+     *   udp (default value)
+     *   tcp
+     *   tcp-tls
      *
      * @example udp
      *
      * @var string
      */
     public $protocol;
-
-    /**
-     * @description The ID of the site monitoring task.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $proxyProtocol;
-
-    /**
-     * @description The format of the HTTP response. Valid values:
-     *
-     *   hex: hexadecimal
-     *   txt: text
-     *
-     * @example cf0f85
-     *
-     * @var string
-     */
-    public $requestContent;
-
-    /**
-     * @description The acceptable status code.
-     *
-     * >  We recommend that you configure assertions.
-     * @example hex
-     *
-     * @var string
-     */
-    public $requestFormat;
-
-    /**
-     * @description The total number of returned entries.
-     *
-     * @example cf0f85
-     *
-     * @var string
-     */
-    public $responseContent;
-
-    /**
-     * @description The port number of the TCP, UDP, SMTP, or POP3 protocol.
-     *
-     * @example hex
-     *
-     * @var string
-     */
-    public $responseFormat;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $retryDelay;
-
-    /**
-     * @description The password of the SMTP, POP3, or FTP protocol.
-     *
-     * @example 3000
-     *
-     * @var int
-     */
-    public $timeOut;
 
     /**
      * @description Indicates whether the PROXY protocol is enabled. Valid values:
@@ -291,17 +249,85 @@ class optionsJson extends Model
      *
      * @var bool
      */
+    public $proxyProtocol;
+
+    /**
+     * @description The content of the HTTP request.
+     *
+     * @example cf0f85
+     *
+     * @var string
+     */
+    public $requestContent;
+
+    /**
+     * @description The format of the HTTP request. Valid values:
+     *
+     *   hex: hexadecimal
+     *   txt: text
+     *
+     * @example hex
+     *
+     * @var string
+     */
+    public $requestFormat;
+
+    /**
+     * @description The response to the HTTP request.
+     *
+     *   Hexadecimal format: If the request content is a byte string and cannot be represented in printable characters, you can convert the byte string to printable characters in the hexadecimal format. If you convert the byte string to printable characters in the hexadecimal format, one byte is converted to two hexadecimal characters. For example, (byte)1 is converted to `01` and (byte)27 is converted to `1B`. If the request content is a binary array in the Java format, for example, `{(byte)1, (byte)27}`, you can convert the binary array to `011b` or `011B`. Hexadecimal characters are not case-sensitive in site monitoring tasks. You can enter `011B` in the request content and set the request_format parameter to hex.
+     *   Text format: Common text refers to strings that consist of printable characters.
+     *
+     * @example cf0f85
+     *
+     * @var string
+     */
+    public $responseContent;
+
+    /**
+     * @description The format of the HTTP response. Valid values:
+     *
+     *   hex: hexadecimal
+     *   txt: text
+     *
+     * @example hex
+     *
+     * @var string
+     */
+    public $responseFormat;
+
+    /**
+     * @description The number of times a failed detection request is retried.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $retryDelay;
+
+    /**
+     * @description The timeout period. Unit: milliseconds.
+     *
+     * @example 3000
+     *
+     * @var int
+     */
+    public $timeOut;
+
+    /**
+     * @description Indicates whether redirects are followed if the status code 301 or 302 is returned. Valid values:
+     *
+     *   true: Redirects are not followed.
+     *   false (default value): Redirects are followed.
+     *
+     * @example false
+     *
+     * @var bool
+     */
     public $unfollowRedirect;
 
     /**
-     * @description The type of the DNS record. This parameter is returned only if the TaskType parameter is set to DNS. Valid values:
-     *
-     *   A (default value): a record that specifies an IP address related to the specified host name or domain name.
-     *   CNAME: a record that maps multiple domain names to a domain name.
-     *   NS: a record that specifies a DNS server used to parse domain names.
-     *   MX: a record that links domain names to the address of a mail server.
-     *   TXT: a record that stores the text information of host name or domain names. The text must be 1 to 512 bytes in length. The TXT record serves as a Sender Policy Framework (SPF) record to fight against spam.
-     *   AAAA: a record that maps a domain name to the relevant IPv6 address.
+     * @description The username of the FTP, SMTP, or POP3 protocol.
      *
      * @example testUser
      *

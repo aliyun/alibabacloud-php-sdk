@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupNotifyPolicyResponseBody extends Model
 {
     /**
-     * @description The number of entries that are returned.
+     * @description The HTTP status code.
      *
+     * >  The HTTP status code 200 indicates that the call succeeds.
      * @example 200
      *
      * @var string
@@ -18,10 +19,7 @@ class CreateMonitorGroupNotifyPolicyResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the call succeeds. Valid values:
-     *
-     *   true: The call succeeds.
-     *   false: The call fails.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -30,9 +28,8 @@ class CreateMonitorGroupNotifyPolicyResponseBody extends Model
     public $message;
 
     /**
-     * @description If the policy is valid, no alert notifications are sent for the application group.
+     * @description The ID of the request.
      *
-     * This topic describes how to create the `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
      * @example 13356BCA-3EC3-4748-A771-2064DA69AEF1
      *
      * @var string
@@ -40,7 +37,7 @@ class CreateMonitorGroupNotifyPolicyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The number of entries that are returned.
      *
      * @example 1
      *
@@ -49,6 +46,11 @@ class CreateMonitorGroupNotifyPolicyResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the call succeeds. Valid values:
+     *
+     *   true: The call succeeds.
+     *   false: The call fails.
+     *
      * @example true
      *
      * @var string

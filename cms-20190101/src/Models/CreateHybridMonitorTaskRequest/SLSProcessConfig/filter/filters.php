@@ -9,7 +9,16 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
-     * @description The description of the metric import task.
+     * @description The method that is used to filter logs imported from Log Service. Valid values:
+     *
+     *   `contain`: contains
+     *   `notContain`: does not contain
+     *   `>`: greater than
+     *   `<`: less than
+     *   `=`: equal to
+     *   `! =`: not equal to
+     *   `>=`: greater than or equal to
+     *   `<=`: less than or equal to
      *
      * @example =
      *
@@ -18,12 +27,8 @@ class filters extends Model
     public $operator;
 
     /**
-     * @description The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
+     * @description The name of the key that is used to filter logs imported from Log Service.
      *
-     *   namespace: the namespace of the Alibaba Cloud service. For information about how to query the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](~~98846~~).
-     *   metric_list: the metrics of the Alibaba Cloud service. For information about how to query the metrics of an Alibaba Cloud service, see [DescribeMetricMetaList](~~98846~~).
-     *
-     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
      * @example code
      *
      * @var string
@@ -31,10 +36,7 @@ class filters extends Model
     public $SLSKeyName;
 
     /**
-     * @description The name of the metric import task.
-     *
-     *   If the `TaskType` parameter is set to `aliyun_fc`, enter the name of the metric import task.
-     *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the metric for logs imported from Log Service.
+     * @description The value of the key that is used to filter logs imported from Log Service.
      *
      * @example 200
      *

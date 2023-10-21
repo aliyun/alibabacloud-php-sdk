@@ -11,18 +11,16 @@ use AlibabaCloud\Tea\Model;
 class describeHybridMonitorNamespace extends Model
 {
     /**
-     * @description Indicates whether the namespace is deleted. Valid values:
-     *
-     *   0: The namespace is not deleted.
-     *   1: The namespace is deleted.
+     * @description The configuration details of metric import tasks for Alibaba Cloud services.
      *
      * @var aliyunProductMetricList[]
      */
     public $aliyunProductMetricList;
 
     /**
-     * @description The keyword that is used to search for namespaces.
+     * @description The timestamp that was generated when the namespace was created.
      *
+     * Unit: milliseconds.
      * @example 1652682744000
      *
      * @var string
@@ -30,7 +28,7 @@ class describeHybridMonitorNamespace extends Model
     public $createTime;
 
     /**
-     * @description The number of metric import tasks for third-party services.
+     * @description The description of the namespace.
      *
      * @example aliyun-test
      *
@@ -39,15 +37,14 @@ class describeHybridMonitorNamespace extends Model
     public $description;
 
     /**
-     * @description The name of the namespace.
+     * @description The details of the data retention period.
      *
-     * The name can contain uppercase letters, lowercase letters, digits, and hyphens (-).
      * @var detail
      */
     public $detail;
 
     /**
-     * @description The list of metrics for the Alibaba Cloud service.
+     * @description The ID of the namespace.
      *
      * @example 3****
      *
@@ -56,7 +53,10 @@ class describeHybridMonitorNamespace extends Model
     public $id;
 
     /**
-     * @description The details of the data retention period.
+     * @description Indicates whether the namespace is deleted. Valid values:
+     *
+     *   0: The namespace is not deleted.
+     *   1: The namespace is deleted.
      *
      * @example 0
      *
@@ -65,7 +65,7 @@ class describeHybridMonitorNamespace extends Model
     public $isDelete;
 
     /**
-     * @description The name of the namespace.
+     * @description The timestamp that was generated when the namespace was last modified.
      *
      * @example 1652682744000
      *
@@ -74,7 +74,7 @@ class describeHybridMonitorNamespace extends Model
     public $modifyTime;
 
     /**
-     * @description The configuration details of metric import tasks for Alibaba Cloud services.
+     * @description The name of the namespace.
      *
      * @example aliyun-test
      *
@@ -83,7 +83,7 @@ class describeHybridMonitorNamespace extends Model
     public $namespace;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of metric import tasks for third-party services.
      *
      * @example 0
      *
