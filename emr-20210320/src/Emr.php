@@ -359,12 +359,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 删除集群。
-     *   *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param DeleteClusterRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @return DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
@@ -395,11 +393,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 删除集群。
-     *   *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * @param DeleteClusterRequest $request
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @return DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -3044,10 +3040,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param RunApplicationActionRequest $request
-     * @param RuntimeOptions              $runtime
+     * 执行应用操作。
+     *   *
+     * @param RunApplicationActionRequest $request RunApplicationActionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunApplicationActionResponse
+     * @return RunApplicationActionResponse RunApplicationActionResponse
      */
     public function runApplicationActionWithOptions($request, $runtime)
     {
@@ -3099,9 +3097,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param RunApplicationActionRequest $request
+     * 执行应用操作。
+     *   *
+     * @param RunApplicationActionRequest $request RunApplicationActionRequest
      *
-     * @return RunApplicationActionResponse
+     * @return RunApplicationActionResponse RunApplicationActionResponse
      */
     public function runApplicationAction($request)
     {
@@ -3111,12 +3111,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 给资源打标签。
-     *   *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -3153,11 +3151,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 给资源打标签。
-     *   *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param TagResourcesRequest $request
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {

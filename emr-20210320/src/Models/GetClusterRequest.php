@@ -18,7 +18,7 @@ class GetClusterRequest extends Model
     public $clusterId;
 
     /**
-     * @description 区域ID。
+     * @description 地域ID。
      *
      * @example cn-hangzhou
      *

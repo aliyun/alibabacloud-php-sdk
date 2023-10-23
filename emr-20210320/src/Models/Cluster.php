@@ -115,7 +115,7 @@ class Cluster extends Model
     public $readyTime;
 
     /**
-     * @description 区域ID。
+     * @description 地域ID。
      *
      * @example cn-hangzhou
      *
@@ -156,6 +156,15 @@ class Cluster extends Model
     public $stateChangeReason;
 
     /**
+     * @description 集群状态，值同clusterState
+     *
+     * @example RUNNING
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
      * @description 预付费配置。
      *
      * @var SubscriptionConfig
@@ -186,6 +195,7 @@ class Cluster extends Model
         'resourceGroupId'    => 'ResourceGroupId',
         'securityMode'       => 'SecurityMode',
         'stateChangeReason'  => 'StateChangeReason',
+        'status'             => 'Status',
         'subscriptionConfig' => 'SubscriptionConfig',
         'tags'               => 'Tags',
     ];
@@ -247,6 +257,9 @@ class Cluster extends Model
         }
         if (null !== $this->stateChangeReason) {
             $res['StateChangeReason'] = null !== $this->stateChangeReason ? $this->stateChangeReason->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->subscriptionConfig) {
             $res['SubscriptionConfig'] = null !== $this->subscriptionConfig ? $this->subscriptionConfig->toMap() : null;
@@ -322,6 +335,9 @@ class Cluster extends Model
         }
         if (isset($map['StateChangeReason'])) {
             $model->stateChangeReason = ClusterStateChangeReason::fromMap($map['StateChangeReason']);
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['SubscriptionConfig'])) {
             $model->subscriptionConfig = SubscriptionConfig::fromMap($map['SubscriptionConfig']);

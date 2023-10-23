@@ -122,6 +122,15 @@ class ClusterSummary extends Model
     public $stateChangeReason;
 
     /**
+     * @description 集群状态。取值范围：
+     * - TERMINATE_FAILED：终止失败。
+     * @example RUNNING
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
      * @description 标签列表。
      *
      * @var Tag[]
@@ -141,6 +150,7 @@ class ClusterSummary extends Model
         'releaseVersion'    => 'ReleaseVersion',
         'resourceGroupId'   => 'ResourceGroupId',
         'stateChangeReason' => 'StateChangeReason',
+        'status'            => 'Status',
         'tags'              => 'Tags',
     ];
 
@@ -189,6 +199,9 @@ class ClusterSummary extends Model
         }
         if (null !== $this->stateChangeReason) {
             $res['StateChangeReason'] = null !== $this->stateChangeReason ? $this->stateChangeReason->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -249,6 +262,9 @@ class ClusterSummary extends Model
         }
         if (isset($map['StateChangeReason'])) {
             $model->stateChangeReason = ClusterStateChangeReason::fromMap($map['StateChangeReason']);
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

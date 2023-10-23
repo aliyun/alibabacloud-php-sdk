@@ -52,8 +52,8 @@ class RunApplicationActionRequest extends Model
     public $description;
 
     /**
-     * @description 运行失败策略。取值范围：
-     * - FAILED_CONTINUE：失败后继续。
+     * @description 运行策略。
+     *
      * @example FAILED_CONTINUE
      *
      * @var string
@@ -61,7 +61,7 @@ class RunApplicationActionRequest extends Model
     public $executeStrategy;
 
     /**
-     * @description 滚动执行间隔时间。
+     * @description 间隔时间。
      *
      * @example 10
      *
