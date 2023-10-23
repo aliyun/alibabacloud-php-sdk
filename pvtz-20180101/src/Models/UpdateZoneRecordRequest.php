@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateZoneRecordRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @example en
      *
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $line;
 
     /**
      * @example 60
@@ -63,8 +73,15 @@ class UpdateZoneRecordRequest extends Model
      * @var string
      */
     public $value;
+
+    /**
+     * @var int
+     */
+    public $weight;
     protected $_name = [
+        'clientToken'  => 'ClientToken',
         'lang'         => 'Lang',
+        'line'         => 'Line',
         'priority'     => 'Priority',
         'recordId'     => 'RecordId',
         'rr'           => 'Rr',
@@ -72,6 +89,7 @@ class UpdateZoneRecordRequest extends Model
         'type'         => 'Type',
         'userClientIp' => 'UserClientIp',
         'value'        => 'Value',
+        'weight'       => 'Weight',
     ];
 
     public function validate()
@@ -81,8 +99,14 @@ class UpdateZoneRecordRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->line) {
+            $res['Line'] = $this->line;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -105,6 +129,9 @@ class UpdateZoneRecordRequest extends Model
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
+        }
 
         return $res;
     }
@@ -117,8 +144,14 @@ class UpdateZoneRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Line'])) {
+            $model->line = $map['Line'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
@@ -140,6 +173,9 @@ class UpdateZoneRecordRequest extends Model
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

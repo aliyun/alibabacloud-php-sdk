@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateRecordRemarkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @example en
      *
      * @var string
@@ -29,9 +34,10 @@ class UpdateRecordRemarkRequest extends Model
      */
     public $remark;
     protected $_name = [
-        'lang'     => 'Lang',
-        'recordId' => 'RecordId',
-        'remark'   => 'Remark',
+        'clientToken' => 'ClientToken',
+        'lang'        => 'Lang',
+        'recordId'    => 'RecordId',
+        'remark'      => 'Remark',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class UpdateRecordRemarkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -62,6 +71,9 @@ class UpdateRecordRemarkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

@@ -16,6 +16,21 @@ class changeLog extends Model
     public $content;
 
     /**
+     * @var string
+     */
+    public $creatorId;
+
+    /**
+     * @var string
+     */
+    public $creatorSubType;
+
+    /**
+     * @var string
+     */
+    public $creatorType;
+
+    /**
      * @example CAgICA1OA_58
      *
      * @var string
@@ -71,15 +86,18 @@ class changeLog extends Model
      */
     public $operTimestamp;
     protected $_name = [
-        'content'       => 'Content',
-        'entityId'      => 'EntityId',
-        'entityName'    => 'EntityName',
-        'id'            => 'Id',
-        'operAction'    => 'OperAction',
-        'operIp'        => 'OperIp',
-        'operObject'    => 'OperObject',
-        'operTime'      => 'OperTime',
-        'operTimestamp' => 'OperTimestamp',
+        'content'        => 'Content',
+        'creatorId'      => 'CreatorId',
+        'creatorSubType' => 'CreatorSubType',
+        'creatorType'    => 'CreatorType',
+        'entityId'       => 'EntityId',
+        'entityName'     => 'EntityName',
+        'id'             => 'Id',
+        'operAction'     => 'OperAction',
+        'operIp'         => 'OperIp',
+        'operObject'     => 'OperObject',
+        'operTime'       => 'OperTime',
+        'operTimestamp'  => 'OperTimestamp',
     ];
 
     public function validate()
@@ -91,6 +109,15 @@ class changeLog extends Model
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->creatorId) {
+            $res['CreatorId'] = $this->creatorId;
+        }
+        if (null !== $this->creatorSubType) {
+            $res['CreatorSubType'] = $this->creatorSubType;
+        }
+        if (null !== $this->creatorType) {
+            $res['CreatorType'] = $this->creatorType;
         }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
@@ -130,6 +157,15 @@ class changeLog extends Model
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['CreatorId'])) {
+            $model->creatorId = $map['CreatorId'];
+        }
+        if (isset($map['CreatorSubType'])) {
+            $model->creatorSubType = $map['CreatorSubType'];
+        }
+        if (isset($map['CreatorType'])) {
+            $model->creatorType = $map['CreatorType'];
         }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];

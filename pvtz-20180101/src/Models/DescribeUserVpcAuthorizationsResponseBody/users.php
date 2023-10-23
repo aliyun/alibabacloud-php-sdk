@@ -28,10 +28,22 @@ class users extends Model
      * @var int
      */
     public $authorizedUserId;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var int
+     */
+    public $createTimestamp;
     protected $_name = [
         'authType'           => 'AuthType',
         'authorizedAliyunId' => 'AuthorizedAliyunId',
         'authorizedUserId'   => 'AuthorizedUserId',
+        'createTime'         => 'CreateTime',
+        'createTimestamp'    => 'CreateTimestamp',
     ];
 
     public function validate()
@@ -49,6 +61,12 @@ class users extends Model
         }
         if (null !== $this->authorizedUserId) {
             $res['AuthorizedUserId'] = $this->authorizedUserId;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
         }
 
         return $res;
@@ -70,6 +88,12 @@ class users extends Model
         }
         if (isset($map['AuthorizedUserId'])) {
             $model->authorizedUserId = $map['AuthorizedUserId'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
         }
 
         return $model;

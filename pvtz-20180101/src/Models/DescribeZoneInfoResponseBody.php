@@ -29,6 +29,26 @@ class DescribeZoneInfoResponseBody extends Model
     public $createTimestamp;
 
     /**
+     * @var string
+     */
+    public $creator;
+
+    /**
+     * @var string
+     */
+    public $creatorType;
+
+    /**
+     * @var string
+     */
+    public $dnsGroup;
+
+    /**
+     * @var bool
+     */
+    public $dnsGroupChanging;
+
+    /**
      * @example false
      *
      * @var bool
@@ -121,22 +141,26 @@ class DescribeZoneInfoResponseBody extends Model
      */
     public $zoneType;
     protected $_name = [
-        'bindVpcs'        => 'BindVpcs',
-        'createTime'      => 'CreateTime',
-        'createTimestamp' => 'CreateTimestamp',
-        'isPtr'           => 'IsPtr',
-        'proxyPattern'    => 'ProxyPattern',
-        'recordCount'     => 'RecordCount',
-        'remark'          => 'Remark',
-        'requestId'       => 'RequestId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'slaveDns'        => 'SlaveDns',
-        'updateTime'      => 'UpdateTime',
-        'updateTimestamp' => 'UpdateTimestamp',
-        'zoneId'          => 'ZoneId',
-        'zoneName'        => 'ZoneName',
-        'zoneTag'         => 'ZoneTag',
-        'zoneType'        => 'ZoneType',
+        'bindVpcs'         => 'BindVpcs',
+        'createTime'       => 'CreateTime',
+        'createTimestamp'  => 'CreateTimestamp',
+        'creator'          => 'Creator',
+        'creatorType'      => 'CreatorType',
+        'dnsGroup'         => 'DnsGroup',
+        'dnsGroupChanging' => 'DnsGroupChanging',
+        'isPtr'            => 'IsPtr',
+        'proxyPattern'     => 'ProxyPattern',
+        'recordCount'      => 'RecordCount',
+        'remark'           => 'Remark',
+        'requestId'        => 'RequestId',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'slaveDns'         => 'SlaveDns',
+        'updateTime'       => 'UpdateTime',
+        'updateTimestamp'  => 'UpdateTimestamp',
+        'zoneId'           => 'ZoneId',
+        'zoneName'         => 'ZoneName',
+        'zoneTag'          => 'ZoneTag',
+        'zoneType'         => 'ZoneType',
     ];
 
     public function validate()
@@ -154,6 +178,18 @@ class DescribeZoneInfoResponseBody extends Model
         }
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->creator) {
+            $res['Creator'] = $this->creator;
+        }
+        if (null !== $this->creatorType) {
+            $res['CreatorType'] = $this->creatorType;
+        }
+        if (null !== $this->dnsGroup) {
+            $res['DnsGroup'] = $this->dnsGroup;
+        }
+        if (null !== $this->dnsGroupChanging) {
+            $res['DnsGroupChanging'] = $this->dnsGroupChanging;
         }
         if (null !== $this->isPtr) {
             $res['IsPtr'] = $this->isPtr;
@@ -214,6 +250,18 @@ class DescribeZoneInfoResponseBody extends Model
         }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['Creator'])) {
+            $model->creator = $map['Creator'];
+        }
+        if (isset($map['CreatorType'])) {
+            $model->creatorType = $map['CreatorType'];
+        }
+        if (isset($map['DnsGroup'])) {
+            $model->dnsGroup = $map['DnsGroup'];
+        }
+        if (isset($map['DnsGroupChanging'])) {
+            $model->dnsGroupChanging = $map['DnsGroupChanging'];
         }
         if (isset($map['IsPtr'])) {
             $model->isPtr = $map['IsPtr'];

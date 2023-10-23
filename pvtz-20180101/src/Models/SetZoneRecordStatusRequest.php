@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetZoneRecordStatusRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @example en
      *
      * @var string
@@ -36,6 +41,7 @@ class SetZoneRecordStatusRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
+        'clientToken'  => 'ClientToken',
         'lang'         => 'Lang',
         'recordId'     => 'RecordId',
         'status'       => 'Status',
@@ -49,6 +55,9 @@ class SetZoneRecordStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -73,6 +82,9 @@ class SetZoneRecordStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

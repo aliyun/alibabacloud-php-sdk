@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteZoneRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @example en
      *
      * @var string
@@ -31,6 +36,7 @@ class DeleteZoneRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'clientToken'  => 'ClientToken',
         'lang'         => 'Lang',
         'userClientIp' => 'UserClientIp',
         'zoneId'       => 'ZoneId',
@@ -43,6 +49,9 @@ class DeleteZoneRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -64,6 +73,9 @@ class DeleteZoneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

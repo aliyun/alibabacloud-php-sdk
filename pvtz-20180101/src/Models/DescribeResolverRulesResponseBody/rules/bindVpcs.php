@@ -40,12 +40,18 @@ class bindVpcs extends Model
      * @var string
      */
     public $vpcType;
+
+    /**
+     * @var string
+     */
+    public $vpcUserId;
     protected $_name = [
         'regionId'   => 'RegionId',
         'regionName' => 'RegionName',
         'vpcId'      => 'VpcId',
         'vpcName'    => 'VpcName',
         'vpcType'    => 'VpcType',
+        'vpcUserId'  => 'VpcUserId',
     ];
 
     public function validate()
@@ -69,6 +75,9 @@ class bindVpcs extends Model
         }
         if (null !== $this->vpcType) {
             $res['VpcType'] = $this->vpcType;
+        }
+        if (null !== $this->vpcUserId) {
+            $res['VpcUserId'] = $this->vpcUserId;
         }
 
         return $res;
@@ -96,6 +105,9 @@ class bindVpcs extends Model
         }
         if (isset($map['VpcType'])) {
             $model->vpcType = $map['VpcType'];
+        }
+        if (isset($map['VpcUserId'])) {
+            $model->vpcUserId = $map['VpcUserId'];
         }
 
         return $model;

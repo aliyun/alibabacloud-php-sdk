@@ -28,6 +28,11 @@ class DescribeRegionsRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $scene;
+
+    /**
      * @example 1.1.1.1
      *
      * @var string
@@ -42,6 +47,7 @@ class DescribeRegionsRequest extends Model
         'acceptLanguage'   => 'AcceptLanguage',
         'authorizedUserId' => 'AuthorizedUserId',
         'lang'             => 'Lang',
+        'scene'            => 'Scene',
         'userClientIp'     => 'UserClientIp',
         'vpcType'          => 'VpcType',
     ];
@@ -61,6 +67,9 @@ class DescribeRegionsRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
@@ -88,6 +97,9 @@ class DescribeRegionsRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];

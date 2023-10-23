@@ -305,6 +305,9 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -363,8 +366,14 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
         }
         if (!Utils::isUnset($request->priority)) {
             $query['Priority'] = $request->priority;
@@ -386,6 +395,9 @@ class Pvtz extends OpenApiClient
         }
         if (!Utils::isUnset($request->value)) {
             $query['Value'] = $request->value;
+        }
+        if (!Utils::isUnset($request->weight)) {
+            $query['Weight'] = $request->weight;
         }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
@@ -479,6 +491,9 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -718,6 +733,9 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -767,6 +785,9 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -891,6 +912,9 @@ class Pvtz extends OpenApiClient
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $query['Scene'] = $request->scene;
         }
         if (!Utils::isUnset($request->userClientIp)) {
             $query['UserClientIp'] = $request->userClientIp;
@@ -1739,6 +1763,9 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -1788,6 +1815,9 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -1840,6 +1870,9 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -2002,6 +2035,9 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -2207,8 +2243,14 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
         }
         if (!Utils::isUnset($request->priority)) {
             $query['Priority'] = $request->priority;
@@ -2230,6 +2272,9 @@ class Pvtz extends OpenApiClient
         }
         if (!Utils::isUnset($request->value)) {
             $query['Value'] = $request->value;
+        }
+        if (!Utils::isUnset($request->weight)) {
+            $query['Weight'] = $request->weight;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2271,6 +2316,9 @@ class Pvtz extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }

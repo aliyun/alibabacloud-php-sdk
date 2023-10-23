@@ -24,6 +24,26 @@ class zone extends Model
     public $createTimestamp;
 
     /**
+     * @var string
+     */
+    public $creator;
+
+    /**
+     * @var string
+     */
+    public $creatorSubType;
+
+    /**
+     * @var string
+     */
+    public $dnsGroup;
+
+    /**
+     * @var bool
+     */
+    public $dnsGroupChanging;
+
+    /**
      * @example true
      *
      * @var bool
@@ -107,20 +127,24 @@ class zone extends Model
      */
     public $zoneType;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'createTimestamp' => 'CreateTimestamp',
-        'isPtr'           => 'IsPtr',
-        'proxyPattern'    => 'ProxyPattern',
-        'recordCount'     => 'RecordCount',
-        'remark'          => 'Remark',
-        'resourceGroupId' => 'ResourceGroupId',
-        'resourceTags'    => 'ResourceTags',
-        'updateTime'      => 'UpdateTime',
-        'updateTimestamp' => 'UpdateTimestamp',
-        'zoneId'          => 'ZoneId',
-        'zoneName'        => 'ZoneName',
-        'zoneTag'         => 'ZoneTag',
-        'zoneType'        => 'ZoneType',
+        'createTime'       => 'CreateTime',
+        'createTimestamp'  => 'CreateTimestamp',
+        'creator'          => 'Creator',
+        'creatorSubType'   => 'CreatorSubType',
+        'dnsGroup'         => 'DnsGroup',
+        'dnsGroupChanging' => 'DnsGroupChanging',
+        'isPtr'            => 'IsPtr',
+        'proxyPattern'     => 'ProxyPattern',
+        'recordCount'      => 'RecordCount',
+        'remark'           => 'Remark',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'resourceTags'     => 'ResourceTags',
+        'updateTime'       => 'UpdateTime',
+        'updateTimestamp'  => 'UpdateTimestamp',
+        'zoneId'           => 'ZoneId',
+        'zoneName'         => 'ZoneName',
+        'zoneTag'          => 'ZoneTag',
+        'zoneType'         => 'ZoneType',
     ];
 
     public function validate()
@@ -135,6 +159,18 @@ class zone extends Model
         }
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->creator) {
+            $res['Creator'] = $this->creator;
+        }
+        if (null !== $this->creatorSubType) {
+            $res['CreatorSubType'] = $this->creatorSubType;
+        }
+        if (null !== $this->dnsGroup) {
+            $res['DnsGroup'] = $this->dnsGroup;
+        }
+        if (null !== $this->dnsGroupChanging) {
+            $res['DnsGroupChanging'] = $this->dnsGroupChanging;
         }
         if (null !== $this->isPtr) {
             $res['IsPtr'] = $this->isPtr;
@@ -189,6 +225,18 @@ class zone extends Model
         }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['Creator'])) {
+            $model->creator = $map['Creator'];
+        }
+        if (isset($map['CreatorSubType'])) {
+            $model->creatorSubType = $map['CreatorSubType'];
+        }
+        if (isset($map['DnsGroup'])) {
+            $model->dnsGroup = $map['DnsGroup'];
+        }
+        if (isset($map['DnsGroupChanging'])) {
+            $model->dnsGroupChanging = $map['DnsGroupChanging'];
         }
         if (isset($map['IsPtr'])) {
             $model->isPtr = $map['IsPtr'];

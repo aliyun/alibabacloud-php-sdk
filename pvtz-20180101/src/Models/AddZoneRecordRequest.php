@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AddZoneRecordRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @example en
      *
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $line;
 
     /**
      * @example 5
@@ -63,6 +73,11 @@ class AddZoneRecordRequest extends Model
     public $value;
 
     /**
+     * @var int
+     */
+    public $weight;
+
+    /**
      * @description Zone ID。
      *
      * @example CAgICA1OA_58
@@ -71,7 +86,9 @@ class AddZoneRecordRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'clientToken'  => 'ClientToken',
         'lang'         => 'Lang',
+        'line'         => 'Line',
         'priority'     => 'Priority',
         'remark'       => 'Remark',
         'rr'           => 'Rr',
@@ -79,6 +96,7 @@ class AddZoneRecordRequest extends Model
         'type'         => 'Type',
         'userClientIp' => 'UserClientIp',
         'value'        => 'Value',
+        'weight'       => 'Weight',
         'zoneId'       => 'ZoneId',
     ];
 
@@ -89,8 +107,14 @@ class AddZoneRecordRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->line) {
+            $res['Line'] = $this->line;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -113,6 +137,9 @@ class AddZoneRecordRequest extends Model
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -128,8 +155,14 @@ class AddZoneRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Line'])) {
+            $model->line = $map['Line'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
@@ -151,6 +184,9 @@ class AddZoneRecordRequest extends Model
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
