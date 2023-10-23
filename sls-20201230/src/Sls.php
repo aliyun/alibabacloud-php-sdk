@@ -44,9 +44,13 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataSetResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationLabelResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteCollectionPolicyRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteCollectionPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDashboardResponse;
@@ -68,6 +72,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedConfigsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedMachineGroupsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetCollectionPolicyRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetCollectionPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetContextLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetContextLogsResponse;
@@ -83,6 +89,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogStoreMeteringModeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Headers;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Request;
@@ -102,6 +109,9 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataSetsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataSetsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationLabelsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationLabelsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
@@ -159,6 +169,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreMeteringModeRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreMeteringModeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogtailPipelineConfigRequest;
@@ -179,6 +191,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateRdsExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewaySls\Client as DarabonbaGatewaySlsClient;
@@ -1340,6 +1354,55 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param CreateTicketRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateTicketResponse
+     */
+    public function createTicketWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->playAccessKeyId)) {
+            $body['playAccessKeyId'] = $request->playAccessKeyId;
+        }
+        if (!Utils::isUnset($request->playAccessKeySecret)) {
+            $body['playAccessKeySecret'] = $request->playAccessKeySecret;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTicket',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tickets',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTicketResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTicketRequest $request
+     *
+     * @return CreateTicketResponse
+     */
+    public function createTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTicketWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param string         $datasetId
      * @param string         $annotationdataId
      * @param string[]       $headers
@@ -1459,6 +1522,57 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->deleteAnnotationLabelWithOptions($labelId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $policyName
+     * @param DeleteCollectionPolicyRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteCollectionPolicyResponse
+     */
+    public function deleteCollectionPolicyWithOptions($policyName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataCode)) {
+            $query['dataCode'] = $request->dataCode;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['productCode'] = $request->productCode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCollectionPolicy',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/collectionpolicy/' . $policyName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCollectionPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $policyName
+     * @param DeleteCollectionPolicyRequest $request
+     *
+     * @return DeleteCollectionPolicyResponse
+     */
+    public function deleteCollectionPolicy($policyName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteCollectionPolicyWithOptions($policyName, $request, $headers, $runtime);
     }
 
     /**
@@ -2357,6 +2471,57 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                     $policyName
+     * @param GetCollectionPolicyRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCollectionPolicyResponse
+     */
+    public function getCollectionPolicyWithOptions($policyName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataCode)) {
+            $query['dataCode'] = $request->dataCode;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['productCode'] = $request->productCode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCollectionPolicy',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/collectionpolicy/' . $policyName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCollectionPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $policyName
+     * @param GetCollectionPolicyRequest $request
+     *
+     * @return GetCollectionPolicyResponse
+     */
+    public function getCollectionPolicy($policyName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCollectionPolicyWithOptions($policyName, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string         $project
      * @param string         $configName
      * @param string[]       $headers
@@ -2816,6 +2981,51 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->getLogStoreWithOptions($project, $logstore, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $logstore
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetLogStoreMeteringModeResponse
+     */
+    public function getLogStoreMeteringModeWithOptions($project, $logstore, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetLogStoreMeteringMode',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/meteringmode',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLogStoreMeteringModeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $logstore
+     *
+     * @return GetLogStoreMeteringModeResponse
+     */
+    public function getLogStoreMeteringMode($project, $logstore)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getLogStoreMeteringModeWithOptions($project, $logstore, $headers, $runtime);
     }
 
     /**
@@ -3514,6 +3724,75 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->listAnnotationLabelsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListCollectionPoliciesRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListCollectionPoliciesResponse
+     */
+    public function listCollectionPoliciesWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListCollectionPoliciesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->attribute)) {
+            $request->attributeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attribute, 'attribute', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->attributeShrink)) {
+            $query['attribute'] = $request->attributeShrink;
+        }
+        if (!Utils::isUnset($request->dataCode)) {
+            $query['dataCode'] = $request->dataCode;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['pageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['policyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['productCode'] = $request->productCode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCollectionPolicies',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/collectionpolicy',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCollectionPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCollectionPoliciesRequest $request
+     *
+     * @return ListCollectionPoliciesResponse
+     */
+    public function listCollectionPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCollectionPoliciesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4751,7 +5030,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType'    => 'none',
         ]);
 
         return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5180,6 +5459,59 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->updateLogStoreWithOptions($project, $logstore, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                            $project
+     * @param string                            $logstore
+     * @param UpdateLogStoreMeteringModeRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateLogStoreMeteringModeResponse
+     */
+    public function updateLogStoreMeteringModeWithOptions($project, $logstore, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->meteringMode)) {
+            $body['meteringMode'] = $request->meteringMode;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLogStoreMeteringMode',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/meteringmode',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateLogStoreMeteringModeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                            $project
+     * @param string                            $logstore
+     * @param UpdateLogStoreMeteringModeRequest $request
+     *
+     * @return UpdateLogStoreMeteringModeResponse
+     */
+    public function updateLogStoreMeteringMode($project, $logstore, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateLogStoreMeteringModeWithOptions($project, $logstore, $request, $headers, $runtime);
     }
 
     /**
@@ -5780,5 +6112,72 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->updateSavedSearchWithOptions($project, $savedsearchName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpsertCollectionPolicyRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpsertCollectionPolicyResponse
+     */
+    public function upsertCollectionPolicyWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->attribute)) {
+            $body['attribute'] = $request->attribute;
+        }
+        if (!Utils::isUnset($request->centralizeConfig)) {
+            $body['centralizeConfig'] = $request->centralizeConfig;
+        }
+        if (!Utils::isUnset($request->centralizeEnabled)) {
+            $body['centralizeEnabled'] = $request->centralizeEnabled;
+        }
+        if (!Utils::isUnset($request->dataCode)) {
+            $body['dataCode'] = $request->dataCode;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $body['enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->policyConfig)) {
+            $body['policyConfig'] = $request->policyConfig;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $body['policyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['productCode'] = $request->productCode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpsertCollectionPolicy',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/collectionpolicy',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpsertCollectionPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpsertCollectionPolicyRequest $request
+     *
+     * @return UpsertCollectionPolicyResponse
+     */
+    public function upsertCollectionPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->upsertCollectionPolicyWithOptions($request, $headers, $runtime);
     }
 }
