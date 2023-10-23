@@ -173,6 +173,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainRealTimeTrafficData
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainRealTimeTrafficDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainRegionDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainRegionDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainsBySourceRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainsBySourceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainStagingConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainTopReferVisitRequest;
@@ -6011,6 +6013,49 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnDomainWebsocketTrafficDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnDomainsBySourceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnDomainsBySourceResponse
+     */
+    public function describeDcdnDomainsBySourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sources)) {
+            $query['Sources'] = $request->sources;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainsBySource',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDomainsBySourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDomainsBySourceRequest $request
+     *
+     * @return DescribeDcdnDomainsBySourceResponse
+     */
+    public function describeDcdnDomainsBySource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDomainsBySourceWithOptions($request, $runtime);
     }
 
     /**
