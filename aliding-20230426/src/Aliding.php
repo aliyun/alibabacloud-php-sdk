@@ -602,6 +602,12 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($request->eventId)) {
             $body['EventId'] = $request->eventId;
         }
+        if (!Utils::isUnset($request->chatNotification)) {
+            $body['chatNotification'] = $request->chatNotification;
+        }
+        if (!Utils::isUnset($request->pushNotification)) {
+            $body['pushNotification'] = $request->pushNotification;
+        }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -2577,6 +2583,9 @@ class Aliding extends OpenApiClient
         }
         if (!Utils::isUnset($request->eventId)) {
             $body['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->pushNotification)) {
+            $body['pushNotification'] = $request->pushNotification;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {

@@ -26,10 +26,22 @@ class AddAttendeeShrinkRequest extends Model
      * @var string
      */
     public $eventId;
+
+    /**
+     * @var bool
+     */
+    public $chatNotification;
+
+    /**
+     * @var bool
+     */
+    public $pushNotification;
     protected $_name = [
         'attendeesToAddShrink' => 'AttendeesToAdd',
         'calendarId'           => 'CalendarId',
         'eventId'              => 'EventId',
+        'chatNotification'     => 'chatNotification',
+        'pushNotification'     => 'pushNotification',
     ];
 
     public function validate()
@@ -47,6 +59,12 @@ class AddAttendeeShrinkRequest extends Model
         }
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
+        }
+        if (null !== $this->chatNotification) {
+            $res['chatNotification'] = $this->chatNotification;
+        }
+        if (null !== $this->pushNotification) {
+            $res['pushNotification'] = $this->pushNotification;
         }
 
         return $res;
@@ -68,6 +86,12 @@ class AddAttendeeShrinkRequest extends Model
         }
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
+        }
+        if (isset($map['chatNotification'])) {
+            $model->chatNotification = $map['chatNotification'];
+        }
+        if (isset($map['pushNotification'])) {
+            $model->pushNotification = $map['pushNotification'];
         }
 
         return $model;

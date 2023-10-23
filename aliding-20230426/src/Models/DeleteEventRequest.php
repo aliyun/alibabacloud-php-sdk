@@ -21,9 +21,15 @@ class DeleteEventRequest extends Model
      * @var string
      */
     public $eventId;
+
+    /**
+     * @var bool
+     */
+    public $pushNotification;
     protected $_name = [
-        'calendarId' => 'CalendarId',
-        'eventId'    => 'EventId',
+        'calendarId'       => 'CalendarId',
+        'eventId'          => 'EventId',
+        'pushNotification' => 'pushNotification',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class DeleteEventRequest extends Model
         }
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
+        }
+        if (null !== $this->pushNotification) {
+            $res['pushNotification'] = $this->pushNotification;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class DeleteEventRequest extends Model
         }
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
+        }
+        if (isset($map['pushNotification'])) {
+            $model->pushNotification = $map['pushNotification'];
         }
 
         return $model;
