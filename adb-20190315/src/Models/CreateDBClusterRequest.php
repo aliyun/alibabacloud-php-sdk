@@ -247,6 +247,8 @@ class CreateDBClusterRequest extends Model
     public $storageType;
 
     /**
+     * @description The tags to add to the cluster.
+     *
      * @var tag[]
      */
     public $tag;

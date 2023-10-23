@@ -18,6 +18,11 @@ class series extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $tags;
+
+    /**
      * @description The values of the queried performance metrics.
      *
      * @var string[]
@@ -25,6 +30,7 @@ class series extends Model
     public $values;
     protected $_name = [
         'name'   => 'Name',
+        'tags'   => 'Tags',
         'values' => 'Values',
     ];
 
@@ -37,6 +43,9 @@ class series extends Model
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->values) {
             $res['Values'] = $this->values;
@@ -55,6 +64,9 @@ class series extends Model
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {

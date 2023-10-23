@@ -89,12 +89,22 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $resourcePools;
 
     /**
      * @description The start time of the query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
@@ -110,8 +120,10 @@ class DescribeDBClusterPerformanceRequest extends Model
         'key'                  => 'Key',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourcePools'        => 'ResourcePools',
         'startTime'            => 'StartTime',
     ];
 
@@ -137,11 +149,17 @@ class DescribeDBClusterPerformanceRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourcePools) {
+            $res['ResourcePools'] = $this->resourcePools;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -173,11 +191,17 @@ class DescribeDBClusterPerformanceRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourcePools'])) {
+            $model->resourcePools = $map['ResourcePools'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

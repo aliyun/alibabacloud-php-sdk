@@ -126,8 +126,6 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogTrendRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogTrendResponse;
-use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPatternAttributeRequest;
-use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPatternAttributeResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSqlPatternRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSqlPatternResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPatternsRequest;
@@ -2582,11 +2580,17 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourcePools)) {
+            $query['ResourcePools'] = $request->resourcePools;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3969,64 +3973,6 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLPatternAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeSQLPatternAttributeResponse
-     */
-    public function describeSQLPatternAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->patternId)) {
-            $query['PatternId'] = $request->patternId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLPatternAttribute',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSQLPatternAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLPatternAttributeRequest $request
-     *
-     * @return DescribeSQLPatternAttributeResponse
-     */
-    public function describeSQLPatternAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLPatternAttributeWithOptions($request, $runtime);
     }
 
     /**
