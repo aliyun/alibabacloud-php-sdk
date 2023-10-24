@@ -19,6 +19,8 @@ class DescribeDeployedApisRequest extends Model
     public $apiId;
 
     /**
+     * @description The HTTP method of the API request.
+     *
      * @example POST
      *
      * @var string
@@ -35,6 +37,8 @@ class DescribeDeployedApisRequest extends Model
     public $apiName;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /st4
      *
      * @var string

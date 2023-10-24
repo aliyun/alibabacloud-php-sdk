@@ -190,8 +190,12 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployedApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployedApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDomainRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDomainResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupLatencyRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupLatencyResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupQpsRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupQpsResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupTrafficRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupTrafficResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeImportOASTaskRequest;
@@ -5771,6 +5775,61 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @param DescribeGroupLatencyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeGroupLatencyResponse
+     */
+    public function describeGroupLatencyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroupLatency',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGroupLatencyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGroupLatencyRequest $request
+     *
+     * @return DescribeGroupLatencyResponse
+     */
+    public function describeGroupLatency($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGroupLatencyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeGroupQpsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -5823,6 +5882,61 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeGroupQpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeGroupTrafficRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeGroupTrafficResponse
+     */
+    public function describeGroupTrafficWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroupTraffic',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGroupTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGroupTrafficRequest $request
+     *
+     * @return DescribeGroupTrafficResponse
+     */
+    public function describeGroupTraffic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGroupTrafficWithOptions($request, $runtime);
     }
 
     /**
