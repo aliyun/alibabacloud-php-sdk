@@ -299,6 +299,22 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryRespo
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderApplyHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderApplyRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderApplyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderCancelHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderCancelRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderCancelResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderCreateHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderCreateRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderCreateResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderCreateShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderDetailHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderDetailRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderDetailResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderPayHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderPayRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderPayResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddResponse;
@@ -6808,6 +6824,364 @@ class BtripOpen extends OpenApiClient
         $headers = new InsInvoiceScanQueryHeaders([]);
 
         return $this->insInvoiceScanQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param InsureOrderApplyRequest $request
+     * @param InsureOrderApplyHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return InsureOrderApplyResponse
+     */
+    public function insureOrderApplyWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $body['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->buyerName)) {
+            $body['buyer_name'] = $request->buyerName;
+        }
+        if (!Utils::isUnset($request->insOrderId)) {
+            $body['ins_order_id'] = $request->insOrderId;
+        }
+        if (!Utils::isUnset($request->isvName)) {
+            $body['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $body['out_order_id'] = $request->outOrderId;
+        }
+        if (!Utils::isUnset($request->outSubOrderId)) {
+            $body['out_sub_order_id'] = $request->outSubOrderId;
+        }
+        if (!Utils::isUnset($request->supplierCode)) {
+            $body['supplier_code'] = $request->supplierCode;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InsureOrderApply',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/insurances/action/apply',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsureOrderApplyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InsureOrderApplyRequest $request
+     *
+     * @return InsureOrderApplyResponse
+     */
+    public function insureOrderApply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InsureOrderApplyHeaders([]);
+
+        return $this->insureOrderApplyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $insOrderId
+     * @param InsureOrderCancelRequest $request
+     * @param InsureOrderCancelHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InsureOrderCancelResponse
+     */
+    public function insureOrderCancelWithOptions($insOrderId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $query['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->buyerName)) {
+            $query['buyer_name'] = $request->buyerName;
+        }
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->supplierCode)) {
+            $query['supplier_code'] = $request->supplierCode;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InsureOrderCancel',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/insurances/' . OpenApiUtilClient::getEncodeParam($insOrderId) . '/action/cancel',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsureOrderCancelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $insOrderId
+     * @param InsureOrderCancelRequest $request
+     *
+     * @return InsureOrderCancelResponse
+     */
+    public function insureOrderCancel($insOrderId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InsureOrderCancelHeaders([]);
+
+        return $this->insureOrderCancelWithOptions($insOrderId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param InsureOrderCreateRequest $tmpReq
+     * @param InsureOrderCreateHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InsureOrderCreateResponse
+     */
+    public function insureOrderCreateWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new InsureOrderCreateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->applicant)) {
+            $request->applicantShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicant, 'applicant', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->insPersonAndSegmentList)) {
+            $request->insPersonAndSegmentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->insPersonAndSegmentList, 'ins_person_and_segment_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->applicantShrink)) {
+            $body['applicant'] = $request->applicantShrink;
+        }
+        if (!Utils::isUnset($request->btripUserId)) {
+            $body['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->buyerName)) {
+            $body['buyer_name'] = $request->buyerName;
+        }
+        if (!Utils::isUnset($request->insPersonAndSegmentListShrink)) {
+            $body['ins_person_and_segment_list'] = $request->insPersonAndSegmentListShrink;
+        }
+        if (!Utils::isUnset($request->isvName)) {
+            $body['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->outInsOrderId)) {
+            $body['out_ins_order_id'] = $request->outInsOrderId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $body['out_order_id'] = $request->outOrderId;
+        }
+        if (!Utils::isUnset($request->outSubOrderId)) {
+            $body['out_sub_order_id'] = $request->outSubOrderId;
+        }
+        if (!Utils::isUnset($request->supplierCode)) {
+            $body['supplier_code'] = $request->supplierCode;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InsureOrderCreate',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/insurances/action/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsureOrderCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InsureOrderCreateRequest $request
+     *
+     * @return InsureOrderCreateResponse
+     */
+    public function insureOrderCreate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InsureOrderCreateHeaders([]);
+
+        return $this->insureOrderCreateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param InsureOrderDetailRequest $request
+     * @param InsureOrderDetailHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InsureOrderDetailResponse
+     */
+    public function insureOrderDetailWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $query['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->buyerName)) {
+            $query['buyer_name'] = $request->buyerName;
+        }
+        if (!Utils::isUnset($request->insOrderId)) {
+            $query['ins_order_id'] = $request->insOrderId;
+        }
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->supplierCode)) {
+            $query['supplier_code'] = $request->supplierCode;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InsureOrderDetail',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/insurances/action/detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsureOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InsureOrderDetailRequest $request
+     *
+     * @return InsureOrderDetailResponse
+     */
+    public function insureOrderDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InsureOrderDetailHeaders([]);
+
+        return $this->insureOrderDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $insOrderId
+     * @param InsureOrderPayRequest $request
+     * @param InsureOrderPayHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return InsureOrderPayResponse
+     */
+    public function insureOrderPayWithOptions($insOrderId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $body['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->buyerName)) {
+            $body['buyer_name'] = $request->buyerName;
+        }
+        if (!Utils::isUnset($request->isvName)) {
+            $body['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $body['out_order_id'] = $request->outOrderId;
+        }
+        if (!Utils::isUnset($request->outSubOrderId)) {
+            $body['out_sub_order_id'] = $request->outSubOrderId;
+        }
+        if (!Utils::isUnset($request->paymentAmount)) {
+            $body['payment_amount'] = $request->paymentAmount;
+        }
+        if (!Utils::isUnset($request->supplierCode)) {
+            $body['supplier_code'] = $request->supplierCode;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InsureOrderPay',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/insurances/' . OpenApiUtilClient::getEncodeParam($insOrderId) . '/action/pay',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsureOrderPayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $insOrderId
+     * @param InsureOrderPayRequest $request
+     *
+     * @return InsureOrderPayResponse
+     */
+    public function insureOrderPay($insOrderId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InsureOrderPayHeaders([]);
+
+        return $this->insureOrderPayWithOptions($insOrderId, $request, $headers, $runtime);
     }
 
     /**
