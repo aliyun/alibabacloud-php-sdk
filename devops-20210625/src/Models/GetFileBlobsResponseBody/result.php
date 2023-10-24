@@ -16,6 +16,11 @@ class result extends Model
     public $content;
 
     /**
+     * @var int
+     */
+    public $size;
+
+    /**
      * @example 65535
      *
      * @var int
@@ -23,6 +28,7 @@ class result extends Model
     public $totalLines;
     protected $_name = [
         'content'    => 'content',
+        'size'       => 'size',
         'totalLines' => 'totalLines',
     ];
 
@@ -35,6 +41,9 @@ class result extends Model
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
+        }
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
         }
         if (null !== $this->totalLines) {
             $res['totalLines'] = $this->totalLines;
@@ -53,6 +62,9 @@ class result extends Model
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
+        }
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
         }
         if (isset($map['totalLines'])) {
             $model->totalLines = $map['totalLines'];
