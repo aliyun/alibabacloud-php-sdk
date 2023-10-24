@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaPlanRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaPlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaScheduleRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaScheduleResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRoleAclOnObjectRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRoleAclOnObjectResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRoleAclResponse;
@@ -718,6 +720,60 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->getQuotaPlanWithOptions($nickname, $planName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $nickname
+     * @param GetQuotaScheduleRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetQuotaScheduleResponse
+     */
+    public function getQuotaScheduleWithOptions($nickname, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->displayTimezone)) {
+            $query['displayTimezone'] = $request->displayTimezone;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQuotaSchedule',
+            'version'     => '2022-01-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/schedule',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQuotaScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $nickname
+     * @param GetQuotaScheduleRequest $request
+     *
+     * @return GetQuotaScheduleResponse
+     */
+    public function getQuotaSchedule($nickname, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getQuotaScheduleWithOptions($nickname, $request, $headers, $runtime);
     }
 
     /**

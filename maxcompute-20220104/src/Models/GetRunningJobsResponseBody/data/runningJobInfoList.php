@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class runningJobInfoList extends Model
 {
     /**
+     * @description The compute unit (CU) snapshot proportion of the job.
+     *
      * @example 0.45
      *
      * @var float
@@ -16,6 +18,8 @@ class runningJobInfoList extends Model
     public $cuSnapshot;
 
     /**
+     * @description The instance ID.
+     *
      * @example 2023050206371544gomgtp3ljcr4
      *
      * @var string
@@ -23,6 +27,8 @@ class runningJobInfoList extends Model
     public $instanceId;
 
     /**
+     * @description The account that submits the job.
+     *
      * @example ALIYUN$xxx@test.aliyunid.com
      *
      * @var string
@@ -30,6 +36,8 @@ class runningJobInfoList extends Model
     public $jobOwner;
 
     /**
+     * @description The memory snapshot proportion of the job.
+     *
      * @example 0.45
      *
      * @var float
@@ -37,6 +45,8 @@ class runningJobInfoList extends Model
     public $memorySnapshot;
 
     /**
+     * @description The progress of the job.
+     *
      * @example 0
      *
      * @var float
@@ -44,6 +54,8 @@ class runningJobInfoList extends Model
     public $progress;
 
     /**
+     * @description The name of the MaxCompute project.
+     *
      * @example project_20221021123044_981b
      *
      * @var string
@@ -51,6 +63,8 @@ class runningJobInfoList extends Model
     public $project;
 
     /**
+     * @description The nickname of the quota that is used by the job.
+     *
      * @example my_quota
      *
      * @var string
@@ -58,6 +72,8 @@ class runningJobInfoList extends Model
     public $quotaNickname;
 
     /**
+     * @description The time when the job starts to run.
+     *
      * @example 1689746864
      *
      * @var int
@@ -65,6 +81,8 @@ class runningJobInfoList extends Model
     public $runningAtTime;
 
     /**
+     * @description The time when the job is submitted.
+     *
      * @example 1689746864
      *
      * @var int

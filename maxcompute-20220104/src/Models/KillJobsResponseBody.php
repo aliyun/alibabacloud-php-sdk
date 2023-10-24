@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class KillJobsResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +18,8 @@ class KillJobsResponseBody extends Model
     public $data;
 
     /**
+     * @description Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class KillJobsResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0abb7ede16814560741256732e91b6
      *
      * @var string

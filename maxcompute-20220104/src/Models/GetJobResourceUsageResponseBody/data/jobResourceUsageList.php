@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobResourceUsageList extends Model
 {
     /**
+     * @description The total number of used compute units (CUs).
+     *
      * @example 1185100
      *
      * @var int
@@ -16,6 +18,8 @@ class jobResourceUsageList extends Model
     public $cuUsage;
 
     /**
+     * @description The start date of the query in the format of yyyy-MM-dd.
+     *
      * @example 2023-05-09
      *
      * @var string
@@ -23,6 +27,8 @@ class jobResourceUsageList extends Model
     public $date;
 
     /**
+     * @description The job executor.
+     *
      * @example ALIYUN$xxx@test.aliyunid.com
      *
      * @var string
@@ -30,6 +36,8 @@ class jobResourceUsageList extends Model
     public $jobOwner;
 
     /**
+     * @description The total memory usage.
+     *
      * @example 15169536
      *
      * @var int
@@ -37,6 +45,8 @@ class jobResourceUsageList extends Model
     public $memoryUsage;
 
     /**
+     * @description The quota nickname.
+     *
      * @example my_quota
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetJobResourceUsageShrinkRequest extends Model
 {
     /**
+     * @description The date that is accurate to the day part for the query. The date must be in the yyyy-MM-dd format.
+     *
      * @example 2023-05-15
      *
      * @var string
@@ -16,11 +18,15 @@ class GetJobResourceUsageShrinkRequest extends Model
     public $date;
 
     /**
+     * @description The list of job executors.
+     *
      * @var string
      */
     public $jobOwnerListShrink;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +34,8 @@ class GetJobResourceUsageShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +43,8 @@ class GetJobResourceUsageShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The list of nicknames of quotas that are used by jobs.
+     *
      * @var string
      */
     public $quotaNicknameListShrink;

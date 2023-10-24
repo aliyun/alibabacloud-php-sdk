@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class GetRunningJobsResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description *   If the value of success was false, an error code was returned.
+     *   If the value of success was true, a null value was returned.
+     *
      * @example success
      *
      * @var string
@@ -22,6 +27,8 @@ class GetRunningJobsResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example 0A3B1FD2006A24C8D8BE65CDAC028298
      *
      * @var string
@@ -29,6 +36,8 @@ class GetRunningJobsResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @description Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +45,8 @@ class GetRunningJobsResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc3b4ab16684833172127321e2c25
      *
      * @var string

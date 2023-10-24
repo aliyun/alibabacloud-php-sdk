@@ -6,21 +6,17 @@ namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class KillJobsRequest extends Model
+class GetQuotaScheduleRequest extends Model
 {
     /**
-     * @description The request body parameters.
-     *
-     * @example [
-     * ]
      * @var string
      */
-    public $body;
+    public $displayTimezone;
 
     /**
-     * @description The ID of the region in which the instance resides.
+     * @description The ID of the region.
      *
-     * @example cn-hangzhou
+     * @example cn-beijing
      *
      * @var string
      */
@@ -35,9 +31,9 @@ class KillJobsRequest extends Model
      */
     public $tenantId;
     protected $_name = [
-        'body'     => 'body',
-        'region'   => 'region',
-        'tenantId' => 'tenantId',
+        'displayTimezone' => 'displayTimezone',
+        'region'          => 'region',
+        'tenantId'        => 'tenantId',
     ];
 
     public function validate()
@@ -47,8 +43,8 @@ class KillJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->displayTimezone) {
+            $res['displayTimezone'] = $this->displayTimezone;
         }
         if (null !== $this->region) {
             $res['region'] = $this->region;
@@ -63,13 +59,13 @@ class KillJobsRequest extends Model
     /**
      * @param array $map
      *
-     * @return KillJobsRequest
+     * @return GetQuotaScheduleRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['displayTimezone'])) {
+            $model->displayTimezone = $map['displayTimezone'];
         }
         if (isset($map['region'])) {
             $model->region = $map['region'];

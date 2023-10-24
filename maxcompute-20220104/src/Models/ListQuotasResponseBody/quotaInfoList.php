@@ -45,11 +45,6 @@ class quotaInfoList extends Model
     public $creatorId;
 
     /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
      * @example 0
      *
      * @var string
@@ -144,7 +139,6 @@ class quotaInfoList extends Model
         'cluster'          => 'cluster',
         'createTime'       => 'createTime',
         'creatorId'        => 'creatorId',
-        'groupName'        => 'groupName',
         'id'               => 'id',
         'name'             => 'name',
         'nickName'         => 'nickName',
@@ -188,9 +182,6 @@ class quotaInfoList extends Model
         }
         if (null !== $this->creatorId) {
             $res['creatorId'] = $this->creatorId;
-        }
-        if (null !== $this->groupName) {
-            $res['groupName'] = $this->groupName;
         }
         if (null !== $this->id) {
             $res['id'] = $this->id;
@@ -272,9 +263,6 @@ class quotaInfoList extends Model
         }
         if (isset($map['creatorId'])) {
             $model->creatorId = $map['creatorId'];
-        }
-        if (isset($map['groupName'])) {
-            $model->groupName = $map['groupName'];
         }
         if (isset($map['id'])) {
             $model->id = $map['id'];

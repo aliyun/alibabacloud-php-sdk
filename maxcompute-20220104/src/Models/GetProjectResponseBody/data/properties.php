@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data;
 
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\encryption;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\storageTierInfo;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\tableLifecycle;
 use AlibabaCloud\Tea\Model;
 
@@ -18,15 +19,6 @@ class properties extends Model
      * @var bool
      */
     public $allowFullScan;
-
-    /**
-     * @description This operation does not return a value for this parameter.
-     *
-     * @example No value
-     *
-     * @var string
-     */
-    public $elderTunnelQuota;
 
     /**
      * @description Indicates whether the DECIMAL data type in MaxCompute V2.0 is enabled.
@@ -72,6 +64,13 @@ class properties extends Model
     public $sqlMeteringMax;
 
     /**
+     * @description The information about the tiered storage.
+     *
+     * @var storageTierInfo
+     */
+    public $storageTierInfo;
+
+    /**
      * @description The lifecycle of the table in the project.
      *
      * @var tableLifecycle
@@ -106,12 +105,12 @@ class properties extends Model
     public $typeSystem;
     protected $_name = [
         'allowFullScan'          => 'allowFullScan',
-        'elderTunnelQuota'       => 'elderTunnelQuota',
         'enableDecimal2'         => 'enableDecimal2',
         'enableTunnelQuotaRoute' => 'enableTunnelQuotaRoute',
         'encryption'             => 'encryption',
         'retentionDays'          => 'retentionDays',
         'sqlMeteringMax'         => 'sqlMeteringMax',
+        'storageTierInfo'        => 'storageTierInfo',
         'tableLifecycle'         => 'tableLifecycle',
         'timezone'               => 'timezone',
         'tunnelQuota'            => 'tunnelQuota',
@@ -128,9 +127,6 @@ class properties extends Model
         if (null !== $this->allowFullScan) {
             $res['allowFullScan'] = $this->allowFullScan;
         }
-        if (null !== $this->elderTunnelQuota) {
-            $res['elderTunnelQuota'] = $this->elderTunnelQuota;
-        }
         if (null !== $this->enableDecimal2) {
             $res['enableDecimal2'] = $this->enableDecimal2;
         }
@@ -145,6 +141,9 @@ class properties extends Model
         }
         if (null !== $this->sqlMeteringMax) {
             $res['sqlMeteringMax'] = $this->sqlMeteringMax;
+        }
+        if (null !== $this->storageTierInfo) {
+            $res['storageTierInfo'] = null !== $this->storageTierInfo ? $this->storageTierInfo->toMap() : null;
         }
         if (null !== $this->tableLifecycle) {
             $res['tableLifecycle'] = null !== $this->tableLifecycle ? $this->tableLifecycle->toMap() : null;
@@ -173,9 +172,6 @@ class properties extends Model
         if (isset($map['allowFullScan'])) {
             $model->allowFullScan = $map['allowFullScan'];
         }
-        if (isset($map['elderTunnelQuota'])) {
-            $model->elderTunnelQuota = $map['elderTunnelQuota'];
-        }
         if (isset($map['enableDecimal2'])) {
             $model->enableDecimal2 = $map['enableDecimal2'];
         }
@@ -190,6 +186,9 @@ class properties extends Model
         }
         if (isset($map['sqlMeteringMax'])) {
             $model->sqlMeteringMax = $map['sqlMeteringMax'];
+        }
+        if (isset($map['storageTierInfo'])) {
+            $model->storageTierInfo = storageTierInfo::fromMap($map['storageTierInfo']);
         }
         if (isset($map['tableLifecycle'])) {
             $model->tableLifecycle = tableLifecycle::fromMap($map['tableLifecycle']);

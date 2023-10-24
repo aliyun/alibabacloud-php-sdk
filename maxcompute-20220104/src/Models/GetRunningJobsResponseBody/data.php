@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 2
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,11 +28,15 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The list of jobs in the running state.
+     *
      * @var runningJobInfoList[]
      */
     public $runningJobInfoList;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 64
      *
      * @var int

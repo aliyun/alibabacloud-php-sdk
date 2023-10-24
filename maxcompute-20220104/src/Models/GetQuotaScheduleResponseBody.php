@@ -4,49 +4,37 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetJobResourceUsageResponseBody\data;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaScheduleResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetJobResourceUsageResponseBody extends Model
+class GetQuotaScheduleResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
-     * @var data
+     * @var data[]
      */
     public $data;
 
     /**
-     * @description The error code returned if the request failed.
-     *
-     * @example success
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
-     * @example 0A3B1E82006A23A918C70905BF08AEC7
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpCode;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
-     * @example 0b57ff7616612271051086500ea3ce
+     * @example 0bc059b716696296266308790e0d3e
      *
      * @var string
      */
@@ -67,7 +55,13 @@ class GetJobResourceUsageResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
@@ -88,13 +82,19 @@ class GetJobResourceUsageResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetJobResourceUsageResponseBody
+     * @return GetQuotaScheduleResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
+            if (!empty($map['data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
