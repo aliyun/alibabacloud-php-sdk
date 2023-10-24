@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class transitRouterFlowTopN extends Model
 {
     /**
+     * @description The account ID.
+     *
      * @example 118639953821xxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class transitRouterFlowTopN extends Model
     public $accountId;
 
     /**
+     * @description The ID of the CEN bandwidth plan.
+     *
      * @example cenbwp-ia8kw1zjv4hyal****
      *
      * @var string
@@ -23,6 +27,8 @@ class transitRouterFlowTopN extends Model
     public $bandwithPackageId;
 
     /**
+     * @description The total volume of traffic in the specified time range.
+     *
      * @example 188
      *
      * @var float
@@ -30,6 +36,8 @@ class transitRouterFlowTopN extends Model
     public $bytes;
 
     /**
+     * @description The CEN instance ID.
+     *
      * @example cen-ia8kw1zjv4hyal****
      *
      * @var string
@@ -37,6 +45,8 @@ class transitRouterFlowTopN extends Model
     public $cenId;
 
     /**
+     * @description The end of the time range that you queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-01-31T06:40:00Z
      *
      * @var string
@@ -44,6 +54,8 @@ class transitRouterFlowTopN extends Model
     public $endTime;
 
     /**
+     * @description The remote IP address.
+     *
      * @example 47.216.XX.XX
      *
      * @var string
@@ -51,6 +63,8 @@ class transitRouterFlowTopN extends Model
     public $otherIp;
 
     /**
+     * @description The remote port.
+     *
      * @example 53470
      *
      * @var string
@@ -58,6 +72,8 @@ class transitRouterFlowTopN extends Model
     public $otherPort;
 
     /**
+     * @description The remote region where the remote IP address resides.
+     *
      * @example ap-southeast-2
      *
      * @var string
@@ -65,6 +81,8 @@ class transitRouterFlowTopN extends Model
     public $otherRegion;
 
     /**
+     * @description The total number of packets in the specified time range.
+     *
      * @example 88
      *
      * @var float
@@ -72,6 +90,8 @@ class transitRouterFlowTopN extends Model
     public $packets;
 
     /**
+     * @description The protocol number.
+     *
      * @example 6
      *
      * @var string
@@ -79,6 +99,8 @@ class transitRouterFlowTopN extends Model
     public $protocol;
 
     /**
+     * @description The beginning of the time range that you queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-01-31T05:40:00Z
      *
      * @var string
@@ -86,6 +108,8 @@ class transitRouterFlowTopN extends Model
     public $startTime;
 
     /**
+     * @description The local IP address.
+     *
      * @example 1.8.XX.XX
      *
      * @var string
@@ -93,6 +117,8 @@ class transitRouterFlowTopN extends Model
     public $thisIp;
 
     /**
+     * @description The local port.
+     *
      * @example 80
      *
      * @var string
@@ -100,6 +126,8 @@ class transitRouterFlowTopN extends Model
     public $thisPort;
 
     /**
+     * @description The local region where the local IP address resides.
+     *
      * @example cn-shanghai
      *
      * @var string

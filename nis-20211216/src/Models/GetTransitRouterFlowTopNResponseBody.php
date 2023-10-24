@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTransitRouterFlowTopNResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D5E98683-355B-5867-8D3D-A24755F6895B
      *
      * @var string
@@ -17,6 +19,8 @@ class GetTransitRouterFlowTopNResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ranking result of inter-region traffic data.
+     *
      * @var transitRouterFlowTopN[]
      */
     public $transitRouterFlowTopN;

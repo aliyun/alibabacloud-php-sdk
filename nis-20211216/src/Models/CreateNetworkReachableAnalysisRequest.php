@@ -28,6 +28,8 @@ class CreateNetworkReachableAnalysisRequest extends Model
     public $regionId;
 
     /**
+     * @description The tags to add to the resource.
+     *
      * @var tag[]
      */
     public $tag;

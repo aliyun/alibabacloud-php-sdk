@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTransitRouterFlowTopNRequest extends Model
 {
     /**
+     * @description The IDs of member accounts.
+     *
      * @var string[]
      */
     public $accountIds;
 
     /**
+     * @description The ID of the CEN bandwidth plan.
+     *
      * @example cenbwp-ia8kw1zjv4hyal*****
      *
      * @var string
@@ -21,6 +25,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $bandwithPackageId;
 
     /**
+     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. The maximum time range that you can query is 24 hours.
+     *
      * @example 1684373600099
      *
      * @var int
@@ -28,6 +34,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $beginTime;
 
     /**
+     * @description The CEN instance ID.
+     *
      * @example cen-ia8kw1zjv4hyal****
      *
      * @var string
@@ -35,6 +43,11 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $cenId;
 
     /**
+     * @description The direction of the inter-region traffic in the local regions or for the local IP addresses. Valid values:
+     *
+     *   in: inbound traffic
+     *   out: outbound traffic
+     *
      * @example in
      *
      * @var string
@@ -42,6 +55,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $direction;
 
     /**
+     * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. The maximum time range that you can query is 24 hours.
+     *
      * @example 1638239093000
      *
      * @var int
@@ -49,6 +64,16 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $endTime;
 
     /**
+     * @description The dimension for ranking inter-region traffic data. The value of this parameter is case-sensitive. Valid values:
+     *
+     *   1Tuple: queries the rankings of inter-region traffic data for the local regions, Cloud Enterprise Network (CEN) instances, and IP addresses.
+     *   2Tuple: queries the rankings of inter-region traffic data for the local and remote regions, and the local and remote IP addresses.
+     *   5Tuple: queries the rankings of inter-region traffic data for the local and remote IP addresses, local and remote ports, and protocols in use.
+     *   Cen: queries the rankings of inter-region traffic data for CEN instances.
+     *   RegionPair: queries the rankings of inter-region traffic data for the local and remote regions.
+     *   Port: queries the rankings of inter-region traffic data for the local and remote ports.
+     *   Protocol: queries the rankings of inter-region traffic data for the protocols in use.
+     *
      * @example 1Tuple
      *
      * @var string
@@ -56,6 +81,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $groupBy;
 
     /**
+     * @description The metric for ranking inter-region traffic data. Default value: Bytes. This value specifies that inter-region traffic data is ranked by traffic volume.
+     *
      * @example Bytes
      *
      * @var string
@@ -63,6 +90,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $orderBy;
 
     /**
+     * @description The remote IP address.
+     *
      * @example 122.112.XX.XX
      *
      * @var string
@@ -70,6 +99,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $otherIp;
 
     /**
+     * @description The remote port.
+     *
      * @example 10869
      *
      * @var string
@@ -77,6 +108,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $otherPort;
 
     /**
+     * @description The remote region.
+     *
      * @example ap-southeast-1
      *
      * @var string
@@ -84,6 +117,9 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $otherRegion;
 
     /**
+     * @description The protocol number.
+     *
+     * >  All protocols are supported. This parameter is required only if you set GroupBy to 5Tuple or Protocol.
      * @example 6
      *
      * @var string
@@ -91,6 +127,11 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $protocol;
 
     /**
+     * @description The order for ranking inter-region traffic data. Valid values:
+     *
+     *   desc: descending order
+     *   asc: ascending order
+     *
      * @example desc
      *
      * @var string
@@ -98,6 +139,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $sort;
 
     /**
+     * @description The local IP address.
+     *
      * @example 1.8.XX.XX
      *
      * @var string
@@ -105,6 +148,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $thisIp;
 
     /**
+     * @description The local port.
+     *
      * @example 80
      *
      * @var string
@@ -112,6 +157,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $thisPort;
 
     /**
+     * @description The local region where the **local IP address** resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -119,6 +166,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $thisRegion;
 
     /**
+     * @description Specifies the maximum number of data entries to display. Default value: **10**. Maximum value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -126,6 +175,9 @@ class GetTransitRouterFlowTopNRequest extends Model
     public $topN;
 
     /**
+     * @description Specifies whether to enable the multi-account management feature. Default value: **false**. This value specifies that the multi-account management feature is disabled.
+     *
+     * >  By default, the multi-account management feature is not available. If you want to use this feature, contact your account manager to apply for permissions.
      * @example false
      *
      * @var bool

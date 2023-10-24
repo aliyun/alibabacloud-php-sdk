@@ -92,6 +92,8 @@ class CreateNetworkPathRequest extends Model
     public $sourceType;
 
     /**
+     * @description The tags to add to the resource.
+     *
      * @var tag[]
      */
     public $tag;

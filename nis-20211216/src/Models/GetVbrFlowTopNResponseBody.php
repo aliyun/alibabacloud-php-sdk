@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetVbrFlowTopNResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A7F0D6EC-E19E-58AC-AC9F-08036763960F
      *
      * @var string
@@ -17,6 +19,8 @@ class GetVbrFlowTopNResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ranking result of hybrid cloud traffic data.
+     *
      * @var virtualBorderRouterFlowlogTopN[]
      */
     public $virtualBorderRouterFlowlogTopN;

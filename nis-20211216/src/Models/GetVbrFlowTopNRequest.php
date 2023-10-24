@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetVbrFlowTopNRequest extends Model
 {
     /**
+     * @description The IDs of member accounts.
+     *
      * @var string[]
      */
     public $accountIds;
 
     /**
+     * @description The CEN connection ID.
+     *
      * @example tr-attach-dnv870gmqzmb5u****
      *
      * @var string
@@ -21,6 +25,8 @@ class GetVbrFlowTopNRequest extends Model
     public $attachmentId;
 
     /**
+     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. The maximum time range that you can query is 24 hours.
+     *
      * @example 1638239092000
      *
      * @var int
@@ -28,6 +34,8 @@ class GetVbrFlowTopNRequest extends Model
     public $beginTime;
 
     /**
+     * @description The CEN instance ID.
+     *
      * @example cen-ia8kw1zjv4hyal****
      *
      * @var string
@@ -35,6 +43,8 @@ class GetVbrFlowTopNRequest extends Model
     public $cenId;
 
     /**
+     * @description The local IP address.
+     *
      * @example 112.74.XX.XX
      *
      * @var string
@@ -42,6 +52,9 @@ class GetVbrFlowTopNRequest extends Model
     public $cloudIp;
 
     /**
+     * @description The local port.
+     *
+     * >  This parameter is required only if you set GroupBy to CloudPort.
      * @example 443
      *
      * @var string
@@ -49,6 +62,11 @@ class GetVbrFlowTopNRequest extends Model
     public $cloudPort;
 
     /**
+     * @description The direction of the hybrid cloud traffic in the local regions or for the local IP addresses. Valid values:
+     *
+     *   in: traffic from a data center to Alibaba Cloud
+     *   out: traffic from Alibaba Cloud to a data center
+     *
      * @example in
      *
      * @var string
@@ -56,6 +74,8 @@ class GetVbrFlowTopNRequest extends Model
     public $direction;
 
     /**
+     * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. The maximum time range that you can query is 24 hours.
+     *
      * @example 1638239093000
      *
      * @var int
@@ -63,6 +83,15 @@ class GetVbrFlowTopNRequest extends Model
     public $endTime;
 
     /**
+     * @description The dimension for ranking hybrid cloud traffic data. The value of this parameter is case-sensitive. Valid values:
+     *
+     *   1Tuple: queries the rankings of hybrid cloud traffic data for the Cloud Enterprise Network (CEN) instances, CEN connections, virtual border routers (VBRs), and IP addresses.
+     *   2Tuple: queries the rankings of hybrid cloud traffic data for the local and remote IP addresses.
+     *   5Tuple: queries the rankings of hybrid cloud traffic data for the local and remote IP addresses, local and remote ports, and protocols.
+     *   CloudPort: queries the rankings of hybrid cloud traffic data for the local ports.
+     *   OtherPort: queries the rankings of hybrid cloud traffic data for the remote ports.
+     *   Protocol: queries the rankings of hybrid cloud traffic data for the protocols.
+     *
      * @example 1Tuple
      *
      * @var string
@@ -70,6 +99,8 @@ class GetVbrFlowTopNRequest extends Model
     public $groupBy;
 
     /**
+     * @description The metric for ranking hybrid cloud traffic data. Default value: Bytes. This value specifies that hybrid cloud traffic data is ranked by traffic volumes.
+     *
      * @example Bytes
      *
      * @var string
@@ -77,6 +108,8 @@ class GetVbrFlowTopNRequest extends Model
     public $orderBy;
 
     /**
+     * @description The remote IP address.
+     *
      * @example 122.112.XX.XX
      *
      * @var string
@@ -84,6 +117,9 @@ class GetVbrFlowTopNRequest extends Model
     public $otherIp;
 
     /**
+     * @description The remote port.
+     *
+     * >  This parameter is required only if you set GroupBy to OtherPort.
      * @example 40002
      *
      * @var string
@@ -91,6 +127,9 @@ class GetVbrFlowTopNRequest extends Model
     public $otherPort;
 
     /**
+     * @description The protocol number.
+     *
+     * >  All protocols are supported. This parameter is required only if you set GroupBy to 5Tuple or Protocol.
      * @example 6
      *
      * @var string
@@ -98,6 +137,8 @@ class GetVbrFlowTopNRequest extends Model
     public $protocol;
 
     /**
+     * @description The local region.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -105,6 +146,11 @@ class GetVbrFlowTopNRequest extends Model
     public $regionId;
 
     /**
+     * @description The order for ranking hybrid cloud traffic data. Valid values:
+     *
+     *   desc: descending order
+     *   asc: ascending order
+     *
      * @example desc
      *
      * @var string
@@ -112,6 +158,8 @@ class GetVbrFlowTopNRequest extends Model
     public $sort;
 
     /**
+     * @description Specifies top-N traffic data to display. Default value: **10**. This value specifies that top-10 traffic data is displayed by default. Maximum value: **100**.
+     *
      * @example 10
      *
      * @var int
@@ -119,6 +167,9 @@ class GetVbrFlowTopNRequest extends Model
     public $topN;
 
     /**
+     * @description Specifies whether to enable the multi-account management feature. Default value: **false**. This value specifies that the multi-account management feature is disabled.
+     *
+     * >  By default, the multi-account management feature is not available. If you want to use this feature, contact your account manager to apply for permissions.
      * @example false
      *
      * @var bool
@@ -126,6 +177,8 @@ class GetVbrFlowTopNRequest extends Model
     public $useMultiAccount;
 
     /**
+     * @description The ID of the VBR that is associated with the Express Connect circuit.
+     *
      * @example vbr-k1atj46citwuek42j****
      *
      * @var string

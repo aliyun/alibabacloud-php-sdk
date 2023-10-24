@@ -46,7 +46,7 @@ class GetInternetTupleShrinkRequest extends Model
     /**
      * @description The local port.
      *
-     * > This parameter is required only when you set **TupleType** to **5**.
+     * >  This parameter is required only if you set the **TupleType** parameter to **5**.
      * @example 443
      *
      * @var string
@@ -56,8 +56,9 @@ class GetInternetTupleShrinkRequest extends Model
     /**
      * @description The direction of the Internet traffic that you want to query. Valid values:
      *
-     * - **in**: inbound
-     * - **out**: outbound
+     *   **in**: inbound
+     *   **out**: outbound
+     *
      * @example in
      *
      * @var string
@@ -90,7 +91,7 @@ class GetInternetTupleShrinkRequest extends Model
     public $instanceListShrink;
 
     /**
-     * @description The metric for instance ranking. Default value: **ByteCount**. This value specifies that instances are ranked by traffic volume.
+     * @description The metric for data ranking. Default value: **ByteCount**. This value specifies that data is ranked by traffic volume.
      *
      * @example ByteCount
      *
@@ -170,8 +171,9 @@ class GetInternetTupleShrinkRequest extends Model
     /**
      * @description The order in which instances are ranked by Internet traffic. Valid values:
      *
-     * - **desc**: the descending order
-     * - **asc**: the ascending order
+     *   **desc**: the descending order
+     *   **asc**: the ascending order
+     *
      * @example desc
      *
      * @var string
@@ -190,9 +192,10 @@ class GetInternetTupleShrinkRequest extends Model
     /**
      * @description The type of the tuple. Valid values:
      *
-     * - **1**: 1-tuple
-     * - **2**: 2-tuples
-     * - **5**: 5-tuples
+     *   **1**: 1-tuple
+     *   **2**: 2-tuple
+     *   **5**: 5-tuple
+     *
      * @example 1
      *
      * @var int
@@ -202,7 +205,7 @@ class GetInternetTupleShrinkRequest extends Model
     /**
      * @description Specifies whether to enable the multi-account management feature. Default value: **false**. This value specifies that the multi-account management feature is disabled.
      *
-     * > By default, the multi-account management feature is disabled. If you want to enable this feature, contact your customer business manager.
+     * >  By default, the multi-account management feature is not available. If you want to use this feature, contact your customer business manager to apply for permissions.
      * @example false
      *
      * @var bool

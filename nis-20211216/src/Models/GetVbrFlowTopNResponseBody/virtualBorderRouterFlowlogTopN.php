@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class virtualBorderRouterFlowlogTopN extends Model
 {
     /**
+     * @description The account ID.
+     *
      * @example 156237031628****
      *
      * @var string
@@ -16,6 +18,8 @@ class virtualBorderRouterFlowlogTopN extends Model
     public $accountId;
 
     /**
+     * @description The CEN connection ID.
+     *
      * @example tr-attach-u6v1j3jre0fe9h****
      *
      * @var string
@@ -23,6 +27,8 @@ class virtualBorderRouterFlowlogTopN extends Model
     public $attachmentId;
 
     /**
+     * @description The total volume of traffic in the specified time range.
+     *
      * @example 108
      *
      * @var float
@@ -30,6 +36,8 @@ class virtualBorderRouterFlowlogTopN extends Model
     public $bytes;
 
     /**
+     * @description The local IP address.
+     *
      * @example 120.24.X.X
      *
      * @var string
@@ -37,6 +45,8 @@ class virtualBorderRouterFlowlogTopN extends Model
     public $cloudIp;
 
     /**
+     * @description The local port.
+     *
      * @example 80
      *
      * @var string
@@ -44,6 +54,8 @@ class virtualBorderRouterFlowlogTopN extends Model
     public $cloudPort;
 
     /**
+     * @description The local region where the local IP address resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -51,6 +63,8 @@ class virtualBorderRouterFlowlogTopN extends Model
     public $cloudRegion;
 
     /**
+     * @description The remote IP address.
+     *
      * @example 222.85.X.X
      *
      * @var string
@@ -58,6 +72,8 @@ class virtualBorderRouterFlowlogTopN extends Model
     public $otherIp;
 
     /**
+     * @description The remote port.
+     *
      * @example 10965
      *
      * @var string
@@ -65,6 +81,8 @@ class virtualBorderRouterFlowlogTopN extends Model
     public $otherPort;
 
     /**
+     * @description The total number of packets in the specified time range.
+     *
      * @example 66
      *
      * @var float
@@ -72,6 +90,8 @@ class virtualBorderRouterFlowlogTopN extends Model
     public $packets;
 
     /**
+     * @description The protocol number.
+     *
      * @example 6
      *
      * @var string
@@ -79,6 +99,8 @@ class virtualBorderRouterFlowlogTopN extends Model
     public $protocol;
 
     /**
+     * @description The ID of the VBR that is associated with the Express Connect circuit.
+     *
      * @example vbr-k1atj46citwuek42j****
      *
      * @var string
