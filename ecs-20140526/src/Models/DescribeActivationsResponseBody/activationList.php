@@ -91,6 +91,11 @@ class activationList extends Model
     public $registeredCount;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The tags of the activation code.
      *
      * @var tags[]
@@ -115,6 +120,7 @@ class activationList extends Model
         'instanceName'      => 'InstanceName',
         'ipAddressRange'    => 'IpAddressRange',
         'registeredCount'   => 'RegisteredCount',
+        'resourceGroupId'   => 'ResourceGroupId',
         'tags'              => 'Tags',
         'timeToLiveInHours' => 'TimeToLiveInHours',
     ];
@@ -152,6 +158,9 @@ class activationList extends Model
         }
         if (null !== $this->registeredCount) {
             $res['RegisteredCount'] = $this->registeredCount;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -203,6 +212,9 @@ class activationList extends Model
         }
         if (isset($map['RegisteredCount'])) {
             $model->registeredCount = $map['RegisteredCount'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

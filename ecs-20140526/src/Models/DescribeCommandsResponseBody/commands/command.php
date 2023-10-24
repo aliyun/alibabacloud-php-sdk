@@ -116,6 +116,11 @@ class command extends Model
     public $provider;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The tags of the command.
      *
      * @var tags
@@ -170,6 +175,7 @@ class command extends Model
         'parameterDefinitions' => 'ParameterDefinitions',
         'parameterNames'       => 'ParameterNames',
         'provider'             => 'Provider',
+        'resourceGroupId'      => 'ResourceGroupId',
         'tags'                 => 'Tags',
         'timeout'              => 'Timeout',
         'type'                 => 'Type',
@@ -219,6 +225,9 @@ class command extends Model
         }
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -282,6 +291,9 @@ class command extends Model
         }
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
