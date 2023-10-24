@@ -30,7 +30,7 @@ class propertys extends Model
      *
      *   System service
      *   Software library
-     *   Docker component
+     *   Container component
      *   Database
      *   Web container
      *   JAR package
@@ -70,7 +70,7 @@ class propertys extends Model
     public $containerName;
 
     /**
-     * @description The timestamp of the latest collection , which indicates the last timestamp generated when Security Center collected the information about the middleware, database, or web service. Unit: milliseconds.
+     * @description The latest collection timestamp, which indicates the last timestamp when Security Center collected the information about the middleware, database, or web service. Unit: milliseconds.
      *
      * @example 1597987834000
      *
@@ -142,7 +142,7 @@ class propertys extends Model
     public $listenIp;
 
     /**
-     * @description The listener protocol. Valid values:
+     * @description The protocol of the traffic on which the process listens. Valid values:
      *
      *   **UDP**
      *   **TCP**
@@ -156,8 +156,8 @@ class propertys extends Model
     /**
      * @description The listening status of the process. Valid values:
      *
-     *   **NONE**: The process is not listened.
-     *   **LISTEN**: The process is listened.
+     *   **NONE**: not listening
+     *   **LISTEN**: listening
      *
      * @example NONE
      *
@@ -184,13 +184,22 @@ class propertys extends Model
     public $path;
 
     /**
-     * @description The process ID.
+     * @description The PID.
      *
      * @example 756
      *
      * @var string
      */
     public $pid;
+
+    /**
+     * @description The name of the Kubernetes pod.
+     *
+     * @example myapp-pod
+     *
+     * @var string
+     */
+    public $podName;
 
     /**
      * @description The port of the middleware, database, or web service.
@@ -211,7 +220,7 @@ class propertys extends Model
     public $ppid;
 
     /**
-     * @description The timestamp generated when the process starts. Unit: milliseconds.
+     * @description The timestamp when the process starts. Unit: milliseconds.
      *
      * @example 1596539788
      *
@@ -240,7 +249,7 @@ class propertys extends Model
     /**
      * @description The version of the runtime environment.
      *
-     * > The value of this parameter can be the Java Development Kit (JDK) version of the runtime environment for a Java process.
+     * >  The value of this parameter can be the Java Development Kit (JDK) version of the runtime environment for a Java process.
      * @example 1.8.0_144
      *
      * @var string
@@ -301,6 +310,7 @@ class propertys extends Model
         'name'              => 'Name',
         'path'              => 'Path',
         'pid'               => 'Pid',
+        'podName'           => 'PodName',
         'port'              => 'Port',
         'ppid'              => 'Ppid',
         'processStarted'    => 'ProcessStarted',
@@ -373,6 +383,9 @@ class propertys extends Model
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
+        }
+        if (null !== $this->podName) {
+            $res['PodName'] = $this->podName;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -469,6 +482,9 @@ class propertys extends Model
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
+        }
+        if (isset($map['PodName'])) {
+            $model->podName = $map['PodName'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];

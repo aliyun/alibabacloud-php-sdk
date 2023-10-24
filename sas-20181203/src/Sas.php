@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\AddCheckResultWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddCheckResultWhiteListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddClientUserDefineRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddClientUserDefineRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddImageEventOperationRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddImageEventOperationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddImageVulWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddImageVulWhiteListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddInstallCodeRequest;
@@ -148,6 +150,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHoneypotProbeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHoneypotProbeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteHoneypotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteImageEventOperationRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteImageEventOperationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteImageVulWhitelistRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteImageVulWhitelistResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteInstallCodeRequest;
@@ -350,6 +354,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageCriteriaResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageEventOperationConditionRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageEventOperationConditionResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageEventOperationPageRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageEventOperationPageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageFixCycleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageFixTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageFixTaskResponse;
@@ -675,6 +683,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterSuspEventStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterSuspEventStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCommonSwitchConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCommonSwitchConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetContainerDefenseRuleDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetContainerDefenseRuleDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectApiInvokeInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultResponse;
@@ -698,6 +708,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotProbeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotProbeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetImageEventOperationRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetImageEventOperationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetImageScanNumInPeriodRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetImageScanNumInPeriodResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionRuleDetailRequest;
@@ -729,6 +741,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetPropertyScheduleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetRulesCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSecurityScoreRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSecurityScoreRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetSensitiveDefineRuleConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetSensitiveDefineRuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetServiceTrailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetServiceTrailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetStrategyTemplateDetailRequest;
@@ -805,6 +819,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterCnnfStatusDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterCnnfStatusDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterInterceptionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterInterceptionConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListContainerDefenseRuleRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListContainerDefenseRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCriteriaStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCriteriaStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectEventRequest;
@@ -1059,8 +1075,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\SaveSuspEventUserSettingRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SaveSuspEventUserSettingResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetClusterInterceptionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetClusterInterceptionConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageSensitiveFileStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageSensitiveFileStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetRegistryScanDayNumRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetRegistryScanDayNumResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetSensitiveDefineRuleConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetSensitiveDefineRuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartDiscoverDatabaseTaskResponse;
@@ -1104,6 +1124,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateHoneypotProbeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateHoneypotProbeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateHoneypotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateImageEventOperationRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateImageEventOperationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateImageVulWhitelistTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateImageVulWhitelistTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryNameRequest;
@@ -1422,6 +1444,64 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addClientUserDefineRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddImageEventOperationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddImageEventOperationResponse
+     */
+    public function addImageEventOperationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->conditions)) {
+            $query['Conditions'] = $request->conditions;
+        }
+        if (!Utils::isUnset($request->eventKey)) {
+            $query['EventKey'] = $request->eventKey;
+        }
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->operationCode)) {
+            $query['OperationCode'] = $request->operationCode;
+        }
+        if (!Utils::isUnset($request->scenarios)) {
+            $query['Scenarios'] = $request->scenarios;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddImageEventOperation',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddImageEventOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddImageEventOperationRequest $request
+     *
+     * @return AddImageEventOperationResponse
+     */
+    public function addImageEventOperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addImageEventOperationWithOptions($request, $runtime);
     }
 
     /**
@@ -4911,6 +4991,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteHoneypotProbeBindWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteImageEventOperationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteImageEventOperationResponse
+     */
+    public function deleteImageEventOperationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteImageEventOperation',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteImageEventOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteImageEventOperationRequest $request
+     *
+     * @return DeleteImageEventOperationResponse
+     */
+    public function deleteImageEventOperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteImageEventOperationWithOptions($request, $runtime);
     }
 
     /**
@@ -10320,6 +10443,113 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeImageCriteriaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeImageEventOperationConditionRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeImageEventOperationConditionResponse
+     */
+    public function describeImageEventOperationConditionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageEventOperationCondition',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageEventOperationConditionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageEventOperationConditionRequest $request
+     *
+     * @return DescribeImageEventOperationConditionResponse
+     */
+    public function describeImageEventOperationCondition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageEventOperationConditionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeImageEventOperationPageRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeImageEventOperationPageResponse
+     */
+    public function describeImageEventOperationPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->eventKey)) {
+            $query['EventKey'] = $request->eventKey;
+        }
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageEventOperationPage',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageEventOperationPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageEventOperationPageRequest $request
+     *
+     * @return DescribeImageEventOperationPageResponse
+     */
+    public function describeImageEventOperationPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageEventOperationPageWithOptions($request, $runtime);
     }
 
     /**
@@ -19371,6 +19601,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param GetContainerDefenseRuleDetailRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetContainerDefenseRuleDetailResponse
+     */
+    public function getContainerDefenseRuleDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetContainerDefenseRuleDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetContainerDefenseRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetContainerDefenseRuleDetailRequest $request
+     *
+     * @return GetContainerDefenseRuleDetailResponse
+     */
+    public function getContainerDefenseRuleDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContainerDefenseRuleDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return GetFileDetectApiInvokeInfoResponse
@@ -19949,6 +20222,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getHoneypotStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetImageEventOperationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetImageEventOperationResponse
+     */
+    public function getImageEventOperationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageEventOperation',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetImageEventOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetImageEventOperationRequest $request
+     *
+     * @return GetImageEventOperationResponse
+     */
+    public function getImageEventOperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageEventOperationWithOptions($request, $runtime);
     }
 
     /**
@@ -20698,6 +21017,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSecurityScoreRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSensitiveDefineRuleConfigRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetSensitiveDefineRuleConfigResponse
+     */
+    public function getSensitiveDefineRuleConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSensitiveDefineRuleConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSensitiveDefineRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSensitiveDefineRuleConfigRequest $request
+     *
+     * @return GetSensitiveDefineRuleConfigResponse
+     */
+    public function getSensitiveDefineRuleConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSensitiveDefineRuleConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -22790,6 +23152,64 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listClusterInterceptionConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListContainerDefenseRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListContainerDefenseRuleResponse
+     */
+    public function listContainerDefenseRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->conditions)) {
+            $query['Conditions'] = $request->conditions;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->isDefaultRule)) {
+            $query['IsDefaultRule'] = $request->isDefaultRule;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListContainerDefenseRule',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListContainerDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListContainerDefenseRuleRequest $request
+     *
+     * @return ListContainerDefenseRuleResponse
+     */
+    public function listContainerDefenseRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContainerDefenseRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -29440,6 +29860,55 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param SetImageSensitiveFileStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetImageSensitiveFileStatusResponse
+     */
+    public function setImageSensitiveFileStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageUuids)) {
+            $query['ImageUuids'] = $request->imageUuids;
+        }
+        if (!Utils::isUnset($request->sensitiveFileKey)) {
+            $query['SensitiveFileKey'] = $request->sensitiveFileKey;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetImageSensitiveFileStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetImageSensitiveFileStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetImageSensitiveFileStatusRequest $request
+     *
+     * @return SetImageSensitiveFileStatusResponse
+     */
+    public function setImageSensitiveFileStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setImageSensitiveFileStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetRegistryScanDayNumRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -29480,6 +29949,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setRegistryScanDayNumWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetSensitiveDefineRuleConfigRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SetSensitiveDefineRuleConfigResponse
+     */
+    public function setSensitiveDefineRuleConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetSensitiveDefineRuleConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetSensitiveDefineRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetSensitiveDefineRuleConfigRequest $request
+     *
+     * @return SetSensitiveDefineRuleConfigResponse
+     */
+    public function setSensitiveDefineRuleConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSensitiveDefineRuleConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -30583,6 +31095,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateHoneypotProbeBindWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateImageEventOperationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateImageEventOperationResponse
+     */
+    public function updateImageEventOperationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->scenarios)) {
+            $query['Scenarios'] = $request->scenarios;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateImageEventOperation',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateImageEventOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateImageEventOperationRequest $request
+     *
+     * @return UpdateImageEventOperationResponse
+     */
+    public function updateImageEventOperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateImageEventOperationWithOptions($request, $runtime);
     }
 
     /**

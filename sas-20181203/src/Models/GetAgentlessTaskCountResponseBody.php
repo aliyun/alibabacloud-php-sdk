@@ -81,7 +81,7 @@ class GetAgentlessTaskCountResponseBody extends Model
     public $scanMachine;
 
     /**
-     * @description The number of windows system vulnerabilities.
+     * @description The total number of Windows system vulnerabilities.
      *
      * @example 1
      *

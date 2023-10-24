@@ -11,7 +11,7 @@ class UpdateHoneypotRequest extends Model
     /**
      * @description The ID of the honeypot.
      *
-     * > You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
+     * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
      * @example 945607c2ae2a1a737c04599d6608065688bfc6048d9b9d306ce8dc8191c278b4
      *
      * @var string

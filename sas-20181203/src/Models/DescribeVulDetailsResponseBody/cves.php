@@ -66,6 +66,11 @@ class cves extends Model
     public $cveId;
 
     /**
+     * @var string
+     */
+    public $cveLink;
+
+    /**
      * @description The Common Vulnerability Scoring System (CVSS) score of the vulnerability in the Alibaba Cloud vulnerability library.
      *
      * @example 10.0
@@ -250,6 +255,7 @@ class cves extends Model
         'complexity'        => 'Complexity',
         'content'           => 'Content',
         'cveId'             => 'CveId',
+        'cveLink'           => 'CveLink',
         'cvssScore'         => 'CvssScore',
         'cvssVector'        => 'CvssVector',
         'instanceName'      => 'InstanceName',
@@ -301,6 +307,9 @@ class cves extends Model
         }
         if (null !== $this->cveId) {
             $res['CveId'] = $this->cveId;
+        }
+        if (null !== $this->cveLink) {
+            $res['CveLink'] = $this->cveLink;
         }
         if (null !== $this->cvssScore) {
             $res['CvssScore'] = $this->cvssScore;
@@ -394,6 +403,9 @@ class cves extends Model
         }
         if (isset($map['CveId'])) {
             $model->cveId = $map['CveId'];
+        }
+        if (isset($map['CveLink'])) {
+            $model->cveLink = $map['CveLink'];
         }
         if (isset($map['CvssScore'])) {
             $model->cvssScore = $map['CvssScore'];
