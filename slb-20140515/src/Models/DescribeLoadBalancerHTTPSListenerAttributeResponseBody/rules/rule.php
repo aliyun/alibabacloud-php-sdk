@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
+     * @description The endpoint.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The ID of the forwarding rule.
+     *
+     * @example 23
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The name of the forwarding rule.
+     *
+     * @example example
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The request path.
+     *
+     * @example /example
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @description The ID of the server group that is associated with the forwarding rule.
+     *
+     * @example 12
+     *
      * @var string
      */
     public $VServerGroupId;

@@ -9,136 +9,284 @@ use AlibabaCloud\Tea\Model;
 class HTTPListenerConfig extends Model
 {
     /**
+     * @description The cookie that is configured on the server.
+     *
+     * @example B490B5EBF6F3CD402E515D22BCDA****
+     *
      * @var string
      */
     public $cookie;
 
     /**
+     * @description The timeout period of a cookie. Unit: seconds.
+     *
+     * Valid values: **1** to **86400**.
+     * @example 500
+     *
      * @var int
      */
     public $cookieTimeout;
 
     /**
+     * @description The listening port that is used to redirect HTTP requests to HTTPS.
+     *
+     * >  If the **ListenerForward** parameter is set to **off**, this parameter is not displayed.
+     * @example 80
+     *
      * @var int
      */
     public $forwardPort;
 
     /**
+     * @description Indicates whether Gzip compression is enabled. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $gzip;
 
     /**
+     * @description Indicates whether the health check feature is enabled. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $healthCheck;
 
     /**
+     * @description The port that is used for health checks.
+     *
+     * >  This parameter takes effect when the **HealthCheck** parameter is set to **on**.
+     * @example 8080
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @description The domain name that is used for health checks.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $healthCheckDomain;
 
     /**
+     * @description The HTTP status codes that are used to determine whether the backend server passes the health check.
+     *
+     * @example http_2xx,http_3xx
+     *
      * @var string
      */
     public $healthCheckHttpCode;
 
     /**
+     * @description The HTTP version that is used for health checks.
+     *
+     * @example HTTP 1.0
+     *
      * @var string
      */
     public $healthCheckHttpVersion;
 
     /**
+     * @description The interval at which health checks are performed. Unit: seconds.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @description The health check method. Valid values: **head** and **get**.
+     *
+     * @example get
+     *
      * @var string
      */
     public $healthCheckMethod;
 
     /**
+     * @description The maximum timeout period of a health check. Unit: seconds.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $healthCheckTimeout;
 
     /**
+     * @description The protocol that is used for health checks.
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $healthCheckType;
 
     /**
+     * @description The URI that is used for health checks.
+     *
+     * @example /test/index.html
+     *
      * @var string
      */
     public $healthCheckURI;
 
     /**
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+     *
+     * Valid values: **2** to **10**.
+     * @example 4
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @description The timeout period of an idle connection. Unit: seconds. Valid values: **1** to **60**.
+     *
+     * If no request is received within the specified timeout period, CLB closes the connection. When a request is received, CLB establishes a new connection.
+     * @example 15
+     *
      * @var int
      */
     public $idleTimeout;
 
     /**
+     * @description Indicates whether HTTP-to-HTTPS redirection is enabled. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $listenerForward;
 
     /**
+     * @description The timeout period of a request. Unit: seconds. Valid values: **1** to **180**.
+     *
+     * If no response is received from a backend server during the request timeout period, CLB sends the `HTTP 504` status code to the client.
+     * @example 60
+     *
      * @var int
      */
     public $requestTimeout;
 
     /**
+     * @description Indicates whether session persistence is enabled. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $stickySession;
 
     /**
+     * @description The method that is used to handle a cookie. Valid values:
+     *
+     *   **insert**: inserts a cookie. CLB inserts a cookie (SERVERID) into the first HTTP or HTTPS response that is sent to a client. The next request from the client contains this cookie, and the listener forwards this request to the recorded backend server.
+     *   **server**: rewrites a cookie. When CLB detects a user-defined cookie, it overwrites the original cookie with the user-defined cookie. The next request from the client carries the user-defined cookie, and the listener will distribute the request to the recorded backend server.
+     *
+     * @example insert
+     *
      * @var string
      */
     public $stickySessionType;
 
     /**
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     *
+     * Valid values: **2** to **10**.
+     * @example 4
+     *
      * @var int
      */
     public $unhealthyThreshold;
 
     /**
+     * @description Indicates whether the `XForwardedFor` header is used to retrieve client IP addresses. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor;
 
     /**
+     * @description Indicates whether the `XForwardedFor_ClientSrcPort` header is used to retrieve the client port. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor_ClientSrcPort;
 
     /**
+     * @description Indicates whether the `SLB-ID` header is used to retrieve the ID of the CLB instance. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor_SLBID;
 
     /**
+     * @description Indicates whether the `SLB-IP` header is used to retrieve the virtual IP address requested by the client. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor_SLBIP;
 
     /**
+     * @description Indicates whether the `XForwardedFor_SLBPORT` header is used to retrieve the listening port. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor_SLBPORT;
 
     /**
+     * @description Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listening protocol. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor_proto;

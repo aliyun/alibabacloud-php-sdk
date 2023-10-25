@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class CreateMasterSlaveServerGroupResponseBody extends Model
 {
     /**
+     * @description The list of backend servers in the primary/secondary server group.
+     *
      * @var masterSlaveBackendServers
      */
     public $masterSlaveBackendServers;
 
     /**
+     * @description The ID of the primary/secondary server group.
+     *
+     * @example rsp-bp19au4******
+     *
      * @var string
      */
     public $masterSlaveServerGroupId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7CA4DB76-4D32-523B-822E-5C9494613D46
+     *
      * @var string
      */
     public $requestId;

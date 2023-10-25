@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerListenersRes
 
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerListenersResponseBody\listeners\HTTPListenerConfig;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerListenersResponseBody\listeners\HTTPSListenerConfig;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerListenersResponseBody\listeners\tags;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerListenersResponseBody\listeners\TCPListenerConfig;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerListenersResponseBody\listeners\UDPListenerConfig;
 use AlibabaCloud\Tea\Model;
@@ -13,81 +14,164 @@ use AlibabaCloud\Tea\Model;
 class listeners extends Model
 {
     /**
+     * @description The ID of the network ACL.
+     *
+     * @example nacl-a2do9e413e0spzasx****
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description Indicates whether access control is enabled. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example off
+     *
      * @var string
      */
     public $aclStatus;
 
     /**
+     * @description The type of the network access control list (ACL). Valid values:
+     *
+     *   **white**: a whitelist. Only requests from the IP addresses or CIDR blocks in the network ACL are forwarded. Whitelists apply to scenarios in which you want to allow only specific IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. After a whitelist is configured, only requests from IP addresses that are added to the whitelist are forwarded by the listener.
+     *
+     * If you enable a whitelist but do not add an IP address to the whitelist, the listener forwards all requests.
+     *
+     *   **black**: a blacklist. All requests from the IP addresses or CIDR blocks in the network ACL are denied. A blacklist applies to scenarios in which you want to deny access from specific IP addresses.
+     *
+     * If a blacklist is configured for a listener but no IP address is added to the blacklist, the listener forwards all requests.
+     * @example white
+     *
      * @var string
      */
     public $aclType;
 
     /**
+     * @description The port of the backend server.
+     *
+     * >  This parameter takes effect when the `VServerGroupId` parameter and the `MasterSlaveServerGroupId` parameter are empty.
+     * @example 80
+     *
      * @var int
      */
     public $backendServerPort;
 
     /**
+     * @description The maximum bandwidth of the listener. Unit: Mbit/s. Valid values:
+     *
+     *   **-1**: If -1 is returned, it indicates that the bandwidth of the listener is unlimited.
+     *   **1 to 5120**: If a value from 1 to 5120 is returned, the value indicates the maximum bandwidth of the listener. The sum of the maximum bandwidth of all listeners added to a CLB instance does not exceed the maximum bandwidth of the CLB instance.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The description of the listener.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The configuration of the HTTP listener.
+     *
      * @var HTTPListenerConfig
      */
     public $HTTPListenerConfig;
 
     /**
+     * @description The configuration of the HTTPS listener.
+     *
      * @var HTTPSListenerConfig
      */
     public $HTTPSListenerConfig;
 
     /**
+     * @description The listening port.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The protocol used by the listener.
+     *
+     * @example http
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1b6c719dfa****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The scheduling algorithm. Valid values:
+     *
+     *   **wrr**: Backend servers with higher weights receive more requests than those with lower weights.
+     *   **rr**: Requests are distributed to backend servers in sequence.
+     *
+     * @example wrr
+     *
      * @var string
      */
     public $scheduler;
 
     /**
+     * @description The status of the listener. Valid values:
+     *
+     *   **running**: The listener runs as expected.
+     *   **stopped**: The listener is disabled.
+     *
+     * @example running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The configuration of the TCP listener.
+     *
      * @var TCPListenerConfig
      */
     public $TCPListenerConfig;
 
     /**
+     * @description 标签列表。
+     *
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description The configuration of the UDP listener.
+     *
      * @var UDPListenerConfig
      */
     public $UDPListenerConfig;
 
     /**
+     * @description The ID of the vServer group that is associated with the listener.
+     *
+     * @example rsp-cige6j****
+     *
      * @var string
      */
     public $VServerGroupId;
@@ -106,6 +190,7 @@ class listeners extends Model
         'scheduler'           => 'Scheduler',
         'status'              => 'Status',
         'TCPListenerConfig'   => 'TCPListenerConfig',
+        'tags'                => 'Tags',
         'UDPListenerConfig'   => 'UDPListenerConfig',
         'VServerGroupId'      => 'VServerGroupId',
     ];
@@ -158,6 +243,15 @@ class listeners extends Model
         }
         if (null !== $this->TCPListenerConfig) {
             $res['TCPListenerConfig'] = null !== $this->TCPListenerConfig ? $this->TCPListenerConfig->toMap() : null;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->UDPListenerConfig) {
             $res['UDPListenerConfig'] = null !== $this->UDPListenerConfig ? $this->UDPListenerConfig->toMap() : null;
@@ -218,6 +312,15 @@ class listeners extends Model
         }
         if (isset($map['TCPListenerConfig'])) {
             $model->TCPListenerConfig = TCPListenerConfig::fromMap($map['TCPListenerConfig']);
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UDPListenerConfig'])) {
             $model->UDPListenerConfig = UDPListenerConfig::fromMap($map['UDPListenerConfig']);

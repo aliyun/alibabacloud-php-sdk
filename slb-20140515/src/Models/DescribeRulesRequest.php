@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DescribeRulesRequest extends Model
 {
     /**
+     * @description The frontend listener port that is used by the Server Load Balancer (SLB) instance.
+     *
+     * Valid values: **1 to 65535**.
+     * @example 90
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The frontend listener protocol that is used by the SLB instance.
+     *
+     * >  This parameter is required when listeners that use different protocols listen on the same port.
+     * @example https
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example lb-bp1ca0zt07t934****
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,6 +48,11 @@ class DescribeRulesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the SLB instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RemoveListenerWhiteListItemRequest extends Model
 {
     /**
+     * @description The listening port.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The frontend protocol that is used by the CLB instance.
+     *
+     * >  This parameter is required when listeners that use different protocols listen on the same port.
+     * @example https
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-8vb86hxixo8lvsja8****
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,6 +47,11 @@ class RemoveListenerWhiteListItemRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region where the Classic Load Balancer (CLB) instance is created.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +67,11 @@ class RemoveListenerWhiteListItemRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The list of IP addresses or CIDR blocks that you want to remove from the whitelist. Separate multiple IP addresses or CIDR blocks with commas (,).
+     *
+     * >  If all IP addresses are removed from the whitelist, the listener does not forward requests.
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceItems;

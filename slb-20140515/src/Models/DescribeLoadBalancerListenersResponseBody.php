@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerListenersResponseBody extends Model
 {
     /**
+     * @description The list of listeners on the CLB instance.
+     *
+     * >  This parameter is not returned if no listener is created on the CLB instance.
      * @var listeners[]
      */
     public $listeners;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If **NextToken** is empty, it indicates that no subsequent query is to be sent.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

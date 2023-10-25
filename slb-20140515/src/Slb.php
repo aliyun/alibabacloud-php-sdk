@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Slb\V20140515\Models\CreateVServerGroupRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\CreateVServerGroupResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DeleteAccessControlListRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DeleteAccessControlListResponse;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DeleteAccessLogsDownloadAttributeRequest;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DeleteAccessLogsDownloadAttributeResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DeleteCACertificateRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DeleteCACertificateResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DeleteDomainExtensionRequest;
@@ -62,6 +64,8 @@ use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListAttributeRequ
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListAttributeResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListsRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListsResponse;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessLogsDownloadAttributeRequest;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessLogsDownloadAttributeResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAvailableResourceRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAvailableResourceResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeCACertificatesRequest;
@@ -72,6 +76,8 @@ use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeDomainExtensionsRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeDomainExtensionsResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeHealthStatusRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeHealthStatusResponse;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeHighDefinationMonitorRequest;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeHighDefinationMonitorResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeListenerAccessControlAttributeRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeListenerAccessControlAttributeResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeRequest;
@@ -108,10 +114,14 @@ use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeVServerGroupsRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeVServerGroupsResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\Slb\V20140515\Models\EnableHighDefinationMonitorRequest;
+use AlibabaCloud\SDK\Slb\V20140515\Models\EnableHighDefinationMonitorResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ListTLSCipherPoliciesRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ListTLSCipherPoliciesResponse;
+use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyHighDefinationMonitorRequest;
+use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyHighDefinationMonitorResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyLoadBalancerInstanceChargeTypeRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyLoadBalancerInstanceChargeTypeResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyLoadBalancerInstanceSpecRequest;
@@ -122,6 +132,8 @@ use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyLoadBalancerPayTypeRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyLoadBalancerPayTypeResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyVServerGroupBackendServersRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ModifyVServerGroupBackendServersResponse;
+use AlibabaCloud\SDK\Slb\V20140515\Models\MoveResourceGroupRequest;
+use AlibabaCloud\SDK\Slb\V20140515\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\RemoveAccessControlListEntryRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\RemoveAccessControlListEntryResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\RemoveBackendServersRequest;
@@ -134,6 +146,8 @@ use AlibabaCloud\SDK\Slb\V20140515\Models\RemoveVServerGroupBackendServersReques
 use AlibabaCloud\SDK\Slb\V20140515\Models\RemoveVServerGroupBackendServersResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\SetAccessControlListAttributeRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\SetAccessControlListAttributeResponse;
+use AlibabaCloud\SDK\Slb\V20140515\Models\SetAccessLogsDownloadAttributeRequest;
+use AlibabaCloud\SDK\Slb\V20140515\Models\SetAccessLogsDownloadAttributeResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\SetBackendServersRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\SetBackendServersResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\SetCACertificateNameRequest;
@@ -263,10 +277,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param AddAccessControlListEntryRequest $request
-     * @param RuntimeOptions                   $runtime
+     * Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
+     *   * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
+     *   * *   The maximum number of IP entries that each network ACL can contain: 300.
+     *   *
+     * @param AddAccessControlListEntryRequest $request AddAccessControlListEntryRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddAccessControlListEntryResponse
+     * @return AddAccessControlListEntryResponse AddAccessControlListEntryResponse
      */
     public function addAccessControlListEntryWithOptions($request, $runtime)
     {
@@ -312,9 +330,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param AddAccessControlListEntryRequest $request
+     * Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
+     *   * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
+     *   * *   The maximum number of IP entries that each network ACL can contain: 300.
+     *   *
+     * @param AddAccessControlListEntryRequest $request AddAccessControlListEntryRequest
      *
-     * @return AddAccessControlListEntryResponse
+     * @return AddAccessControlListEntryResponse AddAccessControlListEntryResponse
      */
     public function addAccessControlListEntry($request)
     {
@@ -324,10 +346,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param AddBackendServersRequest $request
-     * @param RuntimeOptions           $runtime
+     * >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
+     *   *
+     * @param AddBackendServersRequest $request AddBackendServersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddBackendServersResponse
+     * @return AddBackendServersResponse AddBackendServersResponse
      */
     public function addBackendServersWithOptions($request, $runtime)
     {
@@ -373,9 +397,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param AddBackendServersRequest $request
+     * >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
+     *   *
+     * @param AddBackendServersRequest $request AddBackendServersRequest
      *
-     * @return AddBackendServersResponse
+     * @return AddBackendServersResponse AddBackendServersResponse
      */
     public function addBackendServers($request)
     {
@@ -452,10 +478,17 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param AddTagsRequest $request
-     * @param RuntimeOptions $runtime
+     * # Limits
+     *   * Before you call this API, note the following limits:
+     *   * *   You can add up to 10 tags to each SLB instance.
+     *   * *   You can add up to five pairs of tags at a time.
+     *   * *   All the tags and keys added to an SLB instance must be unique.
+     *   * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
+     *   *
+     * @param AddTagsRequest $request AddTagsRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTagsResponse
+     * @return AddTagsResponse AddTagsResponse
      */
     public function addTagsWithOptions($request, $runtime)
     {
@@ -501,9 +534,16 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param AddTagsRequest $request
+     * # Limits
+     *   * Before you call this API, note the following limits:
+     *   * *   You can add up to 10 tags to each SLB instance.
+     *   * *   You can add up to five pairs of tags at a time.
+     *   * *   All the tags and keys added to an SLB instance must be unique.
+     *   * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
+     *   *
+     * @param AddTagsRequest $request AddTagsRequest
      *
-     * @return AddTagsResponse
+     * @return AddTagsResponse AddTagsResponse
      */
     public function addTags($request)
     {
@@ -574,10 +614,15 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessControlListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
+     *   * *   An account can have a maximum of 50 ACLs in each region.
+     *   * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
+     *   * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
+     *   *
+     * @param CreateAccessControlListRequest $request CreateAccessControlListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessControlListResponse
+     * @return CreateAccessControlListResponse CreateAccessControlListResponse
      */
     public function createAccessControlListWithOptions($request, $runtime)
     {
@@ -607,6 +652,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -626,9 +674,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessControlListRequest $request
+     * You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
+     *   * *   An account can have a maximum of 50 ACLs in each region.
+     *   * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
+     *   * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
+     *   *
+     * @param CreateAccessControlListRequest $request CreateAccessControlListRequest
      *
-     * @return CreateAccessControlListResponse
+     * @return CreateAccessControlListResponse CreateAccessControlListResponse
      */
     public function createAccessControlList($request)
     {
@@ -705,10 +758,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerRequest $request
-     * @param RuntimeOptions            $runtime
+     * *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
+     *   * *   After a CLB instance is created, you are charged for using the CLB instance.
+     *   * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
+     *   *
+     * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoadBalancerResponse
+     * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
      */
     public function createLoadBalancerWithOptions($request, $runtime)
     {
@@ -786,6 +843,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->slaveZoneId)) {
             $query['SlaveZoneId'] = $request->slaveZoneId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
@@ -811,9 +871,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerRequest $request
+     * *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
+     *   * *   After a CLB instance is created, you are charged for using the CLB instance.
+     *   * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
+     *   *
+     * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
      *
-     * @return CreateLoadBalancerResponse
+     * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
      */
     public function createLoadBalancer($request)
     {
@@ -823,10 +887,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerHTTPListenerRequest $request
-     * @param RuntimeOptions                        $runtime
+     * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+     *   * ## Prerequisites
+     *   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
+     *   *
+     * @param CreateLoadBalancerHTTPListenerRequest $request CreateLoadBalancerHTTPListenerRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoadBalancerHTTPListenerResponse
+     * @return CreateLoadBalancerHTTPListenerResponse CreateLoadBalancerHTTPListenerResponse
      */
     public function createLoadBalancerHTTPListenerWithOptions($request, $runtime)
     {
@@ -928,6 +996,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->stickySessionType)) {
             $query['StickySessionType'] = $request->stickySessionType;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->unhealthyThreshold)) {
             $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
         }
@@ -965,9 +1036,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerHTTPListenerRequest $request
+     * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+     *   * ## Prerequisites
+     *   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
+     *   *
+     * @param CreateLoadBalancerHTTPListenerRequest $request CreateLoadBalancerHTTPListenerRequest
      *
-     * @return CreateLoadBalancerHTTPListenerResponse
+     * @return CreateLoadBalancerHTTPListenerResponse CreateLoadBalancerHTTPListenerResponse
      */
     public function createLoadBalancerHTTPListener($request)
     {
@@ -977,10 +1052,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerHTTPSListenerRequest $request
-     * @param RuntimeOptions                         $runtime
+     * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+     *   * ## Prerequisites
+     *   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
+     *   *
+     * @param CreateLoadBalancerHTTPSListenerRequest $request CreateLoadBalancerHTTPSListenerRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoadBalancerHTTPSListenerResponse
+     * @return CreateLoadBalancerHTTPSListenerResponse CreateLoadBalancerHTTPSListenerResponse
      */
     public function createLoadBalancerHTTPSListenerWithOptions($request, $runtime)
     {
@@ -1088,6 +1167,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->TLSCipherPolicy)) {
             $query['TLSCipherPolicy'] = $request->TLSCipherPolicy;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->unhealthyThreshold)) {
             $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
         }
@@ -1125,9 +1207,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerHTTPSListenerRequest $request
+     * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+     *   * ## Prerequisites
+     *   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
+     *   *
+     * @param CreateLoadBalancerHTTPSListenerRequest $request CreateLoadBalancerHTTPSListenerRequest
      *
-     * @return CreateLoadBalancerHTTPSListenerResponse
+     * @return CreateLoadBalancerHTTPSListenerResponse CreateLoadBalancerHTTPSListenerResponse
      */
     public function createLoadBalancerHTTPSListener($request)
     {
@@ -1137,10 +1223,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerTCPListenerRequest $request
-     * @param RuntimeOptions                       $runtime
+     * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
+     *   *
+     * @param CreateLoadBalancerTCPListenerRequest $request CreateLoadBalancerTCPListenerRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoadBalancerTCPListenerResponse
+     * @return CreateLoadBalancerTCPListenerResponse CreateLoadBalancerTCPListenerResponse
      */
     public function createLoadBalancerTCPListenerWithOptions($request, $runtime)
     {
@@ -1185,6 +1273,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->healthCheckHttpCode)) {
             $query['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
         }
+        if (!Utils::isUnset($request->healthCheckSwitch)) {
+            $query['HealthCheckSwitch'] = $request->healthCheckSwitch;
+        }
         if (!Utils::isUnset($request->healthCheckType)) {
             $query['HealthCheckType'] = $request->healthCheckType;
         }
@@ -1212,6 +1303,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->persistenceTimeout)) {
             $query['PersistenceTimeout'] = $request->persistenceTimeout;
         }
+        if (!Utils::isUnset($request->proxyProtocolV2Enabled)) {
+            $query['ProxyProtocolV2Enabled'] = $request->proxyProtocolV2Enabled;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -1223,6 +1317,9 @@ class Slb extends OpenApiClient
         }
         if (!Utils::isUnset($request->scheduler)) {
             $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->unhealthyThreshold)) {
             $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
@@ -1252,9 +1349,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerTCPListenerRequest $request
+     * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
+     *   *
+     * @param CreateLoadBalancerTCPListenerRequest $request CreateLoadBalancerTCPListenerRequest
      *
-     * @return CreateLoadBalancerTCPListenerResponse
+     * @return CreateLoadBalancerTCPListenerResponse CreateLoadBalancerTCPListenerResponse
      */
     public function createLoadBalancerTCPListener($request)
     {
@@ -1264,10 +1363,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerUDPListenerRequest $request
-     * @param RuntimeOptions                       $runtime
+     * UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
+     *   * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
+     *   *
+     * @param CreateLoadBalancerUDPListenerRequest $request CreateLoadBalancerUDPListenerRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoadBalancerUDPListenerResponse
+     * @return CreateLoadBalancerUDPListenerResponse CreateLoadBalancerUDPListenerResponse
      */
     public function createLoadBalancerUDPListenerWithOptions($request, $runtime)
     {
@@ -1297,6 +1399,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->healthCheckConnectTimeout)) {
             $query['HealthCheckConnectTimeout'] = $request->healthCheckConnectTimeout;
         }
+        if (!Utils::isUnset($request->healthCheckSwitch)) {
+            $query['HealthCheckSwitch'] = $request->healthCheckSwitch;
+        }
         if (!Utils::isUnset($request->healthyThreshold)) {
             $query['HealthyThreshold'] = $request->healthyThreshold;
         }
@@ -1315,6 +1420,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->proxyProtocolV2Enabled)) {
+            $query['ProxyProtocolV2Enabled'] = $request->proxyProtocolV2Enabled;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -1326,6 +1434,9 @@ class Slb extends OpenApiClient
         }
         if (!Utils::isUnset($request->scheduler)) {
             $query['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->unhealthyThreshold)) {
             $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
@@ -1361,9 +1472,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerUDPListenerRequest $request
+     * UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
+     *   * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
+     *   *
+     * @param CreateLoadBalancerUDPListenerRequest $request CreateLoadBalancerUDPListenerRequest
      *
-     * @return CreateLoadBalancerUDPListenerResponse
+     * @return CreateLoadBalancerUDPListenerResponse CreateLoadBalancerUDPListenerResponse
      */
     public function createLoadBalancerUDPListener($request)
     {
@@ -1405,6 +1519,9 @@ class Slb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1598,6 +1715,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->VServerGroupName)) {
             $query['VServerGroupName'] = $request->VServerGroupName;
         }
@@ -1632,10 +1752,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessControlListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can delete an ACL only if it is not associated with a listener.
+     *   *
+     * @param DeleteAccessControlListRequest $request DeleteAccessControlListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccessControlListResponse
+     * @return DeleteAccessControlListResponse DeleteAccessControlListResponse
      */
     public function deleteAccessControlListWithOptions($request, $runtime)
     {
@@ -1678,9 +1800,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessControlListRequest $request
+     * You can delete an ACL only if it is not associated with a listener.
+     *   *
+     * @param DeleteAccessControlListRequest $request DeleteAccessControlListRequest
      *
-     * @return DeleteAccessControlListResponse
+     * @return DeleteAccessControlListResponse DeleteAccessControlListResponse
      */
     public function deleteAccessControlList($request)
     {
@@ -1690,10 +1814,76 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteCACertificateRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DeleteAccessLogsDownloadAttributeRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return DeleteCACertificateResponse
+     * @return DeleteAccessLogsDownloadAttributeResponse
+     */
+    public function deleteAccessLogsDownloadAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->logsDownloadAttributes)) {
+            $query['LogsDownloadAttributes'] = $request->logsDownloadAttributes;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccessLogsDownloadAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAccessLogsDownloadAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAccessLogsDownloadAttributeRequest $request
+     *
+     * @return DeleteAccessLogsDownloadAttributeResponse
+     */
+    public function deleteAccessLogsDownloadAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccessLogsDownloadAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * You cannot delete a CA certificate that is in use.
+     *   *
+     * @param DeleteCACertificateRequest $request DeleteCACertificateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCACertificateResponse DeleteCACertificateResponse
      */
     public function deleteCACertificateWithOptions($request, $runtime)
     {
@@ -1736,9 +1926,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteCACertificateRequest $request
+     * You cannot delete a CA certificate that is in use.
+     *   *
+     * @param DeleteCACertificateRequest $request DeleteCACertificateRequest
      *
-     * @return DeleteCACertificateResponse
+     * @return DeleteCACertificateResponse DeleteCACertificateResponse
      */
     public function deleteCACertificate($request)
     {
@@ -1806,10 +1998,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoadBalancerRequest $request
-     * @param RuntimeOptions            $runtime
+     * > The listeners and tags of the SLB instance are deleted along with the SLB instance.
+     *   *
+     * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLoadBalancerResponse
+     * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
      */
     public function deleteLoadBalancerWithOptions($request, $runtime)
     {
@@ -1852,9 +2046,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoadBalancerRequest $request
+     * > The listeners and tags of the SLB instance are deleted along with the SLB instance.
+     *   *
+     * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
      *
-     * @return DeleteLoadBalancerResponse
+     * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
      */
     public function deleteLoadBalancer($request)
     {
@@ -1864,10 +2060,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoadBalancerListenerRequest $request
-     * @param RuntimeOptions                    $runtime
+     * >  You can delete only listeners that are in the **stopped** or **running** state.
+     *   *
+     * @param DeleteLoadBalancerListenerRequest $request DeleteLoadBalancerListenerRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLoadBalancerListenerResponse
+     * @return DeleteLoadBalancerListenerResponse DeleteLoadBalancerListenerResponse
      */
     public function deleteLoadBalancerListenerWithOptions($request, $runtime)
     {
@@ -1916,9 +2114,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoadBalancerListenerRequest $request
+     * >  You can delete only listeners that are in the **stopped** or **running** state.
+     *   *
+     * @param DeleteLoadBalancerListenerRequest $request DeleteLoadBalancerListenerRequest
      *
-     * @return DeleteLoadBalancerListenerResponse
+     * @return DeleteLoadBalancerListenerResponse DeleteLoadBalancerListenerResponse
      */
     public function deleteLoadBalancerListener($request)
     {
@@ -1986,10 +2186,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteRulesRequest $request
-     * @param RuntimeOptions     $runtime
+     * ## Limits
+     *   * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
+     *   *
+     * @param DeleteRulesRequest $request DeleteRulesRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRulesResponse
+     * @return DeleteRulesResponse DeleteRulesResponse
      */
     public function deleteRulesWithOptions($request, $runtime)
     {
@@ -2032,9 +2235,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteRulesRequest $request
+     * ## Limits
+     *   * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
+     *   *
+     * @param DeleteRulesRequest $request DeleteRulesRequest
      *
-     * @return DeleteRulesResponse
+     * @return DeleteRulesResponse DeleteRulesResponse
      */
     public function deleteRules($request)
     {
@@ -2044,10 +2250,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteServerCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * >  You cannot delete server certificates that are in use.
+     *   *
+     * @param DeleteServerCertificateRequest $request DeleteServerCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServerCertificateResponse
+     * @return DeleteServerCertificateResponse DeleteServerCertificateResponse
      */
     public function deleteServerCertificateWithOptions($request, $runtime)
     {
@@ -2090,9 +2298,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteServerCertificateRequest $request
+     * >  You cannot delete server certificates that are in use.
+     *   *
+     * @param DeleteServerCertificateRequest $request DeleteServerCertificateRequest
      *
-     * @return DeleteServerCertificateResponse
+     * @return DeleteServerCertificateResponse DeleteServerCertificateResponse
      */
     public function deleteServerCertificate($request)
     {
@@ -2239,6 +2449,12 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -2318,6 +2534,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2349,10 +2568,82 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeAccessLogsDownloadAttributeRequest $request
+     * @param RuntimeOptions                             $runtime
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAccessLogsDownloadAttributeResponse
+     */
+    public function describeAccessLogsDownloadAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccessLogsDownloadAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAccessLogsDownloadAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAccessLogsDownloadAttributeRequest $request
+     *
+     * @return DescribeAccessLogsDownloadAttributeResponse
+     */
+    public function describeAccessLogsDownloadAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessLogsDownloadAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * > Only the available resources and zones are returned.
+     *   *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
@@ -2398,9 +2689,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
+     * > Only the available resources and zones are returned.
+     *   *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResource($request)
     {
@@ -2410,10 +2703,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeCACertificatesRequest $request
-     * @param RuntimeOptions                $runtime
+     * > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
+     *   *
+     * @param DescribeCACertificatesRequest $request DescribeCACertificatesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCACertificatesResponse
+     * @return DescribeCACertificatesResponse DescribeCACertificatesResponse
      */
     public function describeCACertificatesWithOptions($request, $runtime)
     {
@@ -2440,6 +2735,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2459,9 +2757,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeCACertificatesRequest $request
+     * > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
+     *   *
+     * @param DescribeCACertificatesRequest $request DescribeCACertificatesRequest
      *
-     * @return DescribeCACertificatesResponse
+     * @return DescribeCACertificatesResponse DescribeCACertificatesResponse
      */
     public function describeCACertificates($request)
     {
@@ -2657,6 +2957,64 @@ class Slb extends OpenApiClient
     }
 
     /**
+     * @param DescribeHighDefinationMonitorRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeHighDefinationMonitorResponse
+     */
+    public function describeHighDefinationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHighDefinationMonitor',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHighDefinationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHighDefinationMonitorRequest $request
+     *
+     * @return DescribeHighDefinationMonitorResponse
+     */
+    public function describeHighDefinationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHighDefinationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeListenerAccessControlAttributeRequest $request
      * @param RuntimeOptions                                $runtime
      *
@@ -2721,10 +3079,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerAttributeRequest $request
-     * @param RuntimeOptions                       $runtime
+     * >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](~~35224~~) operation to query the backend servers.
+     *   *
+     * @param DescribeLoadBalancerAttributeRequest $request DescribeLoadBalancerAttributeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLoadBalancerAttributeResponse
+     * @return DescribeLoadBalancerAttributeResponse DescribeLoadBalancerAttributeResponse
      */
     public function describeLoadBalancerAttributeWithOptions($request, $runtime)
     {
@@ -2767,9 +3127,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerAttributeRequest $request
+     * >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](~~35224~~) operation to query the backend servers.
+     *   *
+     * @param DescribeLoadBalancerAttributeRequest $request DescribeLoadBalancerAttributeRequest
      *
-     * @return DescribeLoadBalancerAttributeResponse
+     * @return DescribeLoadBalancerAttributeResponse DescribeLoadBalancerAttributeResponse
      */
     public function describeLoadBalancerAttribute($request)
     {
@@ -2779,10 +3141,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerHTTPListenerAttributeRequest $request
-     * @param RuntimeOptions                                   $runtime
+     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+     *   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
+     *   *
+     * @param DescribeLoadBalancerHTTPListenerAttributeRequest $request DescribeLoadBalancerHTTPListenerAttributeRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLoadBalancerHTTPListenerAttributeResponse
+     * @return DescribeLoadBalancerHTTPListenerAttributeResponse DescribeLoadBalancerHTTPListenerAttributeResponse
      */
     public function describeLoadBalancerHTTPListenerAttributeWithOptions($request, $runtime)
     {
@@ -2828,9 +3193,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerHTTPListenerAttributeRequest $request
+     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+     *   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
+     *   *
+     * @param DescribeLoadBalancerHTTPListenerAttributeRequest $request DescribeLoadBalancerHTTPListenerAttributeRequest
      *
-     * @return DescribeLoadBalancerHTTPListenerAttributeResponse
+     * @return DescribeLoadBalancerHTTPListenerAttributeResponse DescribeLoadBalancerHTTPListenerAttributeResponse
      */
     public function describeLoadBalancerHTTPListenerAttribute($request)
     {
@@ -2840,10 +3208,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerHTTPSListenerAttributeRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+     *   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
+     *   *
+     * @param DescribeLoadBalancerHTTPSListenerAttributeRequest $request DescribeLoadBalancerHTTPSListenerAttributeRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
+     * @return DescribeLoadBalancerHTTPSListenerAttributeResponse DescribeLoadBalancerHTTPSListenerAttributeResponse
      */
     public function describeLoadBalancerHTTPSListenerAttributeWithOptions($request, $runtime)
     {
@@ -2889,9 +3260,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerHTTPSListenerAttributeRequest $request
+     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+     *   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
+     *   *
+     * @param DescribeLoadBalancerHTTPSListenerAttributeRequest $request DescribeLoadBalancerHTTPSListenerAttributeRequest
      *
-     * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
+     * @return DescribeLoadBalancerHTTPSListenerAttributeResponse DescribeLoadBalancerHTTPSListenerAttributeResponse
      */
     public function describeLoadBalancerHTTPSListenerAttribute($request)
     {
@@ -2901,15 +3275,28 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerListenersRequest $request
-     * @param RuntimeOptions                       $runtime
+     * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
+     *   * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
+     *   *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
+     *   *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
+     *   *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
+     *   *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~).
+     *   *
+     * @param DescribeLoadBalancerListenersRequest $request DescribeLoadBalancerListenersRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLoadBalancerListenersResponse
+     * @return DescribeLoadBalancerListenersResponse DescribeLoadBalancerListenersResponse
      */
     public function describeLoadBalancerListenersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->listenerPort)) {
+            $query['ListenerPort'] = $request->listenerPort;
+        }
         if (!Utils::isUnset($request->listenerProtocol)) {
             $query['ListenerProtocol'] = $request->listenerProtocol;
         }
@@ -2937,6 +3324,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2956,9 +3346,16 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerListenersRequest $request
+     * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
+     *   * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
+     *   *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
+     *   *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
+     *   *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
+     *   *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~).
+     *   *
+     * @param DescribeLoadBalancerListenersRequest $request DescribeLoadBalancerListenersRequest
      *
-     * @return DescribeLoadBalancerListenersResponse
+     * @return DescribeLoadBalancerListenersResponse DescribeLoadBalancerListenersResponse
      */
     public function describeLoadBalancerListeners($request)
     {
@@ -3162,6 +3559,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->slaveZoneId)) {
             $query['SlaveZoneId'] = $request->slaveZoneId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->tags)) {
             $query['Tags'] = $request->tags;
         }
@@ -3269,6 +3669,9 @@ class Slb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
         if (!Utils::isUnset($request->includeListener)) {
             $query['IncludeListener'] = $request->includeListener;
         }
@@ -3289,6 +3692,9 @@ class Slb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3501,10 +3907,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeServerCertificatesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
+     *   *
+     * @param DescribeServerCertificatesRequest $request DescribeServerCertificatesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeServerCertificatesResponse
+     * @return DescribeServerCertificatesResponse DescribeServerCertificatesResponse
      */
     public function describeServerCertificatesWithOptions($request, $runtime)
     {
@@ -3531,6 +3939,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->serverCertificateId)) {
             $query['ServerCertificateId'] = $request->serverCertificateId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3550,9 +3961,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeServerCertificatesRequest $request
+     * >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
+     *   *
+     * @param DescribeServerCertificatesRequest $request DescribeServerCertificatesRequest
      *
-     * @return DescribeServerCertificatesResponse
+     * @return DescribeServerCertificatesResponse DescribeServerCertificatesResponse
      */
     public function describeServerCertificates($request)
     {
@@ -3562,10 +3975,17 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
-     * @param RuntimeOptions      $runtime
+     * When you call this operation, take note of the following items:
+     *   * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
+     *   * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
+     *   * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
+     *   * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
+     *   * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
+     *   *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
@@ -3620,9 +4040,16 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
+     * When you call this operation, take note of the following items:
+     *   * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
+     *   * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
+     *   * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
+     *   * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
+     *   * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
+     *   *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -3699,6 +4126,9 @@ class Slb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
         if (!Utils::isUnset($request->includeListener)) {
             $query['IncludeListener'] = $request->includeListener;
         }
@@ -3722,6 +4152,9 @@ class Slb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3809,6 +4242,70 @@ class Slb extends OpenApiClient
     }
 
     /**
+     * @param EnableHighDefinationMonitorRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return EnableHighDefinationMonitorResponse
+     */
+    public function enableHighDefinationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->logProject)) {
+            $query['LogProject'] = $request->logProject;
+        }
+        if (!Utils::isUnset($request->logStore)) {
+            $query['LogStore'] = $request->logStore;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableHighDefinationMonitor',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableHighDefinationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableHighDefinationMonitorRequest $request
+     *
+     * @return EnableHighDefinationMonitorResponse
+     */
+    public function enableHighDefinationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableHighDefinationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTLSCipherPoliciesRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3879,10 +4376,15 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+     *   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
+     *   * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -3934,9 +4436,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+     *   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
+     *   * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3946,15 +4453,82 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoadBalancerInstanceChargeTypeRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @param ModifyHighDefinationMonitorRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return ModifyLoadBalancerInstanceChargeTypeResponse
+     * @return ModifyHighDefinationMonitorResponse
+     */
+    public function modifyHighDefinationMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->logProject)) {
+            $query['LogProject'] = $request->logProject;
+        }
+        if (!Utils::isUnset($request->logStore)) {
+            $query['LogStore'] = $request->logStore;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHighDefinationMonitor',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyHighDefinationMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyHighDefinationMonitorRequest $request
+     *
+     * @return ModifyHighDefinationMonitorResponse
+     */
+    public function modifyHighDefinationMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHighDefinationMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
+     *   * >*   This operation can change the metering method of only one instance at a time.
+     *   *
+     * @param ModifyLoadBalancerInstanceChargeTypeRequest $request ModifyLoadBalancerInstanceChargeTypeRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyLoadBalancerInstanceChargeTypeResponse ModifyLoadBalancerInstanceChargeTypeResponse
      */
     public function modifyLoadBalancerInstanceChargeTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
         if (!Utils::isUnset($request->instanceChargeType)) {
             $query['InstanceChargeType'] = $request->instanceChargeType;
         }
@@ -3963,6 +4537,9 @@ class Slb extends OpenApiClient
         }
         if (!Utils::isUnset($request->loadBalancerId)) {
             $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->loadBalancerSpec)) {
+            $query['LoadBalancerSpec'] = $request->loadBalancerSpec;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -3998,9 +4575,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoadBalancerInstanceChargeTypeRequest $request
+     * > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
+     *   * >*   This operation can change the metering method of only one instance at a time.
+     *   *
+     * @param ModifyLoadBalancerInstanceChargeTypeRequest $request ModifyLoadBalancerInstanceChargeTypeRequest
      *
-     * @return ModifyLoadBalancerInstanceChargeTypeResponse
+     * @return ModifyLoadBalancerInstanceChargeTypeResponse ModifyLoadBalancerInstanceChargeTypeResponse
      */
     public function modifyLoadBalancerInstanceChargeType($request)
     {
@@ -4074,10 +4654,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoadBalancerInternetSpecRequest $request
-     * @param RuntimeOptions                        $runtime
+     * ## Description
+     *   * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
+     *   * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
+     *   *
+     * @param ModifyLoadBalancerInternetSpecRequest $request ModifyLoadBalancerInternetSpecRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyLoadBalancerInternetSpecResponse
+     * @return ModifyLoadBalancerInternetSpecResponse ModifyLoadBalancerInternetSpecResponse
      */
     public function modifyLoadBalancerInternetSpecWithOptions($request, $runtime)
     {
@@ -4129,9 +4713,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoadBalancerInternetSpecRequest $request
+     * ## Description
+     *   * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
+     *   * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
+     *   *
+     * @param ModifyLoadBalancerInternetSpecRequest $request ModifyLoadBalancerInternetSpecRequest
      *
-     * @return ModifyLoadBalancerInternetSpecResponse
+     * @return ModifyLoadBalancerInternetSpecResponse ModifyLoadBalancerInternetSpecResponse
      */
     public function modifyLoadBalancerInternetSpec($request)
     {
@@ -4211,10 +4799,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyVServerGroupBackendServersRequest $request
-     * @param RuntimeOptions                          $runtime
+     * You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](~~35217~~) operation.
+     *   *
+     * @param ModifyVServerGroupBackendServersRequest $request ModifyVServerGroupBackendServersRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyVServerGroupBackendServersResponse
+     * @return ModifyVServerGroupBackendServersResponse ModifyVServerGroupBackendServersResponse
      */
     public function modifyVServerGroupBackendServersWithOptions($request, $runtime)
     {
@@ -4263,15 +4853,87 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyVServerGroupBackendServersRequest $request
+     * You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](~~35217~~) operation.
+     *   *
+     * @param ModifyVServerGroupBackendServersRequest $request ModifyVServerGroupBackendServersRequest
      *
-     * @return ModifyVServerGroupBackendServersResponse
+     * @return ModifyVServerGroupBackendServersResponse ModifyVServerGroupBackendServersResponse
      */
     public function modifyVServerGroupBackendServers($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyVServerGroupBackendServersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->accessKeyId)) {
+            $query['access_key_id'] = $request->accessKeyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveResourceGroup',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -4336,10 +4998,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param RemoveBackendServersRequest $request
-     * @param RuntimeOptions              $runtime
+     * >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
+     *   *
+     * @param RemoveBackendServersRequest $request RemoveBackendServersRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveBackendServersResponse
+     * @return RemoveBackendServersResponse RemoveBackendServersResponse
      */
     public function removeBackendServersWithOptions($request, $runtime)
     {
@@ -4385,9 +5049,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param RemoveBackendServersRequest $request
+     * >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
+     *   *
+     * @param RemoveBackendServersRequest $request RemoveBackendServersRequest
      *
-     * @return RemoveBackendServersResponse
+     * @return RemoveBackendServersResponse RemoveBackendServersResponse
      */
     public function removeBackendServers($request)
     {
@@ -4525,10 +5191,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param RemoveVServerGroupBackendServersRequest $request
-     * @param RuntimeOptions                          $runtime
+     * >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
+     *   *
+     * @param RemoveVServerGroupBackendServersRequest $request RemoveVServerGroupBackendServersRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveVServerGroupBackendServersResponse
+     * @return RemoveVServerGroupBackendServersResponse RemoveVServerGroupBackendServersResponse
      */
     public function removeVServerGroupBackendServersWithOptions($request, $runtime)
     {
@@ -4574,9 +5242,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param RemoveVServerGroupBackendServersRequest $request
+     * >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
+     *   *
+     * @param RemoveVServerGroupBackendServersRequest $request RemoveVServerGroupBackendServersRequest
      *
-     * @return RemoveVServerGroupBackendServersResponse
+     * @return RemoveVServerGroupBackendServersResponse RemoveVServerGroupBackendServersResponse
      */
     public function removeVServerGroupBackendServers($request)
     {
@@ -4644,6 +5314,70 @@ class Slb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setAccessControlListAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetAccessLogsDownloadAttributeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SetAccessLogsDownloadAttributeResponse
+     */
+    public function setAccessLogsDownloadAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->logsDownloadAttributes)) {
+            $query['LogsDownloadAttributes'] = $request->logsDownloadAttributes;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetAccessLogsDownloadAttribute',
+            'version'     => '2014-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetAccessLogsDownloadAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetAccessLogsDownloadAttributeRequest $request
+     *
+     * @return SetAccessLogsDownloadAttributeResponse
+     */
+    public function setAccessLogsDownloadAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAccessLogsDownloadAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -4769,10 +5503,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetDomainExtensionAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
+     *   *
+     * @param SetDomainExtensionAttributeRequest $request SetDomainExtensionAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDomainExtensionAttributeResponse
+     * @return SetDomainExtensionAttributeResponse SetDomainExtensionAttributeResponse
      */
     public function setDomainExtensionAttributeWithOptions($request, $runtime)
     {
@@ -4818,9 +5554,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetDomainExtensionAttributeRequest $request
+     * >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
+     *   *
+     * @param SetDomainExtensionAttributeRequest $request SetDomainExtensionAttributeRequest
      *
-     * @return SetDomainExtensionAttributeResponse
+     * @return SetDomainExtensionAttributeResponse SetDomainExtensionAttributeResponse
      */
     public function setDomainExtensionAttribute($request)
     {
@@ -4958,10 +5696,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerHTTPListenerAttributeRequest $request
-     * @param RuntimeOptions                              $runtime
+     * ### Prerequisites
+     *   * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+     *   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
+     *   *
+     * @param SetLoadBalancerHTTPListenerAttributeRequest $request SetLoadBalancerHTTPListenerAttributeRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetLoadBalancerHTTPListenerAttributeResponse
+     * @return SetLoadBalancerHTTPListenerAttributeResponse SetLoadBalancerHTTPListenerAttributeResponse
      */
     public function setLoadBalancerHTTPListenerAttributeWithOptions($request, $runtime)
     {
@@ -5094,9 +5836,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerHTTPListenerAttributeRequest $request
+     * ### Prerequisites
+     *   * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+     *   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
+     *   *
+     * @param SetLoadBalancerHTTPListenerAttributeRequest $request SetLoadBalancerHTTPListenerAttributeRequest
      *
-     * @return SetLoadBalancerHTTPListenerAttributeResponse
+     * @return SetLoadBalancerHTTPListenerAttributeResponse SetLoadBalancerHTTPListenerAttributeResponse
      */
     public function setLoadBalancerHTTPListenerAttribute($request)
     {
@@ -5106,10 +5852,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerHTTPSListenerAttributeRequest $request
-     * @param RuntimeOptions                               $runtime
+     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+     *   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
+     *   *
+     * @param SetLoadBalancerHTTPSListenerAttributeRequest $request SetLoadBalancerHTTPSListenerAttributeRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetLoadBalancerHTTPSListenerAttributeResponse
+     * @return SetLoadBalancerHTTPSListenerAttributeResponse SetLoadBalancerHTTPSListenerAttributeResponse
      */
     public function setLoadBalancerHTTPSListenerAttributeWithOptions($request, $runtime)
     {
@@ -5254,9 +6003,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerHTTPSListenerAttributeRequest $request
+     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+     *   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
+     *   *
+     * @param SetLoadBalancerHTTPSListenerAttributeRequest $request SetLoadBalancerHTTPSListenerAttributeRequest
      *
-     * @return SetLoadBalancerHTTPSListenerAttributeResponse
+     * @return SetLoadBalancerHTTPSListenerAttributeResponse SetLoadBalancerHTTPSListenerAttributeResponse
      */
     public function setLoadBalancerHTTPSListenerAttribute($request)
     {
@@ -5452,10 +6204,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerTCPListenerAttributeRequest $request
-     * @param RuntimeOptions                             $runtime
+     * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
+     *   * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
+     *   *
+     * @param SetLoadBalancerTCPListenerAttributeRequest $request SetLoadBalancerTCPListenerAttributeRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetLoadBalancerTCPListenerAttributeResponse
+     * @return SetLoadBalancerTCPListenerAttributeResponse SetLoadBalancerTCPListenerAttributeResponse
      */
     public function setLoadBalancerTCPListenerAttributeWithOptions($request, $runtime)
     {
@@ -5500,6 +6255,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->healthCheckInterval)) {
             $query['HealthCheckInterval'] = $request->healthCheckInterval;
         }
+        if (!Utils::isUnset($request->healthCheckSwitch)) {
+            $query['HealthCheckSwitch'] = $request->healthCheckSwitch;
+        }
         if (!Utils::isUnset($request->healthCheckType)) {
             $query['HealthCheckType'] = $request->healthCheckType;
         }
@@ -5529,6 +6287,9 @@ class Slb extends OpenApiClient
         }
         if (!Utils::isUnset($request->persistenceTimeout)) {
             $query['PersistenceTimeout'] = $request->persistenceTimeout;
+        }
+        if (!Utils::isUnset($request->proxyProtocolV2Enabled)) {
+            $query['ProxyProtocolV2Enabled'] = $request->proxyProtocolV2Enabled;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -5573,9 +6334,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerTCPListenerAttributeRequest $request
+     * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
+     *   * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
+     *   *
+     * @param SetLoadBalancerTCPListenerAttributeRequest $request SetLoadBalancerTCPListenerAttributeRequest
      *
-     * @return SetLoadBalancerTCPListenerAttributeResponse
+     * @return SetLoadBalancerTCPListenerAttributeResponse SetLoadBalancerTCPListenerAttributeResponse
      */
     public function setLoadBalancerTCPListenerAttribute($request)
     {
@@ -5585,10 +6349,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerUDPListenerAttributeRequest $request
-     * @param RuntimeOptions                             $runtime
+     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+     *   * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](~~27595~~).
+     *   *
+     * @param SetLoadBalancerUDPListenerAttributeRequest $request SetLoadBalancerUDPListenerAttributeRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetLoadBalancerUDPListenerAttributeResponse
+     * @return SetLoadBalancerUDPListenerAttributeResponse SetLoadBalancerUDPListenerAttributeResponse
      */
     public function setLoadBalancerUDPListenerAttributeWithOptions($request, $runtime)
     {
@@ -5618,6 +6385,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->healthCheckInterval)) {
             $query['HealthCheckInterval'] = $request->healthCheckInterval;
         }
+        if (!Utils::isUnset($request->healthCheckSwitch)) {
+            $query['HealthCheckSwitch'] = $request->healthCheckSwitch;
+        }
         if (!Utils::isUnset($request->healthyThreshold)) {
             $query['HealthyThreshold'] = $request->healthyThreshold;
         }
@@ -5638,6 +6408,9 @@ class Slb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->proxyProtocolV2Enabled)) {
+            $query['ProxyProtocolV2Enabled'] = $request->proxyProtocolV2Enabled;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -5685,9 +6458,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerUDPListenerAttributeRequest $request
+     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
+     *   * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](~~27595~~).
+     *   *
+     * @param SetLoadBalancerUDPListenerAttributeRequest $request SetLoadBalancerUDPListenerAttributeRequest
      *
-     * @return SetLoadBalancerUDPListenerAttributeResponse
+     * @return SetLoadBalancerUDPListenerAttributeResponse SetLoadBalancerUDPListenerAttributeResponse
      */
     public function setLoadBalancerUDPListenerAttribute($request)
     {
@@ -5934,10 +6710,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetVServerGroupAttributeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
+     *   * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](~~35220~~) operation.
+     *   * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](~~35218~~) operation.
+     *   *
+     * @param SetVServerGroupAttributeRequest $request SetVServerGroupAttributeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetVServerGroupAttributeResponse
+     * @return SetVServerGroupAttributeResponse SetVServerGroupAttributeResponse
      */
     public function setVServerGroupAttributeWithOptions($request, $runtime)
     {
@@ -5986,9 +6766,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetVServerGroupAttributeRequest $request
+     * This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
+     *   * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](~~35220~~) operation.
+     *   * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](~~35218~~) operation.
+     *   *
+     * @param SetVServerGroupAttributeRequest $request SetVServerGroupAttributeRequest
      *
-     * @return SetVServerGroupAttributeResponse
+     * @return SetVServerGroupAttributeResponse SetVServerGroupAttributeResponse
      */
     public function setVServerGroupAttribute($request)
     {
@@ -5998,10 +6782,15 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param StartLoadBalancerListenerRequest $request
-     * @param RuntimeOptions                   $runtime
+     * When you call this operation, note the following items:
+     *   * *   You can call the operation only when the listener is in the Stopped state.
+     *   * *   After the operation is called, the status of the listener changes to Starting.
+     *   * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
+     *   *
+     * @param StartLoadBalancerListenerRequest $request StartLoadBalancerListenerRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartLoadBalancerListenerResponse
+     * @return StartLoadBalancerListenerResponse StartLoadBalancerListenerResponse
      */
     public function startLoadBalancerListenerWithOptions($request, $runtime)
     {
@@ -6050,9 +6839,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param StartLoadBalancerListenerRequest $request
+     * When you call this operation, note the following items:
+     *   * *   You can call the operation only when the listener is in the Stopped state.
+     *   * *   After the operation is called, the status of the listener changes to Starting.
+     *   * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
+     *   *
+     * @param StartLoadBalancerListenerRequest $request StartLoadBalancerListenerRequest
      *
-     * @return StartLoadBalancerListenerResponse
+     * @return StartLoadBalancerListenerResponse StartLoadBalancerListenerResponse
      */
     public function startLoadBalancerListener($request)
     {
@@ -6062,10 +6856,15 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param StopLoadBalancerListenerRequest $request
-     * @param RuntimeOptions                  $runtime
+     * Before you make this API call, note the following:
+     *   * *   After the API call is successfully made, the listener enters the stopped state.
+     *   * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
+     *   * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
+     *   *
+     * @param StopLoadBalancerListenerRequest $request StopLoadBalancerListenerRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopLoadBalancerListenerResponse
+     * @return StopLoadBalancerListenerResponse StopLoadBalancerListenerResponse
      */
     public function stopLoadBalancerListenerWithOptions($request, $runtime)
     {
@@ -6114,9 +6913,14 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param StopLoadBalancerListenerRequest $request
+     * Before you make this API call, note the following:
+     *   * *   After the API call is successfully made, the listener enters the stopped state.
+     *   * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
+     *   * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
+     *   *
+     * @param StopLoadBalancerListenerRequest $request StopLoadBalancerListenerRequest
      *
-     * @return StopLoadBalancerListenerResponse
+     * @return StopLoadBalancerListenerResponse StopLoadBalancerListenerResponse
      */
     public function stopLoadBalancerListener($request)
     {
@@ -6126,10 +6930,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -6178,9 +6984,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -6257,10 +7065,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param UploadCACertificateRequest $request
-     * @param RuntimeOptions             $runtime
+     * You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
+     *   *
+     * @param UploadCACertificateRequest $request UploadCACertificateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadCACertificateResponse
+     * @return UploadCACertificateResponse UploadCACertificateResponse
      */
     public function uploadCACertificateWithOptions($request, $runtime)
     {
@@ -6290,6 +7100,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6309,9 +7122,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param UploadCACertificateRequest $request
+     * You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
+     *   *
+     * @param UploadCACertificateRequest $request UploadCACertificateRequest
      *
-     * @return UploadCACertificateResponse
+     * @return UploadCACertificateResponse UploadCACertificateResponse
      */
     public function uploadCACertificate($request)
     {
@@ -6321,10 +7136,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param UploadServerCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   You can upload only one server certificate and its private key in each call.
+     *   * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
+     *   *
+     * @param UploadServerCertificateRequest $request UploadServerCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadServerCertificateResponse
+     * @return UploadServerCertificateResponse UploadServerCertificateResponse
      */
     public function uploadServerCertificateWithOptions($request, $runtime)
     {
@@ -6366,6 +7184,9 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->serverCertificateName)) {
             $query['ServerCertificateName'] = $request->serverCertificateName;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6385,9 +7206,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param UploadServerCertificateRequest $request
+     * *   You can upload only one server certificate and its private key in each call.
+     *   * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
+     *   *
+     * @param UploadServerCertificateRequest $request UploadServerCertificateRequest
      *
-     * @return UploadServerCertificateResponse
+     * @return UploadServerCertificateResponse UploadServerCertificateResponse
      */
     public function uploadServerCertificate($request)
     {

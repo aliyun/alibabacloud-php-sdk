@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddTagsRequest extends Model
 {
     /**
+     * @description The name of this action.
+     *
+     * Value: **AddTags**
+     * @example 139a00604ad-cn-east-hangzhou-
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -24,6 +29,10 @@ class AddTagsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the SLB instance belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +48,10 @@ class AddTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the region to which the SLB instance belongs.
+     *
+     * @example [{"TagKey":"Key1","TagValue":"Value1"},{"TagKey":"Key2","TagValue":"Value2"}]
+     *
      * @var string
      */
     public $tags;

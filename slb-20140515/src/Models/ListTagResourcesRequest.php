@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
+     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
@@ -25,11 +32,20 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Server Load Balancer (SLB) instance is created.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of a resource. You can specify up to 20 resources.
+     *
+     * @example lb-bp1qnnvj18yy6h******
+     *
      * @var string[]
      */
     public $resourceId;
@@ -45,11 +61,21 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   **instance**: an SLB instance
+     *   **certificate**: a certificate
+     *   **acl**: a network access control list (ACL)
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

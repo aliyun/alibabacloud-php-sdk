@@ -10,26 +10,50 @@ use AlibabaCloud\Tea\Model;
 class ListTLSCipherPoliciesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the current page is the last page. Valid values:
+     *
+     *   **true**: The current page is the last page.
+     *   **false**: The current page is not the last page.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If **NextToken** is empty, it indicates that no next query is to be sent.
+     *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of TLS policies.
+     *
      * @var TLSCipherPolicies[]
      */
     public $TLSCipherPolicies;
 
     /**
+     * @description The total number of TLS policies returned.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $totalCount;

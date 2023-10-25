@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainExtensionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 149A2470-F010-4437-BF68-343D5099C19D
+     *
      * @var string
      */
     public $requestId;

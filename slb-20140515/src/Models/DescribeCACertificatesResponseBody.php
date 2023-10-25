@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCACertificatesResponseBody extends Model
 {
     /**
+     * @description The information about the CA certificate.
+     *
      * @var CACertificates
      */
     public $CACertificates;
 
     /**
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
+     *
      * @var string
      */
     public $requestId;

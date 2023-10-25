@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DescribeListenerAccessControlAttributeRequest extends Model
 {
     /**
+     * @description The frontend port that is used by the CLB instance.
+     *
+     * Valid values: **1 to 65535**.
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The frontend protocol that is used by the CLB instance.
+     *
+     * > This parameter is required if the same port is specified for listeners of different protocols.
+     * @example https
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @description The CLB instance ID.
+     *
+     * @example lb-8vb86hxixo8lvsja8****
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,6 +48,11 @@ class DescribeListenerAccessControlAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region where the Classic Load Balancer (CLB) instance is created.
+     *
+     * You can query the region ID from the [Regions and zones](~~40654~~) list or by calling the [DescribeRegions](~~25609~~) operation.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

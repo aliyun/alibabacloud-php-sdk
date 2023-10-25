@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteCACertificateRequest extends Model
 {
     /**
+     * @description The CA certificate ID.
+     *
+     * @example 123157908xxxxxxx_15c73d77203_-986300114_-2110544xxx
+     *
      * @var string
      */
     public $CACertificateId;
@@ -24,6 +28,11 @@ class DeleteCACertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region of the CA certificates.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class relatedListener extends Model
 {
     /**
+     * @description The type of ACL. Valid values:
+     *
+     *   **black**
+     *   **white**
+     *
+     * @example white
+     *
      * @var string
      */
     public $aclType;
 
     /**
+     * @description The frontend port of the listener with which the ACL is associated.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The CLB instance ID.
+     *
+     * @example lb-bp13j********1miup
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The type of protocol that the associated listener uses.
+     *
+     * @example https
+     *
      * @var string
      */
     public $protocol;

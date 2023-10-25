@@ -9,56 +9,125 @@ use AlibabaCloud\Tea\Model;
 class SetRuleRequest extends Model
 {
     /**
+     * @description The cookie that is configured on the server.
+     *
+     * The cookie must be 1 to 200 characters in length and can contain only ASCII characters and digits. It cannot contain commas (,), semicolons (;), or space characters. It cannot start with a dollar sign ($).
+     *
+     * >  This parameter is required and takes effect if **StickySession** is set to **on** and **StickySessionType** is set to **server**.
+     * @example 23ffsa
+     *
      * @var string
      */
     public $cookie;
 
     /**
+     * @description The timeout period of a cookie. Unit: seconds. Valid values: **1** to **86400**.
+     *
+     * >  This parameter is required and takes effect if **StickySession** is set to **on** and **StickySessionType** is set to **insert**.
+     * @example 123
+     *
      * @var int
      */
     public $cookieTimeout;
 
     /**
+     * @description Specifies whether to enable the health check feature. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * >  This parameter is required and takes effect if the **ListenerSync** parameter is set to **off**.
+     * @example off
+     *
      * @var string
      */
     public $healthCheck;
 
     /**
+     * @description The port that is used for health checks. Valid values: **1** to **65535**.
+     *
+     * >  This parameter takes effect when the **HealthCheck** parameter is set to **on**.
+     * @example 80
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @description The domain name that is used for health checks. Valid values:
+     *
+     *   **$\_ip**: the private IP address of a backend server. If you do not set this parameter or set the parameter to $\_ip, the SLB instance uses the private IP address of each backend server for health checks.
+     *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+     *
+     * >  This parameter takes effect if the **HealthCheck** parameter is set to **on**.
+     * @example $_ip
+     *
      * @var string
      */
     public $healthCheckDomain;
 
     /**
+     * @description The HTTP status code for a successful health check. Multiple HTTP status codes are separated by commas (,).
+     *
+     * Valid values: **http\_2xx**, **http\_3xx**, **http\_4xx**, and **http\_5xx**.
+     *
+     * >  This parameter is required and takes effect if the **HealthCheck** parameter is set to **on**.
+     * @example http_2xx
+     *
      * @var string
      */
     public $healthCheckHttpCode;
 
     /**
+     * @description The interval between two consecutive health checks. Unit: seconds. Valid values: **1** to **50**.
+     *
+     * >  This parameter is required and takes effect if the **HealthCheck** parameter is set to **on**.
+     * @example 20
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @description The timeout period of a health check response. If a backend server, such as an Elastic Compute Service (ECS) instance, does not return a health check response within the specified timeout period, the server fails the health check. Unit: seconds. Valid values: **1** to **300**.
+     *
+     * >  This parameter is required and takes effect if the **HealthCheck** parameter is set to **on**.
+     * @example 20
+     *
      * @var int
      */
     public $healthCheckTimeout;
 
     /**
+     * @description The URI that is used for health checks.
+     *
+     * >  This parameter is required and takes effect if the **HealthCheck** parameter is set to **on**.
+     * @example /example
+     *
      * @var string
      */
     public $healthCheckURI;
 
     /**
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+     *
+     * Valid values: **2** to **10**.
+     *
+     * >  This parameter is required and takes effect if the **HealthCheck** parameter is set to **on**.
+     * @example 4
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @description Specifies whether to use the scheduling algorithm, session persistence, and health check configurations of the listener. Valid values:
+     *
+     *   **on**: uses the configurations of the listener.
+     *   **off**: does not use the configurations of the listener. You can customize the health check and session persistence configurations for the forwarding rule.
+     *
+     * @example off
+     *
      * @var string
      */
     public $listenerSync;
@@ -74,6 +143,11 @@ class SetRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Classic Load Balancer (CLB) instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -89,36 +163,85 @@ class SetRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the forwarding rule.
+     *
+     * @example rule-3ejhkt****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The name of the forwarding rule. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
+     *
+     * >  Forwarding rule names must be unique within the same listener.
+     * @example doctest
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The scheduling algorithm. Valid values:
+     *
+     *   **wrr**: Backend servers with higher weights receive more requests than those with lower weights.
+     *   **rr**: Requests are distributed to backend servers in sequence.
+     *
+     * >  This parameter is required and takes effect if the **ListenerSync** parameter is set to **off**.
+     * @example wrr
+     *
      * @var string
      */
     public $scheduler;
 
     /**
+     * @description Specifies whether to enable session persistence. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * This parameter is required and takes effect if the **ListenerSync** parameter is set to **off**.
+     * @example off
+     *
      * @var string
      */
     public $stickySession;
 
     /**
+     * @description The method that is used to handle a cookie. Valid values:
+     *
+     *   **insert**: inserts a cookie.
+     *
+     * CLB inserts the backend server ID as a cookie into the first HTTP or HTTPS response that is sent to a client. The next request from the client will contain this cookie, and the listener will distribute this request to the recorded backend server.
+     *
+     *   **server**: rewrites a cookie.
+     *
+     * When CLB detects a user-defined cookie, it overwrites the original cookie with the user-defined cookie. The next request from the client will contain the user-defined cookie, and the listener will distribute this request to the recorded backend server.
+     *
+     * >  This parameter is required and takes effect if the **StickySession** parameter is set to **on**.
+     * @example insert
+     *
      * @var string
      */
     public $stickySessionType;
 
     /**
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     *
+     * Valid values: **2** to **10**.
+     *
+     * >  This parameter is required and takes effect if the **HealthCheck** parameter is set to **on**.
+     * @example 4
+     *
      * @var int
      */
     public $unhealthyThreshold;
 
     /**
+     * @description The ID of the vServer group that is associated with the forwarding rule.
+     *
+     * @example rsp-cige6****
+     *
      * @var string
      */
     public $VServerGroupId;

@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListTLSCipherPoliciesRequest extends Model
 {
     /**
+     * @description Specifies whether to return the information about the associated listeners. Valid values:
+     *
+     *   **true**: returns the information about the associated listeners.
+     *   **false** (default): does not return the information about the associated listeners.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $includeListener;
 
     /**
+     * @description The maximum number of TLS policies to be queried in this call. Valid values: **1** to **100**. If you do not set this parameter, the default value **20** is used.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxItems;
 
     /**
+     * @description The name of the TLS policy. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     *
+     * @example TLSPolicy-test****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query or no next query is to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -39,6 +61,11 @@ class ListTLSCipherPoliciesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Classic Load Balancer (CLB) instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +81,10 @@ class ListTLSCipherPoliciesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the TLS policy.
+     *
+     * @example tls-bp17elso1h323r****
+     *
      * @var string
      */
     public $TLSCipherPolicyId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RemoveTagsRequest extends Model
 {
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example 139a00604ad-cn-east-hangzhou-01
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -24,6 +28,10 @@ class RemoveTagsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the SLB instance belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +47,10 @@ class RemoveTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description A list of tags to be removed.
+     *
+     * @example [{"TagKey":"Key1","TagValue":"Value1"},{"TagKey":"Key2","TagValue":"Value2"}]
+     *
      * @var string
      */
     public $tags;

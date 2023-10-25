@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerDeleteProtectionRequest extends Model
 {
     /**
+     * @description Specify whether to enable or disable deletion protection for the SLB instance.
+     *
+     * Valid values: **on and off**.
+     * @example off
+     *
      * @var string
      */
     public $deleteProtection;
 
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example lb-bp1b6c719dfa08e*****
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -29,6 +38,11 @@ class SetLoadBalancerDeleteProtectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region where the SLB instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query region IDs.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class relateListeners extends Model
 {
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1b6c719dfa08ex****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The listening port. Valid values: **1** to **65535**.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The listening protocol. Valid values:
+     *
+     *   **TCP**
+     *   **UDP**
+     *   **HTTP**
+     *   **HTTPS**
+     *
+     * @example HTTPS
+     *
      * @var string
      */
     public $protocol;

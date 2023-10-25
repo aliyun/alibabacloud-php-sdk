@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerHTTPListenerAttributeRequest extends Model
 {
     /**
+     * @description The frontend port that is used by the CLB instance.
+     *
+     * Valid values: **1** to **65535**.
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The CLB instance ID.
+     *
+     * @example lb-bp1uaunez0uho0zf0****
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -29,6 +38,11 @@ class DescribeLoadBalancerHTTPListenerAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the CLB instance.
+     *
+     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SetDomainExtensionAttributeRequest extends Model
 {
     /**
+     * @description The ID of the domain name that is associated with the additional certificate to be replaced.
+     *
+     * @example de-bp1rp7ta*****
+     *
      * @var string
      */
     public $domainExtensionId;
@@ -24,6 +28,10 @@ class SetDomainExtensionAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the SLB instance is created.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +47,10 @@ class SetDomainExtensionAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the new certificate.
+     *
+     * @example 1231579xxxxxxxx_166f8204689_1714763408_709981xxx
+     *
      * @var string
      */
     public $serverCertificateId;

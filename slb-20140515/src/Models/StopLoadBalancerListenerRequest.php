@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class StopLoadBalancerListenerRequest extends Model
 {
     /**
+     * @description The frontend listening port used by the listener.
+     *
+     * Value range: **1 to 65535**
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The frontend listening protocol used by the SLB instance.
+     *
+     * >  This parameter is required when listeners with different protocols use the same port.
+     * @example https
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @description The ID of the SLB instance to which the listener belongs.
+     *
+     * @example lb-bp13jaf5qli5xmgl1miup
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,6 +48,11 @@ class StopLoadBalancerListenerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the SLB instance belongs.
+     *
+     * To query the region ID, refer to the list of [regions and zones](~~40654~~) or call [DescribeRegions](~~25609~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

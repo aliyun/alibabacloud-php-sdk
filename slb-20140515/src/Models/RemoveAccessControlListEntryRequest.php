@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RemoveAccessControlListEntryRequest extends Model
 {
     /**
+     * @description The IP entries that you want to remove from the network ACL. Valid values:
+     *
+     *   **entry**: the IP address or CIDR block that you want to remove from the network ACL. Separate multiple IP addresses or CIDR blocks with commas (,).
+     *   **comment**: the description of the network ACL.
+     *
+     * @example [{"entry":"10.0.10.0/24","comment":"privaterule1"}]
+     *
      * @var string
      */
     public $aclEntrys;
 
     /**
+     * @description The ID of the network ACL.
+     *
+     * @example acl-bp1l0kk4gxce43k******
+     *
      * @var string
      */
     public $aclId;
@@ -29,6 +40,11 @@ class RemoveAccessControlListEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the network ACL is created.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

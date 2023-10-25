@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example A48D35FF-440A-4BC0-A4A2-A9BF69B7E43A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The zones.
+     *
      * @var zones
      */
     public $zones;

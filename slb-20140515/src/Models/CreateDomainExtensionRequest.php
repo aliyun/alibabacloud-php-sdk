@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainExtensionRequest extends Model
 {
     /**
+     * @description The domain name to be created.
+     *
+     * @example *.example1.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The frontend port of the HTTPS listener.
+     *
+     * Value range:** 1 to 65535**
+     * @example 443
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example lb-bp1o94dp5i6earrxxxxxx
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,6 +47,10 @@ class CreateDomainExtensionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the SLB instance belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +66,10 @@ class CreateDomainExtensionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the certificate used by the domain name.
+     *
+     * @example 123157xxxxxxx_166f820xxxxxx_1714763408_709981xxxx
+     *
      * @var string
      */
     public $serverCertificateId;

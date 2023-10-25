@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateTLSCipherPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D7A8875F-373A-5F48-8484-25B07A61F2AF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the policy.
+     *
+     * @example tls-bp14bb1e7dll4f****
+     *
      * @var string
      */
     public $TLSCipherPolicyId;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class availableResource extends Model
 {
     /**
+     * @description The primary zone.
+     *
+     * @example cn-shanghai-a
+     *
      * @var string
      */
     public $masterZoneId;
 
     /**
+     * @description The secondary zone.
+     *
+     * @example cn-shanghai-b
+     *
      * @var string
      */
     public $slaveZoneId;
 
     /**
+     * @description The supported resources.
+     *
      * @var supportResources
      */
     public $supportResources;

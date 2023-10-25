@@ -9,66 +9,159 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerUDPListenerAttributeRequest extends Model
 {
     /**
+     * @description The ID of the network access control list (ACL) that is associated with the listener.
+     *
+     * >  If **AclStatus** is set to **on**, this parameter is required.
+     * @example off
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description Specifies whether to enable access control. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example off
+     *
      * @var string
      */
     public $aclStatus;
 
     /**
+     * @description The type of the network ACL. Valid values:
+     *
+     *   **white**: a whitelist. Only requests from the IP addresses or CIDR blocks in the network ACL are forwarded. Whitelists apply to scenarios where you want to allow only specific IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. After a whitelist is configured, only requests from IP addresses that are added to the whitelist are forwarded by the listener.
+     *
+     * If you enable a whitelist but do not add an IP address to the ACL, the listener forwards all requests.
+     *
+     *   **black**: a blacklist. All requests from the IP addresses or CIDR blocks in the network ACL are denied. Blacklists apply to scenarios where you want to block access from specified IP addresses to an application.
+     *
+     * If a blacklist is configured for a listener but no IP address is added to the blacklist, the listener forwards all requests.
+     *
+     * >  If **AclStatus** is set to **on**, this parameter is required.
+     * @example white
+     *
      * @var string
      */
     public $aclType;
 
     /**
+     * @description The maximum bandwidth of the listener. Unit: Mbit/s. Valid values:
+     *
+     *   **-1**: For a pay-by-data-transfer Internet-facing CLB instance, you can set this parameter to **-1**. This way, the bandwidth of the listener is unlimited.
+     *   **1** to **5120**: For a pay-by-bandwidth Internet-facing CLB instance, you can specify the maximum bandwidth of each listener. The sum of bandwidth limits that you set for all listeners cannot exceed the maximum bandwidth of the CLB instance.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The name of the listener.
+     *
+     * The name must be 1 to 256 characters in length and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
+     * @example udp_80
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The port that is used for health checks.
+     *
+     * Valid values: **1** to **65535**.
+     * @example 80
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @description The timeout period of a health check. If a backend server, such as an Elastic Compute Service (ECS) instance, does not return a health check response within the specified timeout period, the server fails the health check. Unit: seconds.
+     *
+     * Valid values: **1** to **300**.
+     *
+     * >  If the value of the **HealthCheckConnectTimeout** parameter is smaller than that of the **HealthCheckInterval** parameter, the timeout period specified by the **HealthCheckConnectTimeout** parameter is ignored and the period of time specified by the **HealthCheckInterval** parameter is used as the timeout period.
+     * @example 100
+     *
      * @var int
      */
     public $healthCheckConnectTimeout;
 
     /**
+     * @description The interval at which health checks are performed. Unit: seconds.
+     *
+     * Valid values: **1** to **50**.
+     * @example 5
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @description Specifies whether to enable the health check feature. Valid values:
+     *
+     *   **on** (default): yes
+     *   **off**: no
+     *
+     * @example on
+     *
+     * @var string
+     */
+    public $healthCheckSwitch;
+
+    /**
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it can be declared healthy (from **fail** to **success**).
+     *
+     * Valid values: **1** to **10**.
+     * @example 4
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @description The frontend port used by the CLB instance.
+     *
+     * Valid values: **1** to **65535**.
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1rtfnodmywb43ecu4sf-c****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description Specifies whether to use a primary/secondary server group. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * >  You cannot set **VserverGroup** and **MasterSlaveServerGroup** both to **on**.
+     * @example on
+     *
      * @var string
      */
     public $masterSlaveServerGroup;
 
     /**
+     * @description The ID of the primary/secondary server group.
+     *
+     * >  You cannot specify both VServerGroupId and MasterSlaveServerGroupId.
+     * @example rsp-0bfuc****
+     *
      * @var string
      */
     public $masterSlaveServerGroupId;
@@ -84,6 +177,23 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to use the Proxy protocol to pass client IP addresses to backend servers. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $proxyProtocolV2Enabled;
+
+    /**
+     * @description The region ID of the CLB instance.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -99,31 +209,76 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The scheduling algorithm. Valid values:
+     *
+     *   **wrr**: Backend servers with higher weights receive more requests than those with lower weights.
+     *
+     * If two backend servers have the same weight, the backend server that has fewer connections is expected to receive more requests.
+     *
+     *   **rr**: Requests are distributed to backend servers in sequence.
+     *
+     *   **sch**: specifies consistent hashing that is based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
+     *
+     *   **tch**: specifies consistent hashing that is based on the following parameters: source IP address, destination IP address, source port, and destination port. Requests that contain the same preceding information are distributed to the same backend server.
+     *
+     *   **qch**: specifies consistent hashing that is based on QUIC connection IDs. Requests that contain the same QUIC connection ID are distributed to the same backend server.
+     *
+     * >
+     *   Only high-performance CLB instances support **sch**, **tch**, and **qch**.
+     *   You cannot switch the algorithm used by a CLB instance from **wrr** or **rr** to consistent hashing or from consistent hashing to weighted round robin or round robin.
+     *
+     * @example wrr
+     *
      * @var string
      */
     public $scheduler;
 
     /**
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     *
+     * Valid values: **1** to **10**.
+     * @example 4
+     *
      * @var int
      */
     public $unhealthyThreshold;
 
     /**
+     * @description Specifies whether to use a vServer group. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * >  You cannot set both **VserverGroup** and **MasterSlaveServerGroup** to **on**.
+     * @example on
+     *
      * @var string
      */
     public $VServerGroup;
 
     /**
+     * @description The ID of the vServer group.
+     *
+     * @example rsp-cige6****
+     *
      * @var string
      */
     public $VServerGroupId;
 
     /**
+     * @description The response string for UDP listener health checks. The string must be 1 to 64 characters in length and can contain only letters and digits.
+     *
+     * @example ok
+     *
      * @var string
      */
     public $healthCheckExp;
 
     /**
+     * @description The request string for UDP listener health checks. The string must be 1 to 64 characters in length and can contain only letters and digits.
+     *
+     * @example hello
+     *
      * @var string
      */
     public $healthCheckReq;
@@ -136,6 +291,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         'healthCheckConnectPort'    => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
         'healthCheckInterval'       => 'HealthCheckInterval',
+        'healthCheckSwitch'         => 'HealthCheckSwitch',
         'healthyThreshold'          => 'HealthyThreshold',
         'listenerPort'              => 'ListenerPort',
         'loadBalancerId'            => 'LoadBalancerId',
@@ -143,6 +299,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         'masterSlaveServerGroupId'  => 'MasterSlaveServerGroupId',
         'ownerAccount'              => 'OwnerAccount',
         'ownerId'                   => 'OwnerId',
+        'proxyProtocolV2Enabled'    => 'ProxyProtocolV2Enabled',
         'regionId'                  => 'RegionId',
         'resourceOwnerAccount'      => 'ResourceOwnerAccount',
         'resourceOwnerId'           => 'ResourceOwnerId',
@@ -185,6 +342,9 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         if (null !== $this->healthCheckInterval) {
             $res['HealthCheckInterval'] = $this->healthCheckInterval;
         }
+        if (null !== $this->healthCheckSwitch) {
+            $res['HealthCheckSwitch'] = $this->healthCheckSwitch;
+        }
         if (null !== $this->healthyThreshold) {
             $res['HealthyThreshold'] = $this->healthyThreshold;
         }
@@ -205,6 +365,9 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->proxyProtocolV2Enabled) {
+            $res['ProxyProtocolV2Enabled'] = $this->proxyProtocolV2Enabled;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -269,6 +432,9 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         if (isset($map['HealthCheckInterval'])) {
             $model->healthCheckInterval = $map['HealthCheckInterval'];
         }
+        if (isset($map['HealthCheckSwitch'])) {
+            $model->healthCheckSwitch = $map['HealthCheckSwitch'];
+        }
         if (isset($map['HealthyThreshold'])) {
             $model->healthyThreshold = $map['HealthyThreshold'];
         }
@@ -289,6 +455,9 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProxyProtocolV2Enabled'])) {
+            $model->proxyProtocolV2Enabled = $map['ProxyProtocolV2Enabled'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

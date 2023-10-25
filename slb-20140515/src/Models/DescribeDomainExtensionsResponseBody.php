@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainExtensionsResponseBody extends Model
 {
     /**
+     * @description The list of additional certificates.
+     *
      * @var domainExtensions
      */
     public $domainExtensions;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 48C1B671-C6DB-4DDE-9B30-10557E36CDE0
+     *
      * @var string
      */
     public $requestId;

@@ -19,6 +19,11 @@ class DeleteRulesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Server Load Balancer (SLB) instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query region IDs.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +39,11 @@ class DeleteRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The list of forwarding rules that you want to delete.
+     *
+     * >  The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
+     * @example ["rule-bp1z9ce******","rule-bp1tuc******4"]
+     *
      * @var string
      */
     public $ruleIds;

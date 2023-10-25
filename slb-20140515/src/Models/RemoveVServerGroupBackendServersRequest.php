@@ -9,6 +9,27 @@ use AlibabaCloud\Tea\Model;
 class RemoveVServerGroupBackendServersRequest extends Model
 {
     /**
+     * @description The list of backend servers that you want to remove from the vServer group.
+     *
+     * The value of this parameter is a JSON list of the STRING type. You can specify at most 20 elements in a list for each request.
+     *
+     *   **ServerId**: the ID of the Elastic Compute Service (ECS) instance or elastic network interface (ENI) that serves as a backend server.
+     *
+     *   **Port**: the port that is used by the backend server. Valid values: **1 to 65535**.
+     *
+     *   **Weight**: the weight of the backend server. Valid values: **0 to 100**.
+     *
+     *   **Description**: the description of the backend server. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.),and underscores (\_).
+     *
+     *   **Type**: the type of backend server. Valid values:
+     *
+     *   **ecs**: an ECS instance. This is the default value.
+     *   **eni**: an ENI.
+     *
+     *   **ServerIp**: the IP address of the ECS instance or ENI.
+     *
+     * @example [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.**.**", "Port":"80","Description":"test-112" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "172.166.**.**", "Port":"80","Description":"test-113" }]
+     *
      * @var string
      */
     public $backendServers;
@@ -24,6 +45,10 @@ class RemoveVServerGroupBackendServersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Classic Load Balancer (CLB) instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +64,10 @@ class RemoveVServerGroupBackendServersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the vServer group.
+     *
+     * @example rsp-cige6****
+     *
      * @var string
      */
     public $VServerGroupId;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class backendServer extends Model
 {
     /**
+     * @description The description of the server group.
+     *
+     * @example BackendServer1
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the backend server.
+     *
+     * @example i-bp1fq61enf4loa5i****
+     *
      * @var string
      */
     public $serverId;
 
     /**
+     * @description The type of the backend server. Valid values:
+     *
+     *   **ecs**: an ECS instance
+     *   **eni**: an ENI
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The weight of the backend server. Valid values: **0 to 100**.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $weight;

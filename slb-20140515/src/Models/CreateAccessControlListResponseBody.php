@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessControlListResponseBody extends Model
 {
     /**
+     * @description The IP version. Valid values: **ipv4** and **ipv6**.
+     *
+     * @example acl-rj9xpxzcwxrukois****
+     *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description The ID of the resource group to which the ACL belongs.
+     *
+     * @example 988CB45E-1643-48C0-87B4-928DDF77EA49
+     *
      * @var string
      */
     public $requestId;

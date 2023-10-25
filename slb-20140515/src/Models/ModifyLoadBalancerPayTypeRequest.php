@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyLoadBalancerPayTypeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payment. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
+     * >  This parameter is valid only when the `PayType` parameter is set to **PrePay**. This parameter is valid only for pay-as-you-go instances.
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description The subscription duration.
+     *
+     *   If **PricingCycle** is set to **month**, the valid values are **1** to **9**.
+     *   If **PricingCycle** is set to **year**, the valid values are **1** to **3**.
+     *
+     * >  This parameter is valid only when the **PayType** parameter is set to **PrePay**. This parameter is valid only for pay-as-you-go instances.
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1b6c719dfa08ex*****
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,16 +54,35 @@ class ModifyLoadBalancerPayTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the CLB instance. Valid values:
+     *
+     *   **PayOnDemand** (default): pay-as-you-go
+     *
+     * To change the billing method of a pay-as-you-go CLB instance to subscription, you must set the parameter to **PrePay**. In addition, the previous billing method of the CLB instance must be **PayOnDemand**.
+     * @example PrePay
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The billing cycle.
+     *
+     * Valid values: **year** and **month**.
+     *
+     * >  This parameter is valid only when the **PayType** parameter is set to **PrePay**. This parameter is valid only for pay-as-you-go instances.
+     * @example month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @description The ID of the region where the CLB instance is deployed.
+     *
+     * You can query the region ID from the [Regions and zones](~~40654~~) list or by calling the [DescribeRegions](~~25609~~) operation.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

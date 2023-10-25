@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceRequest extends Model
 {
     /**
+     * @description The type of the IP address.
+     *
+     * Valid values: **ipv4 and ipv6**.
+     * @example ipv4
+     *
      * @var string
      */
     public $addressIPVersion;
 
     /**
+     * @description The network type.
+     *
+     * Valid values: **vpc, classic-internet, and classic-intranet**.
+     *
+     * classic_intranet: an internal CLB instance that is deployed in a classic network.
+     * @example vpc
+     *
      * @var string
      */
     public $addressType;
@@ -29,6 +41,10 @@ class DescribeAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

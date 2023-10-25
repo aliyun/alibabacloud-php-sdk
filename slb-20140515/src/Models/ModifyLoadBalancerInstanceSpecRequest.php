@@ -9,16 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ModifyLoadBalancerInstanceSpecRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payment. Valid values:
+     *
+     *   **true**: automatically completes the payment.
+     *   **false** (default): If you select this option, you must complete the payment in the Order Center.
+     *
+     * > This parameter takes effect only for subscription instances.
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1b6c719df*********
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The specification of the CLB instance. Valid values:
+     *
+     *   **slb.s1.small**
+     *   **slb.s2.small**
+     *   **slb.s2.medium**
+     *   **slb.s3.small**
+     *   **slb.s3.medium**
+     *   **slb.s3.large**
+     *
+     * > When you switch a shared-resource CLB instance to a high-performance CLB instance, your service may be interrupted for 10 to 30 seconds. We recommend that you modify the specification during off-peak hours or use Alibaba Cloud DNS to schedule your workloads to another CLB instance before you modify the specification.
+     * @example slb.s2.small
+     *
      * @var string
      */
     public $loadBalancerSpec;
@@ -34,6 +58,11 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the CLB instance.
+     *
+     * You can query the region ID from the [Regions and zones](~~40654~~) list or by calling the [DescribeRegions](~~27584~~) operation.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

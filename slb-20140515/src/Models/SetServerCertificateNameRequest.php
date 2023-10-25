@@ -19,6 +19,11 @@ class SetServerCertificateNameRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the Server Load Balancer (SLB) instance belongs.
+     *
+     * To query the region ID, call [DescribeRegions](~~27584~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,11 +39,20 @@ class SetServerCertificateNameRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the server certificate.
+     *
+     * @example 139a00604ad-cn-east-hangzhou-01
+     *
      * @var string
      */
     public $serverCertificateId;
 
     /**
+     * @description The name of the server certificate.
+     *
+     * The name must be 1 to 80 characters in length. It must start with an English letter. It can contain letters, numbers, periods (.), underscores (\_), and hyphens (-).
+     * @example abc
+     *
      * @var string
      */
     public $serverCertificateName;

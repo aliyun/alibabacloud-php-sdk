@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerModificationProtectionRequest extends Model
 {
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1b6c719dfa08e*****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The reason why the configuration read-only mode is enabled. The value must be 1 to 80 characters in length. It must start with a letter and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     *
+     * >  This parameter is valid only if the **ModificationProtectionStatus** parameter is set to **ConsoleProtection**.
+     * @example Configuration change
+     *
      * @var string
      */
     public $modificationProtectionReason;
 
     /**
+     * @description Specifies whether to enable the configuration read-only mode. Valid values:
+     *
+     *   **NonProtection**: disables the configuration read-only mode. After you disable the configuration read-only mode, the value of **ModificationProtectionReason** is cleared.
+     *   **ConsoleProtection**: enables the configuration read-only mode.
+     *
+     * >  If you set this parameter to **ConsoleProtection**, you cannot use the CLB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+     * @example ConsoleProtection
+     *
      * @var string
      */
     public $modificationProtectionStatus;
@@ -34,6 +51,11 @@ class SetLoadBalancerModificationProtectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the CLB instance.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,166 +9,367 @@ use AlibabaCloud\Tea\Model;
 class HTTPSListenerConfig extends Model
 {
     /**
+     * @description The ID of the certificate authority (CA) certificate.
+     *
+     * @example idkp-234-cn-test-0****
+     *
      * @var string
      */
     public $CACertificateId;
 
     /**
+     * @description The cookie that is configured on the server.
+     *
+     * @example B490B5EBF6F3CD402E515D22BCDA****
+     *
      * @var string
      */
     public $cookie;
 
     /**
+     * @description The timeout period of a cookie. Unit: seconds.
+     *
+     * Valid values: **1** to **86400**.
+     * @example 500
+     *
      * @var int
      */
     public $cookieTimeout;
 
     /**
+     * @description Indicates whether `HTTP 2.0` is enabled. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example off
+     *
      * @var string
      */
     public $enableHttp2;
 
     /**
+     * @description Indicates whether Gzip compression is enabled. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $gzip;
 
     /**
+     * @description Indicates whether the health check feature is enabled. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $healthCheck;
 
     /**
+     * @description The port that is used for health checks.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
+     * @description The domain name that is used for health checks.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $healthCheckDomain;
 
     /**
+     * @description The HTTP status codes that are used to determine whether the backend server passes the health check.
+     *
+     * @example http_2xx,http_3xx
+     *
      * @var string
      */
     public $healthCheckHttpCode;
 
     /**
+     * @description The HTTP version that is used for health checks.
+     *
+     * @example HTTP 1.0
+     *
      * @var string
      */
     public $healthCheckHttpVersion;
 
     /**
+     * @description The interval at which health checks are performed. Unit: seconds.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
+     * @description The health check method.
+     *
+     * @example get
+     *
      * @var string
      */
     public $healthCheckMethod;
 
     /**
+     * @description The maximum timeout period of a health check. Unit: seconds.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $healthCheckTimeout;
 
     /**
+     * @description The protocol that is used for health checks.
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $healthCheckType;
 
     /**
+     * @description The URI that is used for health checks.
+     *
+     * @example /test/index.html
+     *
      * @var string
      */
     public $healthCheckURI;
 
     /**
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+     *
+     * Valid values: **2** to **10**.
+     * @example 4
+     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
+     * @description The timeout period of an idle connection. Unit: seconds. Valid values: **1** to **60**.
+     *
+     * If no request is received within the specified timeout period, CLB closes the connection. When a request is received, CLB establishes a new connection.
+     * @example 15
+     *
      * @var int
      */
     public $idleTimeout;
 
     /**
+     * @description The request timeout period. Unit: seconds. Valid values: **1** to **180**.
+     *
+     * If no response is received from a backend server during the request timeout period, CLB sends the `HTTP 504` status code to the client.
+     * @example 60
+     *
      * @var int
      */
     public $requestTimeout;
 
     /**
+     * @description The ID of the server certificate.
+     *
+     * @example idkp-123-cn-test-0****
+     *
      * @var string
      */
     public $serverCertificateId;
 
     /**
+     * @description Indicates whether session persistence is enabled. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $stickySession;
 
     /**
+     * @description The method that is used to handle a cookie.
+     *
+     *   **insert**: inserts a cookie. CLB inserts a cookie (SERVERID) into the first HTTP or HTTPS response that is sent to a client. The next request from the client contains this cookie, and the listener forwards this request to the recorded backend server.
+     *   **server**: rewrites a cookie. When CLB detects a user-defined cookie, it overwrites the original cookie with the user-defined cookie. The next request from the client carries the user-defined cookie, and the listener will distribute the request to the recorded backend server.
+     *
+     * @example insert
+     *
      * @var string
      */
     public $stickySessionType;
 
     /**
+     * @description The Transport Layer Security (TLS) security policy. Each security policy contains TLS protocol versions and cipher suites available for HTTPS.
+     *
+     *   **tls_cipher_policy\_1\_0**:
+     *
+     * Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
+     *
+     *   **tls_cipher_policy\_1\_1**:
+     *
+     * Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
+     *
+     *   **tls_cipher_policy\_1\_2**
+     *
+     * Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
+     *
+     *   **tls_cipher_policy\_1\_2\_strict**
+     *
+     * Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA
+     *
+     *   **tls_cipher_policy\_1\_2\_strict_with\_1\_3**
+     *
+     * Supported cipher suites: TLS_AES\_128\_GCM_SHA256, TLS_AES\_256\_GCM_SHA384, TLS_CHACHA20\_POLY1305\_SHA256, TLS_AES\_128\_CCM_SHA256, TLS_AES\_128\_CCM\_8\_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA
+     * @example tls_cipher_policy_1_0
+     *
      * @var string
      */
     public $TLSCipherPolicy;
 
     /**
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     *
+     * Valid values: **2** to **10**.
+     * @example 4
+     *
      * @var int
      */
     public $unhealthyThreshold;
 
     /**
+     * @description Indicates whether the `XForwardedFor` header is used to retrieve client IP addresses. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor;
 
     /**
+     * @description Indicates whether the `XForwardedFor_ClientCertClientVerify` header is used to retrieve the verification result of the client certificate. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example off
+     *
      * @var string
      */
     public $XForwardedFor_ClientCertClientVerify;
 
     /**
+     * @description Indicates whether the `XForwardedFor_ClientCertFingerprint` header is used to retrieve the fingerprint of the client certificate. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example off
+     *
      * @var string
      */
     public $XForwardedFor_ClientCertFingerprint;
 
     /**
+     * @description Indicates whether the `XForwardedFor_ClientCertIssuerDN` header is used to retrieve information about the authority that issues the client certificate. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example off
+     *
      * @var string
      */
     public $XForwardedFor_ClientCertIssuerDN;
 
     /**
+     * @description Indicates whether the `XForwardedFor_ClientCertSubjectDN` header is used to retrieve information about the owner of the client certificate. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example off
+     *
      * @var string
      */
     public $XForwardedFor_ClientCertSubjectDN;
 
     /**
+     * @description Indicates whether the `XForwardedFor_ClientSrcPort` header is used to retrieve the client port. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example off
+     *
      * @var string
      */
     public $XForwardedFor_ClientSrcPort;
 
     /**
+     * @description Indicates whether the `SLB-ID` header is used to retrieve the ID of the CLB instance. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor_SLBID;
 
     /**
+     * @description Indicates whether the `SLB-IP` header is used to retrieve the virtual IP address requested by the client. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor_SLBIP;
 
     /**
+     * @description Indicates whether the `XForwardedFor_SLBPORT` header is used to retrieve the listening port. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example off
+     *
      * @var string
      */
     public $XForwardedFor_SLBPORT;
 
     /**
+     * @description Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listening protocol. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
+     * @example on
+     *
      * @var string
      */
     public $XForwardedFor_proto;

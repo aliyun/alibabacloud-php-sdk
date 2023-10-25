@@ -19,6 +19,10 @@ class DeleteVServerGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the associated Server Load Balancer (SLB) instance belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +38,11 @@ class DeleteVServerGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VServer group to be deleted.
+     *
+     * >  If the VServer group is in use, it cannot be deleted.
+     * @example rsp-cige6j*****
+     *
      * @var string
      */
     public $VServerGroupId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateRulesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The forwarding rules.
+     *
      * @var rules
      */
     public $rules;

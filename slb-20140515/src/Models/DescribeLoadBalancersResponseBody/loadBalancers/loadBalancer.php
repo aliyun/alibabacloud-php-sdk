@@ -10,131 +10,266 @@ use AlibabaCloud\Tea\Model;
 class loadBalancer extends Model
 {
     /**
+     * @description The endpoint of the CLB instance.
+     *
+     * @example 100.XX.XX.28
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The IP version that is used by the CLB instance. Valid values: **ipv4** and **ipv6**.
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $addressIPVersion;
 
     /**
+     * @description The network type of the CLB instance. Valid values:
+     *
+     *   **internet:** After an Internet-facing CLB instance is created, the system assigns a public IP address to the CLB instance. Then, the CLB instance can forward requests over the Internet.
+     *   **intranet:** After an internal-facing CLB instance is created, the system assigns a private IP address to the CLB instance. Then, the CLB instance can forward requests only over internal networks.
+     *
+     * @example intranet
+     *
      * @var string
      */
     public $addressType;
 
     /**
+     * @description The maximum bandwidth of the listener. Unit: Mbit/s. Valid values:
+     *
+     *   **-1:** For a pay-by-data-transfer Internet-facing CLB instance, this value is set to -1. This indicates that the bandwidth is unlimited.
+     *   **1 to 5120:** For a pay-by-bandwidth Internet-facing CLB instance, you can specify the maximum bandwidth for each listener. The sum of the maximum bandwidth of all listeners cannot exceed the maximum bandwidth of the CLB instance.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The time when the CLB instance was created. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
+     *
+     * @example 2021-12-02T02:49:05Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The timestamp when the instance was created.
+     *
+     * @example 1504147745000
+     *
      * @var int
      */
     public $createTimeStamp;
 
     /**
+     * @description Indicates whether deletion protection is enabled for the CLB instance. Valid values:
+     *
+     *   **on:** Deletion protection is enabled.
+     *   **off:** Deletion protection is disabled.
+     *
+     * @example off
+     *
      * @var string
      */
     public $deleteProtection;
 
     /**
+     * @description The metering method of the CLB instance. Valid values:
+     *
+     *   **PayBySpec:** pay-by-specification.
+     *   **PayByCLCU:** pay-by-LCU.
+     *
+     * >  This parameter takes effect only for accounts registered on the China site (aliyun.com) and when the **PayType** parameter is set to **PayOnDemand**.
+     * @example PayBySpec
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The metering method of the Internet-facing CLB instance. Valid values:
+     *
+     *   **3:** pay-by-bandwidth (**paybybandwidth**).
+     *   **4:** pay-by-data-transfer (**paybytraffic**).
+     *
+     * @example 3
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The metering method of Internet data transfer. Valid values:
+     *
+     *   **paybybandwidth:** pay-by-bandwidth.
+     *   **paybytraffic:** pay-by-data-transfer.
+     *
+     * @example paybybandwidth
+     *
      * @var string
      */
     public $internetChargeTypeAlias;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1b6c719dfa****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The name of the CLB instance.
+     *
+     * @example lb-bp1o94dp5i6ea****
+     *
      * @var string
      */
     public $loadBalancerName;
 
     /**
+     * @description The specification of the CLB instance.
+     *
+     * @example slb.s1.small
+     *
      * @var string
      */
     public $loadBalancerSpec;
 
     /**
+     * @description The status of the CLB instance. Valid values:
+     *
+     *   **inactive:** The CLB instance is disabled. CLB instances in the inactive state do not forward traffic.
+     *   **active:** The CLB instance runs as expected. By default, newly created CLB instances are in the **active** state.
+     *   **locked:** The CLB instance is locked.
+     *
+     * @example active
+     *
      * @var string
      */
     public $loadBalancerStatus;
 
     /**
+     * @description The ID of the primary zone to which the CLB instance belongs.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $masterZoneId;
 
     /**
+     * @description The reason why the configuration read-only mode was enabled. The reason must be 1 to 80 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The reason must start with a letter.
+     *
+     * > This parameter takes effect only when you set the `ModificationProtectionStatus` parameter to **ConsoleProtection**.
+     * @example ManagedInstance
+     *
      * @var string
      */
     public $modificationProtectionReason;
 
     /**
+     * @description Indicates whether the configuration read-only mode is enabled for the CLB instance. Valid values:
+     *
+     *   **NonProtection:** The configuration read-only mode is disabled. In this case, you cannot specify the ModificationProtectionReason parameter. If you specify the `ModificationProtectionReason` parameter, the value is cleared.
+     *   **ConsoleProtection:** The configuration read-only mode is enabled.
+     *
+     * >  If you set this parameter to **ConsoleProtection**, you cannot modify the configurations of the CLB instance in the CLB console. However, you can call API operations to modify the configurations of the CLB instance.
+     * @example ConsoleProtection
+     *
      * @var string
      */
     public $modificationProtectionStatus;
 
     /**
+     * @description The network type of the internal-facing CLB instance. Valid values:
+     *
+     *   **vpc:** VPC.
+     *   **classic:** classic network.
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The billing method of the CLB instance.
+     *
+     *   **PayOnDemand** is returned, which indicates the pay-as-you-go billing method.
+     *
+     * @example PayOnDemand
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The ID of the region where the CLB instance was deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The region where the CLB instance was deployed.
+     *
+     * @example hangzhou
+     *
      * @var string
      */
     public $regionIdAlias;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-atstuj3r****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the secondary zone to which the CLB instance belongs.
+     *
+     * @example cn-hangzhou-d
+     *
      * @var string
      */
     public $slaveZoneId;
 
     /**
+     * @description The tags of the CLB instance.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The ID of the vSwitch to which the internal-facing CLB instance belongs.
+     *
+     * @example vsw-255ecr****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC in which the internal-facing CLB instance was deployed.
+     *
+     * @example vpc-25dvzy9f8****
+     *
      * @var string
      */
     public $vpcId;

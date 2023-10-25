@@ -8,181 +8,356 @@ use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseB
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\listenerPorts;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\listenerPortsAndProtocal;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\listenerPortsAndProtocol;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLoadBalancerAttributeResponseBody extends Model
 {
     /**
+     * @description The service IP address of the CLB instance.
+     *
+     * @example 42.XX.XX.6
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The version of the IP address. Valid values: **ipv4** and **ipv6**.
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $addressIPVersion;
 
     /**
+     * @description The address type of the CLB instance.
+     *
+     * @example internet
+     *
      * @var string
      */
     public $addressType;
 
     /**
+     * @description The timestamp generated when the CLB instance is released.
+     *
+     * @example 1513947075000
+     *
      * @var int
      */
     public $autoReleaseTime;
 
     /**
+     * @description The backend servers of the CLB instance.
+     *
      * @var backendServers
      */
     public $backendServers;
 
     /**
+     * @description The maximum bandwidth of the Internet-facing CLB instance that is billed on a pay-by-bandwidth basis.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The time when the CLB instance was created. The time is in the `YYYY-MM-DDThh:mm:ssZ` format.
+     *
+     * @example 2017-08-31T02:49:05Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The timestamp generated when the CA certificate is uploaded.
+     *
+     * @example 1504147745000
+     *
      * @var int
      */
     public $createTimeStamp;
 
     /**
+     * @description Indicates whether deletion protection is enabled for the CLB instance.
+     *
+     * Valid values: **on** and **off**.
+     * @example off
+     *
      * @var string
      */
     public $deleteProtection;
 
     /**
+     * @description The time when the CLB instance expires.
+     *
+     * @example 2022-09-08T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The timestamp that indicates the expiration time of the CLB instance.
+     *
+     * @example 32493801600000
+     *
      * @var int
      */
     public $endTimeStamp;
 
     /**
+     * @description The metering method of the CLB instance. Valid values:
+     *
+     *   **PayBySpec** (default)
+     *   **PayByCLCU**
+     *
+     * > This parameter is available only on the China site and takes effect only when **PayType** is set to **PayOnDemand**.
+     * @example PayBySpec
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The metering method of the Internet-facing CLB instance. Valid values:
+     *
+     *   **paybytraffic**
+     *   **paybybandwidth**
+     *
+     * @example paybytraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The frontend port used by the CLB instance.
+     *
      * @var listenerPorts
      */
     public $listenerPorts;
 
     /**
+     * @description The ports or protocols of the listeners.
+     *
      * @var listenerPortsAndProtocal
      */
     public $listenerPortsAndProtocal;
 
     /**
+     * @description The ports or protocols of the listeners.
+     *
      * @var listenerPortsAndProtocol
      */
     public $listenerPortsAndProtocol;
 
     /**
+     * @description The CLB instance ID.
+     *
+     * @example lb-bp1b6c719dfa08ex****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The name of the CLB instance.
+     *
+     * @example lb-instance-test
+     *
      * @var string
      */
     public $loadBalancerName;
 
     /**
+     * @description The specification of the CLB instance.
+     *
+     * @example slb.s1.small
+     *
      * @var string
      */
     public $loadBalancerSpec;
 
     /**
+     * @description The status of the CLB instance. Valid values:
+     *
+     *   **inactive**: The CLB instance is disabled. CLB instances in the inactive state do not forward traffic.
+     *   **active**: The CLB instance is running as expected. Newly created CLB instances are in the **active** state by default.
+     *   **locked**: The CLB instance is locked. CLB instances may be locked due to overdue payments or other reasons.
+     *
+     * @example active
+     *
      * @var string
      */
     public $loadBalancerStatus;
 
     /**
+     * @description The ID of the primary zone to which the CLB instance belongs.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $masterZoneId;
 
     /**
+     * @description The reason why the configuration read-only mode is enabled. The value is 1 to 80 characters in length. It starts with a letter and can contain digits, periods (.), underscores (\_), and hyphens (-).
+     *
+     * >  This parameter is valid only when **ModificationProtectionStatus** is set to **ConsoleProtection**.
+     * @example Managed instance
+     *
      * @var string
      */
     public $modificationProtectionReason;
 
     /**
+     * @description Indicates whether the configuration read-only mode is enabled. Valid values:
+     *
+     *   **NonProtection**: The configuration read-only mode is disabled. After you disable the configuration read-only mode, the value of **ModificationProtectionReason** is cleared.
+     *   **ConsoleProtection**: The configuration read-only mode is enabled.
+     *
+     * >  If this parameter is set to **ConsoleProtection**, you cannot modify instance configurations in the CLB console. However, you can modify instance configurations by calling API operations.
+     * @example ConsoleProtection
+     *
      * @var string
      */
     public $modificationProtectionStatus;
 
     /**
+     * @description The network type of the CLB instance.
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The billing method of the CLB instance. Valid values:
+     *
+     *   Only **PayOnDemand** may be returned, which indicates the pay-as-you-go billing method.
+     *
+     * @example PayOnDemand
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The region ID of the CLB instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The alias of the region to which the CLB instance belongs.
+     *
+     * @example hangzhou
+     *
      * @var string
      */
     public $regionIdAlias;
 
     /**
+     * @description The auto-renewal cycle. Valid values: **Year** and **Month**. Default value: Month.
+     *
+     * >  This parameter is valid only if you create a subscription CLB instance on the Alibaba Cloud China site. In this case, **PayType** must be set to **PrePay** and **RenewalStatus** must be set to **AutoRenewal**.
+     * @example Month
+     *
      * @var string
      */
     public $renewalCycUnit;
 
     /**
+     * @description The auto-renewal duration. This parameter is valid only if **RenewalStatus** is set to **AutoRenewal**.
+     *
+     *   Valid values when **PeriodUnit** is set to **Year**: **1**, **2**, and **3**.
+     *
+     *   Valid values when **PeriodUnit** is set to **Month**: **1**, **2**, **3**, and **6**.
+     *
+     * > This parameter is valid only when you create a subscription CLB instance on the Alibaba Cloud China site. In this case, the **PayType** parameter must be set to **PrePay**.
+     * @example 1
+     *
      * @var int
      */
     public $renewalDuration;
 
     /**
+     * @description Indicates whether auto-renewal is enabled. Valid values:
+     *
+     *   **AutoRenewal**: Auto-renewal is enabled.
+     *
+     *   **Normal**: Auto-renewal is disabled. You must manually renew the CLB instance.
+     *
+     *   **NotRenewal**: The CLB instance will not be renewed upon expiration. If this value is returned, the system does not send notifications until three days before the expiration date.
+     *
+     **
+     *
+     **Note** This parameter is valid only when you create a subscription CLB instance on the Alibaba Cloud China site. In this case, **PayType** must be set to **PrePay**.
+     *
+     * @example AutoRenewal
+     *
      * @var string
      */
     public $renewalStatus;
 
     /**
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-atstuj3rtop****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the secondary zone to which the CLB instance belongs.
+     *
+     * @example cn-hangzhou-d
+     *
      * @var string
      */
     public $slaveZoneId;
 
     /**
+     * @description The tags.
+     *
+     * @var tags
+     */
+    public $tags;
+
+    /**
+     * @description The ID of the vSwitch to which the internal-facing CLB instance belongs.
+     *
+     * @example vsw-255ecrwq5****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) where the internal-facing CLB instance is deployed.
+     *
+     * @example vpc-25dvzy9f8****
+     *
      * @var string
      */
     public $vpcId;
@@ -220,6 +395,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
         'requestId'                    => 'RequestId',
         'resourceGroupId'              => 'ResourceGroupId',
         'slaveZoneId'                  => 'SlaveZoneId',
+        'tags'                         => 'Tags',
         'vSwitchId'                    => 'VSwitchId',
         'vpcId'                        => 'VpcId',
     ];
@@ -329,6 +505,9 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
         }
         if (null !== $this->slaveZoneId) {
             $res['SlaveZoneId'] = $this->slaveZoneId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -446,6 +625,9 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
         }
         if (isset($map['SlaveZoneId'])) {
             $model->slaveZoneId = $map['SlaveZoneId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

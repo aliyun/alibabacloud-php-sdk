@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class slaveZone extends Model
 {
     /**
+     * @description The name of the secondary zone.
+     *
+     * @example Queries zones in a specified region.
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The ID of the secondary zone.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

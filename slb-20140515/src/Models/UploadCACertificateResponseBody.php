@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class UploadCACertificateResponseBody extends Model
 {
     /**
+     * @description The name of the CA certificate.
+     *
+     * @example 139a00604ad-cn-east-hangzhou-01
+     *
      * @var string
      */
     public $CACertificateId;
 
     /**
+     * @description The domain name of the CA certificate.
+     *
+     * @example mycacert01
+     *
      * @var string
      */
     public $CACertificateName;
 
     /**
+     * @description The fingerprint of the CA certificate.
+     *
+     * @example .example.com
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The time when the CA certificate expires.
+     *
+     * @example 2017-08-31T02:49:05Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The name of the CA certificate.
+     *
+     * @example 1504147745000
+     *
      * @var int
      */
     public $createTimeStamp;
 
     /**
+     * @description The timestamp generated when the CA certificate is uploaded.
+     *
+     * @example 2024-11-21T06:04:25Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The ID of the enterprise resource group.
+     *
+     * @example 1732169065000
+     *
      * @var int
      */
     public $expireTimeStamp;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 02:DF:AB:ED
+     *
      * @var string
      */
     public $fingerprint;
 
     /**
+     * @description The ID of the enterprise resource group.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The time when the CA certificate is uploaded.
+     *
+     * @example rg-atstuj3rtoptyui
+     *
      * @var string
      */
     public $resourceGroupId;

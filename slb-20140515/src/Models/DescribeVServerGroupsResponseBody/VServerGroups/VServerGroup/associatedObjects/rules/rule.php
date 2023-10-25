@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
+     * @description The requested domain name.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The ID of the forwarding rule.
+     *
+     * @example rule-a3x3pg1yohq3lq****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The name of the forwarding rule.
+     *
+     * @example test
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The request path.
+     *
+     * @example /example
+     *
      * @var string
      */
     public $url;

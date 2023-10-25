@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class associatedObjects extends Model
 {
     /**
+     * @description The list of listeners.
+     *
      * @var listeners
      */
     public $listeners;
 
     /**
+     * @description The list of forwarding rules.
+     *
      * @var rules
      */
     public $rules;

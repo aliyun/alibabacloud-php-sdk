@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class AddBackendServersResponseBody extends Model
 {
     /**
+     * @description The list of backend servers.
+     *
      * @var backendServers
      */
     public $backendServers;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-2ze7o5h52g02kkzz****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 34B82C81-F13B-4EEB-99F6-A048C67CC830
+     *
      * @var string
      */
     public $requestId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancersResponseBody extends Model
 {
     /**
+     * @description An array of CLB instances.
+     *
      * @var loadBalancers
      */
     public $loadBalancers;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8B9DB03B-ED39-5DB8-9C9F-1ED5F548D61E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of instances returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

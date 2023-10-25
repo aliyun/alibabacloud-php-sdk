@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class listenerPortAndProtocol extends Model
 {
     /**
+     * @description Indicates whether the listener is enabled.
+     *
+     * @example Listener Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The destination listening port to which requests are forwarded. The port must be open and use HTTPS.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $forwardPort;
 
     /**
+     * @description Indicates whether the listener is enabled.
+     *
+     * @example on
+     *
      * @var string
      */
     public $listenerForward;
 
     /**
+     * @description The frontend port that is used by the CLB instance.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The frontend protocol that is used by the CLB instance.
+     *
+     * @example https
+     *
      * @var string
      */
     public $listenerProtocol;

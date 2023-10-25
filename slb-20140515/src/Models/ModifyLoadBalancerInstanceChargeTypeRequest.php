@@ -9,19 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ModifyLoadBalancerInstanceChargeTypeRequest extends Model
 {
     /**
+     * @description The maximum bandwidth of the Internet-facing CLB instance that is billed on a pay-by-bandwidth basis.
+     *
+     * You do not need to set this parameter. The metering method of Internet data transfer for pay-by-LCU instances supports only pay-by-traffic.
+     * @example 5
+     *
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
+     * @description The metering method of the instance after the change.
+     *
+     * Valid value: **PayByCLCU**. Only pay-by-LCU is supported.
+     * @example PayByCLCU
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The metering method of Internet data transfer after the change.
+     *
+     * Valid value: **paybytraffic**.
+     *
+     * > *   If the value of the **InstanceChargeType** parameter is set to **PayByCLCU**, only pay-by-data-transfer is supported.
+     * >*   When you change the metering method, the new metering method takes effect at 00:00:00 the next day.
+     * @example paybytraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1b3jus5hpenznuu****
+     *
      * @var string
      */
     public $loadBalancerId;
+
+    /**
+     * @description The specification of the CLB instance.
+     *
+     * You do not need to set this parameter. For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
+     * @example slb.s1.small
+     *
+     * @var string
+     */
+    public $loadBalancerSpec;
 
     /**
      * @var string
@@ -34,6 +71,11 @@ class ModifyLoadBalancerInstanceChargeTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the CLB instance.
+     *
+     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -48,9 +90,11 @@ class ModifyLoadBalancerInstanceChargeTypeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'bandwidth'            => 'Bandwidth',
         'instanceChargeType'   => 'InstanceChargeType',
         'internetChargeType'   => 'InternetChargeType',
         'loadBalancerId'       => 'LoadBalancerId',
+        'loadBalancerSpec'     => 'LoadBalancerSpec',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -65,6 +109,9 @@ class ModifyLoadBalancerInstanceChargeTypeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
@@ -73,6 +120,9 @@ class ModifyLoadBalancerInstanceChargeTypeRequest extends Model
         }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
+        }
+        if (null !== $this->loadBalancerSpec) {
+            $res['LoadBalancerSpec'] = $this->loadBalancerSpec;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -101,6 +151,9 @@ class ModifyLoadBalancerInstanceChargeTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
@@ -109,6 +162,9 @@ class ModifyLoadBalancerInstanceChargeTypeRequest extends Model
         }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
+        }
+        if (isset($map['LoadBalancerSpec'])) {
+            $model->loadBalancerSpec = $map['LoadBalancerSpec'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

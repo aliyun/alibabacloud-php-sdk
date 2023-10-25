@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerNameRequest extends Model
 {
     /**
+     * @example lb-bp1b6c719dfa08e******
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example test1
+     *
      * @var string
      */
     public $loadBalancerName;
@@ -29,6 +33,11 @@ class SetLoadBalancerNameRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the CLB instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

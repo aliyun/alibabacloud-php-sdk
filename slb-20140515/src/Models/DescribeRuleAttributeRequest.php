@@ -19,6 +19,11 @@ class DescribeRuleAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Server Load Balancer (SLB) instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +39,10 @@ class DescribeRuleAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the forwarding rule.
+     *
+     * @example rule-bp1efemp9****
+     *
      * @var string
      */
     public $ruleId;

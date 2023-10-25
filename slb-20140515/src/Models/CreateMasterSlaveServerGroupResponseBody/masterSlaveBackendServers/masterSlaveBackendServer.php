@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class masterSlaveBackendServer extends Model
 {
     /**
+     * @description The description of the primary/secondary server group.
+     *
+     * @example test-112
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The port number used by the backend server.
+     *
+     * @example 82
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The ID of the ECS instance or ENI that is added.
+     *
+     * @example i-bp1fq61enf4loa5i****
+     *
      * @var string
      */
     public $serverId;
 
     /**
+     * @description The type of the backend server.
+     *
+     * Valid values: **Master** and **Slave**.
+     * @example Master
+     *
      * @var string
      */
     public $serverType;
 
     /**
+     * @description The type of the backend server. Valid values:
+     *
+     *   **ecs**: an ECS instance
+     *   **eni**: an ENI
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The weight of the backend server.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $weight;

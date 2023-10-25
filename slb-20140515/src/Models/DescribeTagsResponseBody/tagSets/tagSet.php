@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class tagSet extends Model
 {
     /**
+     * @description The number of instances to which the tag is added.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $instanceCount;
 
     /**
+     * @description The tag key.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value.
+     *
+     * @example api
+     *
      * @var string
      */
     public $tagValue;

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsRequest extends Model
 {
     /**
+     * @description Specifies whether the tag is DistinctKey.
+     *
+     * Valid values: **true and false**.
+     * @example false
+     *
      * @var bool
      */
     public $distinctKey;
 
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example 139a00604ad-cn-east-hangzhou-01
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -29,16 +38,28 @@ class DescribeTagsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Minimum value: 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 50. Maximum value: 100.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region where the Server Load Balancer (SLB) instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +75,10 @@ class DescribeTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags that you want to query.
+     *
+     * @example [{"TagKey":"Key1","TagValue":"Value1"},{"TagKey":"Key2","TagValue":"Value2"}]
+     *
      * @var string
      */
     public $tags;

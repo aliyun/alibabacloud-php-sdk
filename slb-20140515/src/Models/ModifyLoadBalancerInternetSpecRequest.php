@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ModifyLoadBalancerInternetSpecRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically pay the subscription fee of the Internet-facing CLB instance. Valid values:
+     *
+     *   **true**: enables automatic payments. This is the default value.
+     *   **false**: disables automatic payment. You must complete the payment in Order Center.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description The maximum bandwidth of the Internet-facing CLB instance that uses the pay-by-bandwidth metering method. Unit: Mbit/s.
+     *
+     * Valid values: **1 to 5000**. The maximum bandwidth varies based on the region where the CLB instance is created.****
+     *
+     * >  You do not need to specify this parameter if you set **InternetChargeType** to **paybytraffic** (pay-by-data-transfer).
+     * @example 10
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The metering method of the Internet-facing CLB instance. Valid values:
+     *
+     *   **paybybandwidth**: pay-by-bandwidth
+     *   **paybytraffic**: pay-by-data-transfer
+     *
+     * @example paybytraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1b6c719dfa08ex******
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -39,6 +64,11 @@ class ModifyLoadBalancerInternetSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the CLB instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

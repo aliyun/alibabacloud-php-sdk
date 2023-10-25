@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SetTLSCipherPolicyAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the asynchronous task.
+     *
+     * @example 72dcd26b-f12d-4c27-b3af****-18f6aed5
+     *
      * @var string
      */
     public $taskId;

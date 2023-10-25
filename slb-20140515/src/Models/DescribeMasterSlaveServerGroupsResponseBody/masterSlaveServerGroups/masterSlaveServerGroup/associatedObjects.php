@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class associatedObjects extends Model
 {
     /**
+     * @description The list of listeners.
+     *
      * @var listeners
      */
     public $listeners;

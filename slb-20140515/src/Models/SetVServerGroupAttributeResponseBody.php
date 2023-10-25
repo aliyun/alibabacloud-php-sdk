@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class SetVServerGroupAttributeResponseBody extends Model
 {
     /**
+     * @description The list of backend servers.
+     *
      * @var backendServers
      */
     public $backendServers;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the vServer group.
+     *
+     * @example rsp-cige6****
+     *
      * @var string
      */
     public $VServerGroupId;
 
     /**
+     * @description The name of the vServer group.
+     *
+     * @example Group1
+     *
      * @var string
      */
     public $VServerGroupName;

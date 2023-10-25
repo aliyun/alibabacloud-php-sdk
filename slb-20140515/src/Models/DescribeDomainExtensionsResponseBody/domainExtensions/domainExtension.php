@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class domainExtension extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The ID of the additional certificate.
+     *
+     * @example de-bp1rp7ta1****
+     *
      * @var string
      */
     public $domainExtensionId;
 
     /**
+     * @description The ID of the server certificate that is used by the domain name.
+     *
+     * @example 1231579085529123_166f8204689_1714763408_70998****
+     *
      * @var string
      */
     public $serverCertificateId;

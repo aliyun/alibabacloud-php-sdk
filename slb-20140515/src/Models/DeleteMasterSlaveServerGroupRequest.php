@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteMasterSlaveServerGroupRequest extends Model
 {
     /**
+     * @description The ID of the active/standby server group to be deleted.
+     *
+     * >  An active/standby server group in use cannot be deleted.
+     * @example rsp-cige6j5e7p
+     *
      * @var string
      */
     public $masterSlaveServerGroupId;
@@ -24,6 +29,10 @@ class DeleteMasterSlaveServerGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the associated Server Load Balancer (SLB) instance belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

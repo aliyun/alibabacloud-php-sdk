@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddTagsResponseBody extends Model
 {
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
+     *
      * @var string
      */
     public $requestId;

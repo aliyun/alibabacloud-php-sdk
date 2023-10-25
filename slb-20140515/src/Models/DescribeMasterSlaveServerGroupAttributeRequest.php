@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeMasterSlaveServerGroupAttributeRequest extends Model
 {
     /**
+     * @description The ID of the primary/secondary server group.
+     *
+     * @example rsp-cige6j******
+     *
      * @var string
      */
     public $masterSlaveServerGroupId;
@@ -24,6 +28,10 @@ class DescribeMasterSlaveServerGroupAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the Classic Load Balancer (CLB) instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

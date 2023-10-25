@@ -9,51 +9,94 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerResponseBody extends Model
 {
     /**
+     * @description The IP address that is allocated to the CLB instance.
+     *
+     * @example 42.XX.XX.6
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The IP version that is used by the CLB instance.
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $addressIPVersion;
 
     /**
+     * @description The CLB instance ID.
+     *
+     * @example lb-hddhfjg****
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The CLB instance name.
+     *
+     * @example lb-bp1o94dp5i6ea****
+     *
      * @var string
      */
     public $loadBalancerName;
 
     /**
+     * @description The network type of the CLB instance. Valid values:
+     *
+     *   **vpc**
+     *   **classic**
+     *
+     * @example classic
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The order ID of the subscription CLB instance.
+     *
+     * @example 20212961978****
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the CLB instance belongs.
+     *
+     * @example rg-atstuj3rto****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the vSwitch to which the CLB instance belongs.
+     *
+     * @example vsw-255ecr****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC to which the CLB instance belongs.
+     *
+     * @example vpc-25dvzy9****
+     *
      * @var string
      */
     public $vpcId;

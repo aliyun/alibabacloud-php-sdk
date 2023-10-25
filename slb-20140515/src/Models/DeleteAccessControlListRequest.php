@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccessControlListRequest extends Model
 {
     /**
+     * @description The ACL ID.
+     *
+     * @example acl-bp1l0kk4gxce43kz******
+     *
      * @var string
      */
     public $aclId;
@@ -24,6 +28,11 @@ class DeleteAccessControlListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the ACL.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

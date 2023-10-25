@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainExtensionAttributeRequest extends Model
 {
     /**
+     * @description The ID of the additional certificate.
+     *
+     * @example de-bp1rp7ta191dv
+     *
      * @var string
      */
     public $domainExtensionId;
@@ -24,6 +28,10 @@ class DescribeDomainExtensionAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Server Load Balancer (SLB) instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

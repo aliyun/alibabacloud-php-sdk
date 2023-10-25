@@ -9,11 +9,30 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerStatusRequest extends Model
 {
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1b6c719dfa08e******
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The state of the CLB instance. Valid values: **active** and **inactive**.
+     *
+     *   **active** (default)
+     *
+     * If a CLB instance is in the **active** state, listeners of the CLB instance can forward traffic based on forwarding rules.
+     *
+     * By default, newly created CLB instances are in the **active** state.
+     *
+     *   **inactive**
+     *
+     * If a CLB instance is in the **inactive** state, listeners of the CLB instance do not forward traffic.
+     *
+     * >  If all listeners of a CLB instance are deleted, the CLB instance automatically switches to the **inactive** state.
+     * @example active
+     *
      * @var string
      */
     public $loadBalancerStatus;
@@ -29,6 +48,11 @@ class SetLoadBalancerStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the CLB instance is deployed.
+     *
+     * You can query region IDs from the [Regions and zones](~~40654~~) list or by calling the [DescribeRegions](~~25609~~) operation.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

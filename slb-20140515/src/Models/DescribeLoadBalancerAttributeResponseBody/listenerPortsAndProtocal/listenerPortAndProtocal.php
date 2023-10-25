@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class listenerPortAndProtocal extends Model
 {
     /**
+     * @description The frontend port that is used by the CLB instance.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The frontend protocol that is used by the CLB instance.
+     *
+     * @example http
+     *
      * @var string
      */
     public $listenerProtocal;

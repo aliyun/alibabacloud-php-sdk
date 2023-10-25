@@ -19,6 +19,10 @@ class DescribeVServerGroupAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the Classic Load Balancer (CLB) instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +38,10 @@ class DescribeVServerGroupAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the vServer group.
+     *
+     * @example rsp-cige6****
+     *
      * @var string
      */
     public $VServerGroupId;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerListenersRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLoadBalancerListenersRequest extends Model
@@ -11,19 +12,54 @@ class DescribeLoadBalancerListenersRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var int
+     */
+    public $listenerPort;
+
+    /**
+     * @description The protocol used by the listener. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *   **http**
+     *   **https**
+     *
+     * @example http
+     *
+     * @var string
+     */
     public $listenerProtocol;
 
     /**
+     * @description The ID of the CLB instance. You can specify at most 10 IDs.
+     *
+     * @example lb-123wrwer
+     *
      * @var string[]
      */
     public $loadBalancerId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: **1** to **100**. If you do not specify a value, the default value **20** is used.
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
+     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
@@ -39,6 +75,11 @@ class DescribeLoadBalancerListenersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the CLB instance is deployed.
+     *
+     * >  If the endpoint of the selected region is slb.aliyuncs.com, the `RegionId` parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -52,7 +93,16 @@ class DescribeLoadBalancerListenersRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description 标签列表。
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
+        'description'          => 'Description',
+        'listenerPort'         => 'ListenerPort',
         'listenerProtocol'     => 'ListenerProtocol',
         'loadBalancerId'       => 'LoadBalancerId',
         'maxResults'           => 'MaxResults',
@@ -62,6 +112,7 @@ class DescribeLoadBalancerListenersRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -71,6 +122,12 @@ class DescribeLoadBalancerListenersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->listenerPort) {
+            $res['ListenerPort'] = $this->listenerPort;
+        }
         if (null !== $this->listenerProtocol) {
             $res['ListenerProtocol'] = $this->listenerProtocol;
         }
@@ -98,6 +155,15 @@ class DescribeLoadBalancerListenersRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -110,6 +176,12 @@ class DescribeLoadBalancerListenersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ListenerPort'])) {
+            $model->listenerPort = $map['ListenerPort'];
+        }
         if (isset($map['ListenerProtocol'])) {
             $model->listenerProtocol = $map['ListenerProtocol'];
         }
@@ -138,6 +210,15 @@ class DescribeLoadBalancerListenersRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

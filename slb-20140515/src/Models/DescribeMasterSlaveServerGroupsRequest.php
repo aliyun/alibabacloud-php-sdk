@@ -4,16 +4,33 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeMasterSlaveServerGroupsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeMasterSlaveServerGroupsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description Specifies whether to return information about the associated listeners. Valid values:
+     *
+     *   **true**: returns information about the associated listeners.
+     *   **false**: does not return information about the associated listeners.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $includeListener;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp14zi0n66zpg6o******
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -29,6 +46,10 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the Classic Load Balancer (CLB) instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -42,7 +63,15 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description The tags.
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
+        'description'          => 'Description',
         'includeListener'      => 'IncludeListener',
         'loadBalancerId'       => 'LoadBalancerId',
         'ownerAccount'         => 'OwnerAccount',
@@ -50,6 +79,7 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -59,6 +89,9 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->includeListener) {
             $res['IncludeListener'] = $this->includeListener;
         }
@@ -80,6 +113,15 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -92,6 +134,9 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['IncludeListener'])) {
             $model->includeListener = $map['IncludeListener'];
         }
@@ -112,6 +157,15 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

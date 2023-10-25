@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class backendServer extends Model
 {
     /**
+     * @description The frontend port that is used by the CLB instance.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The backend port that is used by the CLB instance.
+     *
+     * @example 70
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The frontend protocol that is used by the CLB instance.
+     *
+     * @example https
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The health status of the backend server. Valid values:
+     *
+     *   **normal**: The backend server is healthy.
+     *   **abnormal**: The backend server is unhealthy.
+     *   **unavailable**: The health check is not complete.
+     *
+     * @example abnormal
+     *
      * @var string
      */
     public $serverHealthStatus;
 
     /**
+     * @description The ID of the Elastic Compute Service (ECS) instance or elastic network interface (ENI).
+     *
+     * @example i-bp1h5u3fv54ytf***
+     *
      * @var string
      */
     public $serverId;
 
     /**
+     * @description The IP address of the ECS instance.
+     *
+     * @example 192.XX.XX.11
+     *
      * @var string
      */
     public $serverIp;

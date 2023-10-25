@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\UploadCACertificateRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class UploadCACertificateRequest extends Model
 {
     /**
+     * @description The name of this action.
+     *
+     * Value: **UploadCACertificate**
+     * @example test
+     *
      * @var string
      */
     public $CACertificate;
 
     /**
+     * @description The ID of the region to which the CA certificate belongs.
+     *
+     * To query the region ID, call [DescribeRegions](~~27584~~).
+     * @example mycacert01
+     *
      * @var string
      */
     public $CACertificateName;
@@ -29,11 +40,19 @@ class UploadCACertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region id.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The content of the CA certificate to be uploaded.
+     *
+     * @example rg-atstuj3rtoptyui
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -47,6 +66,15 @@ class UploadCACertificateRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description The tags.
+     *
+     * @example UploadCACertificate
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'CACertificate'        => 'CACertificate',
         'CACertificateName'    => 'CACertificateName',
@@ -56,6 +84,7 @@ class UploadCACertificateRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -88,6 +117,15 @@ class UploadCACertificateRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -124,6 +162,15 @@ class UploadCACertificateRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

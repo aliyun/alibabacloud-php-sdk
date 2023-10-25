@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the specified one or more resources. This parameter takes effect only if the **TagKey.N** parameter is not set.
+     *
+     * Valid values: **true** and **false**.
+     * @example true
+     *
      * @var bool
      */
     public $all;
@@ -24,11 +29,20 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Server Load Balancer (SLB) instance is created.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource. Valid values of N: 1 to 20.
+     *
+     * @example lb-bp16qjewdsunr41m1****
+     *
      * @var string[]
      */
     public $resourceId;
@@ -44,11 +58,26 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   **instance**: an SLB instance
+     *   **certificate**: a certificate
+     *   **acl**: a network access control list (ACL)
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag value. Valid values of N: **1** to **20**.
+     *
+     * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
+     *
+     * >  If you do not set **TagKey**, all tags of the specified instance are removed.
+     * @example FinanceDept
+     *
      * @var string[]
      */
     public $tagKey;

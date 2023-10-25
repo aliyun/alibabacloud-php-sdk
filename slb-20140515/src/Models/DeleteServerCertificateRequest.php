@@ -19,6 +19,11 @@ class DeleteServerCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region where the Server Load Balancer (SLB) instance is created.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query region IDs.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +39,10 @@ class DeleteServerCertificateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the server certificate.
+     *
+     * @example 123157xxxxxxx_166f8204689_1714763408_709981430
+     *
      * @var string
      */
     public $serverCertificateId;

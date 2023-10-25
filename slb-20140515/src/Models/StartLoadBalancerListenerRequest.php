@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class StartLoadBalancerListenerRequest extends Model
 {
     /**
+     * @description The listener port of the SLB instance.
+     *
+     * Valid values: **1 to 65535**.
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The protocol used by the listener of the SLB instance.
+     *
+     * >  If different listeners use the same port, you must specify this parameter.
+     * @example https
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example lb-bp13jaf5qli5*********
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,6 +48,11 @@ class StartLoadBalancerListenerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region where the SLB instance is deployed.
+     *
+     * You can retrieve the region ID by calling the [DescribeRegions](~~27584~~) operation.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

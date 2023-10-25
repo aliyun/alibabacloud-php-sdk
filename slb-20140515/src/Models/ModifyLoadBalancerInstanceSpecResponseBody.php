@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyLoadBalancerInstanceSpecResponseBody extends Model
 {
     /**
+     * @description The order ID of the subscription CLB instance.
+     *
+     * @example 201429619788910
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
+     *
      * @var string
      */
     public $requestId;

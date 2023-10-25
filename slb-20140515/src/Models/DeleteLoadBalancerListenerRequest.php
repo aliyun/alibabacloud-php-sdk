@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteLoadBalancerListenerRequest extends Model
 {
     /**
+     * @description The frontend port that is used by the CLB instance.
+     *
+     * Valid values: **1 to 65535**.
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The frontend protocol that is used by the CLB instance.
+     *
+     * >  This parameter is required if the same port is specified for listeners of different protocols.
+     * @example https
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * >  If the endpoint of the selected region is slb.aliyuncs.com, the **RegionId** parameter is required.
+     * @example lb-bp13jaf5qli5xmgl1miup
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,6 +49,11 @@ class DeleteLoadBalancerListenerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the Classic Load Balancer (CLB) instance.
+     *
+     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

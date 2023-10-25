@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainExtensionsRequest extends Model
 {
     /**
+     * @description The ID of the additional certificate.
+     *
+     * @example de-bp1rp7ta1****
+     *
      * @var string
      */
     public $domainExtensionId;
 
     /**
+     * @description The frontend port of the HTTPS listener that is configured for the Classic Load Balancer (CLB) instance. Valid values: **1 to 65535**.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1b6c719dfa08ex****
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,6 +46,10 @@ class DescribeDomainExtensionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the CLB instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

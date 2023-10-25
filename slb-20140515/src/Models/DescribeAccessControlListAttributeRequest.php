@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessControlListAttributeRequest extends Model
 {
     /**
+     * @description The remarks of the ACL entry.
+     *
+     * It must be 2 to 100 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * @example test
+     *
      * @var string
      */
     public $aclEntryComment;
 
     /**
+     * @description The ID of the ACL.
+     *
+     * @example acl-bp1l0k********kzet04s
+     *
      * @var string
      */
     public $aclId;
@@ -29,6 +38,28 @@ class DescribeAccessControlListAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $page;
+
+    /**
+     * @description The number of entries returned on each page. Maximum value: **50**. Default value: **10**.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The time when the network ACL was created. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -47,6 +78,8 @@ class DescribeAccessControlListAttributeRequest extends Model
         'aclId'                => 'AclId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'page'                 => 'Page',
+        'pageSize'             => 'PageSize',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -70,6 +103,12 @@ class DescribeAccessControlListAttributeRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -103,6 +142,12 @@ class DescribeAccessControlListAttributeRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

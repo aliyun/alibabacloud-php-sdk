@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerUDPListenerAttributeRequest extends Model
 {
     /**
+     * @description The frontend port used by the CLB instance.
+     *
+     * Valid values: **1** to **65535**.
+     * @example 80
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @description The ID of the CLB instance.
+     *
+     * @example lb-bp1rtfnodmywb43e*****
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -29,6 +38,10 @@ class DescribeLoadBalancerUDPListenerAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Classic Load Balancer (CLB) instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

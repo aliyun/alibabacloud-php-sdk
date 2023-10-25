@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class SetCACertificateNameRequest extends Model
 {
     /**
+     * @description The ID of the CA certificate.
+     *
+     * @example 139a00604ad-cn-east-hangzhou-01
+     *
      * @var string
      */
     public $CACertificateId;
 
     /**
+     * @description The name of the CA certificate.
+     *
+     * The name must be 1 to 80 characters in length and start with an English letter or a Chinese character. It can contain numbers, underscores (\_), periods (.), and hyphens (-).
+     * @example mycacert02
+     *
      * @var string
      */
     public $CACertificateName;
@@ -29,6 +38,11 @@ class SetCACertificateNameRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region to which the CA certificate belongs.
+     *
+     * To query the region ID, call [DescribeRegions](~~27584~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
