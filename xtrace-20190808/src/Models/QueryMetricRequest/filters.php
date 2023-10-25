@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
+     * @description The key of the field that you want to use to filter the returned entries.
+     *
+     * @example http.status_code
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the field that you want to use to filter the returned entries.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $value;

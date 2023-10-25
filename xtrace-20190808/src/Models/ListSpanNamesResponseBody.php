@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListSpanNamesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1E2B6A4C-6B83-4062-8B6F-AEEC1F******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The span names.
+     *
      * @var spanNames
      */
     public $spanNames;

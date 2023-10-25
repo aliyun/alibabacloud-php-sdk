@@ -11,66 +11,115 @@ use AlibabaCloud\Tea\Model;
 class span extends Model
 {
     /**
+     * @description The time used to call the trace. Unit: milliseconds.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description Indicates whether the span has child spans. Valid values:
+     *
+     * - false: The span has no child spans.
+     * @example false
+     *
      * @var bool
      */
     public $haveStack;
 
     /**
+     * @description The log events in the trace.
+     *
      * @var logEventList
      */
     public $logEventList;
 
     /**
+     * @description The name of the span.
+     *
+     * @example /api
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @description The ID of the parent span.
+     *
+     * @example fec891bb8f8XXX
+     *
      * @var string
      */
     public $parentSpanId;
 
     /**
+     * @description The status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @description The parent-child and sibling relationship between spans. For example, span 1.1 is the parent of span 1.1.1, and span 1.1.2 and span 1.1.1 are siblings.
+     *
+     * @example 1.1
+     *
      * @var string
      */
     public $rpcId;
 
     /**
+     * @description The IP address of the server where the span resides.
+     *
+     * @example 192.168.XXX.XXX
+     *
      * @var string
      */
     public $serviceIp;
 
     /**
+     * @description The name of the application.
+     *
+     * @example server1
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description Span ID.
+     *
+     * @example fec891bb8f8XXX
+     *
      * @var string
      */
     public $spanId;
 
     /**
+     * @description The tags in the span.
+     *
      * @var tagEntryList
      */
     public $tagEntryList;
 
     /**
+     * @description The timestamp when the span was generated. Unit: microseconds.
+     *
+     * @example 1689845513298000
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @description The unique ID of the trace.
+     *
+     * @example 1c6881aab84191a4****
+     *
      * @var string
      */
     public $traceID;

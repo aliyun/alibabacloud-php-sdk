@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class GetTagKeyRequest extends Model
 {
     /**
+     * @description The timestamp of the end time of the time range to query. The timestamp is accurate to milliseconds.
+     *
+     * @example 1575622455686
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example appTest
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The name of the span.
+     *
+     * @example createOrder
+     *
      * @var string
      */
     public $spanName;
 
     /**
+     * @description The timestamp of the start time of the time range to query. The timestamp is accurate to milliseconds.
+     *
+     * @example 1575561600000
+     *
      * @var int
      */
     public $startTime;

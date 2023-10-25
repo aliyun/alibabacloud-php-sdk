@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Xtrace\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SearchTracesResponse extends Model
+class OpenXtraceServiceResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class SearchTracesResponse extends Model
     public $statusCode;
 
     /**
-     * @var SearchTracesResponseBody
+     * @var OpenXtraceServiceResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class SearchTracesResponse extends Model
     /**
      * @param array $map
      *
-     * @return SearchTracesResponse
+     * @return OpenXtraceServiceResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class SearchTracesResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = SearchTracesResponseBody::fromMap($map['body']);
+            $model->body = OpenXtraceServiceResponseBody::fromMap($map['body']);
         }
 
         return $model;

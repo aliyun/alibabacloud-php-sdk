@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The information about the trace.
+     *
      * @var traceInfos
      */
     public $traceInfos;

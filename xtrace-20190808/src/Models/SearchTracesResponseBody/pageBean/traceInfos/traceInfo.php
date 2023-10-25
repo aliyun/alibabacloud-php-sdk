@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class traceInfo extends Model
 {
     /**
+     * @description The time used to call the trace. Unit: milliseconds.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The name of the span.
+     *
+     * @example /api
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @description The IP address of the server where the span resides.
+     *
+     * @example 192.163.XXX.XXX
+     *
      * @var string
      */
     public $serviceIp;
 
     /**
+     * @description The name of the application.
+     *
+     * @example service1
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The map of tags.
+     *
+     * @example {"env":"dev"}
+     *
      * @var mixed[]
      */
     public $tagMap;
 
     /**
+     * @description The time when the span was generated. Unit: microseconds.
+     *
+     * @example 1575561600000000
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @description The ID of the trace.
+     *
+     * @example 1c6881aab84191a4
+     *
      * @var string
      */
     public $traceID;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListIpOrHostsResponseBody extends Model
 {
     /**
+     * @description The IP addresses.
+     *
      * @var ipNames
      */
     public $ipNames;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1E2B6A4C-6B83-4062-8B6F-AEEC1FC4****
+     *
      * @var string
      */
     public $requestId;

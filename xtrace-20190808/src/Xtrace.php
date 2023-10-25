@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListServicesRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListServicesResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListSpanNamesRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListSpanNamesResponse;
+use AlibabaCloud\SDK\Xtrace\V20190808\Models\OpenXtraceServiceRequest;
+use AlibabaCloud\SDK\Xtrace\V20190808\Models\OpenXtraceServiceResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\QueryMetricRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\QueryMetricResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\SearchTracesRequest;
@@ -371,6 +373,49 @@ class Xtrace extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSpanNamesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OpenXtraceServiceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return OpenXtraceServiceResponse
+     */
+    public function openXtraceServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenXtraceService',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenXtraceServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenXtraceServiceRequest $request
+     *
+     * @return OpenXtraceServiceResponse
+     */
+    public function openXtraceService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openXtraceServiceWithOptions($request, $runtime);
     }
 
     /**

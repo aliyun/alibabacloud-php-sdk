@@ -10,56 +10,101 @@ use AlibabaCloud\Tea\Model;
 class QueryMetricRequest extends Model
 {
     /**
+     * @description The dimensions of the metric that you want to query.
+     *
+     * @example RT
+     *
      * @var string[]
      */
     public $dimensions;
 
     /**
+     * @description The timestamp of the end time of the time range to query. The timestamp is accurate to milliseconds.
+     *
+     * @example 1575622455686
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The filter conditions.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The time interval at which you want to query metric data. Unit: milliseconds. Minimum value: 60000.
+     *
+     * > If you set this parameter to 2147483647, all data in the specified time interval is returned.
+     * @example 100000
+     *
      * @var int
      */
     public $intervalInSec;
 
     /**
+     * @description The maximum number of entries that you want to return.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The measures of the metric that you want to query.
+     *
+     * @example count
+     *
      * @var string[]
      */
     public $measures;
 
     /**
+     * @description The name of the metric. Valid values:
+     *
+     * - `appstat.sql`: SQL statistics
+     * @example appstat.incall
+     *
      * @var string
      */
     public $metric;
 
     /**
+     * @description The order in which you want to sort the returned entries. Valid values:
+     *
+     * - DESC: descending order
+     * @example ASC
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description The field based on which you want to sort the returned entries.
+     *
+     * @example count
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @description The ID of the proxy user.
+     *
+     * @example testefgag12
+     *
      * @var string
      */
     public $proxyUserId;
 
     /**
+     * @description The timestamp of the start time of the time range to query. The timestamp is accurate to milliseconds.
+     *
+     * @example 1575561600000
+     *
      * @var int
      */
     public $startTime;

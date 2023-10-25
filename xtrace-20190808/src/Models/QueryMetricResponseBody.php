@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryMetricResponseBody extends Model
 {
     /**
+     * @description The returned statistics.
+     *
+     * @example {   "RequestId": "E2373982-D8CD-413D-B991-8EB678******",   "Data": "{\"data\":[{\"date\":1583686800000,\"count\":0,\"rt\":0,\"rpc\":\"childSpan3\"}}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1E2B6A4C-6B83-4062-8B6F-AEEC1F******
+     *
      * @var string
      */
     public $requestId;

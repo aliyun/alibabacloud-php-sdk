@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetTraceRequest extends Model
 {
     /**
+     * @description The type of the application. You can set the value to **XTRACE** or leave this parameter unspecified.
+     *
+     * @example XTRACE
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The unique ID of the trace.
+     *
+     * @example 1c6881aab84191a4
+     *
      * @var string
      */
     public $traceID;

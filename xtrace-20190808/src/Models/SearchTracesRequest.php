@@ -10,61 +10,108 @@ use AlibabaCloud\Tea\Model;
 class SearchTracesRequest extends Model
 {
     /**
+     * @description The type of the application. You can set the value to **XTRACE** or leave this parameter unspecified.
+     *
+     * @example XTRACE
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @description The timestamp of the end time of the time range to query. The timestamp is accurate to milliseconds.
+     *
+     * @example 1575622455686
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The time more than which is used to call the trace. Unit: milliseconds. For example, a value of 100 specifies to return the traces that more than 100 milliseconds are used to call.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $minDuration;
 
     /**
+     * @description The name of the span.
+     *
+     * @example /api
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @description The number of the page to return. For example, a value of 5 indicates page 5.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to sort the query results in chronological order or reverse chronological order. Default value: false. Valid values:
+     *
+     * - false: chronological order
+     * @example false
+     *
      * @var bool
      */
     public $reverse;
 
     /**
+     * @description The IP address that corresponds to the span.
+     *
+     * @example 10.0.0.0
+     *
      * @var string
      */
     public $serviceIp;
 
     /**
+     * @description The name of the application.
+     *
+     * @example service 1
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The timestamp of the start time of the time range to query. The timestamp is accurate to milliseconds.
+     *
+     * @example 1575561600000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The list of the tags.
+     *
      * @var tag[]
      */
     public $tag;

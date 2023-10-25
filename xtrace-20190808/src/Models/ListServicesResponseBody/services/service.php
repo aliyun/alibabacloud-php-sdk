@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class service extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example XXXqn3ly@741623b4e915df8
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example a3
+     *
      * @var string
      */
     public $serviceName;
