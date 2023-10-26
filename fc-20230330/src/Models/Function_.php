@@ -130,6 +130,27 @@ class Function_ extends Model
     public $lastModifiedTime;
 
     /**
+     * @example InProgress
+     *
+     * @var string
+     */
+    public $lastUpdateStatus;
+
+    /**
+     * @example The system is currently processing the acceleration optimization for the image.
+     *
+     * @var string
+     */
+    public $lastUpdateStatusReason;
+
+    /**
+     * @example ImageOptimizing
+     *
+     * @var string
+     */
+    public $lastUpdateStatusReasonCode;
+
+    /**
      * @var FunctionLayer[]
      */
     public $layers;
@@ -171,6 +192,27 @@ class Function_ extends Model
     public $runtime;
 
     /**
+     * @example Pending
+     *
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @example Function creating
+     *
+     * @var string
+     */
+    public $stateReason;
+
+    /**
+     * @example Creating
+     *
+     * @var string
+     */
+    public $stateReasonCode;
+
+    /**
      * @example 60
      *
      * @var int
@@ -187,35 +229,41 @@ class Function_ extends Model
      */
     public $vpcConfig;
     protected $_name = [
-        'codeChecksum'            => 'codeChecksum',
-        'codeSize'                => 'codeSize',
-        'cpu'                     => 'cpu',
-        'createdTime'             => 'createdTime',
-        'customContainerConfig'   => 'customContainerConfig',
-        'customDNS'               => 'customDNS',
-        'customRuntimeConfig'     => 'customRuntimeConfig',
-        'description'             => 'description',
-        'diskSize'                => 'diskSize',
-        'environmentVariables'    => 'environmentVariables',
-        'functionArn'             => 'functionArn',
-        'functionId'              => 'functionId',
-        'functionName'            => 'functionName',
-        'gpuConfig'               => 'gpuConfig',
-        'handler'                 => 'handler',
-        'instanceConcurrency'     => 'instanceConcurrency',
-        'instanceLifecycleConfig' => 'instanceLifecycleConfig',
-        'internetAccess'          => 'internetAccess',
-        'lastModifiedTime'        => 'lastModifiedTime',
-        'layers'                  => 'layers',
-        'logConfig'               => 'logConfig',
-        'memorySize'              => 'memorySize',
-        'nasConfig'               => 'nasConfig',
-        'ossMountConfig'          => 'ossMountConfig',
-        'role'                    => 'role',
-        'runtime'                 => 'runtime',
-        'timeout'                 => 'timeout',
-        'tracingConfig'           => 'tracingConfig',
-        'vpcConfig'               => 'vpcConfig',
+        'codeChecksum'               => 'codeChecksum',
+        'codeSize'                   => 'codeSize',
+        'cpu'                        => 'cpu',
+        'createdTime'                => 'createdTime',
+        'customContainerConfig'      => 'customContainerConfig',
+        'customDNS'                  => 'customDNS',
+        'customRuntimeConfig'        => 'customRuntimeConfig',
+        'description'                => 'description',
+        'diskSize'                   => 'diskSize',
+        'environmentVariables'       => 'environmentVariables',
+        'functionArn'                => 'functionArn',
+        'functionId'                 => 'functionId',
+        'functionName'               => 'functionName',
+        'gpuConfig'                  => 'gpuConfig',
+        'handler'                    => 'handler',
+        'instanceConcurrency'        => 'instanceConcurrency',
+        'instanceLifecycleConfig'    => 'instanceLifecycleConfig',
+        'internetAccess'             => 'internetAccess',
+        'lastModifiedTime'           => 'lastModifiedTime',
+        'lastUpdateStatus'           => 'lastUpdateStatus',
+        'lastUpdateStatusReason'     => 'lastUpdateStatusReason',
+        'lastUpdateStatusReasonCode' => 'lastUpdateStatusReasonCode',
+        'layers'                     => 'layers',
+        'logConfig'                  => 'logConfig',
+        'memorySize'                 => 'memorySize',
+        'nasConfig'                  => 'nasConfig',
+        'ossMountConfig'             => 'ossMountConfig',
+        'role'                       => 'role',
+        'runtime'                    => 'runtime',
+        'state'                      => 'state',
+        'stateReason'                => 'stateReason',
+        'stateReasonCode'            => 'stateReasonCode',
+        'timeout'                    => 'timeout',
+        'tracingConfig'              => 'tracingConfig',
+        'vpcConfig'                  => 'vpcConfig',
     ];
 
     public function validate()
@@ -282,6 +330,15 @@ class Function_ extends Model
         if (null !== $this->lastModifiedTime) {
             $res['lastModifiedTime'] = $this->lastModifiedTime;
         }
+        if (null !== $this->lastUpdateStatus) {
+            $res['lastUpdateStatus'] = $this->lastUpdateStatus;
+        }
+        if (null !== $this->lastUpdateStatusReason) {
+            $res['lastUpdateStatusReason'] = $this->lastUpdateStatusReason;
+        }
+        if (null !== $this->lastUpdateStatusReasonCode) {
+            $res['lastUpdateStatusReasonCode'] = $this->lastUpdateStatusReasonCode;
+        }
         if (null !== $this->layers) {
             $res['layers'] = [];
             if (null !== $this->layers && \is_array($this->layers)) {
@@ -308,6 +365,15 @@ class Function_ extends Model
         }
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
+        }
+        if (null !== $this->state) {
+            $res['state'] = $this->state;
+        }
+        if (null !== $this->stateReason) {
+            $res['stateReason'] = $this->stateReason;
+        }
+        if (null !== $this->stateReasonCode) {
+            $res['stateReasonCode'] = $this->stateReasonCode;
         }
         if (null !== $this->timeout) {
             $res['timeout'] = $this->timeout;
@@ -387,6 +453,15 @@ class Function_ extends Model
         if (isset($map['lastModifiedTime'])) {
             $model->lastModifiedTime = $map['lastModifiedTime'];
         }
+        if (isset($map['lastUpdateStatus'])) {
+            $model->lastUpdateStatus = $map['lastUpdateStatus'];
+        }
+        if (isset($map['lastUpdateStatusReason'])) {
+            $model->lastUpdateStatusReason = $map['lastUpdateStatusReason'];
+        }
+        if (isset($map['lastUpdateStatusReasonCode'])) {
+            $model->lastUpdateStatusReasonCode = $map['lastUpdateStatusReasonCode'];
+        }
         if (isset($map['layers'])) {
             if (!empty($map['layers'])) {
                 $model->layers = [];
@@ -413,6 +488,15 @@ class Function_ extends Model
         }
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];
+        }
+        if (isset($map['state'])) {
+            $model->state = $map['state'];
+        }
+        if (isset($map['stateReason'])) {
+            $model->stateReason = $map['stateReason'];
+        }
+        if (isset($map['stateReasonCode'])) {
+            $model->stateReasonCode = $map['stateReasonCode'];
         }
         if (isset($map['timeout'])) {
             $model->timeout = $map['timeout'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AccelerationInfo extends Model
 {
     /**
-     * @example Ready
+     * @example deprecated
      *
      * @var string
      */

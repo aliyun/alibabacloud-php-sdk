@@ -14,14 +14,14 @@ class CustomContainerConfig extends Model
     public $accelerationInfo;
 
     /**
-     * @example default
+     * @example deprecated
      *
      * @var string
      */
     public $accelerationType;
 
     /**
-     * @example cri-xxxxxxxxxx
+     * @example deprecated
      *
      * @var string
      */
@@ -43,7 +43,7 @@ class CustomContainerConfig extends Model
     public $healthCheckConfig;
 
     /**
-     * @example registry-vpc.cn-hangzhou.aliyuncs.com/fc-demo/helloworld:v1beta1
+     * @example registry-vpc.cn-hangzhou.aliyuncs.com/fc-demo/helloworld:v1
      *
      * @var string
      */
@@ -55,6 +55,13 @@ class CustomContainerConfig extends Model
      * @var int
      */
     public $port;
+
+    /**
+     * @example stand-sh-registry-vpc.cn-shanghai.cr.aliyuncs.com/fc-demo2/springboot-helloworld@sha256:68d1****0d64d6
+     *
+     * @var string
+     */
+    public $resolvedImageUri;
     protected $_name = [
         'accelerationInfo'  => 'accelerationInfo',
         'accelerationType'  => 'accelerationType',
@@ -64,6 +71,7 @@ class CustomContainerConfig extends Model
         'healthCheckConfig' => 'healthCheckConfig',
         'image'             => 'image',
         'port'              => 'port',
+        'resolvedImageUri'  => 'resolvedImageUri',
     ];
 
     public function validate()
@@ -96,6 +104,9 @@ class CustomContainerConfig extends Model
         }
         if (null !== $this->port) {
             $res['port'] = $this->port;
+        }
+        if (null !== $this->resolvedImageUri) {
+            $res['resolvedImageUri'] = $this->resolvedImageUri;
         }
 
         return $res;
@@ -136,6 +147,9 @@ class CustomContainerConfig extends Model
         }
         if (isset($map['port'])) {
             $model->port = $map['port'];
+        }
+        if (isset($map['resolvedImageUri'])) {
+            $model->resolvedImageUri = $map['resolvedImageUri'];
         }
 
         return $model;
