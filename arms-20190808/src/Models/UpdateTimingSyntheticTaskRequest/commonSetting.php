@@ -22,15 +22,33 @@ class commonSetting extends Model
     public $ipType;
 
     /**
+     * @var bool
+     */
+    public $isOpenTrace;
+
+    /**
      * @example 0
      *
      * @var int
      */
     public $monitorSamples;
+
+    /**
+     * @var int
+     */
+    public $traceClientType;
+
+    /**
+     * @var string
+     */
+    public $xtraceRegion;
     protected $_name = [
-        'customHost'     => 'CustomHost',
-        'ipType'         => 'IpType',
-        'monitorSamples' => 'MonitorSamples',
+        'customHost'      => 'CustomHost',
+        'ipType'          => 'IpType',
+        'isOpenTrace'     => 'IsOpenTrace',
+        'monitorSamples'  => 'MonitorSamples',
+        'traceClientType' => 'TraceClientType',
+        'xtraceRegion'    => 'XtraceRegion',
     ];
 
     public function validate()
@@ -46,8 +64,17 @@ class commonSetting extends Model
         if (null !== $this->ipType) {
             $res['IpType'] = $this->ipType;
         }
+        if (null !== $this->isOpenTrace) {
+            $res['IsOpenTrace'] = $this->isOpenTrace;
+        }
         if (null !== $this->monitorSamples) {
             $res['MonitorSamples'] = $this->monitorSamples;
+        }
+        if (null !== $this->traceClientType) {
+            $res['TraceClientType'] = $this->traceClientType;
+        }
+        if (null !== $this->xtraceRegion) {
+            $res['XtraceRegion'] = $this->xtraceRegion;
         }
 
         return $res;
@@ -67,8 +94,17 @@ class commonSetting extends Model
         if (isset($map['IpType'])) {
             $model->ipType = $map['IpType'];
         }
+        if (isset($map['IsOpenTrace'])) {
+            $model->isOpenTrace = $map['IsOpenTrace'];
+        }
         if (isset($map['MonitorSamples'])) {
             $model->monitorSamples = $map['MonitorSamples'];
+        }
+        if (isset($map['TraceClientType'])) {
+            $model->traceClientType = $map['TraceClientType'];
+        }
+        if (isset($map['XtraceRegion'])) {
+            $model->xtraceRegion = $map['XtraceRegion'];
         }
 
         return $model;

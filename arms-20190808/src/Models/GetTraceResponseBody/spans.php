@@ -84,29 +84,7 @@ class spans extends Model
     /**
      * @description The type of the remote procedure call (RPC) mode.
      *
-     *   0: HTTP entry
-     *   25: HTTP call
-     *   1: High-speed Service Framework (HSF) call
-     *   2: HSF provision
-     *   40: on-premises API call
-     *   60: MySQL call
-     *   62: Oracle call
-     *   63: PostgreSQL call
-     *   70: Redis call
-     *   4: Taobao Distributed Data Layer (TDDL) call
-     *   5: Tair call
-     *   13: MetaQ message sending
-     *   252: MetaQ message receiving
-     *   3: notification sending
-     *   254: notification receiving
-     *   7: Apache Dubbo call
-     *   8: Apache Dubbo provision
-     *   19: SOFARPC call
-     *   18: SOFARPC provision
-     *   11: Distributed Service Framework (DSF) call
-     *   12: DSF provision
-     *   \-1: unknown call
-     *
+     * - 1308 Jdk_Timer
      * @example 1
      *
      * @var int

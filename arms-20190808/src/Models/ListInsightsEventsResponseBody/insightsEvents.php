@@ -45,6 +45,11 @@ class insightsEvents extends Model
     public $pid;
 
     /**
+     * @var string
+     */
+    public $problemId;
+
+    /**
      * @description The overall response time of the \[HTTP] service of the application \[sd] spikes at \[2022-07-27 10:57:00]
      *
      * @example The type of the event.
@@ -62,12 +67,13 @@ class insightsEvents extends Model
      */
     public $type;
     protected $_name = [
-        'date'  => 'Date',
-        'desc'  => 'Desc',
-        'level' => 'Level',
-        'pid'   => 'Pid',
-        'title' => 'Title',
-        'type'  => 'Type',
+        'date'      => 'Date',
+        'desc'      => 'Desc',
+        'level'     => 'Level',
+        'pid'       => 'Pid',
+        'problemId' => 'ProblemId',
+        'title'     => 'Title',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class insightsEvents extends Model
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
+        }
+        if (null !== $this->problemId) {
+            $res['ProblemId'] = $this->problemId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -118,6 +127,9 @@ class insightsEvents extends Model
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
+        }
+        if (isset($map['ProblemId'])) {
+            $model->problemId = $map['ProblemId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

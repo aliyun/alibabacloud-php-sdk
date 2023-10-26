@@ -45,6 +45,13 @@ class GrafanaWorkspaceAccount extends Model
      * @var GrafanaWorkspaceUserOrg[]
      */
     public $orgs;
+
+    /**
+     * @example aliyun
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'accountId'      => 'accountId',
         'accountNotes'   => 'accountNotes',
@@ -52,6 +59,7 @@ class GrafanaWorkspaceAccount extends Model
         'aliyunUserName' => 'aliyunUserName',
         'gmtCreate'      => 'gmtCreate',
         'orgs'           => 'orgs',
+        'type'           => 'type',
     ];
 
     public function validate()
@@ -84,6 +92,9 @@ class GrafanaWorkspaceAccount extends Model
                     $res['orgs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -120,6 +131,9 @@ class GrafanaWorkspaceAccount extends Model
                     $model->orgs[$n++] = null !== $item ? GrafanaWorkspaceUserOrg::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

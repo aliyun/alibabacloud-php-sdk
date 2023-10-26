@@ -51,6 +51,14 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateAlertContactRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateAlertContactResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateDispatchRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateDispatchRuleResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvCustomJobRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvCustomJobResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvironmentRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvironmentResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvPodMonitorRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvPodMonitorResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvServiceMonitorRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvServiceMonitorResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateAlertRuleRequest;
@@ -105,6 +113,16 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteContactRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteContactResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteDispatchRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteDispatchRuleResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEnvCustomJobRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEnvCustomJobResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEnvironmentFeatureRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEnvironmentFeatureResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEnvironmentRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEnvironmentResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEnvPodMonitorRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEnvPodMonitorResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEnvServiceMonitorRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEnvServiceMonitorResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEventBridgeIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEventBridgeIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaResourceRequest;
@@ -151,6 +169,14 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeContactsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeContactsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeDispatchRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeDispatchRuleResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvCustomJobRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvCustomJobResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvPodMonitorRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvPodMonitorResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvServiceMonitorRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvServiceMonitorResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeIMRobotsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeIMRobotsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribePrometheusAlertRuleRequest;
@@ -226,6 +252,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ImportAppAlertRulesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ImportAppAlertRulesResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\InitEnvironmentRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\InitEnvironmentResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallCmsExporterRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallCmsExporterResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallManagedPrometheusRequest;
@@ -246,10 +274,19 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListDashboardsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListDashboardsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListDispatchRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListDispatchRuleResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvCustomJobsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvCustomJobsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvPodMonitorsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvPodMonitorsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvServiceMonitorsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvServiceMonitorsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEscalationPoliciesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEscalationPoliciesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEventBridgeIntegrationsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEventBridgeIntegrationsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListGrafanaWorkspaceRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListGrafanaWorkspaceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListGrafanaWorkspaceShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListInsightsEventsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListInsightsEventsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListIntegrationRequest;
@@ -309,6 +346,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\RemoveAliClusterIdsFromPrometheusGlob
 use AlibabaCloud\SDK\ARMS\V20190808\Models\RemoveAliClusterIdsFromPrometheusGlobalViewResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\RemoveSourcesFromPrometheusGlobalViewRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\RemoveSourcesFromPrometheusGlobalViewResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\RestartEnvironmentFeatureRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\RestartEnvironmentFeatureResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SaveTraceAppConfigRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SaveTraceAppConfigResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SearchAlertContactGroupRequest;
@@ -365,6 +404,14 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateAlertRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateAlertRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateDispatchRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateDispatchRuleResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvCustomJobRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvCustomJobResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvironmentRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvironmentResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvPodMonitorRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvPodMonitorResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvServiceMonitorRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvServiceMonitorResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusAlertRuleRequest;
@@ -1618,6 +1665,241 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDispatchRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateEnvCustomJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateEnvCustomJobResponse
+     */
+    public function createEnvCustomJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->customJobName)) {
+            $query['CustomJobName'] = $request->customJobName;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->configYaml)) {
+            $body['ConfigYaml'] = $request->configYaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEnvCustomJob',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateEnvCustomJobRequest $request
+     *
+     * @return CreateEnvCustomJobResponse
+     */
+    public function createEnvCustomJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnvCustomJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateEnvPodMonitorRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateEnvPodMonitorResponse
+     */
+    public function createEnvPodMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->configYaml)) {
+            $body['ConfigYaml'] = $request->configYaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEnvPodMonitor',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateEnvPodMonitorRequest $request
+     *
+     * @return CreateEnvPodMonitorResponse
+     */
+    public function createEnvPodMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnvPodMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateEnvServiceMonitorRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateEnvServiceMonitorResponse
+     */
+    public function createEnvServiceMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->configYaml)) {
+            $body['ConfigYaml'] = $request->configYaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEnvServiceMonitor',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateEnvServiceMonitorRequest $request
+     *
+     * @return CreateEnvServiceMonitorResponse
+     */
+    public function createEnvServiceMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnvServiceMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateEnvironmentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateEnvironmentResponse
+     */
+    public function createEnvironmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->bindResourceId)) {
+            $query['BindResourceId'] = $request->bindResourceId;
+        }
+        if (!Utils::isUnset($request->environmentName)) {
+            $query['EnvironmentName'] = $request->environmentName;
+        }
+        if (!Utils::isUnset($request->environmentSubType)) {
+            $query['EnvironmentSubType'] = $request->environmentSubType;
+        }
+        if (!Utils::isUnset($request->environmentType)) {
+            $query['EnvironmentType'] = $request->environmentType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEnvironment',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateEnvironmentRequest $request
+     *
+     * @return CreateEnvironmentResponse
+     */
+    public function createEnvironment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnvironmentWithOptions($request, $runtime);
     }
 
     /**
@@ -3231,6 +3513,254 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param DeleteEnvCustomJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteEnvCustomJobResponse
+     */
+    public function deleteEnvCustomJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customJobName)) {
+            $query['CustomJobName'] = $request->customJobName;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEnvCustomJob',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEnvCustomJobRequest $request
+     *
+     * @return DeleteEnvCustomJobResponse
+     */
+    public function deleteEnvCustomJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnvCustomJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteEnvPodMonitorRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteEnvPodMonitorResponse
+     */
+    public function deleteEnvPodMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->podMonitorName)) {
+            $query['PodMonitorName'] = $request->podMonitorName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEnvPodMonitor',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEnvPodMonitorRequest $request
+     *
+     * @return DeleteEnvPodMonitorResponse
+     */
+    public function deleteEnvPodMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnvPodMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteEnvServiceMonitorRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteEnvServiceMonitorResponse
+     */
+    public function deleteEnvServiceMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceMonitorName)) {
+            $query['ServiceMonitorName'] = $request->serviceMonitorName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEnvServiceMonitor',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEnvServiceMonitorRequest $request
+     *
+     * @return DeleteEnvServiceMonitorResponse
+     */
+    public function deleteEnvServiceMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnvServiceMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteEnvironmentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteEnvironmentResponse
+     */
+    public function deleteEnvironmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEnvironment',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEnvironmentRequest $request
+     *
+     * @return DeleteEnvironmentResponse
+     */
+    public function deleteEnvironment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnvironmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteEnvironmentFeatureRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteEnvironmentFeatureResponse
+     */
+    public function deleteEnvironmentFeatureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->featureName)) {
+            $query['FeatureName'] = $request->featureName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEnvironmentFeature',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEnvironmentFeatureRequest $request
+     *
+     * @return DeleteEnvironmentFeatureResponse
+     */
+    public function deleteEnvironmentFeature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnvironmentFeatureWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteEventBridgeIntegrationRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -4303,6 +4833,208 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDispatchRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEnvCustomJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeEnvCustomJobResponse
+     */
+    public function describeEnvCustomJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customJobName)) {
+            $query['CustomJobName'] = $request->customJobName;
+        }
+        if (!Utils::isUnset($request->encryptYaml)) {
+            $query['EncryptYaml'] = $request->encryptYaml;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnvCustomJob',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnvCustomJobRequest $request
+     *
+     * @return DescribeEnvCustomJobResponse
+     */
+    public function describeEnvCustomJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnvCustomJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEnvPodMonitorRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeEnvPodMonitorResponse
+     */
+    public function describeEnvPodMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->podMonitorName)) {
+            $query['PodMonitorName'] = $request->podMonitorName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnvPodMonitor',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnvPodMonitorRequest $request
+     *
+     * @return DescribeEnvPodMonitorResponse
+     */
+    public function describeEnvPodMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnvPodMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEnvServiceMonitorRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeEnvServiceMonitorResponse
+     */
+    public function describeEnvServiceMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceMonitorName)) {
+            $query['ServiceMonitorName'] = $request->serviceMonitorName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnvServiceMonitor',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnvServiceMonitorRequest $request
+     *
+     * @return DescribeEnvServiceMonitorResponse
+     */
+    public function describeEnvServiceMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnvServiceMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEnvironmentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeEnvironmentResponse
+     */
+    public function describeEnvironmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnvironment',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnvironmentRequest $request
+     *
+     * @return DescribeEnvironmentResponse
+     */
+    public function describeEnvironment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnvironmentWithOptions($request, $runtime);
     }
 
     /**
@@ -6142,6 +6874,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param InitEnvironmentRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return InitEnvironmentResponse
+     */
+    public function initEnvironmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InitEnvironment',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InitEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InitEnvironmentRequest $request
+     *
+     * @return InitEnvironmentResponse
+     */
+    public function initEnvironment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initEnvironmentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param InstallCmsExporterRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -6736,6 +7517,147 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param ListEnvCustomJobsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListEnvCustomJobsResponse
+     */
+    public function listEnvCustomJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->encryptYaml)) {
+            $query['EncryptYaml'] = $request->encryptYaml;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvCustomJobs',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnvCustomJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEnvCustomJobsRequest $request
+     *
+     * @return ListEnvCustomJobsResponse
+     */
+    public function listEnvCustomJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvCustomJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListEnvPodMonitorsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListEnvPodMonitorsResponse
+     */
+    public function listEnvPodMonitorsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvPodMonitors',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnvPodMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEnvPodMonitorsRequest $request
+     *
+     * @return ListEnvPodMonitorsResponse
+     */
+    public function listEnvPodMonitors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvPodMonitorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListEnvServiceMonitorsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListEnvServiceMonitorsResponse
+     */
+    public function listEnvServiceMonitorsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvServiceMonitors',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnvServiceMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEnvServiceMonitorsRequest $request
+     *
+     * @return ListEnvServiceMonitorsResponse
+     */
+    public function listEnvServiceMonitors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvServiceMonitorsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListEscalationPoliciesRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -6813,6 +7735,63 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEventBridgeIntegrationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListGrafanaWorkspaceRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListGrafanaWorkspaceResponse
+     */
+    public function listGrafanaWorkspaceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListGrafanaWorkspaceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGrafanaWorkspace',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGrafanaWorkspaceRequest $request
+     *
+     * @return ListGrafanaWorkspaceResponse
+     */
+    public function listGrafanaWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGrafanaWorkspaceWithOptions($request, $runtime);
     }
 
     /**
@@ -8297,6 +9276,55 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeSourcesFromPrometheusGlobalViewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RestartEnvironmentFeatureRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RestartEnvironmentFeatureResponse
+     */
+    public function restartEnvironmentFeatureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->featureName)) {
+            $query['FeatureName'] = $request->featureName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartEnvironmentFeature',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RestartEnvironmentFeatureRequest $request
+     *
+     * @return RestartEnvironmentFeatureResponse
+     */
+    public function restartEnvironmentFeature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartEnvironmentFeatureWithOptions($request, $runtime);
     }
 
     /**
@@ -9828,6 +10856,244 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDispatchRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateEnvCustomJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateEnvCustomJobResponse
+     */
+    public function updateEnvCustomJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->customJobName)) {
+            $query['CustomJobName'] = $request->customJobName;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->configYaml)) {
+            $body['ConfigYaml'] = $request->configYaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEnvCustomJob',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEnvCustomJobRequest $request
+     *
+     * @return UpdateEnvCustomJobResponse
+     */
+    public function updateEnvCustomJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnvCustomJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateEnvPodMonitorRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateEnvPodMonitorResponse
+     */
+    public function updateEnvPodMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->podMonitorName)) {
+            $query['PodMonitorName'] = $request->podMonitorName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->configYaml)) {
+            $body['ConfigYaml'] = $request->configYaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEnvPodMonitor',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEnvPodMonitorRequest $request
+     *
+     * @return UpdateEnvPodMonitorResponse
+     */
+    public function updateEnvPodMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnvPodMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateEnvServiceMonitorRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateEnvServiceMonitorResponse
+     */
+    public function updateEnvServiceMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceMonitorName)) {
+            $query['ServiceMonitorName'] = $request->serviceMonitorName;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->configYaml)) {
+            $body['ConfigYaml'] = $request->configYaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEnvServiceMonitor',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEnvServiceMonitorRequest $request
+     *
+     * @return UpdateEnvServiceMonitorResponse
+     */
+    public function updateEnvServiceMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnvServiceMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateEnvironmentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateEnvironmentResponse
+     */
+    public function updateEnvironmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->environmentName)) {
+            $query['EnvironmentName'] = $request->environmentName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEnvironment',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEnvironmentRequest $request
+     *
+     * @return UpdateEnvironmentResponse
+     */
+    public function updateEnvironment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnvironmentWithOptions($request, $runtime);
     }
 
     /**

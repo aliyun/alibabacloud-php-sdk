@@ -193,6 +193,11 @@ class alertRule extends Model
     public $metricsType;
 
     /**
+     * @var string
+     */
+    public $notifyMode;
+
+    /**
      * @description The name of the notification policy.
      *
      * @example ALERT_MANAGER
@@ -267,6 +272,7 @@ class alertRule extends Model
         'level'                 => 'Level',
         'message'               => 'Message',
         'metricsType'           => 'MetricsType',
+        'notifyMode'            => 'NotifyMode',
         'notifyStrategy'        => 'NotifyStrategy',
         'pids'                  => 'Pids',
         'promQL'                => 'PromQL',
@@ -348,6 +354,9 @@ class alertRule extends Model
         }
         if (null !== $this->metricsType) {
             $res['MetricsType'] = $this->metricsType;
+        }
+        if (null !== $this->notifyMode) {
+            $res['NotifyMode'] = $this->notifyMode;
         }
         if (null !== $this->notifyStrategy) {
             $res['NotifyStrategy'] = $this->notifyStrategy;
@@ -453,6 +462,9 @@ class alertRule extends Model
         }
         if (isset($map['MetricsType'])) {
             $model->metricsType = $map['MetricsType'];
+        }
+        if (isset($map['NotifyMode'])) {
+            $model->notifyMode = $map['NotifyMode'];
         }
         if (isset($map['NotifyStrategy'])) {
             $model->notifyStrategy = $map['NotifyStrategy'];
