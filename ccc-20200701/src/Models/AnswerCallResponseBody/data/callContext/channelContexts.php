@@ -30,6 +30,11 @@ class channelContexts extends Model
     public $channelState;
 
     /**
+     * @var string
+     */
+    public $channelVariables;
+
+    /**
      * @example 1390501****
      *
      * @var string
@@ -95,6 +100,7 @@ class channelContexts extends Model
         'callType'         => 'CallType',
         'channelId'        => 'ChannelId',
         'channelState'     => 'ChannelState',
+        'channelVariables' => 'ChannelVariables',
         'destination'      => 'Destination',
         'jobId'            => 'JobId',
         'originator'       => 'Originator',
@@ -121,6 +127,9 @@ class channelContexts extends Model
         }
         if (null !== $this->channelState) {
             $res['ChannelState'] = $this->channelState;
+        }
+        if (null !== $this->channelVariables) {
+            $res['ChannelVariables'] = $this->channelVariables;
         }
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
@@ -169,6 +178,9 @@ class channelContexts extends Model
         }
         if (isset($map['ChannelState'])) {
             $model->channelState = $map['ChannelState'];
+        }
+        if (isset($map['ChannelVariables'])) {
+            $model->channelVariables = $map['ChannelVariables'];
         }
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];

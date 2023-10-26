@@ -2,43 +2,43 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data\list_;
+namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentSkillGroupReportResponseBody\data\list_;
 
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data\list_\overall\breakCodeDetailList;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentSkillGroupReportResponseBody\data\list_\overall\breakCodeDetailList;
 use AlibabaCloud\Tea\Model;
 
 class overall extends Model
 {
     /**
-     * @example 0
+     * @example 100
      *
      * @var float
      */
     public $averageBreakTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var float
      */
     public $averageHoldTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var float
      */
     public $averageReadyTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var float
      */
     public $averageTalkTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var float
      */
@@ -50,154 +50,147 @@ class overall extends Model
     public $breakCodeDetailList;
 
     /**
+     * @example 1686030515000
+     *
      * @var int
      */
     public $firstCheckInTime;
 
     /**
+     * @example 1686030515000
+     *
      * @var int
      */
     public $lastCheckOutTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $maxBreakTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $maxHoldTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $maxReadyTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $maxTalkTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $maxWorkTime;
 
     /**
-     * @example 0
+     * @example 0.5
      *
      * @var float
      */
     public $occupancyRate;
 
     /**
-     * @example 0
+     * @example 1.4
      *
      * @var float
      */
     public $satisfactionIndex;
 
     /**
-     * @example 0
+     * @example 0.5
      *
      * @var float
      */
     public $satisfactionRate;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $satisfactionSurveysOffered;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $satisfactionSurveysResponded;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $totalBreakTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $totalCalls;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $totalHoldTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $totalLoggedInTime;
 
     /**
-     * @var int
-     */
-    public $totalOffSiteOnlineTime;
-
-    /**
-     * @var int
-     */
-    public $totalOfficePhoneOnlineTime;
-
-    /**
-     * @var int
-     */
-    public $totalOnSiteOnlineTime;
-
-    /**
+     * @example 100
+     *
      * @var int
      */
     public $totalOutboundScenarioReadyTime;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalOutboundScenarioTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $totalReadyTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
     public $totalTalkTime;
 
     /**
-     * @example 0
+     * @example 100
      *
      * @var int
      */
@@ -225,9 +218,6 @@ class overall extends Model
         'totalCalls'                     => 'TotalCalls',
         'totalHoldTime'                  => 'TotalHoldTime',
         'totalLoggedInTime'              => 'TotalLoggedInTime',
-        'totalOffSiteOnlineTime'         => 'TotalOffSiteOnlineTime',
-        'totalOfficePhoneOnlineTime'     => 'TotalOfficePhoneOnlineTime',
-        'totalOnSiteOnlineTime'          => 'TotalOnSiteOnlineTime',
         'totalOutboundScenarioReadyTime' => 'TotalOutboundScenarioReadyTime',
         'totalOutboundScenarioTime'      => 'TotalOutboundScenarioTime',
         'totalReadyTime'                 => 'TotalReadyTime',
@@ -313,15 +303,6 @@ class overall extends Model
         }
         if (null !== $this->totalLoggedInTime) {
             $res['TotalLoggedInTime'] = $this->totalLoggedInTime;
-        }
-        if (null !== $this->totalOffSiteOnlineTime) {
-            $res['TotalOffSiteOnlineTime'] = $this->totalOffSiteOnlineTime;
-        }
-        if (null !== $this->totalOfficePhoneOnlineTime) {
-            $res['TotalOfficePhoneOnlineTime'] = $this->totalOfficePhoneOnlineTime;
-        }
-        if (null !== $this->totalOnSiteOnlineTime) {
-            $res['TotalOnSiteOnlineTime'] = $this->totalOnSiteOnlineTime;
         }
         if (null !== $this->totalOutboundScenarioReadyTime) {
             $res['TotalOutboundScenarioReadyTime'] = $this->totalOutboundScenarioReadyTime;
@@ -421,15 +402,6 @@ class overall extends Model
         }
         if (isset($map['TotalLoggedInTime'])) {
             $model->totalLoggedInTime = $map['TotalLoggedInTime'];
-        }
-        if (isset($map['TotalOffSiteOnlineTime'])) {
-            $model->totalOffSiteOnlineTime = $map['TotalOffSiteOnlineTime'];
-        }
-        if (isset($map['TotalOfficePhoneOnlineTime'])) {
-            $model->totalOfficePhoneOnlineTime = $map['TotalOfficePhoneOnlineTime'];
-        }
-        if (isset($map['TotalOnSiteOnlineTime'])) {
-            $model->totalOnSiteOnlineTime = $map['TotalOnSiteOnlineTime'];
         }
         if (isset($map['TotalOutboundScenarioReadyTime'])) {
             $model->totalOutboundScenarioReadyTime = $map['TotalOutboundScenarioReadyTime'];

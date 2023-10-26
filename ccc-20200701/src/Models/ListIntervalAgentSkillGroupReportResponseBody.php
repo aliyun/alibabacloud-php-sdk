@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAppraiseLogsResponseBody\data;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentSkillGroupReportResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListLegacyAppraiseLogsResponseBody extends Model
+class ListIntervalAgentSkillGroupReportResponseBody extends Model
 {
     /**
      * @example OK
@@ -17,7 +17,7 @@ class ListLegacyAppraiseLogsResponseBody extends Model
     public $code;
 
     /**
-     * @var data
+     * @var data[]
      */
     public $data;
 
@@ -34,25 +34,17 @@ class ListLegacyAppraiseLogsResponseBody extends Model
     public $message;
 
     /**
-     * @example A13BB835-94AA-4E55-8D9E-5EA585CE6555"
+     * @example 2778FA12-EDD6-42AA-9B15-AF855072E5E5
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'code'           => 'Code',
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'success'        => 'Success',
     ];
 
     public function validate()
@@ -66,7 +58,13 @@ class ListLegacyAppraiseLogsResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -77,9 +75,6 @@ class ListLegacyAppraiseLogsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
 
         return $res;
     }
@@ -87,7 +82,7 @@ class ListLegacyAppraiseLogsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListLegacyAppraiseLogsResponseBody
+     * @return ListIntervalAgentSkillGroupReportResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -96,7 +91,13 @@ class ListLegacyAppraiseLogsResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
@@ -106,9 +107,6 @@ class ListLegacyAppraiseLogsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

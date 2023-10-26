@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAppraiseLogsResponseBody;
+namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentSkillGroupReportResponseBody;
 
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAppraiseLogsResponseBody\data\list_;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentSkillGroupReportResponseBody\data\list_;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -29,7 +29,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @example 18
+     * @example 11
      *
      * @var int
      */

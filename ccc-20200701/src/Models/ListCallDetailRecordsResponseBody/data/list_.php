@@ -106,6 +106,11 @@ class list_ extends Model
     public $establishedTime;
 
     /**
+     * @var int
+     */
+    public $heldTime;
+
+    /**
      * @example ccc-test
      *
      * @var string
@@ -238,6 +243,7 @@ class list_ extends Model
         'dialingTime'               => 'DialingTime',
         'earlyMediaState'           => 'EarlyMediaState',
         'establishedTime'           => 'EstablishedTime',
+        'heldTime'                  => 'HeldTime',
         'instanceId'                => 'InstanceId',
         'ivrTime'                   => 'IvrTime',
         'queueTime'                 => 'QueueTime',
@@ -309,6 +315,9 @@ class list_ extends Model
         }
         if (null !== $this->establishedTime) {
             $res['EstablishedTime'] = $this->establishedTime;
+        }
+        if (null !== $this->heldTime) {
+            $res['HeldTime'] = $this->heldTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -420,6 +429,9 @@ class list_ extends Model
         }
         if (isset($map['EstablishedTime'])) {
             $model->establishedTime = $map['EstablishedTime'];
+        }
+        if (isset($map['HeldTime'])) {
+            $model->heldTime = $map['HeldTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

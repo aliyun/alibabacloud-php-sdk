@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 3786929579
+     *
      * @var string
      */
     public $acid;
 
     /**
+     * @example Outbound
+     *
      * @var string
      */
     public $contactType;
 
     /**
+     * @example 10505
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example ccc-test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $keyMarkRelation;
@@ -44,26 +54,36 @@ class list_ extends Model
     public $parentNote;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $pressKey;
 
     /**
+     * @example 28036411123456****
+     *
      * @var string
      */
     public $ramId;
 
     /**
+     * @example test@ccc-test
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example 2021-12-03T10:15:30
+     *
      * @var string
      */
     public $statisticDate;
 
     /**
+     * @example Launch
+     *
      * @var string
      */
     public $type;

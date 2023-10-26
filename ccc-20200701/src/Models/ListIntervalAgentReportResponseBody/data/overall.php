@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentReportResponseBody\data;
 
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentReportResponseBody\data\overall\breakCodeDetailList;
 use AlibabaCloud\Tea\Model;
 
 class overall extends Model
@@ -42,6 +43,11 @@ class overall extends Model
      * @var float
      */
     public $averageWorkTime;
+
+    /**
+     * @var breakCodeDetailList[]
+     */
+    public $breakCodeDetailList;
 
     /**
      * @example 0
@@ -156,6 +162,31 @@ class overall extends Model
     public $totalLoggedInTime;
 
     /**
+     * @var int
+     */
+    public $totalOffSiteOnlineTime;
+
+    /**
+     * @var int
+     */
+    public $totalOfficePhoneOnlineTime;
+
+    /**
+     * @var int
+     */
+    public $totalOnSiteOnlineTime;
+
+    /**
+     * @var int
+     */
+    public $totalOutboundScenarioReadyTime;
+
+    /**
+     * @var int
+     */
+    public $totalOutboundScenarioTime;
+
+    /**
      * @example 763
      *
      * @var int
@@ -176,30 +207,36 @@ class overall extends Model
      */
     public $totalWorkTime;
     protected $_name = [
-        'averageBreakTime'             => 'AverageBreakTime',
-        'averageHoldTime'              => 'AverageHoldTime',
-        'averageReadyTime'             => 'AverageReadyTime',
-        'averageTalkTime'              => 'AverageTalkTime',
-        'averageWorkTime'              => 'AverageWorkTime',
-        'firstCheckInTime'             => 'FirstCheckInTime',
-        'lastCheckoutTime'             => 'LastCheckoutTime',
-        'maxBreakTime'                 => 'MaxBreakTime',
-        'maxHoldTime'                  => 'MaxHoldTime',
-        'maxReadyTime'                 => 'MaxReadyTime',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'maxWorkTime'                  => 'MaxWorkTime',
-        'occupancyRate'                => 'OccupancyRate',
-        'satisfactionIndex'            => 'SatisfactionIndex',
-        'satisfactionRate'             => 'SatisfactionRate',
-        'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
-        'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'totalBreakTime'               => 'TotalBreakTime',
-        'totalCalls'                   => 'TotalCalls',
-        'totalHoldTime'                => 'TotalHoldTime',
-        'totalLoggedInTime'            => 'TotalLoggedInTime',
-        'totalReadyTime'               => 'TotalReadyTime',
-        'totalTalkTime'                => 'TotalTalkTime',
-        'totalWorkTime'                => 'TotalWorkTime',
+        'averageBreakTime'               => 'AverageBreakTime',
+        'averageHoldTime'                => 'AverageHoldTime',
+        'averageReadyTime'               => 'AverageReadyTime',
+        'averageTalkTime'                => 'AverageTalkTime',
+        'averageWorkTime'                => 'AverageWorkTime',
+        'breakCodeDetailList'            => 'BreakCodeDetailList',
+        'firstCheckInTime'               => 'FirstCheckInTime',
+        'lastCheckoutTime'               => 'LastCheckoutTime',
+        'maxBreakTime'                   => 'MaxBreakTime',
+        'maxHoldTime'                    => 'MaxHoldTime',
+        'maxReadyTime'                   => 'MaxReadyTime',
+        'maxTalkTime'                    => 'MaxTalkTime',
+        'maxWorkTime'                    => 'MaxWorkTime',
+        'occupancyRate'                  => 'OccupancyRate',
+        'satisfactionIndex'              => 'SatisfactionIndex',
+        'satisfactionRate'               => 'SatisfactionRate',
+        'satisfactionSurveysOffered'     => 'SatisfactionSurveysOffered',
+        'satisfactionSurveysResponded'   => 'SatisfactionSurveysResponded',
+        'totalBreakTime'                 => 'TotalBreakTime',
+        'totalCalls'                     => 'TotalCalls',
+        'totalHoldTime'                  => 'TotalHoldTime',
+        'totalLoggedInTime'              => 'TotalLoggedInTime',
+        'totalOffSiteOnlineTime'         => 'TotalOffSiteOnlineTime',
+        'totalOfficePhoneOnlineTime'     => 'TotalOfficePhoneOnlineTime',
+        'totalOnSiteOnlineTime'          => 'TotalOnSiteOnlineTime',
+        'totalOutboundScenarioReadyTime' => 'TotalOutboundScenarioReadyTime',
+        'totalOutboundScenarioTime'      => 'TotalOutboundScenarioTime',
+        'totalReadyTime'                 => 'TotalReadyTime',
+        'totalTalkTime'                  => 'TotalTalkTime',
+        'totalWorkTime'                  => 'TotalWorkTime',
     ];
 
     public function validate()
@@ -223,6 +260,15 @@ class overall extends Model
         }
         if (null !== $this->averageWorkTime) {
             $res['AverageWorkTime'] = $this->averageWorkTime;
+        }
+        if (null !== $this->breakCodeDetailList) {
+            $res['BreakCodeDetailList'] = [];
+            if (null !== $this->breakCodeDetailList && \is_array($this->breakCodeDetailList)) {
+                $n = 0;
+                foreach ($this->breakCodeDetailList as $item) {
+                    $res['BreakCodeDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->firstCheckInTime) {
             $res['FirstCheckInTime'] = $this->firstCheckInTime;
@@ -272,6 +318,21 @@ class overall extends Model
         if (null !== $this->totalLoggedInTime) {
             $res['TotalLoggedInTime'] = $this->totalLoggedInTime;
         }
+        if (null !== $this->totalOffSiteOnlineTime) {
+            $res['TotalOffSiteOnlineTime'] = $this->totalOffSiteOnlineTime;
+        }
+        if (null !== $this->totalOfficePhoneOnlineTime) {
+            $res['TotalOfficePhoneOnlineTime'] = $this->totalOfficePhoneOnlineTime;
+        }
+        if (null !== $this->totalOnSiteOnlineTime) {
+            $res['TotalOnSiteOnlineTime'] = $this->totalOnSiteOnlineTime;
+        }
+        if (null !== $this->totalOutboundScenarioReadyTime) {
+            $res['TotalOutboundScenarioReadyTime'] = $this->totalOutboundScenarioReadyTime;
+        }
+        if (null !== $this->totalOutboundScenarioTime) {
+            $res['TotalOutboundScenarioTime'] = $this->totalOutboundScenarioTime;
+        }
         if (null !== $this->totalReadyTime) {
             $res['TotalReadyTime'] = $this->totalReadyTime;
         }
@@ -307,6 +368,15 @@ class overall extends Model
         }
         if (isset($map['AverageWorkTime'])) {
             $model->averageWorkTime = $map['AverageWorkTime'];
+        }
+        if (isset($map['BreakCodeDetailList'])) {
+            if (!empty($map['BreakCodeDetailList'])) {
+                $model->breakCodeDetailList = [];
+                $n                          = 0;
+                foreach ($map['BreakCodeDetailList'] as $item) {
+                    $model->breakCodeDetailList[$n++] = null !== $item ? breakCodeDetailList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['FirstCheckInTime'])) {
             $model->firstCheckInTime = $map['FirstCheckInTime'];
@@ -355,6 +425,21 @@ class overall extends Model
         }
         if (isset($map['TotalLoggedInTime'])) {
             $model->totalLoggedInTime = $map['TotalLoggedInTime'];
+        }
+        if (isset($map['TotalOffSiteOnlineTime'])) {
+            $model->totalOffSiteOnlineTime = $map['TotalOffSiteOnlineTime'];
+        }
+        if (isset($map['TotalOfficePhoneOnlineTime'])) {
+            $model->totalOfficePhoneOnlineTime = $map['TotalOfficePhoneOnlineTime'];
+        }
+        if (isset($map['TotalOnSiteOnlineTime'])) {
+            $model->totalOnSiteOnlineTime = $map['TotalOnSiteOnlineTime'];
+        }
+        if (isset($map['TotalOutboundScenarioReadyTime'])) {
+            $model->totalOutboundScenarioReadyTime = $map['TotalOutboundScenarioReadyTime'];
+        }
+        if (isset($map['TotalOutboundScenarioTime'])) {
+            $model->totalOutboundScenarioTime = $map['TotalOutboundScenarioTime'];
         }
         if (isset($map['TotalReadyTime'])) {
             $model->totalReadyTime = $map['TotalReadyTime'];

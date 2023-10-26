@@ -6,10 +6,17 @@ namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListLegacyAppraiseLogsRequest extends Model
+class ListIntervalAgentSkillGroupReportRequest extends Model
 {
     /**
-     * @example 1620273600000
+     * @example agent@ccc-test
+     *
+     * @var string
+     */
+    public $agentId;
+
+    /**
+     * @example 1558443508000
      *
      * @var int
      */
@@ -23,31 +30,32 @@ class ListLegacyAppraiseLogsRequest extends Model
     public $instanceId;
 
     /**
-     * @example 1
+     * @example Daily
      *
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $interval;
 
     /**
-     * @example 10
+     * @example skg-default@ccc-test
      *
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $skillGroupId;
 
     /**
-     * @example 1604638129000
+     * @example 1532448000000
      *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'instanceId' => 'InstanceId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'agentId'      => 'AgentId',
+        'endTime'      => 'EndTime',
+        'instanceId'   => 'InstanceId',
+        'interval'     => 'Interval',
+        'skillGroupId' => 'SkillGroupId',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -57,17 +65,20 @@ class ListLegacyAppraiseLogsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentId) {
+            $res['AgentId'] = $this->agentId;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -79,22 +90,25 @@ class ListLegacyAppraiseLogsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListLegacyAppraiseLogsRequest
+     * @return ListIntervalAgentSkillGroupReportRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentId'])) {
+            $model->agentId = $map['AgentId'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

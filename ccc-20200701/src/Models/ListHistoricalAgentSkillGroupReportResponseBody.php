@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAppraiseLogsResponseBody\data;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentSkillGroupReportResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListLegacyAppraiseLogsResponseBody extends Model
+class ListHistoricalAgentSkillGroupReportResponseBody extends Model
 {
     /**
      * @example OK
@@ -34,25 +34,17 @@ class ListLegacyAppraiseLogsResponseBody extends Model
     public $message;
 
     /**
-     * @example A13BB835-94AA-4E55-8D9E-5EA585CE6555"
+     * @example BA03159C-E808-4FF1-B27E-A61B6E888D7F
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'code'           => 'Code',
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'success'        => 'Success',
     ];
 
     public function validate()
@@ -77,9 +69,6 @@ class ListLegacyAppraiseLogsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
 
         return $res;
     }
@@ -87,7 +76,7 @@ class ListLegacyAppraiseLogsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListLegacyAppraiseLogsResponseBody
+     * @return ListHistoricalAgentSkillGroupReportResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -106,9 +95,6 @@ class ListLegacyAppraiseLogsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

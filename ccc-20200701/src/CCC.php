@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportDoNotCallNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportDoNotCallNumbersResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetAccessChannelOfStagingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetAccessChannelOfStagingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetAudioFileDownloadUrlRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetAudioFileDownloadUrlResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetAudioFileRequest;
@@ -189,6 +191,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentSkillGroupReportRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentSkillGroupReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalSkillGroupReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalSkillGroupReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListInstancesOfUserRequest;
@@ -197,6 +201,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentReportResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentSkillGroupReportRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentSkillGroupReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalInstanceReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalInstanceReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalSkillGroupReportRequest;
@@ -249,6 +255,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListUserLevelsOfSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUserLevelsOfSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListVoicemailsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListVoicemailsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MakeCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MakeCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyAudioFileRequest;
@@ -277,6 +285,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\PickOutboundNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PickOutboundNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ProcessAliMeCallbackOfStagingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ProcessAliMeCallbackOfStagingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PublishContactFlowRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PublishContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReadyForServiceRequest;
@@ -349,6 +359,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\UnmuteCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnmuteCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnregisterDeviceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnregisterDeviceResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateCampaignRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -2340,6 +2352,46 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param GetAccessChannelOfStagingRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetAccessChannelOfStagingResponse
+     */
+    public function getAccessChannelOfStagingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccessChannelOfStaging',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccessChannelOfStagingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccessChannelOfStagingRequest $request
+     *
+     * @return GetAccessChannelOfStagingResponse
+     */
+    public function getAccessChannelOfStaging($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccessChannelOfStagingWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAudioFileRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -3139,6 +3191,9 @@ class CCC extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->contactId)) {
             $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->expireSeconds)) {
+            $query['ExpireSeconds'] = $request->expireSeconds;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -5042,6 +5097,69 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ListHistoricalAgentSkillGroupReportRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListHistoricalAgentSkillGroupReportResponse
+     */
+    public function listHistoricalAgentSkillGroupReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->skillGroupIdList)) {
+            $query['SkillGroupIdList'] = $request->skillGroupIdList;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->agentIdList)) {
+            $body['AgentIdList'] = $request->agentIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHistoricalAgentSkillGroupReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHistoricalAgentSkillGroupReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListHistoricalAgentSkillGroupReportRequest $request
+     *
+     * @return ListHistoricalAgentSkillGroupReportResponse
+     */
+    public function listHistoricalAgentSkillGroupReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHistoricalAgentSkillGroupReportWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListHistoricalSkillGroupReportRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -5246,6 +5364,46 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listIntervalAgentReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIntervalAgentSkillGroupReportRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListIntervalAgentSkillGroupReportResponse
+     */
+    public function listIntervalAgentSkillGroupReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIntervalAgentSkillGroupReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIntervalAgentSkillGroupReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIntervalAgentSkillGroupReportRequest $request
+     *
+     * @return ListIntervalAgentSkillGroupReportResponse
+     */
+    public function listIntervalAgentSkillGroupReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIntervalAgentSkillGroupReportWithOptions($request, $runtime);
     }
 
     /**
@@ -6637,6 +6795,70 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ListVoicemailsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListVoicemailsResponse
+     */
+    public function listVoicemailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->caller)) {
+            $query['Caller'] = $request->caller;
+        }
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVoicemails',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListVoicemailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListVoicemailsRequest $request
+     *
+     * @return ListVoicemailsResponse
+     */
+    public function listVoicemails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVoicemailsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param MakeCallRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -7374,6 +7596,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pollUserStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ProcessAliMeCallbackOfStagingRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ProcessAliMeCallbackOfStagingResponse
+     */
+    public function processAliMeCallbackOfStagingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ProcessAliMeCallbackOfStaging',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ProcessAliMeCallbackOfStagingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ProcessAliMeCallbackOfStagingRequest $request
+     *
+     * @return ProcessAliMeCallbackOfStagingResponse
+     */
+    public function processAliMeCallbackOfStaging($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->processAliMeCallbackOfStagingWithOptions($request, $runtime);
     }
 
     /**
@@ -9261,6 +9529,70 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unregisterDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCampaignRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateCampaignResponse
+     */
+    public function updateCampaignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callableTime)) {
+            $query['CallableTime'] = $request->callableTime;
+        }
+        if (!Utils::isUnset($request->campaignId)) {
+            $query['CampaignId'] = $request->campaignId;
+        }
+        if (!Utils::isUnset($request->contactFlowId)) {
+            $query['ContactFlowId'] = $request->contactFlowId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->strategyParameters)) {
+            $query['StrategyParameters'] = $request->strategyParameters;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCampaign',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCampaignRequest $request
+     *
+     * @return UpdateCampaignResponse
+     */
+    public function updateCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCampaignWithOptions($request, $runtime);
     }
 
     /**

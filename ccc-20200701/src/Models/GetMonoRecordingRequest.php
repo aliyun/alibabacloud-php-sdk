@@ -16,14 +16,20 @@ class GetMonoRecordingRequest extends Model
     public $contactId;
 
     /**
+     * @var int
+     */
+    public $expireSeconds;
+
+    /**
      * @example ccc-test
      *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'contactId'  => 'ContactId',
-        'instanceId' => 'InstanceId',
+        'contactId'     => 'ContactId',
+        'expireSeconds' => 'ExpireSeconds',
+        'instanceId'    => 'InstanceId',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class GetMonoRecordingRequest extends Model
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
+        }
+        if (null !== $this->expireSeconds) {
+            $res['ExpireSeconds'] = $this->expireSeconds;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -53,6 +62,9 @@ class GetMonoRecordingRequest extends Model
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
+        }
+        if (isset($map['ExpireSeconds'])) {
+            $model->expireSeconds = $map['ExpireSeconds'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

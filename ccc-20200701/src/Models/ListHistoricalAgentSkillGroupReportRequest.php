@@ -6,8 +6,15 @@ namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListLegacyAppraiseLogsRequest extends Model
+class ListHistoricalAgentSkillGroupReportRequest extends Model
 {
+    /**
+     * @example ["agent1@ccc-test", "agent2@ccc-test"]
+     *
+     * @var string
+     */
+    public $agentIdList;
+
     /**
      * @example 1620273600000
      *
@@ -37,17 +44,26 @@ class ListLegacyAppraiseLogsRequest extends Model
     public $pageSize;
 
     /**
-     * @example 1604638129000
+     * @example [
+     * ]
+     * @var string
+     */
+    public $skillGroupIdList;
+
+    /**
+     * @example 1634140800000
      *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'instanceId' => 'InstanceId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'agentIdList'      => 'AgentIdList',
+        'endTime'          => 'EndTime',
+        'instanceId'       => 'InstanceId',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'skillGroupIdList' => 'SkillGroupIdList',
+        'startTime'        => 'StartTime',
     ];
 
     public function validate()
@@ -57,6 +73,9 @@ class ListLegacyAppraiseLogsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentIdList) {
+            $res['AgentIdList'] = $this->agentIdList;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -69,6 +88,9 @@ class ListLegacyAppraiseLogsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->skillGroupIdList) {
+            $res['SkillGroupIdList'] = $this->skillGroupIdList;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -79,11 +101,14 @@ class ListLegacyAppraiseLogsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListLegacyAppraiseLogsRequest
+     * @return ListHistoricalAgentSkillGroupReportRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentIdList'])) {
+            $model->agentIdList = $map['AgentIdList'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -95,6 +120,9 @@ class ListLegacyAppraiseLogsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SkillGroupIdList'])) {
+            $model->skillGroupIdList = $map['SkillGroupIdList'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

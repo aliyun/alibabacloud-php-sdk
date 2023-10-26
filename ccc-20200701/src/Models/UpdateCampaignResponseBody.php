@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAppraiseLogsResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListLegacyAppraiseLogsResponseBody extends Model
+class UpdateCampaignResponseBody extends Model
 {
     /**
      * @example OK
@@ -15,11 +14,6 @@ class ListLegacyAppraiseLogsResponseBody extends Model
      * @var string
      */
     public $code;
-
-    /**
-     * @var data
-     */
-    public $data;
 
     /**
      * @example 200
@@ -34,25 +28,16 @@ class ListLegacyAppraiseLogsResponseBody extends Model
     public $message;
 
     /**
-     * @example A13BB835-94AA-4E55-8D9E-5EA585CE6555"
+     * @example BC976D32-AC4C-4E0F-8AA9-F4BC6C4E2B3E
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'code'           => 'Code',
-        'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'success'        => 'Success',
     ];
 
     public function validate()
@@ -65,9 +50,6 @@ class ListLegacyAppraiseLogsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
@@ -77,9 +59,6 @@ class ListLegacyAppraiseLogsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
 
         return $res;
     }
@@ -87,16 +66,13 @@ class ListLegacyAppraiseLogsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListLegacyAppraiseLogsResponseBody
+     * @return UpdateCampaignResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
@@ -106,9 +82,6 @@ class ListLegacyAppraiseLogsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

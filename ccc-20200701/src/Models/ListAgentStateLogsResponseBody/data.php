@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $breakCode;
+
+    /**
      * @var int
      */
     public $duration;
@@ -40,12 +45,19 @@ class data extends Model
      * @var string
      */
     public $stateCode;
+
+    /**
+     * @var string
+     */
+    public $workMode;
     protected $_name = [
+        'breakCode'        => 'BreakCode',
         'duration'         => 'Duration',
         'outboundScenario' => 'OutboundScenario',
         'startTime'        => 'StartTime',
         'state'            => 'State',
         'stateCode'        => 'StateCode',
+        'workMode'         => 'WorkMode',
     ];
 
     public function validate()
@@ -55,6 +67,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->breakCode) {
+            $res['BreakCode'] = $this->breakCode;
+        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
@@ -70,6 +85,9 @@ class data extends Model
         if (null !== $this->stateCode) {
             $res['StateCode'] = $this->stateCode;
         }
+        if (null !== $this->workMode) {
+            $res['WorkMode'] = $this->workMode;
+        }
 
         return $res;
     }
@@ -82,6 +100,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BreakCode'])) {
+            $model->breakCode = $map['BreakCode'];
+        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
@@ -96,6 +117,9 @@ class data extends Model
         }
         if (isset($map['StateCode'])) {
             $model->stateCode = $map['StateCode'];
+        }
+        if (isset($map['WorkMode'])) {
+            $model->workMode = $map['WorkMode'];
         }
 
         return $model;
