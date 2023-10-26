@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Fnf\V20190315\Models\ReportTaskSucceededRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ReportTaskSucceededResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\StartExecutionRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\StartExecutionResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\StartSyncExecutionRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\StartSyncExecutionResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\StopExecutionRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\StopExecutionResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateFlowRequest;
@@ -87,10 +89,14 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param CreateFlowRequest $request
-     * @param RuntimeOptions    $runtime
+     * ## [](#)Usage notes
+     *   * *   The number of flows that each user can create is restricted by resources. For more information, see [Limits](~~122093~~). If you want to create more flows, submit a ticket.
+     *   * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
+     *   *
+     * @param CreateFlowRequest $request CreateFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFlowResponse
+     * @return CreateFlowResponse CreateFlowResponse
      */
     public function createFlowWithOptions($request, $runtime)
     {
@@ -141,9 +147,13 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param CreateFlowRequest $request
+     * ## [](#)Usage notes
+     *   * *   The number of flows that each user can create is restricted by resources. For more information, see [Limits](~~122093~~). If you want to create more flows, submit a ticket.
+     *   * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
+     *   *
+     * @param CreateFlowRequest $request CreateFlowRequest
      *
-     * @return CreateFlowResponse
+     * @return CreateFlowResponse CreateFlowResponse
      */
     public function createFlow($request)
     {
@@ -216,10 +226,13 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param DeleteFlowRequest $request
-     * @param RuntimeOptions    $runtime
+     * ## [](#)Usage notes
+     *   * A delete operation is asynchronous. If this operation is successful, the system returns a successful response. If an existing flow is pending to be deleted, a new flow of the same name will not be affected by the existing one. After you delete a flow, you cannot query its historical executions. All executions in progress will stop after their most recent steps are complete.
+     *   *
+     * @param DeleteFlowRequest $request DeleteFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFlowResponse
+     * @return DeleteFlowResponse DeleteFlowResponse
      */
     public function deleteFlowWithOptions($request, $runtime)
     {
@@ -244,9 +257,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param DeleteFlowRequest $request
+     * ## [](#)Usage notes
+     *   * A delete operation is asynchronous. If this operation is successful, the system returns a successful response. If an existing flow is pending to be deleted, a new flow of the same name will not be affected by the existing one. After you delete a flow, you cannot query its historical executions. All executions in progress will stop after their most recent steps are complete.
+     *   *
+     * @param DeleteFlowRequest $request DeleteFlowRequest
      *
-     * @return DeleteFlowResponse
+     * @return DeleteFlowResponse DeleteFlowResponse
      */
     public function deleteFlow($request)
     {
@@ -456,10 +472,13 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param ListExecutionsRequest $request
-     * @param RuntimeOptions        $runtime
+     * ## [](#)Usage notes
+     *   * After you delete a flow, you cannot query its historical executions, even if you create a flow of the same name.
+     *   *
+     * @param ListExecutionsRequest $request ListExecutionsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExecutionsResponse
+     * @return ListExecutionsResponse ListExecutionsResponse
      */
     public function listExecutionsWithOptions($request, $runtime)
     {
@@ -484,9 +503,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param ListExecutionsRequest $request
+     * ## [](#)Usage notes
+     *   * After you delete a flow, you cannot query its historical executions, even if you create a flow of the same name.
+     *   *
+     * @param ListExecutionsRequest $request ListExecutionsRequest
      *
-     * @return ListExecutionsResponse
+     * @return ListExecutionsResponse ListExecutionsResponse
      */
     public function listExecutions($request)
     {
@@ -576,10 +598,13 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param ReportTaskFailedRequest $request
-     * @param RuntimeOptions          $runtime
+     * ## [](#)Usage notes
+     *   * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task fails to be executed.
+     *   *
+     * @param ReportTaskFailedRequest $request ReportTaskFailedRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReportTaskFailedResponse
+     * @return ReportTaskFailedResponse ReportTaskFailedResponse
      */
     public function reportTaskFailedWithOptions($request, $runtime)
     {
@@ -618,9 +643,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param ReportTaskFailedRequest $request
+     * ## [](#)Usage notes
+     *   * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task fails to be executed.
+     *   *
+     * @param ReportTaskFailedRequest $request ReportTaskFailedRequest
      *
-     * @return ReportTaskFailedResponse
+     * @return ReportTaskFailedResponse ReportTaskFailedResponse
      */
     public function reportTaskFailed($request)
     {
@@ -630,10 +658,13 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param ReportTaskSucceededRequest $request
-     * @param RuntimeOptions             $runtime
+     * ## [](#)Usage notes
+     *   * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task is successfully executed.
+     *   *
+     * @param ReportTaskSucceededRequest $request ReportTaskSucceededRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReportTaskSucceededResponse
+     * @return ReportTaskSucceededResponse ReportTaskSucceededResponse
      */
     public function reportTaskSucceededWithOptions($request, $runtime)
     {
@@ -669,9 +700,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param ReportTaskSucceededRequest $request
+     * ## [](#)Usage notes
+     *   * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task is successfully executed.
+     *   *
+     * @param ReportTaskSucceededRequest $request ReportTaskSucceededRequest
      *
-     * @return ReportTaskSucceededResponse
+     * @return ReportTaskSucceededResponse ReportTaskSucceededResponse
      */
     public function reportTaskSucceeded($request)
     {
@@ -681,10 +715,17 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param StartExecutionRequest $request
-     * @param RuntimeOptions        $runtime
+     * ## [](#)Usage notes
+     *   * *   The flow is created.
+     *   * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
+     *   * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
+     *   * *   If the ongoing execution with the same name has ended (succeeded or failed), the `ExecutionAlreadyExists` error is returned.
+     *   * *   If no execution with the same name exists, the system starts a new execution.
+     *   *
+     * @param StartExecutionRequest $request StartExecutionRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartExecutionResponse
+     * @return StartExecutionResponse StartExecutionResponse
      */
     public function startExecutionWithOptions($request, $runtime)
     {
@@ -726,9 +767,16 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param StartExecutionRequest $request
+     * ## [](#)Usage notes
+     *   * *   The flow is created.
+     *   * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
+     *   * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
+     *   * *   If the ongoing execution with the same name has ended (succeeded or failed), the `ExecutionAlreadyExists` error is returned.
+     *   * *   If no execution with the same name exists, the system starts a new execution.
+     *   *
+     * @param StartExecutionRequest $request StartExecutionRequest
      *
-     * @return StartExecutionResponse
+     * @return StartExecutionResponse StartExecutionResponse
      */
     public function startExecution($request)
     {
@@ -738,10 +786,67 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param StopExecutionRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param StartSyncExecutionRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return StopExecutionResponse
+     * @return StartSyncExecutionResponse
+     */
+    public function startSyncExecutionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->executionName)) {
+            $body['ExecutionName'] = $request->executionName;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $body['Input'] = $request->input;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartSyncExecution',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartSyncExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartSyncExecutionRequest $request
+     *
+     * @return StartSyncExecutionResponse
+     */
+    public function startSyncExecution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startSyncExecutionWithOptions($request, $runtime);
+    }
+
+    /**
+     * ## [](#)Usage notes
+     *   * The flow must be in progress.
+     *   *
+     * @param StopExecutionRequest $request StopExecutionRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopExecutionResponse StopExecutionResponse
      */
     public function stopExecutionWithOptions($request, $runtime)
     {
@@ -783,9 +888,12 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param StopExecutionRequest $request
+     * ## [](#)Usage notes
+     *   * The flow must be in progress.
+     *   *
+     * @param StopExecutionRequest $request StopExecutionRequest
      *
-     * @return StopExecutionResponse
+     * @return StopExecutionResponse StopExecutionResponse
      */
     public function stopExecution($request)
     {

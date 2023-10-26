@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetExecutionHistoryResponseBody extends Model
 {
     /**
+     * @description The events.
+     *
      * @var events[]
      */
     public $events;
 
     /**
+     * @description You do not need to specify this parameter for the first request. The returned value of **ScheduleEventId** is used as the token for the next query. No value is returned for the last query.
+     *
      * @example 3
      *
      * @var string
@@ -22,6 +26,8 @@ class GetExecutionHistoryResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example testRequestId
      *
      * @var string

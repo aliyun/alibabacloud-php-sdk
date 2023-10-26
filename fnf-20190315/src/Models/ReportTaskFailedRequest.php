@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReportTaskFailedRequest extends Model
 {
     /**
+     * @description The cause of the failure. The value must be 1 to 4,096 characters in length.
+     *
      * @example emptyString
      *
      * @var string
@@ -16,6 +18,8 @@ class ReportTaskFailedRequest extends Model
     public $cause;
 
     /**
+     * @description The error code for the failed task. The value must be 1 to 128 characters in length.
+     *
      * @example nill
      *
      * @var string
@@ -23,6 +27,8 @@ class ReportTaskFailedRequest extends Model
     public $error;
 
     /**
+     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
+     *
      * @example testRequestId
      *
      * @var string
@@ -30,6 +36,8 @@ class ReportTaskFailedRequest extends Model
     public $requestId;
 
     /**
+     * @description The token of the specified task that you want to report. If this parameter appears in **waitforCallback** mode, the parameter is passed to the called service, such as Message Service (MNS) or Function Compute. For MNS, the value of this parameter can be obtained from a message. For Function Compute, the value of this parameter can be obtained from an event.
+     *
      * @example emptyString
      *
      * @var string

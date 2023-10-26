@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowResponseBody extends Model
 {
     /**
+     * @description The time when the flow was created.
+     *
      * @example 2019-01-01T01:01:01.001Z
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateFlowResponseBody extends Model
     public $createdTime;
 
     /**
+     * @description The definition of the flow.
+     *
      * @example version: v1.0\ntype: flow\nname: test\nsteps:\n  - type: pass\n    name: mypass
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateFlowResponseBody extends Model
     public $definition;
 
     /**
+     * @description The description of the flow.
+     *
      * @example test definition
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateFlowResponseBody extends Model
     public $description;
 
     /**
+     * @description The path of the external storage.
+     *
      * @example /path
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateFlowResponseBody extends Model
     public $externalStorageLocation;
 
     /**
+     * @description The unique ID of the flow.
+     *
      * @example e589e092-e2c0-4dee-b306-3574ddfdddf5****
      *
      * @var string
@@ -44,6 +54,8 @@ class UpdateFlowResponseBody extends Model
     public $id;
 
     /**
+     * @description The time when the flow was last modified.
+     *
      * @example 2019-01-01T01:01:01.001Z
      *
      * @var string
@@ -51,6 +63,8 @@ class UpdateFlowResponseBody extends Model
     public $lastModifiedTime;
 
     /**
+     * @description The name of the flow.
+     *
      * @example flow
      *
      * @var string
@@ -58,6 +72,8 @@ class UpdateFlowResponseBody extends Model
     public $name;
 
     /**
+     * @description The request ID.
+     *
      * @example testRequestID
      *
      * @var string
@@ -65,6 +81,8 @@ class UpdateFlowResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ARN of the RAM role.
+     *
      * @example acs:ram::${accountID}:${role}
      *
      * @var string
@@ -72,6 +90,8 @@ class UpdateFlowResponseBody extends Model
     public $roleArn;
 
     /**
+     * @description The type of the flow.
+     *
      * @example FDL
      *
      * @var string

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetExecutionHistoryRequest extends Model
 {
     /**
+     * @description The name of the execution, which is unique within a flow. Configure this parameter based on the following rules:
+     *
+     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The name must start with a letter or an underscore (\_).
+     *   The name is case-sensitive.
+     *   The name must be 1 to 128 characters in length.
+     *
      * @example exec
      *
      * @var string
@@ -16,6 +23,13 @@ class GetExecutionHistoryRequest extends Model
     public $executionName;
 
     /**
+     * @description The name of the flow. The name is unique within the region and cannot be modified after the flow is created. Configure this parameter based on the following rules:
+     *
+     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The name must start with a letter or an underscore (\_).
+     *   The name is case-sensitive.
+     *   The name must be 1 to 128 characters in length.
+     *
      * @example flow
      *
      * @var string
@@ -23,6 +37,8 @@ class GetExecutionHistoryRequest extends Model
     public $flowName;
 
     /**
+     * @description The maximum number of steps to be queried. Valid values: 1 to 1000.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +46,8 @@ class GetExecutionHistoryRequest extends Model
     public $limit;
 
     /**
+     * @description The name of the event to start the query. You can obtain the value from the response data.
+     *
      * @example flow_xxx
      *
      * @var string
@@ -37,6 +55,8 @@ class GetExecutionHistoryRequest extends Model
     public $nextToken;
 
     /**
+     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
+     *
      * @example testRequestId
      *
      * @var string

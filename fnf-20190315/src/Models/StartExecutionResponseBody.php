@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartExecutionResponseBody extends Model
 {
     /**
+     * @description The definition of the flow.
+     *
      * @example version: v1.0\ntype: flow\nname: test\nsteps:\n - type: pass\n name: mypass
      *
      * @var string
@@ -16,6 +18,8 @@ class StartExecutionResponseBody extends Model
     public $flowDefinition;
 
     /**
+     * @description The name of the flow.
+     *
      * @example flow
      *
      * @var string
@@ -23,6 +27,8 @@ class StartExecutionResponseBody extends Model
     public $flowName;
 
     /**
+     * @description The input of the execution, which is in the JSON format.
+     *
      * @example {"key":"value"}
      *
      * @var string
@@ -30,6 +36,8 @@ class StartExecutionResponseBody extends Model
     public $input;
 
     /**
+     * @description The name of the execution.
+     *
      * @example exec1
      *
      * @var string
@@ -37,6 +45,8 @@ class StartExecutionResponseBody extends Model
     public $name;
 
     /**
+     * @description The execution result, which is in the JSON format.
+     *
      * @example {"key":"value"}
      *
      * @var string
@@ -44,6 +54,8 @@ class StartExecutionResponseBody extends Model
     public $output;
 
     /**
+     * @description The request ID.
+     *
      * @example testRequestId
      *
      * @var string
@@ -51,6 +63,8 @@ class StartExecutionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the execution started.
+     *
      * @example 2019-01-01T01:01:01.001Z
      *
      * @var string
@@ -58,6 +72,14 @@ class StartExecutionResponseBody extends Model
     public $startedTime;
 
     /**
+     * @description The execution state. Valid values:
+     *
+     *   **Running**
+     *   **Stopped**
+     *   **Succeeded**
+     *   **Failed**
+     *   **TimedOut**
+     *
      * @example Succeeded
      *
      * @var string
@@ -65,6 +87,8 @@ class StartExecutionResponseBody extends Model
     public $status;
 
     /**
+     * @description The time when the execution stopped.
+     *
      * @example 2019-01-01T01:01:01.001Z
      *
      * @var string

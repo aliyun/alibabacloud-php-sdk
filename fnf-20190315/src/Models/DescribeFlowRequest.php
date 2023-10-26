@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowRequest extends Model
 {
     /**
+     * @description The name of the flow.
+     *
      * @example flow
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeFlowRequest extends Model
     public $name;
 
     /**
+     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
+     *
      * @example testRequestId
      *
      * @var string

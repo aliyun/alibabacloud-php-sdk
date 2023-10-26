@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFlowsRequest extends Model
 {
     /**
+     * @description The number of flows to be queried. Valid values: 1 to 1000.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListFlowsRequest extends Model
     public $limit;
 
     /**
+     * @description The token to start the query.
+     *
      * @example flow_nextxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class ListFlowsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
+     *
      * @example testRequestId
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartExecutionRequest extends Model
 {
     /**
+     * @description Specifies that the **TaskToken**-related tasks are called back after the execution in the flow ends.
+     *
      * @example 12
      *
      * @var string
@@ -16,6 +18,13 @@ class StartExecutionRequest extends Model
     public $callbackFnFTaskToken;
 
     /**
+     * @description The name of the execution, which is unique within a flow. Configure this parameter based on the following rules:
+     *
+     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The name must start with a letter or an underscore (\_).
+     *   The name is case-sensitive.
+     *   The name must be 1 to 128 characters in length.
+     *
      * @example exec
      *
      * @var string
@@ -23,6 +32,13 @@ class StartExecutionRequest extends Model
     public $executionName;
 
     /**
+     * @description The name of the flow you want to start to execute. The name is unique within the region and cannot be modified after the flow is created. Configure this parameter based on the following rules:
+     *
+     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The name must start with a letter or an underscore (\_).
+     *   The name is case-sensitive.
+     *   The name must be 1 to 128 characters in length.
+     *
      * @example flow
      *
      * @var string
@@ -30,6 +46,8 @@ class StartExecutionRequest extends Model
     public $flowName;
 
     /**
+     * @description The input of the execution, which is in the JSON format.
+     *
      * @example {"key":"value"}
      *
      * @var string
@@ -37,6 +55,8 @@ class StartExecutionRequest extends Model
     public $input;
 
     /**
+     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
+     *
      * @example testRequestId
      *
      * @var string

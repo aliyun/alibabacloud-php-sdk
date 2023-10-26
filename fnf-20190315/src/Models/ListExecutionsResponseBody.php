@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionsResponseBody extends Model
 {
     /**
+     * @description The queried executions.
+     *
      * @var executions[]
      */
     public $executions;
 
     /**
+     * @description The start key for the next query. This parameter is not returned if all results have been returned.
+     *
      * @example exec2
      *
      * @var string
@@ -22,6 +26,8 @@ class ListExecutionsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example testRequestId
      *
      * @var string

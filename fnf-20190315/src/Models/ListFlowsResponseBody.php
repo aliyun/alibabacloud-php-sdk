@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListFlowsResponseBody extends Model
 {
     /**
+     * @description The details of flows.
+     *
      * @var flows[]
      */
     public $flows;
 
     /**
+     * @description The start key for the next query. This parameter is not returned if all results have been returned.
+     *
      * @example flow_nextxxx
      *
      * @var string
@@ -22,6 +26,8 @@ class ListFlowsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example testRequestId
      *
      * @var string

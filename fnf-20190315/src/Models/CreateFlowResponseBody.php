@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowResponseBody extends Model
 {
     /**
+     * @description The time when the flow was created.
+     *
      * @example 2019-01-01T01:01:01.001Z
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFlowResponseBody extends Model
     public $createdTime;
 
     /**
+     * @description The definition of the flow.
+     *
      * @example version: v1.0\ntype: flow\nname: test\nsteps:\n - type: pass\n name: mypass
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateFlowResponseBody extends Model
     public $definition;
 
     /**
+     * @description The description of the flow.
+     *
      * @example test flow
      *
      * @var string
@@ -30,11 +36,15 @@ class CreateFlowResponseBody extends Model
     public $description;
 
     /**
+     * @description The execution mode or the enumeration type. Valid values: Express and Standard. The value Standard indicates an empty string.
+     *
      * @var string
      */
     public $executionMode;
 
     /**
+     * @description The unique ID of the flow.
+     *
      * @example e589e092-e2c0-4dee-b306-3574ddfdddf5****
      *
      * @var string
@@ -42,6 +52,8 @@ class CreateFlowResponseBody extends Model
     public $id;
 
     /**
+     * @description The time when the flow was last modified.
+     *
      * @example 2019-01-01T01:01:01.001Z
      *
      * @var string
@@ -49,6 +61,8 @@ class CreateFlowResponseBody extends Model
     public $lastModifiedTime;
 
     /**
+     * @description The name of the flow.
+     *
      * @example flow
      *
      * @var string
@@ -56,6 +70,8 @@ class CreateFlowResponseBody extends Model
     public $name;
 
     /**
+     * @description The request ID. Each time an `HTTP status code` is returned, Serverless Workflow returns a value for the parameter.
+     *
      * @example testRequestID
      *
      * @var string
@@ -63,6 +79,8 @@ class CreateFlowResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ARN of the RAM role.
+     *
      * @example acs:ram:${region}:${accountID}:${role}
      *
      * @var string
@@ -70,6 +88,8 @@ class CreateFlowResponseBody extends Model
     public $roleArn;
 
     /**
+     * @description The type of the flow.
+     *
      * @example FDL
      *
      * @var string

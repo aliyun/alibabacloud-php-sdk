@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReportTaskSucceededRequest extends Model
 {
     /**
+     * @description The output information of the task whose execution success you want to report.
+     *
      * @example {"key":"value"}
      *
      * @var string
@@ -16,6 +18,8 @@ class ReportTaskSucceededRequest extends Model
     public $output;
 
     /**
+     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
+     *
      * @example testRequestId
      *
      * @var string
@@ -23,6 +27,8 @@ class ReportTaskSucceededRequest extends Model
     public $requestId;
 
     /**
+     * @description The token of the task whose execution success you want to report. If this parameter appears in **waitforCallback** mode, the parameter is passed to the called service, such as Message Service (MNS) or Function Compute. For MNS, the value of this parameter can be obtained from the message. For Function Compute, the value of this parameter can be obtained from the event.
+     *
      * @example emptyString
      *
      * @var string

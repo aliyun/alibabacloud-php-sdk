@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @description The details about the execution step.
+     *
      * @example {}
      *
      * @var string
@@ -16,6 +18,8 @@ class events extends Model
     public $eventDetail;
 
     /**
+     * @description The ID of the execution step.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class events extends Model
     public $eventId;
 
     /**
+     * @description The ID of the scheduling step.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class events extends Model
     public $scheduleEventId;
 
     /**
+     * @description The name of the execution step.
+     *
      * @example passStep
      *
      * @var string
@@ -37,6 +45,8 @@ class events extends Model
     public $stepName;
 
     /**
+     * @description The time when the event was updated.
+     *
      * @example 2019-01-01T01:01:01.001Z
      *
      * @var string
@@ -44,6 +54,30 @@ class events extends Model
     public $time;
 
     /**
+     * @description The type of the execution step. Valid values:
+     *
+     *   **StepEntered**
+     *   **StepStarted**
+     *   **StepSucceeded**
+     *   **StepFailed**
+     *   **StepExited**
+     *   **BranchEntered**
+     *   **BranchExited**
+     *   **IterationEntered**
+     *   **IterationExited**
+     *   **TaskScheduled**
+     *   **TaskStarted**
+     *   **TaskSubmitted**
+     *   **TaskSubmitFailed**
+     *   **TaskSucceeded**
+     *   **TaskFailed**
+     *   **TaskTimedOut**
+     *   **ExecutionStarted**
+     *   **ExecutionStopped**
+     *   **ExecutionSucceeded**
+     *   **ExecutionFailed**
+     *   **ExecutionTimedOut**
+     *
      * @example TaskSucceeded
      *
      * @var string

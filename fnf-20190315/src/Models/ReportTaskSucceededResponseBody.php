@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReportTaskSucceededResponseBody extends Model
 {
     /**
+     * @description The ID of the event.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ReportTaskSucceededResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example testRequestId
      *
      * @var string

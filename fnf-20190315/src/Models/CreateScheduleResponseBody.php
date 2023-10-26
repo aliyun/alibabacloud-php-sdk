@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateScheduleResponseBody extends Model
 {
     /**
+     * @description The time when the time-based schedule was created.
+     *
      * @example 2020-01-01T01:01:01.001Z
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateScheduleResponseBody extends Model
     public $createdTime;
 
     /**
+     * @description The CRON expression.
+     *
      * @example 0 * * * * *
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateScheduleResponseBody extends Model
     public $cronExpression;
 
     /**
+     * @description The description of the time-based schedule.
+     *
      * @example test description
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateScheduleResponseBody extends Model
     public $description;
 
     /**
+     * @description Indicates whether the time-based schedule is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class CreateScheduleResponseBody extends Model
     public $enable;
 
     /**
+     * @description The time when the time-based schedule was last modified.
+     *
      * @example 2020-01-01T01:01:01.001Z
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateScheduleResponseBody extends Model
     public $lastModifiedTime;
 
     /**
+     * @description The trigger message of the time-based schedule.
+     *
      * @example {"key": "value"}
      *
      * @var string
@@ -51,6 +63,8 @@ class CreateScheduleResponseBody extends Model
     public $payload;
 
     /**
+     * @description The request ID.
+     *
      * @example testRequestId
      *
      * @var string
@@ -58,6 +72,8 @@ class CreateScheduleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the time-based schedule.
+     *
      * @example testScheduleId
      *
      * @var string
@@ -65,6 +81,8 @@ class CreateScheduleResponseBody extends Model
     public $scheduleId;
 
     /**
+     * @description The name of the time-based schedule.
+     *
      * @example testScheduleName
      *
      * @var string

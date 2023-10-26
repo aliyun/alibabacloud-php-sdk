@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSchedulesResponseBody extends Model
 {
     /**
+     * @description The token for the next query.
+     *
      * @example testNextToken
      *
      * @var string
@@ -17,6 +19,8 @@ class ListSchedulesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example testRequestId
      *
      * @var string
@@ -24,6 +28,8 @@ class ListSchedulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time-based schedules that are queried.
+     *
      * @var schedules[]
      */
     public $schedules;
