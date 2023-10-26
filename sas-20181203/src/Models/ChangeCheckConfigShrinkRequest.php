@@ -26,6 +26,11 @@ class ChangeCheckConfigShrinkRequest extends Model
     public $configStandardIdsShrink;
 
     /**
+     * @var string
+     */
+    public $configure;
+
+    /**
      * @var int[]
      */
     public $cycleDays;
@@ -84,10 +89,16 @@ class ChangeCheckConfigShrinkRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string[]
+     */
+    public $vendors;
     protected $_name = [
         'addedCheck'                 => 'AddedCheck',
         'configRequirementIdsShrink' => 'ConfigRequirementIds',
         'configStandardIdsShrink'    => 'ConfigStandardIds',
+        'configure'                  => 'Configure',
         'cycleDays'                  => 'CycleDays',
         'enableAddCheck'             => 'EnableAddCheck',
         'enableAutoCheck'            => 'EnableAutoCheck',
@@ -96,6 +107,7 @@ class ChangeCheckConfigShrinkRequest extends Model
         'removedCheck'               => 'RemovedCheck',
         'standardIds'                => 'StandardIds',
         'startTime'                  => 'StartTime',
+        'vendors'                    => 'Vendors',
     ];
 
     public function validate()
@@ -119,6 +131,9 @@ class ChangeCheckConfigShrinkRequest extends Model
         }
         if (null !== $this->configStandardIdsShrink) {
             $res['ConfigStandardIds'] = $this->configStandardIdsShrink;
+        }
+        if (null !== $this->configure) {
+            $res['Configure'] = $this->configure;
         }
         if (null !== $this->cycleDays) {
             $res['CycleDays'] = $this->cycleDays;
@@ -150,6 +165,9 @@ class ChangeCheckConfigShrinkRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+        if (null !== $this->vendors) {
+            $res['Vendors'] = $this->vendors;
+        }
 
         return $res;
     }
@@ -176,6 +194,9 @@ class ChangeCheckConfigShrinkRequest extends Model
         }
         if (isset($map['ConfigStandardIds'])) {
             $model->configStandardIdsShrink = $map['ConfigStandardIds'];
+        }
+        if (isset($map['Configure'])) {
+            $model->configure = $map['Configure'];
         }
         if (isset($map['CycleDays'])) {
             if (!empty($map['CycleDays'])) {
@@ -210,6 +231,11 @@ class ChangeCheckConfigShrinkRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Vendors'])) {
+            if (!empty($map['Vendors'])) {
+                $model->vendors = $map['Vendors'];
+            }
         }
 
         return $model;

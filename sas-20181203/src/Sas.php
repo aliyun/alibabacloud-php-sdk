@@ -2122,6 +2122,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->configStandardIdsShrink)) {
             $query['ConfigStandardIds'] = $request->configStandardIdsShrink;
         }
+        if (!Utils::isUnset($request->configure)) {
+            $query['Configure'] = $request->configure;
+        }
         if (!Utils::isUnset($request->cycleDays)) {
             $query['CycleDays'] = $request->cycleDays;
         }
@@ -2145,6 +2148,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->vendors)) {
+            $query['Vendors'] = $request->vendors;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

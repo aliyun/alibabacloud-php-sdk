@@ -28,6 +28,11 @@ class ChangeCheckConfigRequest extends Model
     public $configStandardIds;
 
     /**
+     * @var string
+     */
+    public $configure;
+
+    /**
      * @var int[]
      */
     public $cycleDays;
@@ -86,10 +91,16 @@ class ChangeCheckConfigRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string[]
+     */
+    public $vendors;
     protected $_name = [
         'addedCheck'           => 'AddedCheck',
         'configRequirementIds' => 'ConfigRequirementIds',
         'configStandardIds'    => 'ConfigStandardIds',
+        'configure'            => 'Configure',
         'cycleDays'            => 'CycleDays',
         'enableAddCheck'       => 'EnableAddCheck',
         'enableAutoCheck'      => 'EnableAutoCheck',
@@ -98,6 +109,7 @@ class ChangeCheckConfigRequest extends Model
         'removedCheck'         => 'RemovedCheck',
         'standardIds'          => 'StandardIds',
         'startTime'            => 'StartTime',
+        'vendors'              => 'Vendors',
     ];
 
     public function validate()
@@ -121,6 +133,9 @@ class ChangeCheckConfigRequest extends Model
         }
         if (null !== $this->configStandardIds) {
             $res['ConfigStandardIds'] = null !== $this->configStandardIds ? $this->configStandardIds->toMap() : null;
+        }
+        if (null !== $this->configure) {
+            $res['Configure'] = $this->configure;
         }
         if (null !== $this->cycleDays) {
             $res['CycleDays'] = $this->cycleDays;
@@ -152,6 +167,9 @@ class ChangeCheckConfigRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+        if (null !== $this->vendors) {
+            $res['Vendors'] = $this->vendors;
+        }
 
         return $res;
     }
@@ -178,6 +196,9 @@ class ChangeCheckConfigRequest extends Model
         }
         if (isset($map['ConfigStandardIds'])) {
             $model->configStandardIds = configStandardIds::fromMap($map['ConfigStandardIds']);
+        }
+        if (isset($map['Configure'])) {
+            $model->configure = $map['Configure'];
         }
         if (isset($map['CycleDays'])) {
             if (!empty($map['CycleDays'])) {
@@ -212,6 +233,11 @@ class ChangeCheckConfigRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Vendors'])) {
+            if (!empty($map['Vendors'])) {
+                $model->vendors = $map['Vendors'];
+            }
         }
 
         return $model;
