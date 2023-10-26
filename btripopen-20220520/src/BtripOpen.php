@@ -47,6 +47,7 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BtripBillInfoAdjustResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyModifyResponse;
@@ -786,6 +787,9 @@ class BtripOpen extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ApplyAddShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->carRule)) {
+            $request->carRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->carRule, 'car_rule', 'json');
+        }
         if (!Utils::isUnset($tmpReq->externalTravelerList)) {
             $request->externalTravelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerList, 'external_traveler_list', 'json');
         }
@@ -813,6 +817,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->budgetMerge)) {
             $body['budget_merge'] = $request->budgetMerge;
+        }
+        if (!Utils::isUnset($request->carRuleShrink)) {
+            $body['car_rule'] = $request->carRuleShrink;
         }
         if (!Utils::isUnset($request->corpName)) {
             $body['corp_name'] = $request->corpName;
@@ -1176,6 +1183,9 @@ class BtripOpen extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ApplyModifyShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->carRule)) {
+            $request->carRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->carRule, 'car_rule', 'json');
+        }
         if (!Utils::isUnset($tmpReq->externalTravelerList)) {
             $request->externalTravelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerList, 'external_traveler_list', 'json');
         }
@@ -1203,6 +1213,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->budgetMerge)) {
             $body['budget_merge'] = $request->budgetMerge;
+        }
+        if (!Utils::isUnset($request->carRuleShrink)) {
+            $body['car_rule'] = $request->carRuleShrink;
         }
         if (!Utils::isUnset($request->corpName)) {
             $body['corp_name'] = $request->corpName;
@@ -1464,21 +1477,29 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarApplyAddRequest $request
+     * @param CarApplyAddRequest $tmpReq
      * @param CarApplyAddHeaders $headers
      * @param RuntimeOptions     $runtime
      *
      * @return CarApplyAddResponse
      */
-    public function carApplyAddWithOptions($request, $headers, $runtime)
+    public function carApplyAddWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CarApplyAddShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->travelerStandard)) {
+            $request->travelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerStandard, 'traveler_standard', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->cause)) {
             $body['cause'] = $request->cause;
         }
         if (!Utils::isUnset($request->city)) {
             $body['city'] = $request->city;
+        }
+        if (!Utils::isUnset($request->cityCodeSet)) {
+            $body['city_code_set'] = $request->cityCodeSet;
         }
         if (!Utils::isUnset($request->date)) {
             $body['date'] = $request->date;
@@ -1515,6 +1536,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->title)) {
             $body['title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->travelerStandardShrink)) {
+            $body['traveler_standard'] = $request->travelerStandardShrink;
         }
         if (!Utils::isUnset($request->userId)) {
             $body['user_id'] = $request->userId;

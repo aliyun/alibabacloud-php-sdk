@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyQueryResponseBody;
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyQueryResponseBody\applyList\approverList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyQueryResponseBody\applyList\itineraryList;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyQueryResponseBody\applyList\travelerStandard;
 use AlibabaCloud\Tea\Model;
 
 class applyList extends Model
@@ -66,6 +67,11 @@ class applyList extends Model
     public $thirdpartId;
 
     /**
+     * @var travelerStandard[]
+     */
+    public $travelerStandard;
+
+    /**
      * @var string
      */
     public $tripCause;
@@ -87,19 +93,20 @@ class applyList extends Model
      */
     public $userName;
     protected $_name = [
-        'approverList'  => 'approver_list',
-        'departId'      => 'depart_id',
-        'departName'    => 'depart_name',
-        'gmtCreate'     => 'gmt_create',
-        'gmtModified'   => 'gmt_modified',
-        'itineraryList' => 'itinerary_list',
-        'status'        => 'status',
-        'statusDesc'    => 'status_desc',
-        'thirdpartId'   => 'thirdpart_id',
-        'tripCause'     => 'trip_cause',
-        'tripTitle'     => 'trip_title',
-        'userId'        => 'user_id',
-        'userName'      => 'user_name',
+        'approverList'     => 'approver_list',
+        'departId'         => 'depart_id',
+        'departName'       => 'depart_name',
+        'gmtCreate'        => 'gmt_create',
+        'gmtModified'      => 'gmt_modified',
+        'itineraryList'    => 'itinerary_list',
+        'status'           => 'status',
+        'statusDesc'       => 'status_desc',
+        'thirdpartId'      => 'thirdpart_id',
+        'travelerStandard' => 'traveler_standard',
+        'tripCause'        => 'trip_cause',
+        'tripTitle'        => 'trip_title',
+        'userId'           => 'user_id',
+        'userName'         => 'user_name',
     ];
 
     public function validate()
@@ -147,6 +154,15 @@ class applyList extends Model
         }
         if (null !== $this->thirdpartId) {
             $res['thirdpart_id'] = $this->thirdpartId;
+        }
+        if (null !== $this->travelerStandard) {
+            $res['traveler_standard'] = [];
+            if (null !== $this->travelerStandard && \is_array($this->travelerStandard)) {
+                $n = 0;
+                foreach ($this->travelerStandard as $item) {
+                    $res['traveler_standard'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->tripCause) {
             $res['trip_cause'] = $this->tripCause;
@@ -210,6 +226,15 @@ class applyList extends Model
         }
         if (isset($map['thirdpart_id'])) {
             $model->thirdpartId = $map['thirdpart_id'];
+        }
+        if (isset($map['traveler_standard'])) {
+            if (!empty($map['traveler_standard'])) {
+                $model->travelerStandard = [];
+                $n                       = 0;
+                foreach ($map['traveler_standard'] as $item) {
+                    $model->travelerStandard[$n++] = null !== $item ? travelerStandard::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['trip_cause'])) {
             $model->tripCause = $map['trip_cause'];

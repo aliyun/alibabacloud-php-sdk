@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddRequest\travelerStandard;
 use AlibabaCloud\Tea\Model;
 
-class CarApplyAddRequest extends Model
+class CarApplyAddShrinkRequest extends Model
 {
     /**
      * @var string
@@ -105,9 +104,9 @@ class CarApplyAddRequest extends Model
     public $title;
 
     /**
-     * @var travelerStandard[]
+     * @var string
      */
-    public $travelerStandard;
+    public $travelerStandardShrink;
 
     /**
      * @example OPEN1415614
@@ -116,23 +115,23 @@ class CarApplyAddRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'cause'                 => 'cause',
-        'city'                  => 'city',
-        'cityCodeSet'           => 'city_code_set',
-        'date'                  => 'date',
-        'finishedDate'          => 'finished_date',
-        'projectCode'           => 'project_code',
-        'projectName'           => 'project_name',
-        'status'                => 'status',
-        'thirdPartApplyId'      => 'third_part_apply_id',
-        'thirdPartCostCenterId' => 'third_part_cost_center_id',
-        'thirdPartInvoiceId'    => 'third_part_invoice_id',
-        'timesTotal'            => 'times_total',
-        'timesType'             => 'times_type',
-        'timesUsed'             => 'times_used',
-        'title'                 => 'title',
-        'travelerStandard'      => 'traveler_standard',
-        'userId'                => 'user_id',
+        'cause'                  => 'cause',
+        'city'                   => 'city',
+        'cityCodeSet'            => 'city_code_set',
+        'date'                   => 'date',
+        'finishedDate'           => 'finished_date',
+        'projectCode'            => 'project_code',
+        'projectName'            => 'project_name',
+        'status'                 => 'status',
+        'thirdPartApplyId'       => 'third_part_apply_id',
+        'thirdPartCostCenterId'  => 'third_part_cost_center_id',
+        'thirdPartInvoiceId'     => 'third_part_invoice_id',
+        'timesTotal'             => 'times_total',
+        'timesType'              => 'times_type',
+        'timesUsed'              => 'times_used',
+        'title'                  => 'title',
+        'travelerStandardShrink' => 'traveler_standard',
+        'userId'                 => 'user_id',
     ];
 
     public function validate()
@@ -187,14 +186,8 @@ class CarApplyAddRequest extends Model
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
-        if (null !== $this->travelerStandard) {
-            $res['traveler_standard'] = [];
-            if (null !== $this->travelerStandard && \is_array($this->travelerStandard)) {
-                $n = 0;
-                foreach ($this->travelerStandard as $item) {
-                    $res['traveler_standard'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->travelerStandardShrink) {
+            $res['traveler_standard'] = $this->travelerStandardShrink;
         }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
@@ -206,7 +199,7 @@ class CarApplyAddRequest extends Model
     /**
      * @param array $map
      *
-     * @return CarApplyAddRequest
+     * @return CarApplyAddShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -257,13 +250,7 @@ class CarApplyAddRequest extends Model
             $model->title = $map['title'];
         }
         if (isset($map['traveler_standard'])) {
-            if (!empty($map['traveler_standard'])) {
-                $model->travelerStandard = [];
-                $n                       = 0;
-                foreach ($map['traveler_standard'] as $item) {
-                    $model->travelerStandard[$n++] = null !== $item ? travelerStandard::fromMap($item) : $item;
-                }
-            }
+            $model->travelerStandardShrink = $map['traveler_standard'];
         }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];

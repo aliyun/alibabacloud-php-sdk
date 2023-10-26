@@ -2,12 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList;
+namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyQueryResponseBody\applyList;
 
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\travelerList\carCitySet;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyQueryResponseBody\applyList\travelerStandard\carCitySet;
 use AlibabaCloud\Tea\Model;
 
-class travelerList extends Model
+class travelerStandard extends Model
 {
     /**
      * @var carCitySet[]
@@ -17,24 +17,10 @@ class travelerList extends Model
     /**
      * @var string
      */
-    public $jobNo;
-
-    /**
-     * @example user1
-     *
-     * @var string
-     */
     public $userId;
-
-    /**
-     * @var string
-     */
-    public $userName;
     protected $_name = [
         'carCitySet' => 'car_city_set',
-        'jobNo'      => 'job_no',
         'userId'     => 'user_id',
-        'userName'   => 'user_name',
     ];
 
     public function validate()
@@ -53,14 +39,8 @@ class travelerList extends Model
                 }
             }
         }
-        if (null !== $this->jobNo) {
-            $res['job_no'] = $this->jobNo;
-        }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
-        }
-        if (null !== $this->userName) {
-            $res['user_name'] = $this->userName;
         }
 
         return $res;
@@ -69,7 +49,7 @@ class travelerList extends Model
     /**
      * @param array $map
      *
-     * @return travelerList
+     * @return travelerStandard
      */
     public static function fromMap($map = [])
     {
@@ -83,14 +63,8 @@ class travelerList extends Model
                 }
             }
         }
-        if (isset($map['job_no'])) {
-            $model->jobNo = $map['job_no'];
-        }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
-        }
-        if (isset($map['user_name'])) {
-            $model->userName = $map['user_name'];
         }
 
         return $model;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody;
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\approverList;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\carRule;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\externalTravelerList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\itineraryList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\itinerarySetList;
@@ -24,6 +25,11 @@ class moduleList extends Model
      * @var approverList[]
      */
     public $approverList;
+
+    /**
+     * @var carRule
+     */
+    public $carRule;
 
     /**
      * @example corp1
@@ -182,6 +188,7 @@ class moduleList extends Model
     protected $_name = [
         'applyShowId'          => 'apply_show_id',
         'approverList'         => 'approver_list',
+        'carRule'              => 'car_rule',
         'corpId'               => 'corp_id',
         'corpName'             => 'corp_name',
         'departId'             => 'depart_id',
@@ -227,6 +234,9 @@ class moduleList extends Model
                     $res['approver_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->carRule) {
+            $res['car_rule'] = null !== $this->carRule ? $this->carRule->toMap() : null;
         }
         if (null !== $this->corpId) {
             $res['corp_id'] = $this->corpId;
@@ -350,6 +360,9 @@ class moduleList extends Model
                     $model->approverList[$n++] = null !== $item ? approverList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['car_rule'])) {
+            $model->carRule = carRule::fromMap($map['car_rule']);
         }
         if (isset($map['corp_id'])) {
             $model->corpId = $map['corp_id'];

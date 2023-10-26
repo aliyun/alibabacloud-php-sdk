@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\travelerStandard\carCitySet;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\travelerStandard\hotelCitys;
 use AlibabaCloud\Tea\Model;
 
@@ -15,6 +16,11 @@ class travelerStandard extends Model
      * @var int
      */
     public $businessDiscount;
+
+    /**
+     * @var carCitySet[]
+     */
+    public $carCitySet;
 
     /**
      * @example 1
@@ -73,6 +79,7 @@ class travelerStandard extends Model
     public $userId;
     protected $_name = [
         'businessDiscount'       => 'business_discount',
+        'carCitySet'             => 'car_city_set',
         'economyDiscount'        => 'economy_discount',
         'firstDiscount'          => 'first_discount',
         'flightCabins'           => 'flight_cabins',
@@ -92,6 +99,15 @@ class travelerStandard extends Model
         $res = [];
         if (null !== $this->businessDiscount) {
             $res['business_discount'] = $this->businessDiscount;
+        }
+        if (null !== $this->carCitySet) {
+            $res['car_city_set'] = [];
+            if (null !== $this->carCitySet && \is_array($this->carCitySet)) {
+                $n = 0;
+                foreach ($this->carCitySet as $item) {
+                    $res['car_city_set'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->economyDiscount) {
             $res['economy_discount'] = $this->economyDiscount;
@@ -137,6 +153,15 @@ class travelerStandard extends Model
         $model = new self();
         if (isset($map['business_discount'])) {
             $model->businessDiscount = $map['business_discount'];
+        }
+        if (isset($map['car_city_set'])) {
+            if (!empty($map['car_city_set'])) {
+                $model->carCitySet = [];
+                $n                 = 0;
+                foreach ($map['car_city_set'] as $item) {
+                    $model->carCitySet[$n++] = null !== $item ? carCitySet::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['economy_discount'])) {
             $model->economyDiscount = $map['economy_discount'];

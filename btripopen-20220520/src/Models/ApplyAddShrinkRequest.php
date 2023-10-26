@@ -25,6 +25,11 @@ class ApplyAddShrinkRequest extends Model
     /**
      * @var string
      */
+    public $carRuleShrink;
+
+    /**
+     * @var string
+     */
     public $corpName;
 
     /**
@@ -213,6 +218,7 @@ class ApplyAddShrinkRequest extends Model
     protected $_name = [
         'budget'                         => 'budget',
         'budgetMerge'                    => 'budget_merge',
+        'carRuleShrink'                  => 'car_rule',
         'corpName'                       => 'corp_name',
         'departId'                       => 'depart_id',
         'departName'                     => 'depart_name',
@@ -258,6 +264,9 @@ class ApplyAddShrinkRequest extends Model
         }
         if (null !== $this->budgetMerge) {
             $res['budget_merge'] = $this->budgetMerge;
+        }
+        if (null !== $this->carRuleShrink) {
+            $res['car_rule'] = $this->carRuleShrink;
         }
         if (null !== $this->corpName) {
             $res['corp_name'] = $this->corpName;
@@ -369,6 +378,9 @@ class ApplyAddShrinkRequest extends Model
         }
         if (isset($map['budget_merge'])) {
             $model->budgetMerge = $map['budget_merge'];
+        }
+        if (isset($map['car_rule'])) {
+            $model->carRuleShrink = $map['car_rule'];
         }
         if (isset($map['corp_name'])) {
             $model->corpName = $map['corp_name'];

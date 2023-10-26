@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\carRule;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\externalTravelerList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\externalTravelerStandard;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\hotelShare;
@@ -28,6 +29,11 @@ class ApplyModifyRequest extends Model
      * @var int
      */
     public $budgetMerge;
+
+    /**
+     * @var carRule
+     */
+    public $carRule;
 
     /**
      * @var string
@@ -214,6 +220,7 @@ class ApplyModifyRequest extends Model
     protected $_name = [
         'budget'                   => 'budget',
         'budgetMerge'              => 'budget_merge',
+        'carRule'                  => 'car_rule',
         'corpName'                 => 'corp_name',
         'departId'                 => 'depart_id',
         'departName'               => 'depart_name',
@@ -257,6 +264,9 @@ class ApplyModifyRequest extends Model
         }
         if (null !== $this->budgetMerge) {
             $res['budget_merge'] = $this->budgetMerge;
+        }
+        if (null !== $this->carRule) {
+            $res['car_rule'] = null !== $this->carRule ? $this->carRule->toMap() : null;
         }
         if (null !== $this->corpName) {
             $res['corp_name'] = $this->corpName;
@@ -392,6 +402,9 @@ class ApplyModifyRequest extends Model
         }
         if (isset($map['budget_merge'])) {
             $model->budgetMerge = $map['budget_merge'];
+        }
+        if (isset($map['car_rule'])) {
+            $model->carRule = carRule::fromMap($map['car_rule']);
         }
         if (isset($map['corp_name'])) {
             $model->corpName = $map['corp_name'];

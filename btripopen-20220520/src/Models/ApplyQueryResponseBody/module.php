@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody;
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\approverList;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\carRule;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\externalTravelerList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\hotelShare;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\itineraryList;
@@ -39,6 +40,11 @@ class module extends Model
      * @var int
      */
     public $budgetMerge;
+
+    /**
+     * @var carRule
+     */
+    public $carRule;
 
     /**
      * @example corpid
@@ -243,6 +249,7 @@ class module extends Model
         'approverList'         => 'approver_list',
         'budget'               => 'budget',
         'budgetMerge'          => 'budget_merge',
+        'carRule'              => 'car_rule',
         'corpId'               => 'corp_id',
         'corpName'             => 'corp_name',
         'departId'             => 'depart_id',
@@ -300,6 +307,9 @@ class module extends Model
         }
         if (null !== $this->budgetMerge) {
             $res['budget_merge'] = $this->budgetMerge;
+        }
+        if (null !== $this->carRule) {
+            $res['car_rule'] = null !== $this->carRule ? $this->carRule->toMap() : null;
         }
         if (null !== $this->corpId) {
             $res['corp_id'] = $this->corpId;
@@ -447,6 +457,9 @@ class module extends Model
         }
         if (isset($map['budget_merge'])) {
             $model->budgetMerge = $map['budget_merge'];
+        }
+        if (isset($map['car_rule'])) {
+            $model->carRule = carRule::fromMap($map['car_rule']);
         }
         if (isset($map['corp_id'])) {
             $model->corpId = $map['corp_id'];
