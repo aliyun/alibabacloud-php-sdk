@@ -22,6 +22,16 @@ class networks extends Model
     public $newVpdInfo;
 
     /**
+     * @var string
+     */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchZoneId;
+
+    /**
      * @description 复用VPD信息
      *
      * @var vpdInfo
@@ -30,6 +40,8 @@ class networks extends Model
     protected $_name = [
         'ipAllocationPolicy' => 'IpAllocationPolicy',
         'newVpdInfo'         => 'NewVpdInfo',
+        'securityGroupId'    => 'SecurityGroupId',
+        'vSwitchZoneId'      => 'VSwitchZoneId',
         'vpdInfo'            => 'VpdInfo',
     ];
 
@@ -51,6 +63,12 @@ class networks extends Model
         }
         if (null !== $this->newVpdInfo) {
             $res['NewVpdInfo'] = null !== $this->newVpdInfo ? $this->newVpdInfo->toMap() : null;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->vSwitchZoneId) {
+            $res['VSwitchZoneId'] = $this->vSwitchZoneId;
         }
         if (null !== $this->vpdInfo) {
             $res['VpdInfo'] = null !== $this->vpdInfo ? $this->vpdInfo->toMap() : null;
@@ -78,6 +96,12 @@ class networks extends Model
         }
         if (isset($map['NewVpdInfo'])) {
             $model->newVpdInfo = newVpdInfo::fromMap($map['NewVpdInfo']);
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['VSwitchZoneId'])) {
+            $model->vSwitchZoneId = $map['VSwitchZoneId'];
         }
         if (isset($map['VpdInfo'])) {
             $model->vpdInfo = vpdInfo::fromMap($map['VpdInfo']);

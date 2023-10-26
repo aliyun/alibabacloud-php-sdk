@@ -35,12 +35,18 @@ class ExtendClusterShrinkRequest extends Model
     /**
      * @var string
      */
+    public $vSwitchZoneId;
+
+    /**
+     * @var string
+     */
     public $vpdSubnetsShrink;
     protected $_name = [
         'clusterId'                => 'ClusterId',
         'ignoreFailedNodeTasks'    => 'IgnoreFailedNodeTasks',
         'ipAllocationPolicyShrink' => 'IpAllocationPolicy',
         'nodeGroupsShrink'         => 'NodeGroups',
+        'vSwitchZoneId'            => 'VSwitchZoneId',
         'vpdSubnetsShrink'         => 'VpdSubnets',
     ];
 
@@ -62,6 +68,9 @@ class ExtendClusterShrinkRequest extends Model
         }
         if (null !== $this->nodeGroupsShrink) {
             $res['NodeGroups'] = $this->nodeGroupsShrink;
+        }
+        if (null !== $this->vSwitchZoneId) {
+            $res['VSwitchZoneId'] = $this->vSwitchZoneId;
         }
         if (null !== $this->vpdSubnetsShrink) {
             $res['VpdSubnets'] = $this->vpdSubnetsShrink;
@@ -89,6 +98,9 @@ class ExtendClusterShrinkRequest extends Model
         }
         if (isset($map['NodeGroups'])) {
             $model->nodeGroupsShrink = $map['NodeGroups'];
+        }
+        if (isset($map['VSwitchZoneId'])) {
+            $model->vSwitchZoneId = $map['VSwitchZoneId'];
         }
         if (isset($map['VpdSubnets'])) {
             $model->vpdSubnetsShrink = $map['VpdSubnets'];

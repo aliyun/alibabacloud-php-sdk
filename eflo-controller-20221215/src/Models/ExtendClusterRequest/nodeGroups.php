@@ -25,10 +25,16 @@ class nodeGroups extends Model
      * @var string
      */
     public $userData;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'nodeGroupId' => 'NodeGroupId',
         'nodes'       => 'Nodes',
         'userData'    => 'UserData',
+        'zoneId'      => 'ZoneId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class nodeGroups extends Model
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -79,6 +88,9 @@ class nodeGroups extends Model
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

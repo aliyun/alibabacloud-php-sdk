@@ -515,6 +515,9 @@ class Eflocontroller extends OpenApiClient
         if (!Utils::isUnset($request->nodeGroupsShrink)) {
             $body['NodeGroups'] = $request->nodeGroupsShrink;
         }
+        if (!Utils::isUnset($request->vSwitchZoneId)) {
+            $body['VSwitchZoneId'] = $request->vSwitchZoneId;
+        }
         if (!Utils::isUnset($request->vpdSubnetsShrink)) {
             $body['VpdSubnets'] = $request->vpdSubnetsShrink;
         }

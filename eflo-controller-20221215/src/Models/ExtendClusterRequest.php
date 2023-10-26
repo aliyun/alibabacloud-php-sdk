@@ -35,6 +35,11 @@ class ExtendClusterRequest extends Model
     public $nodeGroups;
 
     /**
+     * @var string
+     */
+    public $vSwitchZoneId;
+
+    /**
      * @var string[]
      */
     public $vpdSubnets;
@@ -43,6 +48,7 @@ class ExtendClusterRequest extends Model
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
         'ipAllocationPolicy'    => 'IpAllocationPolicy',
         'nodeGroups'            => 'NodeGroups',
+        'vSwitchZoneId'         => 'VSwitchZoneId',
         'vpdSubnets'            => 'VpdSubnets',
     ];
 
@@ -76,6 +82,9 @@ class ExtendClusterRequest extends Model
                     $res['NodeGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->vSwitchZoneId) {
+            $res['VSwitchZoneId'] = $this->vSwitchZoneId;
         }
         if (null !== $this->vpdSubnets) {
             $res['VpdSubnets'] = $this->vpdSubnets;
@@ -115,6 +124,9 @@ class ExtendClusterRequest extends Model
                     $model->nodeGroups[$n++] = null !== $item ? nodeGroups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['VSwitchZoneId'])) {
+            $model->vSwitchZoneId = $map['VSwitchZoneId'];
         }
         if (isset($map['VpdSubnets'])) {
             if (!empty($map['VpdSubnets'])) {
