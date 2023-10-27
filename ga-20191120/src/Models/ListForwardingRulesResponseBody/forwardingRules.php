@@ -22,7 +22,7 @@ class forwardingRules extends Model
     public $forwardingRuleDirection;
 
     /**
-     * @description The ID of the forwarding rule.
+     * @description The forwarding rule ID.
      *
      * @example frule-bp19a3t3yzr21q3****
      *
@@ -31,7 +31,7 @@ class forwardingRules extends Model
     public $forwardingRuleId;
 
     /**
-     * @description The name of the forwarding rule.
+     * @description The forwarding rule name.
      *
      * @example auto_named_rule
      *
@@ -40,11 +40,11 @@ class forwardingRules extends Model
     public $forwardingRuleName;
 
     /**
-     * @description The status of the forwarding rule.
+     * @description The state of the forwarding rule. Valid values:
      *
-     *   **active**: The forwarding rule is normal.
-     *   **configuring**: The forwarding rule is being modified.
-     *   **deleting**: The forwarding rule is being deleted.
+     *   **active:** The forwarding rule is normal.
+     *   **configuring:** The forwarding rule is being modified.
+     *   **deleting:** The forwarding rule is being deleted.
      *
      * @example active
      *
@@ -53,7 +53,7 @@ class forwardingRules extends Model
     public $forwardingRuleStatus;
 
     /**
-     * @description The ID of the listener.
+     * @description The listener ID.
      *
      * @example lsr-bp1s0vzbi5bxlx5****
      *
@@ -64,7 +64,7 @@ class forwardingRules extends Model
     /**
      * @description The priority of the forwarding rule.
      *
-     * Valid values: **1** to **10000**. A lower value indicates a higher priority.
+     * A value between **1** and **10000** is returned. A smaller value indicates a higher priority.
      * @example 1000
      *
      * @var int
@@ -72,14 +72,14 @@ class forwardingRules extends Model
     public $priority;
 
     /**
-     * @description The forwarding action.
+     * @description The forwarding actions.
      *
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
-     * @description The forwarding conditions.
+     * @description The conditions that trigger the forwarding rule.
      *
      * @var ruleConditions[]
      */

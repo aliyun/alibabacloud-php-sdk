@@ -2,33 +2,29 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAcceleratorRequest;
+namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations;
 
 use AlibabaCloud\Tea\Model;
 
-class tag extends Model
+class systemTag extends Model
 {
     /**
-     * @description The tag key. The tag key cannot be an empty string.
-     *
-     * You can specify up to 20 tag keys.
-     * @example tag-key
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value. The tag value cannot be an empty string.
-     *
-     * You can specify up to 20 tag values.
-     * @example tag-value
-     *
+     * @var string
+     */
+    public $scope;
+
+    /**
      * @var string
      */
     public $value;
     protected $_name = [
         'key'   => 'Key',
+        'scope' => 'Scope',
         'value' => 'Value',
     ];
 
@@ -42,6 +38,9 @@ class tag extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
+        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -52,13 +51,16 @@ class tag extends Model
     /**
      * @param array $map
      *
-     * @return tag
+     * @return systemTag
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

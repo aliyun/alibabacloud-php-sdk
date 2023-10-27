@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListCustomRoutingEndpointsResponseBody extends Model
 {
     /**
-     * @description Information about the endpoints.
+     * @description The information about the endpoints.
      *
      * @var endpoints[]
      */

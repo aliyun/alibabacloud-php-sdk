@@ -21,6 +21,11 @@ class endpointConfigurations extends Model
     public $endpoint;
 
     /**
+     * @var string
+     */
+    public $subAddress;
+
+    /**
      * @description The endpoint type of the intelligent routing listener. Valid values:
      *
      *   **Domain**: a custom domain name
@@ -63,9 +68,10 @@ class endpointConfigurations extends Model
      */
     public $weight;
     protected $_name = [
-        'endpoint' => 'Endpoint',
-        'type'     => 'Type',
-        'weight'   => 'Weight',
+        'endpoint'   => 'Endpoint',
+        'subAddress' => 'SubAddress',
+        'type'       => 'Type',
+        'weight'     => 'Weight',
     ];
 
     public function validate()
@@ -77,6 +83,9 @@ class endpointConfigurations extends Model
         $res = [];
         if (null !== $this->endpoint) {
             $res['Endpoint'] = $this->endpoint;
+        }
+        if (null !== $this->subAddress) {
+            $res['SubAddress'] = $this->subAddress;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -98,6 +107,9 @@ class endpointConfigurations extends Model
         $model = new self();
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];
+        }
+        if (isset($map['SubAddress'])) {
+            $model->subAddress = $map['SubAddress'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -11,8 +11,8 @@ class endpointConfigurations extends Model
     /**
      * @description Indicates whether the client IP address preservation feature is enabled. Valid values:
      *
-     *   **true**: The client IP address preservation feature is enabled.
-     *   **false**: The client IP address preservation feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -30,7 +30,7 @@ class endpointConfigurations extends Model
     public $endpoint;
 
     /**
-     * @description The ID of the endpoint.
+     * @description The endpoint ID.
      *
      * @example ep-bp1d2utp8qqe2a44t****
      *
@@ -50,8 +50,8 @@ class endpointConfigurations extends Model
     /**
      * @description The protocol that is used to monitor latency. Valid values:
      *
-     *   **icmp**: ICMP
-     *   **tcp**: TCP
+     *   **icmp**
+     *   **tcp**
      *
      * @example tcp
      *
@@ -60,6 +60,10 @@ class endpointConfigurations extends Model
     public $probeProtocol;
 
     /**
+     * @description 弹性网卡的私网IP地址。
+     *
+     * @example 172.168.XX.XX
+     *
      * @var string
      */
     public $subAddress;

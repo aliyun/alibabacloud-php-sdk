@@ -72,9 +72,11 @@ class CreateBasicAcceleratorRequest extends Model
     public $bandwidthBillingType;
 
     /**
-     * @description The billing method of the basic GA instance. Valid values:
-     * - **PREPAY**: subscription. This is the default value.
-     * - **POSTPAY**: pay-as-you-go.
+     * @description The billing method. Valid values:
+     *
+     *   **PREPAY** (default)
+     *   **POSTPAY**
+     *
      * @example PREPAY
      *
      * @var string
@@ -108,8 +110,8 @@ class CreateBasicAcceleratorRequest extends Model
     /**
      * @description The subscription duration of the GA instance.
      *
-     *   If you set the **PricingCycle** parameter to **Month**, the valid values for the **Duration** parameter are **1** to **9**.
-     *   If you set the **PricingCycle** parameter to **Year**, the valid values for the **Duration** parameter are **1** to **3**.
+     *   If you set **PricingCycle** to **Month**, the valid values for **Duration** are **1** to **9**.
+     *   If you set **PricingCycle** to **Year**, the valid values for **Duration** are **1** to **3**.
      *
      * @example 1
      *
@@ -118,10 +120,10 @@ class CreateBasicAcceleratorRequest extends Model
     public $duration;
 
     /**
-     * @description The billing cycle of the basic GA instance. Valid values:
+     * @description The billing cycle. Valid values:
      *
-     *   **Month:** billed on a monthly basis.
-     *   **Year:** billed on an annual basis.
+     *   **Month**
+     *   **Year**
      *
      * @example Month
      *

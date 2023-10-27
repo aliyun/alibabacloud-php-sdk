@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class hostConfig extends Model
 {
     /**
-     * @description The domain name.
+     * @description The domain name configuration.
      *
-     * The domain name must be 3 to 128 characters in length, and can contain letters, digits, hyphens (-), and periods (.). Supported wildcard characters are asterisks (\*) and question marks (?).
-     *
-     * >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions by calling the **RuleConditionType** and **RuleConditionValue** operations.
+     * >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
      * @var string[]
      */
     public $values;

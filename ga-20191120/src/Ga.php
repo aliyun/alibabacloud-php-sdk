@@ -9525,10 +9525,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **UpdateForwardingRules** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of a forwarding rule.
+     * *   **UpdateForwardingRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListForwardingRules](~~205817~~) operation to query the status of a forwarding rule.
      *   *     *   If the forwarding rule is in the **configuring** state, it indicates that the forwarding rule is being modified. In this case, you can perform only query operations.
      *   *     *   If the forwarding rule is in the **active** state, it indicates that the forwarding rule is modified.
-     *   * *   The **UpdateForwardingRules** operation cannot be repeatedly called to modify forwarding rules for the same Global Accelerator (GA) instance within a specific period of time.
+     *   * *   The **UpdateForwardingRules** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param UpdateForwardingRulesRequest $request UpdateForwardingRulesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -9573,10 +9573,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **UpdateForwardingRules** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of a forwarding rule.
+     * *   **UpdateForwardingRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListForwardingRules](~~205817~~) operation to query the status of a forwarding rule.
      *   *     *   If the forwarding rule is in the **configuring** state, it indicates that the forwarding rule is being modified. In this case, you can perform only query operations.
      *   *     *   If the forwarding rule is in the **active** state, it indicates that the forwarding rule is modified.
-     *   * *   The **UpdateForwardingRules** operation cannot be repeatedly called to modify forwarding rules for the same Global Accelerator (GA) instance within a specific period of time.
+     *   * *   The **UpdateForwardingRules** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param UpdateForwardingRulesRequest $request UpdateForwardingRulesRequest
      *
@@ -9804,8 +9804,7 @@ class Ga extends OpenApiClient
      * *   This operation is applicable only to **managed** Global Accelerator (GA) instances.
      *   * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you cannot change the mode of the instance to managed mode.
      *   * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you can obtain all operation permissions on the instance.
-     *   *     **
-     *   *     **Warning** If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.
+     *   *   <warning>If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.></warning>.
      *   *
      * @param UpdateServiceManagedControlRequest $request UpdateServiceManagedControlRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -9853,8 +9852,7 @@ class Ga extends OpenApiClient
      * *   This operation is applicable only to **managed** Global Accelerator (GA) instances.
      *   * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you cannot change the mode of the instance to managed mode.
      *   * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you can obtain all operation permissions on the instance.
-     *   *     **
-     *   *     **Warning** If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.
+     *   *   <warning>If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.></warning>.
      *   *
      * @param UpdateServiceManagedControlRequest $request UpdateServiceManagedControlRequest
      *

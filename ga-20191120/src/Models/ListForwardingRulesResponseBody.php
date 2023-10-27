@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListForwardingRulesResponseBody extends Model
 {
     /**
-     * @description The information about the forwarding rules.
+     * @description The forwarding rules.
      *
      * @var forwardingRules[]
      */

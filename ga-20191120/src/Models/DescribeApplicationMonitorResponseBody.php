@@ -114,6 +114,24 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $silenceTime;
 
     /**
+     * @description The state of the application monitor task. Valid values:
+     *
+     * - **init**
+     *
+     * - **active**
+     *
+     * - **updating**
+     *
+     * - **inactive**
+     *
+     * - **deleting**
+     * @example active
+     *
+     * @var string
+     */
+    public $state;
+
+    /**
      * @description The ID of the origin probing task.
      *
      * @example sm-bp1fpdjfju9k8yr1y****
@@ -142,6 +160,7 @@ class DescribeApplicationMonitorResponseBody extends Model
         'regionId'        => 'RegionId',
         'requestId'       => 'RequestId',
         'silenceTime'     => 'SilenceTime',
+        'state'           => 'State',
         'taskId'          => 'TaskId',
         'taskName'        => 'TaskName',
     ];
@@ -191,6 +210,9 @@ class DescribeApplicationMonitorResponseBody extends Model
         }
         if (null !== $this->silenceTime) {
             $res['SilenceTime'] = $this->silenceTime;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -248,6 +270,9 @@ class DescribeApplicationMonitorResponseBody extends Model
         }
         if (isset($map['SilenceTime'])) {
             $model->silenceTime = $map['SilenceTime'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

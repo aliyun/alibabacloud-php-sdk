@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class forwardingRules extends Model
 {
     /**
-     * @description The ID of the forwarding rule.
+     * @description The forwarding rule ID.
      *
      * @example frule-bp1dii16gu9qdvb34****
      *
@@ -20,7 +20,7 @@ class forwardingRules extends Model
     public $forwardingRuleId;
 
     /**
-     * @description The name of the forwarding rule.
+     * @description The forwarding rule name.
      *
      * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
      * @example test
@@ -30,7 +30,7 @@ class forwardingRules extends Model
     public $forwardingRuleName;
 
     /**
-     * @description The priority of the forwarding rule. Valid values: **1** to **10000**. A lower value indicates a higher priority.
+     * @description The priority of the forwarding rule. Valid values: **1** to **10000**. A smaller value indicates a higher priority.
      *
      * @example 1000
      *
@@ -39,21 +39,21 @@ class forwardingRules extends Model
     public $priority;
 
     /**
-     * @description The forwarding action.
+     * @description The configurations of the forwarding action.
      *
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
-     * @description The forwarding conditions.
+     * @description The conditions that trigger the forwarding rule.
      *
      * @var ruleConditions[]
      */
     public $ruleConditions;
 
     /**
-     * @description The direction in which the rule takes effect. You do not need to set this parameter.
+     * @description The direction in which the rule takes effect. You do not need to configure this parameter.
      *
      * By default, this parameter is set to **request**, which indicates that the rule takes effect on requests.
      * @example request

@@ -113,8 +113,9 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 托管实例所属的服务方ID。
-     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * @description The ID of the service that manages the GA instance.
+     *
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
      * @example ALB
      *
      * @var string
@@ -122,11 +123,11 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description 是否为托管实例。取值：
+     * @description Indicates whether the GA instance is managed. Valid values:
      *
-     * - **true**：是托管实例。
+     *   **true**
+     *   **false**
      *
-     * - **false**：不是托管实例。
      * @example true
      *
      * @var bool
@@ -134,10 +135,12 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $serviceManaged;
 
     /**
-     * @description 用户在此托管实例下可执行的动作策略列表。
+     * @description The actions that users can perform on the managed instance.
      *
-     * > 仅在**ServiceManaged**参数为**True**时有效。
-     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
+     *
+     *   Users can perform only specific actions on a managed instance.
+     *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;

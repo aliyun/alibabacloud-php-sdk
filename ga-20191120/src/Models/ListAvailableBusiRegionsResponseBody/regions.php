@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
-     * @description Whether China Mainland.
+     * @description Indicates whether the region is in the Chinese mainland. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -18,7 +21,7 @@ class regions extends Model
     public $chinaMainland;
 
     /**
-     * @description The name of the region.
+     * @description The region name.
      *
      * @example China (Qingdao)
      *
@@ -27,10 +30,10 @@ class regions extends Model
     public $localName;
 
     /**
-     * @description Indicates whether the region is a point of presence (PoP). Valid values:
+     * @description Indicates whether the region is a point of presence (PoP) of Alibaba Cloud. Valid values:
      *
-     *   **true**: The region is a PoP.
-     *   **false**: The region is not a PoP.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -39,7 +42,7 @@ class regions extends Model
     public $pop;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-qingdao
      *

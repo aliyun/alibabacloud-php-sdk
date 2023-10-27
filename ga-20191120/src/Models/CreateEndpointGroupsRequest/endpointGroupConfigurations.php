@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations\endpointConfigurations;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations\portOverrides;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations\systemTag;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations\tag;
 use AlibabaCloud\Tea\Model;
 
 class endpointGroupConfigurations extends Model
@@ -167,6 +169,16 @@ class endpointGroupConfigurations extends Model
     public $portOverrides;
 
     /**
+     * @var systemTag[]
+     */
+    public $systemTag;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description The number of consecutive health check failures that must occur before a healthy endpoint group is considered unhealthy, or the number of consecutive health check successes that must occur before an unhealthy endpoint group is considered healthy.
      *
      * Valid values: **2** to **10**. Default value: **3**.
@@ -204,6 +216,8 @@ class endpointGroupConfigurations extends Model
         'healthCheckPort'                         => 'HealthCheckPort',
         'healthCheckProtocol'                     => 'HealthCheckProtocol',
         'portOverrides'                           => 'PortOverrides',
+        'systemTag'                               => 'SystemTag',
+        'tag'                                     => 'Tag',
         'thresholdCount'                          => 'ThresholdCount',
         'trafficPercentage'                       => 'TrafficPercentage',
     ];
@@ -266,6 +280,24 @@ class endpointGroupConfigurations extends Model
                 $n = 0;
                 foreach ($this->portOverrides as $item) {
                     $res['PortOverrides'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->systemTag) {
+            $res['SystemTag'] = [];
+            if (null !== $this->systemTag && \is_array($this->systemTag)) {
+                $n = 0;
+                foreach ($this->systemTag as $item) {
+                    $res['SystemTag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -338,6 +370,24 @@ class endpointGroupConfigurations extends Model
                 $n                    = 0;
                 foreach ($map['PortOverrides'] as $item) {
                     $model->portOverrides[$n++] = null !== $item ? portOverrides::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['SystemTag'])) {
+            if (!empty($map['SystemTag'])) {
+                $model->systemTag = [];
+                $n                = 0;
+                foreach ($map['SystemTag'] as $item) {
+                    $model->systemTag[$n++] = null !== $item ? systemTag::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }

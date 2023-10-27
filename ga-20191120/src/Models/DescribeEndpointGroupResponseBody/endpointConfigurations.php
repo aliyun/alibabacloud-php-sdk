@@ -60,6 +60,10 @@ class endpointConfigurations extends Model
     public $probeProtocol;
 
     /**
+     * @description The private IP address of the ENI.
+     *
+     * @example 172.168.XX.XX
+     *
      * @var string
      */
     public $subAddress;
@@ -70,10 +74,12 @@ class endpointConfigurations extends Model
      *   **Domain:** a custom domain name.
      *   **Ip:** a custom IP address.
      *   **PublicIp:** a public IP address provided by Alibaba Cloud.
-     *   **ECS:** an Elastic Compute Service (ECS) instance.
-     *   **SLB:** a Server Load Balancer (SLB) instance.
-     *   **ALB:** an Application Load Balancer (ALB) instance.
-     *   **OSS:** an Object Storage Service (OSS) bucket.
+     *   **ECS:** Elastic Compute Service (ECS) instance.
+     *   **SLB:** Server Load Balancer (SLB) instance.
+     *   **ALB:** Application Load Balancer (ALB) instance.
+     *   **OSS:** Object Storage Service (OSS) bucket.
+     *   **ENI:** Elastic Network interface (ENI).
+     *   **NLB:** Network Load Balancer (NLB) instance.
      *
      * @example Ip
      *

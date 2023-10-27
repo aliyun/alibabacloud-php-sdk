@@ -55,9 +55,9 @@ class endpoints extends Model
     public $listenerId;
 
     /**
-     * @description 托管实例所属的服务方ID。
+     * @description The ID of the service that manages the GA instance.
      *
-     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * >  This parameter is valid only if **ServiceManaged** is set to **True**.
      * @example ALB
      *
      * @var string
@@ -65,11 +65,11 @@ class endpoints extends Model
     public $serviceId;
 
     /**
-     * @description 是否为托管实例。取值：
+     * @description Indicates whether the GA instance is managed. Valid values:
      *
-     * - **true**：是托管资实例。
+     *   **true**
+     *   **false**
      *
-     * - **false**：不是托管实例。
      * @example true
      *
      * @var bool
@@ -77,20 +77,22 @@ class endpoints extends Model
     public $serviceManaged;
 
     /**
-     * @description 用户在此托管实例下可执行的动作策略列表。
+     * @description The actions that users can perform on the managed instance.
      *
-     * > 仅在**ServiceManaged**参数为**True**时有效。
-     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * >  This parameter is valid only if **ServiceManaged** is set to **True**.
+     *
+     *   Users can perform only specific actions on a managed instance.
+     *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
 
     /**
-     * @description The access policy of traffic that is destinated for the endpoint. Valid values:
+     * @description The access policy of traffic that is destined for the endpoint. Valid values:
      *
-     *   **AllowAll:** allows all traffic to the endpoint.
-     *   **DenyAll:** denies all traffic to the endpoint.
-     *   **AllowCustom:** allows traffic only to specified destinations.
+     *   **AllowAll**: allows all traffic to the endpoint.
+     *   **DenyAll**: denies all traffic to the endpoint.
+     *   **AllowCustom**: allows traffic only to specified destinations.
      *
      * @example DenyAll
      *
@@ -101,8 +103,7 @@ class endpoints extends Model
     /**
      * @description The backend service type of the endpoint.
      *
-     **PrivateSubNet** is returned, which indicates a private CIDR block.
-     *
+     * Only **PrivateSubNet** may be returned, which indicates a private CIDR block.
      * @example PrivateSubNet
      *
      * @var string

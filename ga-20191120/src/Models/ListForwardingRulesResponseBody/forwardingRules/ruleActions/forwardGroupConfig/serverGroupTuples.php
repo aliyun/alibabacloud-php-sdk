@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class serverGroupTuples extends Model
 {
     /**
-     * @description The ID of the endpoint group.
+     * @description The endpoint group ID.
      *
-     * >  For GA instances created after July 12, 2022, all forwarding condition types and forwarding action types are supported. We recommend that you call **RuleActionType** and **RuleActionValue** to query forwarding actions.
+     * >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
      * @example epg-bp1enpdcrqhl78g6r****
      *
      * @var string

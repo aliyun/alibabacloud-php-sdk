@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class endpointGroups extends Model
 {
     /**
-     * @description The ID of the GA instance.
+     * @description The GA instance ID.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -31,14 +31,14 @@ class endpointGroups extends Model
     public $description;
 
     /**
-     * @description The configurations of the endpoint.
+     * @description The configurations of the endpoints in the endpoint group.
      *
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
 
     /**
-     * @description The ID of an endpoint group.
+     * @description The endpoint group ID.
      *
      * @example epg-bp16jdc00bhe97sr5****
      *
@@ -47,14 +47,14 @@ class endpointGroups extends Model
     public $endpointGroupId;
 
     /**
-     * @description The list of endpoint group IP addresses.
+     * @description The endpoint group IP addresses.
      *
      * @var string[]
      */
     public $endpointGroupIpList;
 
     /**
-     * @description The ID of the region where the endpoint group is deployed.
+     * @description The region ID of the endpoint group.
      *
      * @example cn-hangzhou
      *
@@ -65,8 +65,8 @@ class endpointGroups extends Model
     /**
      * @description The type of the endpoint group. Valid values:
      *
-     *   **default**: a default endpoint group
-     *   **virtual**: a virtual endpoint group
+     *   **default**
+     *   **virtual**
      *
      * @example default
      *
@@ -75,7 +75,7 @@ class endpointGroups extends Model
     public $endpointGroupType;
 
     /**
-     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
+     * @description The endpoint group IP addresses to be confirmed. After the GA instance is upgraded, the IP addresses that are added to the endpoint group need to be confirmed.
      *
      * @var string[]
      */
@@ -84,8 +84,8 @@ class endpointGroups extends Model
     /**
      * @description The protocol that is used by the backend service. Valid values:
      *
-     *   **HTTP**: HTTP
-     *   **HTTPS**: HTTPS
+     *   **HTTP**
+     *   **HTTPS**
      *
      * @example HTTP
      *
@@ -94,7 +94,7 @@ class endpointGroups extends Model
     public $endpointRequestProtocol;
 
     /**
-     * @description The ID of the forwarding rule that is associated with the endpoint group.
+     * @description The IDs of the forwarding rules that are associated with the endpoint group.
      *
      * @var string[]
      */
@@ -103,8 +103,8 @@ class endpointGroups extends Model
     /**
      * @description Indicates whether the health check feature is enabled. Valid values:
      *
-     *   **true**: The health check feature is enabled.
-     *   **false**: The health check feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -122,7 +122,7 @@ class endpointGroups extends Model
     public $healthCheckIntervalSeconds;
 
     /**
-     * @description The path to which health check requests are sent.
+     * @description The path based on which the system performs health checks.
      *
      * @example /healthcheck
      *
@@ -142,9 +142,9 @@ class endpointGroups extends Model
     /**
      * @description The protocol over which health check requests are sent. Valid values:
      *
-     *   **tcp**: TCP
-     *   **http**: HTTP
-     *   **https**: HTTPS
+     *   **tcp**
+     *   **http**
+     *   **https**
      *
      * @example tcp
      *
@@ -153,7 +153,7 @@ class endpointGroups extends Model
     public $healthCheckProtocol;
 
     /**
-     * @description The ID of the listener.
+     * @description The listener ID.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -171,16 +171,16 @@ class endpointGroups extends Model
     public $name;
 
     /**
-     * @description The mappings between ports.
+     * @description The port mapping.
      *
      * @var portOverrides[]
      */
     public $portOverrides;
 
     /**
-     * @description The service ID to which the managed instance belongs.
+     * @description The service that manages the instance.
      *
-     * >  Valid only when the ServiceManaged parameter is True.
+     * >  This parameter is valid only if **ServiceManaged** is set to **True**.
      * @example ALB
      *
      * @var string
@@ -188,9 +188,11 @@ class endpointGroups extends Model
     public $serviceId;
 
     /**
-     * @description Is it a managed instance. Valid values:
+     * @description Indicates whether the GA instance is managed. Valid values:
      *
-     * - false
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -198,19 +200,23 @@ class endpointGroups extends Model
     public $serviceManaged;
 
     /**
-     * @description A list of action policies that users can execute on this managed instance.
+     * @description The actions that users can perform on the managed instance.
+     *
+     * >  This parameter is valid only if **ServiceManaged** is set to **True**.
+     *
+     *   Users can perform only specific actions on a managed instance.
      *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
 
     /**
-     * @description The state of the endpoint group. Valid values:
+     * @description The status of the endpoint group. Valid values:
      *
-     *   **init**: The endpoint group is being initialized.
-     *   **active**: The endpoint group is running normally.
-     *   **updating**:The endpoint group is being updated.
-     *   **deleteing**: The endpoint group is being deleted.
+     *   **init**
+     *   **active**
+     *   **updating**
+     *   **deleteing**
      *
      * @example active
      *
@@ -219,7 +225,7 @@ class endpointGroups extends Model
     public $state;
 
     /**
-     * @description The tags of the endpoint groups.
+     * @description The tags.
      *
      * @var tags[]
      */

@@ -2,28 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAcceleratorRequest;
+namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations;
 
 use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
-     * @description The tag key. The tag key cannot be an empty string.
-     *
-     * You can specify up to 20 tag keys.
-     * @example tag-key
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value. The tag value cannot be an empty string.
-     *
-     * You can specify up to 20 tag values.
-     * @example tag-value
-     *
      * @var string
      */
     public $value;

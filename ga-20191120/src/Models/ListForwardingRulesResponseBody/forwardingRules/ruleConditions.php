@@ -11,31 +11,31 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description The configuration of the domain name.
+     * @description The domain name configuration.
      *
-     * >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions by calling the **RuleConditionType** and **RuleConditionValue** operations.
+     * >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
      * @var hostConfig
      */
     public $hostConfig;
 
     /**
-     * @description The configuration of the path.
+     * @description The path configuration.
      *
-     * >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions by calling the **RuleConditionType** and **RuleConditionValue** operations.
+     * >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
      * @var pathConfig
      */
     public $pathConfig;
 
     /**
-     * @description The type of the forwarding condition.
+     * @description The type of the forwarding condition. Valid values:
      *
-     *   **Host**: domain name
-     *   **Path**: path
-     *   **RequestHeader**: HTTP header
-     *   **Query**: query string
-     *   **Method**: HTTP method
-     *   **Cookie**: cookie
-     *   **SourceIP**: source IP address
+     *   **Host:** domain name.
+     *   **Path:** path.
+     *   **RequestHeader:** HTTP header.
+     *   **Query:** query string.
+     *   **Method:** HTTP method.
+     *   **Cookie:** cookie.
+     *   **SourceIP:** source IP address.
      *
      * @example Host
      *
@@ -46,15 +46,15 @@ class ruleConditions extends Model
     /**
      * @description The value of the forwarding condition type.
      *
-     * Different JSON strings are returned based on the **RuleConditionType** parameter.
+     * Different JSON strings are returned based on the value of the **RuleConditionType** parameter.
      *
-     *   If **RuleConditionType** is set to **Host**, a domain name condition is returned. If multiple domain names are returned in a forwarding condition, the relationship between the domain names is OR.
-     *   If **RuleConditionType** is set to **Path**, a path condition is returned. If multiple forwarding conditions whose types are path are returned in a forwarding rule, the relationship between the forwarding conditions is OR. If multiple paths are returned in a forwarding condition, the relationship between the paths is OR.
-     *   If **RuleConditionType** is set to **RequestHeader**, an HTTP header condition that consists of key-value pairs is returned.
-     *   If **RuleConditionType** is set to **Query**, a query string condition that consists of key-value pairs is returned.
-     *   If **RuleConditionType** is set to **Method**, an HTTP method condition is returned.
-     *   If **RuleConditionType** is set to **Cookie**, a cookie condition that consists of key-value pairs is returned.
-     *   If **RuleConditionType** is set to **SourceIP**, a source IP address condition is returned. If multiple source IP addresses are returned in a forwarding condition, the relationship between the source IP addresses is OR.
+     *   If you set **RuleConditionType** to **Host**, a domain name condition is returned. If multiple domain names are returned in a forwarding condition, the relationship between the domain names is OR.
+     *   If you set **RuleConditionType** to **Path**, a path condition is returned. If multiple forwarding conditions of the path type are returned in a forwarding rule, the relationship between the forwarding conditions is OR. If multiple paths are returned in a forwarding condition, the relationship between the paths is OR.
+     *   If you set **RuleConditionType** to **RequestHeader**, an HTTP header condition that consists of key-value pairs is returned.
+     *   If you set **RuleConditionType** to **Query**, a query string condition that consists of key-value pairs is returned.
+     *   If you set **RuleConditionType** to **Method**, an HTTP method condition is returned.
+     *   If you set **RuleConditionType** to **Cookie**, a cookie condition that consists of key-value pairs is returned.
+     *   If you set **RuleConditionType** to **SourceIP**, a source IP address condition is returned. If multiple source IP addresses are returned in a forwarding condition, the relationship between the source IP addresses is OR.
      *
      * @example ["www.example.com", "www.aliyun.com"]
      *
