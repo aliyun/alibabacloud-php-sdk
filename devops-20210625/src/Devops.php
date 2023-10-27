@@ -266,6 +266,7 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemAttachmentsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemEstimateResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemsResponse;
@@ -8401,6 +8402,48 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listWorkItemWorkFlowStatusWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $workitemIdentifier
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListWorkitemAttachmentsResponse
+     */
+    public function listWorkitemAttachmentsWithOptions($organizationId, $workitemIdentifier, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkitemAttachments',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem/' . OpenApiUtilClient::getEncodeParam($workitemIdentifier) . '/attachments',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkitemAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $workitemIdentifier
+     *
+     * @return ListWorkitemAttachmentsResponse
+     */
+    public function listWorkitemAttachments($organizationId, $workitemIdentifier)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkitemAttachmentsWithOptions($organizationId, $workitemIdentifier, $headers, $runtime);
     }
 
     /**
