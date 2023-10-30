@@ -6,9 +6,13 @@ namespace AlibabaCloud\SDK\Green\V20220302;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageModerationResultRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageModerationResultResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeUploadTokenResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageAsyncModerationRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageAsyncModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationRequest;
@@ -80,6 +84,49 @@ class Green extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param DescribeImageModerationResultRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeImageModerationResultResponse
+     */
+    public function describeImageModerationResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageModerationResult',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageModerationResultRequest $request
+     *
+     * @return DescribeImageModerationResultResponse
+     */
+    public function describeImageModerationResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageModerationResultWithOptions($request, $runtime);
     }
 
     /**
@@ -159,6 +206,52 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUploadTokenWithOptions($runtime);
+    }
+
+    /**
+     * @param ImageAsyncModerationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ImageAsyncModerationResponse
+     */
+    public function imageAsyncModerationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->service)) {
+            $query['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $query['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImageAsyncModeration',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImageAsyncModerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImageAsyncModerationRequest $request
+     *
+     * @return ImageAsyncModerationResponse
+     */
+    public function imageAsyncModeration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->imageAsyncModerationWithOptions($request, $runtime);
     }
 
     /**
