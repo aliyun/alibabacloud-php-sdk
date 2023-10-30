@@ -288,6 +288,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiConfigurationRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiConfigurationResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupNetworkPolicyRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupNetworkPolicyResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupVpcWhitelistRequest;
@@ -8828,6 +8830,70 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyApiGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyApiGroupNetworkPolicyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyApiGroupNetworkPolicyResponse
+     */
+    public function modifyApiGroupNetworkPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->httpsPolicy)) {
+            $query['HttpsPolicy'] = $request->httpsPolicy;
+        }
+        if (!Utils::isUnset($request->innerDomainEnable)) {
+            $query['InnerDomainEnable'] = $request->innerDomainEnable;
+        }
+        if (!Utils::isUnset($request->internetEnable)) {
+            $query['InternetEnable'] = $request->internetEnable;
+        }
+        if (!Utils::isUnset($request->internetIPV6Enable)) {
+            $query['InternetIPV6Enable'] = $request->internetIPV6Enable;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcIntranetEnable)) {
+            $query['VpcIntranetEnable'] = $request->vpcIntranetEnable;
+        }
+        if (!Utils::isUnset($request->vpcSlbIntranetEnable)) {
+            $query['VpcSlbIntranetEnable'] = $request->vpcSlbIntranetEnable;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApiGroupNetworkPolicy',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApiGroupNetworkPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyApiGroupNetworkPolicyRequest $request
+     *
+     * @return ModifyApiGroupNetworkPolicyResponse
+     */
+    public function modifyApiGroupNetworkPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApiGroupNetworkPolicyWithOptions($request, $runtime);
     }
 
     /**
