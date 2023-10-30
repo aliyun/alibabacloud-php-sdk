@@ -18,6 +18,11 @@ class DBNodes extends Model
     public $addedCpuCores;
 
     /**
+     * @var string
+     */
+    public $cpuCores;
+
+    /**
      * @description The time when the node was created.
      *
      * @example 2020-03-23T21:35:43Z
@@ -140,6 +145,11 @@ class DBNodes extends Model
     public $maxIOPS;
 
     /**
+     * @var string
+     */
+    public $memorySize;
+
+    /**
      * @description Indicates whether the global consistency (high-performance mode) feature is enabled for the node. Valid values:
      *
      *   **ON**
@@ -180,6 +190,7 @@ class DBNodes extends Model
     public $zoneId;
     protected $_name = [
         'addedCpuCores'    => 'AddedCpuCores',
+        'cpuCores'         => 'CpuCores',
         'creationTime'     => 'CreationTime',
         'DBNodeClass'      => 'DBNodeClass',
         'DBNodeId'         => 'DBNodeId',
@@ -191,6 +202,7 @@ class DBNodes extends Model
         'masterId'         => 'MasterId',
         'maxConnections'   => 'MaxConnections',
         'maxIOPS'          => 'MaxIOPS',
+        'memorySize'       => 'MemorySize',
         'sccMode'          => 'SccMode',
         'serverWeight'     => 'ServerWeight',
         'serverlessType'   => 'ServerlessType',
@@ -206,6 +218,9 @@ class DBNodes extends Model
         $res = [];
         if (null !== $this->addedCpuCores) {
             $res['AddedCpuCores'] = $this->addedCpuCores;
+        }
+        if (null !== $this->cpuCores) {
+            $res['CpuCores'] = $this->cpuCores;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -240,6 +255,9 @@ class DBNodes extends Model
         if (null !== $this->maxIOPS) {
             $res['MaxIOPS'] = $this->maxIOPS;
         }
+        if (null !== $this->memorySize) {
+            $res['MemorySize'] = $this->memorySize;
+        }
         if (null !== $this->sccMode) {
             $res['SccMode'] = $this->sccMode;
         }
@@ -266,6 +284,9 @@ class DBNodes extends Model
         $model = new self();
         if (isset($map['AddedCpuCores'])) {
             $model->addedCpuCores = $map['AddedCpuCores'];
+        }
+        if (isset($map['CpuCores'])) {
+            $model->cpuCores = $map['CpuCores'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
@@ -299,6 +320,9 @@ class DBNodes extends Model
         }
         if (isset($map['MaxIOPS'])) {
             $model->maxIOPS = $map['MaxIOPS'];
+        }
+        if (isset($map['MemorySize'])) {
+            $model->memorySize = $map['MemorySize'];
         }
         if (isset($map['SccMode'])) {
             $model->sccMode = $map['SccMode'];

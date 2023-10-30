@@ -11,8 +11,6 @@ class DBRevisionVersionList extends Model
     /**
      * @description 版本发布说明。
      *
-     * @example https://help.aliyun.com/document_detail/423888.html?spm=a2c4g.423884.0.0.257a55c0CFkQto
-     *
      * @var string
      */
     public $releaseNote;
