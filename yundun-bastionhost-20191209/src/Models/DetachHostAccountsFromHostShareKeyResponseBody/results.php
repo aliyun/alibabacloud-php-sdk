@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The error code returned. If **OK** is returned, the disassociation was successful. If a different error code is returned, the disassociation failed.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the host account.
+     *
+     * @example 12407
+     *
      * @var string
      */
     public $hostAccountId;
 
     /**
+     * @description The ID of the shared key.
+     *
+     * @example 11
+     *
      * @var string
      */
     public $hostShareKeyId;
 
     /**
+     * @description The error message returned.
+     *
+     * @example The host account does not exist
+     *
      * @var string
      */
     public $message;

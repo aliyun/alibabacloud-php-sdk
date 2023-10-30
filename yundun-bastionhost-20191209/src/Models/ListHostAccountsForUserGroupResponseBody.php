@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListHostAccountsForUserGroupResponseBody extends Model
 {
     /**
+     * @description An array that consists of the queried host accounts.
+     *
      * @var hostAccounts[]
      */
     public $hostAccounts;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of host accounts that were queried.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

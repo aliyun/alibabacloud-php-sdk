@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class VerifyInstanceADAuthServerResponseBody extends Model
+class RejectApproveCommandResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class VerifyInstanceADAuthServerResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return VerifyInstanceADAuthServerResponseBody
+     * @return RejectApproveCommandResponseBody
      */
     public static function fromMap($map = [])
     {

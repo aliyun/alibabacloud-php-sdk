@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateUserGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the user group.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $userGroupId;

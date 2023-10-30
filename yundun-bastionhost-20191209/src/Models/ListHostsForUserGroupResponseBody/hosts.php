@@ -9,36 +9,63 @@ use AlibabaCloud\Tea\Model;
 class hosts extends Model
 {
     /**
+     * @description All Bastionhost API requests must include common request parameters. For more information about common request parameters, see [Common parameters](~~148139~~).
+     *
+     * For more information about sample requests, see the "Examples" section of this topic.
+     * @example Public
+     *
      * @var string
      */
     public $activeAddressType;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example comment
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @description ListHostsForUserGroup
+     *
+     * @example host1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description WB662865
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $hostPrivateAddress;
 
     /**
+     * @description Queries the hosts that a specified user group is authorized or not authorized to manage.
+     *
+     * @example 10.158.XX.XX
+     *
      * @var string
      */
     public $hostPublicAddress;
 
     /**
+     * @description ListHostsForUserGroup
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $OSType;

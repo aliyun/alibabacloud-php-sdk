@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description RemoveHostsFromGroup
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description RemoveHostsFromGroup
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @description WB662865
+     *
      * @var string
      */
     public $message;

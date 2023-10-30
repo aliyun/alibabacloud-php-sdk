@@ -6,26 +6,32 @@ namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpgradeInstanceImageVersionRequest extends Model
+class RejectOperationTicketRequest extends Model
 {
     /**
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
-    public $lang;
+    public $operationTicketId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'lang'       => 'Lang',
-        'regionId'   => 'RegionId',
+        'instanceId'        => 'InstanceId',
+        'operationTicketId' => 'OperationTicketId',
+        'regionId'          => 'RegionId',
     ];
 
     public function validate()
@@ -38,8 +44,8 @@ class UpgradeInstanceImageVersionRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->operationTicketId) {
+            $res['OperationTicketId'] = $this->operationTicketId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -51,7 +57,7 @@ class UpgradeInstanceImageVersionRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpgradeInstanceImageVersionRequest
+     * @return RejectOperationTicketRequest
      */
     public static function fromMap($map = [])
     {
@@ -59,8 +65,8 @@ class UpgradeInstanceImageVersionRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['OperationTicketId'])) {
+            $model->operationTicketId = $map['OperationTicketId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

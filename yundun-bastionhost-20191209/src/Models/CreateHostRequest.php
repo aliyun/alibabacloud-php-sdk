@@ -9,56 +9,116 @@ use AlibabaCloud\Tea\Model;
 class CreateHostRequest extends Model
 {
     /**
+     * @description The endpoint type of the host that you want to create. Valid values:
+     *
+     *   **Public**: public endpoint
+     *   **Private**: internal endpoint
+     *
+     * @example Public
+     *
      * @var string
      */
     public $activeAddressType;
 
     /**
+     * @description The description of the host that you want to create. The value can be up to 500 characters in length.
+     *
+     * @example Local Host
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The name of the host that you want to create. The name can be up to 128 characters in length.
+     *
+     * @example host01
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The internal endpoint of the host that you want to create. You can set this parameter to a domain name or an IP address.
+     *
+     * > This parameter is required if the **ActiveAddressType** parameter is set to **Private**.
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $hostPrivateAddress;
 
     /**
+     * @description The public endpoint of the host that you want to create. You can set this parameter to a domain name or an IP address.
+     *
+     * > This parameter is required if the **ActiveAddressType** parameter is set to **Public**.
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $hostPublicAddress;
 
     /**
+     * @description The ID of the bastion host in which you want to create the host.
+     *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the region to which the ECS instance or the host in an ApsaraDB MyBase dedicated cluster belongs.
+     *
+     * > This parameter is required if the **Source** parameter is set to **Ecs** or **Rds**.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $instanceRegionId;
 
     /**
+     * @description The operating system of the host that you want to create. Valid values:
+     *
+     *   **Linux**
+     *   **Windows**
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @description The region ID of the bastion host in which you want to create the host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The source of the host that you want to create. Valid values:
+     *
+     *   **Local**: a host in a data center
+     *   **Ecs**: an Elastic Compute Service (ECS) instance
+     *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+     *
+     * @example Local
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
+     *
+     * > This parameter is required if the **Source** parameter is set to **Ecs** or **Rds**.
+     * @example i-dfabfda
+     *
      * @var string
      */
     public $sourceInstanceId;

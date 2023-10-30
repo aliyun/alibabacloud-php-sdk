@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListUserGroupsResponseBody extends Model
 {
     /**
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

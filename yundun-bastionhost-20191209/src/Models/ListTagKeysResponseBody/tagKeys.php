@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tagKeys extends Model
 {
     /**
+     * @description The total number of tag keys.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $tagCount;
 
     /**
+     * @description The name of the tag key.
+     *
+     * @example key2
+     *
      * @var string
      */
     public $tagKey;

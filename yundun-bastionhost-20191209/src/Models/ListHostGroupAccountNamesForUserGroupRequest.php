@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupAccountNamesForUserGroupRequest extends Model
 {
     /**
+     * @description WB662865
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @description All Bastionhost API requests must include common request parameters. For more information about common request parameters, see [Common parameters](~~148139~~).
+     *
+     * For more information about sample requests, see the "Examples" section of this topic.
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Queries the names of the host accounts that a specified user group is authorized to manage in a specified host group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description ListHostGroupAccountNamesForUserGroup
+     *
+     * @example 1
+     *
      * @var string
      */
     public $userGroupId;

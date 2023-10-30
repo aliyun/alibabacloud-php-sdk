@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class protocols extends Model
 {
     /**
+     * @description WB662865
+     *
+     * @example ssh-ed25519|3e:46:5a:e1:1f:0d:39:7e:61:35:d5:fa:7b:2b:**:**
+     *
      * @var string
      */
     public $hostFingerPrint;
 
     /**
+     * @description GetHost
+     *
+     * @example 22
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example SSH
+     *
      * @var string
      */
     public $protocolName;

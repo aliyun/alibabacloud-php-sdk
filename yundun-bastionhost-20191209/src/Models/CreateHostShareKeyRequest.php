@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateHostShareKeyRequest extends Model
 {
     /**
+     * @description The name of the shared key that you want to create. The name can be a maximum of 128 characters in length.
+     *
+     * @example name
+     *
      * @var string
      */
     public $hostShareKeyName;
 
     /**
+     * @description The ID of the bastion host. You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The password of the private key. The value is a Base64-encoded string.
+     *
+     * @example *****
+     *
      * @var string
      */
     public $passPhrase;
 
     /**
+     * @description The private key. The value is a Base64-encoded string.
+     *
+     * @example ****
+     *
      * @var string
      */
     public $privateKey;
 
     /**
+     * @description The region ID of the bastion host. For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

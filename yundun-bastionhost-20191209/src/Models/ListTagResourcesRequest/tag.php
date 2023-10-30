@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example test
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The type of the resource.
+     *
+     * The returned value is INSTANCE, which indicates that the resource is a Bastionhost instance.
+     * @example testapi
+     *
      * @var string
      */
     public $value;

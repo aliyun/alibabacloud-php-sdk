@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteHostAccountRequest extends Model
 {
     /**
+     * @description DeleteHostAccount
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostAccountId;
 
     /**
+     * @description DeleteHostAccount
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description WB01014029
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

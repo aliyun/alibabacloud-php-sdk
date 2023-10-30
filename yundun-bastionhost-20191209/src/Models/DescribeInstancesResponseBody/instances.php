@@ -9,81 +9,162 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The description of the bastion host.
+     *
+     * @example Test API
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The timestamp when the bastion host expires. Unit: milliseconds.
+     *
+     * @example 1578326400000
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @description The image version of the bastion host.
+     *
+     * @example 3.0.0
+     *
      * @var string
      */
     public $imageVersion;
 
     /**
+     * @description The ID of the bastion host.
+     *
+     * @example bastionhost-cn-78v1gh****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The status of the bastion host. Valid values:
+     *
+     *   **PENDING**: The bastion host is not initialized.
+     *   **CREATING**: The bastion host is being created.
+     *   **RUNNING**: The bastion host is running.
+     *   **EXPIRED**: The bastion host expired.
+     *   **CREATE_FAILED**: The bastion host fails to be created.
+     *   **UPGRADING**: The configurations of the bastion host are being changed.
+     *   **UPGRADE_FAILED**: The configurations of the bastion host fail to be changed.
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The public O\&M address of the bastion host.
+     *
+     * @example drawvxalwb-public.bastionhost.aliyuncs.com
+     *
      * @var string
      */
     public $internetEndpoint;
 
     /**
+     * @description The private O\&M address of the bastion host.
+     *
+     * @example drawvxalwb.bastionhost.aliyuncs.com
+     *
      * @var string
      */
     public $intranetEndpoint;
 
     /**
+     * @description Indicates whether the bastion host runs an earlier version. Valid values:
+     *
+     *   **true**: indicates that the bastion host runs V2 or V3.1.
+     *   **false**:indicates that the bastion host runs V3.2.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $legacy;
 
     /**
+     * @description The license code of the bastion host.
+     *
+     * @example bhah_ent_50_asset
+     *
      * @var string
      */
     public $licenseCode;
 
     /**
+     * @description The edition of the bastion host. Valid values:
+     *
+     *   **cloudbastion**: Basic
+     *   **cloudbastion_ha**: Enterprise
+     *
+     * @example cloudbastion_ha
+     *
      * @var string
      */
     public $planCode;
 
     /**
+     * @description Indicates whether the bastion host can be accessed from the Internet. Valid values:
+     *
+     *   **true**: The bastion host can be accessed from the Internet.
+     *   **false**: The bastion host cannot be accessed from the Internet.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $publicNetworkAccess;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the bastion host belongs.
+     *
+     * @example g-acfm26ougi****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The timestamp when the bastion host is purchased or renewed. Unit: milliseconds.
+     *
+     * @example 1577681345000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the bastion host belongs.
+     *
+     * @example vpc-bp1c85tzgqu1bf5b****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the vSwitch to which the bastion host belongs.
+     *
+     * @example vsw-bp1xfwzzfti0kjbf****
+     *
      * @var string
      */
     public $vswitchId;

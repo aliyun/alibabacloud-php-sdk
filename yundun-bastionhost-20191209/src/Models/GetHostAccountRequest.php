@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetHostAccountRequest extends Model
 {
     /**
+     * @description The ID of the host account that you want to query.
+     *
+     * > You can call the [ListHostAccounts](~~204372~~) operation to query the ID of the host account.
+     * @example 1
+     *
      * @var string
      */
     public $hostAccountId;
 
     /**
+     * @description The ID of the bastion host in which you want to query the details of the host account.
+     *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host in which you want to query the details of the host account.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

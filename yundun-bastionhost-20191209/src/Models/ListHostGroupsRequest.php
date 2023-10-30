@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsRequest extends Model
 {
     /**
+     * @description The name of the host group that you want to query. Only exact match is supported.
+     *
+     * @example Host group 1
+     *
      * @var string
      */
     public $hostGroupName;
 
     /**
+     * @description The ID of the bastion host in which you want to query the host group.
+     *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.\
+     * > We recommend that you do not leave this parameter empty.
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host in which you want to query the host group.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

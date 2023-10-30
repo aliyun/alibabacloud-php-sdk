@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserGroupRequest extends Model
 {
     /**
+     * @description The ID of the bastion host on which you want to delete the user group.
+     *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host on which you want to delete the user group.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the user group that you want to delete.
+     *
+     * > You can call the [ListUserGroups](~~204509~~) operation to query the ID of the user group.
+     * @example １
+     *
      * @var string
      */
     public $userGroupId;

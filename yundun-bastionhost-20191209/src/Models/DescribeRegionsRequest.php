@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;
+
+    /**
+     * @description The ID of request.
+     *
+     * @example cn-shenzhen
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -25,6 +39,9 @@ class DescribeRegionsRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -40,6 +57,9 @@ class DescribeRegionsRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

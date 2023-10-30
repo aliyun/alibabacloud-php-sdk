@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class CreateHostGroupRequest extends Model
 {
     /**
+     * @description The description of the host group. The description can be up to 500 characters in length.
+     *
+     * @example Local host group.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The name of the host group. The name can be up to 128 characters in length.
+     *
+     * @example HostGroup01
+     *
      * @var string
      */
     public $hostGroupName;
 
     /**
+     * @description The ID of the bastion host on which you want to create a host group.
+     *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host on which you want to create a host group.
+     *
+     **
+     *
+     **For more information about the mapping between region IDs and region names, see **Regions and zones[.](~~40654~~)
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

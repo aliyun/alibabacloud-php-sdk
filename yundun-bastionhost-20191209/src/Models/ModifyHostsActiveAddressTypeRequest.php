@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyHostsActiveAddressTypeRequest extends Model
 {
     /**
+     * @example Private
+     *
      * @var string
      */
     public $activeAddressType;
 
     /**
+     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~148139~~).
+     *
+     * For more information about sample requests, see the "Examples" section of this topic.
+     * @example ["1","2"]
+     *
      * @var string
      */
     public $hostIds;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example bastionhost-cn-st220aw***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform.
+     *
+     * Set the value to **ModifyHostsActiveAddressType**.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -17,49 +17,84 @@ class instanceAttribute extends Model
     /**
      * @var string
      */
+    public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $bandwidthPackage;
+
+    /**
+     * @example Disable
+     *
+     * @var string
+     */
+    public $dbOperationModule;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
+     * @example eni-bp1455jrzwm7moaxxxxx
+     *
      * @var string
      */
     public $eniInstanceId;
 
     /**
+     * @example 1578326400000
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example bastionhost-cn-78v1ghxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @example drawvxalwb-public.bastionhost.aliyuncs.com
+     *
      * @var string
      */
     public $internetEndpoint;
 
     /**
+     * @example drawvxalwb.bastionhost.aliyuncs.com
+     *
      * @var string
      */
     public $intranetEndpoint;
 
     /**
+     * @example bhah_ent_50_asset
+     *
      * @var string
      */
     public $licenseCode;
 
     /**
+     * @example Enable
+     *
      * @var string
      */
     public $modifyPasswordModule;
 
     /**
+     * @example Enable
+     *
      * @var string
      */
     public $networkProxyModule;
@@ -90,6 +125,8 @@ class instanceAttribute extends Model
     public $publicIps;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $publicNetworkAccess;
@@ -100,11 +137,15 @@ class instanceAttribute extends Model
     public $publicWhiteList;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aekzc427dbl2shy
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -115,31 +156,44 @@ class instanceAttribute extends Model
     public $securityGroupIds;
 
     /**
+     * @example 1577681345000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example 2199023255552
+     *
      * @var int
      */
     public $storage;
 
     /**
+     * @example vpc-bp1c85tzgqu1bf5bxxxxx
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vsw-bp1xfwzzfti0kjbfxxxxx
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @example Enable
+     *
      * @var string
      */
     public $webTerminalModule;
     protected $_name = [
         'authorizedSecurityGroups' => 'AuthorizedSecurityGroups',
+        'bandwidth'                => 'Bandwidth',
+        'bandwidthPackage'         => 'BandwidthPackage',
+        'dbOperationModule'        => 'DbOperationModule',
         'description'              => 'Description',
         'eniInstanceId'            => 'EniInstanceId',
         'expireTime'               => 'ExpireTime',
@@ -176,6 +230,15 @@ class instanceAttribute extends Model
         $res = [];
         if (null !== $this->authorizedSecurityGroups) {
             $res['AuthorizedSecurityGroups'] = $this->authorizedSecurityGroups;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->bandwidthPackage) {
+            $res['BandwidthPackage'] = $this->bandwidthPackage;
+        }
+        if (null !== $this->dbOperationModule) {
+            $res['DbOperationModule'] = $this->dbOperationModule;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -274,6 +337,15 @@ class instanceAttribute extends Model
             if (!empty($map['AuthorizedSecurityGroups'])) {
                 $model->authorizedSecurityGroups = $map['AuthorizedSecurityGroups'];
             }
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['BandwidthPackage'])) {
+            $model->bandwidthPackage = $map['BandwidthPackage'];
+        }
+        if (isset($map['DbOperationModule'])) {
+            $model->dbOperationModule = $map['DbOperationModule'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

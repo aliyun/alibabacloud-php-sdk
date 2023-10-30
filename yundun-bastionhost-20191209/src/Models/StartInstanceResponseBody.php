@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class StartInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the bastion host that you enable.
+     *
+     * @example bastionhost-cn-78v1gh****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 0F85AE0A-6A87-48F3-A0C7-90B998788A36
+     *
      * @var string
      */
     public $requestId;

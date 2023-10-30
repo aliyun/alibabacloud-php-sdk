@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ResetHostAccountCredentialRequest extends Model
 {
     /**
+     * @description ResetHostAccountCredential
+     *
+     * @example Password
+     *
      * @var string
      */
     public $credentialType;
 
     /**
+     * @description WB662865
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostAccountId;
 
     /**
+     * @description Deletes the logon credential of a specified host account of a specified Bastionhost instance. The logon credential can be the password or SSH private key.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description ResetHostAccountCredential
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

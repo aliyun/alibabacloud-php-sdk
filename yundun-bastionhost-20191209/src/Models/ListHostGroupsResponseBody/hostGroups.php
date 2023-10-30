@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class hostGroups extends Model
 {
     /**
+     * @description The description of the host group.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The ID of the host group.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @description The name of the host group.
+     *
+     * @example Host group 1
+     *
      * @var string
      */
     public $hostGroupName;
 
     /**
+     * @description The number of hosts in the host group.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $memberCount;

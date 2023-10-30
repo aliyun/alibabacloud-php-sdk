@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The return code that indicates whether the call was successful. Valid values:
+     *
+     *   **OK**: The call was successful.
+     *   **UNEXPECTED**: An unknown error occurred.
+     *   **INVALID_ARGUMENT**: A request parameter is invalid.
+     *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+     *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The result of revoking permissions on the specified host accounts from the user group.
+     *
      * @var hostAccountNames[]
      */
     public $hostAccountNames;
 
     /**
+     * @description The ID of the host group.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the group.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $userGroupId;

@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class GetHostResponseBody extends Model
 {
     /**
+     * @description The fingerprint of the host. This parameter uniquely identifies a host.
+     *
      * @var host
      */
     public $host;
 
     /**
+     * @description The endpoint type of the host. Valid values:
+     *
+     *   **Public**: a public endpoint
+     *   **Private**: an internal endpoint
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;

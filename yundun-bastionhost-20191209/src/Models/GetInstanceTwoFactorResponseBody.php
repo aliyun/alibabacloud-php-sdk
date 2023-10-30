@@ -10,12 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceTwoFactorResponseBody extends Model
 {
     /**
+     * @description The settings of two-factor authentication.
+     *
      * @var config
      */
     public $config;
 
     /**
-     * @description Id of the request
+     * @description The duration within which two-factor authentication is not required after a local user passes two-factor authentication. Valid values: `0 to 168`. Unit: hours.
+     *
+     * >  If 0 is returned, a local user must pass two-factor authentication every time the local user logs on to the bastion host.
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
      */

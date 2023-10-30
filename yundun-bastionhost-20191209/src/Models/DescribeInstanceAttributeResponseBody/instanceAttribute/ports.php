@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ports extends Model
 {
     /**
+     * @example 600xx
+     *
      * @var int
      */
     public $customPort;
 
     /**
+     * @example 60022
+     *
      * @var int
      */
     public $standardPort;

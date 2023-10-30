@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceTwoFactorRequest extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **GetInstanceTwoFactor**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

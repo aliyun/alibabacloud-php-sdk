@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DisableInstancePublicAccessResponseBody extends Model
 {
     /**
+     * @description The ID of the bastion host whose Internet access is disabled.
+     *
+     * @example bastionhost-cn-78v1gh****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 76FAAF15-D3A3-4099-9941-FC408D9FDB4C
+     *
      * @var string
      */
     public $requestId;

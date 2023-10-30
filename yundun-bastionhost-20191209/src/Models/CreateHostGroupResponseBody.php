@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateHostGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the host group.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;

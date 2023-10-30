@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ConfigInstanceWhiteListResponseBody extends Model
 {
     /**
+     * @example bastionhost-cn-78v1gh****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 47820E32-5968-45CF-982F-09CB80DC180B
+     *
      * @var string
      */
     public $requestId;

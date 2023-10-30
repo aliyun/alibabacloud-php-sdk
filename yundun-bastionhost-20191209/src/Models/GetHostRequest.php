@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class GetHostRequest extends Model
 {
     /**
+     * @description The protocol that is used to connect to the host. Valid values:
+     *
+     *   **SSH**
+     *   **RDP**
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @description The ID of the host that you want to query. You can specify only one host ID.
+     *
+     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the host.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

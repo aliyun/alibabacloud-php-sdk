@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The region ID of the Bastionhost instance.
+     *
+     * @example 6EwFJmScBXFFC3nf.9Rq7HzA7APx7GWLbkZbjHrR6Pq39w
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example bastionhost-cn-78v1gcxxxxx
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The operation that you want to perform.
+     *
+     * Set the value to **ListTagResources**.
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The key of tag N.
+     *
+     * Valid values of N: 1 to 20.
      * @var tag[]
      */
     public $tag;

@@ -6,14 +6,28 @@ namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpgradeInstanceImageVersionResponseBody extends Model
+class CreateUserPublicKeyResponseBody extends Model
 {
     /**
+     * @description The ID of the public key.
+     *
+     * @example 1
+     *
+     * @var string
+     */
+    public $publicKeyId;
+
+    /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5EAB922E-F476-5DFA-9290-313C608E724B
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'publicKeyId' => 'PublicKeyId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -23,6 +37,9 @@ class UpgradeInstanceImageVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->publicKeyId) {
+            $res['PublicKeyId'] = $this->publicKeyId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -33,11 +50,14 @@ class UpgradeInstanceImageVersionResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpgradeInstanceImageVersionResponseBody
+     * @return CreateUserPublicKeyResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PublicKeyId'])) {
+            $model->publicKeyId = $map['PublicKeyId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

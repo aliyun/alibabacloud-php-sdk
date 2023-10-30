@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class hostAccountNames extends Model
 {
     /**
+     * @description The return code that indicates whether permissions on the specified host account were revoked from the user. Valid values:
+     *
+     *   **OK**: The call was successful.
+     *   **UNEXPECTED**: An unknown error occurred.
+     *   **INVALID_ARGUMENT**: A request parameter is invalid.
+     *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+     *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The name of the host account.
+     *
+     * @example root
+     *
      * @var string
      */
     public $hostAccountName;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $message;

@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteHostGroupRequest extends Model
 {
     /**
+     * @description The ID of the host group that you want to delete.
+     *
+     * > You can call the [ListHostGroups](~~201307~~) operation to query the ID of the host group.
+     * @example 1
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @description The ID of the bastion host from which you want to delete the host group.
+     *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host from which you want to delete the host group.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

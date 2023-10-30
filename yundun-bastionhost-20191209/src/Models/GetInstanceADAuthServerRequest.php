@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceADAuthServerRequest extends Model
 {
     /**
+     * @description The field that is used to indicate the email address of a user on the AD server.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether passwords are required. Valid values:
+     *
+     *   **true**: required
+     *   **false**: not required
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

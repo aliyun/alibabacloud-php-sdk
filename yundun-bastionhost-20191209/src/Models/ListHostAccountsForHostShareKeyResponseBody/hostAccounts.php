@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class hostAccounts extends Model
 {
     /**
+     * @description The name of the host account.
+     *
+     * @example root1234
+     *
      * @var string
      */
     public $hostAccountName;
 
     /**
+     * @description The ID of the host.
+     *
+     * @example 1113
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @description The ID of the host account.
+     *
+     * @example 1235
+     *
      * @var string
      */
     public $hostsAccountId;
 
     /**
+     * @description The O\&M protocol.
+     *
+     * @example SSH
+     *
      * @var string
      */
     public $protocolName;

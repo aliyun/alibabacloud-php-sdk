@@ -6,9 +6,13 @@ namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyInstanceUpgradePeriodResponseBody extends Model
+class AcceptOperationTicketResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;
@@ -33,7 +37,7 @@ class ModifyInstanceUpgradePeriodResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyInstanceUpgradePeriodResponseBody
+     * @return AcceptOperationTicketResponseBody
      */
     public static function fromMap($map = [])
     {

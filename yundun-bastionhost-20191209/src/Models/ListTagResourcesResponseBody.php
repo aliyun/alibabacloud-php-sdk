@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description Queries the tags bound to one or more Bastionhost instances.
+     *
+     * @example 4ieSWJCwxvW3dk3wF.BqkrZmP72nWu5zJ5NWydMqyEs****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description ListTagResources
+     *
+     * @example 134D6018-EB68-4B7C-BABF-4DB09023E014
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 58928
+     *
      * @var tagResources[]
      */
     public $tagResources;

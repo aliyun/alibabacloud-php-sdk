@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example E07158EA-D1A3-4BAA-84DA-2FE230D03884
+     *
      * @var string
      */
     public $requestId;

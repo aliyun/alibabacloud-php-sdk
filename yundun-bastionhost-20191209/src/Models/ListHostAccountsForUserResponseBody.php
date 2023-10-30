@@ -10,16 +10,28 @@ use AlibabaCloud\Tea\Model;
 class ListHostAccountsForUserResponseBody extends Model
 {
     /**
+     * @description The host accounts returned.
+     *
      * @var hostAccounts[]
      */
     public $hostAccounts;
 
     /**
+     * @description The ID of the Bastionhost instance where you want to query the host accounts that the user is authorized to manage on the host.
+     *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * >  We recommend that you do not leave the PageSize parameter empty.
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListHostsForUserGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the user group for which you want to query hosts.
+     *
+     * >  You can call the [ListUserGroups](~~204509~~) operation to query the ID of the user group.
      * @var hosts[]
      */
     public $hosts;
 
     /**
+     * @description The hosts returned.
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The public endpoint of the host. The value is a domain name or an IP address.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

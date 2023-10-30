@@ -9,61 +9,104 @@ use AlibabaCloud\Tea\Model;
 class LDAP extends Model
 {
     /**
+     * @description The ID of the bastion host.
+     *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @example cn=Manager,dc=test,dc=com
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @description The field that is used to indicate the logon name of a user on the LDAP server.
+     *
+     * @example dc=test,dc=com
+     *
      * @var string
      */
     public $baseDN;
 
     /**
+     * @description The address of the secondary LDAP server.
+     *
+     * @example emailAttr
+     *
      * @var string
      */
     public $emailMapping;
 
     /**
+     * @description The Base distinguished name (DN).
+     *
+     * @example (&(objectClass=top))
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example true
+     *
      * @var string
      */
     public $hasPassword;
 
     /**
+     * @description The condition that is used to filter users.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSSL;
 
     /**
+     * @description The port that is used to access the LDAP server.
+     *
+     * @example userNameAttr
+     *
      * @var string
      */
     public $loginNameMapping;
 
     /**
+     * @description The field that is used to indicate the email address of a user on the LDAP server.
+     *
+     * @example mobileAttr
+     *
      * @var string
      */
     public $mobileMapping;
 
     /**
+     * @description The field that is used to indicate the mobile phone number of a user on the LDAP server.
+     *
+     * @example nameAttr
+     *
      * @var string
      */
     public $nameMapping;
 
     /**
+     * @example 389
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $server;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $standbyServer;

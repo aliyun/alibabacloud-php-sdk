@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class GetHostShareKeyResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **GetHostShareKey**.
+     *
      * @var hostShareKey
      */
     public $hostShareKey;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
      */

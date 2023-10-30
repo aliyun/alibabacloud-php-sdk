@@ -6,38 +6,40 @@ namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyInstanceUpgradePeriodRequest extends Model
+class ListApproveCommandsRequest extends Model
 {
     /**
+     * @example bastionhost-cn-zvp2xvysf08
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
-    public $lang;
+    public $pageNumber;
 
     /**
+     * @example 20
+     *
+     * @var string
+     */
+    public $pageSize;
+
+    /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $upgradeMode;
-
-    /**
-     * @var string
-     */
-    public $upgradeStartTime;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
-        'lang'             => 'Lang',
-        'regionId'         => 'RegionId',
-        'upgradeMode'      => 'UpgradeMode',
-        'upgradeStartTime' => 'UpgradeStartTime',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -50,17 +52,14 @@ class ModifyInstanceUpgradePeriodRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->upgradeMode) {
-            $res['UpgradeMode'] = $this->upgradeMode;
-        }
-        if (null !== $this->upgradeStartTime) {
-            $res['UpgradeStartTime'] = $this->upgradeStartTime;
         }
 
         return $res;
@@ -69,7 +68,7 @@ class ModifyInstanceUpgradePeriodRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyInstanceUpgradePeriodRequest
+     * @return ListApproveCommandsRequest
      */
     public static function fromMap($map = [])
     {
@@ -77,17 +76,14 @@ class ModifyInstanceUpgradePeriodRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['UpgradeMode'])) {
-            $model->upgradeMode = $map['UpgradeMode'];
-        }
-        if (isset($map['UpgradeStartTime'])) {
-            $model->upgradeStartTime = $map['UpgradeStartTime'];
         }
 
         return $model;

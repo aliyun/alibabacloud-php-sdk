@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class AddUsersToGroupResponseBody extends Model
 {
     /**
+     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~315526~~).
+     *
+     * For more information about sample requests, see the "Examples" section of this topic.
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Adds one or more users to a user group.
+     *
      * @var results[]
      */
     public $results;

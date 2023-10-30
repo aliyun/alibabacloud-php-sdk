@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ConfigInstanceSecurityGroupsResponseBody extends Model
 {
     /**
+     * @description The ID of the bastion host for which security groups were configured.
+     *
+     * @example bastionhost-cn-78v1gh****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 0ECCC399-4D35-48A7-8379-5C6180E66235
+     *
      * @var string
      */
     public $requestId;

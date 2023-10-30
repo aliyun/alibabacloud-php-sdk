@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceLDAPAuthServerRequest extends Model
 {
     /**
+     * @description Indicates whether passwords are required. Valid values:
+     *
+     *   **true**: required
+     *   **false**: not required
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **GetInstanceLDAPAuthServer**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

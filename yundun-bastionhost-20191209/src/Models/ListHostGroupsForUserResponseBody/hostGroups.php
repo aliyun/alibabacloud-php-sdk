@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class hostGroups extends Model
 {
     /**
+     * @description ListHostGroupsForUser
+     *
+     * @example comment
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description WB662865
+     *
+     * @example １
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @example group
+     *
      * @var string
      */
     public $hostGroupName;

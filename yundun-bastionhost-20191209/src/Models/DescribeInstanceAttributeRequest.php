@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAttributeRequest extends Model
 {
     /**
+     * @example bastionhost-cn-78v1ghxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

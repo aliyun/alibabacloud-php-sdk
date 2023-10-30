@@ -9,46 +9,96 @@ use AlibabaCloud\Tea\Model;
 class ListHostsForUserGroupRequest extends Model
 {
     /**
+     * @description The operating system of the host that you want to query. Valid values:
+     *
+     *   **Linux**
+     *   **Windows**
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @description The ID of the Bastionhost instance where you want to query the hosts that the user group is authorized or not authorized to manage.
+     *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
+     * @example abc
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The category of the host that you want to query. Valid values:
+     *
+     *   **Authorized**: Query the hosts that the user group is authorized to manage. This is the default value.
+     *   **Unauthorized**: Query the hosts that the user group is not authorized to manage.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operating system of the host. Valid values:
+     *
+     *   **Linux**
+     *   **Windows**
+     *
+     * @example Authorized
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The internal endpoint of the host. The value is a domain name or an IP address.
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @description The endpoint type of the host. Valid values:
+     *
+     *   **Public**: a public endpoint
+     *   **Private**: an internal endpoint
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * >  We recommend that you do not leave the PageSize parameter empty.
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The endpoint of the host that you want to query. You can set this parameter to a domain name or an IP address. Only exact match is supported.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $userGroupId;

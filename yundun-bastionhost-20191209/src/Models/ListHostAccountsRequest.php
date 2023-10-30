@@ -9,36 +9,77 @@ use AlibabaCloud\Tea\Model;
 class ListHostAccountsRequest extends Model
 {
     /**
+     * @description Indicates whether a password is configured for the host account.
+     *
+     * Valid values:
+     *
+     *   true: A password is configured for the host account.
+     *   false: No passwords are configured for the host account.
+     *
+     * @example abc
+     *
      * @var string
      */
     public $hostAccountName;
 
     /**
+     * @description The protocol used by the host whose accounts you want to query.
+     *
+     * Valid values:
+     *
+     *   SSH
+     *   RDP
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @description The ID of the shared key.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform.
+     *
+     * Set the value to **ListHostAccounts**.
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The name of the host account that you want to query. The name can be up to 128 characters in length. Only exact match is supported.
+     *
+     * @example SSH
+     *
      * @var string
      */
     public $protocolName;
 
     /**
+     * @description The ID of the specified host whose accounts you want to query.
+     *
+     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

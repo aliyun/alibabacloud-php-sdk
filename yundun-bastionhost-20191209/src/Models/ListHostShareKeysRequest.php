@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListHostShareKeysRequest extends Model
 {
     /**
+     * @description The ID of the bastion host. You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host. For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

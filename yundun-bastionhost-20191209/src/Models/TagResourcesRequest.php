@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The region ID of the bastion hosts to which you want to create and add tags.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description An array that consists of IDs of bastion hosts.
+     *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query IDs of bastion hosts.
+     * @example bastionhost-cn-78v1gc****
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * Set the value to **INSTANCE**, which indicates that the resource is a bastion host.
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description An array that consists of tags.
+     *
      * @var tag[]
      */
     public $tag;

@@ -10,56 +10,107 @@ use AlibabaCloud\Tea\Model;
 class host extends Model
 {
     /**
+     * @description The public endpoint of the host. You can set this parameter to a domain name or an IP address.
+     *
+     * @example Public
+     *
      * @var string
      */
     public $activeAddressType;
 
     /**
+     * @description The ID of the ECS instance or dedicated cluster host that was queried.
+     *
+     * >  No value is returned for this parameter if the **Source** parameter is set to **Local**.
+     * @example host
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @description The ID of the Bastionhost instance where you want to query the host.
+     *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
+     * @example host
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The description of the host.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $hostPrivateAddress;
 
     /**
+     * @description The status of the host. Valid values:
+     *
+     * - **Normal**: The host is normal.
+     *
+     * - **Release**: The host is released.
+     * @example 1.1.XX.XX
+     *
      * @var string
      */
     public $hostPublicAddress;
 
     /**
+     * @description The operating system of the host. Valid values:
+     *
+     *   **Linux**
+     *   **Windows**
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @description GetHost
+     *
      * @var protocols[]
      */
     public $protocols;
 
     /**
+     * @description The protocol information of the host.
+     *
+     * @example Local
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description Queries the details of a specified host, such as the name, source, endpoint, protocol, and service port of the host.
+     *
+     * @example i-bp19ienyt0yax748****
+     *
      * @var string
      */
     public $sourceInstanceId;
 
     /**
+     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~315526~~).
+     *
+     * For more information about sample requests, see the "Examples" section of this topic.
+     * @example Normal
+     *
      * @var string
      */
     public $sourceInstanceState;

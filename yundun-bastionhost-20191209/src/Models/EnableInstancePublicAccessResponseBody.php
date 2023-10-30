@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EnableInstancePublicAccessResponseBody extends Model
 {
     /**
+     * @example bastionhost-cn-78v1gh****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example D47B5043-FDD6-4FBE-976E-5FC67A23578F
+     *
      * @var string
      */
     public $requestId;

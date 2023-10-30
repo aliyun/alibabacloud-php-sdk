@@ -10,12 +10,19 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceADAuthServerResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **GetInstanceADAuthServer**.
+     *
      * @var AD
      */
     public $AD;
 
     /**
-     * @description Id of the request
+     * @description Indicates whether SSL is supported. Valid values:
+     *
+     *   **true**: supported
+     *   **false**: not supported
+     *
+     * @example 89398CFB-4EB6-4C7E-BB3C-EF213AC8FA50
      *
      * @var string
      */

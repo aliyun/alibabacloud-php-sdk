@@ -9,56 +9,114 @@ use AlibabaCloud\Tea\Model;
 class hosts extends Model
 {
     /**
+     * @description The address type of the host. Valid values:
+     *
+     *   **Public**: a public address
+     *   **Private**: a private address
+     *
+     * @example Public
+     *
      * @var string
      */
     public $activeAddressType;
 
     /**
+     * @description The description of the host.
+     *
+     * @example host
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The number of host accounts.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $hostAccountCount;
 
     /**
+     * @description The ID of the host.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @description The name of the host.
+     *
+     * @example name
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The private address of the host. The value is a domain name or an IP address.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $hostPrivateAddress;
 
     /**
+     * @description The public address of the host. The value is a domain name or an IP address.
+     *
+     * @example 1.1.XX.XX
+     *
      * @var string
      */
     public $hostPublicAddress;
 
     /**
+     * @description The operating system of the host. Valid values:
+     *
+     *   **Linux**
+     *   **Windows**
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @description The source of the host. Valid values:
+     *
+     *   **Local**: a host in a data center
+     *   **Ecs**: an ECS instance
+     *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
+     *
+     * @example Local
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
+     *
+     * > No value is returned for this parameter if the **Source** parameter is set to **Local**.
+     * @example i-bp19ienyt0yax748****
+     *
      * @var string
      */
     public $sourceInstanceId;
 
     /**
+     * @description The status of the host. Valid values:
+     *
+     *   **Normal**: normal
+     *   **Release**: released
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $sourceInstanceState;

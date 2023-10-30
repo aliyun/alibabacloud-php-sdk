@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateHostAccountResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostAccountId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **CreateHostAccount**.
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;

@@ -6,6 +6,10 @@ namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AcceptApproveCommandRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AcceptApproveCommandResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AcceptOperationTicketRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AcceptOperationTicketResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddHostsToGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddHostsToGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddUsersToGroupRequest;
@@ -34,6 +38,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostShareKeyReques
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostShareKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserPublicKeyRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserPublicKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteHostAccountRequest;
@@ -46,6 +52,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteHostShareKeyReques
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteHostShareKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteUserGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteUserPublicKeyRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteUserPublicKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstanceAttributeRequest;
@@ -82,12 +90,12 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceLDAPAuthServe
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceLDAPAuthServerResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceTwoFactorRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceTwoFactorResponse;
-use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceUpgradeInfoRequest;
-use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceUpgradeInfoResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListApproveCommandsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListApproveCommandsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostAccountsForHostShareKeyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostAccountsForHostShareKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostAccountsForUserGroupRequest;
@@ -114,12 +122,16 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostShareKeysRequest
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostShareKeysResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationTicketsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationTicketsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUserGroupsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUserPublicKeysRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUserPublicKeysResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\LockUsersRequest;
@@ -144,14 +156,16 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceLDAPAuthSe
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceLDAPAuthServerResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceTwoFactorRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceTwoFactorResponse;
-use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceUpgradePeriodRequest;
-use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceUpgradePeriodResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\MoveResourceGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RejectApproveCommandRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RejectApproveCommandResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RejectOperationTicketRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RejectOperationTicketResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveHostsFromGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveHostsFromGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveUsersFromGroupRequest;
@@ -166,12 +180,6 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UnlockUsersRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UnlockUsersResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UntagResourcesResponse;
-use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UpgradeInstanceImageVersionRequest;
-use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UpgradeInstanceImageVersionResponse;
-use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\VerifyInstanceADAuthServerRequest;
-use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\VerifyInstanceADAuthServerResponse;
-use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\VerifyInstanceLDAPAuthServerRequest;
-use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\VerifyInstanceLDAPAuthServerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -212,10 +220,127 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AddHostsToGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param AcceptApproveCommandRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return AddHostsToGroupResponse
+     * @return AcceptApproveCommandResponse
+     */
+    public function acceptApproveCommandWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commandId)) {
+            $query['CommandId'] = $request->commandId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AcceptApproveCommand',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AcceptApproveCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AcceptApproveCommandRequest $request
+     *
+     * @return AcceptApproveCommandResponse
+     */
+    public function acceptApproveCommand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->acceptApproveCommandWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param AcceptOperationTicketRequest $request AcceptOperationTicketRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AcceptOperationTicketResponse AcceptOperationTicketResponse
+     */
+    public function acceptOperationTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->effectCount)) {
+            $query['EffectCount'] = $request->effectCount;
+        }
+        if (!Utils::isUnset($request->effectEndTime)) {
+            $query['EffectEndTime'] = $request->effectEndTime;
+        }
+        if (!Utils::isUnset($request->effectStartTime)) {
+            $query['EffectStartTime'] = $request->effectStartTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->operationTicketId)) {
+            $query['OperationTicketId'] = $request->operationTicketId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AcceptOperationTicket',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AcceptOperationTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param AcceptOperationTicketRequest $request AcceptOperationTicketRequest
+     *
+     * @return AcceptOperationTicketResponse AcceptOperationTicketResponse
+     */
+    public function acceptOperationTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->acceptOperationTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
+     *   * # Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param AddHostsToGroupRequest $request AddHostsToGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddHostsToGroupResponse AddHostsToGroupResponse
      */
     public function addHostsToGroupWithOptions($request, $runtime)
     {
@@ -252,9 +377,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AddHostsToGroupRequest $request
+     * You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
+     *   * # Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param AddHostsToGroupRequest $request AddHostsToGroupRequest
      *
-     * @return AddHostsToGroupResponse
+     * @return AddHostsToGroupResponse AddHostsToGroupResponse
      */
     public function addHostsToGroup($request)
     {
@@ -264,10 +393,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AddUsersToGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * This parameter is deprecated.
+     *   *
+     * @param AddUsersToGroupRequest $request AddUsersToGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUsersToGroupResponse
+     * @return AddUsersToGroupResponse AddUsersToGroupResponse
      */
     public function addUsersToGroupWithOptions($request, $runtime)
     {
@@ -304,9 +435,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AddUsersToGroupRequest $request
+     * This parameter is deprecated.
+     *   *
+     * @param AddUsersToGroupRequest $request AddUsersToGroupRequest
      *
-     * @return AddUsersToGroupResponse
+     * @return AddUsersToGroupResponse AddUsersToGroupResponse
      */
     public function addUsersToGroup($request)
     {
@@ -420,10 +553,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachHostAccountsToUserGroupRequest $request
-     * @param RuntimeOptions                       $runtime
+     * After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
+     *   *
+     * @param AttachHostAccountsToUserGroupRequest $request AttachHostAccountsToUserGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachHostAccountsToUserGroupResponse
+     * @return AttachHostAccountsToUserGroupResponse AttachHostAccountsToUserGroupResponse
      */
     public function attachHostAccountsToUserGroupWithOptions($request, $runtime)
     {
@@ -460,9 +595,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachHostAccountsToUserGroupRequest $request
+     * After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
+     *   *
+     * @param AttachHostAccountsToUserGroupRequest $request AttachHostAccountsToUserGroupRequest
      *
-     * @return AttachHostAccountsToUserGroupResponse
+     * @return AttachHostAccountsToUserGroupResponse AttachHostAccountsToUserGroupResponse
      */
     public function attachHostAccountsToUserGroup($request)
     {
@@ -628,10 +765,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ConfigInstanceWhiteListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *   *
+     * @param ConfigInstanceWhiteListRequest $request ConfigInstanceWhiteListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigInstanceWhiteListResponse
+     * @return ConfigInstanceWhiteListResponse ConfigInstanceWhiteListResponse
      */
     public function configInstanceWhiteListWithOptions($request, $runtime)
     {
@@ -665,9 +804,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ConfigInstanceWhiteListRequest $request
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *   *
+     * @param ConfigInstanceWhiteListRequest $request ConfigInstanceWhiteListRequest
      *
-     * @return ConfigInstanceWhiteListResponse
+     * @return ConfigInstanceWhiteListResponse ConfigInstanceWhiteListResponse
      */
     public function configInstanceWhiteList($request)
     {
@@ -924,10 +1065,15 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * ## Usage notes
+     *   * You can call this operation to add a user to a bastion host. You can add local users and Resource Access Management (RAM) users. After a Bastionhost administrator adds a user to a bastion host, the O&M personnel can log on to the bastion host as the user to perform O&M operations on the host on which they have permissions.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateUserRequest $request CreateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUserWithOptions($request, $runtime)
     {
@@ -938,6 +1084,12 @@ class Yundunbastionhost extends OpenApiClient
         }
         if (!Utils::isUnset($request->displayName)) {
             $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->effectiveEndTime)) {
+            $query['EffectiveEndTime'] = $request->effectiveEndTime;
+        }
+        if (!Utils::isUnset($request->effectiveStartTime)) {
+            $query['EffectiveStartTime'] = $request->effectiveStartTime;
         }
         if (!Utils::isUnset($request->email)) {
             $query['Email'] = $request->email;
@@ -951,6 +1103,9 @@ class Yundunbastionhost extends OpenApiClient
         if (!Utils::isUnset($request->mobileCountryCode)) {
             $query['MobileCountryCode'] = $request->mobileCountryCode;
         }
+        if (!Utils::isUnset($request->needResetPassword)) {
+            $query['NeedResetPassword'] = $request->needResetPassword;
+        }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
         }
@@ -962,6 +1117,12 @@ class Yundunbastionhost extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceUserId)) {
             $query['SourceUserId'] = $request->sourceUserId;
+        }
+        if (!Utils::isUnset($request->twoFactorMethods)) {
+            $query['TwoFactorMethods'] = $request->twoFactorMethods;
+        }
+        if (!Utils::isUnset($request->twoFactorStatus)) {
+            $query['TwoFactorStatus'] = $request->twoFactorStatus;
         }
         if (!Utils::isUnset($request->userName)) {
             $query['UserName'] = $request->userName;
@@ -985,9 +1146,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
+     * ## Usage notes
+     *   * You can call this operation to add a user to a bastion host. You can add local users and Resource Access Management (RAM) users. After a Bastionhost administrator adds a user to a bastion host, the O&M personnel can log on to the bastion host as the user to perform O&M operations on the host on which they have permissions.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateUserRequest $request CreateUserRequest
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUser($request)
     {
@@ -997,10 +1163,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](~~204600~~) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateUserGroupRequest $request CreateUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserGroupResponse
+     * @return CreateUserGroupResponse CreateUserGroupResponse
      */
     public function createUserGroupWithOptions($request, $runtime)
     {
@@ -1037,15 +1206,80 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateUserGroupRequest $request
+     * You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](~~204600~~) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateUserGroupRequest $request CreateUserGroupRequest
      *
-     * @return CreateUserGroupResponse
+     * @return CreateUserGroupResponse CreateUserGroupResponse
      */
     public function createUserGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->createUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
+     *   *
+     * @param CreateUserPublicKeyRequest $request CreateUserPublicKeyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateUserPublicKeyResponse CreateUserPublicKeyResponse
+     */
+    public function createUserPublicKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->publicKey)) {
+            $query['PublicKey'] = $request->publicKey;
+        }
+        if (!Utils::isUnset($request->publicKeyName)) {
+            $query['PublicKeyName'] = $request->publicKeyName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUserPublicKey',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateUserPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
+     *   *
+     * @param CreateUserPublicKeyRequest $request CreateUserPublicKeyRequest
+     *
+     * @return CreateUserPublicKeyResponse CreateUserPublicKeyResponse
+     */
+    public function createUserPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUserPublicKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -1098,10 +1332,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostAccountRequest $request
-     * @param RuntimeOptions           $runtime
+     * All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~315526~~).
+     *   * For more information about sample requests, see the "Examples" section of this topic.
+     *   *
+     * @param DeleteHostAccountRequest $request DeleteHostAccountRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHostAccountResponse
+     * @return DeleteHostAccountResponse DeleteHostAccountResponse
      */
     public function deleteHostAccountWithOptions($request, $runtime)
     {
@@ -1135,9 +1372,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostAccountRequest $request
+     * All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~315526~~).
+     *   * For more information about sample requests, see the "Examples" section of this topic.
+     *   *
+     * @param DeleteHostAccountRequest $request DeleteHostAccountRequest
      *
-     * @return DeleteHostAccountResponse
+     * @return DeleteHostAccountResponse DeleteHostAccountResponse
      */
     public function deleteHostAccount($request)
     {
@@ -1147,10 +1387,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteHostGroupRequest $request DeleteHostGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHostGroupResponse
+     * @return DeleteHostGroupResponse DeleteHostGroupResponse
      */
     public function deleteHostGroupWithOptions($request, $runtime)
     {
@@ -1184,9 +1428,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostGroupRequest $request
+     * You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteHostGroupRequest $request DeleteHostGroupRequest
      *
-     * @return DeleteHostGroupResponse
+     * @return DeleteHostGroupResponse DeleteHostGroupResponse
      */
     public function deleteHostGroup($request)
     {
@@ -1343,6 +1591,59 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * You can call the DeleteUserPublicKey operation to delete a public key from the specified user of a bastion host.
+     *   *
+     * @param DeleteUserPublicKeyRequest $request DeleteUserPublicKeyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteUserPublicKeyResponse DeleteUserPublicKeyResponse
+     */
+    public function deleteUserPublicKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->publicKeyId)) {
+            $query['PublicKeyId'] = $request->publicKeyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUserPublicKey',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteUserPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can call the DeleteUserPublicKey operation to delete a public key from the specified user of a bastion host.
+     *   *
+     * @param DeleteUserPublicKeyRequest $request DeleteUserPublicKeyRequest
+     *
+     * @return DeleteUserPublicKeyResponse DeleteUserPublicKeyResponse
+     */
+    public function deleteUserPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserPublicKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeInstanceAttributeRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1464,6 +1765,9 @@ class Yundunbastionhost extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1704,10 +2008,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachHostGroupAccountsFromUserGroupRequest $request
-     * @param RuntimeOptions                              $runtime
+     * ****
+     *   *
+     * @param DetachHostGroupAccountsFromUserGroupRequest $request DetachHostGroupAccountsFromUserGroupRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachHostGroupAccountsFromUserGroupResponse
+     * @return DetachHostGroupAccountsFromUserGroupResponse DetachHostGroupAccountsFromUserGroupResponse
      */
     public function detachHostGroupAccountsFromUserGroupWithOptions($request, $runtime)
     {
@@ -1744,9 +2050,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachHostGroupAccountsFromUserGroupRequest $request
+     * ****
+     *   *
+     * @param DetachHostGroupAccountsFromUserGroupRequest $request DetachHostGroupAccountsFromUserGroupRequest
      *
-     * @return DetachHostGroupAccountsFromUserGroupResponse
+     * @return DetachHostGroupAccountsFromUserGroupResponse DetachHostGroupAccountsFromUserGroupResponse
      */
     public function detachHostGroupAccountsFromUserGroup($request)
     {
@@ -2044,10 +2352,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceADAuthServerRequest $request
-     * @param RuntimeOptions                 $runtime
+     * The condition that is used to filter users.
+     *   *
+     * @param GetInstanceADAuthServerRequest $request GetInstanceADAuthServerRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceADAuthServerResponse
+     * @return GetInstanceADAuthServerResponse GetInstanceADAuthServerResponse
      */
     public function getInstanceADAuthServerWithOptions($request, $runtime)
     {
@@ -2078,9 +2388,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceADAuthServerRequest $request
+     * The condition that is used to filter users.
+     *   *
+     * @param GetInstanceADAuthServerRequest $request GetInstanceADAuthServerRequest
      *
-     * @return GetInstanceADAuthServerResponse
+     * @return GetInstanceADAuthServerResponse GetInstanceADAuthServerResponse
      */
     public function getInstanceADAuthServer($request)
     {
@@ -2136,10 +2448,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceTwoFactorRequest $request
-     * @param RuntimeOptions              $runtime
+     * Indicates whether two-factor authentication is enabled. Valid values:
+     *   * *   **true**: enabled
+     *   * *   **false**: disabled.
+     *   *
+     * @param GetInstanceTwoFactorRequest $request GetInstanceTwoFactorRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceTwoFactorResponse
+     * @return GetInstanceTwoFactorResponse GetInstanceTwoFactorResponse
      */
     public function getInstanceTwoFactorWithOptions($request, $runtime)
     {
@@ -2170,64 +2486,19 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceTwoFactorRequest $request
+     * Indicates whether two-factor authentication is enabled. Valid values:
+     *   * *   **true**: enabled
+     *   * *   **false**: disabled.
+     *   *
+     * @param GetInstanceTwoFactorRequest $request GetInstanceTwoFactorRequest
      *
-     * @return GetInstanceTwoFactorResponse
+     * @return GetInstanceTwoFactorResponse GetInstanceTwoFactorResponse
      */
     public function getInstanceTwoFactor($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceTwoFactorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetInstanceUpgradeInfoRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetInstanceUpgradeInfoResponse
-     */
-    public function getInstanceUpgradeInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetInstanceUpgradeInfo',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetInstanceUpgradeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetInstanceUpgradeInfoRequest $request
-     *
-     * @return GetInstanceUpgradeInfoResponse
-     */
-    public function getInstanceUpgradeInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getInstanceUpgradeInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -2326,6 +2597,58 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListApproveCommandsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListApproveCommandsResponse
+     */
+    public function listApproveCommandsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApproveCommands',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApproveCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListApproveCommandsRequest $request
+     *
+     * @return ListApproveCommandsResponse
+     */
+    public function listApproveCommands($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApproveCommandsWithOptions($request, $runtime);
     }
 
     /**
@@ -3107,6 +3430,61 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param ListOperationTicketsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListOperationTicketsResponse
+     */
+    public function listOperationTicketsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assetAddress)) {
+            $query['AssetAddress'] = $request->assetAddress;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOperationTickets',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOperationTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOperationTicketsRequest $request
+     *
+     * @return ListOperationTicketsResponse
+     */
+    public function listOperationTickets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOperationTicketsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTagKeysRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -3269,6 +3647,61 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param ListUserPublicKeysRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListUserPublicKeysResponse
+     */
+    public function listUserPublicKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserPublicKeys',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserPublicKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserPublicKeysRequest $request
+     *
+     * @return ListUserPublicKeysResponse
+     */
+    public function listUserPublicKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserPublicKeysWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListUsersRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -3342,10 +3775,15 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param LockUsersRequest $request
-     * @param RuntimeOptions   $runtime
+     * # Description
+     *   * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](~~204590~~) operation.
+     *   * # Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param LockUsersRequest $request LockUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return LockUsersResponse
+     * @return LockUsersResponse LockUsersResponse
      */
     public function lockUsersWithOptions($request, $runtime)
     {
@@ -3379,9 +3817,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param LockUsersRequest $request
+     * # Description
+     *   * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](~~204590~~) operation.
+     *   * # Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param LockUsersRequest $request LockUsersRequest
      *
-     * @return LockUsersResponse
+     * @return LockUsersResponse LockUsersResponse
      */
     public function lockUsers($request)
     {
@@ -3391,10 +3834,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostRequest $request
-     * @param RuntimeOptions    $runtime
+     * The ID of the request.
+     *   *
+     * @param ModifyHostRequest $request ModifyHostRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHostResponse
+     * @return ModifyHostResponse ModifyHostResponse
      */
     public function modifyHostWithOptions($request, $runtime)
     {
@@ -3443,9 +3888,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostRequest $request
+     * The ID of the request.
+     *   *
+     * @param ModifyHostRequest $request ModifyHostRequest
      *
-     * @return ModifyHostResponse
+     * @return ModifyHostResponse ModifyHostResponse
      */
     public function modifyHost($request)
     {
@@ -3684,10 +4131,16 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostsPortRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Usage notes
+     *   * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.
+     *   * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.
+     *   * ## QPS limit
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyHostsPortRequest $request ModifyHostsPortRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHostsPortResponse
+     * @return ModifyHostsPortResponse ModifyHostsPortResponse
      */
     public function modifyHostsPortWithOptions($request, $runtime)
     {
@@ -3727,9 +4180,15 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostsPortRequest $request
+     * ## Usage notes
+     *   * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.
+     *   * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.
+     *   * ## QPS limit
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyHostsPortRequest $request ModifyHostsPortRequest
      *
-     * @return ModifyHostsPortResponse
+     * @return ModifyHostsPortResponse ModifyHostsPortResponse
      */
     public function modifyHostsPort($request)
     {
@@ -3961,17 +4420,11 @@ class Yundunbastionhost extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->dingTalkConfig)) {
-            $query['DingTalkConfig'] = $request->dingTalkConfig;
-        }
         if (!Utils::isUnset($request->enableTwoFactor)) {
             $query['EnableTwoFactor'] = $request->enableTwoFactor;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->messageLanguage)) {
-            $query['MessageLanguage'] = $request->messageLanguage;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -4013,61 +4466,6 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceUpgradePeriodRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyInstanceUpgradePeriodResponse
-     */
-    public function modifyInstanceUpgradePeriodWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->upgradeMode)) {
-            $query['UpgradeMode'] = $request->upgradeMode;
-        }
-        if (!Utils::isUnset($request->upgradeStartTime)) {
-            $query['UpgradeStartTime'] = $request->upgradeStartTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyInstanceUpgradePeriod',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyInstanceUpgradePeriodResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyInstanceUpgradePeriodRequest $request
-     *
-     * @return ModifyInstanceUpgradePeriodResponse
-     */
-    public function modifyInstanceUpgradePeriod($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyInstanceUpgradePeriodWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyUserRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -4083,6 +4481,12 @@ class Yundunbastionhost extends OpenApiClient
         if (!Utils::isUnset($request->displayName)) {
             $query['DisplayName'] = $request->displayName;
         }
+        if (!Utils::isUnset($request->effectiveEndTime)) {
+            $query['EffectiveEndTime'] = $request->effectiveEndTime;
+        }
+        if (!Utils::isUnset($request->effectiveStartTime)) {
+            $query['EffectiveStartTime'] = $request->effectiveStartTime;
+        }
         if (!Utils::isUnset($request->email)) {
             $query['Email'] = $request->email;
         }
@@ -4095,11 +4499,20 @@ class Yundunbastionhost extends OpenApiClient
         if (!Utils::isUnset($request->mobileCountryCode)) {
             $query['MobileCountryCode'] = $request->mobileCountryCode;
         }
+        if (!Utils::isUnset($request->needResetPassword)) {
+            $query['NeedResetPassword'] = $request->needResetPassword;
+        }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->twoFactorMethods)) {
+            $query['TwoFactorMethods'] = $request->twoFactorMethods;
+        }
+        if (!Utils::isUnset($request->twoFactorStatus)) {
+            $query['TwoFactorStatus'] = $request->twoFactorStatus;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;
@@ -4242,6 +4655,104 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param RejectApproveCommandRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RejectApproveCommandResponse
+     */
+    public function rejectApproveCommandWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commandId)) {
+            $query['CommandId'] = $request->commandId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RejectApproveCommand',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RejectApproveCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RejectApproveCommandRequest $request
+     *
+     * @return RejectApproveCommandResponse
+     */
+    public function rejectApproveCommand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rejectApproveCommandWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RejectOperationTicketRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RejectOperationTicketResponse
+     */
+    public function rejectOperationTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->operationTicketId)) {
+            $query['OperationTicketId'] = $request->operationTicketId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RejectOperationTicket',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RejectOperationTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RejectOperationTicketRequest $request
+     *
+     * @return RejectOperationTicketResponse
+     */
+    public function rejectOperationTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rejectOperationTicketWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RemoveHostsFromGroupRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -4294,10 +4805,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param RemoveUsersFromGroupRequest $request
-     * @param RuntimeOptions              $runtime
+     * This parameter is deprecated.
+     *   *
+     * @param RemoveUsersFromGroupRequest $request RemoveUsersFromGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUsersFromGroupResponse
+     * @return RemoveUsersFromGroupResponse RemoveUsersFromGroupResponse
      */
     public function removeUsersFromGroupWithOptions($request, $runtime)
     {
@@ -4334,9 +4847,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param RemoveUsersFromGroupRequest $request
+     * This parameter is deprecated.
+     *   *
+     * @param RemoveUsersFromGroupRequest $request RemoveUsersFromGroupRequest
      *
-     * @return RemoveUsersFromGroupResponse
+     * @return RemoveUsersFromGroupResponse RemoveUsersFromGroupResponse
      */
     public function removeUsersFromGroup($request)
     {
@@ -4502,10 +5017,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param UnlockUsersRequest $request
-     * @param RuntimeOptions     $runtime
+     * After you call the [LockUsers](~~204591~~) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
+     *   * # Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UnlockUsersRequest $request UnlockUsersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnlockUsersResponse
+     * @return UnlockUsersResponse UnlockUsersResponse
      */
     public function unlockUsersWithOptions($request, $runtime)
     {
@@ -4539,9 +5058,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param UnlockUsersRequest $request
+     * After you call the [LockUsers](~~204591~~) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
+     *   * # Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UnlockUsersRequest $request UnlockUsersRequest
      *
-     * @return UnlockUsersResponse
+     * @return UnlockUsersResponse UnlockUsersResponse
      */
     public function unlockUsers($request)
     {
@@ -4603,197 +5126,5 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpgradeInstanceImageVersionRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return UpgradeInstanceImageVersionResponse
-     */
-    public function upgradeInstanceImageVersionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpgradeInstanceImageVersion',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpgradeInstanceImageVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpgradeInstanceImageVersionRequest $request
-     *
-     * @return UpgradeInstanceImageVersionResponse
-     */
-    public function upgradeInstanceImageVersion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->upgradeInstanceImageVersionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param VerifyInstanceADAuthServerRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return VerifyInstanceADAuthServerResponse
-     */
-    public function verifyInstanceADAuthServerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->account)) {
-            $query['Account'] = $request->account;
-        }
-        if (!Utils::isUnset($request->baseDN)) {
-            $query['BaseDN'] = $request->baseDN;
-        }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
-        }
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->isSSL)) {
-            $query['IsSSL'] = $request->isSSL;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
-        }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->server)) {
-            $query['Server'] = $request->server;
-        }
-        if (!Utils::isUnset($request->standbyServer)) {
-            $query['StandbyServer'] = $request->standbyServer;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'VerifyInstanceADAuthServer',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return VerifyInstanceADAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param VerifyInstanceADAuthServerRequest $request
-     *
-     * @return VerifyInstanceADAuthServerResponse
-     */
-    public function verifyInstanceADAuthServer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->verifyInstanceADAuthServerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param VerifyInstanceLDAPAuthServerRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return VerifyInstanceLDAPAuthServerResponse
-     */
-    public function verifyInstanceLDAPAuthServerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->account)) {
-            $query['Account'] = $request->account;
-        }
-        if (!Utils::isUnset($request->baseDN)) {
-            $query['BaseDN'] = $request->baseDN;
-        }
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->isSSL)) {
-            $query['IsSSL'] = $request->isSSL;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
-        }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->server)) {
-            $query['Server'] = $request->server;
-        }
-        if (!Utils::isUnset($request->standbyServer)) {
-            $query['StandbyServer'] = $request->standbyServer;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'VerifyInstanceLDAPAuthServer',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return VerifyInstanceLDAPAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param VerifyInstanceLDAPAuthServerRequest $request
-     *
-     * @return VerifyInstanceLDAPAuthServerResponse
-     */
-    public function verifyInstanceLDAPAuthServer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->verifyInstanceLDAPAuthServerWithOptions($request, $runtime);
     }
 }

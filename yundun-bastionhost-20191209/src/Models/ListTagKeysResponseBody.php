@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 50177258-E817-4D2F-A5C6-3FD7BC4806E3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of tags.
+     *
      * @var tagKeys[]
      */
     public $tagKeys;
 
     /**
+     * @description The total number of tags returned.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

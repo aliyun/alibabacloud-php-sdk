@@ -9,36 +9,67 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsForUserRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example group
+     *
      * @var string
      */
     public $hostGroupName;
 
     /**
+     * @description The host groups returned.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * >  We recommend that you do not leave the PageSize parameter empty.
+     * @example Authorized
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The ID of the host group.
+     *
+     * @example １
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The ID of the user.
+     *
+     * >  You can call the [ListUsers](~~204522~~) operation to query the ID of the user.
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the Bastionhost instance where you want to query the host groups that the user is authorized or not authorized to manage.
+     *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
+     * @example １
+     *
      * @var string
      */
     public $userId;

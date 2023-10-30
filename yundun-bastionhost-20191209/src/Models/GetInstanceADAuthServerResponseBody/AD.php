@@ -9,61 +9,106 @@ use AlibabaCloud\Tea\Model;
 class AD extends Model
 {
     /**
+     * @description The port that is used to access the AD server.
+     *
+     * @example cn=Manager,dc=test,dc=com
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @description The ID of the bastion host to query.
+     *
+     * You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @example dc=test,dc=com
+     *
      * @var string
      */
     public $baseDN;
 
     /**
+     * @description The settings of AD authentication.
+     *
+     * @example domain
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The address of the secondary AD server.
+     *
+     * @example emailAttr
+     *
      * @var string
      */
     public $emailMapping;
 
     /**
+     * @description The field that is used to indicate the mobile phone number of a user on the AD server.
+     *
+     * @example (&(objectClass=top))
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @description The address of the AD server.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasPassword;
 
     /**
+     * @description The Base DN of the AD server.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSSL;
 
     /**
+     * @description The field that is used to indicate the name of a user on the AD server.
+     *
+     * @example mobileAttr
+     *
      * @var string
      */
     public $mobileMapping;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example nameAttr
+     *
      * @var string
      */
     public $nameMapping;
 
     /**
+     * @description Queries the settings of Active Directory (AD) authentication on a bastion host.
+     *
+     * @example 389
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $server;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $standbyServer;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 2F24F0A8-4C69-4E89-9392-457D107E2D4A
+     *
      * @var string
      */
     public $requestId;

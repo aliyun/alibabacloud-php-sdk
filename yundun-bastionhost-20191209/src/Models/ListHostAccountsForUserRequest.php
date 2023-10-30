@@ -9,36 +9,66 @@ use AlibabaCloud\Tea\Model;
 class ListHostAccountsForUserRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example root
+     *
      * @var string
      */
     public $hostAccountName;
 
     /**
+     * @description The ID of the host for which the host accounts were queried.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @description The total number of host accounts returned.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the user for which you want to query authorized host accounts.
+     *
+     * >  You can call the [ListUsers](~~204522~~) operation to query the ID of the user ID.
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The name of the host account that you want to query. Exact match is supported.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The name of the host account.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The region ID of the Bastionhost instance where you want to query the host accounts that the user is authorized to manage on the host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example 1
+     *
      * @var string
      */
     public $userId;

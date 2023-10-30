@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListUserGroupsRequest extends Model
 {
     /**
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example TestGroup01
+     *
      * @var string
      */
     public $userGroupName;

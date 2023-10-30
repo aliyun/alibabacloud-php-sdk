@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetHostShareKeyRequest extends Model
 {
     /**
+     * @description The time when the information about the shared key was last modified.
+     *
+     * @example 10427
+     *
      * @var string
      */
     public $hostShareKeyId;
 
     /**
+     * @description The ID of the shared key whose details you want to query.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the shared key.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class hostShareKey extends Model
 {
     /**
+     * @description The fingerprint of the private key.
+     *
+     * @example 10427
+     *
      * @var string
      */
     public $hostShareKeyId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $hostShareKeyName;
 
     /**
+     * @example 1644287246
+     *
      * @var int
      */
     public $lastModifyKeyAt;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $privateKeyFingerPrint;

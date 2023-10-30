@@ -9,41 +9,80 @@ use AlibabaCloud\Tea\Model;
 class ModifyHostRequest extends Model
 {
     /**
+     * @description The new internal endpoint of the host. You can set this parameter to a domain name or an IP address.
+     *
+     * @example Host for test.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The ID of the Bastionhost instance where you want to modify the information of the host.
+     *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
+     * @example 1
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @description The new name of the host. The name can be up to 128 characters.
+     *
+     * @example TestHost
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The new description of the host. The value can be up to 500 characters in length.
+     *
+     * @example 193.168.XX.XX
+     *
      * @var string
      */
     public $hostPrivateAddress;
 
     /**
+     * @description The region ID of the Bastionhost instance where you want to modify the information of the host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @example 200.1.XX.XX
+     *
      * @var string
      */
     public $hostPublicAddress;
 
     /**
+     * @description You can call this operation to modify the basic information of an on-premises host, an Elastic Compute Service (ECS) instance, or a host in a dedicated cluster.
+     *
+     * >  The basic information of ECS instances and hosts in dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information of an ECS instance or a host in a dedicated cluster, the modification result may be overwritten by the synchronized information.
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the host.
+     *
+     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
+     * @example Linux
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @description The new operating system of the host. Valid values:
+     *
+     *   **Linux**
+     *   **Windows**
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

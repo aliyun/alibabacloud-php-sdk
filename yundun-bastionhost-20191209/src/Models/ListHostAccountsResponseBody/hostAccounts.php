@@ -9,41 +9,72 @@ use AlibabaCloud\Tea\Model;
 class hostAccounts extends Model
 {
     /**
+     * @description The fingerprint of the private key for the host account.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasPassword;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostAccountId;
 
     /**
+     * @description The name of the shared key.
+     *
+     * @example abc
+     *
      * @var string
      */
     public $hostAccountName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $hostShareKeyId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $hostShareKeyName;
 
     /**
+     * @description The protocol that is used by the host.
+     *
+     * Valid values:
+     *
+     *   SSH
+     *   RDP
+     *
+     * @example fe:ca:37:42:30:00:9d:95:e6:73:e5:b0:32:0a:**:**
+     *
      * @var string
      */
     public $privateKeyFingerprint;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example SSH
+     *
      * @var string
      */
     public $protocolName;

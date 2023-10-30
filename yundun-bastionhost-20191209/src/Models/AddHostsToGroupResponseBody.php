@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AddHostsToGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 81500666-d7f5-4143-8329-0223cc738105
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the call.
+     *
      * @var results[]
      */
     public $results;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetHostAccountResponseBody extends Model
 {
     /**
+     * @description The details of the host account that was queried.
+     *
      * @var hostAccount
      */
     public $hostAccount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;

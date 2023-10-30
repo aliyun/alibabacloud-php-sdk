@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class EnableInstancePublicAccessRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **EnableInstancePublicAccess**.
+     *
+     * @example bastionhost-cn-78v1gh****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the bastion host whose Internet access is enabled.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

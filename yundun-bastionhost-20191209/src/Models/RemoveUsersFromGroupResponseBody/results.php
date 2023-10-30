@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description RemoveUsersFromGroup
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description WB01014029
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description RemoveUsersFromGroup
+     *
+     * @example 1
+     *
      * @var string
      */
     public $userGroupId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $userId;

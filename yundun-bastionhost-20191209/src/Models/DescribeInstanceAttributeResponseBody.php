@@ -15,6 +15,8 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $instanceAttribute;
 
     /**
+     * @example 082FAB35-6AB9-4FD5-8750-D36673548E76
+     *
      * @var string
      */
     public $requestId;

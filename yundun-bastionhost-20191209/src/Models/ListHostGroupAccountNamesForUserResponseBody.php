@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupAccountNamesForUserResponseBody extends Model
 {
     /**
+     * @description An array that consists of the names of host accounts.
+     *
      * @var string[]
      */
     public $hostAccountNames;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;

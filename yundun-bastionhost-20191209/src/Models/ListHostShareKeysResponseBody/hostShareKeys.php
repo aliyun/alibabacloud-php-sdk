@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class hostShareKeys extends Model
 {
     /**
+     * @description The number of the associated host accounts.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $hostAccountCount;
 
     /**
+     * @description The ID of the host account.
+     *
+     * @example 10247
+     *
      * @var string
      */
     public $hostShareKeyId;
 
     /**
+     * @description The name of the shared key.
+     *
+     * @example name
+     *
      * @var string
      */
     public $hostShareKeyName;
 
     /**
+     * @description The time when the shared key was last modified.
+     *
+     * @example 1644806406
+     *
      * @var int
      */
     public $lastModifyKeyAt;
 
     /**
+     * @description The fingerprint of the private key.
+     *
+     * @example ****
+     *
      * @var string
      */
     public $privateKeyFingerPrint;

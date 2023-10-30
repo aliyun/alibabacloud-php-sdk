@@ -10,36 +10,70 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @description An array that consists of the IDs of the bastion hosts.
+     *
+     * @example bastionhost-cn-78v1ghxxxxx
+     *
      * @var string[]
      */
     public $instanceId;
 
     /**
+     * @description The status of the bastion host. Valid values:
+     *
+     *   **PENDING**: The bastion host is not initialized.
+     *   **CREATING**: The bastion host is being created.
+     *   **RUNNING**: The bastion host is running.
+     *   **EXPIRED**: The bastion host expired.
+     *   **CREATE_FAILED**: The bastion host fails to be created.
+     *   **UPGRADING**: The configurations of the bastion host are being changed.
+     *   **UPGRADE_FAILED**: The configurations of the bastion host fail to be changed.
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the bastion host belongs.
+     *
+     * @example rg-acfm26ougi****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description An array consisting of the tags that are added to the bastion hosts.
+     *
      * @var tag[]
      */
     public $tag;

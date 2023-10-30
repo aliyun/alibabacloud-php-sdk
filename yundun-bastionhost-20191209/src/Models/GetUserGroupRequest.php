@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetUserGroupRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example bastionhost-cn-st220aw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the user group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description All Bastionhost API requests must include common request parameters. For more information about common request parameters, see [Common parameters](~~315526~~).
+     *
+     * For more information about sample requests, see the "Examples" section of this topic.
+     * @example 1
+     *
      * @var string
      */
     public $userGroupId;

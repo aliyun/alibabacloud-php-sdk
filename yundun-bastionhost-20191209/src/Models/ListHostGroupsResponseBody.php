@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsResponseBody extends Model
 {
     /**
+     * @description An array that consists of the host groups.
+     *
      * @var hostGroups[]
      */
     public $hostGroups;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of host groups returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

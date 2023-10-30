@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceLDAPAuthServerResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 8F1085E3-F048-5F34-B650-F145216E4AA4
      *
      * @var string
      */

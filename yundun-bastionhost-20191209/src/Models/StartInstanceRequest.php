@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class StartInstanceRequest extends Model
 {
     /**
+     * @description The ID of the bastion host that you want to enable.
+     *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @example bastionhost-cn-78v1gh****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description An array consisting of the IDs of security groups to which the bastion host is added.
+     *
+     * @example sg-bp1aiupc4yjqgmm****
+     *
      * @var string[]
      */
     public $securityGroupIds;
 
     /**
+     * @description The ID of the vSwitch to which the bastion host belongs.
+     *
+     * @example vsw-bp1xfwzzfti0kjbf****
+     *
      * @var string
      */
     public $vswitchId;

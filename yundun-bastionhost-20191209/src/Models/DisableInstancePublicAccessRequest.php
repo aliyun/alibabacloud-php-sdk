@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DisableInstancePublicAccessRequest extends Model
 {
     /**
+     * @description The ID of the bastion host whose Internet access you want to disable.
+     *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @example bastionhost-cn-78v1gh****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

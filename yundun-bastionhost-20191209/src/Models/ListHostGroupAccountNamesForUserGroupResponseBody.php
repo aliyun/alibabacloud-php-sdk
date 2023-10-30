@@ -14,6 +14,10 @@ class ListHostGroupAccountNamesForUserGroupResponseBody extends Model
     public $hostAccountNames;
 
     /**
+     * @description ListHostGroupAccountNamesForUserGroup
+     *
+     * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
+     *
      * @var string
      */
     public $requestId;
