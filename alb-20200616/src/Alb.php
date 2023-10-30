@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\AssociateAdditionalCertificatesWithLis
 use AlibabaCloud\SDK\Alb\V20200616\Models\AssociateAdditionalCertificatesWithListenerResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AttachCommonBandwidthPackageToLoadBalancerRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AttachCommonBandwidthPackageToLoadBalancerResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CancelShiftLoadBalancerZonesRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CancelShiftLoadBalancerZonesResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateAclRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateAclResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateAScriptsRequest;
@@ -129,6 +131,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\ReplaceServersInServerGroupRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ReplaceServersInServerGroupResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\StartListenerRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\StartListenerResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\StartShiftLoadBalancerZonesRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\StartShiftLoadBalancerZonesResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\StopListenerRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\StopListenerResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\TagResourcesRequest;
@@ -572,6 +576,58 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachCommonBandwidthPackageToLoadBalancerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelShiftLoadBalancerZonesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CancelShiftLoadBalancerZonesResponse
+     */
+    public function cancelShiftLoadBalancerZonesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->zoneMappings)) {
+            $query['ZoneMappings'] = $request->zoneMappings;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelShiftLoadBalancerZones',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelShiftLoadBalancerZonesRequest $request
+     *
+     * @return CancelShiftLoadBalancerZonesResponse
+     */
+    public function cancelShiftLoadBalancerZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelShiftLoadBalancerZonesWithOptions($request, $runtime);
     }
 
     /**
@@ -3867,6 +3923,58 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startListenerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartShiftLoadBalancerZonesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return StartShiftLoadBalancerZonesResponse
+     */
+    public function startShiftLoadBalancerZonesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->zoneMappings)) {
+            $query['ZoneMappings'] = $request->zoneMappings;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartShiftLoadBalancerZones',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartShiftLoadBalancerZonesRequest $request
+     *
+     * @return StartShiftLoadBalancerZonesResponse
+     */
+    public function startShiftLoadBalancerZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startShiftLoadBalancerZonesWithOptions($request, $runtime);
     }
 
     /**

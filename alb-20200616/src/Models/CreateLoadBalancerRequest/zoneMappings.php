@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class zoneMappings extends Model
 {
     /**
+     * @var string
+     */
+    public $intranetAddress;
+
+    /**
      * @description The ID of the vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance. You can specify up to 10 vSwitch IDs.
      *
      * @example vsw-sersdf****
@@ -27,8 +32,9 @@ class zoneMappings extends Model
      */
     public $zoneId;
     protected $_name = [
-        'vSwitchId' => 'VSwitchId',
-        'zoneId'    => 'ZoneId',
+        'intranetAddress' => 'IntranetAddress',
+        'vSwitchId'       => 'VSwitchId',
+        'zoneId'          => 'ZoneId',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class zoneMappings extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->intranetAddress) {
+            $res['IntranetAddress'] = $this->intranetAddress;
+        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -56,6 +65,9 @@ class zoneMappings extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IntranetAddress'])) {
+            $model->intranetAddress = $map['IntranetAddress'];
+        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
