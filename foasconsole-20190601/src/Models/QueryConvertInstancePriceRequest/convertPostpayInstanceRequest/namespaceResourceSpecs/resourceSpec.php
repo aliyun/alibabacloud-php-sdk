@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class resourceSpec extends Model
 {
     /**
-     * @description cpu数量。
+     * @example 1
      *
      * @var int
      */
     public $cpu;
 
     /**
-     * @description 内存大小。
+     * @example 4
      *
      * @var int
      */

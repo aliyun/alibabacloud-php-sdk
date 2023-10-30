@@ -6,21 +6,28 @@ namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeNamespacesRespon
 
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeNamespacesResponseBody\namespaces\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeNamespacesResponseBody\namespaces\resourceUsed;
+use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeNamespacesResponseBody\namespaces\tags;
 use AlibabaCloud\Tea\Model;
 
 class namespaces extends Model
 {
     /**
+     * @example 1629879567394
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1629879567394
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example ns-1
+     *
      * @var string
      */
     public $namespace;
@@ -36,9 +43,16 @@ class namespaces extends Model
     public $resourceUsed;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'gmtCreate'    => 'GmtCreate',
         'gmtModified'  => 'GmtModified',
@@ -46,6 +60,7 @@ class namespaces extends Model
         'resourceSpec' => 'ResourceSpec',
         'resourceUsed' => 'ResourceUsed',
         'status'       => 'Status',
+        'tags'         => 'Tags',
     ];
 
     public function validate()
@@ -72,6 +87,15 @@ class namespaces extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -102,6 +126,15 @@ class namespaces extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

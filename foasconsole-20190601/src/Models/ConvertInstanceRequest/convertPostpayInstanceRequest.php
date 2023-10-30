@@ -10,39 +10,41 @@ use AlibabaCloud\Tea\Model;
 class convertPostpayInstanceRequest extends Model
 {
     /**
-     * @description 订购周期数量
+     * @example 1
      *
      * @var int
      */
     public $duration;
 
     /**
+     * @example sc_flinkserverlesspost_public_cn-*******
+     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 是否自动续费
+     * @example true
      *
      * @var bool
      */
     public $isAutoRenew;
 
     /**
-     * @description 项目空间资源规格。
-     *
      * @var namespaceResourceSpecs[]
      */
     public $namespaceResourceSpecs;
 
     /**
-     * @description 订购周期
+     * @example Month
      *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;

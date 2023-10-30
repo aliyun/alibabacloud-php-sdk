@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class modifyPrepayNamespaceSpecRequest extends Model
 {
     /**
+     * @example sc_flinkserverlesspost_public_cn-0ju2bj2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ns-1
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;

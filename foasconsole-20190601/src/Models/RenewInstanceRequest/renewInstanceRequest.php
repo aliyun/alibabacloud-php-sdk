@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class renewInstanceRequest extends Model
 {
     /**
-     * @description 订购周期数量
+     * @example 1
      *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 实例id
+     * @example sc_flinkserverless_public_cn-7e22ae5****
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 订购周期
+     * @example Month
      *
      * @var string
      */
     public $pricingCycle;
 
     /**
-     * @description 地域id
+     * @example cn-beijing
      *
      * @var string
      */

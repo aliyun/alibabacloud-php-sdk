@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class QueryConvertInstancePriceResponseBody extends Model
 {
     /**
-     * @description 价格信息，包括价格和优惠规则。
-     *
      * @var priceInfo
      */
     public $priceInfo;
 
     /**
-     * @description 请求id
+     * @example 67F33190-946B-1105-B6A1-E2DF0426DD51
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否成功
+     * @example true
      *
      * @var bool
      */

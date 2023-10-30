@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description 活动规则描述。
+     * @example 买满1年，立享官网价格8.5折优惠。
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 活动ID。
+     * @example 1020071005141834
      *
      * @var int
      */

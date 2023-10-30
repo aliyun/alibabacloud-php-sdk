@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class modifyPrepayInstanceSpecRequest extends Model
 {
     /**
+     * @example sc_flinkserverlesspost_public_cn-0ju2bj2i104
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;

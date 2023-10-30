@@ -11,56 +11,52 @@ use AlibabaCloud\Tea\Model;
 class priceInfo extends Model
 {
     /**
-     * @description 错误码
+     * @example ORDER.INST_HAS_UNPAID_ORDER
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description 货币单位。
+     * @example CNY
      *
      * @var string
      */
     public $currency;
 
     /**
-     * @description 折扣
+     * @example 655.2
      *
      * @var float
      */
     public $discountAmount;
 
     /**
-     * @description 错误信息
+     * @example 存在未支付订单，请先支付或取消原有订单
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description 可选择的优惠券
-     *
-     * @var optionalPromotions
+     * @var optionalPromotions[]
      */
     public $optionalPromotions;
 
     /**
-     * @description 原价
+     * @example 4368
      *
      * @var float
      */
     public $originalAmount;
 
     /**
-     * @description 活动规则。
-     *
      * @var rules[]
      */
     public $rules;
 
     /**
-     * @description 最终价，为原价减去折扣。
+     * @example 3712.8
      *
      * @var float
      */
@@ -96,7 +92,13 @@ class priceInfo extends Model
             $res['Message'] = $this->message;
         }
         if (null !== $this->optionalPromotions) {
-            $res['OptionalPromotions'] = null !== $this->optionalPromotions ? $this->optionalPromotions->toMap() : null;
+            $res['OptionalPromotions'] = [];
+            if (null !== $this->optionalPromotions && \is_array($this->optionalPromotions)) {
+                $n = 0;
+                foreach ($this->optionalPromotions as $item) {
+                    $res['OptionalPromotions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
@@ -138,7 +140,13 @@ class priceInfo extends Model
             $model->message = $map['Message'];
         }
         if (isset($map['OptionalPromotions'])) {
-            $model->optionalPromotions = optionalPromotions::fromMap($map['OptionalPromotions']);
+            if (!empty($map['OptionalPromotions'])) {
+                $model->optionalPromotions = [];
+                $n                         = 0;
+                foreach ($map['OptionalPromotions'] as $item) {
+                    $model->optionalPromotions[$n++] = null !== $item ? optionalPromotions::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];

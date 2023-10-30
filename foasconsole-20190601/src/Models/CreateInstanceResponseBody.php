@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
-     * @description 订单信息
-     *
      * @var orderInfo
      */
     public $orderInfo;
 
     /**
-     * @description 请求id
+     * @example 67F33190-946B-1105-B6A1-E2DF0426DD51
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否成功
+     * @example true
      *
      * @var bool
      */
