@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreatePictureSearchAppRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreatePictureSearchAppResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreatePictureSearchJobRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreatePictureSearchJobResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordDownloadByTimeJobRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordDownloadByTimeJobResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordPlanRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordPlanResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateTimeTemplateRequest;
@@ -146,6 +148,10 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryPictureSearchJobResultRequ
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryPictureSearchJobResultResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordByRecordIdRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordByRecordIdResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordDownloadJobByIdRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordDownloadJobByIdResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordDownloadJobListRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordDownloadJobListResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordDownloadUrlRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordDownloadUrlResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordPlanDetailRequest;
@@ -1131,6 +1137,70 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPictureSearchJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRecordDownloadByTimeJobRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateRecordDownloadByTimeJobResponse
+     */
+    public function createRecordDownloadByTimeJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->recordType)) {
+            $query['RecordType'] = $request->recordType;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRecordDownloadByTimeJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRecordDownloadByTimeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRecordDownloadByTimeJobRequest $request
+     *
+     * @return CreateRecordDownloadByTimeJobResponse
+     */
+    public function createRecordDownloadByTimeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRecordDownloadByTimeJobWithOptions($request, $runtime);
     }
 
     /**
@@ -4051,6 +4121,110 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryRecordByRecordIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryRecordDownloadJobByIdRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryRecordDownloadJobByIdResponse
+     */
+    public function queryRecordDownloadJobByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRecordDownloadJobById',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRecordDownloadJobByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryRecordDownloadJobByIdRequest $request
+     *
+     * @return QueryRecordDownloadJobByIdResponse
+     */
+    public function queryRecordDownloadJobById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRecordDownloadJobByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryRecordDownloadJobListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryRecordDownloadJobListResponse
+     */
+    public function queryRecordDownloadJobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRecordDownloadJobList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRecordDownloadJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryRecordDownloadJobListRequest $request
+     *
+     * @return QueryRecordDownloadJobListResponse
+     */
+    public function queryRecordDownloadJobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRecordDownloadJobListWithOptions($request, $runtime);
     }
 
     /**
