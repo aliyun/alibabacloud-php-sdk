@@ -40,8 +40,12 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FraudResultCallBackRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FraudResultCallBackResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1034,6 +1038,58 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * @param Id2MetaVerifyIntlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return Id2MetaVerifyIntlResponse
+     */
+    public function id2MetaVerifyIntlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Id2MetaVerifyIntl',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Id2MetaVerifyIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param Id2MetaVerifyIntlRequest $request
+     *
+     * @return Id2MetaVerifyIntlResponse
+     */
+    public function id2MetaVerifyIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->id2MetaVerifyIntlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param InitializeRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1140,5 +1196,60 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->initializeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param Mobile3MetaVerifyIntlRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return Mobile3MetaVerifyIntlResponse
+     */
+    public function mobile3MetaVerifyIntlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Mobile3MetaVerifyIntl',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Mobile3MetaVerifyIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param Mobile3MetaVerifyIntlRequest $request
+     *
+     * @return Mobile3MetaVerifyIntlResponse
+     */
+    public function mobile3MetaVerifyIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobile3MetaVerifyIntlWithOptions($request, $runtime);
     }
 }
