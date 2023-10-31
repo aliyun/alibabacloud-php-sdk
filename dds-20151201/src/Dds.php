@@ -5386,9 +5386,6 @@ class Dds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
-        }
         if (!Utils::isUnset($request->classicExpendExpiredDays)) {
             $query['ClassicExpendExpiredDays'] = $request->classicExpendExpiredDays;
         }

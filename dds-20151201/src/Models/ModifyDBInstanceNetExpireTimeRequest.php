@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceNetExpireTimeRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $category;
-
-    /**
      * @description The retention period of the original classic network address. Valid values: **14**, **30**, **60**, and** 120**. Unit: day.
      *
      * @example 30
@@ -65,7 +60,6 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'category'                 => 'Category',
         'classicExpendExpiredDays' => 'ClassicExpendExpiredDays',
         'connectionString'         => 'ConnectionString',
         'DBInstanceId'             => 'DBInstanceId',
@@ -83,9 +77,6 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
         if (null !== $this->classicExpendExpiredDays) {
             $res['ClassicExpendExpiredDays'] = $this->classicExpendExpiredDays;
         }
@@ -122,9 +113,6 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
         if (isset($map['ClassicExpendExpiredDays'])) {
             $model->classicExpendExpiredDays = $map['ClassicExpendExpiredDays'];
         }

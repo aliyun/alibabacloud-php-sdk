@@ -133,8 +133,9 @@ class EvaluateResourceRequest extends Model
     public $shardsInfo;
 
     /**
-     * @description 副本集的存储空间，单位为GB。
-     * > 实例规格为云盘型时，该参数必填。</props>
+     * @description The storage capacity of the replica set instance. Unit: GB.
+     *
+     * > This parameter is required for the instances that use cloud disks.
      * @example 10
      *
      * @var string
