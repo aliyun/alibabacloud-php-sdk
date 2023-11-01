@@ -14,6 +14,11 @@ class taskResult extends Model
     public $alphaUrl;
 
     /**
+     * @var string
+     */
+    public $attachmentUrl;
+
+    /**
      * @example 10001001
      *
      * @var string
@@ -59,6 +64,7 @@ class taskResult extends Model
     public $wordSubtitlesUrl;
     protected $_name = [
         'alphaUrl'         => 'AlphaUrl',
+        'attachmentUrl'    => 'AttachmentUrl',
         'failCode'         => 'FailCode',
         'failReason'       => 'FailReason',
         'previewPic'       => 'PreviewPic',
@@ -77,6 +83,9 @@ class taskResult extends Model
         $res = [];
         if (null !== $this->alphaUrl) {
             $res['AlphaUrl'] = $this->alphaUrl;
+        }
+        if (null !== $this->attachmentUrl) {
+            $res['AttachmentUrl'] = $this->attachmentUrl;
         }
         if (null !== $this->failCode) {
             $res['FailCode'] = $this->failCode;
@@ -113,6 +122,9 @@ class taskResult extends Model
         $model = new self();
         if (isset($map['AlphaUrl'])) {
             $model->alphaUrl = $map['AlphaUrl'];
+        }
+        if (isset($map['AttachmentUrl'])) {
+            $model->attachmentUrl = $map['AttachmentUrl'];
         }
         if (isset($map['FailCode'])) {
             $model->failCode = $map['FailCode'];

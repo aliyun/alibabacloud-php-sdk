@@ -65,6 +65,9 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo2DAvatarVideoTaskShrin
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo3DAvatarVideoTaskRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo3DAvatarVideoTaskResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo3DAvatarVideoTaskShrinkRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAvatarVideoTaskRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAvatarVideoTaskResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAvatarVideoTaskShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo2DAvatarVideoTaskRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo2DAvatarVideoTaskResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo2DAvatarVideoTaskShrinkRequest;
@@ -1482,6 +1485,72 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitAudioTo3DAvatarVideoTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitAvatarVideoTaskRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitAvatarVideoTaskResponse
+     */
+    public function submitAvatarVideoTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitAvatarVideoTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->app)) {
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appShrink)) {
+            $query['App'] = $request->appShrink;
+        }
+        if (!Utils::isUnset($request->callback)) {
+            $query['Callback'] = $request->callback;
+        }
+        if (!Utils::isUnset($request->callbackParams)) {
+            $query['CallbackParams'] = $request->callbackParams;
+        }
+        if (!Utils::isUnset($request->extParams)) {
+            $query['ExtParams'] = $request->extParams;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->videoParams)) {
+            $query['VideoParams'] = $request->videoParams;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAvatarVideoTask',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitAvatarVideoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitAvatarVideoTaskRequest $request
+     *
+     * @return SubmitAvatarVideoTaskResponse
+     */
+    public function submitAvatarVideoTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAvatarVideoTaskWithOptions($request, $runtime);
     }
 
     /**

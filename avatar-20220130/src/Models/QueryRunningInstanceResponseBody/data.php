@@ -23,12 +23,18 @@ class data extends Model
     public $sessionId;
 
     /**
+     * @var string
+     */
+    public $token;
+
+    /**
      * @var user
      */
     public $user;
     protected $_name = [
         'channel'   => 'Channel',
         'sessionId' => 'SessionId',
+        'token'     => 'Token',
         'user'      => 'User',
     ];
 
@@ -44,6 +50,9 @@ class data extends Model
         }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
         if (null !== $this->user) {
             $res['User'] = null !== $this->user ? $this->user->toMap() : null;
@@ -65,6 +74,9 @@ class data extends Model
         }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
         if (isset($map['User'])) {
             $model->user = user::fromMap($map['User']);
