@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocumentConvertResultRequest
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocumentConvertResultResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocumentExtractResultRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocumentExtractResultResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetPageNumRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetPageNumResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetTableUnderstandingResultRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetTableUnderstandingResultResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToExcelJobRequest;
@@ -386,6 +388,49 @@ class Docmindapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDocumentExtractResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPageNumRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetPageNumResponse
+     */
+    public function getPageNumWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPageNum',
+            'version'     => '2022-07-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPageNumResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPageNumRequest $request
+     *
+     * @return GetPageNumResponse
+     */
+    public function getPageNum($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPageNumWithOptions($request, $runtime);
     }
 
     /**
