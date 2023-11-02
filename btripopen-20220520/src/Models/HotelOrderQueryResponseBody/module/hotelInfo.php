@@ -35,7 +35,17 @@ class hotelInfo extends Model
     /**
      * @var string
      */
+    public $hotelAddress;
+
+    /**
+     * @var string
+     */
     public $hotelName;
+
+    /**
+     * @var string
+     */
+    public $hotelPhone;
 
     /**
      * @example 11
@@ -67,7 +77,9 @@ class hotelInfo extends Model
         'checkOut'                   => 'check_out',
         'city'                       => 'city',
         'cityAdCode'                 => 'city_ad_code',
+        'hotelAddress'               => 'hotel_address',
         'hotelName'                  => 'hotel_name',
+        'hotelPhone'                 => 'hotel_phone',
         'hotelSupportVatInvoiceType' => 'hotel_support_vat_invoice_type',
         'night'                      => 'night',
         'roomNum'                    => 'room_num',
@@ -93,8 +105,14 @@ class hotelInfo extends Model
         if (null !== $this->cityAdCode) {
             $res['city_ad_code'] = $this->cityAdCode;
         }
+        if (null !== $this->hotelAddress) {
+            $res['hotel_address'] = $this->hotelAddress;
+        }
         if (null !== $this->hotelName) {
             $res['hotel_name'] = $this->hotelName;
+        }
+        if (null !== $this->hotelPhone) {
+            $res['hotel_phone'] = $this->hotelPhone;
         }
         if (null !== $this->hotelSupportVatInvoiceType) {
             $res['hotel_support_vat_invoice_type'] = $this->hotelSupportVatInvoiceType;
@@ -132,8 +150,14 @@ class hotelInfo extends Model
         if (isset($map['city_ad_code'])) {
             $model->cityAdCode = $map['city_ad_code'];
         }
+        if (isset($map['hotel_address'])) {
+            $model->hotelAddress = $map['hotel_address'];
+        }
         if (isset($map['hotel_name'])) {
             $model->hotelName = $map['hotel_name'];
+        }
+        if (isset($map['hotel_phone'])) {
+            $model->hotelPhone = $map['hotel_phone'];
         }
         if (isset($map['hotel_support_vat_invoice_type'])) {
             $model->hotelSupportVatInvoiceType = $map['hotel_support_vat_invoice_type'];

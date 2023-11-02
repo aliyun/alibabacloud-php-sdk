@@ -45,6 +45,11 @@ class orderBaseInfo extends Model
     public $departName;
 
     /**
+     * @var string[]
+     */
+    public $exceedApplyNos;
+
+    /**
      * @var string
      */
     public $extendField;
@@ -130,6 +135,7 @@ class orderBaseInfo extends Model
         'corpName'             => 'corp_name',
         'departId'             => 'depart_id',
         'departName'           => 'depart_name',
+        'exceedApplyNos'       => 'exceed_apply_nos',
         'extendField'          => 'extend_field',
         'gmtCreate'            => 'gmt_create',
         'gmtModified'          => 'gmt_modified',
@@ -168,6 +174,9 @@ class orderBaseInfo extends Model
         }
         if (null !== $this->departName) {
             $res['depart_name'] = $this->departName;
+        }
+        if (null !== $this->exceedApplyNos) {
+            $res['exceed_apply_nos'] = $this->exceedApplyNos;
         }
         if (null !== $this->extendField) {
             $res['extend_field'] = $this->extendField;
@@ -234,6 +243,11 @@ class orderBaseInfo extends Model
         }
         if (isset($map['depart_name'])) {
             $model->departName = $map['depart_name'];
+        }
+        if (isset($map['exceed_apply_nos'])) {
+            if (!empty($map['exceed_apply_nos'])) {
+                $model->exceedApplyNos = $map['exceed_apply_nos'];
+            }
         }
         if (isset($map['extend_field'])) {
             $model->extendField = $map['extend_field'];
