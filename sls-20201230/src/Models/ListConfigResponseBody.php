@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListConfigResponseBody extends Model
 {
     /**
-     * @var LogtailConfig[]
+     * @var string[]
      */
     public $configs;
 
@@ -36,13 +36,7 @@ class ListConfigResponseBody extends Model
     {
         $res = [];
         if (null !== $this->configs) {
-            $res['configs'] = [];
-            if (null !== $this->configs && \is_array($this->configs)) {
-                $n = 0;
-                foreach ($this->configs as $item) {
-                    $res['configs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['configs'] = $this->configs;
         }
         if (null !== $this->count) {
             $res['count'] = $this->count;
@@ -64,11 +58,7 @@ class ListConfigResponseBody extends Model
         $model = new self();
         if (isset($map['configs'])) {
             if (!empty($map['configs'])) {
-                $model->configs = [];
-                $n              = 0;
-                foreach ($map['configs'] as $item) {
-                    $model->configs[$n++] = null !== $item ? LogtailConfig::fromMap($item) : $item;
-                }
+                $model->configs = $map['configs'];
             }
         }
         if (isset($map['count'])) {

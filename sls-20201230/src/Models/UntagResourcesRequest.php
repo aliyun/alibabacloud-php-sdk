@@ -18,7 +18,7 @@ class UntagResourcesRequest extends Model
     /**
      * @example ali-test-project
      *
-     * @var string
+     * @var string[]
      */
     public $resourceId;
 
@@ -75,7 +75,9 @@ class UntagResourcesRequest extends Model
             $model->all = $map['all'];
         }
         if (isset($map['resourceId'])) {
-            $model->resourceId = $map['resourceId'];
+            if (!empty($map['resourceId'])) {
+                $model->resourceId = $map['resourceId'];
+            }
         }
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];

@@ -58,11 +58,6 @@ class Ticket extends Model
     public $number;
 
     /**
-     * @var string
-     */
-    public $policy;
-
-    /**
      * @example xxxxx
      *
      * @var string
@@ -75,6 +70,13 @@ class Ticket extends Model
      * @var string
      */
     public $ticketId;
+
+    /**
+     * @example dashboard
+     *
+     * @var string
+     */
+    public $type;
 
     /**
      * @example false
@@ -111,9 +113,9 @@ class Ticket extends Model
         'extra'               => 'extra',
         'name'                => 'name',
         'number'              => 'number',
-        'policy'              => 'policy',
         'ticket'              => 'ticket',
         'ticketId'            => 'ticketId',
+        'type'                => 'type',
         'unlimitedExpiration' => 'unlimitedExpiration',
         'unlimitedNumber'     => 'unlimitedNumber',
         'usedNumber'          => 'usedNumber',
@@ -148,14 +150,14 @@ class Ticket extends Model
         if (null !== $this->number) {
             $res['number'] = $this->number;
         }
-        if (null !== $this->policy) {
-            $res['policy'] = $this->policy;
-        }
         if (null !== $this->ticket) {
             $res['ticket'] = $this->ticket;
         }
         if (null !== $this->ticketId) {
             $res['ticketId'] = $this->ticketId;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
         if (null !== $this->unlimitedExpiration) {
             $res['unlimitedExpiration'] = $this->unlimitedExpiration;
@@ -202,14 +204,14 @@ class Ticket extends Model
         if (isset($map['number'])) {
             $model->number = $map['number'];
         }
-        if (isset($map['policy'])) {
-            $model->policy = $map['policy'];
-        }
         if (isset($map['ticket'])) {
             $model->ticket = $map['ticket'];
         }
         if (isset($map['ticketId'])) {
             $model->ticketId = $map['ticketId'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
         if (isset($map['unlimitedExpiration'])) {
             $model->unlimitedExpiration = $map['unlimitedExpiration'];
