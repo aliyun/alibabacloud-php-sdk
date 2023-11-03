@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEnvCustomJobRequest extends Model
 {
     /**
-     * @description Locale: zh | en.
-     * The default value is zh.
+     * @description The language. Valid values: zh and en. Default value: zh.
+     *
      * @example zh
      *
      * @var string
@@ -18,16 +18,16 @@ class CreateEnvCustomJobRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description Customize the Job\"s yaml configuration string.
+     * @description The YAML configuration string of the custom job.
      *
-     * @example example:
-     * `
+     * @example Refer to supplementary instructions.
+     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Customize job name.
+     * @description The name of the custom job.
      *
      * @example customJob1
      *
@@ -36,7 +36,7 @@ class CreateEnvCustomJobRequest extends Model
     public $customJobName;
 
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxxxx
      *

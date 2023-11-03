@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
-     * @description scrape interval.
+     * @description The collection interval.
      *
      * @example 30s
      *
@@ -18,7 +18,7 @@ class endpoints extends Model
     public $interval;
 
     /**
-     * @description The number of targets (pods) matched by PodMonitor.Endpoint.
+     * @description The number of pods that match the PodMonitor endpoint.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class endpoints extends Model
     public $matchedTargetCount;
 
     /**
-     * @description metric path.
+     * @description The collection path.
      *
      * @example /metrics
      *
@@ -36,7 +36,7 @@ class endpoints extends Model
     public $path;
 
     /**
-     * @description External port.
+     * @description The external port.
      *
      * @example 9182
      *
@@ -45,7 +45,7 @@ class endpoints extends Model
     public $port;
 
     /**
-     * @description Destination port.
+     * @description The destination port.
      *
      * @example 3306
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateEnvServiceMonitorRequest extends Model
 {
     /**
-     * @description Locale, the default is Chinese zh | en.
+     * @description The language. Valid values: zh and en. Default value: zh.
      *
      * @example zh
      *
@@ -18,16 +18,16 @@ class UpdateEnvServiceMonitorRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description yaml configuration string.
+     * @description The YAML configuration string.
      *
-     * @example `
-     * `
+     * @example Refer to supplementary instructions.
+     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Trial run: Check whether the format is legal and whether it can match targets.
+     * @description Specifies whether to perform only a dry run, without performing the actual request.
      *
      * @example true
      *
@@ -36,7 +36,7 @@ class UpdateEnvServiceMonitorRequest extends Model
     public $dryRun;
 
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxxxx
      *
@@ -45,7 +45,7 @@ class UpdateEnvServiceMonitorRequest extends Model
     public $environmentId;
 
     /**
-     * @description The namespace where serviceMonitor is located.
+     * @description The namespace where the ServiceMonitor is located.
      *
      * @example arms-prom
      *
@@ -63,7 +63,7 @@ class UpdateEnvServiceMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description ServiceMonitor name.
+     * @description The name of the ServiceMonitor.
      *
      * @example serviceMonitor1
      *

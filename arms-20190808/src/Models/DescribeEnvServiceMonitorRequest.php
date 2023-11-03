@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnvServiceMonitorRequest extends Model
 {
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxxx
      *
@@ -18,7 +18,7 @@ class DescribeEnvServiceMonitorRequest extends Model
     public $environmentId;
 
     /**
-     * @description The name of the namespace.
+     * @description The namespace where the ServiceMonitor is located.
      *
      * @example arms-prom
      *
@@ -36,7 +36,7 @@ class DescribeEnvServiceMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description ServiceMonitor name.
+     * @description The name of the ServiceMonitor.
      *
      * @example arms-admin1
      *

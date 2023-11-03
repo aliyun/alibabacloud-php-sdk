@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description addon name.
+     * @description The name of the component to which the ServiceMonitor belongs.
      *
      * @example mysql
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $addonName;
 
     /**
-     * @description addon release name.
+     * @description The instance name of the component.
      *
      * @example mysql1
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $addonReleaseName;
 
     /**
-     * @description addon version.
+     * @description The version of the component.
      *
      * @example 1.1.0
      *
@@ -37,16 +37,16 @@ class data extends Model
     public $addonVersion;
 
     /**
-     * @description yaml configuration string.
+     * @description The YAML configuration string.
      *
-     * @example `
-     * `
+     * @example Refer to supplementary instructions.
+     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Creation time (timestamp).
+     * @description The time when the ServiceMonitor was created. The value of this parameter is a timestamp.
      *
      * @example 2011-10-11T22:32:11Z
      *
@@ -55,14 +55,14 @@ class data extends Model
     public $creationTimestamp;
 
     /**
-     * @description List of endpoints for ServiceMonitor.
+     * @description The endpoints of the ServiceMonitor.
      *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxxxx
      *
@@ -71,7 +71,7 @@ class data extends Model
     public $environmentId;
 
     /**
-     * @description The number of matching services.
+     * @description The number of matched services.
      *
      * @example 1
      *
@@ -98,7 +98,7 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description ServiceMonitor name.
+     * @description The name of the ServiceMonitor.
      *
      * @example sm1
      *
@@ -107,7 +107,7 @@ class data extends Model
     public $serviceMonitorName;
 
     /**
-     * @description status.
+     * @description The status of the ServiceMonitor.
      *
      * @example run
      *

@@ -82,6 +82,11 @@ class data extends Model
     public $environmentName;
 
     /**
+     * @var string
+     */
+    public $environmentSubType;
+
+    /**
      * @description Environment type:
      * - Cloud: cloud service.
      * @example CS
@@ -200,6 +205,7 @@ class data extends Model
         'bindVpcCidr'               => 'BindVpcCidr',
         'environmentId'             => 'EnvironmentId',
         'environmentName'           => 'EnvironmentName',
+        'environmentSubType'        => 'EnvironmentSubType',
         'environmentType'           => 'EnvironmentType',
         'grafaDataSourceName'       => 'GrafaDataSourceName',
         'grafanaDatasourceUid'      => 'GrafanaDatasourceUid',
@@ -245,6 +251,9 @@ class data extends Model
         }
         if (null !== $this->environmentName) {
             $res['EnvironmentName'] = $this->environmentName;
+        }
+        if (null !== $this->environmentSubType) {
+            $res['EnvironmentSubType'] = $this->environmentSubType;
         }
         if (null !== $this->environmentType) {
             $res['EnvironmentType'] = $this->environmentType;
@@ -326,6 +335,9 @@ class data extends Model
         }
         if (isset($map['EnvironmentName'])) {
             $model->environmentName = $map['EnvironmentName'];
+        }
+        if (isset($map['EnvironmentSubType'])) {
+            $model->environmentSubType = $map['EnvironmentSubType'];
         }
         if (isset($map['EnvironmentType'])) {
             $model->environmentType = $map['EnvironmentType'];

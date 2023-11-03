@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description ServiceMonitor\"s yaml configuration string.
+     * @description The YAML configuration string of the ServiceMonitor.
      *
-     * @example `
-     * `
+     * @example Refer to supplementary instructions.
+     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxxx
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description ServiceMonitor name.
+     * @description The name of the ServiceMonitor.
      *
      * @example serviceMonitor1
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $serviceMonitorName;
 
     /**
-     * @description Status: run, stop.
+     * @description The status of the ServiceMonitor. Valid values: run and stop.
      *
      * @example run
      *

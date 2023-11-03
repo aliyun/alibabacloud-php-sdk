@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnvPodMonitorResponseBody extends Model
 {
     /**
-     * @description The response code. The status code 200 indicates that the request was successful.
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class DescribeEnvPodMonitorResponseBody extends Model
     public $data;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example success
      *
@@ -35,7 +35,7 @@ class DescribeEnvPodMonitorResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
      *

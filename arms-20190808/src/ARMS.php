@@ -95,6 +95,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateWebhookRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateWebhookResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DelAuthTokenRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DelAuthTokenResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteAddonReleaseRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteAddonReleaseResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteAlertContactGroupRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteAlertContactGroupResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteAlertContactRequest;
@@ -163,6 +165,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteWebhookContactRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteWebhookContactResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonReleaseRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonReleaseResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeContactGroupsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeContactGroupsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeContactsRequest;
@@ -171,6 +175,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeDispatchRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeDispatchRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvCustomJobRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvCustomJobResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentFeatureRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentFeatureResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvPodMonitorRequest;
@@ -254,12 +260,18 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ImportAppAlertRulesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ImportAppAlertRulesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\InitEnvironmentRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\InitEnvironmentResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallAddonRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallAddonResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallCmsExporterRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallCmsExporterResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallEnvironmentFeatureRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallEnvironmentFeatureResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallManagedPrometheusRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\InstallManagedPrometheusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListActivatedAlertsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListActivatedAlertsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAddonReleasesRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAddonReleasesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertsRequest;
@@ -276,6 +288,11 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListDispatchRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListDispatchRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvCustomJobsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvCustomJobsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentFeaturesRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentFeaturesResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentsShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvPodMonitorsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvPodMonitorsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvServiceMonitorsRequest;
@@ -431,6 +448,10 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateWebhookRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateWebhookResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpgradeAddonReleaseRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpgradeAddonReleaseResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpgradeEnvironmentFeatureRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpgradeEnvironmentFeatureResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UploadRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UploadResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -3104,6 +3125,58 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param DeleteAddonReleaseRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAddonReleaseResponse
+     */
+    public function deleteAddonReleaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->releaseName)) {
+            $query['ReleaseName'] = $request->releaseName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAddonRelease',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAddonReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAddonReleaseRequest $request
+     *
+     * @return DeleteAddonReleaseResponse
+     */
+    public function deleteAddonRelease($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAddonReleaseWithOptions($request, $runtime);
+    }
+
+    /**
      * ********
      *   *
      * @param DeleteAlertContactRequest $request DeleteAlertContactRequest
@@ -4668,6 +4741,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param DescribeAddonReleaseRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAddonReleaseResponse
+     */
+    public function describeAddonReleaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->releaseName)) {
+            $query['ReleaseName'] = $request->releaseName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAddonRelease',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAddonReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAddonReleaseRequest $request
+     *
+     * @return DescribeAddonReleaseResponse
+     */
+    public function describeAddonRelease($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAddonReleaseWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeContactGroupsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -5035,6 +5157,55 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEnvironmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEnvironmentFeatureRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeEnvironmentFeatureResponse
+     */
+    public function describeEnvironmentFeatureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->featureName)) {
+            $query['FeatureName'] = $request->featureName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnvironmentFeature',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnvironmentFeatureRequest $request
+     *
+     * @return DescribeEnvironmentFeatureResponse
+     */
+    public function describeEnvironmentFeature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnvironmentFeatureWithOptions($request, $runtime);
     }
 
     /**
@@ -6923,6 +7094,70 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param InstallAddonRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return InstallAddonResponse
+     */
+    public function installAddonWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addonVersion)) {
+            $query['AddonVersion'] = $request->addonVersion;
+        }
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->releaseName)) {
+            $query['ReleaseName'] = $request->releaseName;
+        }
+        if (!Utils::isUnset($request->values)) {
+            $query['Values'] = $request->values;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InstallAddon',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InstallAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InstallAddonRequest $request
+     *
+     * @return InstallAddonResponse
+     */
+    public function installAddon($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installAddonWithOptions($request, $runtime);
+    }
+
+    /**
      * @param InstallCmsExporterRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -6975,6 +7210,67 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installCmsExporterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InstallEnvironmentFeatureRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return InstallEnvironmentFeatureResponse
+     */
+    public function installEnvironmentFeatureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->featureName)) {
+            $query['FeatureName'] = $request->featureName;
+        }
+        if (!Utils::isUnset($request->featureVersion)) {
+            $query['FeatureVersion'] = $request->featureVersion;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InstallEnvironmentFeature',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InstallEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InstallEnvironmentFeatureRequest $request
+     *
+     * @return InstallEnvironmentFeatureResponse
+     */
+    public function installEnvironmentFeature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installEnvironmentFeatureWithOptions($request, $runtime);
     }
 
     /**
@@ -7101,6 +7397,55 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listActivatedAlertsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAddonReleasesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAddonReleasesResponse
+     */
+    public function listAddonReleasesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addonName)) {
+            $query['AddonName'] = $request->addonName;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAddonReleases',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAddonReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAddonReleasesRequest $request
+     *
+     * @return ListAddonReleasesResponse
+     */
+    public function listAddonReleases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAddonReleasesWithOptions($request, $runtime);
     }
 
     /**
@@ -7655,6 +8000,112 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEnvServiceMonitorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListEnvironmentFeaturesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListEnvironmentFeaturesResponse
+     */
+    public function listEnvironmentFeaturesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvironmentFeatures',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnvironmentFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEnvironmentFeaturesRequest $request
+     *
+     * @return ListEnvironmentFeaturesResponse
+     */
+    public function listEnvironmentFeatures($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvironmentFeaturesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListEnvironmentsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListEnvironmentsResponse
+     */
+    public function listEnvironmentsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListEnvironmentsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->addonName)) {
+            $query['AddonName'] = $request->addonName;
+        }
+        if (!Utils::isUnset($request->environmentType)) {
+            $query['EnvironmentType'] = $request->environmentType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvironments',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnvironmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEnvironmentsRequest $request
+     *
+     * @return ListEnvironmentsResponse
+     */
+    public function listEnvironments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvironmentsWithOptions($request, $runtime);
     }
 
     /**
@@ -11707,6 +12158,122 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateWebhookWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeAddonReleaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpgradeAddonReleaseResponse
+     */
+    public function upgradeAddonReleaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addonVersion)) {
+            $query['AddonVersion'] = $request->addonVersion;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->releaseName)) {
+            $query['ReleaseName'] = $request->releaseName;
+        }
+        if (!Utils::isUnset($request->values)) {
+            $query['Values'] = $request->values;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeAddonRelease',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeAddonReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeAddonReleaseRequest $request
+     *
+     * @return UpgradeAddonReleaseResponse
+     */
+    public function upgradeAddonRelease($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeAddonReleaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeEnvironmentFeatureRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpgradeEnvironmentFeatureResponse
+     */
+    public function upgradeEnvironmentFeatureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->featureName)) {
+            $query['FeatureName'] = $request->featureName;
+        }
+        if (!Utils::isUnset($request->featureVersion)) {
+            $query['FeatureVersion'] = $request->featureVersion;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->values)) {
+            $query['Values'] = $request->values;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeEnvironmentFeature',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeEnvironmentFeatureRequest $request
+     *
+     * @return UpgradeEnvironmentFeatureResponse
+     */
+    public function upgradeEnvironmentFeature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeEnvironmentFeatureWithOptions($request, $runtime);
     }
 
     /**

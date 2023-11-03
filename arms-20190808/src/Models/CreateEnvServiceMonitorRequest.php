@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateEnvServiceMonitorRequest extends Model
 {
     /**
-     * @description Locale, default is Chinese zh | en.
+     * @description The language. Valid values: zh and en. Default value: zh.
      *
      * @example zh
      *
@@ -18,16 +18,16 @@ class CreateEnvServiceMonitorRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description ServiceMonitor\"s yaml configuration string.
+     * @description The YAML configuration string of the ServiceMonitor.
      *
-     * @example Example:
-     * where arms.prometheus.io/discovery must exist and its value If "true", it means serviceMonitor is enabled, otherwise it means it is stopped.
+     * @example Refer to supplementary instructions.
+     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Trial run: Check whether the format is legal and whether it can match targets.
+     * @description Specifies whether to perform only a dry run, without performing the actual request.
      *
      * @example true
      *
@@ -36,7 +36,7 @@ class CreateEnvServiceMonitorRequest extends Model
     public $dryRun;
 
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxxxx
      *
@@ -45,7 +45,7 @@ class CreateEnvServiceMonitorRequest extends Model
     public $environmentId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

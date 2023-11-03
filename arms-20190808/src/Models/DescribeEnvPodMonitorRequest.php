@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnvPodMonitorRequest extends Model
 {
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxxx
      *
@@ -18,7 +18,7 @@ class DescribeEnvPodMonitorRequest extends Model
     public $environmentId;
 
     /**
-     * @description The namespace where podMonitor is located.
+     * @description The namespace where the PodMonitor is located.
      *
      * @example arms-prom
      *
@@ -27,7 +27,7 @@ class DescribeEnvPodMonitorRequest extends Model
     public $namespace;
 
     /**
-     * @description PodMonitor name.
+     * @description The name of the PodMonitor.
      *
      * @example arms-admin-pm1
      *
@@ -36,7 +36,7 @@ class DescribeEnvPodMonitorRequest extends Model
     public $podMonitorName;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

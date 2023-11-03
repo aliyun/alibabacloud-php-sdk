@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description If the request parameter encryptYaml is true, the base64-encoded yaml string is returned. Otherwise, the plaintext yaml string is returned.
+     * @description If the request parameter EncryptYaml is set to true, a Base64-encoded YAML string is returned. Otherwise, a plaintext YAML string is returned.
      *
-     * @example `
-     * `
+     * @example Refer to supplementary instructions.
+     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Custom job name.
+     * @description The name of the custom job.
      *
      * @example customJob1
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $customJobName;
 
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxxx
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description Status: run, stop.
+     * @description The status of the custom job. Valid values: run and stop.
      *
      * @example run
      *

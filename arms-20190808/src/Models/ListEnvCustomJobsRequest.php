@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListEnvCustomJobsRequest extends Model
 {
     /**
-     * @description Whether to return encrypted yaml.
+     * @description Specifies whether to return the encrypted YAML string.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class ListEnvCustomJobsRequest extends Model
     public $encryptYaml;
 
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxxx
      *

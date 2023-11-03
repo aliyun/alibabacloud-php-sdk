@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description target matching prompt information.
+     * @description Indicates whether targets are matched.
      *
      * @example Match successful.
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $namespace;
 
     /**
-     * @description The name of the serviceMonitor successfully created.
+     * @description The name of the created ServiceMonitor.
      *
      * @example arms-admin1
      *

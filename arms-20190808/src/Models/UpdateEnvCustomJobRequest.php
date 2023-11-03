@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateEnvCustomJobRequest extends Model
 {
     /**
-     * @description Locale, the default is Chinese zh | en.
+     * @description The language. Valid values: zh and en. Default value: zh.
      *
      * @example zh
      *
@@ -18,16 +18,16 @@ class UpdateEnvCustomJobRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description yaml configuration string.
+     * @description The YAML configuration string.
      *
-     * @example `
-     * `
+     * @example Refer to supplementary instructions.
+     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Custom job name.
+     * @description The name of the custom job.
      *
      * @example customJob1
      *
@@ -36,7 +36,7 @@ class UpdateEnvCustomJobRequest extends Model
     public $customJobName;
 
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxxxx
      *
@@ -54,7 +54,7 @@ class UpdateEnvCustomJobRequest extends Model
     public $regionId;
 
     /**
-     * @description Custom task status: run or stop.
+     * @description The status of the custom job. Valid values: run and stop.
      *
      * @example run
      *

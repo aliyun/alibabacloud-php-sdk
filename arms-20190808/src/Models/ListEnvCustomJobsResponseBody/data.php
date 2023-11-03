@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The attributed component name.
+     * @description The name of the component to which the custom job belongs.
      *
      * @example mysql
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $addonName;
 
     /**
-     * @description The attributed component instance name.
+     * @description The instance name of the component.
      *
      * @example mysql1
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $addonReleaseName;
 
     /**
-     * @description The attributed component version.
+     * @description The version of the component.
      *
      * @example 1.1.0
      *
@@ -37,16 +37,16 @@ class data extends Model
     public $addonVersion;
 
     /**
-     * @description If the request parameter encryptYaml is true, the base64-encoded yaml string is returned. Otherwise, the plaintext yaml string is returned.
+     * @description If the request parameter EncryptYaml is set to true, a Base64-encoded YAML string is returned. Otherwise, a plaintext YAML string is returned.
      *
-     * @example `
-     * `
+     * @example Refer to supplementary instructions.
+     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Creation time (timestamp).
+     * @description The time when the custom job was created. The value of this parameter is a timestamp.
      *
      * @example 2022-01-01T10:11:34Z
      *
@@ -55,7 +55,7 @@ class data extends Model
     public $creationTimestamp;
 
     /**
-     * @description Custom job name.
+     * @description The name of the custom job.
      *
      * @example job1
      *
@@ -64,7 +64,7 @@ class data extends Model
     public $customJobName;
 
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxx
      *
@@ -82,14 +82,14 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description scrape configuration.
+     * @description The capture configurations.
      *
      * @var scrapeConfigs[]
      */
     public $scrapeConfigs;
 
     /**
-     * @description state.
+     * @description The status of the custom job.
      *
      * @example run
      *

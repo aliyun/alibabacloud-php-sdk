@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Target matching prompt information.
+     * @description Indicates whether targets are matched.
      *
      * @example Match successful.
      *

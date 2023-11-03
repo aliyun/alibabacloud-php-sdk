@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description addon name.
+     * @description The name of the component to which the PodMonitor belongs.
      *
      * @example mysql
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $addonName;
 
     /**
-     * @description addon release name.
+     * @description The instance name of the component.
      *
      * @example mysql1
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $addonReleaseName;
 
     /**
-     * @description addon version.
+     * @description The version of the component.
      *
      * @example 1.0.5
      *
@@ -37,16 +37,16 @@ class data extends Model
     public $addonVersion;
 
     /**
-     * @description yaml configuration string.
+     * @description The YAML configuration string.
      *
-     * @example `
-     * `
+     * @example Refer to supplementary instructions.
+     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Creation time (timestamp).
+     * @description The time when the PodMonitor was created. The value of this parameter is a timestamp.
      *
      * @example 2011-01-02T11:34:22Z
      *
@@ -55,14 +55,14 @@ class data extends Model
     public $creationTimestamp;
 
     /**
-     * @description List of endpoints for podmonitor.
+     * @description The endpoints of the PodMonitor.
      *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxxxx
      *
@@ -80,7 +80,7 @@ class data extends Model
     public $namespace;
 
     /**
-     * @description PodMonitor name.
+     * @description The name of the PodMonitor.
      *
      * @example pm1
      *
@@ -98,7 +98,7 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description state.
+     * @description The status of the PodMonitor.
      *
      * @example run
      *

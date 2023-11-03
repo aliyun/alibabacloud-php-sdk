@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scrapeConfigs extends Model
 {
     /**
-     * @description Job name.
+     * @description The name of the job.
      *
      * @example custom-sd-demo
      *
@@ -18,7 +18,7 @@ class scrapeConfigs extends Model
     public $jobName;
 
     /**
-     * @description scrape the path of the metric.
+     * @description The path of the metric.
      *
      * @example /metrics
      *
@@ -27,14 +27,14 @@ class scrapeConfigs extends Model
     public $metricsPath;
 
     /**
-     * @description List of service discovery methods.
+     * @description The service discovery methods.
      *
      * @var string[]
      */
     public $scrapeDiscoverys;
 
     /**
-     * @description scrape interval.
+     * @description The capture interval.
      *
      * @example 30s
      *

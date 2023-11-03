@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description PodMonitor\"s yaml configuration string.
+     * @description The YAML configuration string of the PodMonitor.
      *
-     * @example `
-     * `
+     * @example Refer to supplementary instructions.
+     *
      * @var string
      */
     public $configYaml;
 
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxxx
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $namespace;
 
     /**
-     * @description PodMonitor name.
+     * @description The name of the PodMonitor.
      *
      * @example podMonitor1
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description Status: run, stop.
+     * @description The status of the PodMonitor. Valid values: run and stop.
      *
      * @example run
      *

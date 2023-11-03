@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListEnvPodMonitorsRequest extends Model
 {
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxxxx
      *
