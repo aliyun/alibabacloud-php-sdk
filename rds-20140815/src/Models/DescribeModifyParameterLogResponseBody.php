@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyParameterLogResponseBody extends Model
 {
     /**
-     * @description The ID of the RDS instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxx
      *
@@ -19,7 +19,7 @@ class DescribeModifyParameterLogResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The database engine that the RDS instance runs.
+     * @description The database engine of the instance.
      *
      * @example mysql
      *
@@ -28,7 +28,7 @@ class DescribeModifyParameterLogResponseBody extends Model
     public $engine;
 
     /**
-     * @description The version of the database engine that the RDS instance runs.
+     * @description The database engine version of the instance.
      *
      * @example 5.6
      *
@@ -37,14 +37,14 @@ class DescribeModifyParameterLogResponseBody extends Model
     public $engineVersion;
 
     /**
-     * @description An array that consists of parameter reconfiguration log entries.
+     * @description An array that consists of parameter modification log entries.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -53,7 +53,7 @@ class DescribeModifyParameterLogResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 1
      *
@@ -62,7 +62,7 @@ class DescribeModifyParameterLogResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C8E88DED-533F-4B3C-9207-731FBF394CCA
      *

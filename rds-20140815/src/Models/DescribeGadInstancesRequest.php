@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeGadInstancesRequest extends Model
 {
     /**
-     * @description The ID of the single global active database cluster that you want to query.
+     * @description The ID of the global active database cluster.
      *
      *   If you leave this parameter empty, this operation returns the details about all global active database clusters that are created within your Alibaba Cloud account.
-     *   If you specify this parameter, this operation returns the details about the single global active database cluster that you specify.
+     *   If you specify this parameter, this operation returns the details about the global active database cluster that you specify.
      *
-     * >  You can call this operation with this parameter left empty to query the details about all global active database clusters that are created within your Alibaba Cloud account. Then, you can call this operation again with this parameter specified to query the details about the single global active database cluster that you specify.
+     * >  If you do not specify this parameter when you call this operation for the first time, the IDs of all clusters that are created by using the current account are returned. Then, you can specify the cluster ID to view the cluster details.
      * @example gad-rm-bp1npi2j8********
      *
      * @var string
@@ -22,7 +22,7 @@ class DescribeGadInstancesRequest extends Model
     public $gadInstanceName;
 
     /**
-     * @description The ID of the region where the global active database clusters that you want to query reside. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

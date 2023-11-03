@@ -96,7 +96,7 @@ class CloneDBInstanceShrinkRequest extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -273,7 +273,7 @@ class CloneDBInstanceShrinkRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC).
      *
-     * > Make sure that the VPC belongs to the required region.
+     * >  Make sure that the VPC belongs to the required region.
      * @example vpc-uf6f7l4fg90xxxxxxxxxx
      *
      * @var string
@@ -281,12 +281,9 @@ class CloneDBInstanceShrinkRequest extends Model
     public $VPCId;
 
     /**
-     * @description The ID of the vSwitch. The vSwitch must belong to the zone that is specified by the **ZoneId** parameter.
+     * @description The ID of the vSwitch. The vSwitch must belong to the zone that is specified by **ZoneId**.
      *
-     * >
-     *
-     *   If you set the **InstanceNetworkType** parameter to **VPC**, you must also specify this parameter.
-     *
+     *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
      *   If you specify the **ZoneSlaveId1** parameter, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
      *
      * @example vsw-uf6adz52c2pxxxxxxxxxx

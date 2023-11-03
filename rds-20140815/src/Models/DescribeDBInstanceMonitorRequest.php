@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceMonitorRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxxx
      *
@@ -18,7 +18,7 @@ class DescribeDBInstanceMonitorRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the IDs of instances.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

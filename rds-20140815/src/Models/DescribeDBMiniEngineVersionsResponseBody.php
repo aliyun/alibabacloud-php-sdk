@@ -28,7 +28,7 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
     public $maxRecordsPerPage;
 
     /**
-     * @description An array that consists of details of the minor engine version.
+     * @description The details of the minor engine version.
      *
      * @var minorVersionItems[]
      */

@@ -18,7 +18,7 @@ class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
     public $insName;
 
     /**
-     * @description 资源组ID，可以为空。
+     * @description The resource group ID. You can leave this parameter empty.
      *
      * @example rg-aek3dbzqbh6owgy
      *

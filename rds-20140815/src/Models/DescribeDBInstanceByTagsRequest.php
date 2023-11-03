@@ -18,7 +18,7 @@ class DescribeDBInstanceByTagsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
      *
      * @example rm-uf6w**********
      *
@@ -37,7 +37,7 @@ class DescribeDBInstanceByTagsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: **1**.
      * @example 1

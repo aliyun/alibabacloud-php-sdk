@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePostgresExtensionsResponseBody extends Model
 {
     /**
-     * @description The extensions that are installed on the database.
+     * @description The list of extensions that are installed on the specified database.
      *
      * @var installedExtensions[]
      */
@@ -36,7 +36,7 @@ class DescribePostgresExtensionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The extensions that are not installed on the database.
+     * @description The list of extensions that are not installed on the specified database.
      *
      * @var uninstalledExtensions[]
      */

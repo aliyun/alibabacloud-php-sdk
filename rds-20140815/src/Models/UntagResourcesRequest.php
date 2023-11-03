@@ -38,7 +38,7 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of instances. You can remove tags from N instances at a time. Valid values of N: **1** to **50**.
+     * @description The instance ID. You can remove tags from N instances at a time. Valid values of N: **1** to **50**.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

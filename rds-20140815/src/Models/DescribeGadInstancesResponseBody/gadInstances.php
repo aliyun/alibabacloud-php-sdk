@@ -19,7 +19,7 @@ class gadInstances extends Model
     public $creationTime;
 
     /**
-     * @description The name of the global active database cluster.
+     * @description The cluster name.
      *
      * @example GadTest
      *
@@ -28,7 +28,7 @@ class gadInstances extends Model
     public $description;
 
     /**
-     * @description An array that consists of the details about the nodes in the global active database cluster.
+     * @description The information about each node in the cluster.
      *
      * @var gadInstanceMembers[]
      */
@@ -63,11 +63,11 @@ class gadInstances extends Model
     public $service;
 
     /**
-     * @description The status of the global active database cluster. Valid values:
+     * @description The cluster status. Valid values:
      *
-     *   **activation**: The global active database cluster is running.
-     *   **creating**: The global active database cluster is being created.
-     *   **replica_adding**: Nodes are being added to the global active database cluster.
+     *   **activation**: The cluster is running.
+     *   **creating**: The cluster is being created.
+     *   **replica_adding**: Nodes are being added to the cluster.
      *
      * @example activation
      *

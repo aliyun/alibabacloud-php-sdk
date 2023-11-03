@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescibeImportsFromDatabaseRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxxx
      *
@@ -36,10 +36,7 @@ class DescibeImportsFromDatabaseRequest extends Model
     public $endTime;
 
     /**
-     * @description The database engine of the instance. Valid values:
-     *
-     *   **MySQL**
-     *   **SQL Server**
+     * @description The database engine of the instance. Set the value to **MySQL**
      *
      * @example MySQL
      *

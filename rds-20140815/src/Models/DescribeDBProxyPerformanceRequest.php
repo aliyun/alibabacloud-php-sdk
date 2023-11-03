@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBProxyPerformanceRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
      *
      * @example rm-t4n3axxxxx
      *
@@ -18,7 +18,7 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description An internal parameter. You do not need to specify this parameter.
+     * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example normal
      *
@@ -72,7 +72,7 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the instance resides. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

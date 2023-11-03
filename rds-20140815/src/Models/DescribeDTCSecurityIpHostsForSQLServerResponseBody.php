@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDTCSecurityIpHostsForSQLServerResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -35,7 +35,7 @@ class DescribeDTCSecurityIpHostsForSQLServerResponseBody extends Model
     public $items;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2CA62A70-2203-45C6-8E90-8971D5ACC0C2
      *

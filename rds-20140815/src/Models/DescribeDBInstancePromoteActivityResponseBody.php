@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePromoteActivityResponseBody extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 22973492**********
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $aliUid;
 
     /**
+     * @description China site: 26842 International site: 26888
+     *
      * @example 268**
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $bid;
 
     /**
+     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The instance name.
+     *
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -37,6 +45,12 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $DBInstanceName;
 
     /**
+     * @description The type of the database engine. Valid values:
+     *
+     *   **MySQL**
+     *   **PostgreSQL**
+     *   **Oracle**
+     *
      * @example MySQL
      *
      * @var string
@@ -44,6 +58,8 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $DBType;
 
     /**
+     * @description The activity information about the instance. For more information, see [Instance activities](~~26312~~).
+     *
      * @example 1
      *
      * @var string
@@ -51,6 +67,8 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $isActivity;
 
     /**
+     * @description The request ID.
+     *
      * @example 94CB8D93-017A-5AE7-A118-6E0F89D93C0A
      *
      * @var string

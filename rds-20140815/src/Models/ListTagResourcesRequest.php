@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The token required to obtain more results. This parameter is not required in the first query. If a query does not return all results, in the next query, you can specify the token returned from the previous query to obtain more results.
+     * @description The token required to obtain more results. This parameter is not required in the first query. If a query does not return all results, you can specify the token returned from the previous query for the next query to obtain more results.
      *
      * @example 212db86sca4384811e0b5e8707ec21345
      *
@@ -24,7 +24,7 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -33,8 +33,9 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of resources. You can specify up to 50 resource IDs.
+     * @description The instance ID. You can specify a maximum of **50** instance IDs.****
      *
+     * >  You must specify at least one of the **ResourceId** and **Key** parameters.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string[]
@@ -61,7 +62,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags to query resources. You can specify up to 20 tags.
+     * @description The tag list.
      *
      * @var tag[]
      */

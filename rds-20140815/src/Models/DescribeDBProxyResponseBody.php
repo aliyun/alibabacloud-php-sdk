@@ -19,7 +19,7 @@ class DescribeDBProxyResponseBody extends Model
     public $DBProxyAVZones;
 
     /**
-     * @description An array consisting of the information about the proxy endpoint that is created for the instance.
+     * @description An array consisting of the information about the database proxy endpoint that is created for the instance.
      *
      * @var DBProxyConnectStringItems
      */
@@ -85,7 +85,7 @@ class DescribeDBProxyResponseBody extends Model
      *
      *   DBInstanceClassChanging: The specifications of the proxy instance are being changed.
      *   Creating: The proxy instance is being created.
-     *   Running: The proxy instance is being running.
+     *   Running: The proxy instance is running.
      *   Deleting: The proxy instance is being deleted.
      *
      * @example Running

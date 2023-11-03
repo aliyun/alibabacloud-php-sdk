@@ -18,9 +18,9 @@ class DescribeParameterGroupResponseBody extends Model
     public $paramGroup;
 
     /**
-     * @description The instance to which the parameter template was applied.
+     * @description The information about the instance to which the parameter template is applied.
      *
-     * > This parameter is available only for ApsaraDB RDS for PostgreSQL instances.
+     * >  This parameter is available only for ApsaraDB RDS for PostgreSQL instances.
      * @var relatedCustinsInfo
      */
     public $relatedCustinsInfo;

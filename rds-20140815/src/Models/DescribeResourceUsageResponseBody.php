@@ -72,7 +72,7 @@ class DescribeResourceUsageResponseBody extends Model
     public $coldBackupSize;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -99,7 +99,7 @@ class DescribeResourceUsageResponseBody extends Model
     public $diskUsed;
 
     /**
-     * @description The database engine that the instance runs.
+     * @description The database engine of the instance.
      *
      * @example MySQL
      *
@@ -117,7 +117,7 @@ class DescribeResourceUsageResponseBody extends Model
     public $logSize;
 
     /**
-     * @description The backup storage for which you must pay. ApsaraDB RDS provides a free quota on backup storage. You must pay for the backup storage that exceeds the free quota. Unit: bytes.
+     * @description The backup storage for which you must pay. The system provides a free quota on backup storage. You must pay for the backup storage that exceeds the free quota. Unit: bytes.
      *
      * @example 0
      *
@@ -126,7 +126,7 @@ class DescribeResourceUsageResponseBody extends Model
     public $paidBackupSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F937E173-559C-4498-8D90-38D32342B9E4
      *

@@ -28,7 +28,7 @@ class parameterGroup extends Model
     public $engine;
 
     /**
-     * @description The version of the database engine.
+     * @description The database engine version of the instance.
      *
      * @example 5.6
      *

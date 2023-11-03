@@ -11,8 +11,8 @@ class DeleteBackupRequest extends Model
     /**
      * @description The ID of the backup set. You can call the [DescribeBackups](~~610544~~) operation to query backup set IDs. Separate multiple values with commas (,). You can specify a maximum of 100 values in a single request.
      *
-     * > After you call the [DescribeBackups](~~610544~~) operation, the returned backup sets whose **StoreStatus** is **Enabled** can be deleted.
-     * @example 324909958
+     * >  You can only delete backup sets whose **StoreStatus** is **Enabled** in [DescribeBackups](~~610544~~).
+     * @example 324******
      *
      * @var string
      */

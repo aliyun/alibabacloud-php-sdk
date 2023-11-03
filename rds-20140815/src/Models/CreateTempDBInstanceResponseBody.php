@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTempDBInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 248DE93F-8647-4B9D-8287-4A4A0FE56AD5
      *
@@ -20,7 +20,7 @@ class CreateTempDBInstanceResponseBody extends Model
     /**
      * @description The ID of the temporary instance.
      *
-     * @example sub138xxxxx_rm-xxxxx
+     * @example sub138****_rm-******
      *
      * @var string
      */

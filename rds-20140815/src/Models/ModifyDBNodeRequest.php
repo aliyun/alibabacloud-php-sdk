@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBNodeRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically complete the payment. Valid values:
+     *
+     * 1.  **true**: automatically completes the payment. You must make sure that your account balance is sufficient.
+     * 2.  **false**: does not automatically complete the payment. An unpaid order is generated.
+     *
+     * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
      * @example true
      *
      * @var bool
@@ -17,6 +23,8 @@ class ModifyDBNodeRequest extends Model
     public $autoPay;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCzxxxxxxx
      *
      * @var string
@@ -24,6 +32,8 @@ class ModifyDBNodeRequest extends Model
     public $clientToken;
 
     /**
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
      * @example rm-bp1k8s41l2o52****
      *
      * @var string
@@ -31,6 +41,8 @@ class ModifyDBNodeRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The storage capacity of the new instance. Unit: GB. For more information, see [Instance types](~~26312~~).
+     *
      * @example 20
      *
      * @var string
@@ -38,6 +50,12 @@ class ModifyDBNodeRequest extends Model
     public $DBInstanceStorage;
 
     /**
+     * @description The storage type of the new instance. Valid values:
+     *
+     *   **local_ssd/ephemeral_ssd**: local SSD
+     *   **cloud_ssd**: standard SSD
+     *   **cloud_essd**: enhanced SSD (ESSD)
+     *
      * @example cloud_essd
      *
      * @var string
@@ -45,11 +63,18 @@ class ModifyDBNodeRequest extends Model
     public $DBInstanceStorageType;
 
     /**
+     * @description An array that consists of the details of the node.
+     *
      * @var DBNode[]
      */
     public $DBNode;
 
     /**
+     * @description Indicates that the system performed a dry run.
+     *
+     *   The value is fixed as **true**.
+     *   If the system does not perform a dry run, this parameter is not returned.
+     *
      * @example false
      *
      * @var bool
@@ -67,6 +92,8 @@ class ModifyDBNodeRequest extends Model
     public $ownerId;
 
     /**
+     * @description Do you want to perform a pre check on the operation of this node change.
+     *
      * @example true
      *
      * @var bool

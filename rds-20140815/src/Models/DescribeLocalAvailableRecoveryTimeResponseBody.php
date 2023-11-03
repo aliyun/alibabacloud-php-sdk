@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -36,7 +36,7 @@ class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
     public $recoveryEndTime;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 14E986AC-0F27-4FFB-8EED-9A8A3A2A0309
      *

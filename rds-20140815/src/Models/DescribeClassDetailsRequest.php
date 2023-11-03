@@ -29,7 +29,6 @@ class DescribeClassDetailsRequest extends Model
     /**
      * @description The commodity code of the instance. Valid values:
      *
-     *   ****
      *   **bards_intl**: The instance is a pay-as-you-go primary instance.
      *   **rds_intl**: The instance is a subscription primary instance.
      *   **rords_intl**: The instance is a pay-as-you-go read-only instance.
@@ -74,7 +73,7 @@ class DescribeClassDetailsRequest extends Model
     public $regionId;
 
     /**
-     * @description 资源组ID。可调用[DescribeDBInstanceAttribute](~~610394~~)获取。
+     * @description The resource group ID. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the resource group ID.
      *
      * @example rg-acfmy*****
      *

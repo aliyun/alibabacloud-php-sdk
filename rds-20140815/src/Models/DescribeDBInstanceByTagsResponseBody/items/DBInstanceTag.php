@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceTag extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6w**********
      *
@@ -19,7 +19,7 @@ class DBInstanceTag extends Model
     public $DBInstanceId;
 
     /**
-     * @description An array that consists of the queried tags.
+     * @description The details about the tag.
      *
      * @var tags
      */

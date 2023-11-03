@@ -44,7 +44,7 @@ class DBInstanceAccount extends Model
      *
      *   **Normal**: standard account
      *   **Super**: privileged account
-     *   **Sysadmin**: superuser account that has the system administrator permissions
+     *   **Sysadmin**: system admin account, which is supported only for instances running SQL Server
      *
      * @example Normal
      *
@@ -55,8 +55,8 @@ class DBInstanceAccount extends Model
     /**
      * @description Indicates whether the account has the row-level security (RLS) permissions. Valid values:
      *
-     *   **t**: yes
-     *   **f**: no
+     *   **t**: The account has the RLS permissions.
+     *   **f**: The account does not have the RLS permissions.
      *
      * >  This parameter is returned only for instances that run PostgreSQL.
      * @example f
@@ -68,8 +68,8 @@ class DBInstanceAccount extends Model
     /**
      * @description Indicates whether the account has the permissions to create databases. Valid values:
      *
-     *   **t**: yes
-     *   **f**: no
+     *   **t**: The account has the permissions to create databases.
+     *   **f**: The account does not have the permissions to create databases.
      *
      * >  This parameter is returned only for instances that run PostgreSQL.
      * @example t
@@ -81,8 +81,8 @@ class DBInstanceAccount extends Model
     /**
      * @description Indicates whether the account has the permissions to create roles. Valid values:
      *
-     *   **t**: yes
-     *   **f**: no
+     *   **t**: The account has the permissions to create roles.
+     *   **f**: The account does not have the permissions to create roles.
      *
      * >  This parameter is returned only for instances that run PostgreSQL.
      * @example t
@@ -101,7 +101,7 @@ class DBInstanceAccount extends Model
     public $DBInstanceId;
 
     /**
-     * @description The details of the permissions that are granted to the account.
+     * @description The details about the permissions that are granted to the account.
      *
      * @var databasePrivileges
      */
@@ -110,8 +110,8 @@ class DBInstanceAccount extends Model
     /**
      * @description Indicates whether the number of databases that are managed by the account exceeds the upper limit. Valid values:
      *
-     *   **1**: yes
-     *   **0**: no
+     *   **1**: The number of databases that are managed by the account exceeds the upper limit.
+     *   **0**: The number of databases that are managed by the account does not exceed the upper limit.
      *
      * @example 0
      *
@@ -122,8 +122,8 @@ class DBInstanceAccount extends Model
     /**
      * @description Indicates whether the account has the replication permissions. Valid values:
      *
-     *   **t**: yes
-     *   **f**: no
+     *   **t**: The account has the replication permissions.
+     *   **f**: The account does not have the replication permissions.
      *
      * >  This parameter is returned only for instances that run PostgreSQL.
      * @example t
@@ -137,7 +137,7 @@ class DBInstanceAccount extends Model
      *
      *   **infinity**: The password never expires.
      *   **Empty**: The expiration time is not specified.
-     *   **Actual expiration time** in the format of *yyyy-MM-dd*T*HH:mm:ss*Z in UTC. Example: 2022-10-01T00:00:00Z.
+     *   **Actual expiration time**: in the format of *yyyy-MM-dd*T*HH:mm:ss*Z in UTC. Example: 2022-10-01T00:00:00Z.
      *
      * >  This parameter is returned only for instances that run PostgreSQL.
      * @example 2022-10-01T00:00:00Z

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class TerminateMigrateTaskRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
      *
      * @example rm-bp159vfbu******
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePromoteActivityRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 22973492**********
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDBInstancePromoteActivityRequest extends Model
     public $aliUid;
 
     /**
+     * @description The instance ID.
+     *
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -28,6 +32,8 @@ class DescribeDBInstancePromoteActivityRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example 111
      *
      * @var string

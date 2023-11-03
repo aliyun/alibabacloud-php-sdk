@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOssDownloadsResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -35,7 +35,7 @@ class DescribeOssDownloadsResponseBody extends Model
     public $migrateTaskId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A5409D02-D661-4BF3-8F3D-0A814D0574E7
      *

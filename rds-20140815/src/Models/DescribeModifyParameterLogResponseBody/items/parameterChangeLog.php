@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class parameterChangeLog extends Model
 {
     /**
-     * @description The time when the parameter was reconfigured. This value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the parameter was modified. This value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1584076066000
      *

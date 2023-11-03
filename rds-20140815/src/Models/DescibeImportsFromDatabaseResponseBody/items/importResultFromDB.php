@@ -41,7 +41,7 @@ class importResultFromDB extends Model
      * @description The type of the migration task. Valid values:
      *
      *   **Full**: full migration
-     *   **Incremental:**: incremental migration
+     *   **Incremental**: incremental migration
      *
      * @example Full
      *

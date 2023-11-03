@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class performanceKey extends Model
 {
     /**
-     * @description Specify the name of the performance metric.
+     * @description The name of the performance metric.
      *
      * @example MySQL_Sessions
      *
@@ -30,7 +30,7 @@ class performanceKey extends Model
     /**
      * @description The format in which the value of the performance metric is returned.
      *
-     * >  Multiple performance metric values are separated with ampersands (&). Example: com_delete\&com_insert\&com_insert_select\&com_replace.
+     * >  If a performance metric value consists of multiple fields, the values are separated with ampersands (&). Example: com_delete\&com_insert\&com_insert_select\&com_replace.
      * @example recv_k&sent_k
      *
      * @var string
@@ -38,7 +38,7 @@ class performanceKey extends Model
     public $valueFormat;
 
     /**
-     * @description An array that consists of the values of the performance metric in the following format: {value1, value2, ...}.
+     * @description The performance metric values.
      *
      * @var values
      */

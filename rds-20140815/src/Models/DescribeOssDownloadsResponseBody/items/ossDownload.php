@@ -31,7 +31,7 @@ class ossDownload extends Model
     public $createTime;
 
     /**
-     * @description The description of the file.
+     * @description The description of the backup file.
      *
      * @example App description
      *
@@ -40,7 +40,7 @@ class ossDownload extends Model
     public $description;
 
     /**
-     * @description The end of the time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-08-27T12:45:15Z
      *
@@ -78,7 +78,7 @@ class ossDownload extends Model
     /**
      * @description The state of the backup file. Valid values:
      *
-     *   **NoStart**:
+     *   **NoStart**
      *   **Downloading**
      *   **Finished**
      *   **DownloadFailed**
@@ -89,7 +89,7 @@ class ossDownload extends Model
      *   **CheckFailed**
      *   **Restoring**
      *   **Restored**
-     *   **RestoredFailed**
+     *   **RestoreFailed**
      *
      * @example Finished
      *

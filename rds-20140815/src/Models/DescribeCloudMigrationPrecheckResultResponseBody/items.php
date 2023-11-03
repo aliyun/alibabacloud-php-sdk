@@ -36,7 +36,7 @@ class items extends Model
     public $gmtModified;
 
     /**
-     * @description The username of the account.
+     * @description The username.
      *
      * @example migratetest
      *
@@ -66,7 +66,7 @@ class items extends Model
     public $sourceIpAddress;
 
     /**
-     * @description The password of the account.
+     * @description The password.
      *
      * @example 123456
      *
@@ -84,7 +84,7 @@ class items extends Model
     public $sourcePort;
 
     /**
-     * @description A reserved parameter. The return value of this parameter is null.
+     * @description A reserved parameter. The return value of this parameter is empty.
      *
      * @example null
      *
@@ -93,7 +93,7 @@ class items extends Model
     public $targetEip;
 
     /**
-     * @description The ID of the destination instance.
+     * @description The instance ID.
      *
      * @example pgm-bp102g323jd4****
      *
@@ -102,7 +102,7 @@ class items extends Model
     public $targetInstanceName;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 440420798
      *
@@ -111,7 +111,7 @@ class items extends Model
     public $taskId;
 
     /**
-     * @description The name of the task.
+     * @description The task name.
      *
      * @example lxbv6rtxno8
      *

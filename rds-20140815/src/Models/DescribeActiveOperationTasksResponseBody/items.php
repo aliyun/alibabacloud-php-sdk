@@ -97,7 +97,7 @@ class items extends Model
     public $deadline;
 
     /**
-     * @description The task ID.
+     * @description The ID of the task.
      *
      * @example 11111
      *
@@ -140,7 +140,7 @@ class items extends Model
     public $insComment;
 
     /**
-     * @description The name of the instance.
+     * @description The instance ID.
      *
      * @example rm-wz96h8jujh512****
      *
@@ -234,12 +234,12 @@ class items extends Model
     public $taskParams;
 
     /**
-     * @description The type of the task. Valid values:
+     * @description The type of the O\&M task. Valid values:
      *
      *   **rds_apsaradb_ha**: primary/secondary switchover
      *   **rds_apsaradb_transfer**: instance migration
      *   **rds_apsaradb_upgrade**: update of the minor engine version
-     *   **rds_apsaradb_maxscale**: upgrade of the database proxy version
+     *   **rds_apsaradb_maxscale**: minor version update of the database proxy
      *
      * @example rds_apsaradb_upgrade
      *

@@ -12,8 +12,8 @@ class DBInstance extends Model
     /**
      * @description Indicates whether the buffer pool extension (BPE) feature is enabled. Valid values:
      *
-     *   **1**: The feature is enabled.
-     *   **0**: The feature is disabled.
+     *   **1**
+     *   **0**
      *
      * @example 0
      *
@@ -24,8 +24,8 @@ class DBInstance extends Model
     /**
      * @description Indicates whether the I/O burst feature is enabled. Valid values:
      *
-     *   **true**: The feature is enabled.
-     *   **false**: The feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -37,10 +37,10 @@ class DBInstance extends Model
      * @description The RDS edition of the instance. Valid values:
      *
      *   **Basic**: RDS Basic Edition
-     *   **HighAvailability**: High-availability Edition
+     *   **HighAvailability**: RDS High-availability Edition
      *   **Finance**: RDS Enterprise Edition
      *
-     * > This parameter is returned only when **InstanceLevel** is set to **1**.
+     * >  This parameter is returned only when the **InstanceLevel** parameter is set to **1**.
      * @example Basic
      *
      * @var string
@@ -149,7 +149,7 @@ class DBInstance extends Model
     public $DBInstanceType;
 
     /**
-     * @description The dedicated cluster ID.
+     * @description The ID of the dedicated cluster.
      *
      * @example dhg-7a9xxxxxxxx
      *
@@ -250,8 +250,8 @@ class DBInstance extends Model
     /**
      * @description Indicates whether the release protection feature is enabled for the instance. Valid values:
      *
-     *   **true**: The feature is enabled.
-     *   **false**: The feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -269,7 +269,7 @@ class DBInstance extends Model
     public $destroyTime;
 
     /**
-     * @description The database engine of the serverless instance.
+     * @description The database engine of the instance.
      *
      * @example MySQL
      *
@@ -289,7 +289,7 @@ class DBInstance extends Model
     /**
      * @description The expiration time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     * > Pay-as-you-go instances never expire.
+     * >  Pay-as-you-go instances never expire.
      * @example 2019-02-27T16:00:00Z
      *
      * @var string
@@ -332,7 +332,7 @@ class DBInstance extends Model
      *   **Unlock**: The instance is not locked.
      *   **ManualLock**: The instance is manually locked.
      *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-     *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
+     *   **LockByRestoration**: The instance is automatically locked before the instance is rolled back.
      *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage capacity.
      *   **Released**: The instance is released. After an instance is released, the instance cannot be unlocked. You can only restore the backup data of the instance to a new instance. This process requires a long period of time.
      *
@@ -366,7 +366,7 @@ class DBInstance extends Model
      *   **true**
      *   **false**
      *
-     * > If the multi-zone deployment method is used for the instance, the zone ID of the instance contains MAZ. Example: `cn-hangzhou-MAZ10(h,i)`.
+     * >  If the multi-zone deployment method is used for the instance, the zone ID of the instance contains MAZ. Example: `cn-hangzhou-MAZ10(h,i)`.
      * @example true
      *
      * @var bool
@@ -393,7 +393,7 @@ class DBInstance extends Model
     public $readOnlyDBInstanceIds;
 
     /**
-     * @description The region ID.
+     * @description The region ID of the instance.
      *
      * @example cn-hangzhou
      *
@@ -402,7 +402,7 @@ class DBInstance extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmyxxxxxxx
      *
@@ -444,7 +444,7 @@ class DBInstance extends Model
      * @description The severity level of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
      *
      *   **1**: The instance is normal.
-     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance, and the performance is affected. You must adjust the specifications of these instances based on your business requirements.
+     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance, and instance performance may be affected. You must adjust the specifications of these instances based on your business requirements.
      *
      * @example 1
      *
@@ -471,7 +471,7 @@ class DBInstance extends Model
     public $vpcCloudInstanceId;
 
     /**
-     * @description The VPC ID.
+     * @description The virtual private cloud (VPC) ID of the instance.
      *
      * @example vpc-uf6f7l4fg90xxxxxxx
      *
@@ -489,7 +489,7 @@ class DBInstance extends Model
     public $vpcName;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-a
      *

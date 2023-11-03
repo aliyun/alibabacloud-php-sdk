@@ -27,7 +27,7 @@ class templates extends Model
     public $ips;
 
     /**
-     * @description The ID of the whitelist template.
+     * @description The whitelist template ID.
      *
      * @example 412
      *
@@ -36,7 +36,7 @@ class templates extends Model
     public $templateId;
 
     /**
-     * @description The name of the whitelist template.
+     * @description The whitelist template name.
      *
      * @example template_123
      *

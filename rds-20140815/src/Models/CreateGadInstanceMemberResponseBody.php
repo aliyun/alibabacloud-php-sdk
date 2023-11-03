@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateGadInstanceMemberResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 16C62438-491B-5C02-9B49-BA924A1372A2
      *

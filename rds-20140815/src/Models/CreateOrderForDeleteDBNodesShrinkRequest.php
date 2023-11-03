@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderForDeleteDBNodesShrinkRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically complete the payment. Valid values:
+     *
+     * 1.  **true**: You must make sure that your account balance is sufficient.
+     * 2.  **false**: An unpaid order is generated.
+     *
+     * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
      * @example false
      *
      * @var bool
@@ -16,11 +22,17 @@ class CreateOrderForDeleteDBNodesShrinkRequest extends Model
     public $autoPay;
 
     /**
+     * @description The additional business information about the instance.
+     *
+     * @example {\"shopCartItemId\":\"25******\",\"produceDriver\":\"NoOrder\",\"aliyun_shopcart_order_source\":\"fromShopcart\",\"shopCartId\":\"10190203suffix20230509******\"}
+     *
      * @var string
      */
     public $businessInfo;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCzxxxxxxx
      *
      * @var string
@@ -28,6 +40,17 @@ class CreateOrderForDeleteDBNodesShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description The commodity code. Valid values:
+     *
+     *   **bards**: The instance is a pay-as-you-go primary instance.
+     *   **rds**: The instance is a subscription primary instance.
+     *   **rords**: The instance is a pay-as-you-go read-only instance.
+     *   **rds_rordspre_public_cn**: The instance is a subscription read-only instance.
+     *   **bards_intl**: The instance is a pay-as-you-go primary instance.
+     *   **rds_intl**: The instance is a subscription primary instance.
+     *   **rords_intl**: The instance is a pay-as-you-go read-only instance.
+     *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance.
+     *
      * @example bards
      *
      * @var string
@@ -35,18 +58,25 @@ class CreateOrderForDeleteDBNodesShrinkRequest extends Model
     public $commodityCode;
 
     /**
-     * @example rm-8vb9pvt6807b47orr
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
+     * @example rm-8vb******
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description An array that consists of information about the ID of the node.
+     *
      * @var string
      */
     public $DBNodeIdShrink;
 
     /**
+     * @description The database engine version of the instance. Valid values:
+     *
+     * Valid values if you set Engine to MySQL: **5.5, 5.6, 5.7, and 8.0**
      * @example 5.7
      *
      * @var string
@@ -54,6 +84,11 @@ class CreateOrderForDeleteDBNodesShrinkRequest extends Model
     public $engineVersion;
 
     /**
+     * @description The type of the database node. Valid values:
+     *
+     *   **Master**: the primary node
+     *   **Slave**: the secondary node
+     *
      * @example Master
      *
      * @var string
@@ -66,6 +101,8 @@ class CreateOrderForDeleteDBNodesShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The coupon code.
+     *
      * @example aliwood-1688-mobile-promotion
      *
      * @var string
@@ -73,6 +110,8 @@ class CreateOrderForDeleteDBNodesShrinkRequest extends Model
     public $promotionCode;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -80,6 +119,8 @@ class CreateOrderForDeleteDBNodesShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The resources.
+     *
      * @example buy
      *
      * @var string
@@ -87,6 +128,8 @@ class CreateOrderForDeleteDBNodesShrinkRequest extends Model
     public $resource;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmy*****
      *
      * @var string
@@ -104,6 +147,8 @@ class CreateOrderForDeleteDBNodesShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-a
      *
      * @var string

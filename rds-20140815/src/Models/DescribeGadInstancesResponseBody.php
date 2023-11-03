@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeGadInstancesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about the global active database clusters that are returned.
+     * @description The details about the global active database cluster.
      *
      * @var gadInstances[]
      */
     public $gadInstances;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 76AF0609-4195-5DFC-BC78-3AD76FF872BB
      *

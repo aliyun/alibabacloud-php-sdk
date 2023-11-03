@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceMetricsResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example pgm-bp1s1j103lo6****
      *
@@ -18,7 +18,7 @@ class ModifyDBInstanceMetricsResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B55934BB-FFAA-5276-80A8-E0FDB12810B3
      *

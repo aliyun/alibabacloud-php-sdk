@@ -27,7 +27,7 @@ class secrets extends Model
     public $description;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

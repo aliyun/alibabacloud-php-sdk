@@ -9,20 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderForDeleteDBNodesResponseBody extends Model
 {
     /**
-     * @example rm-7xvf5pvx84o3dcok9
+     * @description The instance ID
+     *
+     * @example rm-7xv******
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @example 221172852240086
+     * @description The order ID.
+     *
+     * @example 221172852******
      *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example 49BC2500-8078-5AC4-A545-20AA5945B0E6
      *
      * @var string

@@ -11,7 +11,7 @@ class minorVersionItems extends Model
     /**
      * @description The PostgreSQL version to which the minor engine version corresponds. For more information, see [Release notes for AliPG](~~126002~~).
      *
-     * > This parameter is valid only when the instance runs **PostgreSQL**.
+     * >  This parameter is available only for instances that run **PostgreSQL**.
      * @example 13.6
      *
      * @var string
@@ -37,12 +37,12 @@ class minorVersionItems extends Model
     public $engineVersion;
 
     /**
-     * @description 内核版本过期状态。返回值如下：
+     * @description The expiration status of the minor engine version. Valid values:
      *
-     * - **vaild**：有效
-     * - **expired**：过期
+     *   **vaild**
+     *   **expired**
      *
-     * > 下线状态为Offline时，表示版本已下线，此时忽略过期状态。下线状态为Online时，过期状态为expired，表示版本已超过生命周期；过期状态为vaild，表示版本仍在生命周期内。
+     * >  If the minor engine version is in the Offline state, the minor engine version is discontinued. In this case, ignore the expiration status. If the minor engine version is in the Online state and the expiration state is expired, the minor engine version expires. If the expiration state is vaild, the minor engine version is still in its lifecycle.
      * @example vaild
      *
      * @var string
@@ -102,8 +102,12 @@ class minorVersionItems extends Model
     public $releaseType;
 
     /**
-     * @description The status of the minor engine version.
+     * @description The status of the minor engine version. Valid values:
      *
+     *   **Offline**: Discontinued
+     *   **online**: Available
+     *
+     * >  If the minor engine version is in the Offline state, the minor engine version is discontinued. In this case, ignore the expiration status. If the minor engine version is in the Online state and the expiration state is expired, the minor engine version expires. If the expiration state is vaild, the minor engine version is still in its lifecycle.
      * @example Online
      *
      * @var string
@@ -116,7 +120,7 @@ class minorVersionItems extends Model
      *   **pgsql_docker_image**: tag of the common instance
      *   **pgsql_babelfish_image**: tag of the instance for which Babelfish is enabled
      *
-     * > This parameter is valid only when the instance runs **PostgreSQL**.
+     * >  This parameter is available only for instances that run **PostgreSQL**.
      * @example pgsql_babelfish_image
      *
      * @var string

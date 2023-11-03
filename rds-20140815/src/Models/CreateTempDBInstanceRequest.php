@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateTempDBInstanceRequest extends Model
 {
     /**
-     * @description The ID of the backup set.
+     * @description The ID of the backup set. You can call the [DescribeBackups](~~610544~~) operation to query backup set IDs.
      *
-     * > You must specify at least one of **BackupId** and **RestoreTime**.
-     * @example 603524168
+     * >  You must specify at least one of the **BackupId** or **RestoreTime** parameters.
+     * @example 603******
      *
      * @var int
      */
     public $backupId;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
-     * @example rm-uf6wjk5xxxxxxx
+     * @example rm-uf6wjk5******
      *
      * @var string
      */
@@ -59,12 +59,8 @@ class CreateTempDBInstanceRequest extends Model
     /**
      * @description The specified point in time within the backup retention period. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
-     * >
-     *
-     *   The time can be set to a point in time within the past seven days and must be more than 30 minutes earlier than the current time. The default time zone is UTC.
-     *
-     *   You must specify at least one of the **BackupId** and **RestoreTime** parameters.
-     *
+     * > *   The time can be set to a point in time within the last seven days and must be more than 30 minutes earlier than the current time. The default time zone is UTC.
+     * > *   You must specify at least one of the **BackupId** and **RestoreTime** parameters.
      * @example 2011-06-11T16:00:00Z
      *
      * @var string

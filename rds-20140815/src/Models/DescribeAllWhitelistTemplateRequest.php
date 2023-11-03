@@ -39,7 +39,7 @@ class DescribeAllWhitelistTemplateRequest extends Model
     public $pageNumbers;
 
     /**
-     * @description 资源组ID。 关于资源组的更多信息，请参见什么是资源组。
+     * @description The resource group ID. For more information about resource groups, see related documentation.
      *
      * @example rg-acfmyhigxskzysy
      *
@@ -58,7 +58,7 @@ class DescribeAllWhitelistTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The name of the IP whitelist template. If you specify this parameter when you perform a fuzzy search, you can call the DescribeWhitelistTemplate operation to query the name of the whitelist template during the fuzzy search.
+     * @description The name of the IP whitelist template. If you specify this parameter when you perform a fuzzy search, you can call the [DescribeWhitelistTemplate](~~2412074~~) operation.
      *
      * @example template
      *

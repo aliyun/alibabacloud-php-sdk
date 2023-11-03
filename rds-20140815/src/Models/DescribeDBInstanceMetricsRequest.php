@@ -18,7 +18,7 @@ class DescribeDBInstanceMetricsRequest extends Model
     public $DBInstanceName;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *

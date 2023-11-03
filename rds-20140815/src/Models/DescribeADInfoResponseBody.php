@@ -40,7 +40,7 @@ class DescribeADInfoResponseBody extends Model
     public $ADStatus;
 
     /**
-     * @description The cause of the exception.
+     * @description The cause of the error.
      *
      * @example XXXX
      *
@@ -49,7 +49,7 @@ class DescribeADInfoResponseBody extends Model
     public $abnormalReason;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *

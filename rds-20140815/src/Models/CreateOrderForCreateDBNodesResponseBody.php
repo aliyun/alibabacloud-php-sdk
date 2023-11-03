@@ -11,7 +11,7 @@ class CreateOrderForCreateDBNodesResponseBody extends Model
     /**
      * @description The instance ID.
      *
-     * @example rm-bp18623g3upv7wz8k
+     * @example rm-f8z9t93u4******
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class CreateOrderForCreateDBNodesResponseBody extends Model
     /**
      * @description The order ID.
      *
-     * @example 503576619180646
+     * @example 503576619******
      *
      * @var int
      */

@@ -11,16 +11,16 @@ class DetachWhitelistTemplateToInstanceRequest extends Model
     /**
      * @description The instance name.
      *
-     * @example rm-bp191w771kd3****
+     * @example rm-bp191w771k******
      *
      * @var string
      */
     public $insName;
 
     /**
-     * @description 资源组ID。 关于资源组的更多信息，请参见什么是资源组。
+     * @description The resource group ID. For more information about resource groups, see Resource groups.
      *
-     * @example rg-acfmz3kjrteu5ji
+     * @example rg-acfmz3kjr******
      *
      * @var string
      */

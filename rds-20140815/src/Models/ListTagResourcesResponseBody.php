@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description The token required to obtain more results. If a query does not return all results, in the next query, you can provide the token returned by the previous query to obtain more results.
+     * @description You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example 212db86sca4384811e0b5e8707ec21345
      *
@@ -19,7 +19,7 @@ class ListTagResourcesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 47A514A1-4B77-4E30-B4C5-2A880650B3FD
      *
@@ -28,7 +28,7 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the returned instances and tags.
+     * @description The list of queried instances and tags.
      *
      * @var tagResources
      */

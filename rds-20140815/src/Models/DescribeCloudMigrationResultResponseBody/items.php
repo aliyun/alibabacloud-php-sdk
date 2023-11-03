@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The details of the task.
+     * @description The details about the migration task.
      *
      * @example [Check rds empty]\nCheck rds databases: success\n[Check source connectivity]\nCheck ip connectable: success\nCheck port connectable: success\nCheck database connectable: success\nCheck account replication privilege: success\nCheck account createrole privilege: success\nCheck account monitor privilege: success\n[Check source version]\nCheck major version consistent: success\n[Check source glibc version]\nCheck source glibc version compatible: warning(warning:source glibc version is not compatible with rds pg)\n[Check disk size]\nCheck disk size enough: success\n[Check wal keep size]\nCheck wal keep size large enough: success\n[Check spec params]\nCheck if spec params too large: success\n[Start RDS instance]\n2022-02-25 17:00:29 --- Start RDS instance as slave for data replication\n[Synchronize data]\n2022-02-25 17:01:05 --- Synchronize data from source to RDS by streaming replication \n
      *
@@ -36,7 +36,7 @@ class items extends Model
     public $gmtModified;
 
     /**
-     * @description The migration phase in which the task stays.
+     * @description The migration phase of the migration task.
      *
      *   **precheck**: precheck
      *   **basebackup**: full data backup
@@ -76,7 +76,7 @@ class items extends Model
     public $replicationState;
 
     /**
-     * @description The username of the account.
+     * @description The username.
      *
      * @example migratetest
      *
@@ -106,7 +106,7 @@ class items extends Model
     public $sourceIpAddress;
 
     /**
-     * @description The password of the account.
+     * @description The password.
      *
      * @example 123456
      *
@@ -124,7 +124,7 @@ class items extends Model
     public $sourcePort;
 
     /**
-     * @description The time when a switchover was performed.
+     * @description The time when the switchover was performed.
      *
      * @example 2022-03-01T06:40:51Z
      *
@@ -133,7 +133,7 @@ class items extends Model
     public $switchTime;
 
     /**
-     * @description A reserved parameter. The return value of this parameter is null.
+     * @description A reserved parameter. The return value of this parameter is empty.
      *
      * @example null
      *
@@ -151,7 +151,7 @@ class items extends Model
     public $targetInstanceName;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 440437220
      *
@@ -160,7 +160,7 @@ class items extends Model
     public $taskId;
 
     /**
-     * @description The name of the task.
+     * @description The task name.
      *
      * @example 362c6c7a-4d20-4eac-898c-1495ceab374c
      *

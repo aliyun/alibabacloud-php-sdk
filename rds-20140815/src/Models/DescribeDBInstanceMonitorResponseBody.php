@@ -18,7 +18,7 @@ class DescribeDBInstanceMonitorResponseBody extends Model
     public $period;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 30829FD4-1A84-4C2A-A625-2EADECB95CA3
      *

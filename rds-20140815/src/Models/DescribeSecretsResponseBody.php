@@ -37,7 +37,7 @@ class DescribeSecretsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the details about the credential.
+     * @description The details of the credential.
      *
      * @var secrets[]
      */

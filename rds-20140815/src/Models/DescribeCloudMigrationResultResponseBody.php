@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudMigrationResultResponseBody extends Model
 {
     /**
-     * @description The details of the cloud migration tasks.
+     * @description The details about the cloud migration task.
      *
      * @var items[]
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsResponseBody extends Model
 {
     /**
-     * @description The details of the account.
+     * @description The details about the account.
      *
      * @var accounts
      */
@@ -26,7 +26,7 @@ class DescribeAccountsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A2E94301-D07F-4457-9B49-6AA2BB388C85
      *
@@ -35,8 +35,9 @@ class DescribeAccountsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The first time when the superuser account was enabled. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The first time when the system admin account was enabled. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 2020-02-06T11:00:00Z
      *
      * @var string
@@ -44,8 +45,12 @@ class DescribeAccountsResponseBody extends Model
     public $systemAdminAccountFirstActivationTime;
 
     /**
-     * @description Indicates whether the superuser account is enabled.
+     * @description Indicates whether the system admin account was enabled. Valid values:
      *
+     *   **true**: The system admin account was enabled.
+     *   **false**: The system admin account was disabled.
+     *
+     * >  The [system admin account](~~170736~~) is supported only for the instances that run SQL Server. If the instance runs SQL Server, a value is returned for this parameter. If the instance runs a different database engine, no value is returned for this parameter.
      * @example True
      *
      * @var string
@@ -53,7 +58,7 @@ class DescribeAccountsResponseBody extends Model
     public $systemAdminAccountStatus;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of entries that are returned.
      *
      * @example 1
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class templateRecord extends Model
 {
     /**
-     * @description The value range of the parameter.
+     * @description The valid values of the parameter.
      *
      * @example [0-1024]
      *
@@ -18,7 +18,10 @@ class templateRecord extends Model
     public $checkingCode;
 
     /**
-     * @description Indicates whether the parameter can be modified. Valid values: **true | false**
+     * @description Indicates whether the parameter can be modified. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -27,7 +30,10 @@ class templateRecord extends Model
     public $forceModify;
 
     /**
-     * @description Indicates whether the modified parameter takes effect only after a database restart. Valid values: **true | false**
+     * @description Indicates whether you must restart the instance for the modifications to take effect. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example false
      *

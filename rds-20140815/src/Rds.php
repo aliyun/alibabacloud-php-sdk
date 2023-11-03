@@ -99,6 +99,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateTempDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateTempDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateYouhuiForOrderRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateYouhuiForOrderResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteADSettingRequest;
@@ -184,12 +186,18 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCrossRegionBackupsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCrossRegionBackupsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCrossRegionLogBackupFilesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCrossRegionLogBackupFilesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCurrentModifyOrderRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCurrentModifyOrderResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCustinsResourceInfoRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCustinsResourceInfoResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDatabasesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDatabasesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceByTagsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceByTagsResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceConnectivityRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceConnectivityResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceDetailRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceDetailResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceEncryptionKeyRequest;
@@ -260,6 +268,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHASwitchConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHASwitchConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHistoryTasksRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHistoryTasksResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHostGroupElasticStrategyParametersRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHostGroupElasticStrategyParametersResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHostWebShellRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHostWebShellResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceAutoRenewalAttributeRequest;
@@ -274,6 +284,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLocalAvailableRecoveryTimeRequ
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLocalAvailableRecoveryTimeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLogBackupFilesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLogBackupFilesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMarketingActivityRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMarketingActivityResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMetaListRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMetaListResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMigrateTaskByIdRequest;
@@ -301,6 +313,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePostgresExtensionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceShrinkRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeQuickSaleConfigRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeQuickSaleConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayRequest;
@@ -311,6 +325,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceDetailsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceDetailsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceUsageRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceUsageResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSecretsRequest;
@@ -355,6 +371,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DetachGadInstanceMemberRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DetachGadInstanceMemberResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DetachWhitelistTemplateToInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DetachWhitelistTemplateToInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\EvaluateLocalExtendDiskRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\EvaluateLocalExtendDiskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDBInstanceTopologyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDBInstanceTopologyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDbProxyInstanceSslRequest;
@@ -395,6 +413,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyCollationTimeZoneRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyCollationTimeZoneResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyCustinsResourceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyCustinsResourceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDasInstanceConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDasInstanceConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDatabaseConfigRequest;
@@ -488,10 +508,18 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifySQLCollectorRetentionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifySQLCollectorRetentionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyWhitelistTemplateRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyWhitelistTemplateResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForCreateDBNodesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForCreateDBNodesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForCreateDBNodesShrinkRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForDeleteDBNodesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForDeleteDBNodesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForDeleteDBNodesShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\PurgeDBInstanceLogRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\PurgeDBInstanceLogResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\QueryNotifyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\QueryNotifyResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\QueryRecommendByCodeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\QueryRecommendByCodeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RebuildDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RebuildDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ReceiveDBInstanceRequest;
@@ -645,8 +673,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Before you call the ActivateMigrationTargetInstance operation, make sure that a cloud migration task is created by calling the [CreateCloudMigrationTask](~~411690~~) operation. In addition, make sure that the value that is returned for the **MigrateStage** parameter from the call of the [DescribeCloudMigrationResult](~~412150~~) operation is **increment**.
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Use the cloud migration feature](~~365562~~).
      *   *
      * @param ActivateMigrationTargetInstanceRequest $request ActivateMigrationTargetInstanceRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -691,8 +722,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Before you call the ActivateMigrationTargetInstance operation, make sure that a cloud migration task is created by calling the [CreateCloudMigrationTask](~~411690~~) operation. In addition, make sure that the value that is returned for the **MigrateStage** parameter from the call of the [DescribeCloudMigrationResult](~~412150~~) operation is **increment**.
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Use the cloud migration feature](~~365562~~).
      *   *
      * @param ActivateMigrationTargetInstanceRequest $request ActivateMigrationTargetInstanceRequest
      *
@@ -706,12 +740,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation has the following limits:
-     *   * *   Each tag consists of a TagKey and a TagValue. The TagKey is required, and the TagValue is optional.
-     *   * *   The values of TagKey and TagValue cannot start with aliyun.
-     *   * *   The values of TagKey and TagValue are not case-sensitive.
-     *   * *   The maximum length of a TagKey is 64 characters, and the maximum length of a TagValue is 128 characters.
-     *   * *   Each instance can be bound to a maximum of 10 tags. Each tag that is bound to the same instance must have a unique TagKey. If you bind a new tag to the instance and the TagKey of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)Usage notes
+     *   * *   Each tag consists of a tag key and a tag value. The tag key is required, and the tag value is optional.
+     *   * *   The tag key and tag value cannot start with aliyun.
+     *   * *   The tag key and tag value are not case-sensitive.
+     *   * *   The maximum length of a tag key is 64 characters, and the maximum length of a tag value is 128 characters.
+     *   * *   A maximum of 10 tags can be added to each instance. Each tag that is added to the same instance must have a unique tag key. If you add a new tag to the instance and the key of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
      *   *
      * @param AddTagsToResourceRequest $request AddTagsToResourceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -774,12 +813,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation has the following limits:
-     *   * *   Each tag consists of a TagKey and a TagValue. The TagKey is required, and the TagValue is optional.
-     *   * *   The values of TagKey and TagValue cannot start with aliyun.
-     *   * *   The values of TagKey and TagValue are not case-sensitive.
-     *   * *   The maximum length of a TagKey is 64 characters, and the maximum length of a TagValue is 128 characters.
-     *   * *   Each instance can be bound to a maximum of 10 tags. Each tag that is bound to the same instance must have a unique TagKey. If you bind a new tag to the instance and the TagKey of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)Usage notes
+     *   * *   Each tag consists of a tag key and a tag value. The tag key is required, and the tag value is optional.
+     *   * *   The tag key and tag value cannot start with aliyun.
+     *   * *   The tag key and tag value are not case-sensitive.
+     *   * *   The maximum length of a tag key is 64 characters, and the maximum length of a tag value is 128 characters.
+     *   * *   A maximum of 10 tags can be added to each instance. Each tag that is added to the same instance must have a unique tag key. If you add a new tag to the instance and the key of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
      *   *
      * @param AddTagsToResourceRequest $request AddTagsToResourceRequest
      *
@@ -1120,7 +1164,7 @@ class Rds extends OpenApiClient
 
     /**
      * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](~~26301~~).
-     *   * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+     *   * >  This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
      *   *
      * @param CancelImportRequest $request CancelImportRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1172,7 +1216,7 @@ class Rds extends OpenApiClient
 
     /**
      * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](~~26301~~).
-     *   * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+     *   * >  This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
      *   *
      * @param CancelImportRequest $request CancelImportRequest
      *
@@ -1588,15 +1632,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The original instance is in the Running state.
-     *   * *   The original instance does not have ongoing migration tasks.
-     *   * *   The log backup feature is enabled for the original instance to support point-in-time recovery.
-     *   * *   If you want to clone the original instance by using backup sets, the original instance must have at least one backup set.
-     *   * > ApsaraDB RDS allows you to create a cloned instance by using the credentials of your RAM user. Make sure that your RAM user is granted the permissions that are required to clone an instance. For more information, see [Use RAM to manage ApsaraDB RDS permissions](~~58932~~).
-     *   * Take note of the following information:
-     *   * *   The new instance has the same IP address whitelist, SQL Explorer (SQL Audit), alert threshold, backup, and parameter settings as the original instance.
-     *   * *   The data and account information of the new instance is the same as that indicated by the backup set or point in time used for restoration of the original instance.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Restore data of an ApsaraDB RDS for MySQL instance](~~96147~~)
+     *   * *   [Restore data of an ApsaraDB RDS for PostgreSQL instance](~~96776~~)
+     *   * *   [Restore data of an ApsaraDB RDS for SQL Server instance](~~95722~~)
+     *   * *   [Restore data of an ApsaraDB RDS for MariaDB instance](~~97151~~).
      *   *
      * @param CloneDBInstanceRequest $tmpReq  CloneDBInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1718,15 +1764,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The original instance is in the Running state.
-     *   * *   The original instance does not have ongoing migration tasks.
-     *   * *   The log backup feature is enabled for the original instance to support point-in-time recovery.
-     *   * *   If you want to clone the original instance by using backup sets, the original instance must have at least one backup set.
-     *   * > ApsaraDB RDS allows you to create a cloned instance by using the credentials of your RAM user. Make sure that your RAM user is granted the permissions that are required to clone an instance. For more information, see [Use RAM to manage ApsaraDB RDS permissions](~~58932~~).
-     *   * Take note of the following information:
-     *   * *   The new instance has the same IP address whitelist, SQL Explorer (SQL Audit), alert threshold, backup, and parameter settings as the original instance.
-     *   * *   The data and account information of the new instance is the same as that indicated by the backup set or point in time used for restoration of the original instance.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Restore data of an ApsaraDB RDS for MySQL instance](~~96147~~)
+     *   * *   [Restore data of an ApsaraDB RDS for PostgreSQL instance](~~96776~~)
+     *   * *   [Restore data of an ApsaraDB RDS for SQL Server instance](~~95722~~)
+     *   * *   [Restore data of an ApsaraDB RDS for MariaDB instance](~~97151~~).
      *   *
      * @param CloneDBInstanceRequest $request CloneDBInstanceRequest
      *
@@ -1740,8 +1788,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
      *   *
      * @param CloneParameterGroupRequest $request CloneParameterGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1798,8 +1851,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
      *   *
      * @param CloneParameterGroupRequest $request CloneParameterGroupRequest
      *
@@ -2089,17 +2147,22 @@ class Rds extends OpenApiClient
 
     /**
      * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### [](#)Feature description:
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)Usage notes
      *   * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](~~437245~~).
      *   * ### [](#)Precautions
      *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the running state.
+     *   * *   The instance is in the Running state.
      *   * *   The instance does not have ongoing backup tasks.
      *   * *   The number of backup files that are created per day for an instance cannot exceed 20.
+     *   * ### [](#)References
+     *   * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](~~378074~~)
+     *   * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](~~96772~~)
+     *   * *   [Use the data backup feature for an ApsaraDB RDS for SQL Server instance](~~95717~~)
+     *   * *   [Use the data backup feature for an ApsaraDB RDS for MariaDB instance](~~97147~~).
      *   *
      * @param CreateBackupRequest $request CreateBackupRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -2151,17 +2214,22 @@ class Rds extends OpenApiClient
 
     /**
      * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### [](#)Feature description:
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)Usage notes
      *   * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](~~437245~~).
      *   * ### [](#)Precautions
      *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the running state.
+     *   * *   The instance is in the Running state.
      *   * *   The instance does not have ongoing backup tasks.
      *   * *   The number of backup files that are created per day for an instance cannot exceed 20.
+     *   * ### [](#)References
+     *   * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](~~378074~~)
+     *   * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](~~96772~~)
+     *   * *   [Use the data backup feature for an ApsaraDB RDS for SQL Server instance](~~95717~~)
+     *   * *   [Use the data backup feature for an ApsaraDB RDS for MariaDB instance](~~97147~~).
      *   *
      * @param CreateBackupRequest $request CreateBackupRequest
      *
@@ -2175,23 +2243,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * The RDS instance meets the following requirements:
-     *   * * The RDS instance and the self-managed PostgreSQL instance run the same PostgreSQL version, which can be PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, or PostgreSQL 15.
-     *   * * The RDS instance is a primary instance. Read-only RDS instances do not support cloud migration.
-     *   * * The RDS instance uses cloud disks.
-     *   * * The RDS instance is empty. The available storage of the RDS instance is greater than or equal to the size of the data in the self-managed PostgreSQL instance.
-     *   * The self-managed PostgreSQL instance meets the following requirements:
-     *   * * Network configurations
-     *   * |Migration source|Network configuration|
-     *   * |:---|---|
-     *   * |Self-managed ECS-based PostgreSQL Database|If the self-managed PostgreSQL instance resides on an Elastic Compute Service (ECS) instance, the ECS instance and the RDS instance must reside in the same virtual private cloud (VPC). If the ECS instance and the RDS instance reside in different VPCs, use Cloud Enterprise Network (CEN) to connect the VPCs. For more information, see [What is CEN?](~~181681~~)|
-     *   * |Self-managed PostgreSQL database in a data center (within the same VPC as the destination database)|The data center is able to communicate with the VPC to which the destination RDS instance belongs. For more information, see [Connect a data center to a VPC](~~97768~~).|
-     *   * * If the self-managed PostgreSQL instance resides on an ECS instance, an ECS security group is configured. For more information, see [(Optional) Configure an ECS security group on a self-managed PostgreSQL instance](~~369726~~).
-     *   * * The configurations that are described in [Configure a self-managed PostgreSQL instance to listen to remote connections](~~369727~~) are complete.
-     *   * * The configurations that are described in [Create an account for cloud migration on a self-managed PostgreSQL instance](~~369500~~) are complete.
-     *   * * The configurations that are described in [Update the pg\\_hba.conf file of a self-managed PostgreSQL instance](~~369728~~) are complete.
-     *   * * The configurations that are described in [Configure the firewall of the server on which a self-managed PostgreSQL instance resides](~~369729~~) are complete.
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use the cloud migration feature](~~365562~~).
      *   *
      * @param CreateCloudMigrationPrecheckTaskRequest $request CreateCloudMigrationPrecheckTaskRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -2245,23 +2301,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * The RDS instance meets the following requirements:
-     *   * * The RDS instance and the self-managed PostgreSQL instance run the same PostgreSQL version, which can be PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, PostgreSQL 13, PostgreSQL 14, or PostgreSQL 15.
-     *   * * The RDS instance is a primary instance. Read-only RDS instances do not support cloud migration.
-     *   * * The RDS instance uses cloud disks.
-     *   * * The RDS instance is empty. The available storage of the RDS instance is greater than or equal to the size of the data in the self-managed PostgreSQL instance.
-     *   * The self-managed PostgreSQL instance meets the following requirements:
-     *   * * Network configurations
-     *   * |Migration source|Network configuration|
-     *   * |:---|---|
-     *   * |Self-managed ECS-based PostgreSQL Database|If the self-managed PostgreSQL instance resides on an Elastic Compute Service (ECS) instance, the ECS instance and the RDS instance must reside in the same virtual private cloud (VPC). If the ECS instance and the RDS instance reside in different VPCs, use Cloud Enterprise Network (CEN) to connect the VPCs. For more information, see [What is CEN?](~~181681~~)|
-     *   * |Self-managed PostgreSQL database in a data center (within the same VPC as the destination database)|The data center is able to communicate with the VPC to which the destination RDS instance belongs. For more information, see [Connect a data center to a VPC](~~97768~~).|
-     *   * * If the self-managed PostgreSQL instance resides on an ECS instance, an ECS security group is configured. For more information, see [(Optional) Configure an ECS security group on a self-managed PostgreSQL instance](~~369726~~).
-     *   * * The configurations that are described in [Configure a self-managed PostgreSQL instance to listen to remote connections](~~369727~~) are complete.
-     *   * * The configurations that are described in [Create an account for cloud migration on a self-managed PostgreSQL instance](~~369500~~) are complete.
-     *   * * The configurations that are described in [Update the pg\\_hba.conf file of a self-managed PostgreSQL instance](~~369728~~) are complete.
-     *   * * The configurations that are described in [Configure the firewall of the server on which a self-managed PostgreSQL instance resides](~~369729~~) are complete.
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use the cloud migration feature](~~365562~~).
      *   *
      * @param CreateCloudMigrationPrecheckTaskRequest $request CreateCloudMigrationPrecheckTaskRequest
      *
@@ -2275,8 +2319,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Before you call this operation, make sure that the ApsaraDB RDS for PostgreSQL instance passes the cloud migration assessment.
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Use the cloud migration feature](~~365562~~).
      *   *
      * @param CreateCloudMigrationTaskRequest $request CreateCloudMigrationTaskRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2330,8 +2377,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Before you call this operation, make sure that the ApsaraDB RDS for PostgreSQL instance passes the cloud migration assessment.
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Use the cloud migration feature](~~365562~~).
      *   *
      * @param CreateCloudMigrationTaskRequest $request CreateCloudMigrationTaskRequest
      *
@@ -3426,7 +3476,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
+     * ## [](#)Prerequisites
      *   * An ApsaraDB RDS global active database cluster is created. You can call the [CreateGADInstance](~~336893~~) operation to create a global active database cluster.
      *   * For more information, see [Add unit nodes to or move unit nodes from an ApsaraDB RDS global active database cluster](~~331851~~).
      *   *
@@ -3479,7 +3529,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
+     * ## [](#)Prerequisites
      *   * An ApsaraDB RDS global active database cluster is created. You can call the [CreateGADInstance](~~336893~~) operation to create a global active database cluster.
      *   * For more information, see [Add unit nodes to or move unit nodes from an ApsaraDB RDS global active database cluster](~~331851~~).
      *   *
@@ -3495,10 +3545,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateMigrateTaskRequest $request
-     * @param RuntimeOptions           $runtime
+     * ### [](#)Supported database engines
+     *   * SQL Server
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Migrate data from a self-managed SQL Server instance to an ApsaraDB RDS for SQL Server instance](~~100019~~).
+     *   *
+     * @param CreateMigrateTaskRequest $request CreateMigrateTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMigrateTaskResponse
+     * @return CreateMigrateTaskResponse CreateMigrateTaskResponse
      */
     public function createMigrateTaskWithOptions($request, $runtime)
     {
@@ -3556,9 +3612,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateMigrateTaskRequest $request
+     * ### [](#)Supported database engines
+     *   * SQL Server
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Migrate data from a self-managed SQL Server instance to an ApsaraDB RDS for SQL Server instance](~~100019~~).
+     *   *
+     * @param CreateMigrateTaskRequest $request CreateMigrateTaskRequest
      *
-     * @return CreateMigrateTaskResponse
+     * @return CreateMigrateTaskResponse CreateMigrateTaskResponse
      */
     public function createMigrateTask($request)
     {
@@ -3568,7 +3630,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](~~95737~~), [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2012, SQL Server 2014, SQL Server 2016, SQL Server 2017, or SQL Server 2019](~~95738~~), and [Migrate the incremental backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2012, SQL Server 2014, SQL Server 2016, SQL Server 2017, or SQL Server 2019](~~95736~~).
+     * ### [](#)Supported database engines
+     *   * *   SQL Server
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in the following topics:
+     *   * *   [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](~~95737~~)
+     *   * *   [Migrate full backup data of SQL Server 2012, 2014, 2016, 2017, or 2019 databases](~~95738~~)
+     *   * *   [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, or 2019](~~95736~~).
      *   *
      * @param CreateOnlineDatabaseTaskRequest $request CreateOnlineDatabaseTaskRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -3625,7 +3694,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](~~95737~~), [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2012, SQL Server 2014, SQL Server 2016, SQL Server 2017, or SQL Server 2019](~~95738~~), and [Migrate the incremental backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2012, SQL Server 2014, SQL Server 2016, SQL Server 2017, or SQL Server 2019](~~95736~~).
+     * ### [](#)Supported database engines
+     *   * *   SQL Server
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in the following topics:
+     *   * *   [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](~~95737~~)
+     *   * *   [Migrate full backup data of SQL Server 2012, 2014, 2016, 2017, or 2019 databases](~~95738~~)
+     *   * *   [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, or 2019](~~95736~~).
      *   *
      * @param CreateOnlineDatabaseTaskRequest $request CreateOnlineDatabaseTaskRequest
      *
@@ -3639,10 +3715,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderForCreateDBNodesRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * ### [](#)Supported database engines
+     *   * MySQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Add a node to an ApsaraDB RDS for MySQL cluster](~~464129~~).
+     *   *
+     * @param CreateOrderForCreateDBNodesRequest $tmpReq  CreateOrderForCreateDBNodesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrderForCreateDBNodesResponse
+     * @return CreateOrderForCreateDBNodesResponse CreateOrderForCreateDBNodesResponse
      */
     public function createOrderForCreateDBNodesWithOptions($tmpReq, $runtime)
     {
@@ -3720,9 +3802,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderForCreateDBNodesRequest $request
+     * ### [](#)Supported database engines
+     *   * MySQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Add a node to an ApsaraDB RDS for MySQL cluster](~~464129~~).
+     *   *
+     * @param CreateOrderForCreateDBNodesRequest $request CreateOrderForCreateDBNodesRequest
      *
-     * @return CreateOrderForCreateDBNodesResponse
+     * @return CreateOrderForCreateDBNodesResponse CreateOrderForCreateDBNodesResponse
      */
     public function createOrderForCreateDBNodes($request)
     {
@@ -3732,10 +3820,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderForDeleteDBNodesRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * ### [](#)Supported database engines
+     *   * MySQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~).
+     *   *
+     * @param CreateOrderForDeleteDBNodesRequest $tmpReq  CreateOrderForDeleteDBNodesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrderForDeleteDBNodesResponse
+     * @return CreateOrderForDeleteDBNodesResponse CreateOrderForDeleteDBNodesResponse
      */
     public function createOrderForDeleteDBNodesWithOptions($tmpReq, $runtime)
     {
@@ -3813,9 +3907,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderForDeleteDBNodesRequest $request
+     * ### [](#)Supported database engines
+     *   * MySQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~).
+     *   *
+     * @param CreateOrderForDeleteDBNodesRequest $request CreateOrderForDeleteDBNodesRequest
      *
-     * @return CreateOrderForDeleteDBNodesResponse
+     * @return CreateOrderForDeleteDBNodesResponse CreateOrderForDeleteDBNodesResponse
      */
     public function createOrderForDeleteDBNodes($request)
     {
@@ -3825,8 +3925,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) and [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
      *   *
      * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3886,8 +3991,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) and [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
      *   *
      * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      *
@@ -4302,13 +4412,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can create a temporary instance based on a backup file or a point in time within the past seven days.
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   Your instance runs SQL Server 2008 R2.
+     * ### [](#)Supported database engines
+     *   * Your RDS instance runs SQL Server 2008 R2 with local disks.
+     *   * ### [](#)Description
+     *   * You can create a temporary instance based on a backup set or a point in time within the past seven days. Before you call this operation, make sure that the following requirements are met:
+     *   * *   Your instance runs SQL Server 2008 R2 with local disks.
      *   * *   Your instance is in the Running state.
      *   * *   Your instance does not have ongoing migration tasks.
-     *   * *   The last creation of a backup file is completed.
-     *   * > After a temporary instance is created, the temporary instance inherits the data in the backup file.
+     *   * *   The last creation of a backup file is complete.
+     *   * >  After a temporary instance is created, the temporary instance inherits the accounts and databases in the backup set.
      *   *
      * @param CreateTempDBInstanceRequest $request CreateTempDBInstanceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -4362,13 +4474,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can create a temporary instance based on a backup file or a point in time within the past seven days.
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   Your instance runs SQL Server 2008 R2.
+     * ### [](#)Supported database engines
+     *   * Your RDS instance runs SQL Server 2008 R2 with local disks.
+     *   * ### [](#)Description
+     *   * You can create a temporary instance based on a backup set or a point in time within the past seven days. Before you call this operation, make sure that the following requirements are met:
+     *   * *   Your instance runs SQL Server 2008 R2 with local disks.
      *   * *   Your instance is in the Running state.
      *   * *   Your instance does not have ongoing migration tasks.
-     *   * *   The last creation of a backup file is completed.
-     *   * > After a temporary instance is created, the temporary instance inherits the data in the backup file.
+     *   * *   The last creation of a backup file is complete.
+     *   * >  After a temporary instance is created, the temporary instance inherits the accounts and databases in the backup set.
      *   *
      * @param CreateTempDBInstanceRequest $request CreateTempDBInstanceRequest
      *
@@ -4382,7 +4496,66 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is available only for ApsaraDB RDS for SQL Server instances.
+     * @param CreateYouhuiForOrderRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateYouhuiForOrderResponse
+     */
+    public function createYouhuiForOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->activityId)) {
+            $query['ActivityId'] = $request->activityId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->promotionId)) {
+            $query['PromotionId'] = $request->promotionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateYouhuiForOrder',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateYouhuiForOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateYouhuiForOrderRequest $request
+     *
+     * @return CreateYouhuiForOrderResponse
+     */
+    public function createYouhuiForOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createYouhuiForOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * ### [](#)Supported database engines
+     *   * *   SQL Server.
      *   *
      * @param DeleteADSettingRequest $request DeleteADSettingRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -4430,7 +4603,8 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is available only for ApsaraDB RDS for SQL Server instances.
+     * ### [](#)Supported database engines
+     *   * *   SQL Server.
      *   *
      * @param DeleteADSettingRequest $request DeleteADSettingRequest
      *
@@ -5123,8 +5297,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution when you delete a global active database cluster.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * ### [Usage notes](#)
+     *   * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution.
      *   * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](~~26229~~) to release the instances one after another.
      *   *
      * @param DeleteGadInstanceRequest $request DeleteGadInstanceRequest
@@ -5164,8 +5340,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution when you delete a global active database cluster.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * ### [Usage notes](#)
+     *   * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution.
      *   * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](~~26229~~) to release the instances one after another.
      *   *
      * @param DeleteGadInstanceRequest $request DeleteGadInstanceRequest
@@ -5180,10 +5358,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can apply a parameter template to an instance to manage a number of parameters at a time. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * >
-     *   * *   If you delete a parameter template, the instances to which the parameter template is applied are not affected.
-     *   * *   Before you can delete a parameter template in ApsaraDB RDS for PostgreSQL, you must apply another parameter template to the ApsaraDB RDS for PostgreSQL instances to which the parameter template is applied. You can call the [DescribeParameterGroup](~~144842~~) operation to query the instances to which a parameter template is applied.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
      *   *
      * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -5231,10 +5414,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can apply a parameter template to an instance to manage a number of parameters at a time. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * >
-     *   * *   If you delete a parameter template, the instances to which the parameter template is applied are not affected.
-     *   * *   Before you can delete a parameter template in ApsaraDB RDS for PostgreSQL, you must apply another parameter template to the ApsaraDB RDS for PostgreSQL instances to which the parameter template is applied. You can call the [DescribeParameterGroup](~~144842~~) operation to query the instances to which a parameter template is applied.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
      *   *
      * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
      *
@@ -5397,8 +5585,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only for ApsaraDB RDS for PostgreSQL instances.
-     *   * *   You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
+     * ### [](#)Supported database engine
+     *   * *   PostgreSQL
+     *   * ### [](#)Precautions
+     *   * You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
      *   *
      * @param DeleteSlotRequest $request DeleteSlotRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -5455,8 +5645,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only for ApsaraDB RDS for PostgreSQL instances.
-     *   * *   You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
+     * ### [](#)Supported database engine
+     *   * *   PostgreSQL
+     *   * ### [](#)Precautions
+     *   * You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
      *   *
      * @param DeleteSlotRequest $request DeleteSlotRequest
      *
@@ -5470,9 +5662,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the [ImportUserBackupFile](~~260266~~) operation to reimport the full backup file.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * ### [](#)Description
+     *   * *   A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+     *   * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the [ImportUserBackupFile](~~260266~~)operation to import the full backup file again.
      *   *
      * @param DeleteUserBackupFileRequest $request DeleteUserBackupFileRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -5520,9 +5714,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the [ImportUserBackupFile](~~260266~~) operation to reimport the full backup file.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * ### [](#)Description
+     *   * *   A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+     *   * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the [ImportUserBackupFile](~~260266~~)operation to import the full backup file again.
      *   *
      * @param DeleteUserBackupFileRequest $request DeleteUserBackupFileRequest
      *
@@ -5536,7 +5732,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is suitable only for the instances that run MySQL or SQL Server. For more information about how to run a migration task, see [ImportDatabaseBetweenInstances](~~26301~~).
+     * ### [](#)Supported database engines
+     *   * MySQL
+     *   * ### [](#)References
+     *   * [Migrate data between ApsaraDB RDS for MySQL instances](~~96154~~).
      *   *
      * @param DescibeImportsFromDatabaseRequest $request DescibeImportsFromDatabaseRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -5605,7 +5804,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is suitable only for the instances that run MySQL or SQL Server. For more information about how to run a migration task, see [ImportDatabaseBetweenInstances](~~26301~~).
+     * ### [](#)Supported database engines
+     *   * MySQL
+     *   * ### [](#)References
+     *   * [Migrate data between ApsaraDB RDS for MySQL instances](~~96154~~).
      *   *
      * @param DescibeImportsFromDatabaseRequest $request DescibeImportsFromDatabaseRequest
      *
@@ -5619,7 +5821,8 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is available only for ApsaraDB RDS for SQL Server instances.
+     * ### [](#)Supported database engines
+     *   * *   SQL Server.
      *   *
      * @param DescribeADInfoRequest $request DescribeADInfoRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -5667,7 +5870,8 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is available only for ApsaraDB RDS for SQL Server instances.
+     * ### [](#)Supported database engines
+     *   * *   SQL Server.
      *   *
      * @param DescribeADInfoRequest $request DescribeADInfoRequest
      *
@@ -5818,7 +6022,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * After you call this operation and obtain the information about a specific O\\&M task, you can call the [ModifyActiveOperationTask](~~611454~~) operation to modify the scheduled switching time of the O\\&M task. You can also view the task and modify the scheduled switching time on the Task Center page of the ApsaraDB RDS console.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -5896,7 +6104,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * After you call this operation and obtain the information about a specific O\\&M task, you can call the [ModifyActiveOperationTask](~~611454~~) operation to modify the scheduled switching time of the O\\&M task. You can also view the task and modify the scheduled switching time on the Task Center page of the ApsaraDB RDS console.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      *
@@ -6181,9 +6393,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Prerequisites
-     *   * The instance runs PostgreSQL.
-     *   * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [View the Enhanced Monitoring metrics](~~299200~~).
      *   *
      * @param DescribeAvailableMetricsRequest $request DescribeAvailableMetricsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -6222,9 +6436,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Prerequisites
-     *   * The instance runs PostgreSQL.
-     *   * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [View the Enhanced Monitoring metrics](~~299200~~).
      *   *
      * @param DescribeAvailableMetricsRequest $request DescribeAvailableMetricsRequest
      *
@@ -6924,8 +7140,8 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Before you call the DescribeCloudMigrationPrecheckResult operation, make sure that the CreateCloudMigrationPrecheckTask operation is called to create a cloud migration assessment task for the ApsaraDB RDS for PostgreSQL instance.
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL.
      *   *
      * @param DescribeCloudMigrationPrecheckResultRequest $request DescribeCloudMigrationPrecheckResultRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -6979,8 +7195,8 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Before you call the DescribeCloudMigrationPrecheckResult operation, make sure that the CreateCloudMigrationPrecheckTask operation is called to create a cloud migration assessment task for the ApsaraDB RDS for PostgreSQL instance.
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL.
      *   *
      * @param DescribeCloudMigrationPrecheckResultRequest $request DescribeCloudMigrationPrecheckResultRequest
      *
@@ -6994,8 +7210,8 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Before you call the DescribeCloudMigrationResult operation, make sure that cloud migration tasks are created by calling the [CreateCloudMigrationTask](~~411690~~) operation.
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL.
      *   *
      * @param DescribeCloudMigrationResultRequest $request DescribeCloudMigrationResultRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -7049,8 +7265,8 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Before you call the DescribeCloudMigrationResult operation, make sure that cloud migration tasks are created by calling the [CreateCloudMigrationTask](~~411690~~) operation.
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL.
      *   *
      * @param DescribeCloudMigrationResultRequest $request DescribeCloudMigrationResultRequest
      *
@@ -7461,6 +7677,122 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeCurrentModifyOrderRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeCurrentModifyOrderResponse
+     */
+    public function describeCurrentModifyOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dbInstanceId)) {
+            $query['DbInstanceId'] = $request->dbInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCurrentModifyOrder',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCurrentModifyOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCurrentModifyOrderRequest $request
+     *
+     * @return DescribeCurrentModifyOrderResponse
+     */
+    public function describeCurrentModifyOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCurrentModifyOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustinsResourceInfoRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeCustinsResourceInfoResponse
+     */
+    public function describeCustinsResourceInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceIds)) {
+            $query['DBInstanceIds'] = $request->DBInstanceIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustinsResourceInfo',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustinsResourceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustinsResourceInfoRequest $request
+     *
+     * @return DescribeCustinsResourceInfoResponse
+     */
+    public function describeCustinsResourceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustinsResourceInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * ### [](#)Supported database engines
      *   * *   RDS MySQL
      *   * *   RDS PostgreSQL
@@ -7522,10 +7854,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceByTagsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeDBInstanceByTagsRequest $request DescribeDBInstanceByTagsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceByTagsResponse
+     * @return DescribeDBInstanceByTagsResponse DescribeDBInstanceByTagsResponse
      */
     public function describeDBInstanceByTagsWithOptions($request, $runtime)
     {
@@ -7580,15 +7918,61 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceByTagsRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeDBInstanceByTagsRequest $request DescribeDBInstanceByTagsRequest
      *
-     * @return DescribeDBInstanceByTagsResponse
+     * @return DescribeDBInstanceByTagsResponse DescribeDBInstanceByTagsResponse
      */
     public function describeDBInstanceByTags($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceByTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBInstanceConnectivityRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDBInstanceConnectivityResponse
+     */
+    public function describeDBInstanceConnectivityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceConnectivity',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceConnectivityRequest $request
+     *
+     * @return DescribeDBInstanceConnectivityResponse
+     */
+    public function describeDBInstanceConnectivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceConnectivityWithOptions($request, $runtime);
     }
 
     /**
@@ -8002,9 +8386,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Prerequisites
-     *   * The instance runs PostgreSQL.
-     *   * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [View the Enhanced Monitoring metrics](~~299200~~).
      *   *
      * @param DescribeDBInstanceMetricsRequest $request DescribeDBInstanceMetricsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -8043,9 +8429,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Prerequisites
-     *   * The instance runs PostgreSQL.
-     *   * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [View the Enhanced Monitoring metrics](~~299200~~).
      *   *
      * @param DescribeDBInstanceMetricsRequest $request DescribeDBInstanceMetricsRequest
      *
@@ -8059,7 +8447,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  This operation is not supported for RDS instances that run PostgreSQL. The monitoring frequency of such an instance varies based on the query time range. For more information, see [Query performance metrics](~~26280~~).
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeDBInstanceMonitorRequest $request DescribeDBInstanceMonitorRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -8107,7 +8498,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  This operation is not supported for RDS instances that run PostgreSQL. The monitoring frequency of such an instance varies based on the query time range. For more information, see [Query performance metrics](~~26280~~).
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeDBInstanceMonitorRequest $request DescribeDBInstanceMonitorRequest
      *
@@ -8264,34 +8658,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can query the performance of an instance over a specific time range based on its performance metrics. Performance metrics are generated by using one of the following methods based on the database engine and version, RDS edition, [monitoring frequency](~~26200~~) ([ModifyDBInstanceMonitor](~~26282~~)), and query time range:
-     *   * *   For instances that do not run MySQL on RDS High-availability Edition with standard SSDs or enhanced SSDs (ESSDs) and those that do not run MariaDB TX:
-     *   *     *   5-second monitoring frequency
-     *   *         *   If the query time range is greater than seven days, performance metrics are collected at 1-day intervals.
-     *   *         *   If the query time range is greater than one day but less than or equal to seven days, performance metrics are collected at 1-hour intervals.
-     *   *         *   If the query time range is greater than or equal to an hour but less than or equal to one day, performance metrics are collected at 1-minute intervals.
-     *   *         *   If the query time range is less than an hour, performance metrics are collected at 5-second intervals.
-     *   *     *   60-second monitoring frequency
-     *   *         *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
-     *   *         *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
-     *   *         *   If the query time range is less than or equal to seven days, performance metrics are collected at 1-minute intervals.
-     *   *     *   300-second monitoring frequency
-     *   *         *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
-     *   *         *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
-     *   *         *   If the query time range is less than or equal to seven days, performance metrics are collected at 5-minute intervals.
-     *   * *   For instances that are running MySQL on RDS High-availability Edition with standard SSDs or ESSDs and those that are running MariaDB TX:
-     *   *     *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
-     *   *     *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
-     *   *     *   If the query time range is less than or equal to seven days, performance metrics are collected at 1-minute intervals.
-     *   * *   For instances that run PostgreSQL with local SSDs, standard SSDs, or ESSDs:
-     *   *     *   If the query time range is less than or equal to an hour, performance metrics are collected at 5-second intervals.
-     *   *     *   If the query time range is less than or equal to 2 hours, performance metrics are collected at 10-second intervals.
-     *   *     *   If the query time range is less than or equal to 6 hours, performance metrics are collected at 30-second intervals.
-     *   *     *   If the query time range is less than or equal to 12 hours, performance metrics are collected at 1-minute intervals.
-     *   *     *   If the query time range is less than or equal to one day, performance metrics are collected at 2-minute intervals.
-     *   *     *   If the query time range is less than or equal to five days, performance metrics are collected at 10-minute intervals.
-     *   *     *   If the query time range is less than or equal to 15 days, performance metrics are collected at 30-minute intervals.
-     *   *     *   If the query time range is less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -8339,34 +8710,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can query the performance of an instance over a specific time range based on its performance metrics. Performance metrics are generated by using one of the following methods based on the database engine and version, RDS edition, [monitoring frequency](~~26200~~) ([ModifyDBInstanceMonitor](~~26282~~)), and query time range:
-     *   * *   For instances that do not run MySQL on RDS High-availability Edition with standard SSDs or enhanced SSDs (ESSDs) and those that do not run MariaDB TX:
-     *   *     *   5-second monitoring frequency
-     *   *         *   If the query time range is greater than seven days, performance metrics are collected at 1-day intervals.
-     *   *         *   If the query time range is greater than one day but less than or equal to seven days, performance metrics are collected at 1-hour intervals.
-     *   *         *   If the query time range is greater than or equal to an hour but less than or equal to one day, performance metrics are collected at 1-minute intervals.
-     *   *         *   If the query time range is less than an hour, performance metrics are collected at 5-second intervals.
-     *   *     *   60-second monitoring frequency
-     *   *         *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
-     *   *         *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
-     *   *         *   If the query time range is less than or equal to seven days, performance metrics are collected at 1-minute intervals.
-     *   *     *   300-second monitoring frequency
-     *   *         *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
-     *   *         *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
-     *   *         *   If the query time range is less than or equal to seven days, performance metrics are collected at 5-minute intervals.
-     *   * *   For instances that are running MySQL on RDS High-availability Edition with standard SSDs or ESSDs and those that are running MariaDB TX:
-     *   *     *   If the query time range is greater than 30 days, performance metrics are collected at 1-day intervals.
-     *   *     *   If the query time range is greater than seven days but less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
-     *   *     *   If the query time range is less than or equal to seven days, performance metrics are collected at 1-minute intervals.
-     *   * *   For instances that run PostgreSQL with local SSDs, standard SSDs, or ESSDs:
-     *   *     *   If the query time range is less than or equal to an hour, performance metrics are collected at 5-second intervals.
-     *   *     *   If the query time range is less than or equal to 2 hours, performance metrics are collected at 10-second intervals.
-     *   *     *   If the query time range is less than or equal to 6 hours, performance metrics are collected at 30-second intervals.
-     *   *     *   If the query time range is less than or equal to 12 hours, performance metrics are collected at 1-minute intervals.
-     *   *     *   If the query time range is less than or equal to one day, performance metrics are collected at 2-minute intervals.
-     *   *     *   If the query time range is less than or equal to five days, performance metrics are collected at 10-minute intervals.
-     *   *     *   If the query time range is less than or equal to 15 days, performance metrics are collected at 30-minute intervals.
-     *   *     *   If the query time range is less than or equal to 30 days, performance metrics are collected at 1-hour intervals.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
      *
@@ -9382,9 +9730,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call the DescribeDBProxyPerformance operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
-     *   * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
-     *   * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~).
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+     *   * ### [](#)References
+     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [View the monitoring data of an ApsaraDB RDS for MySQL instance](~~194241~~)
+     *   * *   [View the monitoring data of an ApsaraDB RDS for PostgreSQL instance](~~418275~~).
      *   *
      * @param DescribeDBProxyPerformanceRequest $request DescribeDBProxyPerformanceRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -9447,9 +9800,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call the DescribeDBProxyPerformance operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
-     *   * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
-     *   * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~).
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+     *   * ### [](#)References
+     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [View the monitoring data of an ApsaraDB RDS for MySQL instance](~~194241~~)
+     *   * *   [View the monitoring data of an ApsaraDB RDS for PostgreSQL instance](~~418275~~).
      *   *
      * @param DescribeDBProxyPerformanceRequest $request DescribeDBProxyPerformanceRequest
      *
@@ -9463,8 +9821,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * For more information, see [Configure a distributed transaction whitelist](~~124321~~).
-     *   * This operation is applicable to instances that run one of the following SQL Server versions on RDS High-Availability Edition: SQL Server 2012 SE, SQL Server 2012 EE, SQL Server 2014 SE, SQL Server 2016 SE, SQL Server 2016 EE, and SQL Server 2017 SE.
+     * ### [](#)Supported database engines
+     *   * SQL Server
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance](~~124321~~).
      *   *
      * @param DescribeDTCSecurityIpHostsForSQLServerRequest $request DescribeDTCSecurityIpHostsForSQLServerRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
@@ -9518,8 +9879,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * For more information, see [Configure a distributed transaction whitelist](~~124321~~).
-     *   * This operation is applicable to instances that run one of the following SQL Server versions on RDS High-Availability Edition: SQL Server 2012 SE, SQL Server 2012 EE, SQL Server 2014 SE, SQL Server 2016 SE, SQL Server 2016 EE, and SQL Server 2017 SE.
+     * ### [](#)Supported database engines
+     *   * SQL Server
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance](~~124321~~).
      *   *
      * @param DescribeDTCSecurityIpHostsForSQLServerRequest $request DescribeDTCSecurityIpHostsForSQLServerRequest
      *
@@ -10038,10 +10402,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeGadInstancesRequest $request
-     * @param RuntimeOptions              $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL.
+     *   *
+     * @param DescribeGadInstancesRequest $request DescribeGadInstancesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGadInstancesResponse
+     * @return DescribeGadInstancesResponse DescribeGadInstancesResponse
      */
     public function describeGadInstancesWithOptions($request, $runtime)
     {
@@ -10075,9 +10442,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeGadInstancesRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL.
+     *   *
+     * @param DescribeGadInstancesRequest $request DescribeGadInstancesRequest
      *
-     * @return DescribeGadInstancesResponse
+     * @return DescribeGadInstancesResponse DescribeGadInstancesResponse
      */
     public function describeGadInstances($request)
     {
@@ -10207,10 +10577,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksRequest $request
-     * @param RuntimeOptions              $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Tasks of an ApsaraDB RDS for MySQL instance](~~474275~~)
+     *   * *   [Tasks of an ApsaraDB RDS for PostrgreSQL instance](~~474537~~)
+     *   * *   [Tasks of an ApsaraDB RDS for SQL Server instance](~~614826~~).
+     *   *
+     * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHistoryTasksResponse
+     * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
      */
     public function describeHistoryTasksWithOptions($request, $runtime)
     {
@@ -10286,9 +10666,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Tasks of an ApsaraDB RDS for MySQL instance](~~474275~~)
+     *   * *   [Tasks of an ApsaraDB RDS for PostrgreSQL instance](~~474537~~)
+     *   * *   [Tasks of an ApsaraDB RDS for SQL Server instance](~~614826~~).
+     *   *
+     * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
      *
-     * @return DescribeHistoryTasksResponse
+     * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
      */
     public function describeHistoryTasks($request)
     {
@@ -10298,14 +10688,66 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > This operation supports only for ApsaraDB RDS for SQL Server instances and is available only to specific customers. If you want to call this operation, contact **Alibaba Cloud technical support**.
-     *   * ### Prerequisites
+     * @param DescribeHostGroupElasticStrategyParametersRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return DescribeHostGroupElasticStrategyParametersResponse
+     */
+    public function describeHostGroupElasticStrategyParametersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostGroupName)) {
+            $query['DedicatedHostGroupName'] = $request->dedicatedHostGroupName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHostGroupElasticStrategyParameters',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHostGroupElasticStrategyParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHostGroupElasticStrategyParametersRequest $request
+     *
+     * @return DescribeHostGroupElasticStrategyParametersResponse
+     */
+    public function describeHostGroupElasticStrategyParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHostGroupElasticStrategyParametersWithOptions($request, $runtime);
+    }
+
+    /**
+     * >  This operation is available only for instances that run SQL Server. If you require this operation, contact **Alibaba Cloud technical support**.
+     *   * ### [](#)Prerequisites
      *   * The instance meets the following requirements:
      *   * *   The instance resides in a region other than the China (Zhangjiakou) region.
-     *   * *   The instance runs RDS Basic Edition, runs SQL Server 2012 or later on RDS High-availability Edition, or runs RDS Cluster Edition.
+     *   * *   The instance runs RDS Basic Edition, RDS Cluster Edition, or RDS High-availability Edition. If your instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
      *   * *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
-     *   * *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an instance, see [Change the network type of an ApsaraDB RDS for SQL Server instance](~~95707~~).
-     *   * *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, make sure that the instance is created on or after January 01, 2021. If the instance runs RDS Basic Edition, make sure that the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
+     *   * *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an RDS instance, see [Change the network type](~~95707~~).
+     *   * *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, the instance is created on or after January 1, 2021. If the instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
      *   * Your **Alibaba Cloud account** is used for logons.
      *   *
      * @param DescribeHostWebShellRequest $request DescribeHostWebShellRequest
@@ -10360,14 +10802,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > This operation supports only for ApsaraDB RDS for SQL Server instances and is available only to specific customers. If you want to call this operation, contact **Alibaba Cloud technical support**.
-     *   * ### Prerequisites
+     * >  This operation is available only for instances that run SQL Server. If you require this operation, contact **Alibaba Cloud technical support**.
+     *   * ### [](#)Prerequisites
      *   * The instance meets the following requirements:
      *   * *   The instance resides in a region other than the China (Zhangjiakou) region.
-     *   * *   The instance runs RDS Basic Edition, runs SQL Server 2012 or later on RDS High-availability Edition, or runs RDS Cluster Edition.
+     *   * *   The instance runs RDS Basic Edition, RDS Cluster Edition, or RDS High-availability Edition. If your instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
      *   * *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
-     *   * *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an instance, see [Change the network type of an ApsaraDB RDS for SQL Server instance](~~95707~~).
-     *   * *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, make sure that the instance is created on or after January 01, 2021. If the instance runs RDS Basic Edition, make sure that the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
+     *   * *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an RDS instance, see [Change the network type](~~95707~~).
+     *   * *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, the instance is created on or after January 1, 2021. If the instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
      *   * Your **Alibaba Cloud account** is used for logons.
      *   *
      * @param DescribeHostWebShellRequest $request DescribeHostWebShellRequest
@@ -10642,10 +11084,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeLocalAvailableRecoveryTimeRequest $request
-     * @param RuntimeOptions                            $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeLocalAvailableRecoveryTimeRequest $request DescribeLocalAvailableRecoveryTimeRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLocalAvailableRecoveryTimeResponse
+     * @return DescribeLocalAvailableRecoveryTimeResponse DescribeLocalAvailableRecoveryTimeResponse
      */
     public function describeLocalAvailableRecoveryTimeWithOptions($request, $runtime)
     {
@@ -10688,9 +11135,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeLocalAvailableRecoveryTimeRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeLocalAvailableRecoveryTimeRequest $request DescribeLocalAvailableRecoveryTimeRequest
      *
-     * @return DescribeLocalAvailableRecoveryTimeResponse
+     * @return DescribeLocalAvailableRecoveryTimeResponse DescribeLocalAvailableRecoveryTimeResponse
      */
     public function describeLocalAvailableRecoveryTime($request)
     {
@@ -10772,6 +11224,73 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLogBackupFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeMarketingActivityRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeMarketingActivityResponse
+     */
+    public function describeMarketingActivityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->upgradeCode)) {
+            $query['UpgradeCode'] = $request->upgradeCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMarketingActivity',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMarketingActivityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMarketingActivityRequest $request
+     *
+     * @return DescribeMarketingActivityResponse
+     */
+    public function describeMarketingActivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMarketingActivityWithOptions($request, $runtime);
     }
 
     /**
@@ -10866,10 +11385,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeMigrateTaskByIdRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ### [](#)Supported database engines
+     *   * *   SQL Server.
+     *   *
+     * @param DescribeMigrateTaskByIdRequest $request DescribeMigrateTaskByIdRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMigrateTaskByIdResponse
+     * @return DescribeMigrateTaskByIdResponse DescribeMigrateTaskByIdResponse
      */
     public function describeMigrateTaskByIdWithOptions($request, $runtime)
     {
@@ -10912,9 +11434,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeMigrateTaskByIdRequest $request
+     * ### [](#)Supported database engines
+     *   * *   SQL Server.
+     *   *
+     * @param DescribeMigrateTaskByIdRequest $request DescribeMigrateTaskByIdRequest
      *
-     * @return DescribeMigrateTaskByIdResponse
+     * @return DescribeMigrateTaskByIdResponse DescribeMigrateTaskByIdResponse
      */
     public function describeMigrateTaskById($request)
     {
@@ -11074,10 +11599,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeModifyParameterLogRequest $request
-     * @param RuntimeOptions                    $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeModifyParameterLogRequest $request DescribeModifyParameterLogRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeModifyParameterLogResponse
+     * @return DescribeModifyParameterLogResponse DescribeModifyParameterLogResponse
      */
     public function describeModifyParameterLogWithOptions($request, $runtime)
     {
@@ -11129,9 +11660,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeModifyParameterLogRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeModifyParameterLogRequest $request DescribeModifyParameterLogRequest
      *
-     * @return DescribeModifyParameterLogResponse
+     * @return DescribeModifyParameterLogResponse DescribeModifyParameterLogResponse
      */
     public function describeModifyParameterLog($request)
     {
@@ -11141,7 +11678,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
+     * ### [](#)Supported database engines
+     *   * *   SQL Server
+     *   * ### [Usage notes](#)
+     *   * This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
      *   *
      * @param DescribeOssDownloadsRequest $request DescribeOssDownloadsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -11189,7 +11729,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
+     * ### [](#)Supported database engines
+     *   * *   SQL Server
+     *   * ### [Usage notes](#)
+     *   * This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
      *   *
      * @param DescribeOssDownloadsRequest $request DescribeOssDownloadsRequest
      *
@@ -11270,8 +11813,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to instances. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template for an ApsaraDB RDS for MySQL instance](~~130565~~)
+     *   * *   [Use a parameter template for an ApsaraDB RDS for PostgreSQL instance](~~457176~~).
      *   *
      * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -11316,8 +11864,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to instances. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template for an ApsaraDB RDS for MySQL instance](~~130565~~)
+     *   * *   [Use a parameter template for an ApsaraDB RDS for PostgreSQL instance](~~457176~~).
      *   *
      * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
      *
@@ -11331,8 +11884,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
      *   *
      * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -11377,8 +11937,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
      *   *
      * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
      *
@@ -11392,11 +11959,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance runs one of the following database engines:
-     *   * *   MySQL 5.5, 5.6, 5.7, and 8.0
-     *   * *   SQL Server 2008 R2
-     *   * *   PostgreSQL 9.4, 10, 11, and 12
-     *   * *   MariaDB 10.3.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -11456,11 +12023,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance runs one of the following database engines:
-     *   * *   MySQL 5.5, 5.6, 5.7, and 8.0
-     *   * *   SQL Server 2008 R2
-     *   * *   PostgreSQL 9.4, 10, 11, and 12
-     *   * *   MariaDB 10.3.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
@@ -11743,6 +12310,55 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeQuickSaleConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeQuickSaleConfigResponse
+     */
+    public function describeQuickSaleConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commodity)) {
+            $query['Commodity'] = $request->commodity;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeQuickSaleConfig',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeQuickSaleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeQuickSaleConfigRequest $request
+     *
+     * @return DescribeQuickSaleConfigResponse
+     */
+    public function describeQuickSaleConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeQuickSaleConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -12082,10 +12698,77 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceUsageRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeResourceDetailsRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DescribeResourceUsageResponse
+     * @return DescribeResourceDetailsResponse
+     */
+    public function describeResourceDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourceDetails',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeResourceDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResourceDetailsRequest $request
+     *
+     * @return DescribeResourceDetailsResponse
+     */
+    public function describeResourceDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeResourceUsageRequest $request DescribeResourceUsageRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeResourceUsageResponse DescribeResourceUsageResponse
      */
     public function describeResourceUsageWithOptions($request, $runtime)
     {
@@ -12128,9 +12811,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceUsageRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeResourceUsageRequest $request DescribeResourceUsageRequest
      *
-     * @return DescribeResourceUsageResponse
+     * @return DescribeResourceUsageResponse DescribeResourceUsageResponse
      */
     public function describeResourceUsage($request)
     {
@@ -12528,10 +13217,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecretsRequest $request
-     * @param RuntimeOptions         $runtime
+     * ### [](#)Supported database engine
+     *   * *   MySQL.
+     *   *
+     * @param DescribeSecretsRequest $request DescribeSecretsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecretsResponse
+     * @return DescribeSecretsResponse DescribeSecretsResponse
      */
     public function describeSecretsWithOptions($request, $runtime)
     {
@@ -12589,9 +13281,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecretsRequest $request
+     * ### [](#)Supported database engine
+     *   * *   MySQL.
+     *   *
+     * @param DescribeSecretsRequest $request DescribeSecretsRequest
      *
-     * @return DescribeSecretsResponse
+     * @return DescribeSecretsResponse DescribeSecretsResponse
      */
     public function describeSecrets($request)
     {
@@ -12961,7 +13656,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the following requirements are met:
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [Usage notes](#)
      *   * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
      *   * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
      *   *
@@ -13023,7 +13723,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the following requirements are met:
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [Usage notes](#)
      *   * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
      *   * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
      *   *
@@ -13532,7 +14237,9 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Precautions
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * ### [Usage notes](#)
      *   * This operation can be used to remove only unit nodes.
      *   *
      * @param DetachGadInstanceMemberRequest $request DetachGadInstanceMemberRequest
@@ -13575,7 +14282,9 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Precautions
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * ### [Usage notes](#)
      *   * This operation can be used to remove only unit nodes.
      *   *
      * @param DetachGadInstanceMemberRequest $request DetachGadInstanceMemberRequest
@@ -13652,6 +14361,67 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachWhitelistTemplateToInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EvaluateLocalExtendDiskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EvaluateLocalExtendDiskResponse
+     */
+    public function evaluateLocalExtendDiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EvaluateLocalExtendDisk',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EvaluateLocalExtendDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EvaluateLocalExtendDiskRequest $request
+     *
+     * @return EvaluateLocalExtendDiskResponse
+     */
+    public function evaluateLocalExtendDisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->evaluateLocalExtendDiskWithOptions($request, $runtime);
     }
 
     /**
@@ -13997,11 +14767,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * ### [](#)Description
+     *   * A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance.
+     *   * ### [](#)Usage notes
      *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The self-managed MySQL database runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * *   The full backup file of the self-managed MySQL database is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * > This operation is supported only for MySQL 5.7.
+     *   * *   The self-managed MySQL instance runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+     *   * *   The full backup file of the self-managed MySQL instance is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+     *   * >  This operation is supported only for MySQL 5.7.
      *   *
      * @param ImportUserBackupFileRequest $request ImportUserBackupFileRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -14067,11 +14841,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * ### [](#)Description
+     *   * A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance.
+     *   * ### [](#)Usage notes
      *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The self-managed MySQL database runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * *   The full backup file of the self-managed MySQL database is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * > This operation is supported only for MySQL 5.7.
+     *   * *   The self-managed MySQL instance runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+     *   * *   The full backup file of the self-managed MySQL instance is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
+     *   * >  This operation is supported only for MySQL 5.7.
      *   *
      * @param ImportUserBackupFileRequest $request ImportUserBackupFileRequest
      *
@@ -14161,10 +14939,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -14213,9 +14997,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -14364,10 +15154,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param MigrateConnectionToOtherZoneRequest $request
-     * @param RuntimeOptions                      $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * ### [](#)References
+     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](~~96746~~)
+     *   * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](~~96746~~)
+     *   * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](~~95658~~).
+     *   *
+     * @param MigrateConnectionToOtherZoneRequest $request MigrateConnectionToOtherZoneRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return MigrateConnectionToOtherZoneResponse
+     * @return MigrateConnectionToOtherZoneResponse MigrateConnectionToOtherZoneResponse
      */
     public function migrateConnectionToOtherZoneWithOptions($request, $runtime)
     {
@@ -14407,9 +15207,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param MigrateConnectionToOtherZoneRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * ### [](#)References
+     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](~~96746~~)
+     *   * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](~~96746~~)
+     *   * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](~~95658~~).
+     *   *
+     * @param MigrateConnectionToOtherZoneRequest $request MigrateConnectionToOtherZoneRequest
      *
-     * @return MigrateConnectionToOtherZoneResponse
+     * @return MigrateConnectionToOtherZoneResponse MigrateConnectionToOtherZoneResponse
      */
     public function migrateConnectionToOtherZone($request)
     {
@@ -14671,7 +15481,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is available only for ApsaraDB RDS for SQL Server instances.
+     * ### [](#)Supported database engine
+     *   * *   SQL Server
+     *   * ### [](#)References
+     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [Connect an RDS instance to a self-managed domain](~~170734~~).
      *   *
      * @param ModifyADInfoRequest $request ModifyADInfoRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -14731,7 +15545,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is available only for ApsaraDB RDS for SQL Server instances.
+     * ### [](#)Supported database engine
+     *   * *   SQL Server
+     *   * ### [](#)References
+     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [Connect an RDS instance to a self-managed domain](~~170734~~).
      *   *
      * @param ModifyADInfoRequest $request ModifyADInfoRequest
      *
@@ -14877,7 +15695,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * O\\&M tasks such as instance migration and version upgrades are notified by text message, phone call, email, internal message, or in the ApsaraDB RDS console. You can call this operation to change the scheduled switching time. You can also view the task and change the switching time on the Task Center page.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Scheduled events for ApsaraDB RDS for MySQL instances](~~104183~~)
+     *   * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](~~104452~~)
+     *   * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](~~104451~~)
+     *   * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](~~104454~~).
      *   *
      * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -14931,7 +15759,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * O\\&M tasks such as instance migration and version upgrades are notified by text message, phone call, email, internal message, or in the ApsaraDB RDS console. You can call this operation to change the scheduled switching time. You can also view the task and change the switching time on the Task Center page.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Scheduled events for ApsaraDB RDS for MySQL instances](~~104183~~)
+     *   * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](~~104452~~)
+     *   * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](~~104451~~)
+     *   * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](~~104454~~).
      *   *
      * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      *
@@ -15149,6 +15987,67 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyCollationTimeZoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyCustinsResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyCustinsResourceResponse
+     */
+    public function modifyCustinsResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->adjustDeadline)) {
+            $query['AdjustDeadline'] = $request->adjustDeadline;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->increaseRatio)) {
+            $query['IncreaseRatio'] = $request->increaseRatio;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->restoreOriginalSpecification)) {
+            $query['RestoreOriginalSpecification'] = $request->restoreOriginalSpecification;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCustinsResource',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCustinsResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCustinsResourceRequest $request
+     *
+     * @return ModifyCustinsResourceResponse
+     */
+    public function modifyCustinsResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCustinsResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -15982,9 +16881,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Before you call this operation, make sure that the instance runs PostgreSQL.
-     *   * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [View the Enhanced Monitoring metrics](~~299200~~).
      *   *
      * @param ModifyDBInstanceMetricsRequest $request ModifyDBInstanceMetricsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -16026,9 +16927,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * Before you call this operation, make sure that the instance runs PostgreSQL.
-     *   * For more information, see [View the Enhanced Monitoring metrics of an ApsaraDB RDS for PostgreSQL instance](~~299200~~).
+     * ### [](#)Supported database engines
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * [View the Enhanced Monitoring metrics](~~299200~~).
      *   *
      * @param ModifyDBInstanceMetricsRequest $request ModifyDBInstanceMetricsRequest
      *
@@ -16042,10 +16945,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
-     *   * Alibaba Cloud provides different monitoring frequencies for different instances. For more information, see [Set monitoring frequencies](~~26200~~).
-     *   * > * If your want to set the monitoring frequency to every few seconds, you are charged additional fees. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
-     *   * > * This operation is not supported for ApsaraDB RDS for PostgreSQL instances. The monitoring frequency of an ApsaraDB RDS for PostgreSQL instance varies based on the query time range. For more information, see [Query performance metrics](~~26280~~).
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   SQL Server
+     *   * ### [](#)Usage notes
+     *   * If you use the Every 5 Seconds monitoring frequency, you are charged additional fees. Before you call this operation, make sure that you understand the [billing methods and pricing](~~45020~~) of ApsaraDB RDS.
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Configure the monitoring frequency for an ApsaraDB RDS for MySQL instance](~~96112~~)
+     *   * *   [Configure the monitoring frequency for an ApsaraDB RDS for SQL Server instance](~~95710~~).
      *   *
      * @param ModifyDBInstanceMonitorRequest $request ModifyDBInstanceMonitorRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -16096,10 +17004,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and pricing of ApsaraDB RDS. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
-     *   * Alibaba Cloud provides different monitoring frequencies for different instances. For more information, see [Set monitoring frequencies](~~26200~~).
-     *   * > * If your want to set the monitoring frequency to every few seconds, you are charged additional fees. For more information, see [Billable items, billing methods, and pricing](~~45020~~).
-     *   * > * This operation is not supported for ApsaraDB RDS for PostgreSQL instances. The monitoring frequency of an ApsaraDB RDS for PostgreSQL instance varies based on the query time range. For more information, see [Query performance metrics](~~26280~~).
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   SQL Server
+     *   * ### [](#)Usage notes
+     *   * If you use the Every 5 Seconds monitoring frequency, you are charged additional fees. Before you call this operation, make sure that you understand the [billing methods and pricing](~~45020~~) of ApsaraDB RDS.
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Configure the monitoring frequency for an ApsaraDB RDS for MySQL instance](~~96112~~)
+     *   * *   [Configure the monitoring frequency for an ApsaraDB RDS for SQL Server instance](~~95710~~).
      *   *
      * @param ModifyDBInstanceMonitorRequest $request ModifyDBInstanceMonitorRequest
      *
@@ -16839,10 +17752,11 @@ class Rds extends OpenApiClient
 
     /**
      * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
      *   * ### [](#)References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
      *   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](~~197456~~)
      *   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](~~418272~~).
      *   *
@@ -16914,10 +17828,11 @@ class Rds extends OpenApiClient
 
     /**
      * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
      *   * ### [](#)References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
      *   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](~~197456~~)
      *   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](~~418272~~).
      *   *
@@ -17277,8 +18192,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is supported for ApsaraDB RDS for MySQL instances that run RDS High-availability Edition and use standard SSDs or enhanced SSDs (ESSDs) and ApsaraDB RDS for PostgreSQL instances that use standard SSDs or ESSDs. If the available storage reaches the specified threshold, ApsaraDB RDS increases the storage capacity of the instance to meet your storage requirements. In most cases, no transient connections occur during the expansion process. For more information, see [Configure automatic storage expansion for an ApsaraDB RDS for MySQL instance](~~173826~~) and [Configure automatic storage expansion for an ApsaraDB RDS for PostgreSQL instance](~~432496~~).
-     *   * >  If an automatic storage expansion is triggered, ApsaraDB RDS increases the storage capacity based on the larger value between 15% of the purchased storage capacity and 5 GB.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Configure automatic storage expansion for ApsaraDB RDS for MySQL](~~173826~~)
+     *   * *   [Configure automatic storage expansion for ApsaraDB RDS for PostgreSQL](~~432496~~).
      *   *
      * @param ModifyDasInstanceConfigRequest $request ModifyDasInstanceConfigRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -17332,8 +18252,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is supported for ApsaraDB RDS for MySQL instances that run RDS High-availability Edition and use standard SSDs or enhanced SSDs (ESSDs) and ApsaraDB RDS for PostgreSQL instances that use standard SSDs or ESSDs. If the available storage reaches the specified threshold, ApsaraDB RDS increases the storage capacity of the instance to meet your storage requirements. In most cases, no transient connections occur during the expansion process. For more information, see [Configure automatic storage expansion for an ApsaraDB RDS for MySQL instance](~~173826~~) and [Configure automatic storage expansion for an ApsaraDB RDS for PostgreSQL instance](~~432496~~).
-     *   * >  If an automatic storage expansion is triggered, ApsaraDB RDS increases the storage capacity based on the larger value between 15% of the purchased storage capacity and 5 GB.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Configure automatic storage expansion for ApsaraDB RDS for MySQL](~~173826~~)
+     *   * *   [Configure automatic storage expansion for ApsaraDB RDS for PostgreSQL](~~432496~~).
      *   *
      * @param ModifyDasInstanceConfigRequest $request ModifyDasInstanceConfigRequest
      *
@@ -17348,10 +18273,7 @@ class Rds extends OpenApiClient
 
     /**
      * ### [](#)Supported database engine
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Manage advanced features of an ApsaraDB RDS for SQL Server instance](~~2401398~~).
+     *   * *   SQL Server.
      *   *
      * @param ModifyDatabaseConfigRequest $request ModifyDatabaseConfigRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -17406,10 +18328,7 @@ class Rds extends OpenApiClient
 
     /**
      * ### [](#)Supported database engine
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Manage advanced features of an ApsaraDB RDS for SQL Server instance](~~2401398~~).
+     *   * *   SQL Server.
      *   *
      * @param ModifyDatabaseConfigRequest $request ModifyDatabaseConfigRequest
      *
@@ -17962,8 +18881,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
      *   *
      * @param ModifyParameterGroupRequest $request ModifyParameterGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -18023,8 +18947,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can configure a number of parameters at a time by using a parameter template and then apply the parameter template to an instance. For more information, see [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~) or [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   * > This operation is supported only when your instance runs MySQL or PostgreSQL.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
+     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
      *   *
      * @param ModifyParameterGroupRequest $request ModifyParameterGroupRequest
      *
@@ -18038,15 +18967,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
+     * ### [](#)Supported database engines
      *   * *   MySQL
      *   * *   SQL Server
-     *   * ### Prerequisites
+     *   * ### [](#)Prerequisites
      *   * Before you call this operation, make sure that the following requirements are met:
      *   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
      *   * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
      *   * *   The instance must run one of the following database engine versions and RDS editions:
-     *   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+     *   *     *   MySQL 5.7 on RDS High-availability Edition with local disks
      *   *     *   MySQL 5.6
      *   *     *   SQL Server on RDS Cluster Edition.
      *   *
@@ -18108,15 +19037,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
+     * ### [](#)Supported database engines
      *   * *   MySQL
      *   * *   SQL Server
-     *   * ### Prerequisites
+     *   * ### [](#)Prerequisites
      *   * Before you call this operation, make sure that the following requirements are met:
      *   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
      *   * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
      *   * *   The instance must run one of the following database engine versions and RDS editions:
-     *   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+     *   *     *   MySQL 5.7 on RDS High-availability Edition with local disks
      *   *     *   MySQL 5.6
      *   *     *   SQL Server on RDS Cluster Edition.
      *   *
@@ -18660,6 +19589,186 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param PreCheckCreateOrderForCreateDBNodesRequest $tmpReq
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return PreCheckCreateOrderForCreateDBNodesResponse
+     */
+    public function preCheckCreateOrderForCreateDBNodesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PreCheckCreateOrderForCreateDBNodesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->DBNode)) {
+            $request->DBNodeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBNode, 'DBNode', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBNodeShrink)) {
+            $query['DBNode'] = $request->DBNodeShrink;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->promotionCode)) {
+            $query['PromotionCode'] = $request->promotionCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PreCheckCreateOrderForCreateDBNodes',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PreCheckCreateOrderForCreateDBNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PreCheckCreateOrderForCreateDBNodesRequest $request
+     *
+     * @return PreCheckCreateOrderForCreateDBNodesResponse
+     */
+    public function preCheckCreateOrderForCreateDBNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->preCheckCreateOrderForCreateDBNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PreCheckCreateOrderForDeleteDBNodesRequest $tmpReq
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return PreCheckCreateOrderForDeleteDBNodesResponse
+     */
+    public function preCheckCreateOrderForDeleteDBNodesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PreCheckCreateOrderForDeleteDBNodesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->DBNodeId)) {
+            $request->DBNodeIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBNodeId, 'DBNodeId', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBNodeIdShrink)) {
+            $query['DBNodeId'] = $request->DBNodeIdShrink;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->promotionCode)) {
+            $query['PromotionCode'] = $request->promotionCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PreCheckCreateOrderForDeleteDBNodes',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PreCheckCreateOrderForDeleteDBNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PreCheckCreateOrderForDeleteDBNodesRequest $request
+     *
+     * @return PreCheckCreateOrderForDeleteDBNodesResponse
+     */
+    public function preCheckCreateOrderForDeleteDBNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->preCheckCreateOrderForDeleteDBNodesWithOptions($request, $runtime);
+    }
+
+    /**
      * ### Supported database engines
      *   * *   MySQL
      *   * *   SQL Server
@@ -18808,6 +19917,61 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryNotifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryRecommendByCodeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryRecommendByCodeResponse
+     */
+    public function queryRecommendByCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRecommendByCode',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRecommendByCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryRecommendByCodeRequest $request
+     *
+     * @return QueryRecommendByCodeResponse
+     */
+    public function queryRecommendByCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRecommendByCodeWithOptions($request, $runtime);
     }
 
     /**
@@ -19267,11 +20431,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * The following list describes the limits:
-     *   * *   Up to 10 tags can be unbound in a single request.
-     *   * *   If a tag is unbound from all instances to which the tag has been bound, the tag is automatically deleted.
-     *   * *   If you specify only a TagKey, all tags that match the TagKey condition are unbound.
-     *   * *   You must specify at least a TagKey or a set of a TagKey and a TagValue.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)Usage notes
+     *   * *   A maximum of 10 tags can be removed in a single request.
+     *   * *   If a tag is removed from all instances to which the tag is added, the tag is automatically deleted.
+     *   * *   If you specify only TagKey, all tags that match the TagKey condition are removed.
+     *   * *   You must specify at least TagKey or a pair of TagKey and TagValue.
      *   *
      * @param RemoveTagsFromResourceRequest $request RemoveTagsFromResourceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -19334,11 +20503,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * The following list describes the limits:
-     *   * *   Up to 10 tags can be unbound in a single request.
-     *   * *   If a tag is unbound from all instances to which the tag has been bound, the tag is automatically deleted.
-     *   * *   If you specify only a TagKey, all tags that match the TagKey condition are unbound.
-     *   * *   You must specify at least a TagKey or a set of a TagKey and a TagValue.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)Usage notes
+     *   * *   A maximum of 10 tags can be removed in a single request.
+     *   * *   If a tag is removed from all instances to which the tag is added, the tag is automatically deleted.
+     *   * *   If you specify only TagKey, all tags that match the TagKey condition are removed.
+     *   * *   You must specify at least TagKey or a pair of TagKey and TagValue.
      *   *
      * @param RemoveTagsFromResourceRequest $request RemoveTagsFromResourceRequest
      *
@@ -19846,16 +21020,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
+     * ### [](#)Supported database engines
      *   * *   MySQL
      *   * *   SQL Server
      *   * *   MariaDB
-     *   * ### Prerequisites
-     *   * *   The RDS instance is in the Running state.
+     *   * ### [](#)Prerequisites
+     *   * *   The instance is in the Running state.
      *   * *   The database is in the Running state.
-     *   * ### Usage notes
+     *   * ### [](#)Precautions
      *   * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
-     *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL.
+     *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition and run PostgreSQL.
      *   *
      * @param RevokeAccountPrivilegeRequest $request RevokeAccountPrivilegeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -19906,16 +21080,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
+     * ### [](#)Supported database engines
      *   * *   MySQL
      *   * *   SQL Server
      *   * *   MariaDB
-     *   * ### Prerequisites
-     *   * *   The RDS instance is in the Running state.
+     *   * ### [](#)Prerequisites
+     *   * *   The instance is in the Running state.
      *   * *   The database is in the Running state.
-     *   * ### Usage notes
+     *   * ### [](#)Precautions
      *   * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
-     *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL.
+     *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition and run PostgreSQL.
      *   *
      * @param RevokeAccountPrivilegeRequest $request RevokeAccountPrivilegeRequest
      *
@@ -20500,12 +21674,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can query instances by tag.
-     *   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
-     *   * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
-     *   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
-     *   * *   You can add up to 20 tags to an instance.
-     *   * *   You can add tags to up to 50 instances in each call.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Create tags for an ApsaraDB RDS for MySQL instance](~~96149~~)
+     *   * *   [Create tags for an ApsaraDB RDS for PostgreSQL instance](~~96777~~)
+     *   * *   [Create tags for an ApsaraDB RDS for SQL Server instance](~~95726~~)
+     *   * *   [Create tags for an ApsaraDB RDS for MariaDB instance](~~97152~~).
      *   *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -20556,12 +21735,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can query instances by tag.
-     *   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
-     *   * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
-     *   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
-     *   * *   You can add up to 20 tags to an instance.
-     *   * *   You can add tags to up to 50 instances in each call.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)References
+     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Create tags for an ApsaraDB RDS for MySQL instance](~~96149~~)
+     *   * *   [Create tags for an ApsaraDB RDS for PostgreSQL instance](~~96777~~)
+     *   * *   [Create tags for an ApsaraDB RDS for SQL Server instance](~~95726~~)
+     *   * *   [Create tags for an ApsaraDB RDS for MariaDB instance](~~97152~~).
      *   *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
@@ -20575,10 +21759,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param TerminateMigrateTaskRequest $request
-     * @param RuntimeOptions              $runtime
+     * ### [](#)Supported database engines
+     *   * *   SQL Server.
+     *   *
+     * @param TerminateMigrateTaskRequest $request TerminateMigrateTaskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return TerminateMigrateTaskResponse
+     * @return TerminateMigrateTaskResponse TerminateMigrateTaskResponse
      */
     public function terminateMigrateTaskWithOptions($request, $runtime)
     {
@@ -20618,9 +21805,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param TerminateMigrateTaskRequest $request
+     * ### [](#)Supported database engines
+     *   * *   SQL Server.
+     *   *
+     * @param TerminateMigrateTaskRequest $request TerminateMigrateTaskRequest
      *
-     * @return TerminateMigrateTaskResponse
+     * @return TerminateMigrateTaskResponse TerminateMigrateTaskResponse
      */
     public function terminateMigrateTask($request)
     {
@@ -20794,8 +21984,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > *   You can remove up to 20 tags at a time.
-     *   * > *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)Usage notes
+     *   * *   You can remove up to 20 tags at a time.
+     *   * *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
      *   *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -20849,8 +22045,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > *   You can remove up to 20 tags at a time.
-     *   * > *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### [](#)Usage notes
+     *   * *   You can remove up to 20 tags at a time.
+     *   * *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
      *   *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *

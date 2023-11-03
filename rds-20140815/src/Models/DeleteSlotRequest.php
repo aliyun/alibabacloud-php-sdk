@@ -66,17 +66,11 @@ class DeleteSlotRequest extends Model
     public $slotName;
 
     /**
-     * @description The status of the replication slot. You can call the [DescribeSlots](~~613399~~) operation to query the status of the replication slot.
-     *
-     * Valid values:
+     * @description The status of the replication slot. You can call the [DescribeSlots](~~613399~~) operation to query the status of the replication slot. Valid values:
      *
      *   ACTIVE
-     *
-     * <!-- -->
-     *
      *   INACTIVE
      *
-     * <!-- -->
      * @example INACTIVE
      *
      * @var string

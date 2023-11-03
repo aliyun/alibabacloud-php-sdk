@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of the tag. You can query N tag keys at a time. Valid values of N: **1** to **20**. The value of this parameter cannot be an empty string.
+     * @description The tag key. You can query N tag keys at a time. Valid values of N: **1** to **20**. The value cannot be an empty string.
      *
-     * >  You must specify at least one of the **ResourceId.N** and **Tag.N.Key** parameters.
+     * >  You must specify at least one of the **ResourceId** and **Key** parameters.
      * @example testkey1
      *
      * @var string
@@ -19,7 +19,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value that is associated with the specified tag key. You can specify N tag values at a time. Valid values of N: **1** to **20**. This parameter can be an empty string.
+     * @description The tag value that is associated with the specified tag key. You can specify N tag values at a time. Valid values of N: **1** to **20**. The value can be an empty string.
      *
      * @example testvalue1
      *

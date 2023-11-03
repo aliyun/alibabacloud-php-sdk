@@ -18,7 +18,7 @@ class DescribeCloudMigrationPrecheckResultRequest extends Model
     public $DBInstanceName;
 
     /**
-     * @description The page number. Valid values: any non-zero positive integer. The default value is 1.
+     * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class DescribeCloudMigrationPrecheckResultRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 30 to 100. The default value is 30.
+     * @description The number of entries per page. Valid values: **30** to **100**. Default value: 30.
      *
      * @example 30
      *

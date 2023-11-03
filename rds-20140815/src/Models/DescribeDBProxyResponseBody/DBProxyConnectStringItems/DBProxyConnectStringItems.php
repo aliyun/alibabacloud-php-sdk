@@ -88,7 +88,7 @@ class DBProxyConnectStringItems extends Model
     public $DBProxyVpcInstanceId;
 
     /**
-     * @description The vSwitch that is associated with the proxy endpoint.
+     * @description The vSwitch of the proxy service.
      *
      * @example vsw-uf6l0pic17****
      *

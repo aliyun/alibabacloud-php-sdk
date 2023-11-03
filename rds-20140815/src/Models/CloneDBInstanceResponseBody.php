@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CloneDBInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -27,7 +27,7 @@ class CloneDBInstanceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -28,7 +28,7 @@ class DescribeResourceUsageRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *

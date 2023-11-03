@@ -21,9 +21,9 @@ class CreateMigrateTaskResponseBody extends Model
     public $backupMode;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
-     * @example rm-uf6wjk5xxxxx
+     * @example rm-uf6wjk******
      *
      * @var string
      */
@@ -41,7 +41,7 @@ class CreateMigrateTaskResponseBody extends Model
     /**
      * @description The ID of the migration task.
      *
-     * @example 564563256
+     * @example 564******
      *
      * @var string
      */
@@ -57,9 +57,9 @@ class CreateMigrateTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
-     * @example 5451225
+     * @example 545****
      *
      * @var string
      */

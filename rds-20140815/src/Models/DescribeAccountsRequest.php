@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsRequest extends Model
 {
     /**
-     * @description The username of the account.
+     * @description The name of the database account.
      *
      * @example test1
      *
@@ -18,9 +18,9 @@ class DescribeAccountsRequest extends Model
     public $accountName;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
      *
-     * >  This operation is not supported for instances that run SQL Server 2017 (cluster edition).
+     * >  This parameter is not supported if your RDS instance runs RDS Cluster Edition and SQL Server 2017.
      * @example rm-uf6wjk5*****
      *
      * @var string

@@ -17,7 +17,7 @@ class tagInfos extends Model
     public $DBInstanceIds;
 
     /**
-     * @description The key of the tag.
+     * @description The tag key.
      *
      * @example key1
      *
@@ -26,7 +26,7 @@ class tagInfos extends Model
     public $tagKey;
 
     /**
-     * @description The value of the tag.
+     * @description The tag value.
      *
      * @example value1
      *

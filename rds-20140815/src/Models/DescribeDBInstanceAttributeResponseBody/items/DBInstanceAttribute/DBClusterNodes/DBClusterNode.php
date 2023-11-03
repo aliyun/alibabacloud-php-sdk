@@ -18,16 +18,31 @@ class DBClusterNode extends Model
     public $classCode;
 
     /**
+     * @description Node specification type. Value range:
+     *
+     *   **d**: Exclusive specifications
+     *   **x**: General specifications
+     *
+     * @example x
+     *
      * @var string
      */
     public $classType;
 
     /**
+     * @description The number of vCPUs that you want to allocate to the elastic container instance. Unit: cores.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $cpu;
 
     /**
+     * @description The memory size that you applied for each instance. Unit: MB.
+     *
+     * @example 4096
+     *
      * @var string
      */
     public $memory;
@@ -72,6 +87,16 @@ class DBClusterNode extends Model
     public $nodeZoneId;
 
     /**
+     * @description The status of the migration task. Valid values:
+     *
+     *   **NoStart**: The task has not started.
+     *   **Running**:The task is in progress.
+     *   **Success**: The task is successful.
+     *   **Failed**: The task failed.
+     *   **Waiting**: The task is waiting for an incremental backup file to be imported.
+     *
+     * @example active
+     *
      * @var string
      */
     public $status;

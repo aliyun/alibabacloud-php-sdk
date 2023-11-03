@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The description of the enhanced monitoring metric.
+     * @description The description of the Enhanced Monitoring metric.
      *
      * @example OS CPU utilization, equal to the number of OS-consumed CPUs divided by the total number of CPUs
      *
@@ -18,7 +18,7 @@ class items extends Model
     public $description;
 
     /**
-     * @description The category of the enhanced monitoring metric. Valid values:
+     * @description The category of the Enhanced Monitoring metric. Valid values:
      *
      *   **os**: OS metric
      *   **db**: database metric
@@ -30,7 +30,7 @@ class items extends Model
     public $dimension;
 
     /**
-     * @description The key of the group to which the enhanced monitoring metric belongs.
+     * @description The key of the group to which the Enhanced Monitoring metric belongs.
      *
      * @example os.cpu_usage
      *
@@ -39,7 +39,7 @@ class items extends Model
     public $groupKey;
 
     /**
-     * @description The name of the group to which the enhanced monitoring metric belongs.
+     * @description The name of the group to which the Enhanced Monitoring metric belongs.
      *
      * @example CPU Utilization Rate
      *
@@ -48,11 +48,11 @@ class items extends Model
     public $groupKeyType;
 
     /**
-     * @description The method that is used to aggregate the monitoring data of the enhanced monitoring metric. Valid values:
+     * @description The method that is used to aggregate the monitoring data of the Enhanced Monitoring metric. Valid values:
      *
-     *   **avg**: The system calculates the average value of the enhanced monitoring metric.
-     *   **min**: The system calculates the minimum value of the enhanced monitoring metric.
-     *   **max**: The system calculates the maximum value of the enhanced monitoring metric.
+     *   **avg**: The system calculates the average value of the Enhanced Monitoring metric.
+     *   **min**: The system calculates the minimum value of the Enhanced Monitoring metric.
+     *   **max**: The system calculates the maximum value of the Enhanced Monitoring metric.
      *
      * @example avg
      *
@@ -61,7 +61,7 @@ class items extends Model
     public $method;
 
     /**
-     * @description The key of the enhanced monitoring metric.
+     * @description The key of the Enhanced Monitoring metric.
      *
      * @example os.cpu_usage.sys.avg
      *
@@ -70,7 +70,7 @@ class items extends Model
     public $metricsKey;
 
     /**
-     * @description The alias of the enhanced monitoring metric.
+     * @description The alias of the Enhanced Monitoring metric.
      *
      * @example cpu_sys_per_core
      *
@@ -79,7 +79,7 @@ class items extends Model
     public $metricsKeyAlias;
 
     /**
-     * @description The serial number of the enhanced monitoring metric.
+     * @description The serial number of the Enhanced Monitoring metric.
      *
      * @example 1
      *
@@ -88,7 +88,7 @@ class items extends Model
     public $sortRule;
 
     /**
-     * @description The unit of the enhanced monitoring metric.
+     * @description The unit of the Enhanced Monitoring metric.
      *
      * @example %
      *

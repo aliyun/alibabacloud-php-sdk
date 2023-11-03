@@ -13,8 +13,8 @@ class MigrateToOtherZoneRequest extends Model
      *
      *   **Basic**: RDS Basic Edition
      *   **HighAvailability**: RDS High-availability Edition
-     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
-     *   **cluster**: RDS Cluster Edition for MySQL
+     *   **AlwaysOn**: SQL Server on RDS Cluster Edition
+     *   **cluster**: MySQL on RDS Cluster Edition
      *   **Finance**: RDS Enterprise Edition
      *
      * @example HighAvailability
@@ -143,9 +143,9 @@ class MigrateToOtherZoneRequest extends Model
     public $zoneId;
 
     /**
-     * @description The zone ID of the secondary instance.
+     * @description The secondary zone 1 of the instance.
      *
-     * > If the instance does not run RDS Basic Edition, you must specify this parameter.
+     * >  This parameter must be configured if the instance runs RDS editions other than RDS Basic Edition.
      * @example cn-hangzhou-c
      *
      * @var string
@@ -153,9 +153,9 @@ class MigrateToOtherZoneRequest extends Model
     public $zoneIdSlave1;
 
     /**
-     * @description The zone ID of the logger instance.
+     * @description The secondary zone 2 of the instance.
      *
-     * > This parameter is available only when the instance runs RDS Enterprise Edition.
+     * >  You can specify this parameter only for instances that run RDS Enterprise Edition.
      * @example cn-hangzhou-d
      *
      * @var string

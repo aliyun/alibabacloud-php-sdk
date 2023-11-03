@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBProxyPerformanceResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example lsmexxxxxxx
      *
@@ -28,7 +28,7 @@ class DescribeDBProxyPerformanceResponseBody extends Model
     public $DBProxyEngineType;
 
     /**
-     * @description The end of the time range that is queried.
+     * @description The end time of the query.
      *
      * @example 2019-09-21T18:00:00Z
      *
@@ -37,14 +37,14 @@ class DescribeDBProxyPerformanceResponseBody extends Model
     public $endTime;
 
     /**
-     * @description An array that consists of the performance metrics that are returned.
+     * @description The performance list.
      *
      * @var performanceKeys
      */
     public $performanceKeys;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DD31056F-A0CE-41D7-AD39-689B6ABAE982
      *
@@ -53,7 +53,7 @@ class DescribeDBProxyPerformanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that is queried.
+     * @description The start time of the query.
      *
      * @example 2019-09-19T01:00:00Z
      *

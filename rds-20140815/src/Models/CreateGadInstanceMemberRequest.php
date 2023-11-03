@@ -46,11 +46,11 @@ class CreateGadInstanceMemberRequest extends Model
     public $centralRegionId;
 
     /**
-     * @description A JSON array that consists of the information about the databases on the central node. All database information that you specify in this array is synchronized to the unit nodes of the global active database cluster. The JSON array contains the following parameters:
+     * @description A JSON array that consists of the information about the databases on the central node. All database information that you specify in this array is synchronized to the unit nodes of the global active database cluster. The JSON array contains the following fields:
      *
      *   **name**: the name of the database.
      *   **all**: specifies whether to synchronize all data in the database or the table. Valid values: **true** and **false**.
-     *   **Table**: the name of the table. If you set the **all** parameter to **false**, you must nest the name of the table that you want to synchronize into the JSON array.
+     *   **Table**: the name of the table. If you set the **all** field to **false**, you must nest the name of the table that you want to synchronize into the JSON array.
      *
      * >  For more information, see [Objects of DTS tasks](~~209545~~).
      * @example {    "testdb": {     "name": "testdb",     "all": false,     "Table": {       "order": {         "name": "order",         "all": true       },       "ordernew": {         "name": "ordernew",         "all": true       }     }   } }
@@ -69,7 +69,7 @@ class CreateGadInstanceMemberRequest extends Model
     public $gadInstanceId;
 
     /**
-     * @description The list of the unit nodes.
+     * @description The information about the unit node.
      *
      * @var unitNode[]
      */

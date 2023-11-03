@@ -43,12 +43,8 @@ class ModifyReadWriteSplittingConnectionRequest extends Model
     /**
      * @description The latency threshold that is allowed by the read/write splitting link. Unit: seconds. If the latency on a read-only instance exceeds the specified threshold, the system no longer routes read requests to the read-only instance. If you do not specify this parameter, the default value of this parameter is retained.
      *
-     * >
-     *
-     *   If the primary instance runs SQL Server 2017 on RDS Cluster Edition, the **MaxDelayTime** parameter is not supported.
-     *
-     *   You must specify at least one of **MaxDelayTime** and **DistributionType**.
-     *
+     * > *   If the primary instance runs SQL Server 2017 on RDS Cluster Edition, the **MaxDelayTime** parameter is not supported.
+     * > *   You must specify at least one of **MaxDelayTime** and **DistributionType**.
      * @example 12
      *
      * @var string

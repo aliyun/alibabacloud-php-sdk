@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceMetricsResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-bp1*****
      *
@@ -19,7 +19,7 @@ class DescribeDBInstanceMetricsResponseBody extends Model
     public $DBInstanceName;
 
     /**
-     * @description An array consisting of the enhanced monitoring metrics that are enabled for the instance.
+     * @description An array consisting of the Enhanced Monitoring metrics that are enabled for the instance.
      *
      * @var items[]
      */

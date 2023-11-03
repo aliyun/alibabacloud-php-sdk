@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class performanceKey extends Model
 {
     /**
-     * @description The name of the performance metric.
+     * @description The performance parameter.
      *
      * @example cpu_ratio
      *
@@ -28,7 +28,7 @@ class performanceKey extends Model
     public $valueFormat;
 
     /**
-     * @description An array that consists of the values of the performance metric in the following format: {value1, value2, ...}.
+     * @description The performance metrics.
      *
      * @var values
      */

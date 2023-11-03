@@ -18,7 +18,7 @@ class ModifyDasInstanceConfigRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
      *
      * @example rm-uf6wjk5*****
      *
@@ -62,7 +62,7 @@ class ModifyDasInstanceConfigRequest extends Model
      *   **40**
      *   **50**
      *
-     * >  If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
+     * >  If you set the StorageAutoScale parameter to **Enable**, you must specify this parameter.
      * @example 50
      *
      * @var int
@@ -70,12 +70,12 @@ class ModifyDasInstanceConfigRequest extends Model
     public $storageThreshold;
 
     /**
-     * @description The maximum storage capacity that is allowed by automatic storage expansion. The value of this parameter must be equal to or greater than the current storage capacity of the instance.
+     * @description The maximum storage capacity that is allowed for an automatic storage expansion. The value of this parameter must be greater than or equal to the current storage capacity of the RDS instance.
      *
-     *   Valid value for instances with ESSDs: 32000. Unit: GB
-     *   Valid value for instances with standard SSDs: 6000. Unit: GB
+     *   If the RDS instance uses ESSDs, the maximum value of this parameter can be set to 32000 GB.
+     *   If the RDS instance uses standard SSDs, the maximum value of this parameter can be set to 6000 GB.
      *
-     * > If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
+     * >  If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
      * @example 1000
      *
      * @var int

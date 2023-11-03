@@ -60,7 +60,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
      *   **HighAvailability** (default): RDS High-availability Edition
      *   **AlwaysOn**: RDS Cluster Edition
      *
-     * > If the primary instance runs PostgreSQL with cloud disks, you must set this parameter to **Basic**.
+     * >  The read-only instances of the primary instance that run PostgreSQL and use cloud disks run RDS Basic Edition. Therefore, set this parameter to **Basic**.
      * @example HighAvailability
      *
      * @var string
@@ -122,12 +122,8 @@ class CreateReadOnlyDBInstanceRequest extends Model
      *   **cloud_essd2**: ESSDs of PL2
      *   **cloud_essd3**: ESSDs of PL3
      *
-     * >
-     *
-     *   If the primary instance runs MySQL with local disks, you must set this parameter to **local_ssd**. If the primary instance runs MySQL with cloud disks, you must set this parameter to cloud_ssd, cloud_essd, cloud_essd2, or cloud_essd3.
-     *
-     *   If the primary instance runs SQL Server, you must set this parameter to cloud_ssd, cloud_essd, cloud_essd2, or cloud_essd3.
-     *
+     * > *   If the primary instance runs MySQL with local disks, you must set this parameter to **local_ssd**. If the primary instance runs MySQL with cloud disks, you must set this parameter to cloud_ssd, cloud_essd, cloud_essd2, or cloud_essd3.
+     * > *   If the primary instance runs SQL Server, you must set this parameter to cloud_ssd, cloud_essd, cloud_essd2, or cloud_essd3.
      * @example local_ssd
      *
      * @var string
@@ -157,11 +153,11 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $deletionProtection;
 
     /**
-     * @description The major engine version of the read-only instance. The read-only instance and the primary instance must run the same major engine version.
+     * @description The version of the database engine. The read-only instance and the primary instance must run the same major engine version.
      *
      *   If the read-only instance runs MySQL, set this parameter to **5.6**, **5.7**, or **8.0**.
-     *   If the read-only instance runs SQL Server, set this parameter to **2017\_ent or 2019\_ent**.
-     *   If the read-only instance runs PostgreSQL, set this parameter to **10.0, 11.0, 12.0, 13.0, 14.0, or 15.0**
+     *   If the read-only instance runs MySQL, set this parameter to **2017\_ent, 2019\_ent, or 2022\_ent**.
+     *   If the read-only instance runs PostgreSQL, set this parameter to **10.0, 11.0, 12.0, 13.0, 14.0, or 15.0**.
      *
      * @example 5.6
      *
@@ -237,9 +233,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $period;
 
     /**
-     * @description 支持在RDS MySQL主实例创建只读实例时初始化端口。
+     * @description The port that can be initialized when you create a read-only ApsaraDB RDS for MySQL instance.
      *
-     * 取值范围：1000~65534
+     * Valid values: 1000 to 65534.
      * @example 3306
      *
      * @var string
