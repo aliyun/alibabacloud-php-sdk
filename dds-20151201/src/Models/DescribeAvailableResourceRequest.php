@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceClass;
+
+    /**
      * @description The architecture of the instance. Valid values:
      *
      *   **normal**: replica set instance
@@ -19,6 +24,11 @@ class DescribeAvailableResourceRequest extends Model
      * @var string
      */
     public $dbType;
+
+    /**
+     * @var string
+     */
+    public $engineVersion;
 
     /**
      * @description The billing method of the instance. Default value: PrePaid. Valid values:
@@ -89,7 +99,9 @@ class DescribeAvailableResourceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'DBInstanceClass'      => 'DBInstanceClass',
         'dbType'               => 'DbType',
+        'engineVersion'        => 'EngineVersion',
         'instanceChargeType'   => 'InstanceChargeType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -109,8 +121,14 @@ class DescribeAvailableResourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceClass) {
+            $res['DBInstanceClass'] = $this->DBInstanceClass;
+        }
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
+        }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
@@ -154,8 +172,14 @@ class DescribeAvailableResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceClass'])) {
+            $model->DBInstanceClass = $map['DBInstanceClass'];
+        }
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
+        }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];

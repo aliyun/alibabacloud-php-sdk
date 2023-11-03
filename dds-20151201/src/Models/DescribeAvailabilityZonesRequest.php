@@ -21,6 +21,11 @@ class DescribeAvailabilityZonesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var string
+     */
+    public $DBInstanceClass;
+
+    /**
      * @description The database engine type of the instance. Valid values:
      *
      *   **normal**: replica set instance
@@ -31,6 +36,11 @@ class DescribeAvailabilityZonesRequest extends Model
      * @var string
      */
     public $dbType;
+
+    /**
+     * @var string
+     */
+    public $engineVersion;
 
     /**
      * @var string
@@ -145,7 +155,9 @@ class DescribeAvailabilityZonesRequest extends Model
     public $zoneId;
     protected $_name = [
         'acceptLanguage'         => 'AcceptLanguage',
+        'DBInstanceClass'        => 'DBInstanceClass',
         'dbType'                 => 'DbType',
+        'engineVersion'          => 'EngineVersion',
         'excludeSecondaryZoneId' => 'ExcludeSecondaryZoneId',
         'excludeZoneId'          => 'ExcludeZoneId',
         'instanceChargeType'     => 'InstanceChargeType',
@@ -172,8 +184,14 @@ class DescribeAvailabilityZonesRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+        if (null !== $this->DBInstanceClass) {
+            $res['DBInstanceClass'] = $this->DBInstanceClass;
+        }
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
+        }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->excludeSecondaryZoneId) {
             $res['ExcludeSecondaryZoneId'] = $this->excludeSecondaryZoneId;
@@ -232,8 +250,14 @@ class DescribeAvailabilityZonesRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+        if (isset($map['DBInstanceClass'])) {
+            $model->DBInstanceClass = $map['DBInstanceClass'];
+        }
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
+        }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['ExcludeSecondaryZoneId'])) {
             $model->excludeSecondaryZoneId = $map['ExcludeSecondaryZoneId'];

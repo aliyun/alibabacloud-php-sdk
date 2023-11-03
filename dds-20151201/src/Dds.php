@@ -1858,8 +1858,14 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
+        if (!Utils::isUnset($request->DBInstanceClass)) {
+            $query['DBInstanceClass'] = $request->DBInstanceClass;
+        }
         if (!Utils::isUnset($request->dbType)) {
             $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
         if (!Utils::isUnset($request->excludeSecondaryZoneId)) {
             $query['ExcludeSecondaryZoneId'] = $request->excludeSecondaryZoneId;
@@ -2003,8 +2009,14 @@ class Dds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->DBInstanceClass)) {
+            $query['DBInstanceClass'] = $request->DBInstanceClass;
+        }
         if (!Utils::isUnset($request->dbType)) {
             $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
         if (!Utils::isUnset($request->instanceChargeType)) {
             $query['InstanceChargeType'] = $request->instanceChargeType;
