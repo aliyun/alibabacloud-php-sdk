@@ -14,6 +14,7 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleShrinkRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRecordRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRecordResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRuleRequest;
@@ -368,20 +369,28 @@ class Cr extends OpenApiClient
     /**
      * The ID of the rule.
      *   *
-     * @param CreateArtifactBuildRuleRequest $request CreateArtifactBuildRuleRequest
+     * @param CreateArtifactBuildRuleRequest $tmpReq  CreateArtifactBuildRuleRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateArtifactBuildRuleResponse CreateArtifactBuildRuleResponse
      */
-    public function createArtifactBuildRuleWithOptions($request, $runtime)
+    public function createArtifactBuildRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateArtifactBuildRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->artifactType)) {
             $query['ArtifactType'] = $request->artifactType;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
         }
         if (!Utils::isUnset($request->scopeId)) {
             $query['ScopeId'] = $request->scopeId;

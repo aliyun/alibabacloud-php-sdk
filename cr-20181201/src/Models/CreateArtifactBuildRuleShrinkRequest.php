@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateArtifactBuildRuleRequest extends Model
+class CreateArtifactBuildRuleShrinkRequest extends Model
 {
     /**
      * @example ACCELERATED_IMAGE
@@ -23,9 +23,9 @@ class CreateArtifactBuildRuleRequest extends Model
     public $instanceId;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $parameters;
+    public $parametersShrink;
 
     /**
      * @example crr-pmajihou6cg0****
@@ -41,11 +41,11 @@ class CreateArtifactBuildRuleRequest extends Model
      */
     public $scopeType;
     protected $_name = [
-        'artifactType' => 'ArtifactType',
-        'instanceId'   => 'InstanceId',
-        'parameters'   => 'Parameters',
-        'scopeId'      => 'ScopeId',
-        'scopeType'    => 'ScopeType',
+        'artifactType'     => 'ArtifactType',
+        'instanceId'       => 'InstanceId',
+        'parametersShrink' => 'Parameters',
+        'scopeId'          => 'ScopeId',
+        'scopeType'        => 'ScopeType',
     ];
 
     public function validate()
@@ -61,8 +61,8 @@ class CreateArtifactBuildRuleRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+        if (null !== $this->parametersShrink) {
+            $res['Parameters'] = $this->parametersShrink;
         }
         if (null !== $this->scopeId) {
             $res['ScopeId'] = $this->scopeId;
@@ -77,7 +77,7 @@ class CreateArtifactBuildRuleRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateArtifactBuildRuleRequest
+     * @return CreateArtifactBuildRuleShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -89,7 +89,7 @@ class CreateArtifactBuildRuleRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+            $model->parametersShrink = $map['Parameters'];
         }
         if (isset($map['ScopeId'])) {
             $model->scopeId = $map['ScopeId'];
