@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RetryAgentlessTaskRequest extends Model
 {
     /**
+     * @description The ID of the task. You can call the [ListAgentlessTask](~~ListAgentlessTask~~) operation to obtain the IDs of tasks.
+     *
      * @example 5347c7b6-c85c-4070-846a-3029e08e****
      *
      * @var string

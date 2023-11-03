@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileProtectEventStatusRequest extends Model
 {
     /**
+     * @description The IDs of the events.
+     *
      * @var int[]
      */
     public $id;
 
     /**
+     * @description The handling status of the event. Valid values:
+     *
+     *   **0**: unhandled
+     *   **1**: handled
+     *   **2**: added to the whitelist
+     *
      * @example 0
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileProtectRemarkRequest extends Model
 {
     /**
+     * @description The ID of the event.
+     *
      * @example 1764
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateFileProtectRemarkRequest extends Model
     public $id;
 
     /**
+     * @description The remarks.
+     *
      * @var string[]
      */
     public $remark;

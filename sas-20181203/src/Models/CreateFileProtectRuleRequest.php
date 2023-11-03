@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateFileProtectRuleRequest extends Model
 {
     /**
+     * @description The severity of alerts. Valid values:
+     *
+     *   0: does not generate alerts
+     *   1: sends notifications
+     *   2: suspicious
+     *   3: high-risk
+     *
      * @example 0
      *
      * @var int
@@ -16,21 +23,32 @@ class CreateFileProtectRuleRequest extends Model
     public $alertLevel;
 
     /**
+     * @description The operations that you want to perform on the files.
+     *
      * @var string[]
      */
     public $fileOps;
 
     /**
+     * @description The paths to the files that you want to monitor. Wildcard characters are supported.
+     *
      * @var string[]
      */
     public $filePaths;
 
     /**
+     * @description The paths to the processes that you want to monitor. Wildcard characters are supported.
+     *
      * @var string[]
      */
     public $procPaths;
 
     /**
+     * @description The handling method of the rule. Valid values:
+     *
+     *   pass: allow
+     *   alert
+     *
      * @example pass
      *
      * @var string
@@ -38,6 +56,8 @@ class CreateFileProtectRuleRequest extends Model
     public $ruleAction;
 
     /**
+     * @description The name of the rule.
+     *
      * @example tetsRule
      *
      * @var string
@@ -45,6 +65,11 @@ class CreateFileProtectRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @description Specifies whether to enable the rule. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 1
      *
      * @var int
@@ -52,6 +77,8 @@ class CreateFileProtectRuleRequest extends Model
     public $status;
 
     /**
+     * @description The switch ID of the rule.
+     *
      * @example FILE_PROTECT_RULE_SWITCH_TYPE_0000
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListContainerDefenseRuleRequest extends Model
 {
     /**
+     * @description The conditions.
+     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,9 @@ class ListContainerDefenseRuleRequest extends Model
     public $currentPage;
 
     /**
+     * @description Specifies whether to query system rules.
+     *
+     * >  This parameter is deprecated.
      * @example 1
      *
      * @var int
@@ -29,11 +36,16 @@ class ListContainerDefenseRuleRequest extends Model
     public $isDefaultRule;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -41,6 +53,8 @@ class ListContainerDefenseRuleRequest extends Model
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleType;

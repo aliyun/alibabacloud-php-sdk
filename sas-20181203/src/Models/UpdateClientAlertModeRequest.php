@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateClientAlertModeRequest extends Model
 {
     /**
+     * @description The protection mode. Valid values:
+     *
+     *   **strict**: The strict mode. False positives may be generated. We recommend that you enable this mode during major events.
+     *   **balance**: The balanced mode. More risks can be detected with less false positives in this mode.
+     *
      * @example balance
      *
      * @var string
@@ -16,6 +21,8 @@ class UpdateClientAlertModeRequest extends Model
     public $mode;
 
     /**
+     * @description The UUIDs of servers.
+     *
      * @var string[]
      */
     public $uuids;

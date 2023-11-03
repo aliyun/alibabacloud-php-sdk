@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
+     * @description The type of the condition. Valid values:
+     *
+     *   **ruleName: the name of the rule**
+     *
      * @example ruleName
      *
      * @var string
@@ -16,6 +20,8 @@ class conditions extends Model
     public $type;
 
     /**
+     * @description The value of the condition.
+     *
      * @example auto-test-rule-**
      *
      * @var string

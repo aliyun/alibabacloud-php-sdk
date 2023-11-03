@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetContainerDefenseRuleDetailResponseBody extends Model
 {
     /**
+     * @description The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetContainerDefenseRuleDetailResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the rule.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetContainerDefenseRuleDetailResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -36,6 +44,8 @@ class GetContainerDefenseRuleDetailResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 77546BF4-CCE8-5F8D-B42B-5FD3306B43B4
      *
      * @var string
@@ -43,6 +53,11 @@ class GetContainerDefenseRuleDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

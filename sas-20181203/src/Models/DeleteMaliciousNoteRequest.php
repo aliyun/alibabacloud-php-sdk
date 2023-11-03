@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMaliciousNoteRequest extends Model
 {
     /**
+     * @description The ID of the remarks.
+     *
+     * >  You can call the [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) operation to obtain the ID from the NoteId parameter.
      * @example 1
      *
      * @var int

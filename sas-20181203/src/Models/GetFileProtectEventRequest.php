@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFileProtectEventRequest extends Model
 {
     /**
+     * @description The ID of the event.
+     *
      * @example 12
      *
      * @var int

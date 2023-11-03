@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The user ID.
+     *
      * @example 1766185894104***
      *
      * @var int
@@ -18,11 +20,17 @@ class data extends Model
     public $aliUid;
 
     /**
+     * @description The description of the rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The alert name. Valid values:
+     *
+     *   **Non-image Program Startup**
+     *
      * @example EventName
      *
      * @var string
@@ -30,6 +38,10 @@ class data extends Model
     public $eventName;
 
     /**
+     * @description The alert type. Valid values:
+     *
+     *   **Proactive Defense for Containers**
+     *
      * @example EventType
      *
      * @var string
@@ -37,6 +49,8 @@ class data extends Model
     public $eventType;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 1948
      *
      * @var int
@@ -44,6 +58,11 @@ class data extends Model
     public $id;
 
     /**
+     * @description The action specified in the rule. Valid values:
+     *
+     *   **1**: alert
+     *   **2**: block
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +70,8 @@ class data extends Model
     public $ruleAction;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test-000
      *
      * @var string
@@ -58,6 +79,11 @@ class data extends Model
     public $ruleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +91,11 @@ class data extends Model
     public $ruleSwitch;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **1**: system rule
+     *   **2**: custom rule
+     *
      * @example 1
      *
      * @var string
@@ -72,11 +103,15 @@ class data extends Model
     public $ruleType;
 
     /**
+     * @description The effective scope of the rule.
+     *
      * @var scope[]
      */
     public $scope;
 
     /**
+     * @description The whitelist.
+     *
      * @var whitelist
      */
     public $whitelist;

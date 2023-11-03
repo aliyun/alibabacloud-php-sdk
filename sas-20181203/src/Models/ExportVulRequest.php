@@ -28,21 +28,35 @@ class ExportVulRequest extends Model
     public $attachTypes;
 
     /**
+     * @description 要查询漏洞影响的容器名称。
+     *
+     * @example xxljob-7b87597b99-mcskr
+     *
      * @var string
      */
     public $containerName;
 
     /**
+     * @description 首次扫描时间结束时间。
+     * > 时间戳，单位为毫秒。
+     * @example 1696186800000
+     *
      * @var int
      */
     public $createTsEnd;
 
     /**
+     * @description 首次扫描时间起始时间。
+     * > 时间戳，单位为毫秒。
+     * @example 1696128144000
+     *
      * @var int
      */
     public $createTsStart;
 
     /**
+     * @example CVE-2022-44702
+     *
      * @var string
      */
     public $cveId;
@@ -70,6 +84,10 @@ class ExportVulRequest extends Model
     public $groupId;
 
     /**
+     * @description 要查询漏洞影响的镜像名称。
+     *
+     * @example container-***:****
+     *
      * @var string
      */
     public $imageName;
@@ -100,6 +118,10 @@ class ExportVulRequest extends Model
     public $necessity;
 
     /**
+     * @description 要查询漏洞影响的进程路径。
+     *
+     * @example /etc/test
+     *
      * @var string
      */
     public $path;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The handling method of the rule. Valid values:
+     *
+     * 2.  alert
      * @example pass
      *
      * @var string
@@ -16,6 +19,13 @@ class data extends Model
     public $action;
 
     /**
+     * @description The severity of alerts. Valid values:
+     *
+     *   0: does not generate alerts
+     *   1: sends notifications
+     *   2: suspicious
+     *   3: high-risk
+     *
      * @example 0
      *
      * @var int
@@ -23,16 +33,22 @@ class data extends Model
     public $alertLevel;
 
     /**
+     * @description The operations performed on the files.
+     *
      * @var string[]
      */
     public $fileOps;
 
     /**
+     * @description The paths to the monitored files.
+     *
      * @var string[]
      */
     public $filePaths;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 44616
      *
      * @var int
@@ -40,11 +56,15 @@ class data extends Model
     public $id;
 
     /**
+     * @description The paths to the monitored processes.
+     *
      * @var string[]
      */
     public $procPaths;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test-000
      *
      * @var string
@@ -52,6 +72,9 @@ class data extends Model
     public $ruleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     * 2.  1: enabled
      * @example 1
      *
      * @var int
@@ -59,6 +82,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The switch ID of the rule.
+     *
      * @example FILE_PROTECT_RULE_SWITCH_TYPE_0000
      *
      * @var string

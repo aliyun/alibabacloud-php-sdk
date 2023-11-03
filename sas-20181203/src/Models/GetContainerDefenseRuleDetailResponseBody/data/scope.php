@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class scope extends Model
 {
     /**
+     * @description Indicates whether all namespaces are included. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class scope extends Model
     public $allNamespace;
 
     /**
+     * @description The ID of the container cluster.
+     *
      * @example c9bea04*2b25**
      *
      * @var string
@@ -23,6 +30,8 @@ class scope extends Model
     public $clusterId;
 
     /**
+     * @description The namespaces.
+     *
      * @var string[]
      */
     public $namespaces;

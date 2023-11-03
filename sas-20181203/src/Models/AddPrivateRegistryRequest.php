@@ -77,9 +77,9 @@ class AddPrivateRegistryRequest extends Model
     public $registryHostIp;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
-     * > You can call the [ListImageRegistryRegion](~~ListImageRegistryRegion~~) operation to query the IDs of supported regions.
+     * >  You can call the [ListImageRegistryRegion](~~ListImageRegistryRegion~~) operation to query the IDs of supported regions.
      * @example cn-hangzhou
      *
      * @var string

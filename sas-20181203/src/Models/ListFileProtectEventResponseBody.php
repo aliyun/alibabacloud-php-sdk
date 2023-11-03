@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListFileProtectEventResponseBody extends Model
 {
     /**
+     * @description The events.
+     *
      * @var eventList[]
      */
     public $eventList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 23AD0BD2-8771-5647-819E-6BA51E212F80
      *
      * @var string

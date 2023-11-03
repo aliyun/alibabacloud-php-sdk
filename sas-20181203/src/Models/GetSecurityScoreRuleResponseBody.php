@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetSecurityScoreRuleResponseBody extends Model
 {
     /**
+     * @description The status of the custom settings of the security score feature.
+     *
+     *   true: enabled
+     *   false: disabled
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,8 @@ class GetSecurityScoreRuleResponseBody extends Model
     public $enableStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example F8B6F758-BCD4-597A-8A2C-DA5A552C****
      *
      * @var string
@@ -24,6 +31,8 @@ class GetSecurityScoreRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of deducted modules that are supported by the security score feature.
+     *
      * @var securityScoreRuleList[]
      */
     public $securityScoreRuleList;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeSecurityScoreRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 23AD0BD2-8771-5647-819E-6BA51E21****
      *
      * @var string

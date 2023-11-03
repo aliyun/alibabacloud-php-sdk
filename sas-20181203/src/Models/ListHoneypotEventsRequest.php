@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotEventsRequest extends Model
 {
     /**
+     * @description The probe IDs.
+     *
      * @var string[]
      */
     public $agentIdList;
 
     /**
+     * @description The ID of the alert.
+     *
      * @example 1259925
      *
      * @var int
@@ -21,6 +25,8 @@ class ListHoneypotEventsRequest extends Model
     public $alarmEventId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +34,12 @@ class ListHoneypotEventsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The status of the event. Valid values:
+     *
+     *   **y**: handled
+     *   **n**: unhandled
+     *   **a**: all statuses
+     *
      * @example y
      *
      * @var string
@@ -35,11 +47,18 @@ class ListHoneypotEventsRequest extends Model
     public $dealed;
 
     /**
+     * @description The honeypot IDs.
+     *
      * @var string[]
      */
     public $honeypotIdList;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -47,6 +66,8 @@ class ListHoneypotEventsRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: **20**.
+     *
      * @example 10
      *
      * @var int
@@ -54,6 +75,8 @@ class ListHoneypotEventsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the attacker profile.
+     *
      * @example cd48604a-1694-4f03-ade0-ec6994c3*****
      *
      * @var string
@@ -61,6 +84,8 @@ class ListHoneypotEventsRequest extends Model
     public $portraitId;
 
     /**
+     * @description The request ID.
+     *
      * @example 2F9CE167-58D5-5DA6-AA3B-923EED02****
      *
      * @var string
@@ -68,11 +93,15 @@ class ListHoneypotEventsRequest extends Model
     public $requestId;
 
     /**
+     * @description The risk levels.
+     *
      * @var string[]
      */
     public $riskLevelList;
 
     /**
+     * @description The source IP address of the attack.
+     *
      * @example 185.237.96.***
      *
      * @var string

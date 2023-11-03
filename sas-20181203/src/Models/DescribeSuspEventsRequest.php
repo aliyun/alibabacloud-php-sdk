@@ -182,7 +182,7 @@ class DescribeSuspEventsRequest extends Model
     public $operateTimeStart;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**. Maximum value: 100.
+     * @description The number of entries per page. Default value: **20**. Maximum value: 100.
      *
      * @example 20
      *
@@ -236,7 +236,7 @@ class DescribeSuspEventsRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
-     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
      * @example 16670360956*****
      *
      * @var int
@@ -295,11 +295,11 @@ class DescribeSuspEventsRequest extends Model
      *   **2**: ignored
      *   **4**: confirmed
      *   **8**: marked as a false positive
-     *   **16**: being handled
+     *   **16**: handling
      *   **32**: handled
      *   **64**: expired
      *   **128**: deleted
-     *   **512**: being automatically blocked
+     *   **512**: automatically blocking
      *   **513**: automatically blocked
      *
      * @example 1

@@ -19,7 +19,7 @@ class DescribeEmgVulItemResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description An array that consists of the urgent vulnerabilities returned.
+     * @description The information about the urgent vulnerabilities.
      *
      * @var groupedVulItems[]
      */

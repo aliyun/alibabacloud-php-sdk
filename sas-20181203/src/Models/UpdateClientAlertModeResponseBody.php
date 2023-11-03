@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateClientAlertModeResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class UpdateClientAlertModeResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 259E3E77-CA6D-5407-84A5-3A1C98D12F14
      *
      * @var string

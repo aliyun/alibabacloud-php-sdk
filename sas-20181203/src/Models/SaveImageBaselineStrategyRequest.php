@@ -31,6 +31,8 @@ class SaveImageBaselineStrategyRequest extends Model
     public $lang;
 
     /**
+     * @example agentless
+     *
      * @var string
      */
     public $source;

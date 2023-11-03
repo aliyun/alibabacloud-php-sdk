@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class eventList extends Model
 {
     /**
+     * @description The severity of the alert. Valid values:
+     *
+     *   0: does not generate alerts
+     *   1: sends notifications
+     *   2: suspicious
+     *   3: high-risk
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +23,8 @@ class eventList extends Model
     public $alertLevel;
 
     /**
+     * @description The command line of the event.
+     *
      * @example ["touch","/test/aaaa"]
      *
      * @var string
@@ -23,6 +32,8 @@ class eventList extends Model
     public $cmdLine;
 
     /**
+     * @description The path to the file.
+     *
      * @example /etc/pam.d/su
      *
      * @var string
@@ -30,6 +41,8 @@ class eventList extends Model
     public $filePath;
 
     /**
+     * @description The time when the event was handled.
+     *
      * @example 1694576692000
      *
      * @var int
@@ -37,6 +50,8 @@ class eventList extends Model
     public $handleTime;
 
     /**
+     * @description The ID of the event.
+     *
      * @example 161757
      *
      * @var int
@@ -44,6 +59,8 @@ class eventList extends Model
     public $id;
 
     /**
+     * @description The name of the server.
+     *
      * @example kyy-admin-01
      *
      * @var string
@@ -51,6 +68,8 @@ class eventList extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 121.40.211.194
      *
      * @var string
@@ -58,6 +77,8 @@ class eventList extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the asset.
+     *
      * @example 172.22.5.36
      *
      * @var string
@@ -65,6 +86,8 @@ class eventList extends Model
     public $intranetIp;
 
     /**
+     * @description The time when the event last occurred.
+     *
      * @example 1694576692000
      *
      * @var int
@@ -72,6 +95,8 @@ class eventList extends Model
     public $latestTime;
 
     /**
+     * @description The operation performed by the process on the file.
+     *
      * @example DELETE
      *
      * @var string
@@ -79,6 +104,8 @@ class eventList extends Model
     public $operation;
 
     /**
+     * @description The path to the process.
+     *
      * @example /usr/bin/sshpass
      *
      * @var string
@@ -86,6 +113,8 @@ class eventList extends Model
     public $procPath;
 
     /**
+     * @description The permissions required to start the process.
+     *
      * @example rwxr-xr-x
      *
      * @var string
@@ -93,6 +122,8 @@ class eventList extends Model
     public $procPermission;
 
     /**
+     * @description The process ID (PID) of the event process.
+     *
      * @example 52636
      *
      * @var string
@@ -100,6 +131,8 @@ class eventList extends Model
     public $processId;
 
     /**
+     * @description The remarks.
+     *
      * @example test
      *
      * @var string
@@ -107,6 +140,8 @@ class eventList extends Model
     public $remark;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test-rule-1
      *
      * @var string
@@ -114,6 +149,12 @@ class eventList extends Model
     public $ruleName;
 
     /**
+     * @description The status of the event. Valid values:
+     *
+     *   0: unhandled
+     *   1: handled
+     *   2: added to the whitelist
+     *
      * @example 1
      *
      * @var int
@@ -121,6 +162,8 @@ class eventList extends Model
     public $status;
 
     /**
+     * @description The UUID of the server that is associated with the process.
+     *
      * @example 94b44720-d982-4d20-a4e1-80a1a57b5a8e
      *
      * @var string

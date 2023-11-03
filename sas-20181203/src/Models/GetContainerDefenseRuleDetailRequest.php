@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetContainerDefenseRuleDetailRequest extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
+     * >  You can call the [ListContainerDefenseRule](~~xx~~) operation to obtain the IDs of rules.
      * @example 156
      *
      * @var int

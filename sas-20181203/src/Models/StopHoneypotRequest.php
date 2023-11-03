@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StopHoneypotRequest extends Model
 {
     /**
+     * @description The honeypot ID.
+     *
+     * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain IDs of honeypots.
      * @example 444c699ac151b183b04b562b1dc02639d504c9d097246a322de75c963fe*****
      *
      * @var string
@@ -16,6 +19,11 @@ class StopHoneypotRequest extends Model
     public $honeypotId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

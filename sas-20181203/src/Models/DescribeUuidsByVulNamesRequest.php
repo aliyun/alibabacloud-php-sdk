@@ -107,8 +107,7 @@ class DescribeUuidsByVulNamesRequest extends Model
      * @description The status of the vulnerability. Separate multiple states with commas (,). Valid values:
      *
      *   **1**: unfixed
-     *   **4**: being fixed
-     *   **7**: fixed
+     *   **2**: fix failed
      *
      * @example 1,4
      *
@@ -142,10 +141,6 @@ class DescribeUuidsByVulNamesRequest extends Model
      *
      *   **cve**: Linux software vulnerability
      *   **sys**: Windows system vulnerability
-     *   **cms**: Web-CMS vulnerability
-     *   **app**: application vulnerability
-     *   **emg**: urgent vulnerability
-     *   **sca**: vulnerability that is detected based on software component analysis
      *
      * @example cve
      *

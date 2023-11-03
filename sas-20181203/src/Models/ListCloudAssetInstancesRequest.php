@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListCloudAssetInstancesRequest extends Model
 {
     /**
-     * @description The cloud service assets.
+     * @description The cloud assets.
      *
      * @var cloudAssetTypes[]
      */

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListFileProtectRuleRequest extends Model
 {
     /**
+     * @description The severity of alerts. Valid values:
+     *
+     *   0: does not generate alerts
+     *   1: sends notifications
+     *   2: suspicious
+     *   3: high-risk
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +23,8 @@ class ListFileProtectRuleRequest extends Model
     public $alertLevel;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +32,8 @@ class ListFileProtectRuleRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +41,11 @@ class ListFileProtectRuleRequest extends Model
     public $pageSize;
 
     /**
+     * @description The handling method of the rule. Valid values:
+     *
+     *   pass: allow
+     *   alert
+     *
      * @example pass
      *
      * @var string
@@ -37,6 +53,8 @@ class ListFileProtectRuleRequest extends Model
     public $ruleAction;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test-rule-1
      *
      * @var string

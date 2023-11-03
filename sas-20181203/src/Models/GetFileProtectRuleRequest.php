@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFileProtectRuleRequest extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
      * @example 245
      *
      * @var int

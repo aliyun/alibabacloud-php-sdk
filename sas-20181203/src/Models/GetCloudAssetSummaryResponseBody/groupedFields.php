@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class groupedFields extends Model
 {
     /**
+     * @description The statistics of cloud services.
+     *
      * @var cloudAssetSummaryMetas[]
      */
     public $cloudAssetSummaryMetas;

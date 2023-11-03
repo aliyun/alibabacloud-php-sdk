@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The total number of clusters.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class list_ extends Model
     public $clusterCount;
 
     /**
+     * @description The clusters specified in the rule.
+     *
      * @example cfb41a8**8a106
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $clusterIdList;
 
     /**
+     * @description The description of the rule.
+     *
      * @example defense rule.
      *
      * @var string
@@ -30,6 +36,11 @@ class list_ extends Model
     public $description;
 
     /**
+     * @description The action specified in the rule. Valid values:
+     *
+     *   **1**: alert
+     *   **2**: block
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +48,8 @@ class list_ extends Model
     public $ruleAction;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 181
      *
      * @var int
@@ -44,6 +57,8 @@ class list_ extends Model
     public $ruleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test-rule-01
      *
      * @var string
@@ -51,6 +66,11 @@ class list_ extends Model
     public $ruleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +78,11 @@ class list_ extends Model
     public $ruleSwitch;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **1**: system rule
+     *   **2**: custom rule
+     *
      * @example 1
      *
      * @var int

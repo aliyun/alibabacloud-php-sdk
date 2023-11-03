@@ -36,7 +36,7 @@ class details extends Model
     public $value;
 
     /**
-     * @description The display path of the alert event.
+     * @description The display name of the path of the alert event.
      *
      * @example /etc/crontab
      *

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetFileProtectDashboardResponseBody extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 6673D49C-A9AB-40DD-B4A2-B92306701AE7
      *
      * @var string

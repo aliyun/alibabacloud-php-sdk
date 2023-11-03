@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetFileProtectRuleResponseBody extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example C0DF9057-67C5-574D-A2D2-0CA9AC74C4D3
      *
      * @var string

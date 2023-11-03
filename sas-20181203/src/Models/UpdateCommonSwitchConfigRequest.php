@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateCommonSwitchConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to turn on the switch for newly added servers. Valid values:
+     *
+     *   **add**: yes
+     *   **del**: no
+     *
      * @example add
      *
      * @var string
@@ -16,6 +21,9 @@ class UpdateCommonSwitchConfigRequest extends Model
     public $targetDefault;
 
     /**
+     * @description The type of the switch.
+     *
+     * >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) or [ListSystemClientRules](~~ListSystemClientRules~~) operation to obtain the type from the response parameter SwitchId.
      * @example USER-DEFINE-RULE-SWITCH-TYPE_190****
      *
      * @var string

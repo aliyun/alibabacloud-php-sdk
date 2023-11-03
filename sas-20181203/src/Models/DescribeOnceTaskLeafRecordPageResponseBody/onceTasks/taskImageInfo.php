@@ -36,6 +36,8 @@ class taskImageInfo extends Model
     public $clusterName;
 
     /**
+     * @example {"scaVul":"2023-09-04 09:37:21","identificationInfo":"2023-09-04 09:37:30","forbiddenPackageInfo":"2023-09-04 09:37:16","binary":"2023-09-04 09:37:25","baseline":"2023-09-04 09:37:19","sensitiveFile":"2023-09-04 09:38:34","vul":"2023-09-04 09:37:31","webshell":"2023-09-04 09:38:27","sensitiveInfo":"2023-09-04 09:37:16","script":"2023-09-04 09:39:44"}
+     *
      * @var string
      */
     public $costTimeInfo;
@@ -59,7 +61,7 @@ class taskImageInfo extends Model
     public $image;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID of the node.
      *
      * @example i-0xi5mxvtmfw9****
      *
@@ -95,7 +97,7 @@ class taskImageInfo extends Model
     public $pod;
 
     /**
-     * @description The region of the server image.
+     * @description The region ID of the server image.
      *
      * @example cn-hangzhou
      *

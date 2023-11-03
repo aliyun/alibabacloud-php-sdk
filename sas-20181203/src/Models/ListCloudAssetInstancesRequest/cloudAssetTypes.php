@@ -29,6 +29,8 @@ class cloudAssetTypes extends Model
     public $assetType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $vendor;

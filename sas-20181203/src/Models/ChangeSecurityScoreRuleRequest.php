@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ChangeSecurityScoreRuleRequest extends Model
 {
     /**
+     * @description Specifies whether to reset to the system default rule. Valid values:
+     *
+     *   true: yes
+     *   false: no
+     *
      * @example false
      *
      * @var bool
@@ -17,6 +22,8 @@ class ChangeSecurityScoreRuleRequest extends Model
     public $resetSecurityScoreRule;
 
     /**
+     * @description The list of deducted modules that are supported by the security score feature.
+     *
      * @var securityScoreRuleList[]
      */
     public $securityScoreRuleList;

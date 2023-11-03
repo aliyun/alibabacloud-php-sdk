@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The version of the Security Center agent.
+     *
      * @example 00_41
      *
      * @var string
@@ -16,6 +18,9 @@ class data extends Model
     public $clientVersion;
 
     /**
+     * @description The returned code after you install the Security Center agent. Valid values:
+     *
+     * 2.  \-2: The kernel does not support the installation.
      * @example -2
      *
      * @var string
@@ -23,6 +28,8 @@ class data extends Model
     public $installCode;
 
     /**
+     * @description The returned message after you install the Security Center agent.
+     *
      * @example driver file not exist
      *
      * @var string
@@ -30,6 +37,8 @@ class data extends Model
     public $installMessage;
 
     /**
+     * @description Indicates whether the Security Center agent is installed.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +46,8 @@ class data extends Model
     public $installed;
 
     /**
+     * @description The name of the instance.
+     *
      * @example i-wz92q7m5hsbgfhdss***
      *
      * @var string
@@ -44,6 +55,8 @@ class data extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address that is associated with the instance.
+     *
      * @example 172.16.XX.XX
      *
      * @var string
@@ -51,6 +64,8 @@ class data extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address that is associated with the instance.
+     *
      * @example 10.42.XX.XX
      *
      * @var string
@@ -58,6 +73,11 @@ class data extends Model
     public $intranetIp;
 
     /**
+     * @description Indicates whether the Security Center agent is online. Valid value:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -65,6 +85,8 @@ class data extends Model
     public $online;
 
     /**
+     * @description Indicates whether the core file monitoring file is supported.
+     *
      * @example true
      *
      * @var bool
@@ -72,6 +94,8 @@ class data extends Model
     public $supportFile;
 
     /**
+     * @description The UUID of the asset.
+     *
      * @example 6690a46c-0edb-4663-a641-3629d1a9****
      *
      * @var string

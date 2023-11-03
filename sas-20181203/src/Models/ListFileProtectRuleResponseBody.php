@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListFileProtectRuleResponseBody extends Model
 {
     /**
+     * @description The details of returned data.
+     *
      * @var fileProtectList[]
      */
     public $fileProtectList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example FBBEB173-1F43-505F-A876-C03ECDF6CE4C
      *
      * @var string

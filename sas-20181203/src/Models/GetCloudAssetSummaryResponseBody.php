@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetCloudAssetSummaryResponseBody extends Model
 {
     /**
+     * @description The summary of cloud services.
+     *
      * @var groupedFields
      */
     public $groupedFields;

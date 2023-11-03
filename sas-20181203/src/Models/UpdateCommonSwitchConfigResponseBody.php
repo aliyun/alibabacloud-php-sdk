@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCommonSwitchConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 655B538A-A31B-58F2-A3FB-2EF4390D****
      *
      * @var string

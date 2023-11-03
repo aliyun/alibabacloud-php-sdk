@@ -10,6 +10,15 @@ use AlibabaCloud\Tea\Model;
 class securityScoreRuleList extends Model
 {
     /**
+     * @description The deducted module that is supported by the security score feature. Valid values:
+     *
+     *   SS_REINFORCE: issue in key feature configuration
+     *   SS_ALARM: unhandled alert
+     *   SS_VUL: unfixed vulnerability
+     *   SS_HC: baseline risk
+     *   SS_CLOUD_HC: risk item of configuration assessment
+     *   SS_AK: risk of AccessKey pair leaks
+     *
      * @example SS_ALARM
      *
      * @var string
@@ -17,6 +26,9 @@ class securityScoreRuleList extends Model
     public $ruleType;
 
     /**
+     * @description The deduction threshold of the deduction module.
+     *
+     * >  Valid values: 0 to 100. The sum of the deduction thresholds for all deduction modules must be equal to 100.
      * @example 20
      *
      * @var int
@@ -24,11 +36,15 @@ class securityScoreRuleList extends Model
     public $score;
 
     /**
+     * @description The deduction items of the deduction module.
+     *
      * @var securityScoreItemList[]
      */
     public $securityScoreItemList;
 
     /**
+     * @description The description of the deduction module.
+     *
      * @example Unhandled Alerts
      *
      * @var string

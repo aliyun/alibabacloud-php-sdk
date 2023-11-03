@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class fileProtectList extends Model
 {
     /**
+     * @description The handling method of the rule. Valid values:
+     *
+     *   pass: allow
+     *   alert
+     *
      * @example pass
      *
      * @var string
@@ -16,6 +21,13 @@ class fileProtectList extends Model
     public $action;
 
     /**
+     * @description The severity of alerts. Valid values:
+     *
+     *   0: does not generate alerts
+     *   1: sends notifications
+     *   2: suspicious
+     *   3: high-risk
+     *
      * @example 0
      *
      * @var string
@@ -23,6 +35,8 @@ class fileProtectList extends Model
     public $alertLevel;
 
     /**
+     * @description The total number of affected assets.
+     *
      * @example 12
      *
      * @var int
@@ -30,16 +44,22 @@ class fileProtectList extends Model
     public $effectInstanceCount;
 
     /**
+     * @description The operations performed on the files.
+     *
      * @var string[]
      */
     public $fileOps;
 
     /**
+     * @description The paths to the monitored files. Wildcard characters are supported.
+     *
      * @var string[]
      */
     public $filePaths;
 
     /**
+     * @description The time when the rule was created.
+     *
      * @example 1682304179000
      *
      * @var int
@@ -47,6 +67,8 @@ class fileProtectList extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the rule was last modified.
+     *
      * @example 1682304179000
      *
      * @var int
@@ -54,6 +76,8 @@ class fileProtectList extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 1412511
      *
      * @var int
@@ -61,11 +85,15 @@ class fileProtectList extends Model
     public $id;
 
     /**
+     * @description The paths to the monitored processes. Wildcard characters are supported.
+     *
      * @var string[]
      */
     public $procPaths;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test11
      *
      * @var string
@@ -73,6 +101,11 @@ class fileProtectList extends Model
     public $ruleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   0: disabled
+     *   1: enabled
+     *
      * @example 1
      *
      * @var int
@@ -80,6 +113,8 @@ class fileProtectList extends Model
     public $status;
 
     /**
+     * @description The switch ID of the rule.
+     *
      * @example FILE_PROTECT_RULE_SWITCH_TYPE_1693474122927
      *
      * @var string

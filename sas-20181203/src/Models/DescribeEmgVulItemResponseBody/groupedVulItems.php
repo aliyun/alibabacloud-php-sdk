@@ -65,7 +65,7 @@ class groupedVulItems extends Model
     /**
      * @description The progress of the urgent vulnerability detection task. Valid values: 0 to 100.
      *
-     * > This parameter is returned only when an urgent vulnerability is being detected.
+     * >  This parameter takes effect only when an urgent vulnerability is being detected.
      * @example 50
      *
      * @var int
@@ -73,6 +73,14 @@ class groupedVulItems extends Model
     public $progress;
 
     /**
+     * @description Indicates whether the application protection feature is supported. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * >  If this parameter is not returned, the application protection is not supported.
+     * @example 1
+     *
      * @var int
      */
     public $raspDefend;

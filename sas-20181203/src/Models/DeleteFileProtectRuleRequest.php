@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileProtectRuleRequest extends Model
 {
     /**
+     * @description The IDs of the core file monitoring rules that you want to delete.
+     *
      * @var int[]
      */
     public $id;

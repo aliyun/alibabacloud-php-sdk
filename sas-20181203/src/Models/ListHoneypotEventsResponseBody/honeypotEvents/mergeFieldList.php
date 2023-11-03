@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mergeFieldList extends Model
 {
     /**
+     * @description The supplementary information about the field.
+     *
      * @example data
      *
      * @var string
@@ -16,6 +18,8 @@ class mergeFieldList extends Model
     public $fieldExtInfo;
 
     /**
+     * @description The key of the field.
+     *
      * @example type
      *
      * @var string
@@ -23,6 +27,8 @@ class mergeFieldList extends Model
     public $fieldKey;
 
     /**
+     * @description The type of the field.
+     *
      * @example level2_item1
      *
      * @var string
@@ -30,6 +36,8 @@ class mergeFieldList extends Model
     public $fieldType;
 
     /**
+     * @description The value of the field key.
+     *
      * @example web_access
      *
      * @var string

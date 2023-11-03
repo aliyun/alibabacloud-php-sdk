@@ -31,7 +31,7 @@ class onceTasks extends Model
     public $finish;
 
     /**
-     * @description The number of assets that are scanned.
+     * @description The number of the assets that are scanned.
      *
      * @example 67
      *
@@ -58,7 +58,7 @@ class onceTasks extends Model
     public $realRunTime;
 
     /**
-     * @description The execution result of the task.
+     * @description The execution result of the sub-task.
      *
      * @example TASK_NOT_SUPPORT_REGION
      *
@@ -76,7 +76,7 @@ class onceTasks extends Model
     public $startTime;
 
     /**
-     * @description The status information.
+     * @description The status.
      *
      * @example 0
      *
@@ -90,7 +90,7 @@ class onceTasks extends Model
      *   **INIT**: The sub-task is not started.
      *   **START**: The sub-task is started.
      *   **SUCCESS**: The sub-task is complete.
-     *   **TIMEOUT**: The sub-task timed out.
+     *   **TIMEOUT**: The task timed out.
      *
      * @example SUCCESS
      *
@@ -108,7 +108,7 @@ class onceTasks extends Model
     public $target;
 
     /**
-     * @description The type of the asset on which the sub-task is performed.
+     * @description The type of the assets that are scanned.
      *
      *   **IMAGE_REPO**: image repository
      *   **IMAGE**: image

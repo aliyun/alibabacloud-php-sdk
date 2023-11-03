@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListFileProtectPluginStatusResponseBody extends Model
 {
     /**
+     * @description The data returned if the call is successful.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 60F289EC-BAA3-5DF1-8476-B3F05A14EBC2
      *
      * @var string

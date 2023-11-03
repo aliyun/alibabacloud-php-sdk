@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileProtectRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 339227F4-C9E1-526F-8347-1099C11F65FB
      *
      * @var string

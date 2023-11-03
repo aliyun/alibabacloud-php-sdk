@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileProtectRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EC7C8984-D108-516F-9D36-3DF1D1228CCA
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFileProtectRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 123
      *
      * @var int

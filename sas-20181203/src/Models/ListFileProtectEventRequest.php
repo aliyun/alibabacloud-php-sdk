@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListFileProtectEventRequest extends Model
 {
     /**
+     * @description The severities of alerts.
+     *
      * @var int[]
      */
     public $alertLevels;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,8 @@ class ListFileProtectEventRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var string
@@ -28,6 +34,8 @@ class ListFileProtectEventRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test-rule-1
      *
      * @var string
@@ -35,6 +43,12 @@ class ListFileProtectEventRequest extends Model
     public $ruleName;
 
     /**
+     * @description The status of the event. Valid values:
+     *
+     *   0: unhandled
+     *   1: handled
+     *   2: added to the whitelist
+     *
      * @example 2
      *
      * @var string

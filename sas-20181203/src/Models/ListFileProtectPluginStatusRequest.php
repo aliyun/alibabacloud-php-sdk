@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFileProtectPluginStatusRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListFileProtectPluginStatusRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class ListFileProtectPluginStatusRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the core file monitoring rule.
+     *
      * @example FILE_PROTECT_RULE_SWITCH_TYPE_1693474122927
      *
      * @var string

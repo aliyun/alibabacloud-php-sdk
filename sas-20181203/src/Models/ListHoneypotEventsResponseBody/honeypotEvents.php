@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class honeypotEvents extends Model
 {
     /**
+     * @description The probe ID.
+     *
      * @example 27d44bd5815d401992ea672874d9****
      *
      * @var string
@@ -17,6 +19,8 @@ class honeypotEvents extends Model
     public $agentId;
 
     /**
+     * @description The name of the probe.
+     *
      * @example 1193474_test_****
      *
      * @var string
@@ -24,6 +28,8 @@ class honeypotEvents extends Model
     public $agentName;
 
     /**
+     * @description The ID of the alert event.
+     *
      * @example 1900752
      *
      * @var int
@@ -31,6 +37,8 @@ class honeypotEvents extends Model
     public $alarmEventId;
 
     /**
+     * @description The destination IP address of the attack.
+     *
      * @example 112.126.205.***
      *
      * @var string
@@ -38,6 +46,8 @@ class honeypotEvents extends Model
     public $dstIp;
 
     /**
+     * @description The timestamp at which the event was first detected.
+     *
      * @example 1692670297
      *
      * @var int
@@ -45,11 +55,15 @@ class honeypotEvents extends Model
     public $firstTime;
 
     /**
+     * @description The name of the honeypot.
+     *
      * @var string
      */
     public $honeypotName;
 
     /**
+     * @description The timestamp at which the event was last detected.
+     *
      * @example 1676558664
      *
      * @var int
@@ -57,16 +71,25 @@ class honeypotEvents extends Model
     public $lastTime;
 
     /**
+     * @description The region.
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The extended values that correspond to the field key.
+     *
      * @var mergeFieldList[]
      */
     public $mergeFieldList;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *
      * @example tcp
      *
      * @var string
@@ -74,6 +97,12 @@ class honeypotEvents extends Model
     public $protocol;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **2**: low
+     *   **3**: medium
+     *   **4**: high
+     *
      * @example 4
      *
      * @var string
@@ -81,6 +110,8 @@ class honeypotEvents extends Model
     public $riskLevel;
 
     /**
+     * @description The ID of the intrusion event.
+     *
      * @example 70427821
      *
      * @var int
@@ -88,6 +119,8 @@ class honeypotEvents extends Model
     public $securityEventId;
 
     /**
+     * @description The source IP address of the attack.
+     *
      * @example 192.168.62.***
      *
      * @var string

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotEventsResponseBody extends Model
 {
     /**
+     * @description The intrusion events.
+     *
      * @var honeypotEvents[]
      */
     public $honeypotEvents;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example FBD28009-6096-5E90-BFE6-62CCD67*****
      *
      * @var string

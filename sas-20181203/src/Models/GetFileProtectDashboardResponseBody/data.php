@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total number of enabled rules.
+     *
      * @example 12
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $enableRuleCount;
 
     /**
+     * @description The total number of servers on which the Security Center agent is installed.
+     *
      * @example 12
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $pluginCount;
 
     /**
+     * @description The total number of servers on which the Security Center agent is offline.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $pluginOfflineCount;
 
     /**
+     * @description The total number of servers on which the Security Center agent is online.
+     *
      * @example 11
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetFileProtectEventCountRequest extends Model
 {
     /**
+     * @description The status of the event. Valid values:
+     *
+     *   0: unhandled
+     *   1: handled
+     *
      * @example 1
      *
      * @var int

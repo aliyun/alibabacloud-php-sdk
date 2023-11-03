@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFileProtectEventCountResponseBody extends Model
 {
     /**
+     * @description The data returned if the request is successful.
+     *
      * @example 16
      *
      * @var int
@@ -16,6 +18,8 @@ class GetFileProtectEventCountResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 9B28EC81-2FA7-5097-80D9-0DBE1A3DBD59
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $count;
 
     /**
+     * @description The UUIDs of the assets.
+     *
      * @var string[]
      */
     public $uuids;
