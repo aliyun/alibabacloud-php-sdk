@@ -4404,10 +4404,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetTableRequest $request
-     * @param RuntimeOptions  $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetTableResponse
+     * @param GetTableRequest $request GetTableRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTableResponse GetTableResponse
      */
     public function getTableWithOptions($request, $runtime)
     {
@@ -4444,9 +4448,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetTableRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetTableResponse
+     * @param GetTableRequest $request GetTableRequest
+     *
+     * @return GetTableResponse GetTableResponse
      */
     public function getTable($request)
     {

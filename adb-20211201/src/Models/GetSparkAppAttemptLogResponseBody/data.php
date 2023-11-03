@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The application ID.
+     *
+     * @example s202204132018hzprec1ac61a000****
+     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The ID of the Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
      * @example amv-clusterxxx
      *
