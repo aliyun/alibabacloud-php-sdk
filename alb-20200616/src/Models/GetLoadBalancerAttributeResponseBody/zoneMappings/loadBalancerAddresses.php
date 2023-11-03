@@ -33,6 +33,11 @@ class loadBalancerAddresses extends Model
     public $eipType;
 
     /**
+     * @var string
+     */
+    public $intranetAddress;
+
+    /**
      * @description The protocol version. Valid values:
      *
      *   **IPv4:** IPv4.
@@ -44,10 +49,11 @@ class loadBalancerAddresses extends Model
      */
     public $ipv6Address;
     protected $_name = [
-        'address'      => 'Address',
-        'allocationId' => 'AllocationId',
-        'eipType'      => 'EipType',
-        'ipv6Address'  => 'Ipv6Address',
+        'address'         => 'Address',
+        'allocationId'    => 'AllocationId',
+        'eipType'         => 'EipType',
+        'intranetAddress' => 'IntranetAddress',
+        'ipv6Address'     => 'Ipv6Address',
     ];
 
     public function validate()
@@ -65,6 +71,9 @@ class loadBalancerAddresses extends Model
         }
         if (null !== $this->eipType) {
             $res['EipType'] = $this->eipType;
+        }
+        if (null !== $this->intranetAddress) {
+            $res['IntranetAddress'] = $this->intranetAddress;
         }
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
@@ -89,6 +98,9 @@ class loadBalancerAddresses extends Model
         }
         if (isset($map['EipType'])) {
             $model->eipType = $map['EipType'];
+        }
+        if (isset($map['IntranetAddress'])) {
+            $model->intranetAddress = $map['IntranetAddress'];
         }
         if (isset($map['Ipv6Address'])) {
             $model->ipv6Address = $map['Ipv6Address'];

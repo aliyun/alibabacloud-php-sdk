@@ -1310,6 +1310,9 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->uchConfig)) {
             $query['UchConfig'] = $request->uchConfig;
         }
+        if (!Utils::isUnset($request->upstreamKeepaliveEnabled)) {
+            $query['UpstreamKeepaliveEnabled'] = $request->upstreamKeepaliveEnabled;
+        }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
         }
@@ -5001,6 +5004,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->uchConfig)) {
             $query['UchConfig'] = $request->uchConfig;
+        }
+        if (!Utils::isUnset($request->upstreamKeepaliveEnabled)) {
+            $query['UpstreamKeepaliveEnabled'] = $request->upstreamKeepaliveEnabled;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

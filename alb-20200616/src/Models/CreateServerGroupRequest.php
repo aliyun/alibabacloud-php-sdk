@@ -132,6 +132,11 @@ class CreateServerGroupRequest extends Model
     public $uchConfig;
 
     /**
+     * @var bool
+     */
+    public $upstreamKeepaliveEnabled;
+
+    /**
      * @description The ID of the virtual private cloud (VPC). You can add only backend servers that are deployed in the specified VPC to the server group.
      *
      * > This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
@@ -141,19 +146,20 @@ class CreateServerGroupRequest extends Model
      */
     public $vpcId;
     protected $_name = [
-        'clientToken'         => 'ClientToken',
-        'dryRun'              => 'DryRun',
-        'healthCheckConfig'   => 'HealthCheckConfig',
-        'protocol'            => 'Protocol',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'scheduler'           => 'Scheduler',
-        'serverGroupName'     => 'ServerGroupName',
-        'serverGroupType'     => 'ServerGroupType',
-        'serviceName'         => 'ServiceName',
-        'stickySessionConfig' => 'StickySessionConfig',
-        'tag'                 => 'Tag',
-        'uchConfig'           => 'UchConfig',
-        'vpcId'               => 'VpcId',
+        'clientToken'              => 'ClientToken',
+        'dryRun'                   => 'DryRun',
+        'healthCheckConfig'        => 'HealthCheckConfig',
+        'protocol'                 => 'Protocol',
+        'resourceGroupId'          => 'ResourceGroupId',
+        'scheduler'                => 'Scheduler',
+        'serverGroupName'          => 'ServerGroupName',
+        'serverGroupType'          => 'ServerGroupType',
+        'serviceName'              => 'ServiceName',
+        'stickySessionConfig'      => 'StickySessionConfig',
+        'tag'                      => 'Tag',
+        'uchConfig'                => 'UchConfig',
+        'upstreamKeepaliveEnabled' => 'UpstreamKeepaliveEnabled',
+        'vpcId'                    => 'VpcId',
     ];
 
     public function validate()
@@ -204,6 +210,9 @@ class CreateServerGroupRequest extends Model
         }
         if (null !== $this->uchConfig) {
             $res['UchConfig'] = null !== $this->uchConfig ? $this->uchConfig->toMap() : null;
+        }
+        if (null !== $this->upstreamKeepaliveEnabled) {
+            $res['UpstreamKeepaliveEnabled'] = $this->upstreamKeepaliveEnabled;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -261,6 +270,9 @@ class CreateServerGroupRequest extends Model
         }
         if (isset($map['UchConfig'])) {
             $model->uchConfig = uchConfig::fromMap($map['UchConfig']);
+        }
+        if (isset($map['UpstreamKeepaliveEnabled'])) {
+            $model->upstreamKeepaliveEnabled = $map['UpstreamKeepaliveEnabled'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

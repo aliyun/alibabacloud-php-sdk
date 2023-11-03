@@ -92,16 +92,22 @@ class UpdateServerGroupAttributeRequest extends Model
      * @var uchConfig
      */
     public $uchConfig;
+
+    /**
+     * @var bool
+     */
+    public $upstreamKeepaliveEnabled;
     protected $_name = [
-        'clientToken'         => 'ClientToken',
-        'dryRun'              => 'DryRun',
-        'healthCheckConfig'   => 'HealthCheckConfig',
-        'scheduler'           => 'Scheduler',
-        'serverGroupId'       => 'ServerGroupId',
-        'serverGroupName'     => 'ServerGroupName',
-        'serviceName'         => 'ServiceName',
-        'stickySessionConfig' => 'StickySessionConfig',
-        'uchConfig'           => 'UchConfig',
+        'clientToken'              => 'ClientToken',
+        'dryRun'                   => 'DryRun',
+        'healthCheckConfig'        => 'HealthCheckConfig',
+        'scheduler'                => 'Scheduler',
+        'serverGroupId'            => 'ServerGroupId',
+        'serverGroupName'          => 'ServerGroupName',
+        'serviceName'              => 'ServiceName',
+        'stickySessionConfig'      => 'StickySessionConfig',
+        'uchConfig'                => 'UchConfig',
+        'upstreamKeepaliveEnabled' => 'UpstreamKeepaliveEnabled',
     ];
 
     public function validate()
@@ -137,6 +143,9 @@ class UpdateServerGroupAttributeRequest extends Model
         }
         if (null !== $this->uchConfig) {
             $res['UchConfig'] = null !== $this->uchConfig ? $this->uchConfig->toMap() : null;
+        }
+        if (null !== $this->upstreamKeepaliveEnabled) {
+            $res['UpstreamKeepaliveEnabled'] = $this->upstreamKeepaliveEnabled;
         }
 
         return $res;
@@ -176,6 +185,9 @@ class UpdateServerGroupAttributeRequest extends Model
         }
         if (isset($map['UchConfig'])) {
             $model->uchConfig = uchConfig::fromMap($map['UchConfig']);
+        }
+        if (isset($map['UpstreamKeepaliveEnabled'])) {
+            $model->upstreamKeepaliveEnabled = $map['UpstreamKeepaliveEnabled'];
         }
 
         return $model;

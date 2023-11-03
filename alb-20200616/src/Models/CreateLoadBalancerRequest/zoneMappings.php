@@ -11,6 +11,11 @@ class zoneMappings extends Model
     /**
      * @var string
      */
+    public $allocationId;
+
+    /**
+     * @var string
+     */
     public $intranetAddress;
 
     /**
@@ -32,6 +37,7 @@ class zoneMappings extends Model
      */
     public $zoneId;
     protected $_name = [
+        'allocationId'    => 'AllocationId',
         'intranetAddress' => 'IntranetAddress',
         'vSwitchId'       => 'VSwitchId',
         'zoneId'          => 'ZoneId',
@@ -44,6 +50,9 @@ class zoneMappings extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allocationId) {
+            $res['AllocationId'] = $this->allocationId;
+        }
         if (null !== $this->intranetAddress) {
             $res['IntranetAddress'] = $this->intranetAddress;
         }
@@ -65,6 +74,9 @@ class zoneMappings extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllocationId'])) {
+            $model->allocationId = $map['AllocationId'];
+        }
         if (isset($map['IntranetAddress'])) {
             $model->intranetAddress = $map['IntranetAddress'];
         }
