@@ -326,6 +326,7 @@ class Vod extends OpenApiClient
         $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule       = 'regional';
         $this->_endpointMap        = [
+            'cn-hangzhou'                 => 'vod.cn-shanghai.aliyuncs.com',
             'ap-northeast-2-pop'          => 'vod.aliyuncs.com',
             'ap-southeast-2'              => 'vod.aliyuncs.com',
             'ap-southeast-3'              => 'vod.aliyuncs.com',
@@ -337,7 +338,6 @@ class Vod extends OpenApiClient
             'cn-edge-1'                   => 'vod.aliyuncs.com',
             'cn-fujian'                   => 'vod.aliyuncs.com',
             'cn-haidian-cm12-c01'         => 'vod.aliyuncs.com',
-            'cn-hangzhou'                 => 'vod.aliyuncs.com',
             'cn-hangzhou-bj-b01'          => 'vod.aliyuncs.com',
             'cn-hangzhou-finance'         => 'vod.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'vod.aliyuncs.com',
@@ -345,7 +345,6 @@ class Vod extends OpenApiClient
             'cn-hangzhou-internal-test-2' => 'vod.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'vod.aliyuncs.com',
             'cn-hangzhou-test-306'        => 'vod.aliyuncs.com',
-            'cn-hongkong'                 => 'vod.aliyuncs.com',
             'cn-hongkong-finance-pop'     => 'vod.aliyuncs.com',
             'cn-huhehaote'                => 'vod.aliyuncs.com',
             'cn-huhehaote-nebula-1'       => 'vod.aliyuncs.com',
@@ -365,15 +364,12 @@ class Vod extends OpenApiClient
             'cn-yushanfang'               => 'vod.aliyuncs.com',
             'cn-zhangbei'                 => 'vod.aliyuncs.com',
             'cn-zhangbei-na61-b01'        => 'vod.aliyuncs.com',
-            'cn-zhangjiakou'              => 'vod.aliyuncs.com',
             'cn-zhangjiakou-na62-a01'     => 'vod.aliyuncs.com',
             'cn-zhengzhou-nebula-1'       => 'vod.aliyuncs.com',
-            'eu-west-1'                   => 'vod.aliyuncs.com',
             'eu-west-1-oxs'               => 'vod.aliyuncs.com',
             'me-east-1'                   => 'vod.aliyuncs.com',
             'rus-west-1-pop'              => 'vod.aliyuncs.com',
             'us-east-1'                   => 'vod.aliyuncs.com',
-            'us-west-1'                   => 'vod.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('vod', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -4493,10 +4489,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetDigitalWatermarkExtractResultRequest $request
-     * @param RuntimeOptions                          $runtime
+     * *   You can call this operation to query the results of digital watermark extraction jobs that are created in the last two years.
+     *   *
+     * @param GetDigitalWatermarkExtractResultRequest $request GetDigitalWatermarkExtractResultRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDigitalWatermarkExtractResultResponse
+     * @return GetDigitalWatermarkExtractResultResponse GetDigitalWatermarkExtractResultResponse
      */
     public function getDigitalWatermarkExtractResultWithOptions($request, $runtime)
     {
@@ -4542,9 +4540,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetDigitalWatermarkExtractResultRequest $request
+     * *   You can call this operation to query the results of digital watermark extraction jobs that are created in the last two years.
+     *   *
+     * @param GetDigitalWatermarkExtractResultRequest $request GetDigitalWatermarkExtractResultRequest
      *
-     * @return GetDigitalWatermarkExtractResultResponse
+     * @return GetDigitalWatermarkExtractResultResponse GetDigitalWatermarkExtractResultResponse
      */
     public function getDigitalWatermarkExtractResult($request)
     {
@@ -5377,7 +5377,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+     * >  This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
      *   *
      * @param GetTranscodeTemplateGroupRequest $request GetTranscodeTemplateGroupRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -5410,7 +5410,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+     * >  This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
      *   *
      * @param GetTranscodeTemplateGroupRequest $request GetTranscodeTemplateGroupRequest
      *
@@ -6655,6 +6655,9 @@ class Vod extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
         if (!Utils::isUnset($request->coverURL)) {
             $query['CoverURL'] = $request->coverURL;
         }
@@ -7118,8 +7121,8 @@ class Vod extends OpenApiClient
 
     /**
      * The maximum number of data records that you can query is limited based on the method used to query the data. You can use the following methods to query data:
-     *   * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter criteria. This allows you to traverse data page by page. If the number of data records that meet the specified filter criteria exceeds 5,000, use Method 2.
-     *   * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter criteria, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the desired page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
+     *   * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter condition. This allows you to traverse data page by page. If the number of data records that meet the specified filter condition exceeds 5,000, use Method 2.
+     *   * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter condition, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the target page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
      *   *     *   When the PageNo parameter is set to **1**, you can scroll forward to traverse data records from page 1 to page **60** at most.
      *   *     *   When the PageNo parameter is set to **2**, you can scroll forward to traverse data records from page 2 to page **61** at most.
      *   *     *   When the PageNo parameter is set to **61**, you can scroll backward to traverse data records from page 61 to page **2** at most or scroll forward to traverse data records from page 61 to page **120** at most.
@@ -7174,8 +7177,8 @@ class Vod extends OpenApiClient
 
     /**
      * The maximum number of data records that you can query is limited based on the method used to query the data. You can use the following methods to query data:
-     *   * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter criteria. This allows you to traverse data page by page. If the number of data records that meet the specified filter criteria exceeds 5,000, use Method 2.
-     *   * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter criteria, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the desired page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
+     *   * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter condition. This allows you to traverse data page by page. If the number of data records that meet the specified filter condition exceeds 5,000, use Method 2.
+     *   * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter condition, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the target page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
      *   *     *   When the PageNo parameter is set to **1**, you can scroll forward to traverse data records from page 1 to page **60** at most.
      *   *     *   When the PageNo parameter is set to **2**, you can scroll forward to traverse data records from page 2 to page **61** at most.
      *   *     *   When the PageNo parameter is set to **61**, you can scroll backward to traverse data records from page 61 to page **2** at most or scroll forward to traverse data records from page 61 to page **120** at most.
@@ -7901,10 +7904,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitDigitalWatermarkExtractJobRequest $request
-     * @param RuntimeOptions                          $runtime
+     * *   You must upload the video from which you want to extract the digital watermark to ApsaraVideo VOD.
+     *   * *   The duration of the video from which you want to extract the digital watermark must exceed 3 minutes.
+     *   *
+     * @param SubmitDigitalWatermarkExtractJobRequest $request SubmitDigitalWatermarkExtractJobRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDigitalWatermarkExtractJobResponse
+     * @return SubmitDigitalWatermarkExtractJobResponse SubmitDigitalWatermarkExtractJobResponse
      */
     public function submitDigitalWatermarkExtractJobWithOptions($request, $runtime)
     {
@@ -7947,9 +7953,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitDigitalWatermarkExtractJobRequest $request
+     * *   You must upload the video from which you want to extract the digital watermark to ApsaraVideo VOD.
+     *   * *   The duration of the video from which you want to extract the digital watermark must exceed 3 minutes.
+     *   *
+     * @param SubmitDigitalWatermarkExtractJobRequest $request SubmitDigitalWatermarkExtractJobRequest
      *
-     * @return SubmitDigitalWatermarkExtractJobResponse
+     * @return SubmitDigitalWatermarkExtractJobResponse SubmitDigitalWatermarkExtractJobResponse
      */
     public function submitDigitalWatermarkExtractJob($request)
     {

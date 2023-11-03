@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDigitalWatermarkExtractResultResponseBody extends Model
 {
     /**
+     * @description The information about the job.
+     *
      * @var aiExtractResultList[]
      */
     public $aiExtractResultList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 42E0554B-80F4-4921-****-ACFB22CAAAD0
      *
      * @var string

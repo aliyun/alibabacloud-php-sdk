@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class aiExtractResultList extends Model
 {
     /**
+     * @description The time when the job was created.
+     *
      * @example 2023-09-16T02:49:04Z
      *
      * @var string
@@ -16,6 +18,8 @@ class aiExtractResultList extends Model
     public $createTime;
 
     /**
+     * @description The error message.
+     *
      * @example successful
      *
      * @var string
@@ -23,6 +27,8 @@ class aiExtractResultList extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the job.
+     *
      * @example 3af004763bcf459698860f4ede20****
      *
      * @var string
@@ -30,6 +36,8 @@ class aiExtractResultList extends Model
     public $jobId;
 
     /**
+     * @description The time when the job was modified.
+     *
      * @example 2023-09-17T06:20:45Z
      *
      * @var string
@@ -37,6 +45,12 @@ class aiExtractResultList extends Model
     public $modifyTime;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   **Success**
+     *   **Failed**
+     *   **Processing**
+     *
      * @example Success
      *
      * @var string
@@ -44,6 +58,8 @@ class aiExtractResultList extends Model
     public $status;
 
     /**
+     * @description The extracted watermark text.
+     *
      * @example test mark
      *
      * @var string

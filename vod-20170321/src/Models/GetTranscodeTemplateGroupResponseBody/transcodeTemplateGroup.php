@@ -19,7 +19,7 @@ class transcodeTemplateGroup extends Model
     public $appId;
 
     /**
-     * @description The time when the template group was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the transcoding template group was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-12-12T10:20:51Z
      *
@@ -29,8 +29,9 @@ class transcodeTemplateGroup extends Model
 
     /**
      * @description Indicates whether the template group is the default one. Valid values:
-     *   **Default**: The template group is the default one.
-     *   **NotDefault**: The template group is not the default one.
+     *
+     *   **Default**
+     *   **NotDefault**
      *
      * @example NotDefault
      *
@@ -40,6 +41,7 @@ class transcodeTemplateGroup extends Model
 
     /**
      * @description Indicates whether the template group is locked. Valid values:
+     *
      *   **Disabled**: The template group is not locked.
      *   **Enabled**: The template group is locked.
      *
@@ -50,7 +52,7 @@ class transcodeTemplateGroup extends Model
     public $locked;
 
     /**
-     * @description The time when the template group was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the transcoding template group was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-12-12T11:20:51Z
      *
@@ -59,7 +61,7 @@ class transcodeTemplateGroup extends Model
     public $modifyTime;
 
     /**
-     * @description The name of the template group.
+     * @description The name of the transcoding template group.
      *
      * @example test
      *
@@ -77,7 +79,7 @@ class transcodeTemplateGroup extends Model
     public $transcodeTemplateGroupId;
 
     /**
-     * @description The configurations of the transcoding templates.
+     * @description The information about the transcoding templates.
      *
      * @var transcodeTemplateList[]
      */

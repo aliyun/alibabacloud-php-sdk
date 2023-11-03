@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitDigitalWatermarkExtractJobResponseBody extends Model
 {
     /**
+     * @description The ID of the job.
+     *
      * @example ad90a501b1b9472374ad005046****
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitDigitalWatermarkExtractJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-****-6C044FE73368
      *
      * @var string

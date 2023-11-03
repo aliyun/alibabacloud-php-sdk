@@ -27,7 +27,7 @@ class playInfo extends Model
     public $bitrate;
 
     /**
-     * @description The creation time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video stream was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-04-18T07:37:15Z
      *
@@ -65,10 +65,10 @@ class playInfo extends Model
     public $duration;
 
     /**
-     * @description Indicates whether the media stream was encrypted. Valid values:
+     * @description Indicates whether the media stream is encrypted. Valid values:
      *
-     *   **0**: no
-     *   **1**: yes.
+     *   **0**: The media stream is not encrypted.
+     *   **1**: The media stream is encrypted.
      *
      * @example 1
      *
@@ -127,7 +127,7 @@ class playInfo extends Model
     public $HDRType;
 
     /**
-     * @description The height of the media stream. Unit: pixel.
+     * @description The height of the media stream. Unit: pixels.
      *
      * @example 640
      *
@@ -136,6 +136,8 @@ class playInfo extends Model
     public $height;
 
     /**
+     * @description The custom watermark information of the copyright watermark. This parameter is returned if you set `JobType` to `2`.
+     *
      * @example CopyrightMarkTest
      *
      * @var string
@@ -152,6 +154,11 @@ class playInfo extends Model
     public $jobId;
 
     /**
+     * @description The type of the digital watermark. Valid values:
+     *
+     *   **1**: tracing watermark
+     *   **2**: copyright watermark
+     *
      * @example 2
      *
      * @var int
@@ -209,7 +216,7 @@ class playInfo extends Model
     public $specification;
 
     /**
-     * @description The status of the media stream. Valid values:
+     * @description The status of the audio or video stream. Valid values:
      *
      *   **Normal**: The latest transcoded stream in each quality and format is in the Normal status.
      *   **Invisible**: If multiple streams are transcoded in the same quality and format, the latest transcoded stream is in the Normal status and other streams are in the Invisible status.
@@ -239,7 +246,7 @@ class playInfo extends Model
     public $watermarkId;
 
     /**
-     * @description The width of the media stream. Unit: pixel.
+     * @description The width of the media stream. Unit: pixels.
      *
      * @example 360
      *

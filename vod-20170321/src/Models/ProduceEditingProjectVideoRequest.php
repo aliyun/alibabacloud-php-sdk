@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ProduceEditingProjectVideoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @description The thumbnail URL of the online editing project.
      *
      * @example https://example.aliyundoc.com/6AB4D0E1E1C7446888351****.png
@@ -100,6 +105,7 @@ class ProduceEditingProjectVideoRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'appId'                => 'AppId',
         'coverURL'             => 'CoverURL',
         'description'          => 'Description',
         'mediaMetadata'        => 'MediaMetadata',
@@ -120,6 +126,9 @@ class ProduceEditingProjectVideoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
@@ -165,6 +174,9 @@ class ProduceEditingProjectVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }
