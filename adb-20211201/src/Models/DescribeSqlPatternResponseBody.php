@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlPatternResponseBody extends Model
 {
     /**
-     * @description The average number of tasks.
+     * @description The queried SQL pattern.
      *
      * @var items[]
      */

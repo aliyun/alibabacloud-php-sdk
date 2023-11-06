@@ -14,8 +14,14 @@ class DescribeUserQuotaRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class DescribeUserQuotaRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class DescribeUserQuotaRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

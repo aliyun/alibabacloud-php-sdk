@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The IP address of the client.
+     *
+     * >  This parameter is returned only when **Type** is set to **accessip**.
      * @example 100.104.xx.xx
      *
      * @var string
@@ -16,6 +19,8 @@ class items extends Model
     public $accessIP;
 
     /**
+     * @description The average execution duration of the SQL pattern within the query time range. Unit: milliseconds.
+     *
      * @example 1.0625
      *
      * @var string
@@ -23,6 +28,8 @@ class items extends Model
     public $avgCpuTime;
 
     /**
+     * @description The average peak memory usage of the SQL pattern within the query time range. Unit: KB.
+     *
      * @example 240048
      *
      * @var string
@@ -30,6 +37,8 @@ class items extends Model
     public $avgPeakMemory;
 
     /**
+     * @description The average amount of data scanned based on the SQL pattern within the query time range. Unit: KB.
+     *
      * @example 244
      *
      * @var string
@@ -37,6 +46,8 @@ class items extends Model
     public $avgScanSize;
 
     /**
+     * @description The average number of scanned rows.
+     *
      * @example 2
      *
      * @var string
@@ -44,6 +55,8 @@ class items extends Model
     public $avgStageCount;
 
     /**
+     * @description The average number of tasks.
+     *
      * @example 2
      *
      * @var string
@@ -51,6 +64,8 @@ class items extends Model
     public $avgTaskCount;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example amv-bp1ej1nq9n6****
      *
      * @var string
@@ -58,6 +73,8 @@ class items extends Model
     public $instanceName;
 
     /**
+     * @description The maximum execution duration of the SQL pattern within the query time range. Unit: milliseconds.
+     *
      * @example 17
      *
      * @var string
@@ -65,6 +82,8 @@ class items extends Model
     public $maxCpuTime;
 
     /**
+     * @description The maximum peak memory usage of the SQL pattern within the query time range. Unit: KB.
+     *
      * @example 480096
      *
      * @var string
@@ -72,6 +91,8 @@ class items extends Model
     public $maxPeakMemory;
 
     /**
+     * @description The maximum amount of data scanned based on the SQL pattern within the query time range. Unit: KB.
+     *
      * @example 1024
      *
      * @var string
@@ -79,6 +100,8 @@ class items extends Model
     public $maxScanSize;
 
     /**
+     * @description The maximum number of stages.
+     *
      * @example 2
      *
      * @var string
@@ -86,6 +109,8 @@ class items extends Model
     public $maxStageCount;
 
     /**
+     * @description The maximum number of tasks.
+     *
      * @example 2
      *
      * @var string
@@ -93,7 +118,7 @@ class items extends Model
     public $maxTaskCount;
 
     /**
-     * @description SQL Pattern。
+     * @description The SQL pattern.
      *
      * @example SELECT table_name, table_schema AS schema_name, create_time, create_time AS last_ddl_time, table_comment AS description , ceil((data_length + index_length) / ? / ?) AS store_capacity , data_length AS data_bytes, index_length AS index_bytes, table_collation AS collation, auto_increment, table_rows AS num_rows , engine FROM information_schema.tables WHERE table_type != ? AND table_schema = ? AND table_name IN (?) ORDER BY 1
      *
@@ -102,6 +127,8 @@ class items extends Model
     public $pattern;
 
     /**
+     * @description The number of queries performed in association with the SQL pattern within the query time range.
+     *
      * @example 16
      *
      * @var string
@@ -109,6 +136,8 @@ class items extends Model
     public $queryCount;
 
     /**
+     * @description The start date of the query.
+     *
      * @example 2022-08-30
      *
      * @var string
@@ -116,6 +145,9 @@ class items extends Model
     public $reportDate;
 
     /**
+     * @description The username.
+     *
+     * >  This parameter is returned only when **Type** is left empty or set to **user**.
      * @example test_acc
      *
      * @var string
