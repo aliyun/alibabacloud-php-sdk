@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateAdvancedSearchFileRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-4b1b626622af000c****
      *
      * @var string

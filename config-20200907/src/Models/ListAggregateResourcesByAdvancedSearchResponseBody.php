@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateResourcesByAdvancedSearchResponseBody extends Model
 {
     /**
+     * @description The result of the request.
+     *
      * @var queryResults
      */
     public $queryResults;
 
     /**
+     * @description The request ID.
+     *
      * @example B0DBF868-460F-5E7C-8F76-1ACE2FCCE153
      *
      * @var string

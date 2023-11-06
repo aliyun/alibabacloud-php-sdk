@@ -21,10 +21,10 @@ class ListAggregateConfigRulesRequest extends Model
     /**
      * @description The compliance evaluation result. Valid values:
      *
-     *   COMPLIANT: The resource was evaluated as compliant.
-     *   NON_COMPLIANT: The resource was evaluated as incompliant.
-     *   NOT_APPLICABLE: The rule did not apply to your resources.
-     *   INSUFFICIENT_DATA: No resource data was available.
+     *   COMPLIANT: The resource is evaluated as compliant.
+     *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to the resource.
+     *   INSUFFICIENT_DATA: No resource data is available.
      *
      * @example COMPLIANT
      *
@@ -44,9 +44,9 @@ class ListAggregateConfigRulesRequest extends Model
     /**
      * @description The status of the rule. Valid values:
      *
-     *   ACTIVE: The rule is being used to monitor resource configurations.
+     *   ACTIVE: The rule is enabled.
      *   DELETING: The rule is being deleted.
-     *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
+     *   EVALUATING: The rule is being used to evaluate resource configurations.
      *   INACTIVE: The rule is disabled.
      *
      * @example ACTIVE
@@ -66,9 +66,9 @@ class ListAggregateConfigRulesRequest extends Model
     public $keyword;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
-     * Minimum value: 1. Default value: 1.
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -76,7 +76,7 @@ class ListAggregateConfigRulesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
      * @example 10

@@ -19,7 +19,7 @@ class ListRemediationTemplatesRequest extends Model
     public $managedRuleIdentifier;
 
     /**
-     * @description The page number. Pages start from page 1.
+     * @description The page number. Pages start from 1.
      *
      * @example 1
      *

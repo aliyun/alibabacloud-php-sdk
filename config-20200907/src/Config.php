@@ -674,10 +674,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param CreateAggregateAdvancedSearchFileRequest $request
-     * @param RuntimeOptions                           $runtime
+     * This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
+     *   *
+     * @param CreateAggregateAdvancedSearchFileRequest $request CreateAggregateAdvancedSearchFileRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAggregateAdvancedSearchFileResponse
+     * @return CreateAggregateAdvancedSearchFileResponse CreateAggregateAdvancedSearchFileResponse
      */
     public function createAggregateAdvancedSearchFileWithOptions($request, $runtime)
     {
@@ -708,9 +710,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param CreateAggregateAdvancedSearchFileRequest $request
+     * This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
+     *   *
+     * @param CreateAggregateAdvancedSearchFileRequest $request CreateAggregateAdvancedSearchFileRequest
      *
-     * @return CreateAggregateAdvancedSearchFileResponse
+     * @return CreateAggregateAdvancedSearchFileResponse CreateAggregateAdvancedSearchFileResponse
      */
     public function createAggregateAdvancedSearchFile($request)
     {
@@ -3587,10 +3591,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GetAggregateResourceInventoryRequest $request
-     * @param RuntimeOptions                       $runtime
+     * This topic provides an example on how to query the most recently generated resource inventory of an account group whose ID is ca-a91d626622af0035\\*\\*\\*\\*.
+     *   *
+     * @param GetAggregateResourceInventoryRequest $request GetAggregateResourceInventoryRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAggregateResourceInventoryResponse
+     * @return GetAggregateResourceInventoryResponse GetAggregateResourceInventoryResponse
      */
     public function getAggregateResourceInventoryWithOptions($request, $runtime)
     {
@@ -3618,9 +3624,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GetAggregateResourceInventoryRequest $request
+     * This topic provides an example on how to query the most recently generated resource inventory of an account group whose ID is ca-a91d626622af0035\\*\\*\\*\\*.
+     *   *
+     * @param GetAggregateResourceInventoryRequest $request GetAggregateResourceInventoryRequest
      *
-     * @return GetAggregateResourceInventoryResponse
+     * @return GetAggregateResourceInventoryResponse GetAggregateResourceInventoryResponse
      */
     public function getAggregateResourceInventory($request)
     {
@@ -4102,7 +4110,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This topic provides an example of how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
+     * This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
      *   *
      * @param GetDiscoveredResourceCountsGroupByRegionRequest $request GetDiscoveredResourceCountsGroupByRegionRequest
      * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
@@ -4135,7 +4143,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This topic provides an example of how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
+     * This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
      *   *
      * @param GetDiscoveredResourceCountsGroupByRegionRequest $request GetDiscoveredResourceCountsGroupByRegionRequest
      *
@@ -4595,9 +4603,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * This topic provides an example on how to query the most recently generated resource inventory of the current Alibaba Cloud account.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceInventoryResponse
+     * @return GetResourceInventoryResponse GetResourceInventoryResponse
      */
     public function getResourceInventoryWithOptions($runtime)
     {
@@ -4618,7 +4628,9 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @return GetResourceInventoryResponse
+     * This topic provides an example on how to query the most recently generated resource inventory of the current Alibaba Cloud account.
+     *   *
+     * @return GetResourceInventoryResponse GetResourceInventoryResponse
      */
     public function getResourceInventory()
     {
@@ -4983,10 +4995,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
+     *   *
+     * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request ListAggregateConfigRuleEvaluationStatisticsRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAggregateConfigRuleEvaluationStatisticsResponse
+     * @return ListAggregateConfigRuleEvaluationStatisticsResponse ListAggregateConfigRuleEvaluationStatisticsResponse
      */
     public function listAggregateConfigRuleEvaluationStatisticsWithOptions($request, $runtime)
     {
@@ -5014,9 +5028,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request
+     * This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
+     *   *
+     * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request ListAggregateConfigRuleEvaluationStatisticsRequest
      *
-     * @return ListAggregateConfigRuleEvaluationStatisticsResponse
+     * @return ListAggregateConfigRuleEvaluationStatisticsResponse ListAggregateConfigRuleEvaluationStatisticsResponse
      */
     public function listAggregateConfigRuleEvaluationStatistics($request)
     {
@@ -5168,10 +5184,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListAggregateRemediationExecutionsRequest $request
-     * @param RuntimeOptions                            $runtime
+     * This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
+     *   *
+     * @param ListAggregateRemediationExecutionsRequest $request ListAggregateRemediationExecutionsRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAggregateRemediationExecutionsResponse
+     * @return ListAggregateRemediationExecutionsResponse ListAggregateRemediationExecutionsResponse
      */
     public function listAggregateRemediationExecutionsWithOptions($request, $runtime)
     {
@@ -5214,9 +5232,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListAggregateRemediationExecutionsRequest $request
+     * This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
+     *   *
+     * @param ListAggregateRemediationExecutionsRequest $request ListAggregateRemediationExecutionsRequest
      *
-     * @return ListAggregateRemediationExecutionsResponse
+     * @return ListAggregateRemediationExecutionsResponse ListAggregateRemediationExecutionsResponse
      */
     public function listAggregateRemediationExecutions($request)
     {
@@ -5870,9 +5890,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIntegratedServiceResponse
+     * @return ListIntegratedServiceResponse ListIntegratedServiceResponse
      */
     public function listIntegratedServiceWithOptions($runtime)
     {
@@ -5893,7 +5915,9 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @return ListIntegratedServiceResponse
+     * This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
+     *   *
+     * @return ListIntegratedServiceResponse ListIntegratedServiceResponse
      */
     public function listIntegratedService()
     {
@@ -6311,10 +6335,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesByAdvancedSearchRequest $request
-     * @param RuntimeOptions                       $runtime
+     * This topic provides an example on how to query all resources with the business tag key and the online tag value in the current Alibaba Cloud account.
+     *   *
+     * @param ListResourcesByAdvancedSearchRequest $request ListResourcesByAdvancedSearchRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourcesByAdvancedSearchResponse
+     * @return ListResourcesByAdvancedSearchResponse ListResourcesByAdvancedSearchResponse
      */
     public function listResourcesByAdvancedSearchWithOptions($request, $runtime)
     {
@@ -6342,9 +6368,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesByAdvancedSearchRequest $request
+     * This topic provides an example on how to query all resources with the business tag key and the online tag value in the current Alibaba Cloud account.
+     *   *
+     * @param ListResourcesByAdvancedSearchRequest $request ListResourcesByAdvancedSearchRequest
      *
-     * @return ListResourcesByAdvancedSearchResponse
+     * @return ListResourcesByAdvancedSearchResponse ListResourcesByAdvancedSearchResponse
      */
     public function listResourcesByAdvancedSearch($request)
     {
@@ -6354,10 +6382,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListSupportedProductsRequest $request
-     * @param RuntimeOptions               $runtime
+     * This topic provides an example on how to query the cloud services and resource types that are supported by Cloud Config.
+     *   *
+     * @param ListSupportedProductsRequest $request ListSupportedProductsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSupportedProductsResponse
+     * @return ListSupportedProductsResponse ListSupportedProductsResponse
      */
     public function listSupportedProductsWithOptions($request, $runtime)
     {
@@ -6388,9 +6418,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListSupportedProductsRequest $request
+     * This topic provides an example on how to query the cloud services and resource types that are supported by Cloud Config.
+     *   *
+     * @param ListSupportedProductsRequest $request ListSupportedProductsRequest
      *
-     * @return ListSupportedProductsResponse
+     * @return ListSupportedProductsResponse ListSupportedProductsResponse
      */
     public function listSupportedProducts($request)
     {
@@ -7834,6 +7866,9 @@ class Config extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->integratedTypes)) {
+            $body['IntegratedTypes'] = $request->integratedTypes;
+        }
         if (!Utils::isUnset($request->serviceCode)) {
             $body['ServiceCode'] = $request->serviceCode;
         }

@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetResourceComplianceByConfigRuleRequest extends Model
 {
     /**
-     * @description The compliance evaluation results to be returned. Valid values:
+     * @description The compliance evaluation result of the resource. Valid values:
      *
-     *   COMPLIANT: The relevant resources are evaluated as compliant.
-     *   NON_COMPLIANT: The relevant resources are evaluated as non-compliant.
-     *   NOT_APPLICABLE: The rule does not apply to your resources.
+     *   COMPLIANT: The resource is evaluated as compliant.
+     *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to the resource.
      *   INSUFFICIENT_DATA: No resource data is available.
      *
      * @example COMPLIANT

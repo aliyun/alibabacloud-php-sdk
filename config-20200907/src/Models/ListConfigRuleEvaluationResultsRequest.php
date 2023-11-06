@@ -19,12 +19,12 @@ class ListConfigRuleEvaluationResultsRequest extends Model
     public $compliancePackId;
 
     /**
-     * @description The compliance evaluation result of resources. Valid values:
+     * @description The compliance evaluation result of the resource. Valid values:
      *
-     *   COMPLIANT: The resources are evaluated as compliant.
-     *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-     *   NOT_APPLICABLE: The rule does not apply to the resources.
-     *   INSUFFICIENT_DATA: No resource data is available.
+     *   COMPLIANT: The resource is evaluated as compliant.
+     *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to the resource.
+     *   INSUFFICIENT_DATA: No data is available.
      *   IGNORED: The resource is ignored during compliance evaluation.
      *
      * @example NON_COMPLIANT
@@ -44,7 +44,7 @@ class ListConfigRuleEvaluationResultsRequest extends Model
     public $configRuleId;
 
     /**
-     * @description The maximum number of entries to return in a request. Valid values: 1 to 100.
+     * @description The maximum number of entries to return for a single request. Valid values: 1 to 100.
      *
      * @example 10
      *

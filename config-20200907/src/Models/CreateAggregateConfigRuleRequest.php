@@ -186,8 +186,8 @@ class CreateAggregateConfigRuleRequest extends Model
     /**
      * @description The type of the rule. Valid values:
      *
-     *   ALIYUN: a managed rule.
-     *   CUSTOM_FC: a custom rule.
+     *   ALIYUN: managed rule
+     *   CUSTOM_FC: custom rule
      *
      * @example ALIYUN
      *

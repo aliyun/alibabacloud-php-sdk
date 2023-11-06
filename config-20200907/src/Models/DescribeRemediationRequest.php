@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRemediationRequest extends Model
 {
     /**
+     * @description The rule ID.
+     *
      * @example cr-3184626622af003****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeRemediationRequest extends Model
     public $configRuleId;
 
     /**
+     * @description The ID of the remediation configuration.
+     *
      * @example crr-f381cf0c1c2f004e****
      *
      * @var string

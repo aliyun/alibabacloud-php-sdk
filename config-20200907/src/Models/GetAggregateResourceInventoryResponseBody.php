@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceInventoryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1A6D3604-EF1A-5798-A576-2A5FB855493C
      *
      * @var string
@@ -17,6 +19,8 @@ class GetAggregateResourceInventoryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the resource inventory.
+     *
      * @var resourceInventory
      */
     public $resourceInventory;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourcesByAdvancedSearchRequest extends Model
 {
     /**
+     * @description The SQL statement.
+     *
      * @example SELECT ResourceId, ResourceName WHERE Tags.Kvpair=\"business:online\"
      *
      * @var string

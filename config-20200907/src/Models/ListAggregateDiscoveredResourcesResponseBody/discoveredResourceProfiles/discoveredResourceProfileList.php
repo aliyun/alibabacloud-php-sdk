@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceProfileList extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs. We recommend that you use the ResourceOwnerId parameter.
      *
      * @example 161259599160****
      *
@@ -18,7 +18,7 @@ class discoveredResourceProfileList extends Model
     public $accountId;
 
     /**
-     * @description The ID of the zone where the resource resides.
+     * @description The ID of the zone in which the resource resides.
      *
      * @example cn-huhehaote-a
      *
@@ -36,7 +36,7 @@ class discoveredResourceProfileList extends Model
     public $region;
 
     /**
-     * @description The timestamp when the resource was created. Unit: milliseconds.
+     * @description The time when the resource was created. Unit: milliseconds.
      *
      * @example 1618675206000
      *
@@ -47,8 +47,8 @@ class discoveredResourceProfileList extends Model
     /**
      * @description The status of the resource. Valid values:
      *
-     *   0: The resource was deleted.
-     *   1: The resource was retained.
+     *   0: The resource is deleted.
+     *   1: The resource is retained.
      *
      * @example 1
      *
@@ -66,7 +66,7 @@ class discoveredResourceProfileList extends Model
     public $resourceId;
 
     /**
-     * @description The name of the resource.
+     * @description The resource name.
      *
      * @example Cloud Firewall
      *
@@ -84,7 +84,7 @@ class discoveredResourceProfileList extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The status of the resource. The value of this parameter varies based on the resource type and may be empty. Examples:
+     * @description The status of the resource. The value of this parameter varies with the resource type and may be empty. Examples:
      *
      *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that is in a specific state. In this case, the valid values of this parameter are Running and Stopped.
      *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is empty.
@@ -96,7 +96,7 @@ class discoveredResourceProfileList extends Model
     public $resourceStatus;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
      * @example ACS::ECS::NetworkInterface
      *

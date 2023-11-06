@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateConfigRuleEvaluationStatisticsRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-edd3626622af00b3****
      *
      * @var string

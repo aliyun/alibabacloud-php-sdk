@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceInventory extends Model
 {
     /**
+     * @description The download URL of the resource inventory.
+     *
      * @example https://cloud-config-compliance-report.oss-cn-shanghai.aliyuncs.com/RESOURCE_INVENTORY/100931896542****\/100931896542****-RESOURCE_INVENTORY-202306251432.csv?Expires=1687678374&OSSAccessKeyId=STS.NUQ2xAAne87hVWG8WGx5f***&Signature=xudDN69simKLcCOguj5%2FgrWIw%2FM%3D&security-token=CAISiQJ1q6Ft5B2yfSjIr5bkecL1r****
      *
      * @var string
@@ -16,6 +18,9 @@ class resourceInventory extends Model
     public $downloadUrl;
 
     /**
+     * @description The time when the resource inventory was generated. The value is a timestamp.
+     *
+     * Unit: milliseconds.
      * @example 1687674774123
      *
      * @var int
@@ -23,6 +28,11 @@ class resourceInventory extends Model
     public $resourceInventoryGenerateTime;
 
     /**
+     * @description The generation status of the resource inventory. Valid values:
+     *
+     *   CREATING: The resource inventory is being generated.
+     *   COMPLETE: The resource inventory is generated.
+     *
      * @example COMPLETE
      *
      * @var string

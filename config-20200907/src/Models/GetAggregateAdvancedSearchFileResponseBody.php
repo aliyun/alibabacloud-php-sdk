@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateAdvancedSearchFileResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 6DB86284-DB7F-5936-B210-3B53D6D41B03
      *
      * @var string
@@ -17,6 +19,8 @@ class GetAggregateAdvancedSearchFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the resource file.
+     *
      * @var resourceSearch
      */
     public $resourceSearch;

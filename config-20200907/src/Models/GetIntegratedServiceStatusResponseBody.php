@@ -21,6 +21,11 @@ class GetIntegratedServiceStatusResponseBody extends Model
     public $data;
 
     /**
+     * @var string
+     */
+    public $integratedTypes;
+
+    /**
      * @description The request ID.
      *
      * @example 2E396C84-8D50-5F95-97FA-C0367181BA8A
@@ -29,8 +34,9 @@ class GetIntegratedServiceStatusResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
-        'requestId' => 'RequestId',
+        'data'            => 'Data',
+        'integratedTypes' => 'IntegratedTypes',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class GetIntegratedServiceStatusResponseBody extends Model
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->integratedTypes) {
+            $res['IntegratedTypes'] = $this->integratedTypes;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -60,6 +69,9 @@ class GetIntegratedServiceStatusResponseBody extends Model
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['IntegratedTypes'])) {
+            $model->integratedTypes = $map['IntegratedTypes'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

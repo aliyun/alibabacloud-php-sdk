@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class evaluationResults extends Model
 {
     /**
+     * @description The number of resources that are evaluated as non-compliant.
+     *
      * @example 30
      *
      * @var int
@@ -16,6 +18,8 @@ class evaluationResults extends Model
     public $nonCompliantResourceCnt;
 
     /**
+     * @description The number of rules based on which resources are evaluated as non-compliant.
+     *
      * @example 5
      *
      * @var int
@@ -23,6 +27,8 @@ class evaluationResults extends Model
     public $nonCompliantRuleCnt;
 
     /**
+     * @description The date on which the statistics are obtained.
+     *
      * @example 2023-06-27
      *
      * @var string
@@ -30,6 +36,8 @@ class evaluationResults extends Model
     public $statisticDate;
 
     /**
+     * @description The total number of resources.
+     *
      * @example 91
      *
      * @var int
@@ -37,6 +45,8 @@ class evaluationResults extends Model
     public $totalResourceCnt;
 
     /**
+     * @description The total number of rules.
+     *
      * @example 13
      *
      * @var int

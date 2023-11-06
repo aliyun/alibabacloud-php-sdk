@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class queryResults extends Model
 {
     /**
+     * @description The queried resources. A maximum of 1,000 data records can be returned. To view more data, use the download URL of the resource file.
+     *
      * @var queryResultList
      */
     public $queryResultList;

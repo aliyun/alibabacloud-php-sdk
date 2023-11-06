@@ -46,8 +46,6 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $regions;
 
     /**
-     * @description 账号组内待查询资源所属的阿里云账号ID。
-     * > 参数ResourceAccountId和ResourceOwnerId二选一，推荐使用本参数。
      * @example 100931896542****
      *
      * @var int

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceProfiles extends Model
 {
     /**
-     * @description The details of the resources.
+     * @description The queried resource.
      *
      * @var discoveredResourceProfileList[]
      */

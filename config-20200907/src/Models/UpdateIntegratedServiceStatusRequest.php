@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateIntegratedServiceStatusRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $integratedTypes;
+
+    /**
      * @description The product code of the cloud product. Valid values:
      *
      *   cadt: Cloud Architecture Design Tool
@@ -31,8 +36,9 @@ class UpdateIntegratedServiceStatusRequest extends Model
      */
     public $status;
     protected $_name = [
-        'serviceCode' => 'ServiceCode',
-        'status'      => 'Status',
+        'integratedTypes' => 'IntegratedTypes',
+        'serviceCode'     => 'ServiceCode',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class UpdateIntegratedServiceStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->integratedTypes) {
+            $res['IntegratedTypes'] = $this->integratedTypes;
+        }
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
@@ -60,6 +69,9 @@ class UpdateIntegratedServiceStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IntegratedTypes'])) {
+            $model->integratedTypes = $map['IntegratedTypes'];
+        }
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }

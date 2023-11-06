@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateDiscoveredResourcesResponseBody extends Model
 {
     /**
-     * @description The list of the resources.
+     * @description The queried resources.
      *
      * @var discoveredResourceProfiles
      */

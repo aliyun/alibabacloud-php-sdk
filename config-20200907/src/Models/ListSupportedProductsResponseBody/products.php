@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class products extends Model
 {
     /**
+     * @description The English name of the cloud service.
+     *
      * @example Elastic Compute Service
      *
      * @var string
@@ -17,11 +19,15 @@ class products extends Model
     public $productNameEn;
 
     /**
+     * @description The Chinese name of the cloud service.
+     *
      * @var string
      */
     public $productNameZh;
 
     /**
+     * @description The resource types that are supported by Cloud Config.
+     *
      * @var resourceTypeList[]
      */
     public $resourceTypeList;

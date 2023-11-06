@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListResourcesByAdvancedSearchResponseBody extends Model
 {
     /**
+     * @description The result of the request.
+     *
      * @var queryResults
      */
     public $queryResults;
 
     /**
+     * @description The request ID.
+     *
      * @example D241DEBF-67A2-56AF-88CF-57BF78F0A850
      *
      * @var string

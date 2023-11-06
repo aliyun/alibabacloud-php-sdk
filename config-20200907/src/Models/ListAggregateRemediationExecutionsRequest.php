@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateRemediationExecutionsRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-edd3626622af00b3****
      *
      * @var string
@@ -16,6 +19,9 @@ class ListAggregateRemediationExecutionsRequest extends Model
     public $aggregatorId;
 
     /**
+     * @description The rule ID.
+     *
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-2792626622af0c21****
      *
      * @var string
@@ -23,6 +29,11 @@ class ListAggregateRemediationExecutionsRequest extends Model
     public $configRuleId;
 
     /**
+     * @description The status of the remediation. Valid values:
+     *
+     *   Success
+     *   Failed
+     *
      * @example Success
      *
      * @var string
@@ -30,6 +41,8 @@ class ListAggregateRemediationExecutionsRequest extends Model
     public $executionStatus;
 
     /**
+     * @description The maximum number of entries to return for a single request. Valid values: 10 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +50,8 @@ class ListAggregateRemediationExecutionsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example aVCjqFaSy0Ps6zSMGw09****
      *
      * @var string
@@ -44,6 +59,8 @@ class ListAggregateRemediationExecutionsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the member account in the account group.
+     *
      * @example 126672004088****
      *
      * @var int

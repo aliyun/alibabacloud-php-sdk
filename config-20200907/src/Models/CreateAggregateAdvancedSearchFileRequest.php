@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAggregateAdvancedSearchFileRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-edd3626622af00b3****
      *
      * @var string
@@ -16,6 +19,8 @@ class CreateAggregateAdvancedSearchFileRequest extends Model
     public $aggregatorId;
 
     /**
+     * @description The SQL statement used to query resources.
+     *
      * @example SELECT * WHERE ResourceType = \"ACS::ECS::Instance\"
      *
      * @var string

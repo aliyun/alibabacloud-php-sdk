@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $integratedTypes;
+
+    /**
+     * @description The identifier of the cloud service. Valid values:
+     *
+     *   eventbridge: event bus
+     *   cms: CloudMonitor
+     *   bpstudio: Cloud Architect Design Tools (CADT)
+     *
      * @example cms
      *
      * @var string
@@ -16,20 +27,28 @@ class data extends Model
     public $serviceCode;
 
     /**
+     * @description The name of the cloud service.
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The integration status of the cloud service. Valid values:
+     *
+     *   1: The cloud service is integrated.
+     *   0: The cloud service is not integrated.
+     *
      * @example 1
      *
      * @var bool
      */
     public $status;
     protected $_name = [
-        'serviceCode' => 'ServiceCode',
-        'serviceName' => 'ServiceName',
-        'status'      => 'Status',
+        'integratedTypes' => 'IntegratedTypes',
+        'serviceCode'     => 'ServiceCode',
+        'serviceName'     => 'ServiceName',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -39,6 +58,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->integratedTypes) {
+            $res['IntegratedTypes'] = $this->integratedTypes;
+        }
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
@@ -60,6 +82,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IntegratedTypes'])) {
+            $model->integratedTypes = $map['IntegratedTypes'];
+        }
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }

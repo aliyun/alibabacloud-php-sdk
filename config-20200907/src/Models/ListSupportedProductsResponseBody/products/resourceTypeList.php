@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceTypeList extends Model
 {
     /**
+     * @description The identifier of the resource type.
+     *
      * @example ACS::ECS::Instance
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceTypeList extends Model
     public $resourceType;
 
     /**
+     * @description The English name of the resource type.
+     *
      * @example Ecs Instance
      *
      * @var string
@@ -23,11 +27,15 @@ class resourceTypeList extends Model
     public $typeNameEn;
 
     /**
+     * @description The Chinese name of the resource type.
+     *
      * @var string
      */
     public $typeNameZh;
 
     /**
+     * @description The URL of the resource type in the console.
+     *
      * @example https://ecs.console.aliyun.com/#/server/@{ResourceId}/detail?regionId=@{RegionId}
      *
      * @var string

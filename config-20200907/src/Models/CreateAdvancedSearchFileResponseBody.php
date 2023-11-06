@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAdvancedSearchFileResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D231366D-E2AD-559E-9C29-58FF7F4B1F5D
      *
      * @var string

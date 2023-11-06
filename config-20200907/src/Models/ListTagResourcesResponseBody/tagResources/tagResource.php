@@ -27,7 +27,7 @@ class tagResource extends Model
     public $resourceType;
 
     /**
-     * @description A tag key.
+     * @description The tag key.
      *
      * @example Env
      *
@@ -36,7 +36,7 @@ class tagResource extends Model
     public $tagKey;
 
     /**
-     * @description A tag value.
+     * @description The tag value.
      *
      * @example prod
      *

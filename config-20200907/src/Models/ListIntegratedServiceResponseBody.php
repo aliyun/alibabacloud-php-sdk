@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListIntegratedServiceResponseBody extends Model
 {
     /**
+     * @description The information about the cloud service that can be integrated.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 86DB52A5-0C25-505A-96D5-9BAE1EFA00B9
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class remediation extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 100931896542****
      *
      * @var int
@@ -16,6 +18,8 @@ class remediation extends Model
     public $accountId;
 
     /**
+     * @description The rule ID.
+     *
      * @example cr-3184626622af003****
      *
      * @var string
@@ -23,6 +27,13 @@ class remediation extends Model
     public $configRuleId;
 
     /**
+     * @description The execution mode of the remediation template. Valid values:
+     *
+     *   NON_EXECUTION: The remediation template was not executed.
+     *   AUTO_EXECUTION: The remediation template was automatically executed.
+     *   MANUAL_EXECUTION: The remediation template was manually executed.
+     *   NOT_CONFIG: The execution mode was not specified.
+     *
      * @example AUTO_EXECUTION
      *
      * @var string
@@ -30,6 +41,8 @@ class remediation extends Model
     public $invokeType;
 
     /**
+     * @description The record ID of the last successful execution of the remediation template.
+     *
      * @example bd7629fb-cac8-42fe-bcb1-e362c5a6****
      *
      * @var string
@@ -37,6 +50,8 @@ class remediation extends Model
     public $lastSuccessfulInvocationId;
 
     /**
+     * @description The timestamp of the last successful execution of the remediation template. Unit: milliseconds.
+     *
      * @example 1625451393589
      *
      * @var int
@@ -44,6 +59,13 @@ class remediation extends Model
     public $lastSuccessfulInvocationTime;
 
     /**
+     * @description The mode of the last successful execution of the remediation template. Valid values:
+     *
+     *   NON_EXECUTION: The remediation template was not executed.
+     *   AUTO_EXECUTION: The remediation template was automatically executed.
+     *   MANUAL_EXECUTION: The remediation template was manually executed.
+     *   NOT_CONFIG: The execution mode was not specified.
+     *
      * @example AUTO_EXECUTION
      *
      * @var string
@@ -51,6 +73,8 @@ class remediation extends Model
     public $lastSuccessfulInvocationType;
 
     /**
+     * @description The ID of the remediation configuration.
+     *
      * @example crr-f381cf0c1c2f004e****
      *
      * @var string
@@ -58,6 +82,8 @@ class remediation extends Model
     public $remediationId;
 
     /**
+     * @description The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
+     *
      * @example {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
      *
      * @var string
@@ -65,6 +91,12 @@ class remediation extends Model
     public $remediationOriginParams;
 
     /**
+     * @description The source of the remediation template. Valid values:
+     *
+     *   ALIYUN: official template
+     *   CUSTOM: custom template
+     *   NONE: none
+     *
      * @example ALIYUN
      *
      * @var string
@@ -72,6 +104,8 @@ class remediation extends Model
     public $remediationSourceType;
 
     /**
+     * @description The ID of the remediation template.
+     *
      * @example ACS-OSS-PutBucketAcl
      *
      * @var string
@@ -79,6 +113,11 @@ class remediation extends Model
     public $remediationTemplateId;
 
     /**
+     * @description The type of the remediation template. Valid values:
+     *
+     *   OOS: Operation Orchestration Service (official remediation)
+     *   FC: Function Compute (custom remediation)
+     *
      * @example OOS
      *
      * @var string

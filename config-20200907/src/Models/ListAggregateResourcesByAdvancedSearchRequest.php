@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateResourcesByAdvancedSearchRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
      * @example ca-4b05626622af000c****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListAggregateResourcesByAdvancedSearchRequest extends Model
     public $aggregatorId;
 
     /**
+     * @description The SQL statement used to query resources.
+     *
      * @example SELECT ResourceId, ResourceName WHERE Tags.Kvpair=\"business:online\"
      *
      * @var string

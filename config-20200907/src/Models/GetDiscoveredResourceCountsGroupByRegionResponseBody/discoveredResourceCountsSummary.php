@@ -11,7 +11,7 @@ class discoveredResourceCountsSummary extends Model
     /**
      * @description The dimension by which statistics are collected.
      *
-     * >  In most cases, the `Region` parameter is returned instead of the GroupName parameter.
+     * >  In most cases, the `Region` parameter instead of the GroupName parameter is returned.
      * @example cn-hangzhou
      *
      * @var string
@@ -28,7 +28,7 @@ class discoveredResourceCountsSummary extends Model
     public $region;
 
     /**
-     * @description The total number of resources in the region.
+     * @description The total number of resources.
      *
      * @example 10
      *

@@ -39,6 +39,8 @@ class ListCompliancePackTemplatesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the resource evaluated by the rule.
+     *
      * @example ACS::ECS::Instance
      *
      * @var string

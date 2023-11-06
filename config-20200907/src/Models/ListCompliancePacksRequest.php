@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListCompliancePacksRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Pages start from page 1. Default value: 1.
      * @example 1
@@ -19,9 +19,9 @@ class ListCompliancePacksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     * Valid values: 1 to 100. Pages start from page 1. Default value: 10.
+     * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
      * @example 10
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSupportedProductsResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned for a single request. Valid values: 1 to 500.
+     *
      * @example 100
      *
      * @var string
@@ -17,6 +19,8 @@ class ListSupportedProductsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example D3AjqMNSy0ls7zBNCf3a****
      *
      * @var string
@@ -24,11 +28,15 @@ class ListSupportedProductsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The cloud services that are supported by Cloud Config.
+     *
      * @var products[]
      */
     public $products;
 
     /**
+     * @description The request ID.
+     *
      * @example 610B0276-ABEE-57DF-9C13-C2324FADA9D7
      *
      * @var string

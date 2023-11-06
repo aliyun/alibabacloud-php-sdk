@@ -11,7 +11,7 @@ class StartConfigRuleEvaluationRequest extends Model
     /**
      * @description The ID of the compliance package.
      *
-     * > You must set one of the CompliancePackId and ConfigRuleId parameters.
+     * >  You must set either the CompliancePackId or ConfigRuleId parameter.
      * @example cp-ac16626622af0053****
      *
      * @var string

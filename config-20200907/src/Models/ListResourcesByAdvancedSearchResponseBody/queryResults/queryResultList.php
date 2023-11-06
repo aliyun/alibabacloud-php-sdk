@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class queryResultList extends Model
 {
     /**
+     * @description The field names.
+     *
      * @var string[]
      */
     public $columns;
 
     /**
+     * @description The resource data.
+     *
      * @var mixed[]
      */
     public $values;

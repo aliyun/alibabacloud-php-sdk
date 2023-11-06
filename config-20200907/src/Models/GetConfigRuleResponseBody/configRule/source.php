@@ -34,15 +34,8 @@ class source extends Model
     public $owner;
 
     /**
-     * @description The interval at which the rule is triggered. Valid values:
+     * @description The details of the source of the rule.
      *
-     *   One_Hour: 1 hour
-     *   Three_Hours: 3 hours
-     *   Six_Hours: 6 hours
-     *   Twelve_Hours: 12 hours
-     *   TwentyFour_Hours: 24 hours
-     *
-     * > This parameter is returned if the rule is periodically triggered.
      * @var sourceDetails[]
      */
     public $sourceDetails;
