@@ -2588,6 +2588,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->endpointGroupConfigurations)) {
             $query['EndpointGroupConfigurations'] = $request->endpointGroupConfigurations;
         }
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -2602,6 +2605,9 @@ class Ga extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestTimeout)) {
+            $query['RequestTimeout'] = $request->requestTimeout;
         }
         if (!Utils::isUnset($request->securityPolicyId)) {
             $query['SecurityPolicyId'] = $request->securityPolicyId;
@@ -9739,6 +9745,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
+        }
         if (!Utils::isUnset($request->listenerId)) {
             $query['ListenerId'] = $request->listenerId;
         }
@@ -9756,6 +9765,9 @@ class Ga extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestTimeout)) {
+            $query['RequestTimeout'] = $request->requestTimeout;
         }
         if (!Utils::isUnset($request->securityPolicyId)) {
             $query['SecurityPolicyId'] = $request->securityPolicyId;

@@ -60,6 +60,11 @@ class UpdateListenerRequest extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $idleTimeout;
+
+    /**
      * @description The ID of the listener.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
@@ -125,6 +130,11 @@ class UpdateListenerRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $requestTimeout;
+
+    /**
      * @description The ID of the security policy. Valid values:
      *
      *   **tls_cipher_policy\_1\_0**
@@ -171,12 +181,14 @@ class UpdateListenerRequest extends Model
         'clientAffinity'      => 'ClientAffinity',
         'clientToken'         => 'ClientToken',
         'description'         => 'Description',
+        'idleTimeout'         => 'IdleTimeout',
         'listenerId'          => 'ListenerId',
         'name'                => 'Name',
         'portRanges'          => 'PortRanges',
         'protocol'            => 'Protocol',
         'proxyProtocol'       => 'ProxyProtocol',
         'regionId'            => 'RegionId',
+        'requestTimeout'      => 'RequestTimeout',
         'securityPolicyId'    => 'SecurityPolicyId',
         'XForwardedForConfig' => 'XForwardedForConfig',
     ];
@@ -215,6 +227,9 @@ class UpdateListenerRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
+        }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
@@ -238,6 +253,9 @@ class UpdateListenerRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestTimeout) {
+            $res['RequestTimeout'] = $this->requestTimeout;
         }
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
@@ -284,6 +302,9 @@ class UpdateListenerRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
+        }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
@@ -307,6 +328,9 @@ class UpdateListenerRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestTimeout'])) {
+            $model->requestTimeout = $map['RequestTimeout'];
         }
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];

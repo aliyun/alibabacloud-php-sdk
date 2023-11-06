@@ -83,6 +83,11 @@ class CreateListenerRequest extends Model
     public $endpointGroupConfigurations;
 
     /**
+     * @var int
+     */
+    public $idleTimeout;
+
+    /**
      * @description The name of the listener.
      *
      * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
@@ -134,6 +139,11 @@ class CreateListenerRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $requestTimeout;
 
     /**
      * @description The ID of the security policy. Valid values:
@@ -202,11 +212,13 @@ class CreateListenerRequest extends Model
         'customRoutingEndpointGroupConfigurations' => 'CustomRoutingEndpointGroupConfigurations',
         'description'                              => 'Description',
         'endpointGroupConfigurations'              => 'EndpointGroupConfigurations',
+        'idleTimeout'                              => 'IdleTimeout',
         'name'                                     => 'Name',
         'portRanges'                               => 'PortRanges',
         'protocol'                                 => 'Protocol',
         'proxyProtocol'                            => 'ProxyProtocol',
         'regionId'                                 => 'RegionId',
+        'requestTimeout'                           => 'RequestTimeout',
         'securityPolicyId'                         => 'SecurityPolicyId',
         'type'                                     => 'Type',
         'XForwardedForConfig'                      => 'XForwardedForConfig',
@@ -258,6 +270,9 @@ class CreateListenerRequest extends Model
                 }
             }
         }
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -278,6 +293,9 @@ class CreateListenerRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestTimeout) {
+            $res['RequestTimeout'] = $this->requestTimeout;
         }
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
@@ -339,6 +357,9 @@ class CreateListenerRequest extends Model
                 }
             }
         }
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -359,6 +380,9 @@ class CreateListenerRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestTimeout'])) {
+            $model->requestTimeout = $map['RequestTimeout'];
         }
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];

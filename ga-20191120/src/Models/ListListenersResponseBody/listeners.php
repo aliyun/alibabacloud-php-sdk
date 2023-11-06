@@ -67,6 +67,11 @@ class listeners extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $idleTimeout;
+
+    /**
      * @description The ID of the listener.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
@@ -116,6 +121,11 @@ class listeners extends Model
      * @var bool
      */
     public $proxyProtocol;
+
+    /**
+     * @var int
+     */
+    public $requestTimeout;
 
     /**
      * @description The ID of the security policy.
@@ -218,11 +228,13 @@ class listeners extends Model
         'clientAffinity'      => 'ClientAffinity',
         'createTime'          => 'CreateTime',
         'description'         => 'Description',
+        'idleTimeout'         => 'IdleTimeout',
         'listenerId'          => 'ListenerId',
         'name'                => 'Name',
         'portRanges'          => 'PortRanges',
         'protocol'            => 'Protocol',
         'proxyProtocol'       => 'ProxyProtocol',
+        'requestTimeout'      => 'RequestTimeout',
         'securityPolicyId'    => 'SecurityPolicyId',
         'serviceId'           => 'ServiceId',
         'serviceManaged'      => 'ServiceManaged',
@@ -269,6 +281,9 @@ class listeners extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
+        }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
@@ -289,6 +304,9 @@ class listeners extends Model
         }
         if (null !== $this->proxyProtocol) {
             $res['ProxyProtocol'] = $this->proxyProtocol;
+        }
+        if (null !== $this->requestTimeout) {
+            $res['RequestTimeout'] = $this->requestTimeout;
         }
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
@@ -359,6 +377,9 @@ class listeners extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
+        }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
@@ -379,6 +400,9 @@ class listeners extends Model
         }
         if (isset($map['ProxyProtocol'])) {
             $model->proxyProtocol = $map['ProxyProtocol'];
+        }
+        if (isset($map['RequestTimeout'])) {
+            $model->requestTimeout = $map['RequestTimeout'];
         }
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
