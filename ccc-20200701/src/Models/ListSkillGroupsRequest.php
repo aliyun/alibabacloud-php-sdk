@@ -16,6 +16,11 @@ class ListSkillGroupsRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example 1
      *
      * @var int
@@ -35,6 +40,7 @@ class ListSkillGroupsRequest extends Model
     public $searchPattern;
     protected $_name = [
         'instanceId'    => 'InstanceId',
+        'mediaType'     => 'MediaType',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'searchPattern' => 'SearchPattern',
@@ -49,6 +55,9 @@ class ListSkillGroupsRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -73,6 +82,9 @@ class ListSkillGroupsRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

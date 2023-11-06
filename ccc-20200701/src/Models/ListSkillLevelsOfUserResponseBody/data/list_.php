@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example skillgroup@ccc-test
      *
      * @var string
@@ -29,6 +34,7 @@ class list_ extends Model
      */
     public $skillLevel;
     protected $_name = [
+        'mediaType'      => 'MediaType',
         'skillGroupId'   => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
         'skillLevel'     => 'SkillLevel',
@@ -41,6 +47,9 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
+        }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
@@ -62,6 +71,9 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
+        }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }

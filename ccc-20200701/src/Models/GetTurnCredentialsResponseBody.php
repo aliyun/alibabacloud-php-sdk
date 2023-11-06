@@ -34,6 +34,11 @@ class GetTurnCredentialsResponseBody extends Model
     public $message;
 
     /**
+     * @var string[]
+     */
+    public $params;
+
+    /**
      * @example EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
      *
      * @var string
@@ -44,6 +49,7 @@ class GetTurnCredentialsResponseBody extends Model
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
+        'params'         => 'Params',
         'requestId'      => 'RequestId',
     ];
 
@@ -65,6 +71,9 @@ class GetTurnCredentialsResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -92,6 +101,11 @@ class GetTurnCredentialsResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Params'])) {
+            if (!empty($map['Params'])) {
+                $model->params = $map['Params'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

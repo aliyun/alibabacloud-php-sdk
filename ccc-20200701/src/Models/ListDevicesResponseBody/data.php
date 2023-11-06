@@ -30,6 +30,11 @@ class data extends Model
     public $deviceId;
 
     /**
+     * @var string
+     */
+    public $deviceType;
+
+    /**
      * @example 1609118499750
      *
      * @var int
@@ -60,6 +65,7 @@ class data extends Model
         'callId'     => 'CallId',
         'contact'    => 'Contact',
         'deviceId'   => 'DeviceId',
+        'deviceType' => 'DeviceType',
         'expires'    => 'Expires',
         'extension'  => 'Extension',
         'instanceId' => 'InstanceId',
@@ -81,6 +87,9 @@ class data extends Model
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
+        }
+        if (null !== $this->deviceType) {
+            $res['DeviceType'] = $this->deviceType;
         }
         if (null !== $this->expires) {
             $res['Expires'] = $this->expires;
@@ -114,6 +123,9 @@ class data extends Model
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
+        }
+        if (isset($map['DeviceType'])) {
+            $model->deviceType = $map['DeviceType'];
         }
         if (isset($map['Expires'])) {
             $model->expires = $map['Expires'];

@@ -26,6 +26,11 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example skillgroup
      *
      * @var string
@@ -42,6 +47,7 @@ class data extends Model
         'description'  => 'Description',
         'displayName'  => 'DisplayName',
         'instanceId'   => 'InstanceId',
+        'mediaType'    => 'MediaType',
         'name'         => 'Name',
         'skillGroupId' => 'SkillGroupId',
     ];
@@ -61,6 +67,9 @@ class data extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -88,6 +97,9 @@ class data extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

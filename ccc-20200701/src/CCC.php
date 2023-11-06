@@ -1825,6 +1825,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -4841,11 +4844,17 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->orderByField)) {
+            $query['OrderByField'] = $request->orderByField;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortOrder)) {
+            $query['SortOrder'] = $request->sortOrder;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -6537,6 +6546,9 @@ class CCC extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;

@@ -26,6 +26,11 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example 1
      *
      * @var int
@@ -56,6 +61,7 @@ class list_ extends Model
         'description'      => 'Description',
         'displayName'      => 'DisplayName',
         'instanceId'       => 'InstanceId',
+        'mediaType'        => 'MediaType',
         'phoneNumberCount' => 'PhoneNumberCount',
         'skillGroupId'     => 'SkillGroupId',
         'skillGroupName'   => 'SkillGroupName',
@@ -77,6 +83,9 @@ class list_ extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->phoneNumberCount) {
             $res['PhoneNumberCount'] = $this->phoneNumberCount;
@@ -110,6 +119,9 @@ class list_ extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
         if (isset($map['PhoneNumberCount'])) {
             $model->phoneNumberCount = $map['PhoneNumberCount'];

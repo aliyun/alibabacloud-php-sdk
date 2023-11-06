@@ -16,6 +16,11 @@ class ListContactFlowsRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $orderByField;
+
+    /**
      * @example 1
      *
      * @var int
@@ -30,16 +35,23 @@ class ListContactFlowsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $sortOrder;
+
+    /**
      * @example MAIN_FLOW
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'type'       => 'Type',
+        'instanceId'   => 'InstanceId',
+        'orderByField' => 'OrderByField',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
+        'sortOrder'    => 'SortOrder',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -52,11 +64,17 @@ class ListContactFlowsRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->orderByField) {
+            $res['OrderByField'] = $this->orderByField;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->sortOrder) {
+            $res['SortOrder'] = $this->sortOrder;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -76,11 +94,17 @@ class ListContactFlowsRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['OrderByField'])) {
+            $model->orderByField = $map['OrderByField'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SortOrder'])) {
+            $model->sortOrder = $map['SortOrder'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

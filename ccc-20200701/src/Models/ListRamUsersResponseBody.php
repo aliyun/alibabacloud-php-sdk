@@ -34,6 +34,11 @@ class ListRamUsersResponseBody extends Model
     public $message;
 
     /**
+     * @var string[]
+     */
+    public $params;
+
+    /**
      * @example 24753D71-C91D-1A38-A8AD-372BF12453F6
      *
      * @var string
@@ -44,6 +49,7 @@ class ListRamUsersResponseBody extends Model
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
+        'params'         => 'Params',
         'requestId'      => 'RequestId',
     ];
 
@@ -65,6 +71,9 @@ class ListRamUsersResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -92,6 +101,11 @@ class ListRamUsersResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Params'])) {
+            if (!empty($map['Params'])) {
+                $model->params = $map['Params'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
