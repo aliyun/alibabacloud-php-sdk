@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class configRequirementIds extends Model
 {
     /**
+     * @description The requirement IDs that you want to add to the policy.
+     *
      * @var int[]
      */
     public $addIds;
 
     /**
+     * @description The requirement IDs that you want to remove from the policy.
+     *
      * @var int[]
      */
     public $removeIds;

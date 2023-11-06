@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class imageVulWhitelist extends Model
 {
     /**
+     * @description The alias of the vulnerability that is specified in Common Vulnerabilities and Exposures (CVE).
+     *
      * @example CVE-2019-19906:in_sasl_add_string
      *
      * @var string
@@ -16,6 +18,8 @@ class imageVulWhitelist extends Model
     public $aliasName;
 
     /**
+     * @description The primary key ID of the vulnerability.
+     *
      * @example 34032043
      *
      * @var int
@@ -23,6 +27,8 @@ class imageVulWhitelist extends Model
     public $id;
 
     /**
+     * @description The name of the vulnerability.
+     *
      * @example scan:AVD-2022-953356
      *
      * @var string
@@ -30,6 +36,8 @@ class imageVulWhitelist extends Model
     public $name;
 
     /**
+     * @description The reason the vulnerability is added to the whitelist.
+     *
      * @example already config in another way
      *
      * @var string
@@ -37,6 +45,11 @@ class imageVulWhitelist extends Model
     public $reason;
 
     /**
+     * @description The object on which the query is performed. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **type**: the object type. The value is fixed to repo.
+     *   **target**: the object content. The value is in the Namespace/Image repository format.
+     *
      * @example {\"type\":\"repo\",\"target\":[\"sas_test/script_0209\",\"sas_test/script\"]}
      *
      * @var string
@@ -44,6 +57,11 @@ class imageVulWhitelist extends Model
     public $target;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: system vulnerability
+     *   **sca**: application vulnerability
+     *
      * @example sca
      *
      * @var string

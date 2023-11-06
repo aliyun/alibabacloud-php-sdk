@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class removedCheck extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the ID of the check item.
+     * @example 19
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @description The section ID of the check item.
+     *
+     * @example 69
+     *
      * @var int
      */
     public $sectionId;

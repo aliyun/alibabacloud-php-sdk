@@ -13,36 +13,62 @@ use AlibabaCloud\Tea\Model;
 class ChangeCheckConfigRequest extends Model
 {
     /**
+     * @description The list of check items that you want to add to the policy.
+     *
+     * >  If the ConfigStandardIds or ConfigRequirementIds parameter is configured, this parameter does not take effect.
      * @var addedCheck[]
      */
     public $addedCheck;
 
     /**
+     * @description The requirement IDs that you want to specify for the check policy.
+     *
+     * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the requirement ID. If the ConfigStandardIds parameter is configured, this parameter does not take effect.
      * @var configRequirementIds
      */
     public $configRequirementIds;
 
     /**
+     * @description The standard IDs that you want to specify for the check policy.
+     *
+     * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the standard ID.
      * @var configStandardIds
      */
     public $configStandardIds;
 
     /**
+     * @description The configuration of the check item. Valid values:
+     * - **all**
+     * @example all
+     *
      * @var string
      */
     public $configure;
 
     /**
+     * @description The days in a week on which a check is performed.
+     *
      * @var int[]
      */
     public $cycleDays;
 
     /**
+     * @description Specifies whether to check the new check items in the selected requirement item. Valid values:
+     * - **true**
+     * - **false**
+     * @example false
+     *
      * @var bool
      */
     public $enableAddCheck;
 
     /**
+     * @description Specifies whether to enable the automatic periodical check feature. Valid values:
+     *
+     * - **true**
+     * - **false**
+     * @example true
+     *
      * @var bool
      */
     public $enableAutoCheck;
@@ -72,6 +98,9 @@ class ChangeCheckConfigRequest extends Model
     public $regionId;
 
     /**
+     * @description The list of the check items that you want to remove from the policy.
+     *
+     * >  If the ConfigStandardIds or ConfigRequirementIds parameter is configured, this parameter does not take effect.
      * @var removedCheck[]
      */
     public $removedCheck;
@@ -93,6 +122,8 @@ class ChangeCheckConfigRequest extends Model
     public $startTime;
 
     /**
+     * @description The service provider (SP) of the cloud asset.
+     *
      * @var string[]
      */
     public $vendors;

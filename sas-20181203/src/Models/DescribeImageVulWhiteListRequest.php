@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageVulWhiteListRequest extends Model
 {
     /**
+     * @description The alias of the vulnerability that you want to query.
+     *
      * @example CVE-2007-5686:rpath_linux
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeImageVulWhiteListRequest extends Model
     public $aliasName;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,11 @@ class DescribeImageVulWhiteListRequest extends Model
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeImageVulWhiteListRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +48,11 @@ class DescribeImageVulWhiteListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The source of the whitelist. Valid values:
+     * - **image**
+     * - **agentless**
+     * @example image
+     *
      * @var string
      */
     public $source;

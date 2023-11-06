@@ -151,6 +151,11 @@ class DescribeVersionConfigResponseBody extends Model
     public $isOverBalance;
 
     /**
+     * @var bool
+     */
+    public $isPostpay;
+
+    /**
      * @description Indicates whether Security Center runs the free trial edition. Valid values:
      *
      *   **0**: no
@@ -197,6 +202,26 @@ class DescribeVersionConfigResponseBody extends Model
      * @var int
      */
     public $openTime;
+
+    /**
+     * @var string
+     */
+    public $postPayInstanceId;
+
+    /**
+     * @var string
+     */
+    public $postPayModuleSwitch;
+
+    /**
+     * @var int
+     */
+    public $postPayOpenTime;
+
+    /**
+     * @var int
+     */
+    public $postPayStatus;
 
     /**
      * @description The quota for application protection. Unit: process/month.
@@ -350,11 +375,16 @@ class DescribeVersionConfigResponseBody extends Model
         'isNewContainerVersion'  => 'IsNewContainerVersion',
         'isNewMultiVersion'      => 'IsNewMultiVersion',
         'isOverBalance'          => 'IsOverBalance',
+        'isPostpay'              => 'IsPostpay',
         'isTrialVersion'         => 'IsTrialVersion',
         'lastTrailEndTime'       => 'LastTrailEndTime',
         'MVAuthCount'            => 'MVAuthCount',
         'MVUnusedAuthCount'      => 'MVUnusedAuthCount',
         'openTime'               => 'OpenTime',
+        'postPayInstanceId'      => 'PostPayInstanceId',
+        'postPayModuleSwitch'    => 'PostPayModuleSwitch',
+        'postPayOpenTime'        => 'PostPayOpenTime',
+        'postPayStatus'          => 'PostPayStatus',
         'raspCapacity'           => 'RaspCapacity',
         'releaseTime'            => 'ReleaseTime',
         'requestId'              => 'RequestId',
@@ -416,6 +446,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (null !== $this->isOverBalance) {
             $res['IsOverBalance'] = $this->isOverBalance;
         }
+        if (null !== $this->isPostpay) {
+            $res['IsPostpay'] = $this->isPostpay;
+        }
         if (null !== $this->isTrialVersion) {
             $res['IsTrialVersion'] = $this->isTrialVersion;
         }
@@ -430,6 +463,18 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (null !== $this->openTime) {
             $res['OpenTime'] = $this->openTime;
+        }
+        if (null !== $this->postPayInstanceId) {
+            $res['PostPayInstanceId'] = $this->postPayInstanceId;
+        }
+        if (null !== $this->postPayModuleSwitch) {
+            $res['PostPayModuleSwitch'] = $this->postPayModuleSwitch;
+        }
+        if (null !== $this->postPayOpenTime) {
+            $res['PostPayOpenTime'] = $this->postPayOpenTime;
+        }
+        if (null !== $this->postPayStatus) {
+            $res['PostPayStatus'] = $this->postPayStatus;
         }
         if (null !== $this->raspCapacity) {
             $res['RaspCapacity'] = $this->raspCapacity;
@@ -521,6 +566,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (isset($map['IsOverBalance'])) {
             $model->isOverBalance = $map['IsOverBalance'];
         }
+        if (isset($map['IsPostpay'])) {
+            $model->isPostpay = $map['IsPostpay'];
+        }
         if (isset($map['IsTrialVersion'])) {
             $model->isTrialVersion = $map['IsTrialVersion'];
         }
@@ -535,6 +583,18 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (isset($map['OpenTime'])) {
             $model->openTime = $map['OpenTime'];
+        }
+        if (isset($map['PostPayInstanceId'])) {
+            $model->postPayInstanceId = $map['PostPayInstanceId'];
+        }
+        if (isset($map['PostPayModuleSwitch'])) {
+            $model->postPayModuleSwitch = $map['PostPayModuleSwitch'];
+        }
+        if (isset($map['PostPayOpenTime'])) {
+            $model->postPayOpenTime = $map['PostPayOpenTime'];
+        }
+        if (isset($map['PostPayStatus'])) {
+            $model->postPayStatus = $map['PostPayStatus'];
         }
         if (isset($map['RaspCapacity'])) {
             $model->raspCapacity = $map['RaspCapacity'];

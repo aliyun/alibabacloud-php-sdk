@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class configStandardIds extends Model
 {
     /**
+     * @description The standard IDs that you want to add to the policy.
+     *
      * @var int[]
      */
     public $addIds;
 
     /**
+     * @description The standard IDs that you want to remove from the policy.
+     *
      * @var int[]
      */
     public $removeIds;

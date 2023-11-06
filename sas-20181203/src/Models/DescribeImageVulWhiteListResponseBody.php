@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageVulWhiteListResponseBody extends Model
 {
     /**
+     * @description The status code returned. A value of **200** indicates that the request was successful. Other values indicate that the request failed. You can identify the cause of the failure based on the value of this parameter.
+     *
      * @example 200
      *
      * @var string
@@ -18,6 +20,8 @@ class DescribeImageVulWhiteListResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -25,11 +29,15 @@ class DescribeImageVulWhiteListResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The information about the whitelist of image vulnerabilities.
+     *
      * @var imageVulWhitelist[]
      */
     public $imageVulWhitelist;
 
     /**
+     * @description The message returned.
+     *
      * @example successful
      *
      * @var string
@@ -37,11 +45,15 @@ class DescribeImageVulWhiteListResponseBody extends Model
     public $message;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 911025D0-3D1E-5213-A18A-37EA0C92****
      *
      * @var string
@@ -49,6 +61,11 @@ class DescribeImageVulWhiteListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -56,6 +73,8 @@ class DescribeImageVulWhiteListResponseBody extends Model
     public $success;
 
     /**
+     * @description The amount of time that was consumed to process the request. Unit: milliseconds.
+     *
      * @example 1
      *
      * @var int
