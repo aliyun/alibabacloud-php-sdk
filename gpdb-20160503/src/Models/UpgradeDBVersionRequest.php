@@ -18,9 +18,9 @@ class UpgradeDBVersionRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The major version of the instance.
+     * @description This parameter is no longer used and does not need to be specified.
      *
-     * @example 6.0
+     * @example null
      *
      * @var string
      */
@@ -50,18 +50,18 @@ class UpgradeDBVersionRequest extends Model
     public $regionId;
 
     /**
-     * @description The upgrade time.
+     * @description This parameter is no longer used and does not need to be specified.
      *
-     * @example xxxxx
+     * @example null
      *
      * @var string
      */
     public $switchTime;
 
     /**
-     * @description The upgrade method.
+     * @description This parameter is no longer used and does not need to be specified.
      *
-     * @example xxxxx
+     * @example null
      *
      * @var string
      */

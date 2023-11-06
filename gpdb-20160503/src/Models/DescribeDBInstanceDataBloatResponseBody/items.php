@@ -76,10 +76,11 @@ class items extends Model
     /**
      * @description The storage type of the table. Valid values:
      *
-     *   **Heap**: heap table
-     *   **AO**: append-optimized (AO) table
+     *   **Heap Table**
+     *   **Append-Only Heap Table**
+     *   **Append-Only Columnar Table**
      *
-     * @example Heap
+     * @example Heap Table
      *
      * @var string
      */

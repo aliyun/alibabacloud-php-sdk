@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDocumentCollectionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDocumentCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataRequest;
@@ -34,6 +36,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentCollectionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentCollectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexRequest;
@@ -83,6 +89,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSupportMaxPerformanceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSupportMaxPerformanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionInfosRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionInfosResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisDimensionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisDimensionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisMonitorPerformanceRequest;
@@ -91,12 +101,16 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisSQLInfoRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisSQLInfoResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDocumentRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDocumentResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadSQLLogsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadSQLLogsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeIMVInfosRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeIMVInfosResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModifyParameterLogRequest;
@@ -115,6 +129,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSampleDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogCountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogCountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsV2Request;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsV2Response;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupportFeaturesRequest;
@@ -133,10 +149,16 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\HandleActiveSQLRecordRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\HandleActiveSQLRecordResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentCollectionsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentCollectionsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
@@ -172,12 +194,16 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ReleaseInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ReleaseInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetAccountPasswordResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetIMVMonitorDataRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetIMVMonitorDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeInstanceRequest;
@@ -204,6 +230,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBVersionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBVersionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertChunksRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertChunksResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertChunksShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataShrinkRequest;
@@ -766,6 +795,88 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param CreateDocumentCollectionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateDocumentCollectionResponse
+     */
+    public function createDocumentCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->embeddingModel)) {
+            $query['EmbeddingModel'] = $request->embeddingModel;
+        }
+        if (!Utils::isUnset($request->fullTextRetrievalFields)) {
+            $query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
+        }
+        if (!Utils::isUnset($request->hnswM)) {
+            $query['HnswM'] = $request->hnswM;
+        }
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
+        }
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        }
+        if (!Utils::isUnset($request->metadata)) {
+            $query['Metadata'] = $request->metadata;
+        }
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parser)) {
+            $query['Parser'] = $request->parser;
+        }
+        if (!Utils::isUnset($request->pqEnable)) {
+            $query['PqEnable'] = $request->pqEnable;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDocumentCollection',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDocumentCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDocumentCollectionRequest $request
+     *
+     * @return CreateDocumentCollectionResponse
+     */
+    public function createDocumentCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDocumentCollectionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateNamespaceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1248,6 +1359,125 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBInstancePlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDocumentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteDocumentResponse
+     */
+    public function deleteDocumentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDocument',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDocumentRequest $request
+     *
+     * @return DeleteDocumentResponse
+     */
+    public function deleteDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDocumentCollectionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteDocumentCollectionResponse
+     */
+    public function deleteDocumentCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDocumentCollection',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDocumentCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDocumentCollectionRequest $request
+     *
+     * @return DeleteDocumentCollectionResponse
+     */
+    public function deleteDocumentCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDocumentCollectionWithOptions($request, $runtime);
     }
 
     /**
@@ -2342,6 +2572,52 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBInstanceSupportMaxPerformanceRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeDBInstanceSupportMaxPerformanceResponse
+     */
+    public function describeDBInstanceSupportMaxPerformanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceSupportMaxPerformance',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceSupportMaxPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceSupportMaxPerformanceRequest $request
+     *
+     * @return DescribeDBInstanceSupportMaxPerformanceResponse
+     */
+    public function describeDBInstanceSupportMaxPerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceSupportMaxPerformanceWithOptions($request, $runtime);
+    }
+
+    /**
      * ##
      *   * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
      *   * ## Limits
@@ -2442,6 +2718,61 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBVersionInfosRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDBVersionInfosResponse
+     */
+    public function describeDBVersionInfosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceMode)) {
+            $query['DBInstanceMode'] = $request->DBInstanceMode;
+        }
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBVersionInfos',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBVersionInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBVersionInfosRequest $request
+     *
+     * @return DescribeDBVersionInfosResponse
+     */
+    public function describeDBVersionInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBVersionInfosWithOptions($request, $runtime);
     }
 
     /**
@@ -2937,6 +3268,67 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param DescribeDocumentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeDocumentResponse
+     */
+    public function describeDocumentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDocument',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDocumentRequest $request
+     *
+     * @return DescribeDocumentResponse
+     */
+    public function describeDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDocumentWithOptions($request, $runtime);
+    }
+
+    /**
      * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
      *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
      *   *
@@ -3080,6 +3472,55 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHealthStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeIMVInfosRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeIMVInfosResponse
+     */
+    public function describeIMVInfosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->MVName)) {
+            $query['MVName'] = $request->MVName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIMVInfos',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIMVInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIMVInfosRequest $request
+     *
+     * @return DescribeIMVInfosResponse
+     */
+    public function describeIMVInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIMVInfosWithOptions($request, $runtime);
     }
 
     /**
@@ -3574,6 +4015,95 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSQLLogCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](~~453722~~) operation.
+     *   *
+     * @param DescribeSQLLogsRequest $request DescribeSQLLogsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSQLLogsResponse DescribeSQLLogsResponse
+     */
+    public function describeSQLLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->executeCost)) {
+            $query['ExecuteCost'] = $request->executeCost;
+        }
+        if (!Utils::isUnset($request->executeState)) {
+            $query['ExecuteState'] = $request->executeState;
+        }
+        if (!Utils::isUnset($request->maxExecuteCost)) {
+            $query['MaxExecuteCost'] = $request->maxExecuteCost;
+        }
+        if (!Utils::isUnset($request->minExecuteCost)) {
+            $query['MinExecuteCost'] = $request->minExecuteCost;
+        }
+        if (!Utils::isUnset($request->operationClass)) {
+            $query['OperationClass'] = $request->operationClass;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
+        }
+        if (!Utils::isUnset($request->sourceIP)) {
+            $query['SourceIP'] = $request->sourceIP;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSQLLogs',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSQLLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](~~453722~~) operation.
+     *   *
+     * @param DescribeSQLLogsRequest $request DescribeSQLLogsRequest
+     *
+     * @return DescribeSQLLogsResponse DescribeSQLLogsResponse
+     */
+    public function describeSQLLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLLogsWithOptions($request, $runtime);
     }
 
     /**
@@ -4246,6 +4776,55 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param HandleActiveSQLRecordRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return HandleActiveSQLRecordResponse
+     */
+    public function handleActiveSQLRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->operateType)) {
+            $query['OperateType'] = $request->operateType;
+        }
+        if (!Utils::isUnset($request->pids)) {
+            $query['Pids'] = $request->pids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HandleActiveSQLRecord',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return HandleActiveSQLRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HandleActiveSQLRecordRequest $request
+     *
+     * @return HandleActiveSQLRecordResponse
+     */
+    public function handleActiveSQLRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->handleActiveSQLRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @param InitVectorDatabaseRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4353,6 +4932,119 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCollectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDocumentCollectionsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDocumentCollectionsResponse
+     */
+    public function listDocumentCollectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDocumentCollections',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDocumentCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDocumentCollectionsRequest $request
+     *
+     * @return ListDocumentCollectionsResponse
+     */
+    public function listDocumentCollections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDocumentCollectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDocumentsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDocumentsResponse
+     */
+    public function listDocumentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDocuments',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDocumentsRequest $request
+     *
+     * @return ListDocumentsResponse
+     */
+    public function listDocuments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDocumentsWithOptions($request, $runtime);
     }
 
     /**
@@ -5332,6 +6024,79 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param QueryContentRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryContentResponse
+     */
+    public function queryContentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topK)) {
+            $query['TopK'] = $request->topK;
+        }
+        if (!Utils::isUnset($request->useFullTextRetrieval)) {
+            $query['UseFullTextRetrieval'] = $request->useFullTextRetrieval;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryContent',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryContentRequest $request
+     *
+     * @return QueryContentResponse
+     */
+    public function queryContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryContentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RebalanceDBInstanceRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -5473,6 +6238,52 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetAccountPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResetIMVMonitorDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ResetIMVMonitorDataResponse
+     */
+    public function resetIMVMonitorDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetIMVMonitorData',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetIMVMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetIMVMonitorDataRequest $request
+     *
+     * @return ResetIMVMonitorDataResponse
+     */
+    public function resetIMVMonitorData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetIMVMonitorDataWithOptions($request, $runtime);
     }
 
     /**
@@ -6240,6 +7051,77 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeDBVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpsertChunksRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpsertChunksResponse
+     */
+    public function upsertChunksWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpsertChunksShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->textChunks)) {
+            $request->textChunksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textChunks, 'TextChunks', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->textChunksShrink)) {
+            $body['TextChunks'] = $request->textChunksShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpsertChunks',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpsertChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpsertChunksRequest $request
+     *
+     * @return UpsertChunksResponse
+     */
+    public function upsertChunks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upsertChunksWithOptions($request, $runtime);
     }
 
     /**

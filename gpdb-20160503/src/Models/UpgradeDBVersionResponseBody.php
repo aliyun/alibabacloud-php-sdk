@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBVersionResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description This parameter is no longer returned.
      *
      * @example gp-wz9kmr708m155j***
      *
