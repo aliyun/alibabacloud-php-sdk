@@ -8,13 +8,26 @@ use AlibabaCloud\Tea\Model;
 
 class caCertificates extends Model
 {
+    /**
+     * @var string
+     */
+    public $certificateId;
+    protected $_name = [
+        'certificateId' => 'CertificateId',
+    ];
+
     public function validate()
     {
     }
 
     public function toMap()
     {
-        return [];
+        $res = [];
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
+        }
+
+        return $res;
     }
 
     /**
@@ -24,6 +37,11 @@ class caCertificates extends Model
      */
     public static function fromMap($map = [])
     {
-        return new self();
+        $model = new self();
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
+        }
+
+        return $model;
     }
 }

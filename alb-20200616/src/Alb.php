@@ -3081,8 +3081,17 @@ class Alb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addressIpVersion)) {
+            $query['AddressIpVersion'] = $request->addressIpVersion;
+        }
         if (!Utils::isUnset($request->addressType)) {
             $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->DNSName)) {
+            $query['DNSName'] = $request->DNSName;
+        }
+        if (!Utils::isUnset($request->ipv6AddressType)) {
+            $query['Ipv6AddressType'] = $request->ipv6AddressType;
         }
         if (!Utils::isUnset($request->loadBalancerBussinessStatus)) {
             $query['LoadBalancerBussinessStatus'] = $request->loadBalancerBussinessStatus;

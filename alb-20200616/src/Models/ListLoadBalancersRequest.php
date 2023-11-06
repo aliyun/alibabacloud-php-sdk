@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListLoadBalancersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description The network type. Valid values:
      *
      *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
@@ -20,6 +25,16 @@ class ListLoadBalancersRequest extends Model
      * @var string
      */
     public $addressType;
+
+    /**
+     * @var string
+     */
+    public $DNSName;
+
+    /**
+     * @var string
+     */
+    public $ipv6AddressType;
 
     /**
      * @description The service status of the ALB instance. Valid values:
@@ -127,7 +142,10 @@ class ListLoadBalancersRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'addressIpVersion'            => 'AddressIpVersion',
         'addressType'                 => 'AddressType',
+        'DNSName'                     => 'DNSName',
+        'ipv6AddressType'             => 'Ipv6AddressType',
         'loadBalancerBussinessStatus' => 'LoadBalancerBussinessStatus',
         'loadBalancerIds'             => 'LoadBalancerIds',
         'loadBalancerNames'           => 'LoadBalancerNames',
@@ -148,8 +166,17 @@ class ListLoadBalancersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->addressType) {
             $res['AddressType'] = $this->addressType;
+        }
+        if (null !== $this->DNSName) {
+            $res['DNSName'] = $this->DNSName;
+        }
+        if (null !== $this->ipv6AddressType) {
+            $res['Ipv6AddressType'] = $this->ipv6AddressType;
         }
         if (null !== $this->loadBalancerBussinessStatus) {
             $res['LoadBalancerBussinessStatus'] = $this->loadBalancerBussinessStatus;
@@ -202,8 +229,17 @@ class ListLoadBalancersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['AddressType'])) {
             $model->addressType = $map['AddressType'];
+        }
+        if (isset($map['DNSName'])) {
+            $model->DNSName = $map['DNSName'];
+        }
+        if (isset($map['Ipv6AddressType'])) {
+            $model->ipv6AddressType = $map['Ipv6AddressType'];
         }
         if (isset($map['LoadBalancerBussinessStatus'])) {
             $model->loadBalancerBussinessStatus = $map['LoadBalancerBussinessStatus'];
