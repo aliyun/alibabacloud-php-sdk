@@ -50,6 +50,11 @@ class CreateNetworkPathRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the source resource.
      *
      * @example i-2zef4ngqfarepyun****
@@ -145,6 +150,7 @@ class CreateNetworkPathRequest extends Model
         'networkPathName'        => 'NetworkPathName',
         'protocol'               => 'Protocol',
         'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
         'sourceId'               => 'SourceId',
         'sourceIpAddress'        => 'SourceIpAddress',
         'sourcePort'             => 'SourcePort',
@@ -174,6 +180,9 @@ class CreateNetworkPathRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
@@ -231,6 +240,9 @@ class CreateNetworkPathRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
