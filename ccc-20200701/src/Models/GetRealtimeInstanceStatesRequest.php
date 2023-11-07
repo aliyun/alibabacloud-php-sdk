@@ -14,8 +14,14 @@ class GetRealtimeInstanceStatesRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $mediaType;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'mediaType'  => 'MediaType',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class GetRealtimeInstanceStatesRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class GetRealtimeInstanceStatesRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
 
         return $model;

@@ -16,6 +16,41 @@ class data extends Model
     public $agentServerUrl;
 
     /**
+     * @var string
+     */
+    public $avatarUrl;
+
+    /**
+     * @var string
+     */
+    public $chatAppId;
+
+    /**
+     * @var string
+     */
+    public $chatAppKey;
+
+    /**
+     * @var string
+     */
+    public $chatDeviceId;
+
+    /**
+     * @var string
+     */
+    public $chatLoginToken;
+
+    /**
+     * @var string
+     */
+    public $chatServerUrl;
+
+    /**
+     * @var string
+     */
+    public $chatUserId;
+
+    /**
      * @example 8033****
      *
      * @var string
@@ -47,6 +82,11 @@ class data extends Model
      * @var string
      */
     public $extension;
+
+    /**
+     * @var string
+     */
+    public $nickname;
 
     /**
      * @example zi31STIMtIfa/UN2l+6lww****
@@ -96,11 +136,19 @@ class data extends Model
     public $workMode;
     protected $_name = [
         'agentServerUrl' => 'AgentServerUrl',
+        'avatarUrl'      => 'AvatarUrl',
+        'chatAppId'      => 'ChatAppId',
+        'chatAppKey'     => 'ChatAppKey',
+        'chatDeviceId'   => 'ChatDeviceId',
+        'chatLoginToken' => 'ChatLoginToken',
+        'chatServerUrl'  => 'ChatServerUrl',
+        'chatUserId'     => 'ChatUserId',
         'deviceExt'      => 'DeviceExt',
         'deviceId'       => 'DeviceId',
         'deviceState'    => 'DeviceState',
         'displayName'    => 'DisplayName',
         'extension'      => 'Extension',
+        'nickname'       => 'Nickname',
         'signature'      => 'Signature',
         'signature2'     => 'Signature2',
         'sipServerUrl'   => 'SipServerUrl',
@@ -120,6 +168,27 @@ class data extends Model
         if (null !== $this->agentServerUrl) {
             $res['AgentServerUrl'] = $this->agentServerUrl;
         }
+        if (null !== $this->avatarUrl) {
+            $res['AvatarUrl'] = $this->avatarUrl;
+        }
+        if (null !== $this->chatAppId) {
+            $res['ChatAppId'] = $this->chatAppId;
+        }
+        if (null !== $this->chatAppKey) {
+            $res['ChatAppKey'] = $this->chatAppKey;
+        }
+        if (null !== $this->chatDeviceId) {
+            $res['ChatDeviceId'] = $this->chatDeviceId;
+        }
+        if (null !== $this->chatLoginToken) {
+            $res['ChatLoginToken'] = $this->chatLoginToken;
+        }
+        if (null !== $this->chatServerUrl) {
+            $res['ChatServerUrl'] = $this->chatServerUrl;
+        }
+        if (null !== $this->chatUserId) {
+            $res['ChatUserId'] = $this->chatUserId;
+        }
         if (null !== $this->deviceExt) {
             $res['DeviceExt'] = $this->deviceExt;
         }
@@ -134,6 +203,9 @@ class data extends Model
         }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
+        }
+        if (null !== $this->nickname) {
+            $res['Nickname'] = $this->nickname;
         }
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
@@ -171,6 +243,27 @@ class data extends Model
         if (isset($map['AgentServerUrl'])) {
             $model->agentServerUrl = $map['AgentServerUrl'];
         }
+        if (isset($map['AvatarUrl'])) {
+            $model->avatarUrl = $map['AvatarUrl'];
+        }
+        if (isset($map['ChatAppId'])) {
+            $model->chatAppId = $map['ChatAppId'];
+        }
+        if (isset($map['ChatAppKey'])) {
+            $model->chatAppKey = $map['ChatAppKey'];
+        }
+        if (isset($map['ChatDeviceId'])) {
+            $model->chatDeviceId = $map['ChatDeviceId'];
+        }
+        if (isset($map['ChatLoginToken'])) {
+            $model->chatLoginToken = $map['ChatLoginToken'];
+        }
+        if (isset($map['ChatServerUrl'])) {
+            $model->chatServerUrl = $map['ChatServerUrl'];
+        }
+        if (isset($map['ChatUserId'])) {
+            $model->chatUserId = $map['ChatUserId'];
+        }
         if (isset($map['DeviceExt'])) {
             $model->deviceExt = $map['DeviceExt'];
         }
@@ -185,6 +278,9 @@ class data extends Model
         }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
+        }
+        if (isset($map['Nickname'])) {
+            $model->nickname = $map['Nickname'];
         }
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];

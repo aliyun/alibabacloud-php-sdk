@@ -14,6 +14,11 @@ class BlindTransferRequest extends Model
     public $callPriority;
 
     /**
+     * @var string
+     */
+    public $contactFlowVariables;
+
+    /**
      * @example ACC-YUNBS-1.0.10-****
      *
      * @var string
@@ -59,6 +64,11 @@ class BlindTransferRequest extends Model
     public $transferee;
 
     /**
+     * @var string
+     */
+    public $transfereeType;
+
+    /**
      * @example 08314325****
      *
      * @var string
@@ -72,16 +82,18 @@ class BlindTransferRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'callPriority'   => 'CallPriority',
-        'deviceId'       => 'DeviceId',
-        'instanceId'     => 'InstanceId',
-        'jobId'          => 'JobId',
-        'strategyName'   => 'StrategyName',
-        'strategyParams' => 'StrategyParams',
-        'timeoutSeconds' => 'TimeoutSeconds',
-        'transferee'     => 'Transferee',
-        'transferor'     => 'Transferor',
-        'userId'         => 'UserId',
+        'callPriority'         => 'CallPriority',
+        'contactFlowVariables' => 'ContactFlowVariables',
+        'deviceId'             => 'DeviceId',
+        'instanceId'           => 'InstanceId',
+        'jobId'                => 'JobId',
+        'strategyName'         => 'StrategyName',
+        'strategyParams'       => 'StrategyParams',
+        'timeoutSeconds'       => 'TimeoutSeconds',
+        'transferee'           => 'Transferee',
+        'transfereeType'       => 'TransfereeType',
+        'transferor'           => 'Transferor',
+        'userId'               => 'UserId',
     ];
 
     public function validate()
@@ -93,6 +105,9 @@ class BlindTransferRequest extends Model
         $res = [];
         if (null !== $this->callPriority) {
             $res['CallPriority'] = $this->callPriority;
+        }
+        if (null !== $this->contactFlowVariables) {
+            $res['ContactFlowVariables'] = $this->contactFlowVariables;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
@@ -115,6 +130,9 @@ class BlindTransferRequest extends Model
         if (null !== $this->transferee) {
             $res['Transferee'] = $this->transferee;
         }
+        if (null !== $this->transfereeType) {
+            $res['TransfereeType'] = $this->transfereeType;
+        }
         if (null !== $this->transferor) {
             $res['Transferor'] = $this->transferor;
         }
@@ -136,6 +154,9 @@ class BlindTransferRequest extends Model
         if (isset($map['CallPriority'])) {
             $model->callPriority = $map['CallPriority'];
         }
+        if (isset($map['ContactFlowVariables'])) {
+            $model->contactFlowVariables = $map['ContactFlowVariables'];
+        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
@@ -156,6 +177,9 @@ class BlindTransferRequest extends Model
         }
         if (isset($map['Transferee'])) {
             $model->transferee = $map['Transferee'];
+        }
+        if (isset($map['TransfereeType'])) {
+            $model->transfereeType = $map['TransfereeType'];
         }
         if (isset($map['Transferor'])) {
             $model->transferor = $map['Transferor'];

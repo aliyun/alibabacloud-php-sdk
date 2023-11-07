@@ -536,6 +536,9 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->instNumberGroupIdList)) {
+            $query['InstNumberGroupIdList'] = $request->instNumberGroupIdList;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -1060,6 +1063,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->callPriority)) {
             $query['CallPriority'] = $request->callPriority;
         }
+        if (!Utils::isUnset($request->contactFlowVariables)) {
+            $query['ContactFlowVariables'] = $request->contactFlowVariables;
+        }
         if (!Utils::isUnset($request->deviceId)) {
             $query['DeviceId'] = $request->deviceId;
         }
@@ -1080,6 +1086,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->transferee)) {
             $query['Transferee'] = $request->transferee;
+        }
+        if (!Utils::isUnset($request->transfereeType)) {
+            $query['TransfereeType'] = $request->transfereeType;
         }
         if (!Utils::isUnset($request->transferor)) {
             $query['Transferor'] = $request->transferor;
@@ -1871,6 +1880,9 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->avatarUrl)) {
+            $query['AvatarUrl'] = $request->avatarUrl;
+        }
         if (!Utils::isUnset($request->displayId)) {
             $query['DisplayId'] = $request->displayId;
         }
@@ -1888,6 +1900,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->mobile)) {
             $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->nickname)) {
+            $query['Nickname'] = $request->nickname;
         }
         if (!Utils::isUnset($request->resetPassword)) {
             $query['ResetPassword'] = $request->resetPassword;
@@ -3103,6 +3118,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3146,6 +3164,9 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->chatDeviceId)) {
+            $query['ChatDeviceId'] = $request->chatDeviceId;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -3375,6 +3396,9 @@ class CCC extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetRealtimeInstanceStatesResponseBody;
 
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetRealtimeInstanceStatesResponseBody\data\breakCodeDetailList;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
+    /**
+     * @var breakCodeDetailList[]
+     */
+    public $breakCodeDetailList;
+
     /**
      * @example 0
      *
@@ -78,16 +84,17 @@ class data extends Model
      */
     public $workingAgents;
     protected $_name = [
-        'breakingAgents'     => 'BreakingAgents',
-        'instanceId'         => 'InstanceId',
-        'interactiveCalls'   => 'InteractiveCalls',
-        'loggedInAgents'     => 'LoggedInAgents',
-        'longestWaitingTime' => 'LongestWaitingTime',
-        'readyAgents'        => 'ReadyAgents',
-        'talkingAgents'      => 'TalkingAgents',
-        'totalAgents'        => 'TotalAgents',
-        'waitingCalls'       => 'WaitingCalls',
-        'workingAgents'      => 'WorkingAgents',
+        'breakCodeDetailList' => 'BreakCodeDetailList',
+        'breakingAgents'      => 'BreakingAgents',
+        'instanceId'          => 'InstanceId',
+        'interactiveCalls'    => 'InteractiveCalls',
+        'loggedInAgents'      => 'LoggedInAgents',
+        'longestWaitingTime'  => 'LongestWaitingTime',
+        'readyAgents'         => 'ReadyAgents',
+        'talkingAgents'       => 'TalkingAgents',
+        'totalAgents'         => 'TotalAgents',
+        'waitingCalls'        => 'WaitingCalls',
+        'workingAgents'       => 'WorkingAgents',
     ];
 
     public function validate()
@@ -97,6 +104,15 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->breakCodeDetailList) {
+            $res['BreakCodeDetailList'] = [];
+            if (null !== $this->breakCodeDetailList && \is_array($this->breakCodeDetailList)) {
+                $n = 0;
+                foreach ($this->breakCodeDetailList as $item) {
+                    $res['BreakCodeDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->breakingAgents) {
             $res['BreakingAgents'] = $this->breakingAgents;
         }
@@ -139,6 +155,15 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BreakCodeDetailList'])) {
+            if (!empty($map['BreakCodeDetailList'])) {
+                $model->breakCodeDetailList = [];
+                $n                          = 0;
+                foreach ($map['BreakCodeDetailList'] as $item) {
+                    $model->breakCodeDetailList[$n++] = null !== $item ? breakCodeDetailList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['BreakingAgents'])) {
             $model->breakingAgents = $map['BreakingAgents'];
         }

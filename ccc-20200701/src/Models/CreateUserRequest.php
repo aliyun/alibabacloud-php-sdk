@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateUserRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $avatarUrl;
+
+    /**
      * @example 1001
      *
      * @var string
@@ -49,6 +54,11 @@ class CreateUserRequest extends Model
     public $mobile;
 
     /**
+     * @var string
+     */
+    public $nickname;
+
+    /**
      * @example false
      *
      * @var bool
@@ -76,12 +86,14 @@ class CreateUserRequest extends Model
      */
     public $workMode;
     protected $_name = [
+        'avatarUrl'      => 'AvatarUrl',
         'displayId'      => 'DisplayId',
         'displayName'    => 'DisplayName',
         'email'          => 'Email',
         'instanceId'     => 'InstanceId',
         'loginName'      => 'LoginName',
         'mobile'         => 'Mobile',
+        'nickname'       => 'Nickname',
         'resetPassword'  => 'ResetPassword',
         'roleId'         => 'RoleId',
         'skillLevelList' => 'SkillLevelList',
@@ -95,6 +107,9 @@ class CreateUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->avatarUrl) {
+            $res['AvatarUrl'] = $this->avatarUrl;
+        }
         if (null !== $this->displayId) {
             $res['DisplayId'] = $this->displayId;
         }
@@ -112,6 +127,9 @@ class CreateUserRequest extends Model
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->nickname) {
+            $res['Nickname'] = $this->nickname;
         }
         if (null !== $this->resetPassword) {
             $res['ResetPassword'] = $this->resetPassword;
@@ -137,6 +155,9 @@ class CreateUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvatarUrl'])) {
+            $model->avatarUrl = $map['AvatarUrl'];
+        }
         if (isset($map['DisplayId'])) {
             $model->displayId = $map['DisplayId'];
         }
@@ -154,6 +175,9 @@ class CreateUserRequest extends Model
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['Nickname'])) {
+            $model->nickname = $map['Nickname'];
         }
         if (isset($map['ResetPassword'])) {
             $model->resetPassword = $map['ResetPassword'];

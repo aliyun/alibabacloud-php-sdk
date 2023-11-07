@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $avatarUrl;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -42,6 +47,11 @@ class data extends Model
     public $mobile;
 
     /**
+     * @var string
+     */
+    public $nickname;
+
+    /**
      * @example agent@ccc-test
      *
      * @var string
@@ -55,11 +65,13 @@ class data extends Model
      */
     public $workMode;
     protected $_name = [
+        'avatarUrl'   => 'AvatarUrl',
         'displayName' => 'DisplayName',
         'email'       => 'Email',
         'extension'   => 'Extension',
         'loginName'   => 'LoginName',
         'mobile'      => 'Mobile',
+        'nickname'    => 'Nickname',
         'userId'      => 'UserId',
         'workMode'    => 'WorkMode',
     ];
@@ -71,6 +83,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->avatarUrl) {
+            $res['AvatarUrl'] = $this->avatarUrl;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -85,6 +100,9 @@ class data extends Model
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->nickname) {
+            $res['Nickname'] = $this->nickname;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -104,6 +122,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvatarUrl'])) {
+            $model->avatarUrl = $map['AvatarUrl'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
@@ -118,6 +139,9 @@ class data extends Model
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['Nickname'])) {
+            $model->nickname = $map['Nickname'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

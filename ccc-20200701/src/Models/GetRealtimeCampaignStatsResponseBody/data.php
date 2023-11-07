@@ -30,6 +30,26 @@ class data extends Model
     public $loggedInAgents;
 
     /**
+     * @var int
+     */
+    public $outboundScenarioBreakingAgents;
+
+    /**
+     * @var int
+     */
+    public $outboundScenarioReadyAgents;
+
+    /**
+     * @var int
+     */
+    public $outboundScenarioTalkingAgents;
+
+    /**
+     * @var int
+     */
+    public $outboundScenarioWorkingAgents;
+
+    /**
      * @example 3
      *
      * @var int
@@ -57,13 +77,17 @@ class data extends Model
      */
     public $workingAgents;
     protected $_name = [
-        'breakingAgents' => 'BreakingAgents',
-        'caps'           => 'Caps',
-        'loggedInAgents' => 'LoggedInAgents',
-        'readyAgents'    => 'ReadyAgents',
-        'talkingAgents'  => 'TalkingAgents',
-        'totalAgents'    => 'TotalAgents',
-        'workingAgents'  => 'WorkingAgents',
+        'breakingAgents'                 => 'BreakingAgents',
+        'caps'                           => 'Caps',
+        'loggedInAgents'                 => 'LoggedInAgents',
+        'outboundScenarioBreakingAgents' => 'OutboundScenarioBreakingAgents',
+        'outboundScenarioReadyAgents'    => 'OutboundScenarioReadyAgents',
+        'outboundScenarioTalkingAgents'  => 'OutboundScenarioTalkingAgents',
+        'outboundScenarioWorkingAgents'  => 'OutboundScenarioWorkingAgents',
+        'readyAgents'                    => 'ReadyAgents',
+        'talkingAgents'                  => 'TalkingAgents',
+        'totalAgents'                    => 'TotalAgents',
+        'workingAgents'                  => 'WorkingAgents',
     ];
 
     public function validate()
@@ -81,6 +105,18 @@ class data extends Model
         }
         if (null !== $this->loggedInAgents) {
             $res['LoggedInAgents'] = $this->loggedInAgents;
+        }
+        if (null !== $this->outboundScenarioBreakingAgents) {
+            $res['OutboundScenarioBreakingAgents'] = $this->outboundScenarioBreakingAgents;
+        }
+        if (null !== $this->outboundScenarioReadyAgents) {
+            $res['OutboundScenarioReadyAgents'] = $this->outboundScenarioReadyAgents;
+        }
+        if (null !== $this->outboundScenarioTalkingAgents) {
+            $res['OutboundScenarioTalkingAgents'] = $this->outboundScenarioTalkingAgents;
+        }
+        if (null !== $this->outboundScenarioWorkingAgents) {
+            $res['OutboundScenarioWorkingAgents'] = $this->outboundScenarioWorkingAgents;
         }
         if (null !== $this->readyAgents) {
             $res['ReadyAgents'] = $this->readyAgents;
@@ -114,6 +150,18 @@ class data extends Model
         }
         if (isset($map['LoggedInAgents'])) {
             $model->loggedInAgents = $map['LoggedInAgents'];
+        }
+        if (isset($map['OutboundScenarioBreakingAgents'])) {
+            $model->outboundScenarioBreakingAgents = $map['OutboundScenarioBreakingAgents'];
+        }
+        if (isset($map['OutboundScenarioReadyAgents'])) {
+            $model->outboundScenarioReadyAgents = $map['OutboundScenarioReadyAgents'];
+        }
+        if (isset($map['OutboundScenarioTalkingAgents'])) {
+            $model->outboundScenarioTalkingAgents = $map['OutboundScenarioTalkingAgents'];
+        }
+        if (isset($map['OutboundScenarioWorkingAgents'])) {
+            $model->outboundScenarioWorkingAgents = $map['OutboundScenarioWorkingAgents'];
         }
         if (isset($map['ReadyAgents'])) {
             $model->readyAgents = $map['ReadyAgents'];

@@ -23,6 +23,11 @@ class GetInstanceTrendingReportRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example 1604639129000
      *
      * @var int
@@ -31,6 +36,7 @@ class GetInstanceTrendingReportRequest extends Model
     protected $_name = [
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
+        'mediaType'  => 'MediaType',
         'startTime'  => 'StartTime',
     ];
 
@@ -46,6 +52,9 @@ class GetInstanceTrendingReportRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -67,6 +76,9 @@ class GetInstanceTrendingReportRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

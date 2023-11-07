@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportRespons
 
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportResponseBody\data\inbound;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportResponseBody\data\outbound;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportResponseBody\data\overall;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -19,9 +20,15 @@ class data extends Model
      * @var outbound[]
      */
     public $outbound;
+
+    /**
+     * @var overall[]
+     */
+    public $overall;
     protected $_name = [
         'inbound'  => 'Inbound',
         'outbound' => 'Outbound',
+        'overall'  => 'Overall',
     ];
 
     public function validate()
@@ -46,6 +53,15 @@ class data extends Model
                 $n = 0;
                 foreach ($this->outbound as $item) {
                     $res['Outbound'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->overall) {
+            $res['Overall'] = [];
+            if (null !== $this->overall && \is_array($this->overall)) {
+                $n = 0;
+                foreach ($this->overall as $item) {
+                    $res['Overall'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -76,6 +92,15 @@ class data extends Model
                 $n               = 0;
                 foreach ($map['Outbound'] as $item) {
                     $model->outbound[$n++] = null !== $item ? outbound::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Overall'])) {
+            if (!empty($map['Overall'])) {
+                $model->overall = [];
+                $n              = 0;
+                foreach ($map['Overall'] as $item) {
+                    $model->overall[$n++] = null !== $item ? overall::fromMap($item) : $item;
                 }
             }
         }

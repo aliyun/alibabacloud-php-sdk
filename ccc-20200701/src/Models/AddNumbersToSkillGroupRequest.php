@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddNumbersToSkillGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $instNumberGroupIdList;
+
+    /**
      * @example ccc-test
      *
      * @var string
@@ -29,9 +34,10 @@ class AddNumbersToSkillGroupRequest extends Model
      */
     public $skillGroupId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'numberList'   => 'NumberList',
-        'skillGroupId' => 'SkillGroupId',
+        'instNumberGroupIdList' => 'InstNumberGroupIdList',
+        'instanceId'            => 'InstanceId',
+        'numberList'            => 'NumberList',
+        'skillGroupId'          => 'SkillGroupId',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class AddNumbersToSkillGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instNumberGroupIdList) {
+            $res['InstNumberGroupIdList'] = $this->instNumberGroupIdList;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -62,6 +71,9 @@ class AddNumbersToSkillGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstNumberGroupIdList'])) {
+            $model->instNumberGroupIdList = $map['InstNumberGroupIdList'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

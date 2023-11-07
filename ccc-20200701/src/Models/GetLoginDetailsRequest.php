@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetLoginDetailsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $chatDeviceId;
+
+    /**
      * @example ccc-test
      *
      * @var string
@@ -22,8 +27,9 @@ class GetLoginDetailsRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
+        'chatDeviceId' => 'ChatDeviceId',
+        'instanceId'   => 'InstanceId',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class GetLoginDetailsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chatDeviceId) {
+            $res['ChatDeviceId'] = $this->chatDeviceId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -51,6 +60,9 @@ class GetLoginDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChatDeviceId'])) {
+            $model->chatDeviceId = $map['ChatDeviceId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
