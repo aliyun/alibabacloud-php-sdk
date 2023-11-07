@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\AddInstallCodeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddInstallCodeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddPrivateRegistryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddPrivateRegistryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddSasModuleTrialRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddSasModuleTrialResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddTagWithUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddUninstallClientsByUuidsRequest;
@@ -741,6 +743,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetLogMetaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetLogMetaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleTrialAuthInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleTrialAuthInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetObjectScanEventRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetObjectScanEventResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOnceTaskResultInfoRequest;
@@ -1813,6 +1817,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addPrivateRegistryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddSasModuleTrialRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AddSasModuleTrialResponse
+     */
+    public function addSasModuleTrialWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->moduleCode)) {
+            $query['ModuleCode'] = $request->moduleCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddSasModuleTrial',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddSasModuleTrialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddSasModuleTrialRequest $request
+     *
+     * @return AddSasModuleTrialResponse
+     */
+    public function addSasModuleTrial($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addSasModuleTrialWithOptions($request, $runtime);
     }
 
     /**
@@ -19805,6 +19855,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -21067,6 +21120,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getModuleConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetModuleTrialAuthInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetModuleTrialAuthInfoResponse
+     */
+    public function getModuleTrialAuthInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->moduleCode)) {
+            $query['ModuleCode'] = $request->moduleCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetModuleTrialAuthInfo',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetModuleTrialAuthInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetModuleTrialAuthInfoRequest $request
+     *
+     * @return GetModuleTrialAuthInfoResponse
+     */
+    public function getModuleTrialAuthInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getModuleTrialAuthInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -23340,6 +23439,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

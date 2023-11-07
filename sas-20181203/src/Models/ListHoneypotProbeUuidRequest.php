@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotProbeUuidRequest extends Model
 {
     /**
+     * @description The ID of the management node.
+     *
+     * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the ID.
      * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
      *
      * @var string
@@ -16,6 +19,11 @@ class ListHoneypotProbeUuidRequest extends Model
     public $controlNodeId;
 
     /**
+     * @description The language of the content within the request and the response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +31,11 @@ class ListHoneypotProbeUuidRequest extends Model
     public $lang;
 
     /**
+     * @description The type of the probe. Valid values:
+     *
+     *   **host_probe**: host probe
+     *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
+     *
      * @example host_probe
      *
      * @var string

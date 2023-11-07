@@ -17,8 +17,14 @@ class GetClusterCheckItemWarningStatisticsRequest extends Model
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
         'clusterId' => 'ClusterId',
+        'uuid'      => 'Uuid',
     ];
 
     public function validate()
@@ -30,6 +36,9 @@ class GetClusterCheckItemWarningStatisticsRequest extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -45,6 +54,9 @@ class GetClusterCheckItemWarningStatisticsRequest extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

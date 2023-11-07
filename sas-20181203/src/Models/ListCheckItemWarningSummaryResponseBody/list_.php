@@ -18,6 +18,16 @@ class list_ extends Model
     public $advice;
 
     /**
+     * @var string[]
+     */
+    public $affiliatedRiskTypes;
+
+    /**
+     * @var string[]
+     */
+    public $affiliatedRisks;
+
+    /**
      * @description The alias of the baseline type.
      *
      * @example week_pa****
@@ -116,6 +126,8 @@ class list_ extends Model
     public $warningMachineCount;
     protected $_name = [
         'advice'              => 'Advice',
+        'affiliatedRiskTypes' => 'AffiliatedRiskTypes',
+        'affiliatedRisks'     => 'AffiliatedRisks',
         'alias'               => 'Alias',
         'checkId'             => 'CheckId',
         'checkItem'           => 'CheckItem',
@@ -137,6 +149,12 @@ class list_ extends Model
         $res = [];
         if (null !== $this->advice) {
             $res['Advice'] = $this->advice;
+        }
+        if (null !== $this->affiliatedRiskTypes) {
+            $res['AffiliatedRiskTypes'] = $this->affiliatedRiskTypes;
+        }
+        if (null !== $this->affiliatedRisks) {
+            $res['AffiliatedRisks'] = $this->affiliatedRisks;
         }
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
@@ -182,6 +200,16 @@ class list_ extends Model
         $model = new self();
         if (isset($map['Advice'])) {
             $model->advice = $map['Advice'];
+        }
+        if (isset($map['AffiliatedRiskTypes'])) {
+            if (!empty($map['AffiliatedRiskTypes'])) {
+                $model->affiliatedRiskTypes = $map['AffiliatedRiskTypes'];
+            }
+        }
+        if (isset($map['AffiliatedRisks'])) {
+            if (!empty($map['AffiliatedRisks'])) {
+                $model->affiliatedRisks = $map['AffiliatedRisks'];
+            }
         }
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
