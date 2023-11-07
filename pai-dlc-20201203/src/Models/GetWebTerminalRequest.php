@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetWebTerminalRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $isShared;
+
+    /**
      * @description Pod UID。
      *
      * @example 94a7cc7c-0033-48b5-85bd-71c63592c268
@@ -17,7 +22,8 @@ class GetWebTerminalRequest extends Model
      */
     public $podUid;
     protected $_name = [
-        'podUid' => 'PodUid',
+        'isShared' => 'IsShared',
+        'podUid'   => 'PodUid',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class GetWebTerminalRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isShared) {
+            $res['IsShared'] = $this->isShared;
+        }
         if (null !== $this->podUid) {
             $res['PodUid'] = $this->podUid;
         }
@@ -42,6 +51,9 @@ class GetWebTerminalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsShared'])) {
+            $model->isShared = $map['IsShared'];
+        }
         if (isset($map['PodUid'])) {
             $model->podUid = $map['PodUid'];
         }

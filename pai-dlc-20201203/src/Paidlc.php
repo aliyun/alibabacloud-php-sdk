@@ -864,6 +864,9 @@ class Paidlc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->isShared)) {
+            $query['IsShared'] = $request->isShared;
+        }
         if (!Utils::isUnset($request->podUid)) {
             $query['PodUid'] = $request->podUid;
         }
