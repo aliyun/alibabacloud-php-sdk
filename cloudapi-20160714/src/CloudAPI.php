@@ -371,6 +371,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetApisAuthoritiesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetApisAuthoritiesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetAppsAuthoritiesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetAppsAuthoritiesResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetAppsAuthToApiProductRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetAppsAuthToApiProductResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetDomainCertificateRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetDomainCertificateResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetDomainRequest;
@@ -10986,6 +10988,61 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setApisAuthoritiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetAppsAuthToApiProductRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetAppsAuthToApiProductResponse
+     */
+    public function setAppsAuthToApiProductWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiProductId)) {
+            $query['ApiProductId'] = $request->apiProductId;
+        }
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
+        }
+        if (!Utils::isUnset($request->authValidTime)) {
+            $query['AuthValidTime'] = $request->authValidTime;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetAppsAuthToApiProduct',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetAppsAuthToApiProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetAppsAuthToApiProductRequest $request
+     *
+     * @return SetAppsAuthToApiProductResponse
+     */
+    public function setAppsAuthToApiProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAppsAuthToApiProductWithOptions($request, $runtime);
     }
 
     /**
