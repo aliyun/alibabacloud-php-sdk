@@ -17,9 +17,15 @@ class ExportSwaggerRequest extends Model
      * @var string
      */
     public $dataFormat;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'apiUid'     => 'ApiUid',
-        'dataFormat' => 'DataFormat',
+        'apiUid'        => 'ApiUid',
+        'dataFormat'    => 'DataFormat',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class ExportSwaggerRequest extends Model
         }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class ExportSwaggerRequest extends Model
         }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;
