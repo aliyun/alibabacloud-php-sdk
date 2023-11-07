@@ -4,11 +4,32 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveRequest\certList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveRequest\subCorpIdList;
 use AlibabaCloud\Tea\Model;
 
 class GroupUserSaveRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $baseCityCode;
+
+    /**
+     * @var string
+     */
+    public $birthday;
+
+    /**
+     * @var certList[]
+     */
+    public $certList;
+
+    /**
+     * @var string
+     */
+    public $gender;
+
     /**
      * @example 1001
      *
@@ -47,6 +68,10 @@ class GroupUserSaveRequest extends Model
      */
     public $userName;
     protected $_name = [
+        'baseCityCode'  => 'base_city_code',
+        'birthday'      => 'birthday',
+        'certList'      => 'cert_list',
+        'gender'        => 'gender',
         'jobNo'         => 'job_no',
         'phone'         => 'phone',
         'realNameEn'    => 'real_name_en',
@@ -62,6 +87,24 @@ class GroupUserSaveRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseCityCode) {
+            $res['base_city_code'] = $this->baseCityCode;
+        }
+        if (null !== $this->birthday) {
+            $res['birthday'] = $this->birthday;
+        }
+        if (null !== $this->certList) {
+            $res['cert_list'] = [];
+            if (null !== $this->certList && \is_array($this->certList)) {
+                $n = 0;
+                foreach ($this->certList as $item) {
+                    $res['cert_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->gender) {
+            $res['gender'] = $this->gender;
+        }
         if (null !== $this->jobNo) {
             $res['job_no'] = $this->jobNo;
         }
@@ -98,6 +141,24 @@ class GroupUserSaveRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['base_city_code'])) {
+            $model->baseCityCode = $map['base_city_code'];
+        }
+        if (isset($map['birthday'])) {
+            $model->birthday = $map['birthday'];
+        }
+        if (isset($map['cert_list'])) {
+            if (!empty($map['cert_list'])) {
+                $model->certList = [];
+                $n               = 0;
+                foreach ($map['cert_list'] as $item) {
+                    $model->certList[$n++] = null !== $item ? certList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['gender'])) {
+            $model->gender = $map['gender'];
+        }
         if (isset($map['job_no'])) {
             $model->jobNo = $map['job_no'];
         }

@@ -5414,10 +5414,25 @@ class BtripOpen extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new GroupUserSaveShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->certList)) {
+            $request->certListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certList, 'cert_list', 'json');
+        }
         if (!Utils::isUnset($tmpReq->subCorpIdList)) {
             $request->subCorpIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subCorpIdList, 'sub_corp_id_list', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->baseCityCode)) {
+            $body['base_city_code'] = $request->baseCityCode;
+        }
+        if (!Utils::isUnset($request->birthday)) {
+            $body['birthday'] = $request->birthday;
+        }
+        if (!Utils::isUnset($request->certListShrink)) {
+            $body['cert_list'] = $request->certListShrink;
+        }
+        if (!Utils::isUnset($request->gender)) {
+            $body['gender'] = $request->gender;
+        }
         if (!Utils::isUnset($request->jobNo)) {
             $body['job_no'] = $request->jobNo;
         }
