@@ -54,7 +54,7 @@ class directoryStatistics extends Model
     public $directoryName;
 
     /**
-     * @description The number of groups.
+     * @description The number of user groups.
      *
      * @example 4
      *
@@ -63,7 +63,7 @@ class directoryStatistics extends Model
     public $groupCount;
 
     /**
-     * @description The quota for groups.
+     * @description The quota for user groups.
      *
      * @example 500
      *
@@ -101,8 +101,8 @@ class directoryStatistics extends Model
     /**
      * @description Indicates whether SCIM synchronization is enabled. Valid values:
      *
-     *   true: SCIM synchronization is enabled.
-     *   false: SCIM synchronization is disabled.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -111,10 +111,10 @@ class directoryStatistics extends Model
     public $SCIMSyncEnabled;
 
     /**
-     * @description Indicates whether SSO logon is enabled. Valid values:
+     * @description Indicates whether SSO is enabled. Valid values:
      *
-     *   true: SSO logon is enabled.
-     *   false: SSO logon is disabled.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -123,6 +123,10 @@ class directoryStatistics extends Model
     public $SSOEnabled;
 
     /**
+     * @description The quota for system policies that can be configured for an access configuration.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $systemPolicyPerAccessConfigurationQuota;

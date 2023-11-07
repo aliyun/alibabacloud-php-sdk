@@ -17,7 +17,7 @@ class GetDirectoryStatisticsResponseBody extends Model
     public $directoryStatistics;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7B7228B0-A435-5D27-A6B2-ED3571F0654B
      *
