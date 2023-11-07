@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataArchiveCountRequest extends Model
 {
     /**
+     * @description The type of the identity. Default value: AS_ADMIN.
+     *
      * @example AS_ADMIN
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDataArchiveCountRequest extends Model
     public $orderResultType;
 
     /**
+     * @description The plugin type. Default value: DATA_ARCHIVE.
+     *
      * @example DATA_ARCHIVE
      *
      * @var string
@@ -23,6 +27,8 @@ class GetDataArchiveCountRequest extends Model
     public $pluginType;
 
     /**
+     * @description The time when the ticket is modified or created. The statistics of data archiving tickets are calculated based on the creation time.
+     *
      * @example CREATE_TIME
      *
      * @var string
@@ -30,6 +36,9 @@ class GetDataArchiveCountRequest extends Model
     public $searchDateType;
 
     /**
+     * @description The tenant ID.
+     *
+     * >  To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
      * @example 2****
      *
      * @var int

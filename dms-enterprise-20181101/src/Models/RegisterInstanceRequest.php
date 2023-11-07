@@ -53,6 +53,11 @@ class RegisterInstanceRequest extends Model
     public $dbaUid;
 
     /**
+     * @var string
+     */
+    public $dbaUidByString;
+
+    /**
      * @description Specifies whether to enable the lock-free schema change feature for the database instance. Valid values:
      *
      *   **0**: disables the lock-free schema change feature.
@@ -279,6 +284,7 @@ class RegisterInstanceRequest extends Model
         'databasePassword' => 'DatabasePassword',
         'databaseUser'     => 'DatabaseUser',
         'dbaUid'           => 'DbaUid',
+        'dbaUidByString'   => 'DbaUidByString',
         'ddlOnline'        => 'DdlOnline',
         'ecsInstanceId'    => 'EcsInstanceId',
         'ecsRegion'        => 'EcsRegion',
@@ -320,6 +326,9 @@ class RegisterInstanceRequest extends Model
         }
         if (null !== $this->dbaUid) {
             $res['DbaUid'] = $this->dbaUid;
+        }
+        if (null !== $this->dbaUidByString) {
+            $res['DbaUidByString'] = $this->dbaUidByString;
         }
         if (null !== $this->ddlOnline) {
             $res['DdlOnline'] = $this->ddlOnline;
@@ -407,6 +416,9 @@ class RegisterInstanceRequest extends Model
         }
         if (isset($map['DbaUid'])) {
             $model->dbaUid = $map['DbaUid'];
+        }
+        if (isset($map['DbaUidByString'])) {
+            $model->dbaUidByString = $map['DbaUidByString'];
         }
         if (isset($map['DdlOnline'])) {
             $model->ddlOnline = $map['DdlOnline'];

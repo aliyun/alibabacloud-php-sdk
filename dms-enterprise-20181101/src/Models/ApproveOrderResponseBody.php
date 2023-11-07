@@ -27,7 +27,7 @@ class ApproveOrderResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
      *
@@ -36,10 +36,10 @@ class ApproveOrderResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Indicates whether the request is successful. Valid values:
      *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

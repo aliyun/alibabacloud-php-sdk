@@ -12,6 +12,8 @@ class databaseExportOrderDetail extends Model
     /**
      * @description The business background information of the database export ticket.
      *
+     * @example test
+     *
      * @var string
      */
     public $comment;
@@ -71,12 +73,16 @@ class databaseExportOrderDetail extends Model
     /**
      * @description The status description of the ticket.
      *
+     * @example ticket approval
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
      * @description The status description of the workflow.
+     *
+     * @example ticket approval
      *
      * @var string
      */

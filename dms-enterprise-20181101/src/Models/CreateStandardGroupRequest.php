@@ -20,12 +20,16 @@ class CreateStandardGroupRequest extends Model
     /**
      * @description The description of the security rule set.
      *
+     * @example test_rule
+     *
      * @var string
      */
     public $description;
 
     /**
      * @description The name of the security rule set.
+     *
+     * @example test_group
      *
      * @var string
      */

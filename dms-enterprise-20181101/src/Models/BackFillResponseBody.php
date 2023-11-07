@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BackFillResponseBody extends Model
 {
     /**
+     * @description The ID of the execution record of the task flow.
+     *
      * @example 47****
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nextFireTimeResult extends Model
 {
     /**
+     * @description The type of scheduled triggering.
+     *
      * @example NOT_SET
      *
      * @var string

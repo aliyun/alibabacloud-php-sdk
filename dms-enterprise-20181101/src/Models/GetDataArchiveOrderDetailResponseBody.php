@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataArchiveOrderDetailResponseBody extends Model
 {
     /**
+     * @description The details of data archiving tickets.
+     *
      * @var dataArchiveOrderDetail
      */
     public $dataArchiveOrderDetail;
 
     /**
+     * @description The error code returned if the call failed.
+     *
      * @example NoPermission
      *
      * @var string
@@ -22,6 +26,8 @@ class GetDataArchiveOrderDetailResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message that is returned if the request failed.
+     *
      * @example User [199295823****] not exist
      *
      * @var string
@@ -29,6 +35,8 @@ class GetDataArchiveOrderDetailResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request, which is used to query logs and troubleshoot issues.
+     *
      * @example 4161CE36-28DF-5191-8A6F-A17076A0B124
      *
      * @var string
@@ -36,6 +44,11 @@ class GetDataArchiveOrderDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +56,8 @@ class GetDataArchiveOrderDetailResponseBody extends Model
     public $success;
 
     /**
+     * @description Tracks service requests.
+     *
      * @example 0a06e1e316757357507896067d3780
      *
      * @var string

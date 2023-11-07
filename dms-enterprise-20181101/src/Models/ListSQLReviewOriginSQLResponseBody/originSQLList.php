@@ -115,6 +115,8 @@ class originSQLList extends Model
     /**
      * @description The description of the review status.
      *
+     * @example passed the test
+     *
      * @var string
      */
     public $statusDesc;

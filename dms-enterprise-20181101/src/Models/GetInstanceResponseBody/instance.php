@@ -122,6 +122,8 @@ class instance extends Model
     /**
      * @description The alias of the database instance.
      *
+     * @example test
+     *
      * @var string
      */
     public $instanceAlias;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class dbBaseInfo extends Model
 {
     /**
+     * @description The alias of the database instance.
+     *
      * @example tf-testAccDMSEnterpriseLogicDatabase853****
      *
      * @var string
@@ -17,6 +19,8 @@ class dbBaseInfo extends Model
     public $alias;
 
     /**
+     * @description The timeout period of queries on the database.
+     *
      * @example 600
      *
      * @var int
@@ -24,6 +28,11 @@ class dbBaseInfo extends Model
     public $alterTimeout;
 
     /**
+     * @description Indicates whether access control is enabled for data assets. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -31,6 +40,8 @@ class dbBaseInfo extends Model
     public $assetControl;
 
     /**
+     * @description The name of the instance in the instance list.
+     *
      * @example test
      *
      * @var string
@@ -38,6 +49,8 @@ class dbBaseInfo extends Model
     public $catalogName;
 
     /**
+     * @description Indicates whether the instance is added to the DMS whitelist.
+     *
      * @example whitelist_done
      *
      * @var string
@@ -45,6 +58,9 @@ class dbBaseInfo extends Model
     public $clusterNode;
 
     /**
+     * @description The ID of the database. You can call the [SearchDatabase](~~141876~~) operation to query the ID of the database.
+     *
+     * >  You can call the [ListDatabases](~~141873~~) operation to query the ID of a physical database or the [ListLogicDatabases](~~141874~~) operation to query the ID of a logical database.
      * @example 348****
      *
      * @var int
@@ -52,6 +68,8 @@ class dbBaseInfo extends Model
     public $dbId;
 
     /**
+     * @description The type of the database. For information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
      * @example MySQL
      *
      * @var string
@@ -59,6 +77,8 @@ class dbBaseInfo extends Model
     public $dbType;
 
     /**
+     * @description The ID of the database administrator (DBA) of the instance.
+     *
      * @example 16****
      *
      * @var int
@@ -66,6 +86,8 @@ class dbBaseInfo extends Model
     public $dbaId;
 
     /**
+     * @description The nickname of the DBA of the instance.
+     *
      * @example DBA
      *
      * @var string
@@ -73,11 +95,17 @@ class dbBaseInfo extends Model
     public $dbaName;
 
     /**
+     * @description The complete endpoint of the database.
+     *
+     * @example test@rm-2ze756u8837****.mysql.rds.aliyuncs.com:3306 [test]
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The encoding format of the database.
+     *
      * @example utf8
      *
      * @var string
@@ -85,6 +113,17 @@ class dbBaseInfo extends Model
     public $encoding;
 
     /**
+     * @description The type of the environment to which the database belongs. Valid values:
+     *
+     *   **product**: production environment
+     *   **dev**: development environment
+     *   **pre**: staging environment
+     *   **test**: test environment
+     *   **sit**: system integration testing (SIT) environment
+     *   **uat**: user acceptance testing (UAT) environment
+     *   **pet**: stress testing environment
+     *   **stag**: STAG environment
+     *
      * @example product
      *
      * @var string
@@ -92,6 +131,11 @@ class dbBaseInfo extends Model
     public $envType;
 
     /**
+     * @description Indicates whether the instance needs special attention. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -99,6 +143,8 @@ class dbBaseInfo extends Model
     public $follow;
 
     /**
+     * @description The endpoint that is used to connect to the database.
+     *
      * @example rm-2ze756u8837****.mysql.rds.aliyuncs.com
      *
      * @var string
@@ -106,6 +152,8 @@ class dbBaseInfo extends Model
     public $host;
 
     /**
+     * @description The region in which the database instance resides.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -113,6 +161,8 @@ class dbBaseInfo extends Model
     public $idc;
 
     /**
+     * @description The name of the region in which the database instance resides.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -120,6 +170,8 @@ class dbBaseInfo extends Model
     public $idcTitle;
 
     /**
+     * @description The ID of the instance to which the database belongs.
+     *
      * @example 175****
      *
      * @var int
@@ -127,6 +179,14 @@ class dbBaseInfo extends Model
     public $instanceId;
 
     /**
+     * @description The source of the database instance.Valid values:
+     *
+     *   **RDS**: an ApsaraDB RDS instance.
+     *   **ECS_OWN**: a self-managed database deployed on an Elastic Compute Service (ECS) instance.
+     *   **PUBLIC_OWN**: a self-managed database instance that is connected over the Internet.
+     *   **VPC_ID**: a self-managed database instance in a virtual private cloud (VPC) that is connected over Express Connect circuits.
+     *   **GATEWAY**: a database instance connected by using a database gateway.
+     *
      * @example RDS
      *
      * @var string
@@ -134,6 +194,8 @@ class dbBaseInfo extends Model
     public $instanceSource;
 
     /**
+     * @description The time when the database information was last obtained.
+     *
      * @example 2023-05-14 18:34:45
      *
      * @var string
@@ -141,11 +203,20 @@ class dbBaseInfo extends Model
     public $lastSyncTime;
 
     /**
+     * @description The instance level.
+     *
+     * @example medium
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description Indicates whether the database is logical. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -153,16 +224,23 @@ class dbBaseInfo extends Model
     public $logic;
 
     /**
+     * @description The IDs of the owners of the databases, which are stored as an array. You can call the [GetUser](~~147098~~) or [ListUsers](~~141938~~) operation to query the IDs of the owners.
+     *
+     * >  The value of OwnerIds is the same as the value of UserId
      * @var int[]
      */
     public $ownerIds;
 
     /**
+     * @description The usernames of the database owners.
+     *
      * @var string[]
      */
     public $ownerNames;
 
     /**
+     * @description The port that is used to connect to the database.
+     *
      * @example 3306
      *
      * @var int
@@ -170,6 +248,8 @@ class dbBaseInfo extends Model
     public $port;
 
     /**
+     * @description The name of the database.
+     *
      * @example test
      *
      * @var string
@@ -177,6 +257,8 @@ class dbBaseInfo extends Model
     public $schemaName;
 
     /**
+     * @description The name that is used to search for the database.
+     *
      * @example test@rm-2ze756u8837****.mysql.rds.aliyuncs.com:3306 [test]
      *
      * @var string
@@ -184,11 +266,20 @@ class dbBaseInfo extends Model
     public $searchName;
 
     /**
+     * @description The details of the control mode of the instance.
+     *
      * @var standardGroup
      */
     public $standardGroup;
 
     /**
+     * @description The status of the database. Valid values:
+     *
+     *   **NORMAL**: The database is running as expected.
+     *   **DISABLE**: The database is disabled.
+     *   **OFFLINE**: The database is unpublished.
+     *   **NOT_EXIST**: The database does not exist.
+     *
      * @example NORMAL
      *
      * @var string
@@ -196,6 +287,8 @@ class dbBaseInfo extends Model
     public $state;
 
     /**
+     * @description The number of tables.
+     *
      * @example 201
      *
      * @var int
@@ -203,6 +296,8 @@ class dbBaseInfo extends Model
     public $tableCount;
 
     /**
+     * @description The name of TNS.
+     *
      * @example TNS_4010
      *
      * @var string
@@ -210,6 +305,8 @@ class dbBaseInfo extends Model
     public $tnsName;
 
     /**
+     * @description The unit type.
+     *
      * @example -1
      *
      * @var string

@@ -49,6 +49,8 @@ class proxyAccessList extends Model
      *
      * - **Authorization by the Alibaba Cloud Account ()**: The information in the parentheses () indicates the user ID (UID) of the Alibaba Cloud account.
      * - **Authorization by submitting the ticket ()**:The information in the parentheses () indicates the number of the ticket that the user submits to apply for permissions.
+     * @example Authorization by the Alibaba Cloud Account(29490401597700****)
+     *
      * @var string
      */
     public $originInfo;

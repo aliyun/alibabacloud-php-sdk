@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class orderBaseInfo extends Model
 {
     /**
+     * @description The Key of the ticket attachment. This information is returned only when an attachment is uploaded when a ticket is created.
+     *
+     * @example upload_order_info_856887_f356366f-f0f8-42fc-ba57-4a509303e814_18072d8a9bce876e3073bc655c2865f.png
+     *
      * @var string
      */
     public $attachmentKey;
@@ -70,6 +74,10 @@ class orderBaseInfo extends Model
     public $orderId;
 
     /**
+     * @description The original file name of the ticket attachment. This information is returned only when an attachment is uploaded when a ticket is created.
+     *
+     * @example 18072d8a9bce876e3073bc655c2865f.png
+     *
      * @var string
      */
     public $originAttachmentName;

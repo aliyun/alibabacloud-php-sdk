@@ -20,12 +20,16 @@ class task extends Model
     /**
      * @description The advanced configuration for the node.
      *
+     * @example {     "rerun":{    "rerunEnable":true,      "rerunCount":1,   "rerunInterval":10 //  }}
+     *
      * @var string
      */
     public $nodeConfig;
 
     /**
      * @description The configuration for the node.
+     *
+     * @example {     "dbId":123***,  "sql":"",    "dbType":"polardb" }
      *
      * @var string
      */
@@ -52,6 +56,8 @@ class task extends Model
     /**
      * @description The output variables for the task.
      *
+     * @example {  "outputs":[{ { "row":0, "column":-1,                  "combiner":"," }            "extractMethod":"{\"row\":0,\"column\":-1,\"combiner\":\",\"}",         "variableName":"var",    "description":"For demo"} ] }
+     *
      * @var string
      */
     public $nodeOutput;
@@ -67,6 +73,8 @@ class task extends Model
 
     /**
      * @description The time variables configured for the node.
+     *
+     * @example {\"variables\":[{\"name\":\"test1\",\"pattern\":\"yyyy-MM-dd
      *
      * @var string
      */

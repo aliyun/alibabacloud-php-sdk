@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableIncludes extends Model
 {
     /**
+     * @description The name of the table.
+     *
      * @example tm_insured_cb
      *
      * @var string
@@ -16,6 +18,10 @@ class tableIncludes extends Model
     public $tableName;
 
     /**
+     * @description The filter conditions.
+     *
+     * @example id<1000 or gmt_create<\"2023-05-14 16:00:57\"
+     *
      * @var string
      */
     public $tableWhere;

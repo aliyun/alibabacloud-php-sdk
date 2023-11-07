@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class preCheckResult extends Model
 {
     /**
+     * @description Specifies whether to skip verification. Valid values:
+     *
+     * - false
      * @example true
      *
      * @var bool
@@ -17,6 +20,8 @@ class preCheckResult extends Model
     public $ignoreAffectRows;
 
     /**
+     * @description The list of pre-check details.
+     *
      * @var preCheckDetailList
      */
     public $preCheckDetailList;

@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemResponseBody\authorityTemplateItemList;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorityTemplateResponseBody\authorityTemplateViewList;
 use AlibabaCloud\Tea\Model;
 
-class GetAuthorityTemplateItemResponseBody extends Model
+class ListAuthorityTemplateResponseBody extends Model
 {
     /**
-     * @description The permission templates.
-     *
-     * @var authorityTemplateItemList
+     * @var authorityTemplateViewList
      */
-    public $authorityTemplateItemList;
+    public $authorityTemplateViewList;
 
     /**
-     * @description The error code.
-     *
      * @example UnknownError
      *
      * @var string
@@ -26,8 +22,6 @@ class GetAuthorityTemplateItemResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
-     *
      * @example UnknownError
      *
      * @var string
@@ -35,20 +29,13 @@ class GetAuthorityTemplateItemResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 5B96E35F-A58E-5399-9041-09CF9A1E46EA
+     * @example 31853A2B-DC9D-5B39-8492-D2AC8BCF550E
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool
@@ -56,20 +43,26 @@ class GetAuthorityTemplateItemResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the tenant.
-     *
      * @example 3***
      *
      * @var int
      */
     public $tid;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'authorityTemplateItemList' => 'AuthorityTemplateItemList',
+        'authorityTemplateViewList' => 'AuthorityTemplateViewList',
         'errorCode'                 => 'ErrorCode',
         'errorMessage'              => 'ErrorMessage',
         'requestId'                 => 'RequestId',
         'success'                   => 'Success',
         'tid'                       => 'Tid',
+        'totalCount'                => 'TotalCount',
     ];
 
     public function validate()
@@ -79,8 +72,8 @@ class GetAuthorityTemplateItemResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->authorityTemplateItemList) {
-            $res['AuthorityTemplateItemList'] = null !== $this->authorityTemplateItemList ? $this->authorityTemplateItemList->toMap() : null;
+        if (null !== $this->authorityTemplateViewList) {
+            $res['AuthorityTemplateViewList'] = null !== $this->authorityTemplateViewList ? $this->authorityTemplateViewList->toMap() : null;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -97,6 +90,9 @@ class GetAuthorityTemplateItemResponseBody extends Model
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
 
         return $res;
     }
@@ -104,13 +100,13 @@ class GetAuthorityTemplateItemResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetAuthorityTemplateItemResponseBody
+     * @return ListAuthorityTemplateResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuthorityTemplateItemList'])) {
-            $model->authorityTemplateItemList = authorityTemplateItemList::fromMap($map['AuthorityTemplateItemList']);
+        if (isset($map['AuthorityTemplateViewList'])) {
+            $model->authorityTemplateViewList = authorityTemplateViewList::fromMap($map['AuthorityTemplateViewList']);
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
@@ -126,6 +122,9 @@ class GetAuthorityTemplateItemResponseBody extends Model
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -21,7 +21,7 @@ class instance extends Model
     public $dataLinkName;
 
     /**
-     * @description The password that is used to log on to the database.
+     * @description The password that is used to log on to the database instance.
      *
      * @example ******
      *
@@ -39,7 +39,7 @@ class instance extends Model
     public $databaseUser;
 
     /**
-     * @description The ID of the database administrator (DBA) for the database instance.
+     * @description The ID of the database administrator (DBA) of the database instance.
      *
      * @example 31****
      *
@@ -48,7 +48,7 @@ class instance extends Model
     public $dbaId;
 
     /**
-     * @description The nickname of the DBA for the database instance.
+     * @description The nickname of the DBA of the instance.
      *
      * @example dbaName
      *
@@ -86,14 +86,14 @@ class instance extends Model
     /**
      * @description The type of the environment to which the database instance belongs. Valid values:
      *
-     *   **product**: production environment
+     *   **product:** production environment
      *   **dev**: development environment
-     *   **pre**: staging environment
+     *   **pre**: pre-release environment
      *   **test**: test environment
      *   **sit**: SIT environment
      *   **uat**: UAT environment
      *   **pet**: stress testing environment
-     *   **stag**: STAG environment
+     *   **stag:** staging environment
      *
      * @example product
      *
@@ -129,7 +129,7 @@ class instance extends Model
     public $instanceAlias;
 
     /**
-     * @description The ID of the database instance.
+     * @description The ID of the instance.
      *
      * @example 150***
      *
@@ -156,14 +156,14 @@ class instance extends Model
     public $instanceType;
 
     /**
-     * @description The ID of the owner for the database instance.
+     * @description The IDs of the owners of the database instance.
      *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
-     * @description The nickname of the owner for the database instance.
+     * @description The nicknames of the owners of the database instance.
      *
      * @var ownerNameList
      */
@@ -188,7 +188,7 @@ class instance extends Model
     public $queryTimeout;
 
     /**
-     * @description The ID of the security rule set for the database instance.
+     * @description The ID of the security rule set of the database instance.
      *
      * @example 1
      *
@@ -197,6 +197,11 @@ class instance extends Model
     public $safeRuleId;
 
     /**
+     * @description Indicates whether the sensitive data protection feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -232,7 +237,7 @@ class instance extends Model
      * @description Indicates whether the cross-database query feature is enabled for the database instance. Valid values:
      *
      *   **0**: disabled
-     *   **1**: enabled
+     *   **1:**: enabled
      *
      * @example 1
      *

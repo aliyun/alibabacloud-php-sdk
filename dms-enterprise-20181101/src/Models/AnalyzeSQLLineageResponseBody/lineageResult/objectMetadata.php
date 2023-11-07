@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class objectMetadata extends Model
 {
     /**
+     * @description The fields in the metatable.
+     *
      * @var fields[]
      */
     public $fields;
 
     /**
+     * @description The object name.
+     *
      * @example a
      *
      * @var string
@@ -22,6 +26,11 @@ class objectMetadata extends Model
     public $name;
 
     /**
+     * @description The source of metadata. Valid values:
+     *
+     *   **DDL**: The metadata comes from parsed SQL statements or definition of databases and tables collected by DMS.
+     *   **LINEAGE**: The metadata comes from lineage analysis results.
+     *
      * @example DDL
      *
      * @var string
@@ -29,6 +38,12 @@ class objectMetadata extends Model
     public $source;
 
     /**
+     * @description The object type. Valid values:
+     *
+     *   **TABLE**
+     *   **VIEW**
+     *   **TMP_TABLE**
+     *
      * @example TABLE
      *
      * @var string

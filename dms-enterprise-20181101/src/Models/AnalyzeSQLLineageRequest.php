@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AnalyzeSQLLineageRequest extends Model
 {
     /**
+     * @description The database ID.
+     *
+     * >  You can call one of the [SearchDatabase](~~141876~~), [ListDatabases](~~141873~~), and [GetDatabase](~~141869~~) operations to obtain the database ID provided in the DatabaseId response parameter.
      * @example 123***
      *
      * @var int
@@ -16,6 +19,8 @@ class AnalyzeSQLLineageRequest extends Model
     public $dbId;
 
     /**
+     * @description The SQL statement.
+     *
      * @example insert into a (id) select id from b;
      *
      * @var string
@@ -23,6 +28,9 @@ class AnalyzeSQLLineageRequest extends Model
     public $sqlContent;
 
     /**
+     * @description The tenant ID.
+     *
+     * >  To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
      * @example 3***
      *
      * @var int

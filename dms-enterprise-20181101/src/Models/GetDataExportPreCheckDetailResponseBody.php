@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataExportPreCheckDetailResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class GetDataExportPreCheckDetailResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,11 +28,15 @@ class GetDataExportPreCheckDetailResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description Indicates the result of the precheck task.
+     *
      * @var preCheckResult
      */
     public $preCheckResult;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C1D39814-9808-47F8-AFE0-AF167239AC9B
      *
      * @var string
@@ -36,6 +44,11 @@ class GetDataExportPreCheckDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

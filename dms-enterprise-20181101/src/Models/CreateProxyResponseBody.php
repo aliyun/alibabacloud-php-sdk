@@ -20,6 +20,8 @@ class CreateProxyResponseBody extends Model
     /**
      * @description The error message returned.
      *
+     * @example the instance proxy already exists.
+     *
      * @var string
      */
     public $errorMessage;

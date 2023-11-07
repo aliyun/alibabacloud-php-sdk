@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class lineageResult extends Model
 {
     /**
+     * @description The details about the lineage.
+     *
      * @var lineages[]
      */
     public $lineages;
 
     /**
+     * @description The table and field metadata information.
+     *
      * @var objectMetadata[]
      */
     public $objectMetadata;

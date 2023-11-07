@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dagInfo extends Model
 {
     /**
+     * @description The ID of the user who created the task flow.
+     *
      * @example 59****
      *
      * @var string
@@ -16,6 +18,8 @@ class dagInfo extends Model
     public $creatorId;
 
     /**
+     * @description The start time for scheduling. The task flow is not scheduled before this point in time.
+     *
      * @example 1970-01-01
      *
      * @var string
@@ -23,6 +27,8 @@ class dagInfo extends Model
     public $cronBeginDate;
 
     /**
+     * @description The end time for scheduling. The task flow is not scheduled after this point in time.
+     *
      * @example 9999-01-01
      *
      * @var string
@@ -30,6 +36,11 @@ class dagInfo extends Model
     public $cronEndDate;
 
     /**
+     * @description Indicates whether the archiving task is a scheduled task. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +48,9 @@ class dagInfo extends Model
     public $cronTrigger;
 
     /**
+     * @description Indicates whether the task is used to develop warehouses.
+     *
+     * >  This field is a retained field that is not in use.
      * @example false
      *
      * @var bool
@@ -44,6 +58,8 @@ class dagInfo extends Model
     public $DWDevelop;
 
     /**
+     * @description The name of the workflow.
+     *
      * @example data-archive-9099197
      *
      * @var string
@@ -51,6 +67,8 @@ class dagInfo extends Model
     public $dagName;
 
     /**
+     * @description The ID of the owner of the workflow.
+     *
      * @example 13****
      *
      * @var string
@@ -58,6 +76,8 @@ class dagInfo extends Model
     public $dagOwnerId;
 
     /**
+     * @description The ID of the deployment record.
+     *
      * @example 93***
      *
      * @var int
@@ -65,6 +85,8 @@ class dagInfo extends Model
     public $deployId;
 
     /**
+     * @description The description of the workflow.
+     *
      * @example order id:9099197
      *
      * @var string
@@ -72,6 +94,8 @@ class dagInfo extends Model
     public $description;
 
     /**
+     * @description The ID of the editable workflow version.
+     *
      * @example 24***
      *
      * @var int
@@ -79,6 +103,8 @@ class dagInfo extends Model
     public $editDagId;
 
     /**
+     * @description The time when the workflow was created.
+     *
      * @example 2023-05-15 16:00:48
      *
      * @var string
@@ -86,6 +112,8 @@ class dagInfo extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the workflow was last modified.
+     *
      * @example 2023-06-15 16:00:48
      *
      * @var string
@@ -93,6 +121,8 @@ class dagInfo extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the task flow.
+     *
      * @example 24***
      *
      * @var int
@@ -100,6 +130,11 @@ class dagInfo extends Model
     public $id;
 
     /**
+     * @description Indicates whether the workflow is public. Valid values:
+     *
+     *   **0**: not public.
+     *   **1**: public.
+     *
      * @example 0
      *
      * @var int
@@ -107,6 +142,11 @@ class dagInfo extends Model
     public $isPublic;
 
     /**
+     * @description Indicates whether the task is a historical task. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -114,6 +154,11 @@ class dagInfo extends Model
     public $legacy;
 
     /**
+     * @description Indicates whether the task was created by the system. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -121,6 +166,8 @@ class dagInfo extends Model
     public $system;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 5***
      *
      * @var string
@@ -128,6 +175,11 @@ class dagInfo extends Model
     public $tenantId;
 
     /**
+     * @description Indicates whether the workflow is triggered to run once. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool

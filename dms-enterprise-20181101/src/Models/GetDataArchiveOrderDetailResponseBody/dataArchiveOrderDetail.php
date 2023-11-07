@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class dataArchiveOrderDetail extends Model
 {
     /**
+     * @description The description of the data archiving tickets.
+     *
      * @example Archiving of test results
      *
      * @var string
@@ -18,6 +20,8 @@ class dataArchiveOrderDetail extends Model
     public $comment;
 
     /**
+     * @description The user who submitted the ticket.
+     *
      * @example dmstest
      *
      * @var string
@@ -25,6 +29,8 @@ class dataArchiveOrderDetail extends Model
     public $committer;
 
     /**
+     * @description The ID of the user who submitted the ticket. The ID is a user ID and not the ID of an Alibaba Cloud account.
+     *
      * @example 26***
      *
      * @var int
@@ -32,6 +38,8 @@ class dataArchiveOrderDetail extends Model
     public $committerId;
 
     /**
+     * @description The time when the ticket was created.
+     *
      * @example 2023-05-15 16:00:48
      *
      * @var string
@@ -39,6 +47,8 @@ class dataArchiveOrderDetail extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the ticket was last modified.
+     *
      * @example 2023-05-23 16:00:48
      *
      * @var string
@@ -46,6 +56,8 @@ class dataArchiveOrderDetail extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of data archiving tickets.
+     *
      * @example 868****
      *
      * @var int
@@ -53,16 +65,22 @@ class dataArchiveOrderDetail extends Model
     public $id;
 
     /**
+     * @description The additional information about the ticket.
+     *
      * @var pluginExtraData
      */
     public $pluginExtraData;
 
     /**
+     * @description The ticket creation parameter. The value is a JSON string. For more information, see [PluginType parameter](~~429109~~).
+     *
      * @var pluginParam
      */
     public $pluginParam;
 
     /**
+     * @description The plug-in type that corresponds to the type of the ticket. The plug-in type for data archiving is DATA_ARCHIVE. For more information, see [PluginType parameter](~~429109~~).
+     *
      * @example DATA_ARCHIVE
      *
      * @var string
@@ -70,16 +88,30 @@ class dataArchiveOrderDetail extends Model
     public $pluginType;
 
     /**
+     * @description The user IDs related to the ticket.
+     *
      * @var int[]
      */
     public $relatedUserList;
 
     /**
+     * @description The nicknames of the users that are related to the ticket.
+     *
      * @var string[]
      */
     public $relatedUserNickList;
 
     /**
+     * @description The status code of the ticket. Valid values:
+     *
+     *   **new**: newly created.
+     *   **toaudit**: being reviewed.
+     *   **Approved**: approved.
+     *   **reject**: rejected.
+     *   **processing**: being executed.
+     *   **Success**: successful.
+     *   **closed**: disabled.
+     *
      * @example processing
      *
      * @var string
@@ -87,11 +119,17 @@ class dataArchiveOrderDetail extends Model
     public $statusCode;
 
     /**
+     * @description The status description of the ticket.
+     *
+     * @example a ticket task is being executed.
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @description The ID of the approval process. You can call the [GetOrderBaseInfo](~~144642~~) operation to obtain the ID of the approval process.
+     *
      * @example 29****
      *
      * @var int
@@ -99,6 +137,10 @@ class dataArchiveOrderDetail extends Model
     public $workflowInstanceId;
 
     /**
+     * @description The description of the approval process.
+     *
+     * @example approved
+     *
      * @var string
      */
     public $workflowStatusDesc;

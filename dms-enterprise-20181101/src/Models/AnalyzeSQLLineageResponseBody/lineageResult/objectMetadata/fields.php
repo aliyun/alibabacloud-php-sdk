@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fields extends Model
 {
     /**
+     * @description The name of the field.
+     *
      * @example dmstest.a.id
      *
      * @var string

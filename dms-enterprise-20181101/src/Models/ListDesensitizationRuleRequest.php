@@ -47,6 +47,8 @@ class ListDesensitizationRuleRequest extends Model
     /**
      * @description The name of the masking rule.
      *
+     * @example default desensitization rule test
+     *
      * @var string
      */
     public $ruleName;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AnalyzeSQLLineageResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class AnalyzeSQLLineageResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,11 +28,15 @@ class AnalyzeSQLLineageResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description Returned data set of SQL lineage.
+     *
      * @var lineageResult
      */
     public $lineageResult;
 
     /**
+     * @description The request ID.
+     *
      * @example B4B07137-F6AE-4756-8474-7F92BB6C4E04
      *
      * @var string
@@ -36,6 +44,11 @@ class AnalyzeSQLLineageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

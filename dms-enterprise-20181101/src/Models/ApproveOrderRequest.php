@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ApproveOrderRequest extends Model
 {
     /**
+     * @description If ApprovalType is set to ADD_APPROVAL_NODE, you need to specify this parameter. The ID of the user that is added as the new approval node. This node must be a user-defined approval node. You can call the ListUserDefineWorkFlowNodes operation to obtain the value of this parameter.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $approvalNodeId;
 
     /**
+     * @description If ApprovalType is set to ADD_APPROVAL_NODE, you need to specify this parameter. The position of the new approval node. Valid values:
+     *
+     *   **PRE_ADD_APPROVAL_NODE**: before the current approval node.
+     *   **POST_ADD_APPROVAL_NODE**: after the current approval node.
+     *
+     * @example POST_ADD_APPROVAL_NODE
+     *
      * @var string
      */
     public $approvalNodePos;
@@ -21,9 +32,11 @@ class ApproveOrderRequest extends Model
     /**
      * @description The action that you want to perform on the ticket. Valid values:
      *
-     *   AGREE: approve
-     *   CANCEL: cancel
-     *   REJECT: reject
+     *   **AGREE**
+     *   **CANCEL**
+     *   **REJECT**
+     *   **TRANSFER**
+     *   **ADD_APPROVAL_NODE**
      *
      * @example agree
      *
@@ -41,11 +54,19 @@ class ApproveOrderRequest extends Model
     public $comment;
 
     /**
+     * @description The ID of the user to which the ticket is transferred. If ApprovalType is set to TRANSFER, you need to specify this parameter.
+     *
+     * @example 12***
+     *
      * @var int
      */
     public $newApprover;
 
     /**
+     * @description The ID of the user that transfers the ticket to another user. The default value is the ID of the current user. If the current user is an administrator or a database administrator (DBA), the user can change the value of this parameter to the ID of another user.
+     *
+     * @example 23***
+     *
      * @var int
      */
     public $oldApprover;

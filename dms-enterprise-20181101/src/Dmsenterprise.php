@@ -95,6 +95,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadFileJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAuthorityTemplateRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAuthorityTemplateResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLakeHouseSpaceRequest;
@@ -261,6 +263,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorityTemplateRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorityTemplateResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListClassificationTemplatesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListClassificationTemplatesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsRequest;
@@ -753,10 +757,14 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param AnalyzeSQLLineageRequest $request
-     * @param RuntimeOptions           $runtime
+     * The following conditions must be met before you call this API operation.
+     *   * *   The database instance is of one of the following types: ApsaraDB RDS for MySQL, PolarDB for MySQL, AnalyticDB for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for PostgreSQL, AnalyticDB for PostgreSQL, Oracle, and openGauss.
+     *   * *   A database instance is managed in Security Collaboration mode. For more information about control modes, see [Control modes](~~151629~~).
+     *   *
+     * @param AnalyzeSQLLineageRequest $request AnalyzeSQLLineageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AnalyzeSQLLineageResponse
+     * @return AnalyzeSQLLineageResponse AnalyzeSQLLineageResponse
      */
     public function analyzeSQLLineageWithOptions($request, $runtime)
     {
@@ -790,9 +798,13 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param AnalyzeSQLLineageRequest $request
+     * The following conditions must be met before you call this API operation.
+     *   * *   The database instance is of one of the following types: ApsaraDB RDS for MySQL, PolarDB for MySQL, AnalyticDB for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for PostgreSQL, AnalyticDB for PostgreSQL, Oracle, and openGauss.
+     *   * *   A database instance is managed in Security Collaboration mode. For more information about control modes, see [Control modes](~~151629~~).
+     *   *
+     * @param AnalyzeSQLLineageRequest $request AnalyzeSQLLineageRequest
      *
-     * @return AnalyzeSQLLineageResponse
+     * @return AnalyzeSQLLineageResponse AnalyzeSQLLineageResponse
      */
     public function analyzeSQLLineage($request)
     {
@@ -2711,6 +2723,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUploadOSSFileJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAuthorityTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAuthorityTemplateResponse
+     */
+    public function deleteAuthorityTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAuthorityTemplate',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAuthorityTemplateRequest $request
+     *
+     * @return DeleteAuthorityTemplateResponse
+     */
+    public function deleteAuthorityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAuthorityTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -6698,6 +6756,58 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListAuthorityTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAuthorityTemplateResponse
+     */
+    public function listAuthorityTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthorityTemplate',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAuthorityTemplateRequest $request
+     *
+     * @return ListAuthorityTemplateResponse
+     */
+    public function listAuthorityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorityTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListClassificationTemplatesRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -10013,6 +10123,9 @@ class Dmsenterprise extends OpenApiClient
         }
         if (!Utils::isUnset($request->dbaUid)) {
             $query['DbaUid'] = $request->dbaUid;
+        }
+        if (!Utils::isUnset($request->dbaUidByString)) {
+            $query['DbaUidByString'] = $request->dbaUidByString;
         }
         if (!Utils::isUnset($request->ddlOnline)) {
             $query['DdlOnline'] = $request->ddlOnline;

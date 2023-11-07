@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class processDetail extends Model
 {
     /**
+     * @description The calculating method. Valid values:
+     *
+     *   **DIRECT**: No function or expression is used.
+     *   **EXPR**: A function or expression is used.
+     *
      * @example DIRECT
      *
      * @var string
@@ -16,6 +21,8 @@ class processDetail extends Model
     public $calWay;
 
     /**
+     * @description The SQL code snippet for field processing.
+     *
      * @example dmstest.b.id
      *
      * @var string

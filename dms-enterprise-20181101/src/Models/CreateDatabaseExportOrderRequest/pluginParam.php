@@ -12,6 +12,8 @@ class pluginParam extends Model
     /**
      * @description The reason for the database export.
      *
+     * @example document_test
+     *
      * @var string
      */
     public $classify;

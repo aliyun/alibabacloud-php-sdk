@@ -4,21 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemResponseBody\authorityTemplateItemList;
 use AlibabaCloud\Tea\Model;
 
-class GetAuthorityTemplateItemResponseBody extends Model
+class DeleteAuthorityTemplateResponseBody extends Model
 {
     /**
-     * @description The permission templates.
-     *
-     * @var authorityTemplateItemList
-     */
-    public $authorityTemplateItemList;
-
-    /**
-     * @description The error code.
-     *
      * @example UnknownError
      *
      * @var string
@@ -26,8 +16,6 @@ class GetAuthorityTemplateItemResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
-     *
      * @example UnknownError
      *
      * @var string
@@ -35,20 +23,13 @@ class GetAuthorityTemplateItemResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 5B96E35F-A58E-5399-9041-09CF9A1E46EA
+     * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var bool
@@ -56,20 +37,17 @@ class GetAuthorityTemplateItemResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the tenant.
-     *
      * @example 3***
      *
      * @var int
      */
     public $tid;
     protected $_name = [
-        'authorityTemplateItemList' => 'AuthorityTemplateItemList',
-        'errorCode'                 => 'ErrorCode',
-        'errorMessage'              => 'ErrorMessage',
-        'requestId'                 => 'RequestId',
-        'success'                   => 'Success',
-        'tid'                       => 'Tid',
+        'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
+        'tid'          => 'Tid',
     ];
 
     public function validate()
@@ -79,9 +57,6 @@ class GetAuthorityTemplateItemResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->authorityTemplateItemList) {
-            $res['AuthorityTemplateItemList'] = null !== $this->authorityTemplateItemList ? $this->authorityTemplateItemList->toMap() : null;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -104,14 +79,11 @@ class GetAuthorityTemplateItemResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetAuthorityTemplateItemResponseBody
+     * @return DeleteAuthorityTemplateResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuthorityTemplateItemList'])) {
-            $model->authorityTemplateItemList = authorityTemplateItemList::fromMap($map['AuthorityTemplateItemList']);
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }

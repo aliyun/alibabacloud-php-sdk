@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateDataArchiveOrderShrinkRequest extends Model
 {
     /**
+     * @description The description of the task.
+     *
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The parameters for archiving data.
+     *
      * @var string
      */
     public $paramShrink;
 
     /**
+     * @description The ID of the parent ticket. A parent ticket is generated only when a sub ticket is created.
+     *
      * @example 123****
      *
      * @var int
@@ -26,6 +34,8 @@ class CreateDataArchiveOrderShrinkRequest extends Model
     public $parentId;
 
     /**
+     * @description The plugin type. Default value: DATA_ARCHIVE.
+     *
      * @example DATA_ARCHIVE
      *
      * @var string
@@ -33,11 +43,15 @@ class CreateDataArchiveOrderShrinkRequest extends Model
     public $pluginType;
 
     /**
+     * @description The list of the related users.
+     *
      * @var string
      */
     public $relatedUserListShrink;
 
     /**
+     * @description The tenant ID. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
      * @example 3***
      *
      * @var int

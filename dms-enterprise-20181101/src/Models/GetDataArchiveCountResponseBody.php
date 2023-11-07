@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataArchiveCountResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 4B63CAC5-BD7F-5C7C-82C9-59DFFBC3C5C2
      *
      * @var string
@@ -22,6 +26,11 @@ class GetDataArchiveCountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

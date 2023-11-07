@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pluginParam extends Model
 {
     /**
+     * @description The type of the archiving destination.
+     *
      * @example inner_oss
      *
      * @var string
@@ -17,6 +19,8 @@ class pluginParam extends Model
     public $archiveMethod;
 
     /**
+     * @description The schema of the database and table to be archived.
+     *
      * @example test
      *
      * @var string
@@ -24,6 +28,11 @@ class pluginParam extends Model
     public $dbSchema;
 
     /**
+     * @description Indicates whether the database is logical.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -31,11 +40,15 @@ class pluginParam extends Model
     public $logic;
 
     /**
+     * @description The post behavior of archiving.
+     *
      * @var string[]
      */
     public $orderAfter;
 
     /**
+     * @description The running method, which indicates whether to run the task immediately or at a specific point in time.
+     *
      * @example now
      *
      * @var string
@@ -43,6 +56,8 @@ class pluginParam extends Model
     public $runMethod;
 
     /**
+     * @description The ID of the source database.
+     *
      * @example 12***
      *
      * @var int
@@ -50,16 +65,22 @@ class pluginParam extends Model
     public $sourceDatabaseId;
 
     /**
+     * @description The list of the archived tables and the filter conditions.
+     *
      * @var tableIncludes[]
      */
     public $tableIncludes;
 
     /**
+     * @description The mapping of schemas.
+     *
      * @var string[]
      */
     public $tableMapping;
 
     /**
+     * @description The ID of the destination instance.
+     *
      * @example 12***
      *
      * @var string
@@ -67,6 +88,8 @@ class pluginParam extends Model
     public $targetInstanceId;
 
     /**
+     * @description The time variable defined for scheduled archiving.
+     *
      * @var string[]
      */
     public $variables;

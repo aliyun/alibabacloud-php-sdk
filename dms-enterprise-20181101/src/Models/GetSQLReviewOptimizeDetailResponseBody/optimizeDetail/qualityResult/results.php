@@ -12,6 +12,8 @@ class results extends Model
     /**
      * @description The comment that is specified when you create the SQL review rule. For more information, see [SQL review optimization](~~194114~~).
      *
+     * @example xxx business rule: the query must have a where condition.
+     *
      * @var string
      */
     public $comments;

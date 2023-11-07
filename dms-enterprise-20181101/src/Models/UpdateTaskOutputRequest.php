@@ -20,6 +20,8 @@ class UpdateTaskOutputRequest extends Model
     /**
      * @description The output variables for the task.
      *
+     * @example {“outputs”:[{"row":0, "column":-1,"combiner":","}"extractMethod":"{\"row\":0,\"column\":-1,\"combiner\":\",\"}",   "variableName":"var", "description":"For demo" }]}
+     *
      * @var string
      */
     public $nodeOutput;

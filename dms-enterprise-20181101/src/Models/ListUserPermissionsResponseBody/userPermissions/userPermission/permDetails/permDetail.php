@@ -38,6 +38,8 @@ class permDetail extends Model
     /**
      * @description The user who grants the permissions.
      *
+     * @example xxx authorization
+     *
      * @var string
      */
     public $originFrom;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesensitizationStrategyResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description The status code.
      *
      * @example UnknownError
      *
@@ -18,7 +18,7 @@ class ModifyDesensitizationStrategyResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The error message returned.
      *
      * @example UnknownError
      *
@@ -27,7 +27,7 @@ class ModifyDesensitizationStrategyResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 283C461F-11D8-48AA-B695-DF092DA32AF3
      *

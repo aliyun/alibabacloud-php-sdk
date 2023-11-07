@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDataArchiveOrderResponseBody extends Model
 {
     /**
+     * @description The data archiving ticket IDs.
+     *
      * @var int[]
      */
     public $createOrderResult;
 
     /**
+     * @description Error code
+     *
      * @example UnknownError
      *
      * @var string
@@ -21,6 +25,8 @@ class CreateDataArchiveOrderResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -28,6 +34,8 @@ class CreateDataArchiveOrderResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request, which is used to query logs and troubleshoot issues.
+     *
      * @example 283C461F-11D8-48AA-B695-DF092DA32AF3
      *
      * @var string
@@ -35,6 +43,11 @@ class CreateDataArchiveOrderResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

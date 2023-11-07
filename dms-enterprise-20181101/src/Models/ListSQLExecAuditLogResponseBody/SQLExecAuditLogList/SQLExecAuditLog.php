@@ -63,6 +63,8 @@ class SQLExecAuditLog extends Model
      * @description The name of the database.
      *
      * >  If the SQL statement takes effect on an instance, the name of the instance is returned.
+     * @example polar123@pc-bp1h9tgq4st9g****.mysql.polardb.rds.aliyuncs.com:3306[polar_qw_test]
+     *
      * @var string
      */
     public $instanceName;

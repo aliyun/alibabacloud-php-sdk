@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The business time of the task flow. The time is in the yyyy-MM-DD HH:mm:ss format.
+     *
      * @example 2023-05-14 16:00:57
      *
      * @var string
@@ -16,6 +18,8 @@ class instances extends Model
     public $businessTime;
 
     /**
+     * @description The ID of the task. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     *
      * @example 37***
      *
      * @var int
@@ -23,6 +27,8 @@ class instances extends Model
     public $dagId;
 
     /**
+     * @description The end time of the task flow. The time is in the yyyy-MM-DD HH:mm:ss format.
+     *
      * @example 2022-06-04 15:14:00
      *
      * @var string
@@ -30,6 +36,8 @@ class instances extends Model
     public $endTime;
 
     /**
+     * @description The time when the task flow was created.
+     *
      * @example 2023-05-14 16:00:57
      *
      * @var string
@@ -37,6 +45,8 @@ class instances extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the task flow was last modified.
+     *
      * @example 2023-05-14 16:00:57
      *
      * @var string
@@ -44,6 +54,8 @@ class instances extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the historical task flow.
+     *
      * @example 32***
      *
      * @var int
@@ -51,6 +63,8 @@ class instances extends Model
     public $historyDagId;
 
     /**
+     * @description The instance ID of the running task flow.
+     *
      * @example 24***
      *
      * @var int
@@ -58,6 +72,8 @@ class instances extends Model
     public $id;
 
     /**
+     * @description The running scenario of the last task flow.
+     *
      * @example {
      * "nodes": [
      * 48**
@@ -67,11 +83,24 @@ class instances extends Model
     public $lastRunningContext;
 
     /**
+     * @description The running details of the task.
+     *
+     * @example 2023-05-15 16:37:48[GMT+08:00] INFO - Resource Control is active!\n2023-05-15 16:37:48[GMT+08:00] INFO - Starting job j_4834 at Mon May 15 16:37:48 CST 2023
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **0**: waiting for execution.
+     *   **1**: running.
+     *   **2**: suspended.
+     *   **3**: failed.
+     *   **4**: successful.
+     *   **5**: complete.
+     *
      * @example 4
      *
      * @var int
@@ -79,6 +108,8 @@ class instances extends Model
     public $status;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 5***
      *
      * @var string
@@ -86,6 +117,11 @@ class instances extends Model
     public $tenantId;
 
     /**
+     * @description The mode in which the task flow was triggered. Valid values:
+     *
+     *   **0**: The task flow was triggered based on a schedule.
+     *   **1**: The task flow was manually triggered.
+     *
      * @example 1
      *
      * @var int
@@ -93,6 +129,8 @@ class instances extends Model
     public $triggerType;
 
     /**
+     * @description The version number.
+     *
      * @example 1
      *
      * @var string

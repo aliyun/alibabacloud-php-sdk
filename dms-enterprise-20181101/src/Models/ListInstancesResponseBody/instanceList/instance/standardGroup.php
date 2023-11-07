@@ -22,7 +22,7 @@ class standardGroup extends Model
     public $groupMode;
 
     /**
-     * @description The name of the security rule set corresponding to the control mode.
+     * @description The name of the security rule corresponding to the control mode.
      *
      * @example test
      *

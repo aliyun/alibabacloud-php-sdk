@@ -11,6 +11,14 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
+     * @description The database for archiving data. Valid values:
+     *
+     *   inner_oss: Built-in Object Storage Service (OSS) of Database Backup (DBS).
+     *   oss_userself: OSS of user.
+     *   mysql: ApsaraDB RDS for MySQL.
+     *   polardb: PolarDB for MySQL.
+     *   lindorm: Lindorm.
+     *
      * @example mysql
      *
      * @var string
@@ -18,11 +26,17 @@ class param extends Model
     public $archiveMethod;
 
     /**
+     * @description 填写Crontab表达式，以便定期执行任务，更多信息，请参见[Crontab表达式](~~206581~~)。
+     * 当运行方式为周期归档时需要填写该参数。
+     * @example 00 05 11 * * ?
+     *
      * @var string
      */
     public $cronStr;
 
     /**
+     * @description Specifies whether the database is a logical database.
+     *
      * @example false
      *
      * @var bool
@@ -30,11 +44,15 @@ class param extends Model
     public $logic;
 
     /**
+     * @description The post behaviors.
+     *
      * @var string[]
      */
     public $orderAfter;
 
     /**
+     * @description The running mode. Only now is supported, which indicates that data archiving is immediately executed.
+     *
      * @example now
      *
      * @var string
@@ -42,36 +60,61 @@ class param extends Model
     public $runMethod;
 
     /**
+     * @description 源库目录（catalog）。
+     * - **def**：对于两层逻辑结构的数据库，如MySQL，PolarDB MySQL，AnalyticDB MySQL，固定为def。
+     * - **空字符串**： 对于lindorm与MongoDB，填入空字符串。
+     * - **catalog名**：对于三层逻辑结构的数据库，如PostgreSQL，填入catalog名。
+     * @example def
+     *
      * @var string
      */
     public $sourceCatalogName;
 
     /**
+     * @description 源实例名称。
+     *
+     * @example pc-bp1*******
+     *
      * @var string
      */
     public $sourceInstanceName;
 
     /**
+     * @description 源库Schema，源库与目标库同名。
+     * 如MySQL为库名，PostgreSQL为Schema名。
+     * @example schema_test
+     *
      * @var string
      */
     public $sourceSchemaName;
 
     /**
+     * @description The collection of tables to be archived.
+     *
      * @var tableIncludes[]
      */
     public $tableIncludes;
 
     /**
+     * @description The table names mapped in the destination database.
+     *
      * @var string[]
      */
     public $tableMapping;
 
     /**
+     * @description 目标库Host，若目标实例同时开放了内网与公网，优先写入内网Host。
+     *
+     * - 若归档目标为专属存储，则为inner_oss。
+     * @example am-bp1*********.ads.aliyuncs.com
+     *
      * @var string
      */
     public $targetInstanceHost;
 
     /**
+     * @description The configuration of archiving variables.
+     *
      * @var variables[]
      */
     public $variables;

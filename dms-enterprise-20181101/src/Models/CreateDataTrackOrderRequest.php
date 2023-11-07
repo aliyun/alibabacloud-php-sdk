@@ -12,6 +12,8 @@ class CreateDataTrackOrderRequest extends Model
     /**
      * @description The purpose or objective of the data tracking ticket. This parameter is used to help reduce unnecessary communication.
      *
+     * @example test
+     *
      * @var string
      */
     public $comment;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class preCheckDetailList extends Model
 {
     /**
+     * @description The estimated number of data rows to be affected.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class preCheckDetailList extends Model
     public $affectRows;
 
     /**
+     * @description The SQL statement.
+     *
      * @example SELECT * FROM tmp_table LIMIT 1
      *
      * @var string

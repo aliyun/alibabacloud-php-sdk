@@ -20,14 +20,14 @@ class ListInstancesRequest extends Model
     /**
      * @description The type of the environment to which the database instance belongs. Valid values:
      *
-     *   **product**: production environment
+     *   **product:** production environment
      *   **dev**: development environment
-     *   **pre**: staging environment
+     *   **pre**: pre-release environment
      *   **test**: test environment
      *   **sit**: system integration testing (SIT) environment
      *   **uat**: user acceptance testing (UAT) environment
      *   **pet**: stress testing environment
-     *   **stag**: STAG environment
+     *   **stag:** staging environment
      *
      * @example product
      *
@@ -52,8 +52,8 @@ class ListInstancesRequest extends Model
     /**
      * @description The status of the database instance. Valid values:
      *
-     *   **NORMAL**: normal
-     *   **DISABLE**: disabled
+     *   **NORMAL**
+     *   **DISABLE**
      *
      * @example NORMAL
      *
@@ -64,8 +64,8 @@ class ListInstancesRequest extends Model
     /**
      * @description The network type of the database instance. Valid values:
      *
-     *   **CLASSIC**: classic network
-     *   **VPC**: VPC
+     *   **CLASSIC:** classic network
+     *   **VPC:** VPC
      *
      * @example VPC
      *

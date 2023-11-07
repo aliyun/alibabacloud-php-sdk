@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class lineages extends Model
 {
     /**
+     * @description The target.
+     *
      * @example dmstest.a.id
      *
      * @var string
@@ -17,6 +19,15 @@ class lineages extends Model
     public $dst;
 
     /**
+     * @description The type of the lineage. Valid values:
+     *
+     *   **FIELD_DEPEND_FIELD**: Fields depend on fields.
+     *   **TABLE_DEPEND_TABLE**: Tables depend on tables.
+     *   **FIELD_INFLU_TABLE**: Fields influence tables.
+     *   **FIELD_INFLU_FIELD**: Fields influence fields.
+     *   **FIELD_INFLU_TABLE**: Tables influence fields.
+     *   **FIELD_JOIN_FIELD**: Fields are associated with fields.
+     *
      * @example FIELD_DEPEND_FIELD
      *
      * @var string
@@ -24,6 +35,9 @@ class lineages extends Model
     public $lineageType;
 
     /**
+     * @description The operation type of the SQL statement in which the data lineage is generated. For example, if the operation type is SELECT, the data lineage is generated from a SELECT statement.
+     *
+     * >  This field is an extended field which has no practical use.
      * @example SELECT
      *
      * @var string
@@ -31,11 +45,15 @@ class lineages extends Model
     public $operType;
 
     /**
+     * @description The handling details. This parameter is returned only when LineageType is FIELD_DEPEND_FIELD.
+     *
      * @var processDetail
      */
     public $processDetail;
 
     /**
+     * @description The source.
+     *
      * @example dmstest.b.id
      *
      * @var string

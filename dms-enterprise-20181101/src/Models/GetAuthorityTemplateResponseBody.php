@@ -56,6 +56,10 @@ class GetAuthorityTemplateResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

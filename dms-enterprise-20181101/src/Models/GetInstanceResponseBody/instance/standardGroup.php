@@ -24,6 +24,8 @@ class standardGroup extends Model
     /**
      * @description The name of the security rule set corresponding to the control mode.
      *
+     * @example test group name
+     *
      * @var string
      */
     public $groupName;

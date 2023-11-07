@@ -20,12 +20,16 @@ class watermark extends Model
     /**
      * @description The information to be embedded as a watermark into data.
      *
+     * @example test
+     *
      * @var string
      */
     public $dataWatermark;
 
     /**
      * @description The information to be embedded as a watermark into files.
+     *
+     * @example test
      *
      * @var string
      */

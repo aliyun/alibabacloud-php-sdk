@@ -21,6 +21,8 @@ class ListTasksInTaskFlowResponseBody extends Model
     /**
      * @description The error message returned if the request failed.
      *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;

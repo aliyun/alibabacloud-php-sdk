@@ -20,6 +20,8 @@ class standardGroup extends Model
     /**
      * @description The description of the security rule set.
      *
+     * @example test_rule
+     *
      * @var string
      */
     public $description;
@@ -39,6 +41,8 @@ class standardGroup extends Model
 
     /**
      * @description The name of the security rule set.
+     *
+     * @example test_group
      *
      * @var string
      */

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesensitizationStrategyRequest extends Model
 {
     /**
-     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to query the field name.
+     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the field name.
      *
-     * >  You can also call the [ListColumns](~~141870~~) operation to query the field name.
+     * >  You can also call the [ListColumns](~~141870~~) operation to obtain the field name.
      * @example test_column
      *
      * @var string
@@ -19,7 +19,7 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $columnName;
 
     /**
-     * @description The ID of the database. You can call the [ListDatabases](~~141873~~) operation to query the ID.
+     * @description The ID of the database. You can call the [ListDatabases](~~141873~~) operation to obtain the ID.
      *
      * @example 123
      *
@@ -28,6 +28,13 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $dbId;
 
     /**
+     * @description The desensitization algorithm of the field setting. The default value is false. The values are as follows:
+     *
+     * - **true**: default desensitization algorithm.
+     *
+     * - **false** :semi-desensitization algorithm.
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
@@ -35,8 +42,8 @@ class ModifyDesensitizationStrategyRequest extends Model
     /**
      * @description Specifies whether the database is a logical database. Valid values:
      *
-     *   **true:** The database is a physical database.
-     *   **false:** The database is a logical database.
+     *   **true**: The database is a physical database.
+     *   **false**: The database is a logical database.
      *
      * @example false
      *
@@ -45,10 +52,10 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $isLogic;
 
     /**
-     * @description Specifies whether to reset the masking rule. Valid values:
+     * @description Specifies whether to reset the masking rule. Valid value:
      *
-     *   **true**: resets the masking rule.
-     *   **false**: does not reset the masking rule. This is the default value.
+     *   **true**: Reset the masking rule.
+     *   **false**: Do not reset the masking rule. This is the default value.
      *
      * @example false
      *
@@ -66,10 +73,14 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $ruleId;
 
     /**
-     * @description The name of the database. You can call the [ListSensitiveColumns](~~188103~~) operation to query the database name.
+     * @description The name of the database. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the database name.
      *
-     * > * If the database is a physical database, you can call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation to query the database name.
-     * > * If the database is a logical database, you can call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation to query the database name.
+     * >
+     *
+     *   If the database is a physical database, you can call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation to obtain the database name.
+     *
+     *   If the database is a logical database, you can call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation to obtain the name of the database.
+     *
      * @example test_schema
      *
      * @var string
@@ -77,9 +88,9 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $schemaName;
 
     /**
-     * @description The name of the table. You can call the [ListSensitiveColumns](~~188103~~) operation to query the table name.
+     * @description The name of the table. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the table name.
      *
-     * >  You can also call the [ListTables](~~141878~~) operation to query the table name.
+     * >  You can also call the [ListTables](~~141878~~) operation to obtain the table name.
      * @example test_table
      *
      * @var string
@@ -89,7 +100,7 @@ class ModifyDesensitizationStrategyRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~) in the topic "Manage DMS tenants."
      * @example 3***
      *
      * @var int

@@ -20,6 +20,8 @@ class CreateDataExportOrderShrinkRequest extends Model
     /**
      * @description The purpose or objective of the ticket. This parameter helps reduce unnecessary communication.
      *
+     * @example business_test
+     *
      * @var string
      */
     public $comment;

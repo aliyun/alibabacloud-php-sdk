@@ -35,7 +35,7 @@ class ListInstancesResponseBody extends Model
     public $instanceList;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B4B07137-F6AE-4756-8474-7F92BB6C4E04
      *
@@ -46,8 +46,9 @@ class ListInstancesResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     * - **true**: The request was successful.
-     * - **false**: The request failed.
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

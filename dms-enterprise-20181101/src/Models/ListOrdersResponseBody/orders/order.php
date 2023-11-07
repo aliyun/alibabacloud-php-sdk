@@ -92,6 +92,8 @@ class order extends Model
     /**
      * @description The status description of the ticket.
      *
+     * @example changed successfully
+     *
      * @var string
      */
     public $statusDesc;

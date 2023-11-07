@@ -47,6 +47,8 @@ class desensitizationRuleList extends Model
     /**
      * @description The name of the user who last modified the masking rule.
      *
+     * @example test user
+     *
      * @var string
      */
     public $lastModifierName;
@@ -63,6 +65,8 @@ class desensitizationRuleList extends Model
     /**
      * @description The description of the rule.
      *
+     * @example hash desensitization algorithm
+     *
      * @var string
      */
     public $ruleDesc;
@@ -78,6 +82,8 @@ class desensitizationRuleList extends Model
 
     /**
      * @description The name of the masking rule.
+     *
+     * @example default desensitization rule test
      *
      * @var string
      */

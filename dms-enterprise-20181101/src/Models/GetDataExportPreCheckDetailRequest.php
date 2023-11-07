@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataExportPreCheckDetailRequest extends Model
 {
     /**
+     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     *
      * @example 34****
      *
      * @var int
@@ -16,6 +18,8 @@ class GetDataExportPreCheckDetailRequest extends Model
     public $orderId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
      * @example 3***
      *
      * @var int

@@ -21,6 +21,8 @@ class CreateDatabaseExportOrderRequest extends Model
     /**
      * @description The purpose or objective of the ticket. This parameter helps reduce unnecessary communication.
      *
+     * @example document_test
+     *
      * @var string
      */
     public $comment;

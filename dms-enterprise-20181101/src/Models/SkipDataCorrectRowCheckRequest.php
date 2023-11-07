@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SkipDataCorrectRowCheckRequest extends Model
 {
     /**
+     * @description The ticket ID. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     *
      * @example 420****
      *
      * @var int
@@ -16,11 +18,17 @@ class SkipDataCorrectRowCheckRequest extends Model
     public $orderId;
 
     /**
+     * @description The reason for skipping the verification on the number of rows in the precheck for data change.
+     *
+     * @example save test time
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The tenant ID. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     *
      * @example 3***
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class standardGroup extends Model
 {
     /**
+     * @description The type of the instance engine. For information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
      * @example MySQL
      *
      * @var string
@@ -16,6 +18,8 @@ class standardGroup extends Model
     public $dbType;
 
     /**
+     * @description The description of the security rule set.
+     *
      * @example adb_mysql default
      *
      * @var string
@@ -23,6 +27,11 @@ class standardGroup extends Model
     public $description;
 
     /**
+     * @description Indicates whether the instance is managed in Flexible Management or Stable Change mode. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +39,8 @@ class standardGroup extends Model
     public $freeOrStable;
 
     /**
+     * @description The time when the security rule was created.
+     *
      * @example 2020-05-24 14:12:32
      *
      * @var string
@@ -37,6 +48,8 @@ class standardGroup extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the security rule was last modified.
+     *
      * @example 2020-05-25 14:12:32
      *
      * @var string
@@ -44,6 +57,12 @@ class standardGroup extends Model
     public $gmtModified;
 
     /**
+     * @description The type of the control mode of the instance. Valid values:
+     *
+     *   **COMMON**: The instance is managed in Security Collaboration mode.
+     *   **NONE_CONTROL**: The instance is managed in Flexible Management mode.
+     *   **STABLE**: The instance is managed in Stable Change mode.
+     *
      * @example COMMON
      *
      * @var string
@@ -51,6 +70,8 @@ class standardGroup extends Model
     public $groupMode;
 
     /**
+     * @description The name of the security rule that corresponds to the control mode.
+     *
      * @example adb_mysql default
      *
      * @var string
@@ -58,6 +79,8 @@ class standardGroup extends Model
     public $groupName;
 
     /**
+     * @description The ID of the security rule.
+     *
      * @example 24***
      *
      * @var int
@@ -65,6 +88,8 @@ class standardGroup extends Model
     public $id;
 
     /**
+     * @description The user ID of the last modified security rule.
+     *
      * @example 12****
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableIncludes extends Model
 {
     /**
+     * @description The name of the table.
+     *
      * @example table1
      *
      * @var string
@@ -16,6 +18,8 @@ class tableIncludes extends Model
     public $tableName;
 
     /**
+     * @description The filter condition specified by the WHERE clause of the archiving configuration.
+     *
      * @example gmt_modified<\"${time}\"
      *
      * @var string

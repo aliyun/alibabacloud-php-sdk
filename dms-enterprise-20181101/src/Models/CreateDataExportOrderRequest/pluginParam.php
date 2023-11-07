@@ -21,6 +21,8 @@ class pluginParam extends Model
     /**
      * @description The reason for the export ticket.
      *
+     * @example test
+     *
      * @var string
      */
     public $classify;
@@ -57,6 +59,8 @@ class pluginParam extends Model
 
     /**
      * @description The reason for skipping verification. This parameter is required if you set IgnoreAffectRows to true.
+     *
+     * @example Test only, does not affect the business, and does not require verification.
      *
      * @var string
      */
