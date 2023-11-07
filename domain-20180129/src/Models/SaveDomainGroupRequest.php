@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveDomainGroupRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $domainGroupId;
@@ -19,11 +21,15 @@ class SaveDomainGroupRequest extends Model
     public $domainGroupName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

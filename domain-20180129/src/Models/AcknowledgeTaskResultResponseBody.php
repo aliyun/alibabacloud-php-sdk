@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AcknowledgeTaskResultResponseBody extends Model
 {
     /**
+     * @example D6CB3623-4726-4947-AC2B-2C6E673B447C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $result;

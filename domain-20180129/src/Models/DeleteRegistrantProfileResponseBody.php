@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRegistrantProfileResponseBody extends Model
 {
     /**
+     * @example C50E41A0-09F1-4491-8DB8-AF55BD2D0CC8
+     *
      * @var string
      */
     public $requestId;

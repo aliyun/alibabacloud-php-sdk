@@ -15,11 +15,15 @@ class holder extends Model
     public $addr;
 
     /**
+     * @example owner
+     *
      * @var string
      */
     public $entitlement;
 
     /**
+     * @example Whitcoulls 2011 Limited
+     *
      * @var string
      */
     public $org;

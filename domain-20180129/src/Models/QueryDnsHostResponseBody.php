@@ -15,6 +15,8 @@ class QueryDnsHostResponseBody extends Model
     public $dnsHostList;
 
     /**
+     * @example 18A313DD-3AF3-40AA-84F9-56BA45DC511F
+     *
      * @var string
      */
     public $requestId;

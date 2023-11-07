@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class QueryChangeLogListRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $endDate;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $startDate;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

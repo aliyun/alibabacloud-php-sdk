@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class changeLog extends Model
 {
     /**
+     * @example dns1;dns2 -> dns3;dns4
+     *
      * @var string
      */
     public $details;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example DNS modification
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $operationIPAddress;
 
     /**
+     * @example Failed
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example 2017-12-26 12:00:00
+     *
      * @var string
      */
     public $time;

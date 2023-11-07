@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryTransferInListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPageNum;
@@ -20,31 +22,43 @@ class QueryTransferInListResponseBody extends Model
     public $data;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $nextPage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $prePage;
 
     /**
+     * @example AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalPageNum;

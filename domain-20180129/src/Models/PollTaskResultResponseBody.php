@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class PollTaskResultResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPageNum;
@@ -20,31 +22,43 @@ class PollTaskResultResponseBody extends Model
     public $data;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $nextPage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $prePage;
 
     /**
+     * @example E879DC07-38EE-4408-9F33-73B30CD965CD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalPageNum;

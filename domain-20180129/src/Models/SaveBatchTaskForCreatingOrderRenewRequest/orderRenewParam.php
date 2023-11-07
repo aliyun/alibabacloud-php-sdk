@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class orderRenewParam extends Model
 {
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $currentExpirationDate;
 
     /**
+     * @example Aliyun.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $subscriptionDuration;

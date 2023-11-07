@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitOperationAuditInfoResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 9DKCF6F8-243C-40EC-8035-4B12FEFD7C22
+     *
      * @var string
      */
     public $requestId;

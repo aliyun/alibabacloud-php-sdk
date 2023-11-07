@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string[]
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $transferOutProhibited;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

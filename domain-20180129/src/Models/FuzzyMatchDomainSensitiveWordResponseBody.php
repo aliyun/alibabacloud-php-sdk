@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class FuzzyMatchDomainSensitiveWordResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $exist;
 
     /**
+     * @example xxx**.cn
+     *
      * @var string
      */
     public $keyword;
@@ -25,6 +29,8 @@ class FuzzyMatchDomainSensitiveWordResponseBody extends Model
     public $matchedSentiveWords;
 
     /**
+     * @example D15F91FD-0B34-4E48-8CBF-EFA5D2A31586
+     *
      * @var string
      */
     public $requestId;

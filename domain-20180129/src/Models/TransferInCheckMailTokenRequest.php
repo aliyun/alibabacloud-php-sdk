@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class TransferInCheckMailTokenRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 3bdbaa0e-faa2-4ad2-98f4-bcfeb0237054
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

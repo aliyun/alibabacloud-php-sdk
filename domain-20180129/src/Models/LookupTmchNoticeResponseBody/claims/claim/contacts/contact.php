@@ -15,31 +15,43 @@ class contact extends Model
     public $addr;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 4472335**8
+     *
      * @var string
      */
     public $fax;
 
     /**
+     * @example Tom
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Tom
+     *
      * @var string
      */
     public $org;
 
     /**
+     * @example agent
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $voice;

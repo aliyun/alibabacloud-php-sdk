@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dnsHostList extends Model
 {
     /**
+     * @example ns3
+     *
      * @var string
      */
     public $dnsName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class currentPageCursor extends Model
 {
     /**
+     * @example 2019-07-30 00:00:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -24,31 +28,43 @@ class currentPageCursor extends Model
     public $errorMsg;
 
     /**
+     * @example S1234456789
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 75addb07-28a3-450e-b5ec-2342
+     *
      * @var string
      */
     public $taskDetailNo;
 
     /**
+     * @example 75addb07-28a3-450e-b5ec-test
+     *
      * @var string
      */
     public $taskNo;
 
     /**
+     * @example EXECUTE_SUCCESS
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $taskStatusCode;
 
     /**
+     * @example CHG_DNS
+     *
      * @var string
      */
     public $taskType;
@@ -59,11 +75,15 @@ class currentPageCursor extends Model
     public $taskTypeDescription;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $tryCount;
 
     /**
+     * @example 2019-07-30 00:00:00
+     *
      * @var string
      */
     public $updateTime;

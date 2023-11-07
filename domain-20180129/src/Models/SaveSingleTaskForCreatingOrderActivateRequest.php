@@ -9,136 +9,197 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForCreatingOrderActivateRequest extends Model
 {
     /**
+     * @example chao yang qu
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $aliyunDns;
 
     /**
+     * @example bei jing shi
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @example ns1.aliyun.com
+     *
      * @var string
      */
     public $dns1;
 
     /**
+     * @example ns2.aliyun.com
+     *
      * @var string
      */
     public $dns2;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableDomainProxy;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $permitPremiumActivation;
 
     /**
+     * @example 1234567
+     *
      * @var string
      */
     public $postalCode;
 
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $promotionNo;
 
     /**
+     * @example bei jing
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @example ce shi
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example ce shi
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example rg-XX
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $subscriptionDuration;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $telArea;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $telExt;
 
     /**
+     * @example 12345678
+     *
      * @var string
      */
     public $telephone;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $trademarkDomainActivation;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useCoupon;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $usePromotion;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;
@@ -187,6 +248,7 @@ class SaveSingleTaskForCreatingOrderActivateRequest extends Model
         'registrantOrganization'    => 'RegistrantOrganization',
         'registrantProfileId'       => 'RegistrantProfileId',
         'registrantType'            => 'RegistrantType',
+        'resourceGroupId'           => 'ResourceGroupId',
         'subscriptionDuration'      => 'SubscriptionDuration',
         'telArea'                   => 'TelArea',
         'telExt'                    => 'TelExt',
@@ -265,6 +327,9 @@ class SaveSingleTaskForCreatingOrderActivateRequest extends Model
         }
         if (null !== $this->registrantType) {
             $res['RegistrantType'] = $this->registrantType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->subscriptionDuration) {
             $res['SubscriptionDuration'] = $this->subscriptionDuration;
@@ -373,6 +438,9 @@ class SaveSingleTaskForCreatingOrderActivateRequest extends Model
         }
         if (isset($map['RegistrantType'])) {
             $model->registrantType = $map['RegistrantType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SubscriptionDuration'])) {
             $model->subscriptionDuration = $map['SubscriptionDuration'];

@@ -9,36 +9,52 @@ use AlibabaCloud\Tea\Model;
 class GetOperationOssUploadPolicyResponseBody extends Model
 {
     /**
+     * @example hObpgEXoca42****
+     *
      * @var string
      */
     public $accessid;
 
     /**
+     * @example eyJleHBpcmF0aW9uIjoiMjAaMC0wNy0wMlQxKToyMDoxMS44ODRaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsNTI0Mjg4MDBdLFsic3RhcnRzLXdpdGgiLCIka2V5IiwiMTIxOTU0MTE2MTIxMzA1Ny9PRkZMSU5FX1RSQU5TRkVSLzE1OTM2ODg1MTE4ODMi****
+     *
      * @var string
      */
     public $encodedPolicy;
 
     /**
+     * @example 1593688811881
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 1219541161213157/OFFLINE_TRANSFER/159368851****
+     *
      * @var string
      */
     public $fileDir;
 
     /**
+     * @description OSS Endpoint。
+     *
+     * @example //***-basic-cert.oss-cn-***.aliyuncs.com/
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 9DFCF6F8-243C-40EC-8035-4B12FEFD7D011
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example pNVECGkyL0tl4bKXekV5ErZ****
+     *
      * @var string
      */
     public $signature;

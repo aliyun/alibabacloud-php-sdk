@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainRealNameVerificationInfoRequest extends Model
 {
     /**
+     * @example aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $fetchImage;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForDeletingDSRecordRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $keyTag;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

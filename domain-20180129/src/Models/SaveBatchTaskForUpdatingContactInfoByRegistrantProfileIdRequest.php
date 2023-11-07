@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends Model
 {
     /**
+     * @example registrant
+     *
      * @var string
      */
     public $contactType;
 
     /**
+     * @example example.com
+     *
      * @var string[]
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $transferOutProhibited;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

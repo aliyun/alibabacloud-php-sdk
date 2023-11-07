@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainGroupRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $domainGroupId;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

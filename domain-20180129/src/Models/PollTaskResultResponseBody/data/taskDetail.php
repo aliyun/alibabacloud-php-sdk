@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class taskDetail extends Model
 {
     /**
+     * @example 2018-03-26 15:08:20
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example The operation is successful.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example S201817141000000
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 15fee9d10d514bada66bd08c5723c583
+     *
      * @var string
      */
     public $taskDetailNo;
 
     /**
+     * @example b95bc334-f7d8-4f39-8a62-4c4302a243d8
+     *
      * @var string
      */
     public $taskNo;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $taskResult;
 
     /**
+     * @example EXECUTE_SUCCESS
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $taskStatusCode;
 
     /**
+     * @example CHG_DNS
+     *
      * @var string
      */
     public $taskType;
@@ -64,11 +84,15 @@ class taskDetail extends Model
     public $taskTypeDescription;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $tryCount;
 
     /**
+     * @example 2018-03-26 15:22:18
+     *
      * @var string
      */
     public $updateTime;

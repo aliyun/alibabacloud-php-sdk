@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEmailVerificationResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPageNum;
@@ -20,31 +22,43 @@ class ListEmailVerificationResponseBody extends Model
     public $data;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $nextPage;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $prePage;
 
     /**
+     * @example 78C60CC3-FF0A-44E2-989A-DDE0597791C3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPageNum;

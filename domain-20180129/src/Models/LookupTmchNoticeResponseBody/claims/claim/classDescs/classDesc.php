@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class classDesc extends Model
 {
     /**
+     * @example 18
+     *
      * @var int
      */
     public $classNum;
 
     /**
+     * @example New Zealand
+     *
      * @var string
      */
     public $desc;

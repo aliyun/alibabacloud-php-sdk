@@ -16,6 +16,8 @@ class DeleteEmailVerificationResponseBody extends Model
     public $failList;
 
     /**
+     * @example 7A3D0E4A-0D4B-4BD0-90D7-A61DF8DD26AE
+     *
      * @var string
      */
     public $requestId;

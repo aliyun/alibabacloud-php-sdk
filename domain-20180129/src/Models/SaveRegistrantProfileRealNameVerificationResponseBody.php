@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveRegistrantProfileRealNameVerificationResponseBody extends Model
 {
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example 4D73432C-7600-****-ACBB-C3B5CA145D32
+     *
      * @var string
      */
     public $requestId;

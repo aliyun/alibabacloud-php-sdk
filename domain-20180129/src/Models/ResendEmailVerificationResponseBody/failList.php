@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class failList extends Model
 {
     /**
+     * @example SendTokenQuotaExceeded
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example test1@aliyun.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example The maximum number of attempts allowed to send the email verification link is exceeded.
+     *
      * @var string
      */
     public $message;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckMaxYearOfServerLockResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxYear;
 
     /**
+     * @example 9DFCF6F8-243C-****-8035-4B12FEFD7D48
+     *
      * @var string
      */
     public $requestId;

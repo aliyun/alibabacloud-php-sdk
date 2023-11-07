@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class domainGroup extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $beingDeleted;
 
     /**
+     * @example 2018-04-02 15:59:06
+     *
      * @var string
      */
     public $creationDate;
 
     /**
+     * @example -1
+     *
      * @var string
      */
     public $domainGroupId;
@@ -29,16 +35,22 @@ class domainGroup extends Model
     public $domainGroupName;
 
     /**
+     * @example COMPLETE
+     *
      * @var string
      */
     public $domainGroupStatus;
 
     /**
+     * @example 2018-04-02 15:59:06
+     *
      * @var string
      */
     public $modificationDate;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalNumber;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryArtExtensionRequest extends Model
 {
     /**
+     * @example test.art
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

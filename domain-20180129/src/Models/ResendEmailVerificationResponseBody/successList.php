@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class successList extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example test2@aliyun.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $message;

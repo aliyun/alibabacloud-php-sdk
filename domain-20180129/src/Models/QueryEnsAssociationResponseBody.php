@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryEnsAssociationResponseBody extends Model
 {
     /**
+     * @example 0x123456789012345678901234567890123456****
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example 3ECD5439-39A2-477D-9A19-64FCA1F77EEB
+     *
      * @var string
      */
     public $requestId;

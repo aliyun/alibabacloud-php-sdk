@@ -9,111 +9,162 @@ use AlibabaCloud\Tea\Model;
 class ScrollDomainListRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $domainGroupId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $domainStatus;
 
     /**
+     * @example 1541520000000
+     *
      * @var int
      */
     public $endExpirationDate;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $endLength;
 
     /**
+     * @example 1541520000000
+     *
      * @var int
      */
     public $endRegistrationDate;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $excluded;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $excludedPrefix;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $excludedSuffix;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $form;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $keyWord;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $keyWordPrefix;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $keyWordSuffix;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example gTLD
+     *
      * @var string
      */
     public $productDomainType;
 
     /**
+     * @example rg-acfmw6bpc6n7zai
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example test
+     *
      * @var string
      */
     public $scrollId;
 
     /**
+     * @example 1541520000000
+     *
      * @var int
      */
     public $startExpirationDate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $startLength;
 
     /**
+     * @example 1541520000000
+     *
      * @var int
      */
     public $startRegistrationDate;
 
     /**
+     * @example com
+     *
      * @var string
      */
     public $suffixs;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $tradeType;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;
@@ -133,6 +184,7 @@ class ScrollDomainListRequest extends Model
         'lang'                  => 'Lang',
         'pageSize'              => 'PageSize',
         'productDomainType'     => 'ProductDomainType',
+        'resourceGroupId'       => 'ResourceGroupId',
         'scrollId'              => 'ScrollId',
         'startExpirationDate'   => 'StartExpirationDate',
         'startLength'           => 'StartLength',
@@ -193,6 +245,9 @@ class ScrollDomainListRequest extends Model
         }
         if (null !== $this->productDomainType) {
             $res['ProductDomainType'] = $this->productDomainType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->scrollId) {
             $res['ScrollId'] = $this->scrollId;
@@ -271,6 +326,9 @@ class ScrollDomainListRequest extends Model
         }
         if (isset($map['ProductDomainType'])) {
             $model->productDomainType = $map['ProductDomainType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ScrollId'])) {
             $model->scrollId = $map['ScrollId'];

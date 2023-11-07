@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForSaveArtExtensionRequest extends Model
 {
     /**
+     * @example 2019-10-01
+     *
      * @var string
      */
     public $dateOrPeriod;
 
     /**
+     * @example 20 cm
+     *
      * @var string
      */
     public $dimensions;
 
     /**
+     * @example test.art
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example iconicity
+     *
      * @var string
      */
     public $features;
 
     /**
+     * @example realism
+     *
      * @var string
      */
     public $inscriptionsAndMarkings;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example zhang san
+     *
      * @var string
      */
     public $maker;
 
     /**
+     * @example silk
+     *
      * @var string
      */
     public $materialsAndTechniques;
 
     /**
+     * @example The embroidery
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @example drawings
+     *
      * @var string
      */
     public $reference;
 
     /**
+     * @example peace
+     *
      * @var string
      */
     public $subject;
 
     /**
+     * @example Peace and friendship
+     *
      * @var string
      */
     public $title;

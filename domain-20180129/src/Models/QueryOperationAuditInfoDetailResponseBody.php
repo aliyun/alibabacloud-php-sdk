@@ -14,11 +14,15 @@ class QueryOperationAuditInfoDetailResponseBody extends Model
     public $auditInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditType;
@@ -29,16 +33,22 @@ class QueryOperationAuditInfoDetailResponseBody extends Model
     public $businessName;
 
     /**
+     * @example 1581919010100
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example example.com,aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $id;
@@ -49,11 +59,15 @@ class QueryOperationAuditInfoDetailResponseBody extends Model
     public $remark;
 
     /**
+     * @example 9DFCF6F8-243C-40EC-8035-4B12FEFD7D1L
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1581919010101
+     *
      * @var int
      */
     public $updateTime;

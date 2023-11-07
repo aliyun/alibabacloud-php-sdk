@@ -16,6 +16,8 @@ class ResendEmailVerificationResponseBody extends Model
     public $failList;
 
     /**
+     * @example 0EA54E99-DB48-4CE3-A099-6ED8E451B8AC
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class matchedSensitiveWord extends Model
 {
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $word;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EmailVerifiedResponseBody extends Model
 {
     /**
+     * @example BF014B60-C708-4253-B5F2-3F9B493F398B
+     *
      * @var string
      */
     public $requestId;

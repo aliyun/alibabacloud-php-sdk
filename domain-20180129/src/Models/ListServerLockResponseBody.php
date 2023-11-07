@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListServerLockResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $currentPageNum;
@@ -20,31 +22,43 @@ class ListServerLockResponseBody extends Model
     public $data;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $nextPage;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $prePage;
 
     /**
+     * @example 9DFCF6F8-243C-****-8035-4B12FEFD7D48
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPageNum;

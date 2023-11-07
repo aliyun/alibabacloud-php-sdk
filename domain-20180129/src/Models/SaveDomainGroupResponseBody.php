@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SaveDomainGroupResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $beingDeleted;
 
     /**
+     * @example 2018-04-02 15:59:06
+     *
      * @var string
      */
     public $creationDate;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $domainGroupId;
@@ -29,21 +35,29 @@ class SaveDomainGroupResponseBody extends Model
     public $domainGroupName;
 
     /**
+     * @example COMPLETE
+     *
      * @var string
      */
     public $domainGroupStatus;
 
     /**
+     * @example 2018-04-02 15:59:06
+     *
      * @var string
      */
     public $modificationDate;
 
     /**
+     * @example 80011ABC-F573-4795-B0E8-377BFBBA3422
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalNumber;

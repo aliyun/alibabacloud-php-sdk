@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchDomainRemarkResponseBody extends Model
 {
     /**
+     * @example 4189E320-961E-4786-8E15-0000
+     *
      * @var string
      */
     public $requestId;

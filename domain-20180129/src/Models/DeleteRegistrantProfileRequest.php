@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteRegistrantProfileRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 3600000
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

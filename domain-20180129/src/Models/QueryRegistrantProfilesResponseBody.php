@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryRegistrantProfilesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPageNum;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $nextPage;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $prePage;
@@ -35,16 +43,22 @@ class QueryRegistrantProfilesResponseBody extends Model
     public $registrantProfiles;
 
     /**
+     * @example 94053D79-7455-4F71-BF06-20EB2DEDE6BD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPageNum;

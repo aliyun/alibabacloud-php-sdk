@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CheckDomainSunriseClaimResponseBody extends Model
 {
     /**
+     * @example 2017092100/8/2/1/kDfu9htHGEx_y-LJ3XSlKMZ70000020001
+     *
      * @var string
      */
     public $claimKey;
 
     /**
+     * @example BA7A4FD4-EB9A-4A20-BB0C-9AEB15634DC1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $result;

@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class QueryContactInfoResponseBody extends Model
 {
     /**
+     * @example xi hu qu *** jiedao *** xiaoqu *** zhuang 101
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example hang zhou shi
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example 2019-03-20 11:37:29
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 310024
+     *
      * @var string
      */
     public $postalCode;
 
     /**
+     * @example zhe jiang
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @example zhang san
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example zhang san
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example C39ECA8A-BB5E-4F92-B013-6A032FA06B04
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $telArea;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $telExt;
 
     /**
+     * @example 1820000****
+     *
      * @var string
      */
     public $telephone;

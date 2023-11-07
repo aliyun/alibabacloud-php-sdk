@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class LookupTmchNoticeRequest extends Model
 {
     /**
+     * @example 2017092100/8/2/1/kDfu9htHGEx_y-LJ3XSlKMZ70000020001
+     *
      * @var string
      */
     public $claimKey;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

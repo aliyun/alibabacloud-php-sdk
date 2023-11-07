@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryTaskListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPageNum;
@@ -20,31 +22,43 @@ class QueryTaskListResponseBody extends Model
     public $data;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $nextPage;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $prePage;
 
     /**
+     * @example 8D7D294A-8E99-481F-B64C-017EFC793059
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 43
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $totalPageNum;

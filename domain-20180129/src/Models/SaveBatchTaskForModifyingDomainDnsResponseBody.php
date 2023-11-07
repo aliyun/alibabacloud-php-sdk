@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForModifyingDomainDnsResponseBody extends Model
 {
     /**
+     * @example 6A862A8A-E7AB-4C4E-8946-A74122D9CC4B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 35fb2fb7-d4d6-4478-9408-22cb63696b86
+     *
      * @var string
      */
     public $taskNo;

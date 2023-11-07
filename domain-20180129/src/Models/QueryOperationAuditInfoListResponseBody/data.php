@@ -14,11 +14,15 @@ class data extends Model
     public $auditInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditType;
@@ -29,16 +33,22 @@ class data extends Model
     public $businessName;
 
     /**
+     * @example 1581919010101
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example example.com,aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
@@ -49,6 +59,8 @@ class data extends Model
     public $remark;
 
     /**
+     * @example 1581919010101
+     *
      * @var int
      */
     public $updateTime;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class prePageCursor extends Model
 {
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $clientip;
 
     /**
+     * @example 2017-11-01 17:19:47
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1509527987000
+     *
      * @var int
      */
     public $createTimeLong;
 
     /**
+     * @example f9baa3d5-33b9-4c81-8847-test
+     *
      * @var string
      */
     public $taskNo;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $taskNum;
 
     /**
+     * @example COMPLETE
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $taskStatusCode;
 
     /**
+     * @example CHG_DNS
+     *
      * @var string
      */
     public $taskType;

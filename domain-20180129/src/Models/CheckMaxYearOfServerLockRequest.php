@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CheckMaxYearOfServerLockRequest extends Model
 {
     /**
+     * @example activate
+     *
      * @var string
      */
     public $checkAction;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

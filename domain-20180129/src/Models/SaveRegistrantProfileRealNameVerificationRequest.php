@@ -9,96 +9,134 @@ use AlibabaCloud\Tea\Model;
 class SaveRegistrantProfileRealNameVerificationRequest extends Model
 {
     /**
+     * @example chao yang qu
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example bei jing shi
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example dGVzdA==
+     *
      * @var string
      */
     public $identityCredential;
 
     /**
+     * @example 4111111111111110**
+     *
      * @var string
      */
     public $identityCredentialNo;
 
     /**
+     * @example SFZ
+     *
      * @var string
      */
     public $identityCredentialType;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1234567
+     *
      * @var string
      */
     public $postalCode;
 
     /**
+     * @example bei jing
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @example ce shi
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example ce shi
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example common
+     *
      * @var string
      */
     public $registrantProfileType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $telArea;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $telExt;
 
     /**
+     * @example 12345678
+     *
      * @var string
      */
     public $telephone;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

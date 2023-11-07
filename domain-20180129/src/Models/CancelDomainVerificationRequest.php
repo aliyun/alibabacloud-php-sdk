@@ -14,16 +14,22 @@ class CancelDomainVerificationRequest extends Model
     public $actionType;
 
     /**
+     * @example S2019270W570xxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

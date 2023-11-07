@@ -9,96 +9,134 @@ use AlibabaCloud\Tea\Model;
 class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
 {
     /**
+     * @example chao yang qu
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example bei jing shi
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example alibabacloud.com
+     *
      * @var string[]
      */
     public $domainName;
 
     /**
+     * @example test@aliyun.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example h6UPhXz/ADP/2Q==
+     *
      * @var string
      */
     public $identityCredential;
 
     /**
+     * @example 5****************9
+     *
      * @var string
      */
     public $identityCredentialNo;
 
     /**
+     * @example SFZ
+     *
      * @var string
      */
     public $identityCredentialType;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $postalCode;
 
     /**
+     * @example bei jing
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @example ce shi
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example ce shi
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $telArea;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $telExt;
 
     /**
+     * @example 12345678
+     *
      * @var string
      */
     public $telephone;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $transferOutProhibited;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

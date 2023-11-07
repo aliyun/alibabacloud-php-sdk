@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryRegistrantProfileRealNameVerificationInfoResponseBody extends Model
 {
     /**
+     * @example dGVzdA==
+     *
      * @var string
      */
     public $identityCredential;
 
     /**
+     * @example 4111111111111110**
+     *
      * @var string
      */
     public $identityCredentialNo;
 
     /**
+     * @example SFZ
+     *
      * @var string
      */
     public $identityCredentialType;
 
     /**
+     * @example http://test.oss-cn-hangzhou.aliyuncs.com/20170522/1219541161213057_070445190.jpg
+     *
      * @var string
      */
     public $identityCredentialUrl;
 
     /**
+     * @example 2017-05-22 19:04:49
+     *
      * @var string
      */
     public $modificationDate;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example 4D73432C-7600-4779-ACBB-C3B5CA145D32
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2017-05-22 19:04:49
+     *
      * @var string
      */
     public $submissionDate;

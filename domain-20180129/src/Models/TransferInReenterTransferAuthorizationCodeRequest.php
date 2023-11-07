@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class TransferInReenterTransferAuthorizationCodeRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example testCode
+     *
      * @var string
      */
     public $transferAuthorizationCode;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

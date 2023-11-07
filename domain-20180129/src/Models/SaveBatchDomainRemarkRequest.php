@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchDomainRemarkRequest extends Model
 {
     /**
+     * @example S12344567
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example MyRemarkInfo
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

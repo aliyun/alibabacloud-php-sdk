@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class QueryArtExtensionResponseBody extends Model
 {
     /**
+     * @example 2019-10-01
+     *
      * @var string
      */
     public $dateOrPeriod;
 
     /**
+     * @example 20 cm
+     *
      * @var string
      */
     public $dimensions;
 
     /**
+     * @example iconicity
+     *
      * @var string
      */
     public $features;
 
     /**
+     * @example realism
+     *
      * @var string
      */
     public $inscriptionsAndMarkings;
 
     /**
+     * @example zhang san
+     *
      * @var string
      */
     public $maker;
 
     /**
+     * @example silk
+     *
      * @var string
      */
     public $materialsAndTechniques;
 
     /**
+     * @example The embroidery
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @example drawings
+     *
      * @var string
      */
     public $reference;
 
     /**
+     * @example 814B2AF0-ED6F-4C13-B41C-8AC0B1023583
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example peace
+     *
      * @var string
      */
     public $subject;
 
     /**
+     * @example Peace and friendship
+     *
      * @var string
      */
     public $title;

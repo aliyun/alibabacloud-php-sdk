@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveRegistrantProfileResponseBody extends Model
 {
     /**
+     * @example 3600000
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example D09B153B-294D-42F1-BB61-F1C72136DFD3
+     *
      * @var string
      */
     public $requestId;

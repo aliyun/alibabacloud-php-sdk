@@ -15,6 +15,8 @@ class QueryDSRecordResponseBody extends Model
     public $DSRecordList;
 
     /**
+     * @example 814B2AF0-ED6F-4C13-B41C-8AC0B1023583
+     *
      * @var string
      */
     public $requestId;

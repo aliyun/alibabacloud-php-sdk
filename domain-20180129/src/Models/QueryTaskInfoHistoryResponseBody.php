@@ -28,6 +28,8 @@ class QueryTaskInfoHistoryResponseBody extends Model
     public $objects;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
@@ -38,6 +40,8 @@ class QueryTaskInfoHistoryResponseBody extends Model
     public $prePageCursor;
 
     /**
+     * @example EB3FCCBA-CA1F-4D31-9F34-test
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainSuffixResponseBody extends Model
 {
     /**
+     * @example D1C9DE44-1D7F-4F66-9653-00000
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetQualificationVerificationResponseBody extends Model
 {
     /**
+     * @example D6CB3623-4726-4947-AC2B-2C6E673B447C
+     *
      * @var string
      */
     public $requestId;

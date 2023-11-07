@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class QueryRegistrantProfilesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $defaultRegistrantProfile;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example SUCCEED
+     *
      * @var string
      */
     public $realNameStatus;
 
     /**
+     * @example li si
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example common
+     *
      * @var string
      */
     public $registrantProfileType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

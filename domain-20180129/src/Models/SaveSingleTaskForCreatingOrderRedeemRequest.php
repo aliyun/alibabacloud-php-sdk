@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForCreatingOrderRedeemRequest extends Model
 {
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @example 0000
+     *
      * @var int
      */
     public $currentExpirationDate;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $promotionNo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useCoupon;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $usePromotion;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

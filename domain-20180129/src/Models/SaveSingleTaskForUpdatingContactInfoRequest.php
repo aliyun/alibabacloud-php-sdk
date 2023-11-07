@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForUpdatingContactInfoRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $addTransferLock;
 
     /**
+     * @example registrant
+     *
      * @var string
      */
     public $contactType;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example S123456789
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

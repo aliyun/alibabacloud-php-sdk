@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class sensitiveWordMatchResult extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $exist;
 
     /**
+     * @example example.com,aliyundoc.com
+     *
      * @var string
      */
     public $keyword;

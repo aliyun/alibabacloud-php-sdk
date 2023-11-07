@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CancelQualificationVerificationRequest extends Model
 {
     /**
+     * @example S20181*****85212
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example knet
+     *
      * @var string
      */
     public $qualificationType;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

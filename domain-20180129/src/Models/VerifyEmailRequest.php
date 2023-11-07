@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class VerifyEmailRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 0b32247496409441e9e179ea7c2e0****
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

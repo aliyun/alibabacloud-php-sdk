@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForUpdateProhibitionLockResponseBody extends Model
 {
     /**
+     * @example F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example d3babb0a-c939-4c25-8c65-c47b65f5492a
+     *
      * @var string
      */
     public $taskNo;

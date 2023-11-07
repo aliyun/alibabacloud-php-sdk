@@ -15,21 +15,29 @@ class ScrollDomainListResponseBody extends Model
     public $data;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 722AB7F5-61F0-408C-A012-4784AFD34083
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $scrollId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $totalItemNum;

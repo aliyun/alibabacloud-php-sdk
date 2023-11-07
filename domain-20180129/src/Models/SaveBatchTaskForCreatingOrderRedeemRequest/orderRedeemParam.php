@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class orderRedeemParam extends Model
 {
     /**
+     * @example 000000
+     *
      * @var int
      */
     public $currentExpirationDate;
 
     /**
+     * @example Aliyun.com
+     *
      * @var string
      */
     public $domainName;

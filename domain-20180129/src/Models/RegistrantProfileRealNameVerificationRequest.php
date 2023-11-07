@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class RegistrantProfileRealNameVerificationRequest extends Model
 {
     /**
+     * @example dGVzdA==
+     *
      * @var string
      */
     public $identityCredential;
 
     /**
+     * @example 43012512345678****
+     *
      * @var string
      */
     public $identityCredentialNo;
 
     /**
+     * @example SFZ
+     *
      * @var string
      */
     public $identityCredentialType;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $registrantProfileID;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

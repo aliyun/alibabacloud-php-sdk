@@ -4,136 +4,201 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryAdvancedDomainListRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class QueryAdvancedDomainListRequest extends Model
 {
     /**
+     * @example -1
+     *
      * @var int
      */
     public $domainGroupId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $domainNameSort;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $domainStatus;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $endExpirationDate;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $endLength;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $endRegistrationDate;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $excluded;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $excludedPrefix;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $excludedSuffix;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $expirationDateSort;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $form;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $keyWord;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $keyWordPrefix;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $keyWordSuffix;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example gTLD
+     *
      * @var string
      */
     public $productDomainType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $productDomainTypeSort;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $registrationDateSort;
 
     /**
+     * @example rg-acfmw6bpc6n7zai
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $startExpirationDate;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $startLength;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $startRegistrationDate;
 
     /**
+     * @example com.cn
+     *
      * @var string
      */
     public $suffixs;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @example -1
+     *
      * @var int
      */
     public $tradeType;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;
@@ -158,10 +223,12 @@ class QueryAdvancedDomainListRequest extends Model
         'productDomainType'     => 'ProductDomainType',
         'productDomainTypeSort' => 'ProductDomainTypeSort',
         'registrationDateSort'  => 'RegistrationDateSort',
+        'resourceGroupId'       => 'ResourceGroupId',
         'startExpirationDate'   => 'StartExpirationDate',
         'startLength'           => 'StartLength',
         'startRegistrationDate' => 'StartRegistrationDate',
         'suffixs'               => 'Suffixs',
+        'tag'                   => 'Tag',
         'tradeType'             => 'TradeType',
         'userClientIp'          => 'UserClientIp',
     ];
@@ -233,6 +300,9 @@ class QueryAdvancedDomainListRequest extends Model
         if (null !== $this->registrationDateSort) {
             $res['RegistrationDateSort'] = $this->registrationDateSort;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->startExpirationDate) {
             $res['StartExpirationDate'] = $this->startExpirationDate;
         }
@@ -244,6 +314,15 @@ class QueryAdvancedDomainListRequest extends Model
         }
         if (null !== $this->suffixs) {
             $res['Suffixs'] = $this->suffixs;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->tradeType) {
             $res['TradeType'] = $this->tradeType;
@@ -323,6 +402,9 @@ class QueryAdvancedDomainListRequest extends Model
         if (isset($map['RegistrationDateSort'])) {
             $model->registrationDateSort = $map['RegistrationDateSort'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['StartExpirationDate'])) {
             $model->startExpirationDate = $map['StartExpirationDate'];
         }
@@ -334,6 +416,15 @@ class QueryAdvancedDomainListRequest extends Model
         }
         if (isset($map['Suffixs'])) {
             $model->suffixs = $map['Suffixs'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TradeType'])) {
             $model->tradeType = $map['TradeType'];

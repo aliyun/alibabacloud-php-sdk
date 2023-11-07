@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForAssociatingEnsRequest extends Model
 {
     /**
+     * @example 0x1234567890123456789012345678901234567890
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example test.luxe
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

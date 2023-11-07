@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class orderTransferParam extends Model
 {
     /**
+     * @example testCode
+     *
      * @var string
      */
     public $authorizationCode;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $permitPremiumTransfer;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $registrantProfileId;

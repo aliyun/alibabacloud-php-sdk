@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryTaskListRequest extends Model
 {
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $beginCreateTime;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $endCreateTime;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

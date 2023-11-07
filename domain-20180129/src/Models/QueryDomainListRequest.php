@@ -4,76 +4,117 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class QueryDomainListRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $domainGroupId;
 
     /**
+     * @example test.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $endExpirationDate;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $endRegistrationDate;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $orderByType;
 
     /**
+     * @example RegistrationDate
+     *
      * @var string
      */
     public $orderKeyType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example New gTLD
+     *
      * @var string
      */
     public $productDomainType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $queryType;
 
     /**
+     * @example rg-aek2indvyxgpfti
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $startExpirationDate;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $startRegistrationDate;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;
@@ -89,8 +130,10 @@ class QueryDomainListRequest extends Model
         'pageSize'              => 'PageSize',
         'productDomainType'     => 'ProductDomainType',
         'queryType'             => 'QueryType',
+        'resourceGroupId'       => 'ResourceGroupId',
         'startExpirationDate'   => 'StartExpirationDate',
         'startRegistrationDate' => 'StartRegistrationDate',
+        'tag'                   => 'Tag',
         'userClientIp'          => 'UserClientIp',
     ];
 
@@ -134,11 +177,23 @@ class QueryDomainListRequest extends Model
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->startExpirationDate) {
             $res['StartExpirationDate'] = $this->startExpirationDate;
         }
         if (null !== $this->startRegistrationDate) {
             $res['StartRegistrationDate'] = $this->startRegistrationDate;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
@@ -188,11 +243,23 @@ class QueryDomainListRequest extends Model
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['StartExpirationDate'])) {
             $model->startExpirationDate = $map['StartExpirationDate'];
         }
         if (isset($map['StartRegistrationDate'])) {
             $model->startRegistrationDate = $map['StartRegistrationDate'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];

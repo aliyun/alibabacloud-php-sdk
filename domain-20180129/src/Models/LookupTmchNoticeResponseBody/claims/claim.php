@@ -23,6 +23,8 @@ class claim extends Model
     public $contacts;
 
     /**
+     * @example Class 9: Calculators; bags, coverings,containers, carriers and holders for mobile phones, personal handheld computers and notebooks; headphones; speakers; blank storage media;batteries. Class 16: Paper
+     *
      * @var string
      */
     public $goodsAndServices;
@@ -38,6 +40,8 @@ class claim extends Model
     public $jurDesc;
 
     /**
+     * @example POTED
+     *
      * @var string
      */
     public $markName;

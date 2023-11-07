@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ConfirmTransferInEmailRequest extends Model
 {
     /**
+     * @example abc.com
+     *
      * @var string[]
      */
     public $domainName;
 
     /**
+     * @example test@test.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubmitEmailVerificationRequest extends Model
 {
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $sendIfExist;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

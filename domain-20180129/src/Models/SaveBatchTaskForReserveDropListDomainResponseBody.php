@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForReserveDropListDomainResponseBody extends Model
 {
     /**
+     * @example B7AB5469-5E38-4AA9-A920-C65B7A9C8E6E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
+     *
      * @var string
      */
     public $taskNo;

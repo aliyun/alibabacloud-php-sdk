@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class jurDesc extends Model
 {
     /**
+     * @example New Zealand
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example NZ
+     *
      * @var string
      */
     public $jurCC;

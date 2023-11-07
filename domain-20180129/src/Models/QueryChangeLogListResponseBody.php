@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryChangeLogListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPageNum;
@@ -20,36 +22,50 @@ class QueryChangeLogListResponseBody extends Model
     public $data;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $nextPage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $prePage;
 
     /**
+     * @example 2DEDFF32-7827-46B1-BE90-3DB8ABD91A58
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $resultLimit;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $totalPageNum;

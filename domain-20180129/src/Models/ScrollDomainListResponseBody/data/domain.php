@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\ScrollDomainListResponseBody\data;
 
 use AlibabaCloud\SDK\Domain\V20180129\Models\ScrollDomainListResponseBody\data\domain\dnsList;
+use AlibabaCloud\SDK\Domain\V20180129\Models\ScrollDomainListResponseBody\data\domain\tag;
 use AlibabaCloud\Tea\Model;
 
 class domain extends Model
@@ -15,11 +16,15 @@ class domain extends Model
     public $dnsList;
 
     /**
+     * @example NONAUDIT
+     *
      * @var string
      */
     public $domainAuditStatus;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $domainGroupId;
@@ -30,76 +35,106 @@ class domain extends Model
     public $domainGroupName;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example gTLD
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $expirationCurrDateDiff;
 
     /**
+     * @example 2019-02-15 17:30:35
+     *
      * @var string
      */
     public $expirationDate;
 
     /**
+     * @example 1550223035000
+     *
      * @var int
      */
     public $expirationDateLong;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $expirationDateStatus;
 
     /**
+     * @example S1234
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $premium;
 
     /**
+     * @example 2a
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example alibaba cloud
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example 2017-02-15 00:00:00
+     *
      * @var string
      */
     public $registrationDate;
 
     /**
+     * @example 1487088000000
+     *
      * @var int
      */
     public $registrationDateLong;
@@ -108,6 +143,18 @@ class domain extends Model
      * @var string
      */
     public $remark;
+
+    /**
+     * @example rg-aek2yyciz557g3q
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag
+     */
+    public $tag;
 
     /**
      * @var string
@@ -134,6 +181,8 @@ class domain extends Model
         'registrationDate'         => 'RegistrationDate',
         'registrationDateLong'     => 'RegistrationDateLong',
         'remark'                   => 'Remark',
+        'resourceGroupId'          => 'ResourceGroupId',
+        'tag'                      => 'Tag',
         'zhRegistrantOrganization' => 'ZhRegistrantOrganization',
     ];
 
@@ -203,6 +252,12 @@ class domain extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = null !== $this->tag ? $this->tag->toMap() : null;
         }
         if (null !== $this->zhRegistrantOrganization) {
             $res['ZhRegistrantOrganization'] = $this->zhRegistrantOrganization;
@@ -278,6 +333,12 @@ class domain extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = tag::fromMap($map['Tag']);
         }
         if (isset($map['ZhRegistrantOrganization'])) {
             $model->zhRegistrantOrganization = $map['ZhRegistrantOrganization'];

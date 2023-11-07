@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CheckTransferInFeasibilityResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $canTransfer;
 
     /**
+     * @example CheckTransferResult.DomainTransferProhibited
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example This domain name is in transfer prohibited status, so it cannot be transferred. You can contact your original registrar to change its status.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 2a
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example FC0D6B89-2353-4D64-BD80-6606A7DBD7C1
+     *
      * @var string
      */
     public $requestId;

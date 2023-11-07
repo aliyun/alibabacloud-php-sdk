@@ -16,6 +16,8 @@ class TransferInCheckMailTokenResponseBody extends Model
     public $failList;
 
     /**
+     * @example AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
+     *
      * @var string
      */
     public $requestId;

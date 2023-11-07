@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class QueryEmailVerificationResponseBody extends Model
 {
     /**
+     * @example 42.*.*.31
+     *
      * @var string
      */
     public $confirmIp;
 
     /**
+     * @example abc@aliyun.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 72b36ba0572e423bbb3f19640896****
+     *
      * @var string
      */
     public $emailVerificationNo;
 
     /**
+     * @example 2019-02-19 16:38:07
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2019-02-19 16:40:38
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example FC4F7D02-8A83-4E37-B935-2D48A1B8423E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 42.*.*.115
+     *
      * @var string
      */
     public $sendIp;
 
     /**
+     * @example 2019-02-19 16:38:07
+     *
      * @var string
      */
     public $tokenSendTime;
 
     /**
+     * @example 140692647406****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $verificationStatus;
 
     /**
+     * @example 2019-02-19 16:40:38
+     *
      * @var string
      */
     public $verificationTime;

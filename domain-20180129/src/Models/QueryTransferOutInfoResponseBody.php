@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryTransferOutInfoResponseBody extends Model
 {
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 2018-04-13 19:57:56
+     *
      * @var string
      */
     public $expirationDate;
 
     /**
+     * @example 2018-04-13 19:57:56
+     *
      * @var string
      */
     public $pendingRequestDate;
 
     /**
+     * @example BBEC5A50-DFDF-482E-8343-B4EB0105E055
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example clientRejected
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @example Transfer out rejected
+     *
      * @var string
      */
     public $resultMsg;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 2018-04-13 19:57:56
+     *
      * @var string
      */
     public $transferAuthorizationCodeSendDate;

@@ -14,6 +14,8 @@ class DeleteContactTemplatesRequest extends Model
     public $registrantProfileIds;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

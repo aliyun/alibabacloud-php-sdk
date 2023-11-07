@@ -9,106 +9,155 @@ use AlibabaCloud\Tea\Model;
 class orderActivateParam extends Model
 {
     /**
+     * @example chao yan qu *** dasha *** hao
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $aliyunDns;
 
     /**
+     * @example bei jing shi
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example ns2.aliyun.com
+     *
      * @var string
      */
     public $dns1;
 
     /**
+     * @example ns1.aliyun.com
+     *
      * @var string
      */
     public $dns2;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableDomainProxy;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $permitPremiumActivation;
 
     /**
+     * @example 102629
+     *
      * @var string
      */
     public $postalCode;
 
     /**
+     * @example bei jing
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @example zhang san
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example zhang san
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 000000
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example rg-XX
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $subscriptionDuration;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $telArea;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $telExt;
 
     /**
+     * @example 1820000****
+     *
      * @var string
      */
     public $telephone;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $trademarkDomainActivation;
@@ -154,6 +203,7 @@ class orderActivateParam extends Model
         'registrantOrganization'    => 'RegistrantOrganization',
         'registrantProfileId'       => 'RegistrantProfileId',
         'registrantType'            => 'RegistrantType',
+        'resourceGroupId'           => 'ResourceGroupId',
         'subscriptionDuration'      => 'SubscriptionDuration',
         'telArea'                   => 'TelArea',
         'telExt'                    => 'TelExt',
@@ -220,6 +270,9 @@ class orderActivateParam extends Model
         }
         if (null !== $this->registrantType) {
             $res['RegistrantType'] = $this->registrantType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->subscriptionDuration) {
             $res['SubscriptionDuration'] = $this->subscriptionDuration;
@@ -310,6 +363,9 @@ class orderActivateParam extends Model
         }
         if (isset($map['RegistrantType'])) {
             $model->registrantType = $map['RegistrantType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SubscriptionDuration'])) {
             $model->subscriptionDuration = $map['SubscriptionDuration'];

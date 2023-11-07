@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AcknowledgeTaskResultRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 2659c29493e94416b297a7691340ccc4
+     *
      * @var string[]
      */
     public $taskDetailNo;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

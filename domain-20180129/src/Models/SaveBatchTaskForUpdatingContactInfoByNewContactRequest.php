@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
 {
     /**
+     * @example chao yang qu
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example bei jing shi
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example registrant
+     *
      * @var string
      */
     public $contactType;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example alibabacloud.com
+     *
      * @var string[]
      */
     public $domainName;
 
     /**
+     * @example test@aliyun.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $postalCode;
 
     /**
+     * @example bei jing
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @example ce shi
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example ce shi
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $telArea;
 
     /**
+     * @example 1235
+     *
      * @var string
      */
     public $telExt;
 
     /**
+     * @example 1234567890
+     *
      * @var string
      */
     public $telephone;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $transferOutProhibited;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

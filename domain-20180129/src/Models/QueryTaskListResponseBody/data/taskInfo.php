@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class taskInfo extends Model
 {
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $clientip;
 
     /**
+     * @example Dec 26,2017 11:00:54
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example INIT
+     *
      * @var string
      */
     public $taskCancelStatus;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $taskCancelStatusCode;
 
     /**
+     * @example 8b1cd755-4928-4b02-adee-e5d41d7b1939
+     *
      * @var string
      */
     public $taskNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $taskNum;
 
     /**
+     * @example COMPLETE
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $taskStatusCode;
 
     /**
+     * @example CREATE_DNSHOST
+     *
      * @var string
      */
     public $taskType;

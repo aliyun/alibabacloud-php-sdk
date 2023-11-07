@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\CancelQualificationVerificationRequ
 use AlibabaCloud\SDK\Domain\V20180129\Models\CancelQualificationVerificationResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CancelTaskRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CancelTaskResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckDomainRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckDomainResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckDomainSunriseClaimRequest;
@@ -38,6 +40,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteEmailVerificationRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteEmailVerificationResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteRegistrantProfileRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteRegistrantProfileResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\DomainSpecialBizCancelRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\DomainSpecialBizCancelResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\EmailVerifiedRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\EmailVerifiedResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\FuzzyMatchDomainSensitiveWordRequest;
@@ -76,6 +80,10 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainRealNameVerificationInfoRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainRealNameVerificationInfoResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainSpecialBizDetailRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainSpecialBizDetailResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainSpecialBizInfoByDomainRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainSpecialBizInfoByDomainResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainSuffixRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainSuffixResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDSRecordRequest;
@@ -126,6 +134,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\ResetQualificationVerificationReque
 use AlibabaCloud\SDK\Domain\V20180129\Models\ResetQualificationVerificationResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchDomainRemarkRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchDomainRemarkResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForApplyQuickTransferOutOpenlyRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForApplyQuickTransferOutOpenlyResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForCreatingOrderActivateRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForCreatingOrderActivateResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForCreatingOrderRedeemRequest;
@@ -136,6 +146,9 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForCreatingOrderTransf
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForCreatingOrderTransferResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForDomainNameProxyServiceRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForDomainNameProxyServiceResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForGenerateDomainCertificateRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForGenerateDomainCertificateResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForGenerateDomainCertificateShrinkRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForModifyingDomainDnsRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForModifyingDomainDnsResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForReserveDropListDomainRequest;
@@ -156,6 +169,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\SaveRegistrantProfileRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveRegistrantProfileResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForAddingDSRecordRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForAddingDSRecordResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForApplyQuickTransferOutOpenlyRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForApplyQuickTransferOutOpenlyResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForApprovingTransferOutRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForApprovingTransferOutResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForAssociatingEnsRequest;
@@ -182,6 +197,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForDisassociatingEnsR
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForDisassociatingEnsResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForDomainNameProxyServiceRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForDomainNameProxyServiceResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForGenerateDomainCertificateRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForGenerateDomainCertificateResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForModifyingDnsHostRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForModifyingDnsHostResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForModifyingDSRecordRequest;
@@ -214,6 +231,10 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\ScrollDomainListRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\ScrollDomainListResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SetDefaultRegistrantProfileRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SetDefaultRegistrantProfileResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SetupDomainAutoRenewRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SetupDomainAutoRenewResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitDomainSpecialBizCredentialsRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitDomainSpecialBizCredentialsResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitEmailVerificationRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitEmailVerificationResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitOperationAuditInfoRequest;
@@ -568,6 +589,61 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1076,6 +1152,54 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * @param DomainSpecialBizCancelRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DomainSpecialBizCancelResponse
+     */
+    public function domainSpecialBizCancelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DomainSpecialBizCancel',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DomainSpecialBizCancelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DomainSpecialBizCancelRequest $request
+     *
+     * @return DomainSpecialBizCancelResponse
+     */
+    public function domainSpecialBizCancel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->domainSpecialBizCancelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EmailVerifiedRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1357,6 +1481,12 @@ class Domain extends OpenApiClient
         if (!Utils::isUnset($request->lockProductId)) {
             $query['LockProductId'] = $request->lockProductId;
         }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->orderByType)) {
+            $query['OrderByType'] = $request->orderByType;
+        }
         if (!Utils::isUnset($request->pageNum)) {
             $query['PageNum'] = $request->pageNum;
         }
@@ -1585,6 +1715,9 @@ class Domain extends OpenApiClient
         if (!Utils::isUnset($request->registrationDateSort)) {
             $query['RegistrationDateSort'] = $request->registrationDateSort;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->startExpirationDate)) {
             $query['StartExpirationDate'] = $request->startExpirationDate;
         }
@@ -1596,6 +1729,9 @@ class Domain extends OpenApiClient
         }
         if (!Utils::isUnset($request->suffixs)) {
             $query['Suffixs'] = $request->suffixs;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->tradeType)) {
             $query['TradeType'] = $request->tradeType;
@@ -2132,11 +2268,17 @@ class Domain extends OpenApiClient
         if (!Utils::isUnset($request->queryType)) {
             $query['QueryType'] = $request->queryType;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->startExpirationDate)) {
             $query['StartExpirationDate'] = $request->startExpirationDate;
         }
         if (!Utils::isUnset($request->startRegistrationDate)) {
             $query['StartRegistrationDate'] = $request->startRegistrationDate;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->userClientIp)) {
             $query['UserClientIp'] = $request->userClientIp;
@@ -2221,6 +2363,105 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryDomainRealNameVerificationInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDomainSpecialBizDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryDomainSpecialBizDetailResponse
+     */
+    public function queryDomainSpecialBizDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDomainSpecialBizDetail',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDomainSpecialBizDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDomainSpecialBizDetailRequest $request
+     *
+     * @return QueryDomainSpecialBizDetailResponse
+     */
+    public function queryDomainSpecialBizDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDomainSpecialBizDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDomainSpecialBizInfoByDomainRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return QueryDomainSpecialBizInfoByDomainResponse
+     */
+    public function queryDomainSpecialBizInfoByDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $body['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDomainSpecialBizInfoByDomain',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDomainSpecialBizInfoByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDomainSpecialBizInfoByDomainRequest $request
+     *
+     * @return QueryDomainSpecialBizInfoByDomainResponse
+     */
+    public function queryDomainSpecialBizInfoByDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDomainSpecialBizInfoByDomainWithOptions($request, $runtime);
     }
 
     /**
@@ -3525,6 +3766,55 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * @param SaveBatchTaskForApplyQuickTransferOutOpenlyRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
+     */
+    public function saveBatchTaskForApplyQuickTransferOutOpenlyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveBatchTaskForApplyQuickTransferOutOpenly',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveBatchTaskForApplyQuickTransferOutOpenlyRequest $request
+     *
+     * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
+     */
+    public function saveBatchTaskForApplyQuickTransferOutOpenly($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveBatchTaskForApplyQuickTransferOutOpenlyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SaveBatchTaskForCreatingOrderActivateRequest $request
      * @param RuntimeOptions                               $runtime
      *
@@ -3818,6 +4108,60 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveBatchTaskForDomainNameProxyServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveBatchTaskForGenerateDomainCertificateRequest $tmpReq
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return SaveBatchTaskForGenerateDomainCertificateResponse
+     */
+    public function saveBatchTaskForGenerateDomainCertificateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SaveBatchTaskForGenerateDomainCertificateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->domainNames)) {
+            $request->domainNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->domainNames, 'DomainNames', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->domainNamesShrink)) {
+            $query['DomainNames'] = $request->domainNamesShrink;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveBatchTaskForGenerateDomainCertificate',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveBatchTaskForGenerateDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveBatchTaskForGenerateDomainCertificateRequest $request
+     *
+     * @return SaveBatchTaskForGenerateDomainCertificateResponse
+     */
+    public function saveBatchTaskForGenerateDomainCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveBatchTaskForGenerateDomainCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -4521,6 +4865,55 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * @param SaveSingleTaskForApplyQuickTransferOutOpenlyRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
+     */
+    public function saveSingleTaskForApplyQuickTransferOutOpenlyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveSingleTaskForApplyQuickTransferOutOpenly',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveSingleTaskForApplyQuickTransferOutOpenlyRequest $request
+     *
+     * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
+     */
+    public function saveSingleTaskForApplyQuickTransferOutOpenly($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveSingleTaskForApplyQuickTransferOutOpenlyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SaveSingleTaskForApprovingTransferOutRequest $request
      * @param RuntimeOptions                               $runtime
      *
@@ -4840,6 +5233,9 @@ class Domain extends OpenApiClient
         }
         if (!Utils::isUnset($request->registrantType)) {
             $query['RegistrantType'] = $request->registrantType;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->subscriptionDuration)) {
             $query['SubscriptionDuration'] = $request->subscriptionDuration;
@@ -5314,6 +5710,55 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveSingleTaskForDomainNameProxyServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveSingleTaskForGenerateDomainCertificateRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return SaveSingleTaskForGenerateDomainCertificateResponse
+     */
+    public function saveSingleTaskForGenerateDomainCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveSingleTaskForGenerateDomainCertificate',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveSingleTaskForGenerateDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveSingleTaskForGenerateDomainCertificateRequest $request
+     *
+     * @return SaveSingleTaskForGenerateDomainCertificateResponse
+     */
+    public function saveSingleTaskForGenerateDomainCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveSingleTaskForGenerateDomainCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -6208,6 +6653,9 @@ class Domain extends OpenApiClient
         if (!Utils::isUnset($request->productDomainType)) {
             $query['ProductDomainType'] = $request->productDomainType;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->scrollId)) {
             $query['ScrollId'] = $request->scrollId;
         }
@@ -6303,6 +6751,106 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDefaultRegistrantProfileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetupDomainAutoRenewRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetupDomainAutoRenewResponse
+     */
+    public function setupDomainAutoRenewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $query['Operation'] = $request->operation;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetupDomainAutoRenew',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetupDomainAutoRenewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetupDomainAutoRenewRequest $request
+     *
+     * @return SetupDomainAutoRenewResponse
+     */
+    public function setupDomainAutoRenew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setupDomainAutoRenewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitDomainSpecialBizCredentialsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return SubmitDomainSpecialBizCredentialsResponse
+     */
+    public function submitDomainSpecialBizCredentialsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->credentials)) {
+            $body['Credentials'] = $request->credentials;
+        }
+        if (!Utils::isUnset($request->extend)) {
+            $body['Extend'] = $request->extend;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDomainSpecialBizCredentials',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDomainSpecialBizCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitDomainSpecialBizCredentialsRequest $request
+     *
+     * @return SubmitDomainSpecialBizCredentialsResponse
+     */
+    public function submitDomainSpecialBizCredentials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDomainSpecialBizCredentialsWithOptions($request, $runtime);
     }
 
     /**

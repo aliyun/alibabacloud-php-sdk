@@ -15,6 +15,8 @@ class QueryFailingReasonListForQualificationResponseBody extends Model
     public $data;
 
     /**
+     * @example 9DFCF6F8-243C-****-8035-4B12FEFD7D48
+     *
      * @var string
      */
     public $requestId;

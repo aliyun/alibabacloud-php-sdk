@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class QueryTransferInByInstanceIdResponseBody extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 2018-03-28 00:41:42
+     *
      * @var string
      */
     public $expirationDate;
 
     /**
+     * @example 1514428524669
+     *
      * @var int
      */
     public $expirationDateLong;
 
     /**
+     * @example S20181T0WLI85212
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2018-03-28 00:41:42
+     *
      * @var string
      */
     public $modificationDate;
 
     /**
+     * @example 1514428524669
+     *
      * @var int
      */
     public $modificationDateLong;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needMailCheck;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $progressBarType;
 
     /**
+     * @example AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example clientCancelled
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @example 2018-03-28 00:41:42
+     *
      * @var string
      */
     public $resultDate;
 
     /**
+     * @example 1514428524669
+     *
      * @var int
      */
     public $resultDateLong;
@@ -79,41 +105,57 @@ class QueryTransferInByInstanceIdResponseBody extends Model
     public $resultMsg;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $simpleTransferInStatus;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 2018-03-28 00:41:42
+     *
      * @var string
      */
     public $submissionDate;
 
     /**
+     * @example 1514428524669
+     *
      * @var int
      */
     public $submissionDateLong;
 
     /**
+     * @example 2018-03-28 00:41:42
+     *
      * @var string
      */
     public $transferAuthorizationCodeSubmissionDate;
 
     /**
+     * @example 1514428524669
+     *
      * @var int
      */
     public $transferAuthorizationCodeSubmissionDateLong;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $whoisMailStatus;

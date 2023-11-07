@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainRealNameVerificationInfoResponseBody extends Model
 {
     /**
+     * @example aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example dGVzdA==
+     *
      * @var string
      */
     public $identityCredential;
 
     /**
+     * @example 5****************9
+     *
      * @var string
      */
     public $identityCredentialNo;
 
     /**
+     * @example SFZ
+     *
      * @var string
      */
     public $identityCredentialType;
 
     /**
+     * @example http://dbu-nap-p.oss-cn-hangzhou.aliyuncs.com/20190219/140692647406xxxx_5d6baea3e7314fd986afdd86e33exxxx.jpg
+     *
      * @var string
      */
     public $identityCredentialUrl;
 
     /**
+     * @example S2019270W570****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 4DF9D693-0D5B-4EB7-8922-7ECA6BD59314
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2018-03-28 00:41:42
+     *
      * @var string
      */
     public $submissionDate;

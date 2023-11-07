@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class qualificationCredential extends Model
 {
     /**
+     * @example 92610725MA7G2E****
+     *
      * @var string
      */
     public $credentialNo;
 
     /**
+     * @example SHSQB
+     *
      * @var string
      */
     public $credentialType;
 
     /**
+     * @example 11212121/1212d**\/sqb.jpg
+     *
      * @var string
      */
     public $credentialUrl;

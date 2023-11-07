@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForModifyingDSRecordRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $algorithm;
 
     /**
+     * @example f58fa917424383934c7b0cf1a90f61d692745680fa06f5ecdbe0924e86de9598
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $digestType;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $keyTag;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

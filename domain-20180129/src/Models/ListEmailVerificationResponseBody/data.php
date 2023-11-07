@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $confirmIp;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 00000a21fd374da99d9c95b48500000
+     *
      * @var string
      */
     public $emailVerificationNo;
 
     /**
+     * @example 2017-12-25 03:38:46
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2017-12-25 03:41:11
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $sendIp;
 
     /**
+     * @example 2017-12-25 03:38:46
+     *
      * @var string
      */
     public $tokenSendTime;
 
     /**
+     * @example 0000
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $verificationStatus;
 
     /**
+     * @example 2017-12-25 03:41:11
+     *
      * @var string
      */
     public $verificationTime;

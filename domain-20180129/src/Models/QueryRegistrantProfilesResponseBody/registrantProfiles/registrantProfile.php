@@ -9,96 +9,144 @@ use AlibabaCloud\Tea\Model;
 class registrantProfile extends Model
 {
     /**
+     * @example zhe jiang sheng hang zhou shi shi li qu shi li zhen shi li da sha 1001 hao
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example hang zhou shi
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example 2019-02-18 10:46:47
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $credentialNo;
+
+    /**
+     * @var string
+     */
+    public $credentialType;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $defaultRegistrantProfile;
 
     /**
+     * @example 82106****@qq.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $emailVerificationStatus;
 
     /**
+     * @example 310024
+     *
      * @var string
      */
     public $postalCode;
 
     /**
+     * @example zhe jiang
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @example SUCCEED
+     *
      * @var string
      */
     public $realNameStatus;
 
     /**
+     * @example li si
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example li si
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 1000001
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example common
+     *
      * @var string
      */
     public $registrantProfileType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $telArea;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $telExt;
 
     /**
+     * @example 1829756****
+     *
      * @var string
      */
     public $telephone;
 
     /**
+     * @example 2019-03-15 15:32:45
+     *
      * @var string
      */
     public $updateTime;
@@ -132,6 +180,8 @@ class registrantProfile extends Model
         'city'                     => 'City',
         'country'                  => 'Country',
         'createTime'               => 'CreateTime',
+        'credentialNo'             => 'CredentialNo',
+        'credentialType'           => 'CredentialType',
         'defaultRegistrantProfile' => 'DefaultRegistrantProfile',
         'email'                    => 'Email',
         'emailVerificationStatus'  => 'EmailVerificationStatus',
@@ -172,6 +222,12 @@ class registrantProfile extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->credentialNo) {
+            $res['CredentialNo'] = $this->credentialNo;
+        }
+        if (null !== $this->credentialType) {
+            $res['CredentialType'] = $this->credentialType;
         }
         if (null !== $this->defaultRegistrantProfile) {
             $res['DefaultRegistrantProfile'] = $this->defaultRegistrantProfile;
@@ -256,6 +312,12 @@ class registrantProfile extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CredentialNo'])) {
+            $model->credentialNo = $map['CredentialNo'];
+        }
+        if (isset($map['CredentialType'])) {
+            $model->credentialType = $map['CredentialType'];
         }
         if (isset($map['DefaultRegistrantProfile'])) {
             $model->defaultRegistrantProfile = $map['DefaultRegistrantProfile'];

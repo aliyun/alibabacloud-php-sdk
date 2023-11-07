@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example S20190N1DAI4****
+     *
      * @var string
      */
     public $domainInstanceId;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2030-07-10 17:37:36
+     *
      * @var string
      */
     public $expireDate;
 
     /**
+     * @example 2020-02-19 16:38:07
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-02-19 16:40:38
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example S2021591IQ28****
+     *
      * @var string
      */
     public $lockInstanceId;
 
     /**
+     * @example 1807**
+     *
      * @var string
      */
     public $lockProductId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $serverLockStatus;
 
     /**
+     * @example 2021-07-10 17:37:36
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example 121000000****
+     *
      * @var string
      */
     public $userId;

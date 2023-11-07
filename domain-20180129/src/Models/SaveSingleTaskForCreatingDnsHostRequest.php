@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForCreatingDnsHostRequest extends Model
 {
     /**
+     * @example dns1
+     *
      * @var string
      */
     public $dnsName;
 
     /**
+     * @example S1234567890
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 218.xx.xx.236
+     *
      * @var string[]
      */
     public $ip;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

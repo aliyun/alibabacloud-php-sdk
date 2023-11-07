@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class QueryTaskInfoHistoryRequest extends Model
 {
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $beginCreateTime;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $createTimeCursor;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $endCreateTime;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example aa634d3f-927e-4d17-9d2c-test
+     *
      * @var string
      */
     public $taskNoCursor;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

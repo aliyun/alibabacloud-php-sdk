@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchFuzzyMatchDomainSensitiveWordResponseBody extends Model
 {
     /**
+     * @example C560A803-B975-481D-A66B-A4395EA863A1
+     *
      * @var string
      */
     public $requestId;

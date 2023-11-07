@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainAdminDivisionRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

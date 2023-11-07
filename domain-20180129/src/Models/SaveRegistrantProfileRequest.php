@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class SaveRegistrantProfileRequest extends Model
 {
     /**
+     * @example zhe jiang sheng hang zhou shi shi li qu shi li zhen shi li da sha 1001 hao
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example hang zhou shi
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $defaultRegistrantProfile;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 310024
+     *
      * @var string
      */
     public $postalCode;
 
     /**
+     * @example zhe jiang
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @example li si
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example li si
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 3600000
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example common
+     *
      * @var string
      */
     public $registrantProfileType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $telArea;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $telExt;
 
     /**
+     * @example 1829756****
+     *
      * @var string
      */
     public $telephone;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

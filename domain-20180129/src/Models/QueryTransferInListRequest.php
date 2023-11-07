@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryTransferInListRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example INIT
+     *
      * @var string
      */
     public $simpleTransferInStatus;
 
     /**
+     * @example 1514428524669
+     *
      * @var int
      */
     public $submissionEndDate;
 
     /**
+     * @example 1514428524669
+     *
      * @var int
      */
     public $submissionStartDate;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class VerifyContactFieldRequest extends Model
 {
     /**
+     * @example Rd. xitucheng
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example Bei jing
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
@@ -44,41 +56,57 @@ class VerifyContactFieldRequest extends Model
     public $postalCode;
 
     /**
+     * @example Bei jing
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @example wang xian sheng
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example wang xian sheng
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $telArea;
 
     /**
+     * @example 01
+     *
      * @var string
      */
     public $telExt;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $telephone;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

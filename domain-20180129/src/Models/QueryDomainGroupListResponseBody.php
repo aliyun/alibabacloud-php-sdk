@@ -15,6 +15,8 @@ class QueryDomainGroupListResponseBody extends Model
     public $data;
 
     /**
+     * @example 80011ABC-F573-4795-B0E8-377BFBBA3422
+     *
      * @var string
      */
     public $requestId;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class addr extends Model
 {
     /**
+     * @example NZ
+     *
      * @var string
      */
     public $cc;
 
     /**
+     * @example Auckland
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example 1010
+     *
      * @var string
      */
     public $pc;
 
     /**
+     * @example Auckland
+     *
      * @var string
      */
     public $sp;

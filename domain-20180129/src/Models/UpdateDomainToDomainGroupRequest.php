@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainToDomainGroupRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dataSource;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $domainGroupId;
 
     /**
+     * @example example.com
+     *
      * @var string[]
      */
     public $domainName;
 
     /**
+     * @example dGVzdA==
+     *
      * @var string
      */
     public $fileToUpload;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $replace;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

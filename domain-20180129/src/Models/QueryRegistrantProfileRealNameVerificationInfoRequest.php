@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryRegistrantProfileRealNameVerificationInfoRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $fetchImage;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

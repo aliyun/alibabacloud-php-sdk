@@ -15,26 +15,36 @@ class LookupTmchNoticeResponseBody extends Model
     public $claims;
 
     /**
+     * @example 586608000000
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example noted
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example 2018-10-15T00:00:00.0Z
+     *
      * @var string
      */
     public $notAfter;
 
     /**
+     * @example 2018-10-13T00:00:00.0Z
+     *
      * @var string
      */
     public $notBefore;
 
     /**
+     * @example 01C10C8E-0468-468C-BCD9-E709BDD0AE8F
+     *
      * @var string
      */
     public $requestId;

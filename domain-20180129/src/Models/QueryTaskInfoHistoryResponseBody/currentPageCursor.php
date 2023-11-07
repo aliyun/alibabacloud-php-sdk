@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class currentPageCursor extends Model
 {
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $clientip;
 
     /**
+     * @example 2017-11-01 17:22:51
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1509528171000
+     *
      * @var int
      */
     public $createTimeLong;
 
     /**
+     * @example aa634d3f-927e-4d17-9d2c-test
+     *
      * @var string
      */
     public $taskNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $taskNum;
 
     /**
+     * @example COMPLETE
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $taskStatusCode;
 
     /**
+     * @example CHG_DNS
+     *
      * @var string
      */
     public $taskType;

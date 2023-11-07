@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForQueryingTransferAuthorizationCodeResponseBody extends Model
 {
     /**
+     * @example AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
+     *
      * @var string
      */
     public $taskNo;

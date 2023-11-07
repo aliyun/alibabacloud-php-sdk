@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForDeletingDnsHostResponseBody extends Model
 {
     /**
+     * @example 8fc97e44-837a-447d-ac61-ea28d2fe8a38
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 8fc97e44-837a-447d-ac61-ea28d2fexxxx
+     *
      * @var string
      */
     public $taskNo;

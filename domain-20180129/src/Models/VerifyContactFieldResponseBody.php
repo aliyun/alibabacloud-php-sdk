@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyContactFieldResponseBody extends Model
 {
     /**
+     * @example ABAC3BAC-FCFA-4DAE-B47C-FA4105CB07C6
+     *
      * @var string
      */
     public $requestId;

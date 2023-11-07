@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TransferInRefetchWhoisEmailResponseBody extends Model
 {
     /**
+     * @example 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
+     *
      * @var string
      */
     public $requestId;

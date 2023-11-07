@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryDnsHostRequest extends Model
 {
     /**
+     * @example ST2017120814571100001303
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

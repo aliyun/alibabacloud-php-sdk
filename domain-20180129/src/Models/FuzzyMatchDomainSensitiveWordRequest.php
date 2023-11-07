@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class FuzzyMatchDomainSensitiveWordRequest extends Model
 {
     /**
+     * @example xxx**.cn
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

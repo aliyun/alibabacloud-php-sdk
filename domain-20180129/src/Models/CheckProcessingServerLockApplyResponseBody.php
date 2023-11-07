@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckProcessingServerLockApplyResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $exists;
 
     /**
+     * @example 9DFCF6F8-243C-****-8035-4B12FEFD7D48
+     *
      * @var string
      */
     public $requestId;

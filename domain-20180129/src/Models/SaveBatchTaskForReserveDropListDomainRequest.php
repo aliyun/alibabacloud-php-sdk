@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForReserveDropListDomainRequest extends Model
 {
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $contactTemplateId;

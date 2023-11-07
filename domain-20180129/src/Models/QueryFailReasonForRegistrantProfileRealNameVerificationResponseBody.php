@@ -15,6 +15,8 @@ class QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody extend
     public $data;
 
     /**
+     * @example 548C407F-AEA2-4B5D-90DF-EC11EBB1D76F
+     *
      * @var string
      */
     public $requestId;

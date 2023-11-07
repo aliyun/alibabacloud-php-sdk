@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForModifyingDomainDnsRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $aliyunDns;
 
     /**
+     * @example example.com
+     *
      * @var string[]
      */
     public $domainName;
 
     /**
+     * @example ns1.test.com
+     *
      * @var string[]
      */
     public $domainNameServer;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

@@ -15,6 +15,8 @@ class QueryFailReasonForDomainRealNameVerificationResponseBody extends Model
     public $data;
 
     /**
+     * @example 1F1BA893-AD33-4248-8CB8-1657E3733052
+     *
      * @var string
      */
     public $requestId;

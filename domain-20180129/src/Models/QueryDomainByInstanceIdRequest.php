@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainByInstanceIdRequest extends Model
 {
     /**
+     * @example S20131205001****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

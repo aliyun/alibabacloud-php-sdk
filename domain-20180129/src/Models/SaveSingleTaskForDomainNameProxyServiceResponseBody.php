@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForDomainNameProxyServiceResponseBody extends Model
 {
     /**
+     * @example F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
+     *
      * @var string
      */
     public $taskNo;

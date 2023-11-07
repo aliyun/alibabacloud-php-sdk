@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryTaskDetailListRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example S20179H1BBI9test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 75addb07-28a3-450e-b5ec-test
+     *
      * @var string
      */
     public $taskNo;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $taskStatus;
 
     /**
+     * @example 127.0.0.0
+     *
      * @var string
      */
     public $userClientIp;

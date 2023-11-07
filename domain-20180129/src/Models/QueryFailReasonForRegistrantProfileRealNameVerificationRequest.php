@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryFailReasonForRegistrantProfileRealNameVerificationRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $registrantProfileID;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

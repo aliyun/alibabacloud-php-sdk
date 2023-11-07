@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForSynchronizingDnsHostResponseBody extends Model
 {
     /**
+     * @example 0F1B3547-BE50-4206-8F78-9540FFB85BC1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example e9b8e8b4-7334-4548-9cec-c30b6891f292
+     *
      * @var string
      */
     public $taskNo;

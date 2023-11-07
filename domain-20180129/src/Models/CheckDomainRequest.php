@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CheckDomainRequest extends Model
 {
     /**
+     * @example test**.xin
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example create
+     *
      * @var string
      */
     public $feeCommand;
 
     /**
+     * @example USD
+     *
      * @var string
      */
     public $feeCurrency;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $feePeriod;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;

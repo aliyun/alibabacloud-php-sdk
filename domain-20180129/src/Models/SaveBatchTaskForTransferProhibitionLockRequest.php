@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForTransferProhibitionLockRequest extends Model
 {
     /**
+     * @example test1.com
+     *
      * @var string[]
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $status;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

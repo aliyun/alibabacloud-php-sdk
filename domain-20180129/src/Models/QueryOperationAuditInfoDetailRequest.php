@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryOperationAuditInfoDetailRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditRecordId;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;

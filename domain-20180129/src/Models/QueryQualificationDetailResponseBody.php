@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryQualificationDetailResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditStatus;
@@ -20,11 +22,15 @@ class QueryQualificationDetailResponseBody extends Model
     public $credentials;
 
     /**
+     * @example 9DFCF6F8-243C-****-8035-4B12FEFD7D48
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 943a1662898a****0acbdbeca91
+     *
      * @var string
      */
     public $trackId;

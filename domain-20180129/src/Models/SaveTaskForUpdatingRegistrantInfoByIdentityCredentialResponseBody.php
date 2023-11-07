@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody extends Model
 {
     /**
+     * @example EDC28FEC-6BE0-4583-95BC-test
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 880f1579-be51-4dd3-a69d-test
+     *
      * @var string
      */
     public $taskNo;

@@ -22,6 +22,8 @@ class SubmitEmailVerificationResponseBody extends Model
     public $failList;
 
     /**
+     * @example E2A8A5EF-DF8A-4C48-8FD4-9F6BD71AB26D
+     *
      * @var string
      */
     public $requestId;

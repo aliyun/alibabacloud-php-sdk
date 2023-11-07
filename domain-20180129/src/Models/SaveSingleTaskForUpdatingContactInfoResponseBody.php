@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForUpdatingContactInfoResponseBody extends Model
 {
     /**
+     * @example 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
+     *
      * @var string
      */
     public $taskNo;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryContactInfoRequest extends Model
 {
     /**
+     * @example admin
+     *
      * @var string
      */
     public $contactType;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

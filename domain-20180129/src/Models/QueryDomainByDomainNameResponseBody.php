@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainByDomainNameResponseBody\dnsList;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainByDomainNameResponseBody\tag;
 use AlibabaCloud\Tea\Model;
 
 class QueryDomainByDomainNameResponseBody extends Model
@@ -15,6 +16,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $dnsList;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $domainGroupId;
@@ -25,101 +28,148 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $domainGroupName;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $domainNameProxyService;
 
     /**
+     * @example SUCCEED
+     *
      * @var string
      */
     public $domainNameVerificationStatus;
 
     /**
+     * @example 3
+     *
+     * @var string
+     */
+    public $domainStatus;
+
+    /**
+     * @example gTLD
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $emailVerificationClientHold;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $emailVerificationStatus;
 
     /**
+     * @example 356
+     *
      * @var int
      */
     public $expirationCurrDateDiff;
 
     /**
+     * @example 2019-12-07 17:02:13
+     *
      * @var string
      */
     public $expirationDate;
 
     /**
+     * @example 1625111915000
+     *
      * @var int
      */
     public $expirationDateLong;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $expirationDateStatus;
 
     /**
+     * @example S20179H1BBI9****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $premium;
 
     /**
+     * @example NONAUDIT
+     *
      * @var string
      */
     public $realNameStatus;
 
     /**
+     * @example Test litm
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example Test litm
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $registrantUpdatingStatus;
 
     /**
+     * @example 2017-12-07 17:02:13
+     *
      * @var string
      */
     public $registrationDate;
 
     /**
+     * @example 1584675448000
+     *
      * @var int
      */
     public $registrationDateLong;
@@ -130,26 +180,48 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $remark;
 
     /**
+     * @example 44101664-3E70-4F0E-89E5-CCB74BF*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmw6bpc6n7zai
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag
+     */
+    public $tag;
+
+    /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $transferOutStatus;
 
     /**
+     * @example CLOSE
+     *
      * @var string
      */
     public $transferProhibitionLock;
 
     /**
+     * @example CLOSE
+     *
      * @var string
      */
     public $updateProhibitionLock;
 
     /**
+     * @example 121000000****
+     *
      * @var string
      */
     public $userId;
@@ -163,11 +235,6 @@ class QueryDomainByDomainNameResponseBody extends Model
      * @var string
      */
     public $zhRegistrantOrganization;
-
-    /**
-     * @var string
-     */
-    public $domainStatus;
     protected $_name = [
         'dnsList'                      => 'DnsList',
         'domainGroupId'                => 'DomainGroupId',
@@ -175,6 +242,7 @@ class QueryDomainByDomainNameResponseBody extends Model
         'domainName'                   => 'DomainName',
         'domainNameProxyService'       => 'DomainNameProxyService',
         'domainNameVerificationStatus' => 'DomainNameVerificationStatus',
+        'domainStatus'                 => 'DomainStatus',
         'domainType'                   => 'DomainType',
         'email'                        => 'Email',
         'emailVerificationClientHold'  => 'EmailVerificationClientHold',
@@ -194,13 +262,14 @@ class QueryDomainByDomainNameResponseBody extends Model
         'registrationDateLong'         => 'RegistrationDateLong',
         'remark'                       => 'Remark',
         'requestId'                    => 'RequestId',
+        'resourceGroupId'              => 'ResourceGroupId',
+        'tag'                          => 'Tag',
         'transferOutStatus'            => 'TransferOutStatus',
         'transferProhibitionLock'      => 'TransferProhibitionLock',
         'updateProhibitionLock'        => 'UpdateProhibitionLock',
         'userId'                       => 'UserId',
         'zhRegistrantName'             => 'ZhRegistrantName',
         'zhRegistrantOrganization'     => 'ZhRegistrantOrganization',
-        'domainStatus'                 => 'domainStatus',
     ];
 
     public function validate()
@@ -227,6 +296,9 @@ class QueryDomainByDomainNameResponseBody extends Model
         }
         if (null !== $this->domainNameVerificationStatus) {
             $res['DomainNameVerificationStatus'] = $this->domainNameVerificationStatus;
+        }
+        if (null !== $this->domainStatus) {
+            $res['DomainStatus'] = $this->domainStatus;
         }
         if (null !== $this->domainType) {
             $res['DomainType'] = $this->domainType;
@@ -285,6 +357,12 @@ class QueryDomainByDomainNameResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = null !== $this->tag ? $this->tag->toMap() : null;
+        }
         if (null !== $this->transferOutStatus) {
             $res['TransferOutStatus'] = $this->transferOutStatus;
         }
@@ -302,9 +380,6 @@ class QueryDomainByDomainNameResponseBody extends Model
         }
         if (null !== $this->zhRegistrantOrganization) {
             $res['ZhRegistrantOrganization'] = $this->zhRegistrantOrganization;
-        }
-        if (null !== $this->domainStatus) {
-            $res['domainStatus'] = $this->domainStatus;
         }
 
         return $res;
@@ -335,6 +410,9 @@ class QueryDomainByDomainNameResponseBody extends Model
         }
         if (isset($map['DomainNameVerificationStatus'])) {
             $model->domainNameVerificationStatus = $map['DomainNameVerificationStatus'];
+        }
+        if (isset($map['DomainStatus'])) {
+            $model->domainStatus = $map['DomainStatus'];
         }
         if (isset($map['DomainType'])) {
             $model->domainType = $map['DomainType'];
@@ -393,6 +471,12 @@ class QueryDomainByDomainNameResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = tag::fromMap($map['Tag']);
+        }
         if (isset($map['TransferOutStatus'])) {
             $model->transferOutStatus = $map['TransferOutStatus'];
         }
@@ -410,9 +494,6 @@ class QueryDomainByDomainNameResponseBody extends Model
         }
         if (isset($map['ZhRegistrantOrganization'])) {
             $model->zhRegistrantOrganization = $map['ZhRegistrantOrganization'];
-        }
-        if (isset($map['domainStatus'])) {
-            $model->domainStatus = $map['domainStatus'];
         }
 
         return $model;

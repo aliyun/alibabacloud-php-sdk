@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryOperationAuditInfoListRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditType;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

@@ -4,16 +4,21 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListResponseBody\data;
 
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListResponseBody\data\domain\tag;
 use AlibabaCloud\Tea\Model;
 
 class domain extends Model
 {
     /**
+     * @example FAILED
+     *
      * @var string
      */
     public $domainAuditStatus;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $domainGroupId;
@@ -24,21 +29,29 @@ class domain extends Model
     public $domainGroupName;
 
     /**
+     * @example test.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example gTLD
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @example -30
+     *
      * @var int
      */
     public $expirationCurrDateDiff;
@@ -49,41 +62,57 @@ class domain extends Model
     public $expirationDate;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $expirationDateLong;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $expirationDateStatus;
 
     /**
+     * @example ST20151102120031118
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $premium;
 
     /**
+     * @example 2a
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example 2017-11-02 04:00:45
+     *
      * @var string
      */
     public $registrationDate;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $registrationDateLong;
@@ -92,6 +121,18 @@ class domain extends Model
      * @var string
      */
     public $remark;
+
+    /**
+     * @example rg-aek2yyciz557g3q
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag
+     */
+    public $tag;
     protected $_name = [
         'domainAuditStatus'      => 'DomainAuditStatus',
         'domainGroupId'          => 'DomainGroupId',
@@ -110,6 +151,8 @@ class domain extends Model
         'registrationDate'       => 'RegistrationDate',
         'registrationDateLong'   => 'RegistrationDateLong',
         'remark'                 => 'Remark',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'tag'                    => 'Tag',
     ];
 
     public function validate()
@@ -169,6 +212,12 @@ class domain extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = null !== $this->tag ? $this->tag->toMap() : null;
         }
 
         return $res;
@@ -232,6 +281,12 @@ class domain extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = tag::fromMap($map['Tag']);
         }
 
         return $model;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SubmitOperationCredentialsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditRecordId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditType;
 
     /**
+     * @example [{"credentialType":"SHSQB",""credentialUrl":"11212121/1212d**\/sqb.jpg"},{"credentialType":"SFZZM",""credentialUrl":"11212121/1212d**\/sfzzm.jpg"}]
+     *
      * @var string
      */
     public $credentials;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $regType;

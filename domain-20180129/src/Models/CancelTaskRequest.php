@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CancelTaskRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 7f217ae0-61f5-42e2-a1c3-42bad0124****
+     *
      * @var string
      */
     public $taskNo;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

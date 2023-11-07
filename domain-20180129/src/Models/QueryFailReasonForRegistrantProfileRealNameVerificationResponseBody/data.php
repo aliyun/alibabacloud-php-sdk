@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 2017-03-17 11:08:02
+     *
      * @var string
      */
     public $date;

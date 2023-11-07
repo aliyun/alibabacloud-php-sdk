@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForCreatingOrderTransferRequest extends Model
 {
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
@@ -25,21 +29,29 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
     public $orderTransferParam;
 
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $promotionNo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useCoupon;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $usePromotion;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

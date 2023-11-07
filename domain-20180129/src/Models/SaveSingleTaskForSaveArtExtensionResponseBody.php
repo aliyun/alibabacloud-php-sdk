@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForSaveArtExtensionResponseBody extends Model
 {
     /**
+     * @example E2598CAF-DBFE-494E-95EF-B42A33C178AB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example e893148f-6343-4ae1-9eba-6e2a4116e141
+     *
      * @var string
      */
     public $taskNo;

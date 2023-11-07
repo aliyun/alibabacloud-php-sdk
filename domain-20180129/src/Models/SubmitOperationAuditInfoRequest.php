@@ -14,21 +14,29 @@ class SubmitOperationAuditInfoRequest extends Model
     public $auditInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $auditType;
 
     /**
+     * @example example.com,example.org
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;

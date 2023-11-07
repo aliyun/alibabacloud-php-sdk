@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class failList extends Model
 {
     /**
+     * @example ParameterIllegall
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example test1@aliyun.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example Parameter error
+     *
      * @var string
      */
     public $message;

@@ -14,16 +14,22 @@ class QueryDomainGroupListRequest extends Model
     public $domainGroupName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $showDeletingGroup;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

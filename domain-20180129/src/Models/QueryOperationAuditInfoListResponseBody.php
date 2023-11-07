@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryOperationAuditInfoListResponseBody extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $currentPageNum;
@@ -20,31 +22,43 @@ class QueryOperationAuditInfoListResponseBody extends Model
     public $data;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $nextPage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $prePage;
 
     /**
+     * @example 9DFCF6F8-243C-40EC-8035-4B12FEFD7D48
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 199
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalPageNum;

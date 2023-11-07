@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainByInstanceIdResponseBody\dnsList;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainByInstanceIdResponseBody\tag;
 use AlibabaCloud\Tea\Model;
 
 class QueryDomainByInstanceIdResponseBody extends Model
@@ -15,152 +16,212 @@ class QueryDomainByInstanceIdResponseBody extends Model
     public $dnsList;
 
     /**
-     * @description 域名分组ID
+     * @example 1234
      *
      * @var int
      */
     public $domainGroupId;
 
     /**
-     * @description 域名分组名称
-     *
      * @var string
      */
     public $domainGroupName;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $domainNameProxyService;
 
     /**
+     * @example NONAUDIT
+     *
      * @var string
      */
     public $domainNameVerificationStatus;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example gTLD
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $emailVerificationClientHold;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $emailVerificationStatus;
 
     /**
+     * @example 356
+     *
      * @var int
      */
     public $expirationCurrDateDiff;
 
     /**
+     * @example 2019-12-07 17:02:13
+     *
      * @var string
      */
     public $expirationDate;
 
     /**
+     * @example 1625111915000
+     *
      * @var int
      */
     public $expirationDateLong;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $expirationDateStatus;
 
     /**
+     * @example S20179H1BBI9test
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $premium;
 
     /**
+     * @example NONAUDIT
+     *
      * @var string
      */
     public $realNameStatus;
 
     /**
+     * @example Test litm
+     *
      * @var string
      */
     public $registrantName;
 
     /**
+     * @example Test litm
+     *
      * @var string
      */
     public $registrantOrganization;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $registrantUpdatingStatus;
 
     /**
+     * @example 2017-12-07 17:02:13
+     *
      * @var string
      */
     public $registrationDate;
 
     /**
+     * @example 1625111915000
+     *
      * @var int
      */
     public $registrationDateLong;
 
     /**
-     * @description 备注
-     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example 23C9B3C4-9E2C-4405-A88D-BD33E459D140
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmw6bpc6n7zai
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag
+     */
+    public $tag;
+
+    /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $transferOutStatus;
 
     /**
+     * @example CLOSE
+     *
      * @var string
      */
     public $transferProhibitionLock;
 
     /**
+     * @example CLOSE
+     *
      * @var string
      */
     public $updateProhibitionLock;
 
     /**
+     * @example 121000000****
+     *
      * @var string
      */
     public $userId;
@@ -201,6 +262,8 @@ class QueryDomainByInstanceIdResponseBody extends Model
         'registrationDateLong'         => 'RegistrationDateLong',
         'remark'                       => 'Remark',
         'requestId'                    => 'RequestId',
+        'resourceGroupId'              => 'ResourceGroupId',
+        'tag'                          => 'Tag',
         'transferOutStatus'            => 'TransferOutStatus',
         'transferProhibitionLock'      => 'TransferProhibitionLock',
         'updateProhibitionLock'        => 'UpdateProhibitionLock',
@@ -293,6 +356,12 @@ class QueryDomainByInstanceIdResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = null !== $this->tag ? $this->tag->toMap() : null;
         }
         if (null !== $this->transferOutStatus) {
             $res['TransferOutStatus'] = $this->transferOutStatus;
@@ -401,6 +470,12 @@ class QueryDomainByInstanceIdResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = tag::fromMap($map['Tag']);
         }
         if (isset($map['TransferOutStatus'])) {
             $model->transferOutStatus = $map['TransferOutStatus'];

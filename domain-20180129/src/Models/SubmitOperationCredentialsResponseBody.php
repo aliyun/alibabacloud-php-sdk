@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitOperationCredentialsResponseBody extends Model
 {
     /**
+     * @example 9DFCF6F8-243C-40EC-8035-4B12FEFX7D98
+     *
      * @var string
      */
     public $requestId;
