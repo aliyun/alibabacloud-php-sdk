@@ -89,6 +89,11 @@ class InitFaceVerifyRequest extends Model
     public $faceContrastPictureUrl;
 
     /**
+     * @var string
+     */
+    public $faceGuardOutput;
+
+    /**
      * @example 114.xxx.xxx.xxx
      *
      * @var string
@@ -207,6 +212,7 @@ class InitFaceVerifyRequest extends Model
         'encryptType'                => 'EncryptType',
         'faceContrastPicture'        => 'FaceContrastPicture',
         'faceContrastPictureUrl'     => 'FaceContrastPictureUrl',
+        'faceGuardOutput'            => 'FaceGuardOutput',
         'ip'                         => 'Ip',
         'metaInfo'                   => 'MetaInfo',
         'mobile'                     => 'Mobile',
@@ -274,6 +280,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->faceContrastPictureUrl) {
             $res['FaceContrastPictureUrl'] = $this->faceContrastPictureUrl;
+        }
+        if (null !== $this->faceGuardOutput) {
+            $res['FaceGuardOutput'] = $this->faceGuardOutput;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -379,6 +388,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['FaceContrastPictureUrl'])) {
             $model->faceContrastPictureUrl = $map['FaceContrastPictureUrl'];
+        }
+        if (isset($map['FaceGuardOutput'])) {
+            $model->faceGuardOutput = $map['FaceGuardOutput'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];

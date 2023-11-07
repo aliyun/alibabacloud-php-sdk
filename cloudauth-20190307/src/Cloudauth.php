@@ -967,6 +967,9 @@ class Cloudauth extends OpenApiClient
         if (!Utils::isUnset($request->faceContrastPictureUrl)) {
             $query['FaceContrastPictureUrl'] = $request->faceContrastPictureUrl;
         }
+        if (!Utils::isUnset($request->faceGuardOutput)) {
+            $query['FaceGuardOutput'] = $request->faceGuardOutput;
+        }
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
         }
