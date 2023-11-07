@@ -7157,11 +7157,13 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        $body = [];
         if (!Utils::isUnset($request->rowsShrink)) {
-            $query['Rows'] = $request->rowsShrink;
+            $body['Rows'] = $request->rowsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpsertCollectionData',

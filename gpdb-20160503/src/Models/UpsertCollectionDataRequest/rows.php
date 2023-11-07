@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class rows extends Model
 {
     /**
-     * @example doca-1234
-     *
      * @var string
      */
     public $id;
