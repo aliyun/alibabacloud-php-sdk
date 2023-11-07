@@ -9,61 +9,116 @@ use AlibabaCloud\Tea\Model;
 class GetAccessKeyLastUsedInfoResponseBody extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
+     * @example LTAI4Fz1ykT4qxgNMvN6****
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 104758519118****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The type of the account to which the AccessKey pair belongs.
+     *
+     * @example ram-user
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @description The details about the event.
+     *
+     * @example {
+     * "eventId": "239EB588-CD24-522E-B0B5-174A1A58****",
+     * "eventSource": "ecs.cn-hangzhou.aliyuncs.com",
+     * "sourceIpAddress": "10.10.**.**",
+     * "userIdentity": {
+     * "accountId": "104758519118****",
+     * "principalId": "24549429003625****",
+     * }
      * @var string
      */
     public $detail;
 
     /**
+     * @description The ID of the account to which the AccessKey pair belongs.
+     *
+     * @example 24549429003625****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 239EB588-CD24-522E-B0B5-174A1A588BE0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The Alibaba Cloud service that was last accessed.
+     *
+     * @example Ecs
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The Chinese name of the Alibaba Cloud service that was last accessed.
+     *
+     * @example Elastic Compute Service (ECS)
+     *
      * @var string
      */
     public $serviceNameCn;
 
     /**
+     * @description The English name of the Alibaba Cloud service that was last accessed.
+     *
+     * @example Elastic Compute Service
+     *
      * @var string
      */
     public $serviceNameEn;
 
     /**
+     * @description The event source.
+     *
+     * @example ManagementEvent
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The timestamp when the AccessKey pair was last called.
+     *
+     * @example 1657247532000
+     *
      * @var int
      */
     public $usedTimestamp;
 
     /**
+     * @description The name of the account to which the AccessKey pair belongs.
+     *
+     * If the value of the AccountType parameter is root-account, the value of the UserName parameter is root. If the value of the AccountType parameter is ram-user, the value of the UserName parameter is the name of a RAM user.
+     * @example alice
+     *
      * @var string
      */
     public $userName;

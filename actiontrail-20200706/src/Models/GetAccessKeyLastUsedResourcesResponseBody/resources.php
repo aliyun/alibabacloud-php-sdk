@@ -9,26 +9,65 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The event details.
+     *
+     * @example {
+     * "eventId": "239EB588-CD24-522E-B0B5-174A1A58****",
+     * "eventSource": "ecs.cn-hangzhou.aliyuncs.com",
+     * "sourceIpAddress": "10.10.**.**",
+     * "userIdentity": {
+     * "accountId": "104758519118****",
+     * "principalId": "24549429003625****",
+     * }
      * @var string
      */
     public $detail;
 
     /**
+     * @description The resource name.
+     *
+     * @example i-bp1ltva99x1a****
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The resource type.
+     *
+     * @example ACS::ECS::Instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The event source.
+     *
+     * Valid values:
+     *
+     *   Internal
+     *
+     * <!-- -->
+     *
+     *   ManagementEvent
+     *
+     * <!-- -->
+     *
+     *   DataEvent
+     *
+     * <!-- -->
+     * @example ManagementEvent
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The timestamp when the resource was used. Unit: millisecond.
+     *
+     * @example 1657247532000
+     *
      * @var int
      */
     public $usedTimestamp;

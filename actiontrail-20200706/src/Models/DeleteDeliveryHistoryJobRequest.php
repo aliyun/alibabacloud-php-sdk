@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeliveryHistoryJobRequest extends Model
 {
     /**
+     * @description The ID of the historical event delivery task to be deleted.
+     *
+     * You can call the [ListDeliveryHistoryJobs](~~188101~~) operation to query task IDs.
+     * @example 16602
+     *
      * @var int
      */
     public $jobId;

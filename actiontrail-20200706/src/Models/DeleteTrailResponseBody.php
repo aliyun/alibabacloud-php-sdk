@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteTrailResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 145318BE-DEE1-4C57-AA7C-5BE7D34A6AE0
+     *
      * @var string
      */
     public $requestId;

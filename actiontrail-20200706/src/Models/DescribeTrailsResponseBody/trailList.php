@@ -9,96 +9,184 @@ use AlibabaCloud\Tea\Model;
 class trailList extends Model
 {
     /**
+     * @description The time when the trail was created.
+     *
+     * @example 2021-03-01T06:27:28Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The read/write type of the events that are delivered. Valid values:
+     *
+     *   Write: write events. This is the default value.
+     *   Read: read events.
+     *   All: read and write events.
+     *
+     * @example All
+     *
      * @var string
      */
     public $eventRW;
 
     /**
+     * @description The home region of the trail.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $homeRegion;
 
     /**
+     * @description Indicates whether the trail is a multi-account trail. Valid values:
+     *
+     *   false (default)
+     *   true
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isOrganizationTrail;
 
     /**
+     * @description The name of the trail.
+     *
+     * @example test-4
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the resource directory.
+     *
+     * >  This parameter is returned only when the trail is a multi-account trail.
+     * @example rd-EV****
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @description The region where the OSS bucket resides.
+     *
+     * @example oss-cn-hangzhou
+     *
      * @var string
      */
     public $ossBucketLocation;
 
     /**
+     * @description The name of the OSS bucket to which events are delivered.
+     *
+     * @example secloud
+     *
      * @var string
      */
     public $ossBucketName;
 
     /**
+     * @description The prefix of the files that are stored in the Object Storage Service (OSS) bucket.
+     *
+     * @example trail1
+     *
      * @var string
      */
     public $ossKeyPrefix;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role that is assumed by ActionTrail to deliver events to the OSS bucket.
+     *
+     * @example acs:ram::***:role/aliyunserviceroleforactiontrail
+     *
      * @var string
      */
     public $ossWriteRoleArn;
 
     /**
+     * @description The region where the trail resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ARN of the Log Service project to which events are delivered.
+     *
+     * @example acs:log:cn-qingdao:159498693826****:project/zhengze-audit-log
+     *
      * @var string
      */
     public $slsProjectArn;
 
     /**
+     * @description The ARN of the RAM role that is assumed by ActionTrail to deliver events to the Log Service project.
+     *
+     * @example acs:ram::159498693826****:role/aliyunserviceroleforactiontrail
+     *
      * @var string
      */
     public $slsWriteRoleArn;
 
     /**
+     * @description The time when the trail was last enabled.
+     *
+     * @example 2021-04-06T02:08:38Z
+     *
      * @var string
      */
     public $startLoggingTime;
 
     /**
+     * @description The status of the trail. Valid values:
+     *
+     *   Disable: disabled.
+     *   Enable: enabled.
+     *   Fresh: The trail is created but is not enabled.
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The time when the trail was last disabled.
+     *
+     * @example 2021-04-06T02:09:04Z
+     *
      * @var string
      */
     public $stopLoggingTime;
 
     /**
+     * @description The ARN of the trail.
+     *
+     * @example acs:actiontrail:cn-hangzhou:159498693826****:trail/test-delivery-other
+     *
      * @var string
      */
     public $trailArn;
 
     /**
+     * @description The region of the trail.
+     *
+     * @example All
+     *
      * @var string
      */
     public $trailRegion;
 
     /**
+     * @description The time when the configurations of the trail were last updated.
+     *
+     * @example 2021-04-06T02:16:24Z
+     *
      * @var string
      */
     public $updateTime;

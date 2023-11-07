@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class status extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The task status in each region. Valid values:
+     *
+     *   0: The task is initializing.
+     *   1: The task is delivering historical events.
+     *   2: The task is complete.
+     *   3: The task fails.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;

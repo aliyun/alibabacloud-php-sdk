@@ -9,51 +9,100 @@ use AlibabaCloud\Tea\Model;
 class GetTrailStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether logging is enabled for the trail. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isLogging;
 
     /**
+     * @description The log of the last failed delivery.
+     *
+     * @example write sls failed, exception: the parent of sub user must be project owner, itemscount: 1
+     *
      * @var string
      */
     public $latestDeliveryError;
 
     /**
+     * @description The log of the last failed delivery to Log Service.
+     *
+     * @example write sls failed, exception: the parent of sub user must be project owner, itemscount: 1
+     *
      * @var string
      */
     public $latestDeliveryLogServiceError;
 
     /**
+     * @description The most recent time when an event was delivered to Log Service.
+     *
+     * @example 2021-02-26T09:19:44Z
+     *
      * @var string
      */
     public $latestDeliveryLogServiceTime;
 
     /**
+     * @description The most recent time when an event was delivered by the trail.
+     *
+     * @example 2021-02-26T09:19:44Z
+     *
      * @var string
      */
     public $latestDeliveryTime;
 
     /**
+     * @description Indicates whether the destination Object Storage Service (OSS) bucket is available. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ossBucketStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8067369B-B923-4D26-85BC-61BF33922505
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the destination Log Service Logstore is available. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $slsLogStoreStatus;
 
     /**
+     * @description The time when logging was last enabled for the trail.
+     *
+     * @example 2021-02-24T09:19:44Z
+     *
      * @var string
      */
     public $startLoggingTime;
 
     /**
+     * @description The time when logging was last disabled for the trail.
+     *
+     * @example 2021-02-25T09:19:44Z
+     *
      * @var string
      */
     public $stopLoggingTime;

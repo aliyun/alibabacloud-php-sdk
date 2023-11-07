@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CreateDeliveryHistoryJobRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests.
+     *
+     * For more information, see [How to ensure idempotence](~~25693~~).
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The name of the trail for which you want to create a historical event delivery task.
+     *
+     * @example trail-name
+     *
      * @var string
      */
     public $trailName;

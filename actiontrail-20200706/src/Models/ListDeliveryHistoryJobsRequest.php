@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class ListDeliveryHistoryJobsRequest extends Model
 {
     /**
+     * @description The page number.
+     *
+     *   Pages start from page 1.
+     *   Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     *   Valid values: 1 to 100.
+     *   Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class GetAccessKeyLastUsedResourcesResponseBody extends Model
 {
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example eyJhY2NvdW50IjoiMTQyNDM3OTU4NjM4NzE2MSIsImV2ZW50SWQiOiI3MkJDRTExRi02OTU3LTQ0NUItQjY0MC1CNEUyMkM4NUEwQzgiLCJsb2dJZCI6IjgyLTE0MjQzNzk1ODYzODcxNjEiLCJ0aW1lIjoxNjAyMzExNTQwMD****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 145318BE-DEE1-4C57-AA7C-5BE7D34A6AE0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of returned resources.
+     *
      * @var resources[]
      */
     public $resources;

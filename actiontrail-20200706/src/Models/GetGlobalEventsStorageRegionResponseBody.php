@@ -6,18 +6,37 @@ namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopLoggingResponseBody extends Model
+class GetGlobalEventsStorageRegionResponseBody extends Model
 {
     /**
      * @description The ID of the request.
      *
-     * @example 1C488B66-B819-4D14-8711-C4EAAA13AC01
+     * @example 0474CD9D-DF37-55D4-8383-D978CFBE13A4
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description The region where global events are stored.
+     *
+     * Valid values:
+     *
+     *   ap-southeast-1
+     *
+     * <!-- -->
+     *
+     *   cn-hangzhou
+     *
+     * <!-- -->
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $storageRegion;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'requestId'     => 'RequestId',
+        'storageRegion' => 'StorageRegion',
     ];
 
     public function validate()
@@ -30,6 +49,9 @@ class StopLoggingResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->storageRegion) {
+            $res['StorageRegion'] = $this->storageRegion;
+        }
 
         return $res;
     }
@@ -37,13 +59,16 @@ class StopLoggingResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return StopLoggingResponseBody
+     * @return GetGlobalEventsStorageRegionResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StorageRegion'])) {
+            $model->storageRegion = $map['StorageRegion'];
         }
 
         return $model;

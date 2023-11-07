@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetTrailStatusRequest extends Model
 {
     /**
+     * @description Specifies whether to query the status of a multi-account trail. Valid values:
+     *
+     *   true: Query the status of a multi-account trail.
+     *   false: Query the status of a single-account trail. It is the default value.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isOrganizationTrail;
 
     /**
+     * @description The name of the trail.
+     *
+     * > The name must be unique within your Alibaba Cloud account.
+     * @example trail-test
+     *
      * @var string
      */
     public $name;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class GetAccessKeyLastUsedIpsResponseBody extends Model
 {
     /**
+     * @description The list of returned IP addresses.
+     *
      * @var ips[]
      */
     public $ips;
 
     /**
+     * @description The token that determines the start point of the query.
+     *
+     * @example eyJhY2NvdW50IjoiMTQyNDM3OTU4NjM4NzE2MSIsImV2ZW50SWQiOiI3MkJDRTExRi02OTU3LTQ0NUItQjY0MC1CNEUyMkM4NUEwQzgiLCJsb2dJZCI6IjgyLTE0MjQzNzk1ODYzODcxNjEiLCJ0aW1lIjoxNjAyMzExNTQwMD****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 145318BE-DEE1-4C57-AA7C-5BE7D34A6AE0
+     *
      * @var string
      */
     public $requestId;

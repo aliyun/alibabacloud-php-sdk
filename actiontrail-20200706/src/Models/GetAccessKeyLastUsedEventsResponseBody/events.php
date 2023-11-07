@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @description An array that consists of the details about the event.
+     *
+     * @example {
+     * "eventId": "239EB588-CD24-522E-B0B5-174A1A58****",
+     * "eventSource": "ecs.cn-hangzhou.aliyuncs.com",
+     * "sourceIpAddress": "10.10.**.**",
+     * "userIdentity": {
+     * "accountId": "104758519118****",
+     * "principalId": "24549429003625****",
+     * }
      * @var string
      */
     public $detail;
 
     /**
+     * @description The name of the event.
+     *
+     * @example DescribeInstances
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The event source.
+     *
+     * @example ManagementEvent
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The timestamp when the event was generated.
+     *
+     * @example 1657247532000
+     *
      * @var int
      */
     public $usedTimestamp;

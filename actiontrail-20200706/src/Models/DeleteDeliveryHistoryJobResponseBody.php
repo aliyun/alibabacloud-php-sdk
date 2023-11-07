@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeliveryHistoryJobResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D74DD20B-6598-429C-873B-B9B449B656B6
+     *
      * @var string
      */
     public $requestId;

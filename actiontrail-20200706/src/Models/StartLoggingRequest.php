@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StartLoggingRequest extends Model
 {
     /**
+     * @description The name of the trail that you want to enable.
+     *
+     * > The name must be unique within your Alibaba Cloud account.
+     * @example trail-test
+     *
      * @var string
      */
     public $name;

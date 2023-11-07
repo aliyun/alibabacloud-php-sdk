@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class GetAccessKeyLastUsedResourcesRequest extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
+     * @example LTAI4Fz1ykT4qxgNMvN6****
+     *
      * @var string
      */
     public $accessKey;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * > The request parameters must be the same as those of the last request.
+     * @example eyJhY2NvdW50IjoiMTQyNDM3OTU4NjM4NzE2MSIsImV2ZW50SWQiOiI3MkJDRTExRi02OTU3LTQ0NUItQjY0MC1CNEUyMkM4NUEwQzgiLCJsb2dJZCI6IjgyLTE0MjQzNzk1ODYzODcxNjEiLCJ0aW1lIjoxNjAyMzExNTQwMD****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The number of entries per page.
+     *
+     *   Valid values: 0 to 100.
+     *   Default value: 20.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The Alibaba Cloud service. For more information about the Alibaba Cloud services supported by ActionTrail, see [Supported Alibaba Cloud services](~~28829~~).
+     *
+     * @example Ecs
+     *
      * @var string
      */
     public $serviceName;

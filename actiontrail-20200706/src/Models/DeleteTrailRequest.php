@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteTrailRequest extends Model
 {
     /**
+     * @description The name of the trail that you want to delete.
+     *
+     * > The name must be unique within your Alibaba Cloud account.
+     * @example my-test
+     *
      * @var string
      */
     public $name;

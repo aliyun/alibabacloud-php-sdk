@@ -10,51 +10,94 @@ use AlibabaCloud\Tea\Model;
 class GetDeliveryHistoryJobResponseBody extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2021-05-27T07:15:03Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The time when the task ended.
+     *
+     * @example 2021-05-27T07:20:03Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The home region of the trail.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $homeRegion;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 16602
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The task status. Valid values:
+     *
+     *   0: The task is initializing.
+     *   1: The task is delivering historical events.
+     *   2: The task is complete.
+     *   3: The task fails.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $jobStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FAFEC427-A00D-5653-B837-D0FA52220D8C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The time when the task started.
+     *
+     * @example 2021-02-26T07:15:03Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description A list of task statuses in each region.
+     *
      * @var status[]
      */
     public $status;
 
     /**
+     * @description The name of the trail based on which the task delivers events.
+     *
+     * @example trail-name
+     *
      * @var string
      */
     public $trailName;
 
     /**
+     * @description The time when the task was updated.
+     *
+     * @example 2021-05-27T07:28:47Z
+     *
      * @var string
      */
     public $updatedTime;

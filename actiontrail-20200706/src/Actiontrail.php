@@ -30,6 +30,7 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedResourcesR
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedResourcesResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetDeliveryHistoryJobRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetDeliveryHistoryJobResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetGlobalEventsStorageRegionResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetTrailStatusRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetTrailStatusResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\ListDeliveryHistoryJobsRequest;
@@ -40,6 +41,8 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\StartLoggingRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\StartLoggingResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\StopLoggingRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\StopLoggingResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\UpdateGlobalEventsStorageRegionRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\UpdateGlobalEventsStorageRegionResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\UpdateTrailRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\UpdateTrailResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -116,10 +119,15 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param CreateDeliveryHistoryJobRequest $request
-     * @param RuntimeOptions                  $runtime
+     * Take note of the following limits:
+     *   * - You must have created and configured a single-account trail to deliver events to Log Service by calling the [CreateTrail](~~212313~~) operation.
+     *   * - Only one historical event delivery task can be running at a time within an Alibaba Cloud account.
+     *   * This topic shows you how to create a historical event delivery task for a sample trail named `trail-name`.
+     *   *
+     * @param CreateDeliveryHistoryJobRequest $request CreateDeliveryHistoryJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDeliveryHistoryJobResponse
+     * @return CreateDeliveryHistoryJobResponse CreateDeliveryHistoryJobResponse
      */
     public function createDeliveryHistoryJobWithOptions($request, $runtime)
     {
@@ -150,9 +158,14 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param CreateDeliveryHistoryJobRequest $request
+     * Take note of the following limits:
+     *   * - You must have created and configured a single-account trail to deliver events to Log Service by calling the [CreateTrail](~~212313~~) operation.
+     *   * - Only one historical event delivery task can be running at a time within an Alibaba Cloud account.
+     *   * This topic shows you how to create a historical event delivery task for a sample trail named `trail-name`.
+     *   *
+     * @param CreateDeliveryHistoryJobRequest $request CreateDeliveryHistoryJobRequest
      *
-     * @return CreateDeliveryHistoryJobResponse
+     * @return CreateDeliveryHistoryJobResponse CreateDeliveryHistoryJobResponse
      */
     public function createDeliveryHistoryJob($request)
     {
@@ -162,10 +175,16 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param CreateTrailRequest $request
-     * @param RuntimeOptions     $runtime
+     * You can create a trail to deliver events to Log Service, Object Storage Service (OSS), or both. Before you call this operation to create a trail, make sure that the following requirements are met:
+     *   * *   Deliver events to Log Service: A project is created in Log Service.
+     *   * **
+     *   * **Description** After you create a trail to deliver events to Log Service, a Logstore whose name is in the `actiontrail_<Trail name>` format is automatically created and optimally configured for subsequent auditing. Indexes and a dashboard are created for the Logstore to facilitate event queries. You cannot manually write data to the Logstore. This ensures data accuracy. You do not need to create a Logstore in advance.
+     *   * *   Deliver events to OSS: A bucket is created in OSS. This topic provides an example on how to call the API operation to create a single-account trail named `trail-test` to deliver events to an OSS bucket named `audit-log`.
+     *   *
+     * @param CreateTrailRequest $request CreateTrailRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTrailResponse
+     * @return CreateTrailResponse CreateTrailResponse
      */
     public function createTrailWithOptions($request, $runtime)
     {
@@ -217,9 +236,15 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param CreateTrailRequest $request
+     * You can create a trail to deliver events to Log Service, Object Storage Service (OSS), or both. Before you call this operation to create a trail, make sure that the following requirements are met:
+     *   * *   Deliver events to Log Service: A project is created in Log Service.
+     *   * **
+     *   * **Description** After you create a trail to deliver events to Log Service, a Logstore whose name is in the `actiontrail_<Trail name>` format is automatically created and optimally configured for subsequent auditing. Indexes and a dashboard are created for the Logstore to facilitate event queries. You cannot manually write data to the Logstore. This ensures data accuracy. You do not need to create a Logstore in advance.
+     *   * *   Deliver events to OSS: A bucket is created in OSS. This topic provides an example on how to call the API operation to create a single-account trail named `trail-test` to deliver events to an OSS bucket named `audit-log`.
+     *   *
+     * @param CreateTrailRequest $request CreateTrailRequest
      *
-     * @return CreateTrailResponse
+     * @return CreateTrailResponse CreateTrailResponse
      */
     public function createTrail($request)
     {
@@ -229,10 +254,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeliveryHistoryJobRequest $request
-     * @param RuntimeOptions                  $runtime
+     * This topic describes how to delete a sample historical event delivery task whose ID is `16602`.
+     *   *
+     * @param DeleteDeliveryHistoryJobRequest $request DeleteDeliveryHistoryJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDeliveryHistoryJobResponse
+     * @return DeleteDeliveryHistoryJobResponse DeleteDeliveryHistoryJobResponse
      */
     public function deleteDeliveryHistoryJobWithOptions($request, $runtime)
     {
@@ -260,9 +287,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeliveryHistoryJobRequest $request
+     * This topic describes how to delete a sample historical event delivery task whose ID is `16602`.
+     *   *
+     * @param DeleteDeliveryHistoryJobRequest $request DeleteDeliveryHistoryJobRequest
      *
-     * @return DeleteDeliveryHistoryJobResponse
+     * @return DeleteDeliveryHistoryJobResponse DeleteDeliveryHistoryJobResponse
      */
     public function deleteDeliveryHistoryJob($request)
     {
@@ -272,10 +301,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param DeleteTrailRequest $request
-     * @param RuntimeOptions     $runtime
+     * This topic describes how to delete a sample trail named `trail-test`.
+     *   *
+     * @param DeleteTrailRequest $request DeleteTrailRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTrailResponse
+     * @return DeleteTrailResponse DeleteTrailResponse
      */
     public function deleteTrailWithOptions($request, $runtime)
     {
@@ -303,9 +334,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param DeleteTrailRequest $request
+     * This topic describes how to delete a sample trail named `trail-test`.
+     *   *
+     * @param DeleteTrailRequest $request DeleteTrailRequest
      *
-     * @return DeleteTrailResponse
+     * @return DeleteTrailResponse DeleteTrailResponse
      */
     public function deleteTrail($request)
     {
@@ -315,10 +348,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * For more information, see [Regions and zones](~~40654~~).
+     *   *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -346,9 +381,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * For more information, see [Regions and zones](~~40654~~).
+     *   *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -358,10 +395,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrailsRequest $request
-     * @param RuntimeOptions        $runtime
+     * This topic shows you how to query the information about the single-account trails within an Alibaba Cloud account. In this example, the information about a trail named `test-4` is returned.
+     *   *
+     * @param DescribeTrailsRequest $request DescribeTrailsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTrailsResponse
+     * @return DescribeTrailsResponse DescribeTrailsResponse
      */
     public function describeTrailsWithOptions($request, $runtime)
     {
@@ -395,9 +434,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrailsRequest $request
+     * This topic shows you how to query the information about the single-account trails within an Alibaba Cloud account. In this example, the information about a trail named `test-4` is returned.
+     *   *
+     * @param DescribeTrailsRequest $request DescribeTrailsRequest
      *
-     * @return DescribeTrailsResponse
+     * @return DescribeTrailsResponse DescribeTrailsResponse
      */
     public function describeTrails($request)
     {
@@ -407,10 +448,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedEventsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * You can call this operation to query only the information about the most recent events that are generated within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. For more information about supported events, see [Alibaba Cloud services and events that are supported by the AccessKey pair audit feature](~~419214~~). Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+     *   *
+     * @param GetAccessKeyLastUsedEventsRequest $request GetAccessKeyLastUsedEventsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccessKeyLastUsedEventsResponse
+     * @return GetAccessKeyLastUsedEventsResponse GetAccessKeyLastUsedEventsResponse
      */
     public function getAccessKeyLastUsedEventsWithOptions($request, $runtime)
     {
@@ -447,9 +490,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedEventsRequest $request
+     * You can call this operation to query only the information about the most recent events that are generated within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. For more information about supported events, see [Alibaba Cloud services and events that are supported by the AccessKey pair audit feature](~~419214~~). Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+     *   *
+     * @param GetAccessKeyLastUsedEventsRequest $request GetAccessKeyLastUsedEventsRequest
      *
-     * @return GetAccessKeyLastUsedEventsResponse
+     * @return GetAccessKeyLastUsedEventsResponse GetAccessKeyLastUsedEventsResponse
      */
     public function getAccessKeyLastUsedEvents($request)
     {
@@ -459,10 +504,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation to query only the information about the most recent call of a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+     *   *
+     * @param GetAccessKeyLastUsedInfoRequest $request GetAccessKeyLastUsedInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccessKeyLastUsedInfoResponse
+     * @return GetAccessKeyLastUsedInfoResponse GetAccessKeyLastUsedInfoResponse
      */
     public function getAccessKeyLastUsedInfoWithOptions($request, $runtime)
     {
@@ -490,9 +537,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedInfoRequest $request
+     * You can call this operation to query only the information about the most recent call of a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+     *   *
+     * @param GetAccessKeyLastUsedInfoRequest $request GetAccessKeyLastUsedInfoRequest
      *
-     * @return GetAccessKeyLastUsedInfoResponse
+     * @return GetAccessKeyLastUsedInfoResponse GetAccessKeyLastUsedInfoResponse
      */
     public function getAccessKeyLastUsedInfo($request)
     {
@@ -502,10 +551,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedIpsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call this operation to query only the information about the IP addresses that are most recently used within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+     *   *
+     * @param GetAccessKeyLastUsedIpsRequest $request GetAccessKeyLastUsedIpsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccessKeyLastUsedIpsResponse
+     * @return GetAccessKeyLastUsedIpsResponse GetAccessKeyLastUsedIpsResponse
      */
     public function getAccessKeyLastUsedIpsWithOptions($request, $runtime)
     {
@@ -542,9 +593,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedIpsRequest $request
+     * You can call this operation to query only the information about the IP addresses that are most recently used within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+     *   *
+     * @param GetAccessKeyLastUsedIpsRequest $request GetAccessKeyLastUsedIpsRequest
      *
-     * @return GetAccessKeyLastUsedIpsResponse
+     * @return GetAccessKeyLastUsedIpsResponse GetAccessKeyLastUsedIpsResponse
      */
     public function getAccessKeyLastUsedIps($request)
     {
@@ -554,10 +607,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedProductsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * You can call this operation to query only the information about Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+     *   *
+     * @param GetAccessKeyLastUsedProductsRequest $request GetAccessKeyLastUsedProductsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccessKeyLastUsedProductsResponse
+     * @return GetAccessKeyLastUsedProductsResponse GetAccessKeyLastUsedProductsResponse
      */
     public function getAccessKeyLastUsedProductsWithOptions($request, $runtime)
     {
@@ -585,9 +640,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedProductsRequest $request
+     * You can call this operation to query only the information about Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+     *   *
+     * @param GetAccessKeyLastUsedProductsRequest $request GetAccessKeyLastUsedProductsRequest
      *
-     * @return GetAccessKeyLastUsedProductsResponse
+     * @return GetAccessKeyLastUsedProductsResponse GetAccessKeyLastUsedProductsResponse
      */
     public function getAccessKeyLastUsedProducts($request)
     {
@@ -597,10 +654,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedResourcesRequest $request
-     * @param RuntimeOptions                       $runtime
+     * You can call this operation to query only the information about resources that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+     *   *
+     * @param GetAccessKeyLastUsedResourcesRequest $request GetAccessKeyLastUsedResourcesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccessKeyLastUsedResourcesResponse
+     * @return GetAccessKeyLastUsedResourcesResponse GetAccessKeyLastUsedResourcesResponse
      */
     public function getAccessKeyLastUsedResourcesWithOptions($request, $runtime)
     {
@@ -637,9 +696,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedResourcesRequest $request
+     * You can call this operation to query only the information about resources that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+     *   *
+     * @param GetAccessKeyLastUsedResourcesRequest $request GetAccessKeyLastUsedResourcesRequest
      *
-     * @return GetAccessKeyLastUsedResourcesResponse
+     * @return GetAccessKeyLastUsedResourcesResponse GetAccessKeyLastUsedResourcesResponse
      */
     public function getAccessKeyLastUsedResources($request)
     {
@@ -649,10 +710,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetDeliveryHistoryJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * This topic describes how to query the details of a historical event delivery tasks created within your Alibaba Cloud account. In this example, the details of a historical event delivery task whose ID is `16602` are returned. The sample response shows that this task is used to deliver the historical events recorded by the trail named `trail-name` to Log Service and the task is complete.
+     *   *
+     * @param GetDeliveryHistoryJobRequest $request GetDeliveryHistoryJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDeliveryHistoryJobResponse
+     * @return GetDeliveryHistoryJobResponse GetDeliveryHistoryJobResponse
      */
     public function getDeliveryHistoryJobWithOptions($request, $runtime)
     {
@@ -680,9 +743,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetDeliveryHistoryJobRequest $request
+     * This topic describes how to query the details of a historical event delivery tasks created within your Alibaba Cloud account. In this example, the details of a historical event delivery task whose ID is `16602` are returned. The sample response shows that this task is used to deliver the historical events recorded by the trail named `trail-name` to Log Service and the task is complete.
+     *   *
+     * @param GetDeliveryHistoryJobRequest $request GetDeliveryHistoryJobRequest
      *
-     * @return GetDeliveryHistoryJobResponse
+     * @return GetDeliveryHistoryJobResponse GetDeliveryHistoryJobResponse
      */
     public function getDeliveryHistoryJob($request)
     {
@@ -692,10 +757,51 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetTrailStatusRequest $request
-     * @param RuntimeOptions        $runtime
+     * By default, global events are stored in the Singapore region.
+     *   * To obtain the permissions to call the API operation, you must submit a ticket.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTrailStatusResponse
+     * @return GetGlobalEventsStorageRegionResponse GetGlobalEventsStorageRegionResponse
+     */
+    public function getGlobalEventsStorageRegionWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetGlobalEventsStorageRegion',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetGlobalEventsStorageRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * By default, global events are stored in the Singapore region.
+     *   * To obtain the permissions to call the API operation, you must submit a ticket.
+     *   *
+     * @return GetGlobalEventsStorageRegionResponse GetGlobalEventsStorageRegionResponse
+     */
+    public function getGlobalEventsStorageRegion()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGlobalEventsStorageRegionWithOptions($runtime);
+    }
+
+    /**
+     * This topic describes how to query the status of a sample single-account trail named `trail-test`.
+     *   *
+     * @param GetTrailStatusRequest $request GetTrailStatusRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTrailStatusResponse GetTrailStatusResponse
      */
     public function getTrailStatusWithOptions($request, $runtime)
     {
@@ -726,9 +832,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param GetTrailStatusRequest $request
+     * This topic describes how to query the status of a sample single-account trail named `trail-test`.
+     *   *
+     * @param GetTrailStatusRequest $request GetTrailStatusRequest
      *
-     * @return GetTrailStatusResponse
+     * @return GetTrailStatusResponse GetTrailStatusResponse
      */
     public function getTrailStatus($request)
     {
@@ -738,10 +846,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param ListDeliveryHistoryJobsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * This topic describes how to query the historical event delivery tasks created within your Alibaba Cloud account. In this example, a historical event delivery task whose ID is `16602` is returned. This task is used to deliver historical events for the trail named `trail-name` to Log Service.
+     *   *
+     * @param ListDeliveryHistoryJobsRequest $request ListDeliveryHistoryJobsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDeliveryHistoryJobsResponse
+     * @return ListDeliveryHistoryJobsResponse ListDeliveryHistoryJobsResponse
      */
     public function listDeliveryHistoryJobsWithOptions($request, $runtime)
     {
@@ -772,9 +882,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param ListDeliveryHistoryJobsRequest $request
+     * This topic describes how to query the historical event delivery tasks created within your Alibaba Cloud account. In this example, a historical event delivery task whose ID is `16602` is returned. This task is used to deliver historical events for the trail named `trail-name` to Log Service.
+     *   *
+     * @param ListDeliveryHistoryJobsRequest $request ListDeliveryHistoryJobsRequest
      *
-     * @return ListDeliveryHistoryJobsResponse
+     * @return ListDeliveryHistoryJobsResponse ListDeliveryHistoryJobsResponse
      */
     public function listDeliveryHistoryJobs($request)
     {
@@ -784,10 +896,13 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param LookupEventsRequest $request
-     * @param RuntimeOptions      $runtime
+     * When you call this operation to query event details, you can query the event details at most twice per second.
+     *   * > Do not frequently call this operation. You can create a trail to deliver events to Log Service. Then, you can query event details in near real time by using the real-time log consumption feature of Log Service. For more information, see [Create a single-account trail](~~28810~~), [Create a multi-account trail](~~160661~~), and [Overview](~~28997~~).
+     *   *
+     * @param LookupEventsRequest $request LookupEventsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return LookupEventsResponse
+     * @return LookupEventsResponse LookupEventsResponse
      */
     public function lookupEventsWithOptions($request, $runtime)
     {
@@ -830,9 +945,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param LookupEventsRequest $request
+     * When you call this operation to query event details, you can query the event details at most twice per second.
+     *   * > Do not frequently call this operation. You can create a trail to deliver events to Log Service. Then, you can query event details in near real time by using the real-time log consumption feature of Log Service. For more information, see [Create a single-account trail](~~28810~~), [Create a multi-account trail](~~160661~~), and [Overview](~~28997~~).
+     *   *
+     * @param LookupEventsRequest $request LookupEventsRequest
      *
-     * @return LookupEventsResponse
+     * @return LookupEventsResponse LookupEventsResponse
      */
     public function lookupEvents($request)
     {
@@ -842,10 +960,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param StartLoggingRequest $request
-     * @param RuntimeOptions      $runtime
+     * This topic describes how to enable logging for a sample trail named `trail-test`.
+     *   *
+     * @param StartLoggingRequest $request StartLoggingRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartLoggingResponse
+     * @return StartLoggingResponse StartLoggingResponse
      */
     public function startLoggingWithOptions($request, $runtime)
     {
@@ -873,9 +993,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param StartLoggingRequest $request
+     * This topic describes how to enable logging for a sample trail named `trail-test`.
+     *   *
+     * @param StartLoggingRequest $request StartLoggingRequest
      *
-     * @return StartLoggingResponse
+     * @return StartLoggingResponse StartLoggingResponse
      */
     public function startLogging($request)
     {
@@ -885,10 +1007,12 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param StopLoggingRequest $request
-     * @param RuntimeOptions     $runtime
+     * This topic describes how to disable logging for a sample trail named `trail-test`.
+     *   *
+     * @param StopLoggingRequest $request StopLoggingRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopLoggingResponse
+     * @return StopLoggingResponse StopLoggingResponse
      */
     public function stopLoggingWithOptions($request, $runtime)
     {
@@ -913,9 +1037,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param StopLoggingRequest $request
+     * This topic describes how to disable logging for a sample trail named `trail-test`.
+     *   *
+     * @param StopLoggingRequest $request StopLoggingRequest
      *
-     * @return StopLoggingResponse
+     * @return StopLoggingResponse StopLoggingResponse
      */
     public function stopLogging($request)
     {
@@ -925,10 +1051,63 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param UpdateTrailRequest $request
-     * @param RuntimeOptions     $runtime
+     * By default, global events are stored in the Singapore region.
+     *   * *   To obtain the permissions to call the API operation, you must submit a ticket.
+     *   * *   Only the China (Hangzhou) region (cn-hangzhou) and the Singapore region (ap-southeast-1) are supported.
+     *   *
+     * @param UpdateGlobalEventsStorageRegionRequest $request UpdateGlobalEventsStorageRegionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTrailResponse
+     * @return UpdateGlobalEventsStorageRegionResponse UpdateGlobalEventsStorageRegionResponse
+     */
+    public function updateGlobalEventsStorageRegionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->storageRegion)) {
+            $query['StorageRegion'] = $request->storageRegion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGlobalEventsStorageRegion',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGlobalEventsStorageRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * By default, global events are stored in the Singapore region.
+     *   * *   To obtain the permissions to call the API operation, you must submit a ticket.
+     *   * *   Only the China (Hangzhou) region (cn-hangzhou) and the Singapore region (ap-southeast-1) are supported.
+     *   *
+     * @param UpdateGlobalEventsStorageRegionRequest $request UpdateGlobalEventsStorageRegionRequest
+     *
+     * @return UpdateGlobalEventsStorageRegionResponse UpdateGlobalEventsStorageRegionResponse
+     */
+    public function updateGlobalEventsStorageRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGlobalEventsStorageRegionWithOptions($request, $runtime);
+    }
+
+    /**
+     * This topic shows you how to change the destination Object Storage Service (OSS) bucket of a sample trail named `trail-test` to `audit-log`.
+     *   *
+     * @param UpdateTrailRequest $request UpdateTrailRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateTrailResponse UpdateTrailResponse
      */
     public function updateTrailWithOptions($request, $runtime)
     {
@@ -977,9 +1156,11 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
-     * @param UpdateTrailRequest $request
+     * This topic shows you how to change the destination Object Storage Service (OSS) bucket of a sample trail named `trail-test` to `audit-log`.
+     *   *
+     * @param UpdateTrailRequest $request UpdateTrailRequest
      *
-     * @return UpdateTrailResponse
+     * @return UpdateTrailResponse UpdateTrailResponse
      */
     public function updateTrail($request)
     {

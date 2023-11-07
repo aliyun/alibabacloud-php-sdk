@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrailsRequest extends Model
 {
     /**
+     * @description Specifies whether to query the information about multi-account trails. Valid values:
+     *
+     *   true
+     *   false (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $includeOrganizationTrail;
 
     /**
+     * @description Specifies whether to return the information about shadow trails. Valid values:
+     *
+     *   false: Do not return the information about shadow trails. It is the default value.
+     *   true: Return the information about shadow trails.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $includeShadowTrails;
 
     /**
+     * @description The names of the trails whose information you want to query. Separate multiple trail names with commas (,).
+     *
+     * @example abc,def
+     *
      * @var string
      */
     public $nameList;

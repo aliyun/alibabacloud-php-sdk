@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class LookupEventsResponseBody extends Model
 {
     /**
+     * @description The end of the time range when event details were queried.
+     *
+     * @example 2020-07-22T14:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The returned event details.
+     *
+     * For more information about the fields in an event log, see [ActionTrail event log reference](~~28819~~).
      * @var mixed[][]
      */
     public $events;
 
     /**
+     * @description The token used to return the next page of query results.
+     *
+     * > This parameter is not returned if no more results are to be returned.
+     * @example eyJhY2NvdW50IjoiMTQyNDM3OTU4NjM4NzE2MSIsImV2ZW50SWQiOiI3MkJDRTExRi02OTU3LTQ0NUItQjY0MC1CNEUyMkM4NUEwQzgiLCJsb2dJZCI6IjgyLTE0MjQzNzk1ODYzODcxNjEiLCJ0aW1lIjoxNjAyMzExNTQwMD****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FD79665A-CE8B-49D4-82E6-5EE2E0E791DD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range when event details were queried.
+     *
+     * @example 2020-07-15T14:00:00Z
+     *
      * @var string
      */
     public $startTime;

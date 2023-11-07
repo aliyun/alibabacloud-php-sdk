@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description The language in which the region names are returned. Valid values:
+     *
+     * - en-US: English. It is the default value.
+     * @example en-US
+     *
      * @var string
      */
     public $acceptLanguage;

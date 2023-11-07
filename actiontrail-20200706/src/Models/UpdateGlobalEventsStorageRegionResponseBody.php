@@ -6,18 +6,18 @@ namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAccessKeyLastUsedInfoRequest extends Model
+class UpdateGlobalEventsStorageRegionResponseBody extends Model
 {
     /**
-     * @description The AccessKey secret.
+     * @description The ID of the request.
      *
-     * @example LTAI4Fz1ykT4qxgNMvN6****
+     * @example D7A0694E-C8FE-574E-92E3-63C5B5D23BD4
      *
      * @var string
      */
-    public $accessKey;
+    public $requestId;
     protected $_name = [
-        'accessKey' => 'AccessKey',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -27,8 +27,8 @@ class GetAccessKeyLastUsedInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessKey) {
-            $res['AccessKey'] = $this->accessKey;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -37,13 +37,13 @@ class GetAccessKeyLastUsedInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetAccessKeyLastUsedInfoRequest
+     * @return UpdateGlobalEventsStorageRegionResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessKey'])) {
-            $model->accessKey = $map['AccessKey'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListDeliveryHistoryJobsResponseBody extends Model
 {
     /**
+     * @description The list of historical event delivery tasks.
+     *
      * @var deliveryHistoryJobs[]
      */
     public $deliveryHistoryJobs;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B190816C-6DCA-4DC5-9B8E-EE0367B57CFF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of historical event delivery tasks returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

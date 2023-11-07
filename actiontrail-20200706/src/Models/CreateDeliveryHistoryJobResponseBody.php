@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDeliveryHistoryJobResponseBody extends Model
 {
     /**
+     * @description The ID of the historical event delivery task.
+     *
+     * @example 16602
+     *
      * @var int
      */
     public $jobId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9D356A34-D5A9-41CD-9915-837B7F9D8722
+     *
      * @var string
      */
     public $requestId;

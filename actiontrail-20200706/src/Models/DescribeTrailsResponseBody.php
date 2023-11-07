@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrailsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ED8BC689-69DA-42AC-855E-3B06C1271194
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description A list of returned trails.
+     *
      * @var trailList[]
      */
     public $trailList;

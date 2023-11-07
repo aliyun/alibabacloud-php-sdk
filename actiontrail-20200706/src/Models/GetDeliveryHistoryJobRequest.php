@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetDeliveryHistoryJobRequest extends Model
 {
     /**
+     * @description The ID of the historical event delivery task.
+     *
+     * @example 16602
+     *
      * @var int
      */
     public $jobId;

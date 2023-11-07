@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetAccessKeyLastUsedProductsRequest extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
+     * @example LTAI4Fz1ykT4qxgNMvN6****
+     *
      * @var string
      */
     public $accessKey;
