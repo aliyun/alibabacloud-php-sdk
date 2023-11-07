@@ -18,11 +18,6 @@ class OpenAITaskRequest extends Model
     public $DBClusterId;
 
     /**
-     * @var string
-     */
-    public $describeType;
-
-    /**
      * @example DLNode
      *
      * @var string
@@ -86,7 +81,6 @@ class OpenAITaskRequest extends Model
     public $username;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
-        'describeType'         => 'DescribeType',
         'nodeType'             => 'NodeType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -107,9 +101,6 @@ class OpenAITaskRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->describeType) {
-            $res['DescribeType'] = $this->describeType;
         }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
@@ -152,9 +143,6 @@ class OpenAITaskRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['DescribeType'])) {
-            $model->describeType = $map['DescribeType'];
         }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];

@@ -181,15 +181,6 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $deletionLock;
 
     /**
-     * @description The unit to which the cluster belongs.
-     *
-     * @example default
-     *
-     * @var string
-     */
-    public $deployUnit;
-
-    /**
      * @description The database type.
      *
      * @example POLARDB
@@ -552,7 +543,6 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'dataLevel1BackupChainSize' => 'DataLevel1BackupChainSize',
         'dataSyncMode'              => 'DataSyncMode',
         'deletionLock'              => 'DeletionLock',
-        'deployUnit'                => 'DeployUnit',
         'engine'                    => 'Engine',
         'expireTime'                => 'ExpireTime',
         'expired'                   => 'Expired',
@@ -656,9 +646,6 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->deletionLock) {
             $res['DeletionLock'] = $this->deletionLock;
-        }
-        if (null !== $this->deployUnit) {
-            $res['DeployUnit'] = $this->deployUnit;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -842,9 +829,6 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['DeletionLock'])) {
             $model->deletionLock = $map['DeletionLock'];
-        }
-        if (isset($map['DeployUnit'])) {
-            $model->deployUnit = $map['DeployUnit'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];

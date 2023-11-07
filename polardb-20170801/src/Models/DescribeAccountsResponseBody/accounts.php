@@ -40,15 +40,6 @@ class accounts extends Model
     public $accountName;
 
     /**
-     * @description The password of the account that is used to log on to the database.
-     *
-     * @example Test1111
-     *
-     * @var string
-     */
-    public $accountPassword;
-
-    /**
      * @description The validity period of the password.
      *
      * @example undefined
@@ -92,7 +83,6 @@ class accounts extends Model
         'accountDescription'       => 'AccountDescription',
         'accountLockState'         => 'AccountLockState',
         'accountName'              => 'AccountName',
-        'accountPassword'          => 'AccountPassword',
         'accountPasswordValidTime' => 'AccountPasswordValidTime',
         'accountStatus'            => 'AccountStatus',
         'accountType'              => 'AccountType',
@@ -114,9 +104,6 @@ class accounts extends Model
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
-        }
-        if (null !== $this->accountPassword) {
-            $res['AccountPassword'] = $this->accountPassword;
         }
         if (null !== $this->accountPasswordValidTime) {
             $res['AccountPasswordValidTime'] = $this->accountPasswordValidTime;
@@ -156,9 +143,6 @@ class accounts extends Model
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
-        }
-        if (isset($map['AccountPassword'])) {
-            $model->accountPassword = $map['AccountPassword'];
         }
         if (isset($map['AccountPasswordValidTime'])) {
             $model->accountPasswordValidTime = $map['AccountPasswordValidTime'];

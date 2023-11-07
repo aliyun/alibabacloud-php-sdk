@@ -4053,6 +4053,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -8968,9 +8971,6 @@ class Polardb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->describeType)) {
-            $query['DescribeType'] = $request->describeType;
         }
         if (!Utils::isUnset($request->nodeType)) {
             $query['NodeType'] = $request->nodeType;

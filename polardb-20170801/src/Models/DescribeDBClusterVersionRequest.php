@@ -21,6 +21,11 @@ class DescribeDBClusterVersionRequest extends Model
     /**
      * @var string
      */
+    public $describeType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -39,6 +44,7 @@ class DescribeDBClusterVersionRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'describeType'         => 'DescribeType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -54,6 +60,9 @@ class DescribeDBClusterVersionRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->describeType) {
+            $res['DescribeType'] = $this->describeType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -81,6 +90,9 @@ class DescribeDBClusterVersionRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DescribeType'])) {
+            $model->describeType = $map['DescribeType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
