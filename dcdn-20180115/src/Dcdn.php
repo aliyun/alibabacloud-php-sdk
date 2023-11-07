@@ -12337,8 +12337,14 @@ class Dcdn extends OpenApiClient
     public function updateDcdnUserRealTimeDeliveryFieldWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->businessType)) {
+            $query['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $query['Fields'] = $request->fields;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -12346,7 +12352,7 @@ class Dcdn extends OpenApiClient
             'version'     => '2018-01-15',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
