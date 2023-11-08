@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetSwitchRegionDetailResponseBody extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 30CBF632-109F-596F-97F2-451C8B2A****
      *
      * @var string

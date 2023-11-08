@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the permissions were modified.
+     *
      * @example 1692858597000
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $gmtIsAgreeModified;
 
     /**
+     * @description The notification time.
+     *
      * @example 1692858597000
      *
      * @var int
@@ -24,6 +28,8 @@ class data extends Model
     public $gmtNoticed;
 
     /**
+     * @description Indicates whether the migration is approved.
+     *
      * @example true
      *
      * @var string
@@ -31,6 +37,8 @@ class data extends Model
     public $isAgree;
 
     /**
+     * @description Indicates whether the notification is sent.
+     *
      * @example YES
      *
      * @var string
@@ -38,6 +46,8 @@ class data extends Model
     public $isNoticed;
 
     /**
+     * @description The status of the switching to the region.
+     *
      * @var regionStatus[]
      */
     public $regionStatus;

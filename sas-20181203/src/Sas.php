@@ -883,6 +883,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageRiskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageRiskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceCatalogRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceCatalogResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceRiskLevelsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceRiskLevelsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceRiskNumRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceRiskNumResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionHistoryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionHistoryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionRulePageRequest;
@@ -24888,6 +24892,92 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstanceCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInstanceRiskLevelsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListInstanceRiskLevelsResponse
+     */
+    public function listInstanceRiskLevelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceList)) {
+            $query['InstanceList'] = $request->instanceList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstanceRiskLevels',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstanceRiskLevelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInstanceRiskLevelsRequest $request
+     *
+     * @return ListInstanceRiskLevelsResponse
+     */
+    public function listInstanceRiskLevels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceRiskLevelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInstanceRiskNumRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListInstanceRiskNumResponse
+     */
+    public function listInstanceRiskNumWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceList)) {
+            $query['InstanceList'] = $request->instanceList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstanceRiskNum',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstanceRiskNumResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInstanceRiskNumRequest $request
+     *
+     * @return ListInstanceRiskNumResponse
+     */
+    public function listInstanceRiskNum($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceRiskNumWithOptions($request, $runtime);
     }
 
     /**

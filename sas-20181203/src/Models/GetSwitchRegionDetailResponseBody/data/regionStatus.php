@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class regionStatus extends Model
 {
     /**
+     * @description The number of ECS instances.
+     *
      * @example 27
      *
      * @var int
@@ -16,6 +18,8 @@ class regionStatus extends Model
     public $ecsCount;
 
     /**
+     * @description The time when the migration is scheduled.
+     *
      * @example 1692858597000
      *
      * @var int
@@ -23,6 +27,8 @@ class regionStatus extends Model
     public $gmtPlanSwitchTime;
 
     /**
+     * @description The region in which the server resides.
+     *
      * @example us-east-1
      *
      * @var string
@@ -30,6 +36,11 @@ class regionStatus extends Model
     public $regionId;
 
     /**
+     * @description The migration status. Valid values:
+     *
+     *   **0**: pending
+     *   **1**: successful
+     *
      * @example 0
      *
      * @var int
