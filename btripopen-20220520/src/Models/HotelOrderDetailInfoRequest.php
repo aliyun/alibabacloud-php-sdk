@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class HotelOrderDetailInfoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $btripOrderId;
+
+    /**
      * @example dis123
      *
      * @var string
      */
     public $disOrderId;
     protected $_name = [
-        'disOrderId' => 'dis_order_id',
+        'btripOrderId' => 'btrip_order_id',
+        'disOrderId'   => 'dis_order_id',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class HotelOrderDetailInfoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->btripOrderId) {
+            $res['btrip_order_id'] = $this->btripOrderId;
+        }
         if (null !== $this->disOrderId) {
             $res['dis_order_id'] = $this->disOrderId;
         }
@@ -40,6 +49,9 @@ class HotelOrderDetailInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['btrip_order_id'])) {
+            $model->btripOrderId = $map['btrip_order_id'];
+        }
         if (isset($map['dis_order_id'])) {
             $model->disOrderId = $map['dis_order_id'];
         }

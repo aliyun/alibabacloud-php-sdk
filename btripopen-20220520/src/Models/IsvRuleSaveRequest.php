@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class IsvRuleSaveRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $applyNeed;
+
+    /**
      * @var string
      */
     public $bookType;
@@ -18,6 +23,11 @@ class IsvRuleSaveRequest extends Model
      * @var bookuserList[]
      */
     public $bookuserList;
+
+    /**
+     * @var bool
+     */
+    public $ruleNeed;
 
     /**
      * @example 1
@@ -33,8 +43,10 @@ class IsvRuleSaveRequest extends Model
      */
     public $userId;
     protected $_name = [
+        'applyNeed'    => 'apply_need',
         'bookType'     => 'book_type',
         'bookuserList' => 'bookuser_list',
+        'ruleNeed'     => 'rule_need',
         'status'       => 'status',
         'userId'       => 'user_id',
     ];
@@ -46,6 +58,9 @@ class IsvRuleSaveRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applyNeed) {
+            $res['apply_need'] = $this->applyNeed;
+        }
         if (null !== $this->bookType) {
             $res['book_type'] = $this->bookType;
         }
@@ -57,6 +72,9 @@ class IsvRuleSaveRequest extends Model
                     $res['bookuser_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ruleNeed) {
+            $res['rule_need'] = $this->ruleNeed;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -76,6 +94,9 @@ class IsvRuleSaveRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apply_need'])) {
+            $model->applyNeed = $map['apply_need'];
+        }
         if (isset($map['book_type'])) {
             $model->bookType = $map['book_type'];
         }
@@ -87,6 +108,9 @@ class IsvRuleSaveRequest extends Model
                     $model->bookuserList[$n++] = null !== $item ? bookuserList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['rule_need'])) {
+            $model->ruleNeed = $map['rule_need'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

@@ -5908,6 +5908,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->btripOrderId)) {
+            $query['btrip_order_id'] = $request->btripOrderId;
+        }
         if (!Utils::isUnset($request->disOrderId)) {
             $query['dis_order_id'] = $request->disOrderId;
         }
@@ -6088,6 +6091,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->btripOrderId)) {
+            $query['btrip_order_id'] = $request->btripOrderId;
+        }
         if (!Utils::isUnset($request->disOrderId)) {
             $query['dis_order_id'] = $request->disOrderId;
         }
@@ -7899,11 +7905,17 @@ class BtripOpen extends OpenApiClient
             $request->bookuserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookuserList, 'bookuser_list', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->applyNeed)) {
+            $body['apply_need'] = $request->applyNeed;
+        }
         if (!Utils::isUnset($request->bookType)) {
             $body['book_type'] = $request->bookType;
         }
         if (!Utils::isUnset($request->bookuserListShrink)) {
             $body['bookuser_list'] = $request->bookuserListShrink;
+        }
+        if (!Utils::isUnset($request->ruleNeed)) {
+            $body['rule_need'] = $request->ruleNeed;
         }
         if (!Utils::isUnset($request->status)) {
             $body['status'] = $request->status;
