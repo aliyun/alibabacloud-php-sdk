@@ -16,6 +16,11 @@ class StartInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $channelShrink;
 
     /**
@@ -36,6 +41,7 @@ class StartInstanceShrinkRequest extends Model
     public $userShrink;
     protected $_name = [
         'appShrink'            => 'App',
+        'bizId'                => 'BizId',
         'channelShrink'        => 'Channel',
         'commandRequestShrink' => 'CommandRequest',
         'tenantId'             => 'TenantId',
@@ -51,6 +57,9 @@ class StartInstanceShrinkRequest extends Model
         $res = [];
         if (null !== $this->appShrink) {
             $res['App'] = $this->appShrink;
+        }
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->channelShrink) {
             $res['Channel'] = $this->channelShrink;
@@ -78,6 +87,9 @@ class StartInstanceShrinkRequest extends Model
         $model = new self();
         if (isset($map['App'])) {
             $model->appShrink = $map['App'];
+        }
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
         if (isset($map['Channel'])) {
             $model->channelShrink = $map['Channel'];

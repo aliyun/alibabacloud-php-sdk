@@ -1197,6 +1197,9 @@ class Avatar extends OpenApiClient
         if (!Utils::isUnset($request->appShrink)) {
             $query['App'] = $request->appShrink;
         }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
         if (!Utils::isUnset($request->channelShrink)) {
             $query['Channel'] = $request->channelShrink;
         }

@@ -18,6 +18,11 @@ class StartInstanceRequest extends Model
     public $app;
 
     /**
+     * @var string
+     */
+    public $bizId;
+
+    /**
      * @var channel
      */
     public $channel;
@@ -40,6 +45,7 @@ class StartInstanceRequest extends Model
     public $user;
     protected $_name = [
         'app'            => 'App',
+        'bizId'          => 'BizId',
         'channel'        => 'Channel',
         'commandRequest' => 'CommandRequest',
         'tenantId'       => 'TenantId',
@@ -55,6 +61,9 @@ class StartInstanceRequest extends Model
         $res = [];
         if (null !== $this->app) {
             $res['App'] = null !== $this->app ? $this->app->toMap() : null;
+        }
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->channel) {
             $res['Channel'] = null !== $this->channel ? $this->channel->toMap() : null;
@@ -82,6 +91,9 @@ class StartInstanceRequest extends Model
         $model = new self();
         if (isset($map['App'])) {
             $model->app = app::fromMap($map['App']);
+        }
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
         if (isset($map['Channel'])) {
             $model->channel = channel::fromMap($map['Channel']);
