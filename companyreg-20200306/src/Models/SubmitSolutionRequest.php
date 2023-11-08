@@ -25,6 +25,11 @@ class SubmitSolutionRequest extends Model
     /**
      * @var string
      */
+    public $operateType;
+
+    /**
+     * @var string
+     */
     public $solution;
 
     /**
@@ -36,6 +41,7 @@ class SubmitSolutionRequest extends Model
     protected $_name = [
         'bizType'        => 'BizType',
         'intentionBizId' => 'IntentionBizId',
+        'operateType'    => 'OperateType',
         'solution'       => 'Solution',
         'userId'         => 'UserId',
     ];
@@ -52,6 +58,9 @@ class SubmitSolutionRequest extends Model
         }
         if (null !== $this->intentionBizId) {
             $res['IntentionBizId'] = $this->intentionBizId;
+        }
+        if (null !== $this->operateType) {
+            $res['OperateType'] = $this->operateType;
         }
         if (null !== $this->solution) {
             $res['Solution'] = $this->solution;
@@ -76,6 +85,9 @@ class SubmitSolutionRequest extends Model
         }
         if (isset($map['IntentionBizId'])) {
             $model->intentionBizId = $map['IntentionBizId'];
+        }
+        if (isset($map['OperateType'])) {
+            $model->operateType = $map['OperateType'];
         }
         if (isset($map['Solution'])) {
             $model->solution = $map['Solution'];

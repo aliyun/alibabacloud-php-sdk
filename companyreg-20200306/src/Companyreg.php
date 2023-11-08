@@ -1731,6 +1731,9 @@ class Companyreg extends OpenApiClient
         if (!Utils::isUnset($request->intentionBizId)) {
             $query['IntentionBizId'] = $request->intentionBizId;
         }
+        if (!Utils::isUnset($request->operateType)) {
+            $query['OperateType'] = $request->operateType;
+        }
         if (!Utils::isUnset($request->solution)) {
             $query['Solution'] = $request->solution;
         }
