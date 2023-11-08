@@ -21,7 +21,7 @@ class RevokeKubeconfigRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the ASM instance for which you want to revoke a kubeconfig file.
+     * @description The ID of the ASM instance for which you want to revoke its kubeconfig file.
      *
      * @example cf08a11940e8c46c48bc791fcdb3****
      *

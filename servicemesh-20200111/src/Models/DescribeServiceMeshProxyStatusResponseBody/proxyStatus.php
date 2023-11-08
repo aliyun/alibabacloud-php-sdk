@@ -78,7 +78,7 @@ class proxyStatus extends Model
     public $proxyId;
 
     /**
-     * @description The version number of the proxy on the data plane.
+     * @description The version number of a proxy on the data plane.
      *
      * @example 1.9.7
      *

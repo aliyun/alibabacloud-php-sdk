@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpgradeMeshVersionRequest extends Model
 {
     /**
+     * @description Specifies whether to perform a precheck. Default value: false. If this parameter is set to true, this call only checks whether the current ASM instance meets the upgrade conditions and does not actually perform an upgrade.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $preCheck;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *

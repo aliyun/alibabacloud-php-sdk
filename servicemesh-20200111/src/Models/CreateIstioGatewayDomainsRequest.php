@@ -30,7 +30,7 @@ class CreateIstioGatewayDomainsRequest extends Model
     public $forceHttps;
 
     /**
-     * @description The domain names of the one or more hosts that are exposed by the ASM gateway. Separate multiple domain names with commas (,).
+     * @description The one or more domain names that are exposed by the ASM gateway. Separate multiple domain names with commas (,).
      *
      * @example example.com,demo.com
      *
@@ -93,7 +93,7 @@ class CreateIstioGatewayDomainsRequest extends Model
     public $protocol;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *

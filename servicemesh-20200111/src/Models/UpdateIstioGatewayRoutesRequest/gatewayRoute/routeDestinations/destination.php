@@ -19,6 +19,9 @@ class destination extends Model
     public $host;
 
     /**
+     * @description The port of the destination service.
+     *
+     * >  If the destination service of the route has only one port, this field can be left empty. If the destination service has multiple ports, you must specify the port number.
      * @var port
      */
     public $port;

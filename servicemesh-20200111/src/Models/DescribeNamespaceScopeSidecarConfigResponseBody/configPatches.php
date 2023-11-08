@@ -102,6 +102,8 @@ class configPatches extends Model
      *   `REDIRECT` (default): In this mode, source IP addresses are lost during traffic redirection to the sidecar proxy.
      *   `TPROXY`: In this mode, both the source and destination IP addresses and ports are preserved.
      *
+     * @example TPROXY
+     *
      * @var string
      */
     public $interceptionMode;

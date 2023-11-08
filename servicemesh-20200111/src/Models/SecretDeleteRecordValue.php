@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SecretDeleteRecordValue extends Model
 {
     /**
+     * @description The result of deleting the secret. Valid values:
+     *
+     *   `success`: The secret was deleted.
+     *   `fail`: The secret failed to be deleted.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +21,8 @@ class SecretDeleteRecordValue extends Model
     public $state;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
      *
      * @var string
@@ -23,6 +30,8 @@ class SecretDeleteRecordValue extends Model
     public $clusterId;
 
     /**
+     * @description The error message returned when exceptions occur. Otherwise, an empty value is returned.
+     *
      * @example timeout
      *
      * @var string

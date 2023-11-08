@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetVmMetaRequest extends Model
 {
     /**
-     * @description The namespace. This parameter is valid only after you set the Namespace and the ServiceAccount parameters.
+     * @description The name of the namespace. This parameter is valid only after you set the Namespace and the ServiceAccount parameters.
      *
      * @example hello
      *
@@ -27,7 +27,7 @@ class GetVmMetaRequest extends Model
     public $serviceAccount;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example ce51a7de4a5144db88a864ed91****
      *

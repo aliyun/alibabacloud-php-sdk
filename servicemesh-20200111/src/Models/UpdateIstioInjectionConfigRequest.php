@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateIstioInjectionConfigRequest extends Model
 {
     /**
+     * @description The data plane mode of the namespace. This parameter is valid only when the Ambient Mesh mode is enabled for the current Service Mesh (ASM) instance. Valid values:
+     *
+     *   ambient: sets the data plane mode of the namespace to the Ambient Mesh mode.
+     *   sidecar: sets the data plane mode of the namespace to the Sidecar mode.
+     *
+     * @example ambient
+     *
      * @var string
      */
     public $dataPlaneMode;

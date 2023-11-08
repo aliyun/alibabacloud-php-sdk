@@ -11,8 +11,8 @@ class OPAScopeInjection extends Model
     /**
      * @description Indicates whether the feature of controlling the OPA injection scope is enabled. Valid values:
      *
-     *   `true`: The feature is enabled.
-     *   `false`: The feature is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

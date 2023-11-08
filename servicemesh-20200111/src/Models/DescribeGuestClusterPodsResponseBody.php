@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeGuestClusterPodsResponseBody extends Model
 {
     /**
-     * @description The names of the queried pods.
+     * @description The list of the names of the queried pods.
      *
      * @var string[]
      */
     public $podList;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EDDC0D86-2FC3-56FB-9213-96EB0A3523F1
      *

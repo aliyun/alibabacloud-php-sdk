@@ -11,8 +11,8 @@ class k8sNewAPIsSupport extends Model
     /**
      * @description Indicates whether Gateway API is enabled. Valid values:
      *
-     *   `true`: Gateway API is enabled.
-     *   `false`: Gateway API is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

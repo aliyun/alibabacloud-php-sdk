@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCensResponseBody extends Model
 {
     /**
-     * @description The IDs of the queried Kubernetes clusters.
+     * @description The list of Kubernetes clusters that are added to the same ASM instance but are in different VPCs and are not connected by using a Cloud Enterprise Network (CEN) instance.
      *
      * @var string[]
      */
     public $clusters;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
      *

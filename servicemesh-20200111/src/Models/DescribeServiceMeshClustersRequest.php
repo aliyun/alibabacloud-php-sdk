@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshClustersRequest extends Model
 {
     /**
-     * @description The maximum number of clusters in a cluster list.
+     * @description The maximum number of entries per page.
      *
      * @example 30
      *
@@ -27,7 +27,7 @@ class DescribeServiceMeshClustersRequest extends Model
     public $offset;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example cb8963379255149cb98c8686f274x****
      *

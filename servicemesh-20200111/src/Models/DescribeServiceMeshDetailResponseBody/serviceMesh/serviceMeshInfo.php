@@ -18,7 +18,7 @@ class serviceMeshInfo extends Model
     public $creationTime;
 
     /**
-     * @description The error message that is returned when the call failed.
+     * @description The returned error message.
      *
      * @example error
      *
@@ -39,7 +39,7 @@ class serviceMeshInfo extends Model
      * @description The edition of the ASM instance. Valid values:
      *
      *   `Default`: Standard Edition
-     *   `Pro`: Professional Edition
+     *   `Pro`: Enterprise Edition and Ultimate Edition
      *
      * @example Default
      *
@@ -57,7 +57,7 @@ class serviceMeshInfo extends Model
     public $regionId;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *
@@ -66,7 +66,7 @@ class serviceMeshInfo extends Model
     public $serviceMeshId;
 
     /**
-     * @description The status of the ASM instance.
+     * @description The state of the ASM instance.
      *
      * @example running
      *

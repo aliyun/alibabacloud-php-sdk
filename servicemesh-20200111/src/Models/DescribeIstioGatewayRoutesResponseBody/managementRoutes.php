@@ -27,11 +27,15 @@ class managementRoutes extends Model
     public $description;
 
     /**
+     * @description Destination hosts list.
+     *
      * @var string[]
      */
     public $destinationHost;
 
     /**
+     * @description Destination subset list.
+     *
      * @var string[]
      */
     public $destinationSubSet;

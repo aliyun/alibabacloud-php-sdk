@@ -18,7 +18,7 @@ class DeleteSwimLaneRequest extends Model
     public $groupName;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ID of the Service Mesh (ASM) instance.
      *
      * @example xxx
      *

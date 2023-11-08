@@ -17,7 +17,7 @@ class clusters extends Model
     public $accessLogDashboards;
 
     /**
-     * @description The domain of the cluster.
+     * @description The domain name of the cluster.
      *
      * @example example.com
      *
@@ -44,7 +44,7 @@ class clusters extends Model
     public $clusterType;
 
     /**
-     * @description The point in time when the cluster was created.
+     * @description The time when the cluster was created.
      *
      * @example 2020-05-12T15:38:16+08:00
      *
@@ -53,7 +53,7 @@ class clusters extends Model
     public $creationTime;
 
     /**
-     * @description The error message that is returned when the call failed.
+     * @description The error message.
      *
      * @example ,
      *
@@ -68,7 +68,7 @@ class clusters extends Model
      *
      * \-`logtail_uninstalled`: The Logtail component is not installed.
      *
-     *   `logtail_state_get_error`: The Logtail component fails to be installed.
+     *   `logtail_state_get_error`: The Logtail component failed to be installed.
      *
      * @example logtail_installed
      *
@@ -113,7 +113,7 @@ class clusters extends Model
     public $state;
 
     /**
-     * @description The point in time when the cluster was last modified.
+     * @description The time when the cluster was last modified.
      *
      * @example 2020-05-12T15:38:16+08:00
      *

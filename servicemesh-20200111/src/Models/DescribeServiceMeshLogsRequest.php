@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshLogsRequest extends Model
 {
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example ca04bc38979214bf2882be79d39b4****
      *

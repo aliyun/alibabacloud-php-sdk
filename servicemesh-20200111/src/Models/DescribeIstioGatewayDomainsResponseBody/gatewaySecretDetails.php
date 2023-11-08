@@ -27,13 +27,17 @@ class gatewaySecretDetails extends Model
     public $detail;
 
     /**
-     * @description The domain name.
+     * @description The list of domain names.
      *
      * @var string[]
      */
     public $domains;
 
     /**
+     * @description The name of the Istio gateway.
+     *
+     * @example ingressgateway
+     *
      * @var string
      */
     public $gatewayCRName;
@@ -48,7 +52,7 @@ class gatewaySecretDetails extends Model
     public $namespace;
 
     /**
-     * @description The name of the port.
+     * @description The port name.
      *
      * @example https-demo
      *

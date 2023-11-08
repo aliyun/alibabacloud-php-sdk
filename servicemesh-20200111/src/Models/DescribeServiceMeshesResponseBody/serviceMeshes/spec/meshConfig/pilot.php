@@ -11,8 +11,8 @@ class pilot extends Model
     /**
      * @description Indicates whether the support for HTTP 1.0 is enabled. Valid values:
      *
-     *   `true`: The support for HTTP 1.0 is enabled.
-     *   `false`: The support for HTTP 1.0 is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class pilot extends Model
     public $http10Enabled;
 
     /**
-     * @description The sampling percentage of tracing.
+     * @description The sampling rate when Tracing Analysis is enabled.
      *
      * @example 0.2
      *

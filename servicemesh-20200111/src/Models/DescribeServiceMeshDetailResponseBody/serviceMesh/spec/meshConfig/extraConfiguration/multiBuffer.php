@@ -11,8 +11,8 @@ class multiBuffer extends Model
     /**
      * @description Indicates whether MulitiBuffer-based TLS acceleration is enabled. Valid values:
      *
-     *   `true`: MulitiBuffer-based TLS acceleration is enabled.
-     *   `false`: MulitiBuffer-based TLS acceleration is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

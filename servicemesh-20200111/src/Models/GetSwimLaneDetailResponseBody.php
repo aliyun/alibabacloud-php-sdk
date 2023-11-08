@@ -27,7 +27,7 @@ class GetSwimLaneDetailResponseBody extends Model
     public $ingressService;
 
     /**
-     * @description Fixed value: **ASM_TRAFFIC_TAG**.
+     * @description The label key of the associated service workload. The value is fixed as **ASM_TRAFFIC_TAG**.
      *
      * @example ASM_TRAFFIC_TAG
      *
@@ -45,7 +45,7 @@ class GetSwimLaneDetailResponseBody extends Model
     public $labelSelectorValue;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example yyyy
      *

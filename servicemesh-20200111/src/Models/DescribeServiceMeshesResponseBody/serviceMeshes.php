@@ -15,7 +15,10 @@ class serviceMeshes extends Model
     /**
      * @description The edition of the ASM instance. Valid values:
      *
-     * - `ultimate`: Ultimate Edition
+     *   `standard`: Standard Edition
+     *   `enterprise`: Enterprise Edition
+     *   `ultimate`: Ultimate Edition
+     *
      * @example standard
      *
      * @var string
@@ -23,14 +26,14 @@ class serviceMeshes extends Model
     public $clusterSpec;
 
     /**
-     * @description The information about the clusters.
+     * @description The clusters.
      *
      * @var string[]
      */
     public $clusters;
 
     /**
-     * @description All endpoints of the ASM instance.
+     * @description The information about all endpoints of the ASM instances.
      *
      * @var endpoints
      */
@@ -48,7 +51,9 @@ class serviceMeshes extends Model
     /**
      * @description The Alibaba Cloud service for which the ASM instance is created. Valid values:
      *
-     * - An empty value indicates that the ASM instance is created by the user.
+     *   `ackone`: The ASM instance is created for Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+     *   An empty value indicates that the ASM instance is created by the user.
+     *
      * @example ackone
      *
      * @var string
@@ -56,7 +61,7 @@ class serviceMeshes extends Model
     public $ownerType;
 
     /**
-     * @description The basic information about the ASM instance.
+     * @description The basic information about the ASM instances.
      *
      * @var serviceMeshInfo
      */
@@ -73,6 +78,13 @@ class serviceMeshes extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $upgradable;
     protected $_name = [
         'clusterSpec'     => 'ClusterSpec',
         'clusters'        => 'Clusters',
@@ -82,6 +94,7 @@ class serviceMeshes extends Model
         'serviceMeshInfo' => 'ServiceMeshInfo',
         'spec'            => 'Spec',
         'tag'             => 'Tag',
+        'upgradable'      => 'Upgradable',
     ];
 
     public function validate()
@@ -120,6 +133,9 @@ class serviceMeshes extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->upgradable) {
+            $res['Upgradable'] = $this->upgradable;
         }
 
         return $res;
@@ -164,6 +180,9 @@ class serviceMeshes extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Upgradable'])) {
+            $model->upgradable = $map['Upgradable'];
         }
 
         return $model;

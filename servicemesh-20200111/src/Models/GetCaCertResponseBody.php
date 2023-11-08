@@ -18,7 +18,7 @@ class GetCaCertResponseBody extends Model
     public $caCert;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E0496204-7586-5B4C-B364-2361CC0ED****
      *

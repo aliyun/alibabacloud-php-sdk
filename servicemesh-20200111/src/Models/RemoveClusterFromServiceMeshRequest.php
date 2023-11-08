@@ -16,8 +16,6 @@ class RemoveClusterFromServiceMeshRequest extends Model
     public $clusterId;
 
     /**
-     * @description 移除集群时，保留istio-system 命名空间
-     *
      * @example false
      *
      * @var bool

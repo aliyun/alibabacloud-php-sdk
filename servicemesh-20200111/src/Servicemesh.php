@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateSwimLaneGroupRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateSwimLaneGroupResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateSwimLaneRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateSwimLaneResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateWaypointRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateWaypointResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteGatewayRouteRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteGatewayRouteResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteGatewaySecretRequest;
@@ -37,6 +39,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneGroupRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneGroupResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteWaypointRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteWaypointResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeASMGatewayImportedServicesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeASMGatewayImportedServicesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCCMVersionRequest;
@@ -131,8 +135,12 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GrantUserPermissionsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GrantUserPermissionsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GrantUserPermissionsShrinkRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListServiceAccountsRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListServiceAccountsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListWaypointsRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListWaypointsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyApiServerEipResourceRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyApiServerEipResourceResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyServiceMeshNameRequest;
@@ -174,6 +182,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateSwimLaneGroupRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateSwimLaneGroupResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateSwimLaneRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateSwimLaneResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateWaypointRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateWaypointResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshEditionPartiallyRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshEditionPartiallyResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionRequest;
@@ -945,6 +955,91 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param CreateWaypointRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateWaypointResponse
+     */
+    public function createWaypointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->HPAEnabled)) {
+            $body['HPAEnabled'] = $request->HPAEnabled;
+        }
+        if (!Utils::isUnset($request->HPAMaxReplicas)) {
+            $body['HPAMaxReplicas'] = $request->HPAMaxReplicas;
+        }
+        if (!Utils::isUnset($request->HPAMinReplicas)) {
+            $body['HPAMinReplicas'] = $request->HPAMinReplicas;
+        }
+        if (!Utils::isUnset($request->HPATargetCPU)) {
+            $body['HPATargetCPU'] = $request->HPATargetCPU;
+        }
+        if (!Utils::isUnset($request->HPATargetMemory)) {
+            $body['HPATargetMemory'] = $request->HPATargetMemory;
+        }
+        if (!Utils::isUnset($request->limitCPU)) {
+            $body['LimitCPU'] = $request->limitCPU;
+        }
+        if (!Utils::isUnset($request->limitMemory)) {
+            $body['LimitMemory'] = $request->limitMemory;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->preferECI)) {
+            $body['PreferECI'] = $request->preferECI;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $body['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->requestCPU)) {
+            $body['RequestCPU'] = $request->requestCPU;
+        }
+        if (!Utils::isUnset($request->requestMemory)) {
+            $body['RequestMemory'] = $request->requestMemory;
+        }
+        if (!Utils::isUnset($request->serviceAccount)) {
+            $body['ServiceAccount'] = $request->serviceAccount;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWaypoint',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWaypointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateWaypointRequest $request
+     *
+     * @return CreateWaypointResponse
+     */
+    public function createWaypoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWaypointWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteGatewayRouteRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1242,6 +1337,58 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSwimLaneGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteWaypointRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteWaypointResponse
+     */
+    public function deleteWaypointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWaypoint',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWaypointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteWaypointRequest $request
+     *
+     * @return DeleteWaypointResponse
+     */
+    public function deleteWaypoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWaypointWithOptions($request, $runtime);
     }
 
     /**
@@ -3421,6 +3568,55 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param ListServiceAccountsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListServiceAccountsResponse
+     */
+    public function listServiceAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceAccounts',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListServiceAccountsRequest $request
+     *
+     * @return ListServiceAccountsResponse
+     */
+    public function listServiceAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceAccountsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3473,6 +3669,64 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListWaypointsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWaypointsResponse
+     */
+    public function listWaypointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->continue_)) {
+            $body['Continue'] = $request->continue_;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWaypoints',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWaypointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListWaypointsRequest $request
+     *
+     * @return ListWaypointsResponse
+     */
+    public function listWaypoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWaypointsWithOptions($request, $runtime);
     }
 
     /**
@@ -3571,7 +3825,7 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods of Log Service. For more information, visit the [pricing page](https://www.aliyun.com/price/product?spm=5176.10695662.1119587.4.194c6a67rcPWQH#/sls/detail).
+     * Before you call this operation, make sure that you understand the billing methods of Simple Log Service. For more information, visit the [pricing page](https://www.aliyun.com/price/product?spm=5176.10695662.1119587.4.194c6a67rcPWQH#/sls/detail).
      *   *
      * @param ReActivateAuditRequest $request ReActivateAuditRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -3607,7 +3861,7 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods of Log Service. For more information, visit the [pricing page](https://www.aliyun.com/price/product?spm=5176.10695662.1119587.4.194c6a67rcPWQH#/sls/detail).
+     * Before you call this operation, make sure that you understand the billing methods of Simple Log Service. For more information, visit the [pricing page](https://www.aliyun.com/price/product?spm=5176.10695662.1119587.4.194c6a67rcPWQH#/sls/detail).
      *   *
      * @param ReActivateAuditRequest $request ReActivateAuditRequest
      *
@@ -4927,6 +5181,91 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSwimLaneGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateWaypointRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateWaypointResponse
+     */
+    public function updateWaypointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->HPAEnabled)) {
+            $body['HPAEnabled'] = $request->HPAEnabled;
+        }
+        if (!Utils::isUnset($request->HPAMaxReplicas)) {
+            $body['HPAMaxReplicas'] = $request->HPAMaxReplicas;
+        }
+        if (!Utils::isUnset($request->HPAMinReplicas)) {
+            $body['HPAMinReplicas'] = $request->HPAMinReplicas;
+        }
+        if (!Utils::isUnset($request->HPATargetCPU)) {
+            $body['HPATargetCPU'] = $request->HPATargetCPU;
+        }
+        if (!Utils::isUnset($request->HPATargetMemory)) {
+            $body['HPATargetMemory'] = $request->HPATargetMemory;
+        }
+        if (!Utils::isUnset($request->limitCPU)) {
+            $body['LimitCPU'] = $request->limitCPU;
+        }
+        if (!Utils::isUnset($request->limitMemory)) {
+            $body['LimitMemory'] = $request->limitMemory;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->preferECI)) {
+            $body['PreferECI'] = $request->preferECI;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $body['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->requestCPU)) {
+            $body['RequestCPU'] = $request->requestCPU;
+        }
+        if (!Utils::isUnset($request->requestMemory)) {
+            $body['RequestMemory'] = $request->requestMemory;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWaypoint',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWaypointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateWaypointRequest $request
+     *
+     * @return UpdateWaypointResponse
+     */
+    public function updateWaypoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWaypointWithOptions($request, $runtime);
     }
 
     /**

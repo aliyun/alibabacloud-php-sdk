@@ -30,7 +30,7 @@ class UpdateMeshCRAggregationRequest extends Model
      * @description Specifies whether to enable the Kubernetes API on the data plane to access Istio resources in the ASM instance. Valid values:
      *
      *   `true`: enables the Kubernetes API to access Istio resources in the ASM instance.
-     *   `false`: does not enable the Kubernetes API to access Istio resources in the ASM instance.
+     *   `false`: disables the Kubernetes API to access Istio resources in the ASM instance.
      *
      * @example true
      *
@@ -57,7 +57,7 @@ class UpdateMeshCRAggregationRequest extends Model
     public $memoryRequirement;
 
     /**
-     * @description The ID of the Alibaba Cloud Service Mesh (ASM) instance.
+     * @description The Service Mesh (ASM) instance ID.
      *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *

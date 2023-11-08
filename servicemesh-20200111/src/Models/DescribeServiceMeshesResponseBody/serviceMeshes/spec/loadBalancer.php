@@ -18,10 +18,10 @@ class loadBalancer extends Model
     public $apiServerLoadbalancerId;
 
     /**
-     * @description Indicates whether the API Server is exposed to the Internet. Valid values:
+     * @description Indicates whether the API server is exposed to the Internet. Valid values:
      *
-     *   `true`: The API server is exposed to the Internet.
-     *   `false`: The API server is not exposed to the Internet.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -32,8 +32,8 @@ class loadBalancer extends Model
     /**
      * @description Indicates whether Istio Pilot is exposed to the Internet. Valid values:
      *
-     *   `true`: Istio Pilot is exposed to the Internet.
-     *   `false`: Istio Pilot is not exposed to the Internet.
+     *   `true`
+     *   `false`
      *
      * @example true
      *

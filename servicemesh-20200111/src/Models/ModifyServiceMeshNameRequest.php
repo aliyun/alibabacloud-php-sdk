@@ -18,7 +18,7 @@ class ModifyServiceMeshNameRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example cdd30a90a7cea480ebcc7ff****
      *

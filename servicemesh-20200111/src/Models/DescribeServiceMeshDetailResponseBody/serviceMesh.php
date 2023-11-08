@@ -14,7 +14,10 @@ class serviceMesh extends Model
     /**
      * @description The specification of the ASM instance. Valid values:
      *
-     * - `ultimate`: Ultimate Edition
+     *   `standard`: Standard Edition
+     *   `enterprise`: Enterprise Edition
+     *   `ultimate`: Ultimate Edition
+     *
      * @example standard
      *
      * @var string
@@ -22,7 +25,7 @@ class serviceMesh extends Model
     public $clusterSpec;
 
     /**
-     * @description The list of clusters.
+     * @description The clusters.
      *
      * @var string[]
      */
@@ -47,7 +50,9 @@ class serviceMesh extends Model
     /**
      * @description The Alibaba Cloud service for which the ASM instance is created. Valid values:
      *
-     * - An empty value indicates that the ASM instance is created by the user.
+     *   `ackone`: The ASM instance is created for Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+     *   An empty value indicates that the ASM instance is created by the user.
+     *
      * @example ackone
      *
      * @var string

@@ -18,6 +18,8 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public $concurrency;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableCoreDump;
@@ -158,6 +160,8 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public $preStop;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $privileged;
@@ -245,16 +249,22 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public $proxyStatsMatcher;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $readinessFailureThreshold;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $readinessInitialDelaySeconds;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $readinessPeriodSeconds;

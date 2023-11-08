@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGuestClusterAccessLogDashboardsResponseBody extends Model
 {
     /**
-     * @description The access log reports of a cluster on the data plane.
+     * @description The access log dashboards of the cluster on the data plane.
      *
      * @var dashboards[]
      */
@@ -26,7 +26,7 @@ class DescribeGuestClusterAccessLogDashboardsResponseBody extends Model
     public $k8sClusterId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
      *

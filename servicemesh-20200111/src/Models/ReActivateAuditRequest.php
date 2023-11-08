@@ -21,7 +21,7 @@ class ReActivateAuditRequest extends Model
     public $enableAudit;
 
     /**
-     * @description The ID of the Alibaba Cloud Service Mesh (ASM) instance.
+     * @description The ID of the Service Mesh (ASM) instance.
      *
      * @example c5bf9eb05c4424b89985d6536a809****
      *

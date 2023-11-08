@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewaySecretResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
      *
@@ -18,7 +18,7 @@ class DeleteGatewaySecretResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The record of deleting the secret.
+     * @description The records of deleting the secret in all clusters.
      *
      * @var SecretDeleteRecordValue[]
      */

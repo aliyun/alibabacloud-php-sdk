@@ -12,10 +12,10 @@ class DescribeServiceMeshProxyStatusResponseBody extends Model
     /**
      * @description The status code. Valid values:
      *
-     * `200`: The status code returned because the operation is successful.
+     * `200`: The operation is successful.
      *
-     *   `403`: The status code returned because you are not authorized to perform this operation.
-     *   `503`: The status code returned because a backend server error occurs.
+     *   `403`: You are not authorized to perform this operation.
+     *   `503`: A backend server error occurs.
      *
      * @example 200
      *
@@ -40,7 +40,7 @@ class DescribeServiceMeshProxyStatusResponseBody extends Model
     public $proxyStatus;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
      *
@@ -49,7 +49,7 @@ class DescribeServiceMeshProxyStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example success
      *

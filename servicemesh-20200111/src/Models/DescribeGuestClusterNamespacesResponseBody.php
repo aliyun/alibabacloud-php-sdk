@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGuestClusterNamespacesResponseBody extends Model
 {
     /**
-     * @description The labels of the namespaces. Labels are returned only when the `ShowNsLabels` parameter is set to `true`.
+     * @description The labels of the namespaces. Labels are returned only when `ShowNsLabels` is set to `true`.
      *
      * @example {"default":{"istio-injection":"enabled"}}
      *
@@ -25,7 +25,7 @@ class DescribeGuestClusterNamespacesResponseBody extends Model
     public $nsList;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
      *

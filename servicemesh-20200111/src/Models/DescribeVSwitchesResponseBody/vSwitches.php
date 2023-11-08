@@ -60,7 +60,7 @@ class vSwitches extends Model
     public $vpcId;
 
     /**
-     * @description 交换机所属的可用区。
+     * @description The zone to which the switch belongs.
      *
      * @example cn-hangzhou-k
      *

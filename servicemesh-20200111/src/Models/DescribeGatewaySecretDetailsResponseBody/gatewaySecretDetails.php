@@ -46,7 +46,7 @@ class gatewaySecretDetails extends Model
     public $message;
 
     /**
-     * @description The Server Name Indication (SNI) value that indicates the hostname of the service.
+     * @description The Server Name Indication (SNI) value.
      *
      * @example demo.com
      *

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SecretCreateRecordValue extends Model
 {
     /**
+     * @description The result of creating the secret. Valid values:
+     *
+     *   `success`: The secret was created.
+     *   `fail`: The secret failed to be created.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +21,8 @@ class SecretCreateRecordValue extends Model
     public $state;
 
     /**
+     * @description The ID of the cluster on the data plane.
+     *
      * @example c08ba3fd1e6484b0f8cc1ad8xe10d****
      *
      * @var string
@@ -23,6 +30,8 @@ class SecretCreateRecordValue extends Model
     public $clusterId;
 
     /**
+     * @description The error message returned when exceptions occur. Otherwise, an empty value is returned.
+     *
      * @example timeout
      *
      * @var string

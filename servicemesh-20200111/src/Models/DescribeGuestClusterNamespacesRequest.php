@@ -18,7 +18,7 @@ class DescribeGuestClusterNamespacesRequest extends Model
     public $guestClusterID;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example ce134b0727aa2492db69f6c3880e****
      *

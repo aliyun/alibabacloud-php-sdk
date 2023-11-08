@@ -20,8 +20,8 @@ class prometheus extends Model
     /**
      * @description Indicates whether a custom Prometheus instance is used. Valid values:
      *
-     *   `true`: A custom Prometheus instance is used.
-     *   `false`: No custom Prometheus instance is used.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

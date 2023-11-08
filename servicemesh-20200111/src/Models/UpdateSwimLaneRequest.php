@@ -36,7 +36,7 @@ class UpdateSwimLaneRequest extends Model
     public $labelSelectorValue;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ID of the Service Mesh (ASM) instance.
      *
      * @example xxx
      *

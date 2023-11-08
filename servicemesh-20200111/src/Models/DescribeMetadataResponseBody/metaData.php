@@ -33,21 +33,21 @@ class metaData extends Model
     public $regions;
 
     /**
-     * @description The Custom Resource Definitions (CRDs) of the versions.
+     * @description The custom resource definitions (CRDs) of all ASM versions.
      *
      * @var mixed[][]
      */
     public $versionCrds;
 
     /**
-     * @description The ASM version and the corresponding Istio version.
+     * @description The Istio versions corresponding to the ASM versions.
      *
      * @var mixed[][]
      */
     public $versionRegistry;
 
     /**
-     * @description The supported versions.
+     * @description The list of ASM versions.
      *
      * @var string[]
      */

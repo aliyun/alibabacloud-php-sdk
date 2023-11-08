@@ -36,7 +36,7 @@ class swimLaneList extends Model
     public $ingressService;
 
     /**
-     * @description The label key of the associated service workload. Fixed value: `ASM_TRAFFIC_TAG`.
+     * @description The label key of the associated service workload. The value is fixed as `ASM_TRAFFIC_TAG`.
      *
      * @example ASM_TRAFFIC_TAG
      *
@@ -54,7 +54,7 @@ class swimLaneList extends Model
     public $labelSelectorValue;
 
     /**
-     * @description The name of the lane.
+     * @description The name of a lane.
      *
      * @example s1
      *

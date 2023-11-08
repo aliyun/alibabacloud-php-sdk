@@ -27,7 +27,7 @@ class DeleteGatewayRouteRequest extends Model
     public $routeName;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *

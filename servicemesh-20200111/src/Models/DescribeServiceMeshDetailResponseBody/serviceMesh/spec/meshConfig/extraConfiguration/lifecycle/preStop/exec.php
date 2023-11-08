@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class exec extends Model
 {
     /**
-     * @description The executed command.
+     * @description The executed commands. The value is a string that consists of JSON arrays.
      *
      * @var string[]
      */

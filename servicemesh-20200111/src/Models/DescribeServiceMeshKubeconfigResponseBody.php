@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshKubeconfigResponseBody extends Model
 {
     /**
+     * @description The expiration time of the kubeconfig certificate. The format is: YYYY-MM-DD hh: mm: ss.
+     *
+     * @example 2024-05-28 16:00:00
+     *
      * @var string
      */
     public $expireTime;
@@ -23,7 +27,7 @@ class DescribeServiceMeshKubeconfigResponseBody extends Model
     public $kubeconfig;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
      *

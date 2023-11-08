@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImportedServicesDetailRequest extends Model
 {
     /**
-     * @description The name of the service.
+     * @description The name of the ASM gateway.
      *
      * @example ingressgateway
      *
@@ -18,7 +18,7 @@ class DescribeImportedServicesDetailRequest extends Model
     public $ASMGatewayName;
 
     /**
-     * @description The details of the services.
+     * @description The ASM instance ID.
      *
      * @example cb8963379255149cb98c8686f274x****
      *
@@ -27,7 +27,7 @@ class DescribeImportedServicesDetailRequest extends Model
     public $serviceMeshId;
 
     /**
-     * @description The namespace in which the service resides.
+     * @description The namespace in which the services reside.
      *
      * @example default
      *

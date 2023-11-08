@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class gatewayRoute extends Model
 {
     /**
+     * @description The list of requested domain names.
+     *
      * @var string[]
      */
     public $domains;
@@ -31,7 +33,7 @@ class gatewayRoute extends Model
     public $matchRequest;
 
     /**
-     * @description The namespace in which the destination service resides.
+     * @description The namespace.
      *
      * @example default
      *
@@ -40,6 +42,10 @@ class gatewayRoute extends Model
     public $namespace;
 
     /**
+     * @description The original YAML file of the virtual service that is serialized in a JSON string.
+     *
+     * @example {}
+     *
      * @var mixed
      */
     public $rawVSRoute;

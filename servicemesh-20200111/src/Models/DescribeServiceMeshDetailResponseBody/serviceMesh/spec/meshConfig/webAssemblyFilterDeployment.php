@@ -11,8 +11,8 @@ class webAssemblyFilterDeployment extends Model
     /**
      * @description Indicates whether WebAssembly Filter is enabled. Valid values:
      *
-     *   `true`:WebAssembly Filter is enabled.
-     *   `false`: WebAssembly Filter is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

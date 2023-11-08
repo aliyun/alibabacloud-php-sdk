@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dashboards extends Model
 {
     /**
-     * @description The title of the report.
+     * @description The title of the dashboard.
      *
      * @example test
      *
@@ -18,7 +18,7 @@ class dashboards extends Model
     public $title;
 
     /**
-     * @description The URL of the report.
+     * @description The URL of a dashboard.
      *
      * @example test.com
      *

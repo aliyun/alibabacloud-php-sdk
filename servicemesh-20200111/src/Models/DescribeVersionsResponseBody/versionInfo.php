@@ -21,7 +21,7 @@ class versionInfo extends Model
     public $edition;
 
     /**
-     * @description The ASM versions available for the ASM instance of the current edition.
+     * @description The list of ASM versions available for the ASM instance of the current edition.
      *
      * @var string[]
      */

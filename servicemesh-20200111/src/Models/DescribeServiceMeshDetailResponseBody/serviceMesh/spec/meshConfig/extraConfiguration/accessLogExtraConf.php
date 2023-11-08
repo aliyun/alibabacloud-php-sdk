@@ -14,7 +14,7 @@ class accessLogExtraConf extends Model
     public $gatewayEnabled;
 
     /**
-     * @description The retention period for the access logs of the ingress gateway. Unit: day. The logs are collected by using the Log Service. For example, a value of 30 indicates that the logs are retained for 30 days.
+     * @description The retention period for the access logs of the ingress gateway. Unit: day. The logs are collected by using Simple Log Service. For example, the value 30 indicates that the logs are retained for 30 days.
      *
      * @example 30
      *
@@ -28,7 +28,7 @@ class accessLogExtraConf extends Model
     public $sidecarEnabled;
 
     /**
-     * @description The retention period for the access logs of sidecar proxies. Unit: day. The logs are collected by using the Log Service. For example, a value of 30 indicates that the logs are retained for 30 days.
+     * @description The retention period for the access logs of sidecar proxies. Unit: day. The logs are collected by using Simple Log Service. For example, the value 30 indicates that the logs are retained for 30 days.
      *
      * @example 30
      *

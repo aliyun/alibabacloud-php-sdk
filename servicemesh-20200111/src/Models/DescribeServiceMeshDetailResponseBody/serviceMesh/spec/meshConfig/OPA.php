@@ -11,8 +11,8 @@ class OPA extends Model
     /**
      * @description Indicates whether the OPA plug-in is installed. Valid values:
      *
-     *   `true`: The OPA plug-in is installed.
-     *   `false`: The OPA plug-in is not installed.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -57,7 +57,7 @@ class OPA extends Model
     public $requestCPU;
 
     /**
-     * @description The size of the memory that is requested by the OPA proxy container.
+     * @description The size of the memory that is requested by OPA.
      *
      * @example 1024Mi
      *

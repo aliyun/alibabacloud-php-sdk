@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateGatewaySecretResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
      *

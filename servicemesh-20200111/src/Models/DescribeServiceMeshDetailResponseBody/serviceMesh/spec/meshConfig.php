@@ -39,7 +39,7 @@ class meshConfig extends Model
     public $audit;
 
     /**
-     * @description The configurations of control-plane log collection.
+     * @description The configurations of control plane log collection.
      *
      * @var controlPlaneLogInfo
      */
@@ -48,8 +48,8 @@ class meshConfig extends Model
     /**
      * @description Indicates whether a custom Zipkin system is used. Valid values:
      *
-     *   `true`: A custom Zipkin system is used.
-     *   `false`: No custom Zipkin system is used.
+     *   `true`
+     *   `false`
      *
      * @example false
      *
@@ -67,8 +67,8 @@ class meshConfig extends Model
     /**
      * @description Indicates whether the feature that routes traffic to the nearest instance is enabled. Valid values:
      *
-     *   `true`: The feature is enabled.
-     *   `false`: The feature is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -202,10 +202,10 @@ class meshConfig extends Model
     public $sidecarInjector;
 
     /**
-     * @description Indicates whether Prometheus monitoring is enabled. We recommend that you use [Prometheus Service of Application Real-Time Monitoring Service (ARMS)](https://arms.console.aliyun.com/). Valid values:
+     * @description Indicates whether Prometheus monitoring is enabled. We recommend that you use [Managed Service for Prometheus](https://arms.console.aliyun.com/). Valid values:
      *
-     *   `true`: Prometheus monitoring is enabled.
-     *   `false`: Prometheus monitoring is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -214,10 +214,10 @@ class meshConfig extends Model
     public $telemetry;
 
     /**
-     * @description Indicates whether tracing analysis is enabled. This feature can be enabled only after [Tracing Analysis](https://tracing-analysis.console.aliyun.com/) is activated. Valid values:
+     * @description Indicates whether tracing analysis is enabled. This feature can be enabled only after [Managed Service for OpenTelemetry](https://tracing-analysis.console.aliyun.com/) is activated. Valid values:
      *
-     *   `true`: Tracing analysis is enabled.
-     *   `false`: Tracing analysis is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *

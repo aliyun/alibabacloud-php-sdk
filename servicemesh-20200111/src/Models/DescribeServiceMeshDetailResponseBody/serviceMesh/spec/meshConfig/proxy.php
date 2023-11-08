@@ -29,8 +29,8 @@ class proxy extends Model
     /**
      * @description Indicates whether gRPC Access Log Service (ALS) for Envoy is enabled. Valid values:
      *
-     *   `true`: gRPC ALS for Envoy is enabled.
-     *   `false`: gRPC ALS for Envoy is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *
@@ -66,10 +66,10 @@ class proxy extends Model
     public $clusterDomain;
 
     /**
-     * @description Indicates whether the Domain Name System (DNS) proxy feature is enabled. Valid values: Valid values:
+     * @description Indicates whether the Domain Name System (DNS) proxy feature is enabled. Valid values:
      *
-     *   `true`: The DNS proxy feature is enabled.
-     *   `false`: The DNS proxy feature is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

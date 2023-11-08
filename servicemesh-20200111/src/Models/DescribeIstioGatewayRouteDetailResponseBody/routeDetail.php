@@ -24,6 +24,10 @@ class routeDetail extends Model
     public $HTTPAdvancedOptions;
 
     /**
+     * @description If the value is true, the original YAML file contains features that are not supported on the current interface.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasUnsafeFeatures;
@@ -36,6 +40,10 @@ class routeDetail extends Model
     public $matchRequest;
 
     /**
+     * @description The original YAML file of the virtual service that is serialized into a JSON string.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $rawVSRoute;

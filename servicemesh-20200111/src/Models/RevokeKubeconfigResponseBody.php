@@ -18,7 +18,7 @@ class RevokeKubeconfigResponseBody extends Model
     public $kubeconfig;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7CF71C8B-79DD-150F-929E-267C51C5E311
      *

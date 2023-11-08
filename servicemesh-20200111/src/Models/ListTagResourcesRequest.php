@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example ""
      *
      * @var string
@@ -17,6 +19,8 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID of the ASM instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -24,11 +28,15 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the ASM instances.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The resource type. Set the value to `servicemesh`.
+     *
      * @example servicemesh
      *
      * @var string
@@ -36,6 +44,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags. A maximum of 20 tags are supported.
+     *
      * @var tag[]
      */
     public $tag;

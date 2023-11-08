@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ports extends Model
 {
     /**
-     * @description The container port.
+     * @description The name of a port.
      *
      * @example http-0
      *
@@ -18,6 +18,8 @@ class ports extends Model
     public $name;
 
     /**
+     * @description The node port.
+     *
      * @example 12345
      *
      * @var int
@@ -25,6 +27,8 @@ class ports extends Model
     public $nodePort;
 
     /**
+     * @description The port number.
+     *
      * @example 80
      *
      * @var int
@@ -32,7 +36,7 @@ class ports extends Model
     public $port;
 
     /**
-     * @description The node port.
+     * @description The protocol of the port.
      *
      * @example tcp
      *
@@ -41,6 +45,8 @@ class ports extends Model
     public $protocol;
 
     /**
+     * @description The container port.
+     *
      * @example 8080
      *
      * @var int

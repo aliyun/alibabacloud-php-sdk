@@ -18,7 +18,7 @@ class network extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of vSwitches.
+     * @description The IDs of the vSwitches.
      *
      * @var string[]
      */

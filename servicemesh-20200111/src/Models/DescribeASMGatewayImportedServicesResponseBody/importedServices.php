@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class importedServices extends Model
 {
     /**
-     * @description The name of the service.
+     * @description The name of a service.
      *
      * @example productpage
      *

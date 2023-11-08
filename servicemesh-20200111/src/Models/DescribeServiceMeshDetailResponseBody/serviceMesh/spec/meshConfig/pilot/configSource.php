@@ -11,8 +11,8 @@ class configSource extends Model
     /**
      * @description Indicates whether communication is allowed between external services and services in the mesh. Valid values:
      *
-     *   `true`: The communication is allowed.
-     *   `false`: The communication is not allowed.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

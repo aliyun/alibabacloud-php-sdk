@@ -18,7 +18,7 @@ class dashboards extends Model
     public $title;
 
     /**
-     * @description The endpoint of the Grafana dashboard.
+     * @description The endpoint of a Grafana dashboard.
      *
      * @example test.com
      *

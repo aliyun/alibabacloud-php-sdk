@@ -14,7 +14,7 @@ class swimLaneGroupList extends Model
     public $fallbackTarget;
 
     /**
-     * @description The name of the lane group.
+     * @description The name of a lane group.
      *
      * @example test
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshUpgradeStatusResponseBody extends Model
 {
     /**
-     * @description The upgrade results.
+     * @description The request ID.
      *
      * @example 11fd0027-c27e-41bb-a565-75583054****
      *
@@ -19,7 +19,7 @@ class DescribeServiceMeshUpgradeStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of ingress gateways that are upgraded.
+     * @description The upgrade results.
      *
      * @var upgradeDetail
      */

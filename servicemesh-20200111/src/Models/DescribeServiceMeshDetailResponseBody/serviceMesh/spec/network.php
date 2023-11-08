@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
-     * @description The ID of the security group.
+     * @description The security group ID.
      *
      * @example sg-2ze384sxttxbctnj****
      *
@@ -18,7 +18,7 @@ class network extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The virtual switches (vSwitches).
      *
      * @var string[]
      */

@@ -11,8 +11,8 @@ class accessLog extends Model
     /**
      * @description Indicates whether access log collection is enabled. Valid values:
      *
-     *   `true`: Access log collection is enabled.
-     *   `false`: Access log collection is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class accessLog extends Model
     public $enabled;
 
     /**
-     * @description The name of the Log Service project that stores access logs.
+     * @description The name of the Simple Log Service project that stores access logs.
      *
      * @example k8s-log-b7b05d08670e41ca8c8fc0b7718f*****
      *

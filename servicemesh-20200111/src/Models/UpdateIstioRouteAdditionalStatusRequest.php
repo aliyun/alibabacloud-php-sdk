@@ -45,7 +45,7 @@ class UpdateIstioRouteAdditionalStatusRequest extends Model
     public $routeName;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *
@@ -54,11 +54,7 @@ class UpdateIstioRouteAdditionalStatusRequest extends Model
     public $serviceMeshId;
 
     /**
-     * @description The status of the routing rule. Valid values:
-     *
-     *   `0`: The routing rule is valid.
-     *   `1`: The routing rule is invalid.
-     *   `2`: An error occurs during the creation or update of the routing rule.
+     * @description The status of the routing rule. Valid values: 0: The routing rule is valid. 1: The routing rule is invalid. 2: An error occurs during the creation or update of the routing rule.
      *
      * @example 0
      *

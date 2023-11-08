@@ -18,7 +18,7 @@ class DescribeASMGatewayImportedServicesRequest extends Model
     public $ASMGatewayName;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *
@@ -27,7 +27,7 @@ class DescribeASMGatewayImportedServicesRequest extends Model
     public $serviceMeshId;
 
     /**
-     * @description The namespace in which the service resides.
+     * @description The namespace in which the services reside.
      *
      * @example default
      *

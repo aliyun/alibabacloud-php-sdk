@@ -15,6 +15,8 @@ class tracing extends Model
      *   `header`: The tag value is a request header in the JSON format. This tag must contain the `name` field and the `defaultValue` field. The name field indicates the name of the request header. The defaultValue field indicates the default value that is used when no request header is available. Example: `{"name":"test","defaultValue":"test"}`.
      *   `environment`: The tag value is an environment variable in the JSON format. This tag must contain the `name` field and the `defaultValue` field. The name field indicates the name of the environment variable. The defaultValue field indicates the environment variable that is used when no environment variable is available. Example: `{"name":"test","defaultValue":"test"}`.
      *
+     * @example {"test":{"literal":{"value":"test"}}}
+     *
      * @var mixed[]
      */
     public $customTags;
@@ -22,12 +24,16 @@ class tracing extends Model
     /**
      * @description The maximum tag length.
      *
+     * @example 10
+     *
      * @var int
      */
     public $maxPathTagLength;
 
     /**
      * @description The sampling rate.
+     *
+     * @example 99.8
      *
      * @var float
      */

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete all tags. This parameter takes effect only when the TagKey.N parameter is not specified. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -16,6 +22,8 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
+     * @description The region ID of the ASM instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,11 +31,15 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the ASM instances.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The resource type. Set the value to `servicemesh`.
+     *
      * @example servicemesh
      *
      * @var string
@@ -35,6 +47,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag keys.
+     *
      * @var string[]
      */
     public $tagKey;

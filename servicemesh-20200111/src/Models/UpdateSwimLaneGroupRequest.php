@@ -23,7 +23,7 @@ class UpdateSwimLaneGroupRequest extends Model
     public $groupName;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The Service Mesh (ASM) instance ID.
      *
      * @example xxx
      *

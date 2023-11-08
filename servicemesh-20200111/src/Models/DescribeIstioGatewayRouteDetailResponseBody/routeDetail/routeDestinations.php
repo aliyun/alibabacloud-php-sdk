@@ -18,7 +18,7 @@ class routeDestinations extends Model
     public $destination;
 
     /**
-     * @description The request headers to be matched.
+     * @description The list of the request headers to be matched.
      *
      * @var headers
      */

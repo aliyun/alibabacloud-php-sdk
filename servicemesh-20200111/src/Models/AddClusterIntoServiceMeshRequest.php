@@ -16,8 +16,6 @@ class AddClusterIntoServiceMeshRequest extends Model
     public $clusterId;
 
     /**
-     * @description 添加集群时不检查目标集群是否存在istio-system namespace，一般用于自建istio 迁移ASM 场景
-     *
      * @example false
      *
      * @var bool

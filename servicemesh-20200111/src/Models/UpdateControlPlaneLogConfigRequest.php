@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateControlPlaneLogConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to collect control plane logs to Simple Log Service.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class UpdateControlPlaneLogConfigRequest extends Model
     public $enabled;
 
     /**
+     * @description The time to live (TTL) period of the collected logs. Unit: day.
+     *
      * @example 30
      *
      * @var int
@@ -23,6 +27,8 @@ class UpdateControlPlaneLogConfigRequest extends Model
     public $logTTLInDay;
 
     /**
+     * @description The name of the Simple Log Service project to which control plane logs are collected.
+     *
      * @example aia-asm-deva-sh
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateControlPlaneLogConfigRequest extends Model
     public $project;
 
     /**
+     * @description The ID of the Service Mesh (ASM) instance.
+     *
      * @example c20667db760fe4ee6910220136624****
      *
      * @var string

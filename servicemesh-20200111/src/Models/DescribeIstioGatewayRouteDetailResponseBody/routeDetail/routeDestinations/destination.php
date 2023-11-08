@@ -19,7 +19,7 @@ class destination extends Model
     public $host;
 
     /**
-     * @description The ports.
+     * @description The ports of the specified hosts from which the traffic is routed.
      *
      * @var port
      */

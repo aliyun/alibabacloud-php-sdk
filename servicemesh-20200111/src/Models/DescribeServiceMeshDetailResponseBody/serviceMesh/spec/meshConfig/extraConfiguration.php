@@ -20,7 +20,7 @@ use AlibabaCloud\Tea\Model;
 class extraConfiguration extends Model
 {
     /**
-     * @description The configurations of additional features for access log collection
+     * @description The configurations of additional features for access log collection.
      *
      * @var accessLogExtraConf
      */
@@ -34,7 +34,7 @@ class extraConfiguration extends Model
     public $adaptiveXdsConfiguration;
 
     /**
-     * @description The configurations of automatic diagnosis for the ASM instance.
+     * @description The configurations of automatic diagnostics for the ASM instance.
      *
      * @var autoDiagnosis
      */
@@ -50,8 +50,8 @@ class extraConfiguration extends Model
     /**
      * @description Indicates whether the Kubernetes API of clusters on the data plane can be used to access Istio resources. Valid values:
      *
-     *   `true`: The Kubernetes API of clusters on the data plane can be used to access Istio resources.
-     *   `false`: The Kubernetes API of clusters on the data plane cannot be used to access Istio resources.
+     *   `true`
+     *   `false`
      *
      * @example false
      *
@@ -60,7 +60,7 @@ class extraConfiguration extends Model
     public $CRAggregationEnabled;
 
     /**
-     * @description The label selectors used to specify namespaces on the data plane. The control plane discovers and process only application services in the specified namespaces.
+     * @description The label selectors used to specify the namespaces of the clusters on the data plane. The control plane discovers and processes only application services in the specified namespaces.
      *
      * @var mixed[][]
      */
@@ -109,7 +109,7 @@ class extraConfiguration extends Model
     public $sidecarProxyInitResourceLimit;
 
     /**
-     * @description The resources that are requested by the istio-init container.
+     * @description The resources that are required by the istio-init container.
      *
      * @var sidecarProxyInitResourceRequest
      */

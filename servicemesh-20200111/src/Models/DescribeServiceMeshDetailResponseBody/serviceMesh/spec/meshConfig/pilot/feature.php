@@ -11,8 +11,8 @@ class feature extends Model
     /**
      * @description Indicates whether Secret Discovery Service (SDS) is enabled. Valid values:
      *
-     *   `true`: SDS is enabled.
-     *   `false`: SDS is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *
@@ -23,8 +23,8 @@ class feature extends Model
     /**
      * @description Indicates whether gateway configuration filtering is enabled. Valid values:
      *
-     *   `true`: Gateway configuration filtering is enabled.
-     *   `false`: Gateway configuration filtering is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

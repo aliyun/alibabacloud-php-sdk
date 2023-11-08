@@ -11,8 +11,8 @@ class istioCRHistory extends Model
     /**
      * @description Indicates whether the rollback feature for Istio resources is enabled. Valid values:
      *
-     *   `true`: The rollback feature for Istio resources is enabled.
-     *   `false`: The rollback feature for Istio resources is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The region ID of the Service Mesh (ASM) instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -17,11 +19,15 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the ASM instances.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The resource type. Set the value to `servicemesh`.
+     *
      * @example servicemesh
      *
      * @var string
@@ -29,6 +35,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

@@ -11,8 +11,8 @@ class protocolSupport extends Model
     /**
      * @description Indicates whether Dubbo Filter is enabled. Valid values:
      *
-     *   `true`: Dubbo Filter is enabled.
-     *   `false`: Dubbo Filter is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *
@@ -23,8 +23,8 @@ class protocolSupport extends Model
     /**
      * @description Indicates whether MySQL Filter is enabled. Valid values:
      *
-     *   `true`: MySQL Filter is enabled.
-     *   `false`: MySQL Filter is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *
@@ -35,8 +35,8 @@ class protocolSupport extends Model
     /**
      * @description Indicates whether Redis Filter is enabled. Valid values:
      *
-     *   `true`: Redis Filter is enabled.
-     *   `false`: Redis Filter is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *
@@ -47,8 +47,8 @@ class protocolSupport extends Model
     /**
      * @description Indicates whether Thrift Filter is enabled. Valid values:
      *
-     *   `true`: Thrift Filter is enabled.
-     *   `false`: Thrift Filter is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

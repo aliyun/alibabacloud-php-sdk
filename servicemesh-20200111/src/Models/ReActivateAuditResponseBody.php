@@ -18,7 +18,7 @@ class ReActivateAuditResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 17163CE9-CE4B-1B87-9185-1A1AD7E7****
      *

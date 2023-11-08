@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetVmAppMeshInfoRequest extends Model
 {
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example ce51a7de4a5144db88a864****
      *

@@ -11,10 +11,10 @@ use AlibabaCloud\Tea\Model;
 class meshConfig extends Model
 {
     /**
-     * @description Indicates whether the feature of routing traffic to the nearest instance is enabled. Valid values:
+     * @description Indicates whether nearby access is enabled. Valid values:
      *
-     *   `true`: The feature is enabled.
-     *   `false`: The feature is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -42,7 +42,7 @@ class meshConfig extends Model
     public $pilot;
 
     /**
-     * @description The configurations of sidecar injection.
+     * @description The configurations of sidecar proxy injection.
      *
      * @var sidecarInjector
      */
@@ -58,10 +58,10 @@ class meshConfig extends Model
     public $strictMtls;
 
     /**
-     * @description Indicates whether Prometheus monitoring is enabled. We recommend that you use Prometheus Service of Application Real-Time Monitoring Service (ARMS). Valid values:
+     * @description Indicates whether Prometheus monitoring is enabled. We recommend that you use Managed Service for Prometheus. Valid values:
      *
-     *   `true`: Prometheus monitoring is enabled.
-     *   `false`: Prometheus monitoring is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -72,8 +72,8 @@ class meshConfig extends Model
     /**
      * @description Indicates whether the tracing feature is enabled. This feature can be enabled only after Tracing Analysis is activated. Valid values:
      *
-     *   `true`: The tracing feature is enabled.
-     *   `false`: The tracing feature is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *

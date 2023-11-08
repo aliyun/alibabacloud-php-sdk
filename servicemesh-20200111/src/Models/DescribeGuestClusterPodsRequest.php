@@ -18,7 +18,7 @@ class DescribeGuestClusterPodsRequest extends Model
     public $guestClusterID;
 
     /**
-     * @description The name of the namespace.
+     * @description The namespace.
      *
      * @example default
      *
@@ -27,7 +27,7 @@ class DescribeGuestClusterPodsRequest extends Model
     public $namespace;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example c78d60f98fa43403ab6e0701b2678****
      *

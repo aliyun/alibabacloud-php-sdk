@@ -17,7 +17,7 @@ class DescribeMetadataResponseBody extends Model
     public $metaData;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F93DDAD7-6E04-5AC3-86F4-852708******
      *

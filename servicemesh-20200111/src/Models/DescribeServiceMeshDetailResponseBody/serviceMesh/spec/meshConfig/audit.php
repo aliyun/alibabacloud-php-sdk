@@ -23,8 +23,8 @@ class audit extends Model
     /**
      * @description Indicates whether mesh audit is enabled. Valid values:
      *
-     *   `true`: Mesh audit is enabled.
-     *   `false`: Mesh audit is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -33,7 +33,7 @@ class audit extends Model
     public $enabled;
 
     /**
-     * @description The name of the Log Service project that is used for mesh audit.
+     * @description The name of the Simple Log Service project that is used for mesh audit.
      *
      * @example audit-project
      *

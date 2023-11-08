@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
-     * @description The endpoint that is used to access the API server from the internal network.
+     * @description The endpoint that is used to access the API server over the internal network.
      *
      * @example https://192.168.xx.xx:6443
      *
@@ -27,7 +27,7 @@ class endpoints extends Model
     public $intranetPilotEndpoint;
 
     /**
-     * @description The endpoint that is used to expose the API server to the Internet.
+     * @description The endpoint that is used to access the API server over the Internet.
      *
      * @example https://123.56.xx.xx:6443
      *

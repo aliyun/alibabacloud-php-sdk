@@ -11,7 +11,9 @@ class MSE extends Model
     /**
      * @description Indicates whether MSE is enabled. Valid values:
      *
-     * - `false`: MSE is disabled.
+     *   `true`
+     *   `false`
+     *
      * @example false
      *
      * @var bool

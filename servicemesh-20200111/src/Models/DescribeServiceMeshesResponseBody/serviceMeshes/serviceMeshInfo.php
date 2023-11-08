@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serviceMeshInfo extends Model
 {
     /**
-     * @description The point in time when the ASM instance was created.
+     * @description The time when the ASM instance was created.
      *
      * @example 2020-04-21T09:42:20+08:00
      *
@@ -18,7 +18,7 @@ class serviceMeshInfo extends Model
     public $creationTime;
 
     /**
-     * @description The error message that is returned when the call failed.
+     * @description The error message.
      *
      * @example error
      *
@@ -48,7 +48,7 @@ class serviceMeshInfo extends Model
     public $profile;
 
     /**
-     * @description The ID of the region in which the ASM instance resides.
+     * @description The region ID of the ASM instance.
      *
      * @example cn-beijing
      *
@@ -66,7 +66,7 @@ class serviceMeshInfo extends Model
     public $serviceMeshId;
 
     /**
-     * @description The status of the ASM instance.
+     * @description The state of the ASM instance.
      *
      * @example success
      *
@@ -75,7 +75,7 @@ class serviceMeshInfo extends Model
     public $state;
 
     /**
-     * @description The point in time when the ASM instance was last modified.
+     * @description The time when the ASM instance was last modified.
      *
      * @example 2020-04-21T09:42:20+08:00
      *

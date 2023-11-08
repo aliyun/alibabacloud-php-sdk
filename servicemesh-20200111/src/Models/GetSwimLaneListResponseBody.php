@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSwimLaneListResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example yyyy
      *

@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
-     * @description The name of the port.
+     * @description The clusters on the data plane.
      *
      * @var string[]
      */
     public $clusterIds;
 
     /**
-     * @description The ports declared for the service.
+     * @description The labels of the service.
      *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description Kubernetes
+     * @description The namespace in which the service resides.
      *
      * @example default
      *
@@ -33,14 +33,14 @@ class details extends Model
     public $namespace;
 
     /**
-     * @description The port number.
+     * @description The ports declared for the service.
      *
      * @var ports[]
      */
     public $ports;
 
     /**
-     * @description The type of the service.
+     * @description The name of a service.
      *
      * @example productpage
      *
@@ -49,7 +49,7 @@ class details extends Model
     public $serviceName;
 
     /**
-     * @description The protocol of the port.
+     * @description The type of the service.
      *
      * @example Kubernetes
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class port extends Model
 {
     /**
+     * @description The port number.
+     *
      * @example 80
      *
      * @var int

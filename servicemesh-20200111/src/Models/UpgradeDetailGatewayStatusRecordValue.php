@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDetailGatewayStatusRecordValue extends Model
 {
     /**
+     * @description The upgrade status of the ingress gateway. Valid values:
+     *
+     *   `upgrading`: The ingress gateway is being upgraded.
+     *   `pending`: The ingress gateway waits to be upgraded.
+     *   `finished`: The ingress gateway upgrade is complete.
+     *   `notStart`: The ingress gateway upgrade does not start.
+     *   `failed`: The ingress gateway upgrade fails.
+     *   `unknown`: The upgrade status of the ingress gateway is unknown.
+     *
      * @example upgrading
      *
      * @var string
@@ -16,6 +25,8 @@ class UpgradeDetailGatewayStatusRecordValue extends Model
     public $status;
 
     /**
+     * @description Additional status information of the ingress gateway.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +34,8 @@ class UpgradeDetailGatewayStatusRecordValue extends Model
     public $message;
 
     /**
+     * @description The version of the ingress gateway.
+     *
      * @example 1.9.7
      *
      * @var string

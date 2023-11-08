@@ -27,8 +27,8 @@ class pilot extends Model
     /**
      * @description Indicates whether HTTP/1.0 is supported. Valid values:
      *
-     *   `true`: HTTP/1.0 is supported.
-     *   `false`: HTTP/1.0 is not supported.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

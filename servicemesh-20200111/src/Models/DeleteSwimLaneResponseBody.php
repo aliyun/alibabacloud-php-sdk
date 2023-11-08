@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSwimLaneResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example xxx
      *

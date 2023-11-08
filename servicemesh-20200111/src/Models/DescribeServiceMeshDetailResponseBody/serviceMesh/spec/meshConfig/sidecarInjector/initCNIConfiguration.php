@@ -11,8 +11,8 @@ class initCNIConfiguration extends Model
     /**
      * @description Indicates whether the CNI plug-in is enabled. Valid values:
      *
-     *   `true`: The CNI plug-in is enabled.
-     *   `false`: The CNI plug-in is disabled.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

@@ -18,7 +18,7 @@ class permissions extends Model
     public $isRamRole;
 
     /**
-     * @description This parameter is required by the system. The return value is fixed to `0`.
+     * @description The value is fixed as `0`.
      *
      * @example 0
      *
@@ -36,7 +36,7 @@ class permissions extends Model
     public $resourceId;
 
     /**
-     * @description This parameter is required by the system. The return value is fixed to `cluster`.
+     * @description The value is fixed as `cluster`.
      *
      * @example cluster
      *
@@ -47,7 +47,7 @@ class permissions extends Model
     /**
      * @description The name of the permissions. Valid values:
      *
-     *   `istio-admin`: the permissions of Alibaba Cloud Service Mesh (ASM) administrators.
+     *   `istio-admin`: the permissions of ASM administrators.
      *   `istio-ops`: the permissions of ASM restricted users.
      *   `istio-readonly`: the read-only permissions.
      *
@@ -58,7 +58,7 @@ class permissions extends Model
     public $roleName;
 
     /**
-     * @description This parameter is required by the system. The return value is fixed to `custom`.
+     * @description The value is fixed as `custom`.
      *
      * @example custom
      *

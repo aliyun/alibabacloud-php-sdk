@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class sidecarInjector extends Model
 {
     /**
-     * @description Indicates whether automatic sidecar injection is enabled by using annotations.
+     * @description Indicates whether automatic sidecar proxy injection is enabled by using annotations.
      *
      * @example true
      *
@@ -19,10 +19,10 @@ class sidecarInjector extends Model
     public $autoInjectionPolicyEnabled;
 
     /**
-     * @description Indicates whether automatic sidecar injection is enabled for all namespaces. Valid values:
+     * @description Indicates whether automatic sidecar proxy injection is enabled for all namespaces. Valid values:
      *
-     *   `true`: Automatic sidecar injection is enabled for all namespaces.
-     *   `false`: Automatic sidecar injection is disabled for all namespaces.
+     *   `true`
+     *   `false`
      *
      * @example false
      *

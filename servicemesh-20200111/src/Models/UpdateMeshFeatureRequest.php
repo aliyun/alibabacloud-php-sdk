@@ -632,7 +632,7 @@ class UpdateMeshFeatureRequest extends Model
     public $OPAInjectorCPURequirement;
 
     /**
-     * @description Specifies whether to create an SLB instance for accessing the ASM mesh topology.
+     * @description Specifies whether to create a CLB instance for accessing the ASM mesh topology.
      *
      * @example 1024Mi
      *

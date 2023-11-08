@@ -27,7 +27,7 @@ class CreateASMGatewayRequest extends Model
     public $istioGatewayName;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example cb8963379255149cb98c8686f274x****
      *

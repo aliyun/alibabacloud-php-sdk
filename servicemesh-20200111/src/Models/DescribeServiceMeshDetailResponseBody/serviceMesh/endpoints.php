@@ -27,7 +27,7 @@ class endpoints extends Model
     public $intranetPilotEndpoint;
 
     /**
-     * @description The endpoint that is used to expose the API server to the Internet.
+     * @description The endpoint that is used to access the API server over the Internet.
      *
      * @example https://123.56.**.**:6443
      *

@@ -17,7 +17,7 @@ class GetGrafanaDashboardUrlResponseBody extends Model
     public $dashboards;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 76DBB8A0-5AA6-5A56-9A8A-****
      *

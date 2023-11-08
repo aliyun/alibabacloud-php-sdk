@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeASMGatewayImportedServicesResponseBody extends Model
 {
     /**
-     * @description The imported services.
+     * @description The list of the imported services.
      *
      * @var importedServices[]
      */
     public $importedServices;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 11fd0027-c27e-41bb-a565-75583054****
      *

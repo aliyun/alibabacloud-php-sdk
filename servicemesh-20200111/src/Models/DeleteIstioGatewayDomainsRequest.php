@@ -27,7 +27,7 @@ class DeleteIstioGatewayDomainsRequest extends Model
     public $istioGatewayName;
 
     /**
-     * @description The maximum number of ASM gateways to query.
+     * @description The maximum number of Istio gateways to query.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class DeleteIstioGatewayDomainsRequest extends Model
     public $limit;
 
     /**
-     * @description The namespace in which the ASM gateway resides.
+     * @description The name of the namespace.
      *
      * @example default
      *
@@ -45,7 +45,7 @@ class DeleteIstioGatewayDomainsRequest extends Model
     public $namespace;
 
     /**
-     * @description The name of the port.
+     * @description The port name.
      *
      * @example https
      *
@@ -54,7 +54,7 @@ class DeleteIstioGatewayDomainsRequest extends Model
     public $portName;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *

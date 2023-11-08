@@ -33,7 +33,7 @@ class vpcs extends Model
     public $status;
 
     /**
-     * @description The ID of the VPC.
+     * @description The ID of a VPC.
      *
      * @example vpc-bp1qkf2o3xmqc2519****
      *
