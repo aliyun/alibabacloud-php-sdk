@@ -1,3 +1,6 @@
+2023-11-08 Version: 1.7.4
+- Generated php 2022-05-20 for btripOpen.
+
 2023-11-07 Version: 1.7.3
 - Generated php 2022-05-20 for btripOpen.
 
