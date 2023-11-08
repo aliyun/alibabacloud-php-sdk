@@ -19,24 +19,6 @@ class GetPluginsRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to enable the plug-in.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $category;
-
-    /**
-     * @description The name of the plug-in.
-     *
-     * @example true
-     *
-     * @var bool
-     */
-    public $enableOnly;
-
-    /**
      * @description The type of the plug-in. Valid values:
      *
      *   0: custom
@@ -46,6 +28,24 @@ class GetPluginsRequest extends Model
      *   4: traffic control
      *   5: traffic observation
      *
+     * @example 1
+     *
+     * @var int
+     */
+    public $category;
+
+    /**
+     * @description Specifies whether to enable the plug-in.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $enableOnly;
+
+    /**
+     * @description The ID of the gateway.
+     *
      * @example gw-0adf3ad751284cc69fcf9669fba*****
      *
      * @var string
@@ -53,9 +53,8 @@ class GetPluginsRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The language of the response. Valid values:
+     * @description The name of the plug-in.
      *
-     * zh: Chinese en: English
      * @example key-auth
      *
      * @var string

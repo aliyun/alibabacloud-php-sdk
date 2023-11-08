@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyLosslessRuleResponseBody extends Model
 {
     /**
+     * @description 响应码。
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class ModifyLosslessRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description 返回数据。
+     *
      * @example null
      *
      * @var mixed
@@ -32,6 +36,8 @@ class ModifyLosslessRuleResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description HTTP状态码。
+     *
      * @example 200
      *
      * @var int

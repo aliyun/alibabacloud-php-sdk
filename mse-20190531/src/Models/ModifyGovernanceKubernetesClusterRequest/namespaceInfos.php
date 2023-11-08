@@ -9,23 +9,21 @@ use AlibabaCloud\Tea\Model;
 class namespaceInfos extends Model
 {
     /**
-     * @var string[]
-     */
-    public $labels;
-
-    /**
+     * @example default
+     *
      * @var string
      */
     public $mseNamespace;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $name;
     protected $_name = [
-        'labels'       => 'labels',
-        'mseNamespace' => 'mseNamespace',
-        'name'         => 'name',
+        'mseNamespace' => 'MseNamespace',
+        'name'         => 'Name',
     ];
 
     public function validate()
@@ -35,14 +33,11 @@ class namespaceInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->labels) {
-            $res['labels'] = $this->labels;
-        }
         if (null !== $this->mseNamespace) {
-            $res['mseNamespace'] = $this->mseNamespace;
+            $res['MseNamespace'] = $this->mseNamespace;
         }
         if (null !== $this->name) {
-            $res['name'] = $this->name;
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -56,14 +51,11 @@ class namespaceInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['labels'])) {
-            $model->labels = $map['labels'];
+        if (isset($map['MseNamespace'])) {
+            $model->mseNamespace = $map['MseNamespace'];
         }
-        if (isset($map['mseNamespace'])) {
-            $model->mseNamespace = $map['mseNamespace'];
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

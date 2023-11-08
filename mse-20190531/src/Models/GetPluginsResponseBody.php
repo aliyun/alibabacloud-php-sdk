@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetPluginsResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description The returned code.
      *
      * @example 200
      *
@@ -19,14 +19,14 @@ class GetPluginsResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The data entries returned.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The dynamic error message.
+     * @description The dynamic part in the error message.
      *
      * @example code
      *
@@ -35,7 +35,7 @@ class GetPluginsResponseBody extends Model
     public $dynamicCode;
 
     /**
-     * @description The data entries returned.
+     * @description The dynamic error message.
      *
      * @example message
      *
@@ -44,7 +44,7 @@ class GetPluginsResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The error code returned if the request failed.
      *
      * @example 500
      *
@@ -53,7 +53,7 @@ class GetPluginsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The message returned.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -62,7 +62,7 @@ class GetPluginsResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The dynamic part in the error message.
+     * @description The message returned.
      *
      * @example success
      *
@@ -71,7 +71,7 @@ class GetPluginsResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description The ID of the request.
      *
      * @example 03A3E2F4-6804-5663-9D5D-2EC47A1*****
      *
@@ -80,7 +80,7 @@ class GetPluginsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned code.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

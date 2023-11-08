@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class configuration extends Model
 {
     /**
-     * @description The MD5 value of the configuration.
+     * @description The name of the application.
      *
      * @example test
      *
@@ -18,7 +18,7 @@ class configuration extends Model
     public $appName;
 
     /**
-     * @description The name of the configuration group.
+     * @description The content of the configuration.
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class configuration extends Model
     public $content;
 
     /**
-     * @description The content of the configuration.
+     * @description The ID of the configuration.
      *
      * @example test.yaml
      *
@@ -36,7 +36,7 @@ class configuration extends Model
     public $dataId;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The encryption key.
      *
      * @example 23fds****
      *
@@ -45,7 +45,7 @@ class configuration extends Model
     public $encryptedDataKey;
 
     /**
-     * @description The configuration type.
+     * @description The name of the configuration group.
      *
      * @example public
      *
@@ -54,7 +54,7 @@ class configuration extends Model
     public $group;
 
     /**
-     * @description The ID of the configuration.
+     * @description The MD5 value of the configuration.
      *
      * @example 23sdf32f****
      *
@@ -63,7 +63,7 @@ class configuration extends Model
     public $md5;
 
     /**
-     * @description The encryption key.
+     * @description The configuration type.
      *
      * @example text
      *

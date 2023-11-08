@@ -21,7 +21,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The name of the group.
+     * @description The ID of the data.
      *
      * @example msg-center.main.yaml
      *
@@ -30,7 +30,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $dataId;
 
     /**
-     * @description The ID of the namespace.
+     * @description The name of the group.
      *
      * @example DEFAULT_GROUP
      *
@@ -39,7 +39,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $group;
 
     /**
-     * @description The ID of the data.
+     * @description The ID of the instance.
      *
      * @example mse_prepaid_public_cn-st220g9ka02
      *
@@ -48,7 +48,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $instanceId;
 
     /**
-     * @description The version ID of the configuration.
+     * @description The ID of the namespace.
      *
      * @example 6cf708a5-****-89f2-3ba62c5ee9ba
      *
@@ -57,10 +57,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The version ID of the configuration.
      *
      * @example 40****
      *

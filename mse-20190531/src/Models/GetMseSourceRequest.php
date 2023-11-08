@@ -21,10 +21,7 @@ class GetMseSourceRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The MSE engine type. Valid values:
-     *
-     *   NACOS
-     *   ZOOKEEPER
+     * @description The unique ID of the gateway.
      *
      * @example gw-7ea3da97b96543e19f6c597cd4a9****
      *
@@ -33,10 +30,10 @@ class GetMseSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The language of the response. Valid values:
+     * @description The MSE engine type. Valid values:
      *
-     *   zh: Chinese
-     *   en: English
+     *   NACOS
+     *   ZOOKEEPER
      *
      * @example NACOS
      *

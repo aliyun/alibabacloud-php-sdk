@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetMseSourceResponseBody extends Model
 {
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
+     * @description The status code returned.
      *
      * @example 1
      *
@@ -29,10 +26,7 @@ class GetMseSourceResponseBody extends Model
     public $data;
 
     /**
-     * @description The message returned.
-     *
-     *   If the request is successful, a success message is returned.
-     *   If the request fails, an error message is returned, such as the "TaskId not found" message.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -41,16 +35,19 @@ class GetMseSourceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The request is successfully processed.
+     * @description The message returned.
      *
-     * @example The status code returned.
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned, such as the "TaskId not found" message.
+     *
+     * @example The request is successfully processed.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The ID of the request.
      *
      * @example 5EB2D865-B43F-5526-8F92-857718CF73A2
      *
@@ -59,7 +56,10 @@ class GetMseSourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The data structure.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example true
      *

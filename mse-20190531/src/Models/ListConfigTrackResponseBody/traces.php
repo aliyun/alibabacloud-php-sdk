@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class traces extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description Indicates whether the request is sent from the client. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example false
      *
@@ -18,7 +21,7 @@ class traces extends Model
     public $client;
 
     /**
-     * @description The name of the configuration group.
+     * @description The ID of the configuration.
      *
      * @example eir-server.properties
      *
@@ -27,7 +30,7 @@ class traces extends Model
     public $dataId;
 
     /**
-     * @description The MD5 value.
+     * @description The response latency. Unit: milliseconds.
      *
      * @example 0
      *
@@ -36,7 +39,10 @@ class traces extends Model
     public $delay;
 
     /**
-     * @description The result.
+     * @description The event. Valid values:
+     *
+     *   pull: configuration acquisition events
+     *   persist: persistence events
      *
      * @example pull
      *
@@ -45,10 +51,7 @@ class traces extends Model
     public $event;
 
     /**
-     * @description The event. Valid values:
-     *
-     *   pull: configuration acquisition events
-     *   persist: persistence events
+     * @description The name of the configuration group.
      *
      * @example DEFAULT_GROUP
      *
@@ -57,9 +60,8 @@ class traces extends Model
     public $group;
 
     /**
-     * @description The timestamp that indicates the time when the metric value is collected.
+     * @description The logging time.
      *
-     * Unit: seconds.
      * @example 2022-11-28 15:09:15
      *
      * @var string
@@ -67,11 +69,7 @@ class traces extends Model
     public $logDate;
 
     /**
-     * @description The release type. Valid values:
-     *
-     *   beta: beta release
-     *   tag: canary release
-     *   batch: batch release
+     * @description The MD5 value.
      *
      * @example d21c9091c60daa0ff7ee2f420141e5a0
      *
@@ -80,7 +78,7 @@ class traces extends Model
     public $md5;
 
     /**
-     * @description Indicates whether the request is sent from the client. Valid values:
+     * @description Indicates whether messages are pushed by a server. Valid values:
      *
      *   true
      *   false
@@ -92,7 +90,7 @@ class traces extends Model
     public $push;
 
     /**
-     * @description The response node.
+     * @description The source IP address of the request.
      *
      * @example 192.168.1.2
      *
@@ -101,7 +99,7 @@ class traces extends Model
     public $requestIp;
 
     /**
-     * @description The ID of the configuration.
+     * @description The response node.
      *
      * @example mse-1973b9a0-1670834*****-reg-center-0-2
      *
@@ -110,7 +108,7 @@ class traces extends Model
     public $responseIp;
 
     /**
-     * @description The response latency. Unit: milliseconds.
+     * @description The result.
      *
      * @example ok
      *
@@ -119,8 +117,9 @@ class traces extends Model
     public $result;
 
     /**
-     * @description The source IP address of the request.
+     * @description The timestamp that indicates the time when the metric value is collected.
      *
+     * Unit: seconds.
      * @example 1659666529
      *
      * @var string
@@ -128,10 +127,11 @@ class traces extends Model
     public $ts;
 
     /**
-     * @description Indicates whether messages are pushed by a server. Valid values:
+     * @description The release type. Valid values:
      *
-     *   true
-     *   false
+     *   beta: beta release
+     *   tag: canary release
+     *   batch: batch release
      *
      * @example beta
      *

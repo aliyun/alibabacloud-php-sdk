@@ -2228,7 +2228,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * mse-200-105.
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
      *   *
      * @param CreateNacosInstanceRequest $request CreateNacosInstanceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -2296,7 +2296,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * mse-200-105.
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
      *   *
      * @param CreateNacosInstanceRequest $request CreateNacosInstanceRequest
      *
@@ -10010,7 +10010,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go or subscription MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see "Pricing" (`~~1806469~~`).
+     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
      *   *
      * @param UpdateClusterSpecRequest $request UpdateClusterSpecRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -10058,7 +10058,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go or subscription MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see "Pricing" (`~~1806469~~`).
+     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
      *   *
      * @param UpdateClusterSpecRequest $request UpdateClusterSpecRequest
      *

@@ -21,7 +21,7 @@ class ListConfigTrackRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The name of the configuration group.
+     * @description The ID of the configuration.
      *
      * @example ballot
      *
@@ -30,7 +30,7 @@ class ListConfigTrackRequest extends Model
     public $dataId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The end timestamp. Unit: seconds.
      *
      * @example 1657178373
      *
@@ -39,7 +39,7 @@ class ListConfigTrackRequest extends Model
     public $endTs;
 
     /**
-     * @description The ID of the namespace.
+     * @description The name of the configuration group.
      *
      * @example DEFAULT_GROUP
      *
@@ -48,7 +48,7 @@ class ListConfigTrackRequest extends Model
     public $group;
 
     /**
-     * @description The ID of the configuration.
+     * @description The ID of the instance.
      *
      * @example mse_prepaid_public_cn-i7m2ne****
      *
@@ -57,10 +57,7 @@ class ListConfigTrackRequest extends Model
     public $instanceId;
 
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The IP address of the listener.
      *
      * @example 192.168.22.2
      *
@@ -69,7 +66,7 @@ class ListConfigTrackRequest extends Model
     public $ip;
 
     /**
-     * @description The start timestamp. Unit: seconds.
+     * @description The ID of the namespace.
      *
      * @example f3a510e2-df52-4fad-9815-42d8bc40****
      *
@@ -78,10 +75,7 @@ class ListConfigTrackRequest extends Model
     public $namespaceId;
 
     /**
-     * @description Specifies whether to enable reverse ordering. Valid values:
-     *
-     *   true
-     *   false
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -90,7 +84,7 @@ class ListConfigTrackRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries to return on each page.
      *
      * @example 10
      *
@@ -99,7 +93,7 @@ class ListConfigTrackRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the instance.
+     * @description The extended request parameters in the JSON format.
      *
      * @example {}
      *
@@ -108,7 +102,10 @@ class ListConfigTrackRequest extends Model
     public $requestPars;
 
     /**
-     * @description The IP address of the listener.
+     * @description Specifies whether to enable reverse ordering. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -117,7 +114,7 @@ class ListConfigTrackRequest extends Model
     public $reverse;
 
     /**
-     * @description The end timestamp. Unit: seconds.
+     * @description The start timestamp. Unit: seconds.
      *
      * @example 1671010148
      *

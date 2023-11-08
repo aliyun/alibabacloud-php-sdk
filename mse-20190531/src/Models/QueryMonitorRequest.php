@@ -21,7 +21,7 @@ class QueryMonitorRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description system error
+     * @description The timestamp when the monitoring ends.
      *
      * @example 1666678376
      *
@@ -30,10 +30,7 @@ class QueryMonitorRequest extends Model
     public $endTime;
 
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The ID of the instance.
      *
      * @example mse-cn-****
      *
@@ -42,7 +39,34 @@ class QueryMonitorRequest extends Model
     public $instanceId;
 
     /**
-     * @description mse-100-001
+     * @description The metric type. The following metric types are supported:
+     *
+     * \[Basic system metrics]
+     *
+     *   cpuUsage
+     *   memoryUsage
+     *   diskUsage
+     *   gcCount
+     *   gcTime
+     *
+     * \[Nacos registry]
+     *
+     *   serviceCount
+     *   writeCostTime
+     *   readCostTime
+     *   TPS regCenterTps
+     *   QPS regCenterQps
+     *
+     * \[Nacos configuration center]
+     *
+     *   publish
+     *   getConfig
+     *
+     * \[zookeeper]
+     *
+     *   TPS zk_TpsCount
+     *   QPS zk_QpsCount
+     *   zookeeper_AvgRequestLatency
      *
      * @example regCenterQps
      *
@@ -51,7 +75,7 @@ class QueryMonitorRequest extends Model
     public $monitorType;
 
     /**
-     * @description cluster not found
+     * @description The extended request parameters in the JSON format.
      *
      * @example {}
      *
@@ -60,7 +84,7 @@ class QueryMonitorRequest extends Model
     public $requestPars;
 
     /**
-     * @description systemError
+     * @description The timestamp when the monitoring starts.
      *
      * @example 1666678376
      *
@@ -69,7 +93,7 @@ class QueryMonitorRequest extends Model
     public $startTime;
 
     /**
-     * @description The extended request parameters in the JSON format.
+     * @description The interval between data points. Unit: seconds.
      *
      * @example 7
      *

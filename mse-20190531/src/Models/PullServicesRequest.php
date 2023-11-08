@@ -21,7 +21,7 @@ class PullServicesRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The namespace.
+     * @description The unique ID of the gateway.
      *
      * @example gw-eccf313e2224438ba53d95d039e5****
      *
@@ -30,10 +30,7 @@ class PullServicesRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The namespace.
      *
      * @example public
      *
@@ -42,7 +39,7 @@ class PullServicesRequest extends Model
     public $namespace;
 
     /**
-     * @description The unique ID of the gateway.
+     * @description The type of the service source.
      *
      * @example K8s
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The type.
+     * @description The endpoint of the instance.
      *
      * @example mse-af1****-nacos-ans.mse.aliyuncs.com:8848
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $address;
 
     /**
-     * @description code
+     * @description The ID of cluster.
      *
      * @example mse_
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $clusterId;
 
     /**
-     * @description The endpoint of the instance.
+     * @description The ID of the instance
      *
      * @example mse_prepaid_public_cn-7pp2eec****
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The ID of cluster.
+     * @description The name.
      *
      * @example test
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The name.
+     * @description The type.
      *
      * @example Nacos
      *

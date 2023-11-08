@@ -20,7 +20,7 @@ class configuration extends Model
     /**
      * @description The list of IP addresses where the beta release of the configuration is performed.
      *
-     * @example 1.1.XX.XX, 2.2.XX.XX
+     * @example 1.1.XX.XX,2.2.XX.XX
      *
      * @var string
      */

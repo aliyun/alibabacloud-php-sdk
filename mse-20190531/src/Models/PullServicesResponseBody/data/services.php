@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
-     * @description The ID of the service source.
+     * @description The name of the group.
      *
      * @example test
      *
@@ -18,7 +18,7 @@ class services extends Model
     public $groupName;
 
     /**
-     * @description The namespace.
+     * @description The name of the service.
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class services extends Model
     public $name;
 
     /**
-     * @description The name of the group.
+     * @description The namespace.
      *
      * @example public
      *
@@ -36,7 +36,7 @@ class services extends Model
     public $namespace;
 
     /**
-     * @description The type of the service source.
+     * @description The ID of the service source.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class services extends Model
     public $sourceId;
 
     /**
-     * @description The alias of the namespace.
+     * @description The type of the service source.
      *
      * @example MSE
      *

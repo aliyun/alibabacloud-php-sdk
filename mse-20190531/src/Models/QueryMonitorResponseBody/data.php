@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The prefix of the name.
      *
      * @example mse-xxxx-xxxxxx
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $clusterNamePrefix;
 
     /**
-     * @description The request was successfully processed.
+     * @description The name of the pod.
      *
      * @example mse-xxxxxx-xxxxxx-reg-center-0-0
      *

@@ -41,6 +41,8 @@ class CreateOrUpdateSwimmingLaneShrinkRequest extends Model
      *
      * @example {}
      *
+     * @deprecated
+     *
      * @var string
      */
     public $entryRule;

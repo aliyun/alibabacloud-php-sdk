@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetNacosHistoryConfigResponseBody extends Model
 {
     /**
-     * @description The name of the application.
+     * @description The configuration information.
      *
      * @var configuration
      */
     public $configuration;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
+     * @description The error code returned if the request failed.
      *
      * @example NoPermission
      *
@@ -29,16 +26,16 @@ class GetNacosHistoryConfigResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The request was successfully processed.
+     * @description The message returned.
      *
-     * @example The ID of the request.
+     * @example The request was successfully processed.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The configuration information.
+     * @description The ID of the request.
      *
      * @example 69AD2AA7-DB47-449B-941B-B14409DF****
      *
@@ -47,7 +44,10 @@ class GetNacosHistoryConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description mse-200-105
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example true
      *

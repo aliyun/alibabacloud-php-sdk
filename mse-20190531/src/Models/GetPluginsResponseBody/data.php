@@ -21,13 +21,7 @@ class data extends Model
     /**
      * @description The information about the plug-in configuration used for checking.
      *
-     * @example The WebAssembly language. Valid values:
-     *
-     *   0: C++
-     *   1: TinyGo
-     *   2: Rust
-     *   3: AssemblyScript
-     *   4: Zig
+     * @example \# The configuration includes the fields required for checking, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
      *
      * @var string
      */
@@ -43,8 +37,6 @@ class data extends Model
     public $id;
 
     /**
-     * @description The latest version of the plug-in.
-     *
      * @example 1.0.0
      *
      * @var string
@@ -52,11 +44,6 @@ class data extends Model
     public $maxVersion;
 
     /**
-     * @description The plug-in language. Valid values:
-     *
-     *   0: the WebAssembly plug-in
-     *   2: the Lua plug-in
-     *
      * @example 0
      *
      * @var int
@@ -73,8 +60,6 @@ class data extends Model
     public $name;
 
     /**
-     * @description Indicates whether the latest version is being released.
-     *
      * @example false
      *
      * @var bool
@@ -114,11 +99,7 @@ class data extends Model
     public $priority;
 
     /**
-     * @description The release state of the plug-in. Valid values:
-     *
-     *   0: The plug-in was released.
-     *   1: The plug-in is being released.
-     *   2: The plug-in failed to be released.
+     * @description The publish status.
      *
      * @example 1
      *
@@ -127,7 +108,7 @@ class data extends Model
     public $publishState;
 
     /**
-     * @description Indicates whether the plug-in is enabled. Valid values:
+     * @description Indicates whether the plug-in is enabled.
      *
      *   0: disabled
      *   1: enabled
@@ -141,12 +122,7 @@ class data extends Model
     /**
      * @description The summary of the plug-in.
      *
-     * @example The execution stage of the plug-in.
-     *
-     *   0: default stage
-     *   1: authorization stage
-     *   2: authentication stage
-     *   3: statistics stage
+     * @example This is a plug-in.
      *
      * @var string
      */

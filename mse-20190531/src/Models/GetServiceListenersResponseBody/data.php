@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The listener client version.
+     * @description The IP address of the listener.
      *
      * @example 119.23.84.102
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $addr;
 
     /**
-     * @description The application name of the listener.
+     * @description The listener client version.
      *
      * @example Nacos-Java-Client:v2.1.1
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $agent;
 
     /**
-     * @description The IP address of the monitored service.
+     * @description The application name of the listener.
      *
      * @example app
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $app;
 
     /**
-     * @description The page number of the returned page.
+     * @description The name of the cluster to which the monitored service belongs.
      *
      * @example DEFAULT
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $cluster;
 
     /**
-     * @description The port number of the monitored service.
+     * @description The IP address of the monitored service.
      *
      * @example 172.16.1.5
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $IP;
 
     /**
-     * @description The name of the monitored service.
+     * @description The ID of the namespace.
      *
      * @example 0ba53825-b183-414f-a6a0-288e4f1c467e
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $namespaceId;
 
     /**
-     * @description The ID of the namespace.
+     * @description The port number of the monitored service.
      *
      * @example 8080
      *
@@ -72,7 +72,7 @@ class data extends Model
     public $port;
 
     /**
-     * @description The name of the cluster to which the monitored service belongs.
+     * @description The name of the monitored service.
      *
      * @example zeekr-orderboss
      *

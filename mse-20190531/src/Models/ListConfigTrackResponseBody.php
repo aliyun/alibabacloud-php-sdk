@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListConfigTrackResponseBody extends Model
 {
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
+     * @description The error code returned if the request failed.
      *
      * @example mse-100-000
      *
@@ -22,7 +19,7 @@ class ListConfigTrackResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The track data.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -31,16 +28,16 @@ class ListConfigTrackResponseBody extends Model
     public $httpCode;
 
     /**
-     * @description The request was successfully processed.
+     * @description The message returned.
      *
-     * @example The error code returned if the request failed.
+     * @example The request was successfully processed.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The total number of entries returned.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -49,7 +46,7 @@ class ListConfigTrackResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -58,7 +55,7 @@ class ListConfigTrackResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The message returned.
+     * @description The ID of the request.
      *
      * @example 0CE3ABD2-1E04-561F-A9B4-0423D50****
      *
@@ -67,7 +64,10 @@ class ListConfigTrackResponseBody extends Model
     public $requestId;
 
     /**
-     * @description httpCode
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example true
      *
@@ -76,7 +76,7 @@ class ListConfigTrackResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the request.
+     * @description The total number of entries returned.
      *
      * @example 3
      *
@@ -85,7 +85,7 @@ class ListConfigTrackResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The details of the data.
+     * @description The track data.
      *
      * @var traces[]
      */

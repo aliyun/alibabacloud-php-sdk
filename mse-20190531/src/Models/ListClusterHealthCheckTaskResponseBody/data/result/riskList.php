@@ -18,7 +18,7 @@ class riskList extends Model
     public $description;
 
     /**
-     * @description The instance ID.
+     * @description The ID.
      *
      * @example 3426
      *
@@ -36,7 +36,7 @@ class riskList extends Model
     public $module;
 
     /**
-     * @description Indicates whether the risk item notification feature is disabled. Valid values:
+     * @description Indicates whether the risk item notification feature is disabled.
      *
      *   true: disabled
      *   false: enabled
@@ -66,7 +66,7 @@ class riskList extends Model
     public $primaryUser;
 
     /**
-     * @description The code of the risk.
+     * @description The risk code.
      *
      * @example 22020010001
      *
