@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class virtualHosts extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;

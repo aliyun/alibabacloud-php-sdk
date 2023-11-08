@@ -6,14 +6,20 @@ namespace AlibabaCloud\SDK\Amqpopen\V20191212;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateAccountRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateBindingRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateBindingResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateExchangeRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateExchangeResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateInstanceRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateQueueRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateQueueResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateVirtualHostRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateVirtualHostResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteAccountRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteBindingRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteBindingResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteExchangeRequest;
@@ -24,6 +30,8 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteVirtualHostRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteVirtualHostResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\GetMetadataAmountRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\GetMetadataAmountResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListAccountsRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListAccountsResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListBindingsRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListBindingsResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListDownStreamBindingsRequest;
@@ -42,9 +50,12 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueueUpStreamBindingsRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueueUpStreamBindingsResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListVirtualHostsRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListVirtualHostsResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceNameRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceNameResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Amqpopen extends OpenApiClient
@@ -81,6 +92,64 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
+     * @param CreateAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAccountResponse
+     */
+    public function createAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountAccessKey)) {
+            $query['accountAccessKey'] = $request->accountAccessKey;
+        }
+        if (!Utils::isUnset($request->createTimestamp)) {
+            $query['createTimestamp'] = $request->createTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->secretSign)) {
+            $query['secretSign'] = $request->secretSign;
+        }
+        if (!Utils::isUnset($request->signature)) {
+            $query['signature'] = $request->signature;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['userName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccount',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAccountRequest $request
+     *
+     * @return CreateAccountResponse
+     */
+    public function createAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateBindingRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -89,11 +158,44 @@ class Amqpopen extends OpenApiClient
     public function createBindingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->argument)) {
+            $body['Argument'] = $request->argument;
+        }
+        if (!Utils::isUnset($request->bindingKey)) {
+            $body['BindingKey'] = $request->bindingKey;
+        }
+        if (!Utils::isUnset($request->bindingType)) {
+            $body['BindingType'] = $request->bindingType;
+        }
+        if (!Utils::isUnset($request->destinationName)) {
+            $body['DestinationName'] = $request->destinationName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sourceExchange)) {
+            $body['SourceExchange'] = $request->sourceExchange;
+        }
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBinding',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateBindingResponse::fromMap($this->doRPCRequest('CreateBinding', '2019-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -117,11 +219,44 @@ class Amqpopen extends OpenApiClient
     public function createExchangeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alternateExchange)) {
+            $body['AlternateExchange'] = $request->alternateExchange;
+        }
+        if (!Utils::isUnset($request->autoDeleteState)) {
+            $body['AutoDeleteState'] = $request->autoDeleteState;
+        }
+        if (!Utils::isUnset($request->exchangeName)) {
+            $body['ExchangeName'] = $request->exchangeName;
+        }
+        if (!Utils::isUnset($request->exchangeType)) {
+            $body['ExchangeType'] = $request->exchangeType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->internal)) {
+            $body['Internal'] = $request->internal;
+        }
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateExchange',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateExchangeResponse::fromMap($this->doRPCRequest('CreateExchange', '2019-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateExchangeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -137,6 +272,91 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
+     * @param CreateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->maxConnections)) {
+            $query['MaxConnections'] = $request->maxConnections;
+        }
+        if (!Utils::isUnset($request->maxEipTps)) {
+            $query['MaxEipTps'] = $request->maxEipTps;
+        }
+        if (!Utils::isUnset($request->maxPrivateTps)) {
+            $query['MaxPrivateTps'] = $request->maxPrivateTps;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['PaymentType'] = $request->paymentType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodCycle)) {
+            $query['PeriodCycle'] = $request->periodCycle;
+        }
+        if (!Utils::isUnset($request->queueCapacity)) {
+            $query['QueueCapacity'] = $request->queueCapacity;
+        }
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
+        }
+        if (!Utils::isUnset($request->supportEip)) {
+            $query['SupportEip'] = $request->supportEip;
+        }
+        if (!Utils::isUnset($request->supportTracing)) {
+            $query['SupportTracing'] = $request->supportTracing;
+        }
+        if (!Utils::isUnset($request->tracingStorageTime)) {
+            $query['TracingStorageTime'] = $request->tracingStorageTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstance',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateQueueRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -145,11 +365,56 @@ class Amqpopen extends OpenApiClient
     public function createQueueWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->autoDeleteState)) {
+            $body['AutoDeleteState'] = $request->autoDeleteState;
+        }
+        if (!Utils::isUnset($request->autoExpireState)) {
+            $body['AutoExpireState'] = $request->autoExpireState;
+        }
+        if (!Utils::isUnset($request->deadLetterExchange)) {
+            $body['DeadLetterExchange'] = $request->deadLetterExchange;
+        }
+        if (!Utils::isUnset($request->deadLetterRoutingKey)) {
+            $body['DeadLetterRoutingKey'] = $request->deadLetterRoutingKey;
+        }
+        if (!Utils::isUnset($request->exclusiveState)) {
+            $body['ExclusiveState'] = $request->exclusiveState;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxLength)) {
+            $body['MaxLength'] = $request->maxLength;
+        }
+        if (!Utils::isUnset($request->maximumPriority)) {
+            $body['MaximumPriority'] = $request->maximumPriority;
+        }
+        if (!Utils::isUnset($request->messageTTL)) {
+            $body['MessageTTL'] = $request->messageTTL;
+        }
+        if (!Utils::isUnset($request->queueName)) {
+            $body['QueueName'] = $request->queueName;
+        }
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateQueue',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateQueueResponse::fromMap($this->doRPCRequest('CreateQueue', '2019-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -173,11 +438,29 @@ class Amqpopen extends OpenApiClient
     public function createVirtualHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVirtualHost',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateVirtualHostResponse::fromMap($this->doRPCRequest('CreateVirtualHost', '2019-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateVirtualHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -193,6 +476,52 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
+     * @param DeleteAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAccountResponse
+     */
+    public function deleteAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimestamp)) {
+            $query['CreateTimestamp'] = $request->createTimestamp;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccount',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAccountRequest $request
+     *
+     * @return DeleteAccountResponse
+     */
+    public function deleteAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteBindingRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -201,11 +530,41 @@ class Amqpopen extends OpenApiClient
     public function deleteBindingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bindingKey)) {
+            $body['BindingKey'] = $request->bindingKey;
+        }
+        if (!Utils::isUnset($request->bindingType)) {
+            $body['BindingType'] = $request->bindingType;
+        }
+        if (!Utils::isUnset($request->destinationName)) {
+            $body['DestinationName'] = $request->destinationName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sourceExchange)) {
+            $body['SourceExchange'] = $request->sourceExchange;
+        }
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBinding',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteBindingResponse::fromMap($this->doRPCRequest('DeleteBinding', '2019-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -229,11 +588,32 @@ class Amqpopen extends OpenApiClient
     public function deleteExchangeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->exchangeName)) {
+            $body['ExchangeName'] = $request->exchangeName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExchange',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteExchangeResponse::fromMap($this->doRPCRequest('DeleteExchange', '2019-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteExchangeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -257,11 +637,32 @@ class Amqpopen extends OpenApiClient
     public function deleteQueueWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->queueName)) {
+            $body['QueueName'] = $request->queueName;
+        }
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteQueue',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteQueueResponse::fromMap($this->doRPCRequest('DeleteQueue', '2019-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -285,11 +686,29 @@ class Amqpopen extends OpenApiClient
     public function deleteVirtualHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->virtualHost)) {
+            $body['VirtualHost'] = $request->virtualHost;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVirtualHost',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVirtualHostResponse::fromMap($this->doRPCRequest('DeleteVirtualHost', '2019-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVirtualHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -315,10 +734,21 @@ class Amqpopen extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetadataAmount',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMetadataAmountResponse::fromMap($this->doRPCRequest('GetMetadataAmount', '2019-12-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetMetadataAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -334,6 +764,49 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
+     * @param ListAccountsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAccountsResponse
+     */
+    public function listAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccounts',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAccountsRequest $request
+     *
+     * @return ListAccountsResponse
+     */
+    public function listAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAccountsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListBindingsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -344,10 +817,21 @@ class Amqpopen extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBindings',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBindingsResponse::fromMap($this->doRPCRequest('ListBindings', '2019-12-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -373,10 +857,21 @@ class Amqpopen extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDownStreamBindings',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDownStreamBindingsResponse::fromMap($this->doRPCRequest('ListDownStreamBindings', '2019-12-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListDownStreamBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -392,35 +887,6 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListExchangesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListExchangesResponse
-     */
-    public function listExchangesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListExchangesResponse::fromMap($this->doRPCRequest('ListExchanges', '2019-12-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListExchangesRequest $request
-     *
-     * @return ListExchangesResponse
-     */
-    public function listExchanges($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listExchangesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListExchangeUpStreamBindingsRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -431,10 +897,21 @@ class Amqpopen extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExchangeUpStreamBindings',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListExchangeUpStreamBindingsResponse::fromMap($this->doRPCRequest('ListExchangeUpStreamBindings', '2019-12-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListExchangeUpStreamBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -450,6 +927,46 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
+     * @param ListExchangesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListExchangesResponse
+     */
+    public function listExchangesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExchanges',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListExchangesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListExchangesRequest $request
+     *
+     * @return ListExchangesResponse
+     */
+    public function listExchanges($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listExchangesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListInstancesRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -460,10 +977,21 @@ class Amqpopen extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstances',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListInstancesResponse::fromMap($this->doRPCRequest('ListInstances', '2019-12-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -489,10 +1017,21 @@ class Amqpopen extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListQueueConsumers',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListQueueConsumersResponse::fromMap($this->doRPCRequest('ListQueueConsumers', '2019-12-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListQueueConsumersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -508,35 +1047,6 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListQueuesRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListQueuesResponse
-     */
-    public function listQueuesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListQueuesResponse::fromMap($this->doRPCRequest('ListQueues', '2019-12-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListQueuesRequest $request
-     *
-     * @return ListQueuesResponse
-     */
-    public function listQueues($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listQueuesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListQueueUpStreamBindingsRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -547,10 +1057,21 @@ class Amqpopen extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListQueueUpStreamBindings',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListQueueUpStreamBindingsResponse::fromMap($this->doRPCRequest('ListQueueUpStreamBindings', '2019-12-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListQueueUpStreamBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -566,6 +1087,46 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
+     * @param ListQueuesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListQueuesResponse
+     */
+    public function listQueuesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListQueues',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListQueuesRequest $request
+     *
+     * @return ListQueuesResponse
+     */
+    public function listQueues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQueuesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListVirtualHostsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -576,10 +1137,21 @@ class Amqpopen extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVirtualHosts',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVirtualHostsResponse::fromMap($this->doRPCRequest('ListVirtualHosts', '2019-12-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListVirtualHostsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -592,5 +1164,51 @@ class Amqpopen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listVirtualHostsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateInstanceNameRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateInstanceNameResponse
+     */
+    public function updateInstanceNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateInstanceName',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateInstanceNameRequest $request
+     *
+     * @return UpdateInstanceNameResponse
+     */
+    public function updateInstanceName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInstanceNameWithOptions($request, $runtime);
     }
 }

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteQueueRequest extends Model
 {
     /**
+     * @example 1880770869023***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example DemoQueue
+     *
      * @var string
      */
     public $queueName;
 
     /**
+     * @example Test
+     *
      * @var string
      */
     public $virtualHost;

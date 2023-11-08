@@ -10,23 +10,27 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var consumers[]
      */
     public $consumers;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @example caebacccb2be03f84eb48b699f0a****
+     *
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
-        'nextToken'  => 'NextToken',
         'consumers'  => 'Consumers',
         'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
     ];
 
     public function validate()
@@ -36,9 +40,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->consumers) {
             $res['Consumers'] = [];
             if (null !== $this->consumers && \is_array($this->consumers)) {
@@ -50,6 +51,9 @@ class data extends Model
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -63,9 +67,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Consumers'])) {
             if (!empty($map['Consumers'])) {
                 $model->consumers = [];
@@ -77,6 +78,9 @@ class data extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

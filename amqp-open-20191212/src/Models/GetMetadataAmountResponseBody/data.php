@@ -9,41 +9,53 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $maxVirtualHosts;
-
-    /**
-     * @var int
-     */
-    public $currentVirtualHosts;
-
-    /**
-     * @var int
-     */
-    public $maxQueues;
-
-    /**
+     * @example 7
+     *
      * @var int
      */
     public $currentExchanges;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $currentQueues;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $currentVirtualHosts;
+
+    /**
+     * @example 20
+     *
      * @var int
      */
     public $maxExchanges;
 
     /**
+     * @example 20
+     *
      * @var int
      */
-    public $currentQueues;
+    public $maxQueues;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxVirtualHosts;
     protected $_name = [
-        'maxVirtualHosts'     => 'MaxVirtualHosts',
-        'currentVirtualHosts' => 'CurrentVirtualHosts',
-        'maxQueues'           => 'MaxQueues',
         'currentExchanges'    => 'CurrentExchanges',
-        'maxExchanges'        => 'MaxExchanges',
         'currentQueues'       => 'CurrentQueues',
+        'currentVirtualHosts' => 'CurrentVirtualHosts',
+        'maxExchanges'        => 'MaxExchanges',
+        'maxQueues'           => 'MaxQueues',
+        'maxVirtualHosts'     => 'MaxVirtualHosts',
     ];
 
     public function validate()
@@ -53,23 +65,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxVirtualHosts) {
-            $res['MaxVirtualHosts'] = $this->maxVirtualHosts;
+        if (null !== $this->currentExchanges) {
+            $res['CurrentExchanges'] = $this->currentExchanges;
+        }
+        if (null !== $this->currentQueues) {
+            $res['CurrentQueues'] = $this->currentQueues;
         }
         if (null !== $this->currentVirtualHosts) {
             $res['CurrentVirtualHosts'] = $this->currentVirtualHosts;
         }
-        if (null !== $this->maxQueues) {
-            $res['MaxQueues'] = $this->maxQueues;
-        }
-        if (null !== $this->currentExchanges) {
-            $res['CurrentExchanges'] = $this->currentExchanges;
-        }
         if (null !== $this->maxExchanges) {
             $res['MaxExchanges'] = $this->maxExchanges;
         }
-        if (null !== $this->currentQueues) {
-            $res['CurrentQueues'] = $this->currentQueues;
+        if (null !== $this->maxQueues) {
+            $res['MaxQueues'] = $this->maxQueues;
+        }
+        if (null !== $this->maxVirtualHosts) {
+            $res['MaxVirtualHosts'] = $this->maxVirtualHosts;
         }
 
         return $res;
@@ -83,23 +95,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxVirtualHosts'])) {
-            $model->maxVirtualHosts = $map['MaxVirtualHosts'];
+        if (isset($map['CurrentExchanges'])) {
+            $model->currentExchanges = $map['CurrentExchanges'];
+        }
+        if (isset($map['CurrentQueues'])) {
+            $model->currentQueues = $map['CurrentQueues'];
         }
         if (isset($map['CurrentVirtualHosts'])) {
             $model->currentVirtualHosts = $map['CurrentVirtualHosts'];
         }
-        if (isset($map['MaxQueues'])) {
-            $model->maxQueues = $map['MaxQueues'];
-        }
-        if (isset($map['CurrentExchanges'])) {
-            $model->currentExchanges = $map['CurrentExchanges'];
-        }
         if (isset($map['MaxExchanges'])) {
             $model->maxExchanges = $map['MaxExchanges'];
         }
-        if (isset($map['CurrentQueues'])) {
-            $model->currentQueues = $map['CurrentQueues'];
+        if (isset($map['MaxQueues'])) {
+            $model->maxQueues = $map['MaxQueues'];
+        }
+        if (isset($map['MaxVirtualHosts'])) {
+            $model->maxVirtualHosts = $map['MaxVirtualHosts'];
         }
 
         return $model;

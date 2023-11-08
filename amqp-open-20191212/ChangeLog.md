@@ -1,3 +1,6 @@
+2023-11-08 Version: 1.1.0
+- Generated php 2019-12-12 for amqp-open.
+
 2020-12-29 Version: 1.0.1
 - AMP Version Change.
 

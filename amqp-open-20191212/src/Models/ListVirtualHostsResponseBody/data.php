@@ -10,22 +10,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
+     * @example 2
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example caebacccb2be03f84eb48b699f0a****
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description Vhost。
+     *
      * @var virtualHosts[]
      */
     public $virtualHosts;
     protected $_name = [
-        'nextToken'    => 'NextToken',
         'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
         'virtualHosts' => 'VirtualHosts',
     ];
 
@@ -36,11 +42,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->virtualHosts) {
             $res['VirtualHosts'] = [];
@@ -63,11 +69,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['VirtualHosts'])) {
             if (!empty($map['VirtualHosts'])) {

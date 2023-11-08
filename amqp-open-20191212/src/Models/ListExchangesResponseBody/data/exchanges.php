@@ -9,41 +9,53 @@ use AlibabaCloud\Tea\Model;
 class exchanges extends Model
 {
     /**
-     * @var bool
-     */
-    public $autoDeleteState;
-
-    /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
+     * @example test
+     *
      * @var mixed[]
      */
     public $attributes;
 
     /**
-     * @var string
+     * @example false
+     *
+     * @var bool
      */
-    public $VHostName;
+    public $autoDeleteState;
 
     /**
+     * @example 1580886216000
+     *
+     * @var int
+     */
+    public $createTime;
+
+    /**
+     * @example DIRECT
+     *
+     * @var string
+     */
+    public $exchangeType;
+
+    /**
+     * @example amq.direct
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example test
+     *
      * @var string
      */
-    public $exchangeType;
+    public $VHostName;
     protected $_name = [
+        'attributes'      => 'Attributes',
         'autoDeleteState' => 'AutoDeleteState',
         'createTime'      => 'CreateTime',
-        'attributes'      => 'Attributes',
-        'VHostName'       => 'VHostName',
-        'name'            => 'Name',
         'exchangeType'    => 'ExchangeType',
+        'name'            => 'Name',
+        'VHostName'       => 'VHostName',
     ];
 
     public function validate()
@@ -53,23 +65,23 @@ class exchanges extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attributes) {
+            $res['Attributes'] = $this->attributes;
+        }
         if (null !== $this->autoDeleteState) {
             $res['AutoDeleteState'] = $this->autoDeleteState;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->attributes) {
-            $res['Attributes'] = $this->attributes;
-        }
-        if (null !== $this->VHostName) {
-            $res['VHostName'] = $this->VHostName;
+        if (null !== $this->exchangeType) {
+            $res['ExchangeType'] = $this->exchangeType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->exchangeType) {
-            $res['ExchangeType'] = $this->exchangeType;
+        if (null !== $this->VHostName) {
+            $res['VHostName'] = $this->VHostName;
         }
 
         return $res;
@@ -83,23 +95,23 @@ class exchanges extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Attributes'])) {
+            $model->attributes = $map['Attributes'];
+        }
         if (isset($map['AutoDeleteState'])) {
             $model->autoDeleteState = $map['AutoDeleteState'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['Attributes'])) {
-            $model->attributes = $map['Attributes'];
-        }
-        if (isset($map['VHostName'])) {
-            $model->VHostName = $map['VHostName'];
+        if (isset($map['ExchangeType'])) {
+            $model->exchangeType = $map['ExchangeType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['ExchangeType'])) {
-            $model->exchangeType = $map['ExchangeType'];
+        if (isset($map['VHostName'])) {
+            $model->VHostName = $map['VHostName'];
         }
 
         return $model;

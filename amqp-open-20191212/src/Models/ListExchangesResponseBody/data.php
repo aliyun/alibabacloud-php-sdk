@@ -10,23 +10,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
+     * @description Exchange。
+     *
+     * @var exchanges[]
      */
-    public $nextToken;
+    public $exchanges;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @var exchanges[]
+     * @example AAAANDQBYW1xcC1jbi03cHAybXdiY3AwMGEBdmhvc3QBAXNkZndhYWJhATE2NDkzMTM4OTU5NDIB4o3z1pPwWzk4aYuiRffi8R6-****
+     *
+     * @var string
      */
-    public $exchanges;
+    public $nextToken;
     protected $_name = [
-        'nextToken'  => 'NextToken',
-        'maxResults' => 'MaxResults',
         'exchanges'  => 'Exchanges',
+        'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
     ];
 
     public function validate()
@@ -36,12 +42,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->exchanges) {
             $res['Exchanges'] = [];
             if (null !== $this->exchanges && \is_array($this->exchanges)) {
@@ -50,6 +50,12 @@ class data extends Model
                     $res['Exchanges'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -63,12 +69,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['Exchanges'])) {
             if (!empty($map['Exchanges'])) {
                 $model->exchanges = [];
@@ -77,6 +77,12 @@ class data extends Model
                     $model->exchanges[$n++] = null !== $item ? exchanges::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ListDownStreamBindingsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $virtualHost;
-
-    /**
+     * @example test
+     *
      * @var string
      */
     public $exchangeName;
 
     /**
+     * @example 1880770869023***
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var int
+     * @example test
+     *
+     * @var string
      */
-    public $maxResults;
+    public $virtualHost;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'virtualHost'  => 'VirtualHost',
         'exchangeName' => 'ExchangeName',
-        'nextToken'    => 'NextToken',
+        'instanceId'   => 'InstanceId',
         'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
+        'virtualHost'  => 'VirtualHost',
     ];
 
     public function validate()
@@ -47,20 +57,20 @@ class ListDownStreamBindingsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->exchangeName) {
+            $res['ExchangeName'] = $this->exchangeName;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->virtualHost) {
-            $res['VirtualHost'] = $this->virtualHost;
-        }
-        if (null !== $this->exchangeName) {
-            $res['ExchangeName'] = $this->exchangeName;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->virtualHost) {
+            $res['VirtualHost'] = $this->virtualHost;
         }
 
         return $res;
@@ -74,20 +84,20 @@ class ListDownStreamBindingsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExchangeName'])) {
+            $model->exchangeName = $map['ExchangeName'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['VirtualHost'])) {
-            $model->virtualHost = $map['VirtualHost'];
-        }
-        if (isset($map['ExchangeName'])) {
-            $model->exchangeName = $map['ExchangeName'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['VirtualHost'])) {
+            $model->virtualHost = $map['VirtualHost'];
         }
 
         return $model;

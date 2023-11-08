@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class consumers extends Model
 {
     /**
+     * @example sgen-1
+     *
      * @var string
      */
     public $consumerTag;

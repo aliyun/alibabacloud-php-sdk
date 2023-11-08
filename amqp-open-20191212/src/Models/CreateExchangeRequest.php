@@ -9,47 +9,61 @@ use AlibabaCloud\Tea\Model;
 class CreateExchangeRequest extends Model
 {
     /**
+     * @example DemoAE
+     *
      * @var string
      */
-    public $instanceId;
+    public $alternateExchange;
 
     /**
-     * @var string
-     */
-    public $virtualHost;
-
-    /**
-     * @var string
-     */
-    public $exchangeName;
-
-    /**
-     * @var string
-     */
-    public $exchangeType;
-
-    /**
+     * @example false
+     *
      * @var bool
      */
     public $autoDeleteState;
 
     /**
+     * @example DemoExchange
+     *
+     * @var string
+     */
+    public $exchangeName;
+
+    /**
+     * @example DIRECT
+     *
+     * @var string
+     */
+    public $exchangeType;
+
+    /**
+     * @example amqp-cn-v0h1kb9nu***
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $internal;
 
     /**
+     * @example test
+     *
      * @var string
      */
-    public $alternateExchange;
+    public $virtualHost;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
-        'virtualHost'       => 'VirtualHost',
+        'alternateExchange' => 'AlternateExchange',
+        'autoDeleteState'   => 'AutoDeleteState',
         'exchangeName'      => 'ExchangeName',
         'exchangeType'      => 'ExchangeType',
-        'autoDeleteState'   => 'AutoDeleteState',
+        'instanceId'        => 'InstanceId',
         'internal'          => 'Internal',
-        'alternateExchange' => 'AlternateExchange',
+        'virtualHost'       => 'VirtualHost',
     ];
 
     public function validate()
@@ -59,11 +73,11 @@ class CreateExchangeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->alternateExchange) {
+            $res['AlternateExchange'] = $this->alternateExchange;
         }
-        if (null !== $this->virtualHost) {
-            $res['VirtualHost'] = $this->virtualHost;
+        if (null !== $this->autoDeleteState) {
+            $res['AutoDeleteState'] = $this->autoDeleteState;
         }
         if (null !== $this->exchangeName) {
             $res['ExchangeName'] = $this->exchangeName;
@@ -71,14 +85,14 @@ class CreateExchangeRequest extends Model
         if (null !== $this->exchangeType) {
             $res['ExchangeType'] = $this->exchangeType;
         }
-        if (null !== $this->autoDeleteState) {
-            $res['AutoDeleteState'] = $this->autoDeleteState;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->internal) {
             $res['Internal'] = $this->internal;
         }
-        if (null !== $this->alternateExchange) {
-            $res['AlternateExchange'] = $this->alternateExchange;
+        if (null !== $this->virtualHost) {
+            $res['VirtualHost'] = $this->virtualHost;
         }
 
         return $res;
@@ -92,11 +106,11 @@ class CreateExchangeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['AlternateExchange'])) {
+            $model->alternateExchange = $map['AlternateExchange'];
         }
-        if (isset($map['VirtualHost'])) {
-            $model->virtualHost = $map['VirtualHost'];
+        if (isset($map['AutoDeleteState'])) {
+            $model->autoDeleteState = $map['AutoDeleteState'];
         }
         if (isset($map['ExchangeName'])) {
             $model->exchangeName = $map['ExchangeName'];
@@ -104,14 +118,14 @@ class CreateExchangeRequest extends Model
         if (isset($map['ExchangeType'])) {
             $model->exchangeType = $map['ExchangeType'];
         }
-        if (isset($map['AutoDeleteState'])) {
-            $model->autoDeleteState = $map['AutoDeleteState'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Internal'])) {
             $model->internal = $map['Internal'];
         }
-        if (isset($map['AlternateExchange'])) {
-            $model->alternateExchange = $map['AlternateExchange'];
+        if (isset($map['VirtualHost'])) {
+            $model->virtualHost = $map['VirtualHost'];
         }
 
         return $model;

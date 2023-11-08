@@ -9,53 +9,69 @@ use AlibabaCloud\Tea\Model;
 class queues extends Model
 {
     /**
-     * @var bool
-     */
-    public $exclusiveState;
-
-    /**
-     * @var bool
-     */
-    public $autoDeleteState;
-
-    /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
+     * @example test
+     *
      * @var mixed[]
      */
     public $attributes;
 
     /**
-     * @var string
+     * @example false
+     *
+     * @var bool
      */
-    public $VHostName;
+    public $autoDeleteState;
 
     /**
+     * @example 1580887085240
+     *
+     * @var int
+     */
+    public $createTime;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $exclusiveState;
+
+    /**
+     * @example 1680887085240
+     *
+     * @var int
+     */
+    public $lastConsumeTime;
+
+    /**
+     * @example QueueTest
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1880770869023***
+     *
      * @var string
      */
     public $ownerId;
 
     /**
-     * @var int
+     * @example test
+     *
+     * @var string
      */
-    public $lastConsumeTime;
+    public $VHostName;
     protected $_name = [
-        'exclusiveState'  => 'ExclusiveState',
+        'attributes'      => 'Attributes',
         'autoDeleteState' => 'AutoDeleteState',
         'createTime'      => 'CreateTime',
-        'attributes'      => 'Attributes',
-        'VHostName'       => 'VHostName',
+        'exclusiveState'  => 'ExclusiveState',
+        'lastConsumeTime' => 'LastConsumeTime',
         'name'            => 'Name',
         'ownerId'         => 'OwnerId',
-        'lastConsumeTime' => 'LastConsumeTime',
+        'VHostName'       => 'VHostName',
     ];
 
     public function validate()
@@ -65,8 +81,8 @@ class queues extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->exclusiveState) {
-            $res['ExclusiveState'] = $this->exclusiveState;
+        if (null !== $this->attributes) {
+            $res['Attributes'] = $this->attributes;
         }
         if (null !== $this->autoDeleteState) {
             $res['AutoDeleteState'] = $this->autoDeleteState;
@@ -74,11 +90,11 @@ class queues extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->attributes) {
-            $res['Attributes'] = $this->attributes;
+        if (null !== $this->exclusiveState) {
+            $res['ExclusiveState'] = $this->exclusiveState;
         }
-        if (null !== $this->VHostName) {
-            $res['VHostName'] = $this->VHostName;
+        if (null !== $this->lastConsumeTime) {
+            $res['LastConsumeTime'] = $this->lastConsumeTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -86,8 +102,8 @@ class queues extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->lastConsumeTime) {
-            $res['LastConsumeTime'] = $this->lastConsumeTime;
+        if (null !== $this->VHostName) {
+            $res['VHostName'] = $this->VHostName;
         }
 
         return $res;
@@ -101,8 +117,8 @@ class queues extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExclusiveState'])) {
-            $model->exclusiveState = $map['ExclusiveState'];
+        if (isset($map['Attributes'])) {
+            $model->attributes = $map['Attributes'];
         }
         if (isset($map['AutoDeleteState'])) {
             $model->autoDeleteState = $map['AutoDeleteState'];
@@ -110,11 +126,11 @@ class queues extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['Attributes'])) {
-            $model->attributes = $map['Attributes'];
+        if (isset($map['ExclusiveState'])) {
+            $model->exclusiveState = $map['ExclusiveState'];
         }
-        if (isset($map['VHostName'])) {
-            $model->VHostName = $map['VHostName'];
+        if (isset($map['LastConsumeTime'])) {
+            $model->lastConsumeTime = $map['LastConsumeTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -122,8 +138,8 @@ class queues extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['LastConsumeTime'])) {
-            $model->lastConsumeTime = $map['LastConsumeTime'];
+        if (isset($map['VHostName'])) {
+            $model->VHostName = $map['VHostName'];
         }
 
         return $model;

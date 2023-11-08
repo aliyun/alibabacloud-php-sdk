@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class bindings extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceExchange;
-
-    /**
-     * @var string
-     */
-    public $bindingKey;
-
-    /**
-     * @var string
-     */
-    public $bindingType;
-
-    /**
+     * @example test
+     *
      * @var string
      */
     public $argument;
 
     /**
+     * @example amq.test
+     *
+     * @var string
+     */
+    public $bindingKey;
+
+    /**
+     * @example QUEUE
+     *
+     * @var string
+     */
+    public $bindingType;
+
+    /**
+     * @example QueueTest
+     *
      * @var string
      */
     public $destinationName;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $sourceExchange;
     protected $_name = [
-        'sourceExchange'  => 'SourceExchange',
+        'argument'        => 'Argument',
         'bindingKey'      => 'BindingKey',
         'bindingType'     => 'BindingType',
-        'argument'        => 'Argument',
         'destinationName' => 'DestinationName',
+        'sourceExchange'  => 'SourceExchange',
     ];
 
     public function validate()
@@ -47,8 +57,8 @@ class bindings extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceExchange) {
-            $res['SourceExchange'] = $this->sourceExchange;
+        if (null !== $this->argument) {
+            $res['Argument'] = $this->argument;
         }
         if (null !== $this->bindingKey) {
             $res['BindingKey'] = $this->bindingKey;
@@ -56,11 +66,11 @@ class bindings extends Model
         if (null !== $this->bindingType) {
             $res['BindingType'] = $this->bindingType;
         }
-        if (null !== $this->argument) {
-            $res['Argument'] = $this->argument;
-        }
         if (null !== $this->destinationName) {
             $res['DestinationName'] = $this->destinationName;
+        }
+        if (null !== $this->sourceExchange) {
+            $res['SourceExchange'] = $this->sourceExchange;
         }
 
         return $res;
@@ -74,8 +84,8 @@ class bindings extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceExchange'])) {
-            $model->sourceExchange = $map['SourceExchange'];
+        if (isset($map['Argument'])) {
+            $model->argument = $map['Argument'];
         }
         if (isset($map['BindingKey'])) {
             $model->bindingKey = $map['BindingKey'];
@@ -83,11 +93,11 @@ class bindings extends Model
         if (isset($map['BindingType'])) {
             $model->bindingType = $map['BindingType'];
         }
-        if (isset($map['Argument'])) {
-            $model->argument = $map['Argument'];
-        }
         if (isset($map['DestinationName'])) {
             $model->destinationName = $map['DestinationName'];
+        }
+        if (isset($map['SourceExchange'])) {
+            $model->sourceExchange = $map['SourceExchange'];
         }
 
         return $model;

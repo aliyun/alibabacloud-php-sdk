@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ListQueueUpStreamBindingsRequest extends Model
 {
     /**
+     * @example 1880770869023***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @var string
+     * @example 1
+     *
+     * @var int
      */
-    public $virtualHost;
+    public $maxResults;
 
     /**
-     * @var string
-     */
-    public $queueName;
-
-    /**
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var int
+     * @example QueueTest
+     *
+     * @var string
      */
-    public $maxResults;
+    public $queueName;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $virtualHost;
     protected $_name = [
         'instanceId'  => 'InstanceId',
-        'virtualHost' => 'VirtualHost',
-        'queueName'   => 'QueueName',
-        'nextToken'   => 'NextToken',
         'maxResults'  => 'MaxResults',
+        'nextToken'   => 'NextToken',
+        'queueName'   => 'QueueName',
+        'virtualHost' => 'VirtualHost',
     ];
 
     public function validate()
@@ -50,17 +60,17 @@ class ListQueueUpStreamBindingsRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->virtualHost) {
-            $res['VirtualHost'] = $this->virtualHost;
-        }
-        if (null !== $this->queueName) {
-            $res['QueueName'] = $this->queueName;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->queueName) {
+            $res['QueueName'] = $this->queueName;
+        }
+        if (null !== $this->virtualHost) {
+            $res['VirtualHost'] = $this->virtualHost;
         }
 
         return $res;
@@ -77,17 +87,17 @@ class ListQueueUpStreamBindingsRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['VirtualHost'])) {
-            $model->virtualHost = $map['VirtualHost'];
-        }
-        if (isset($map['QueueName'])) {
-            $model->queueName = $map['QueueName'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['QueueName'])) {
+            $model->queueName = $map['QueueName'];
+        }
+        if (isset($map['VirtualHost'])) {
+            $model->virtualHost = $map['VirtualHost'];
         }
 
         return $model;

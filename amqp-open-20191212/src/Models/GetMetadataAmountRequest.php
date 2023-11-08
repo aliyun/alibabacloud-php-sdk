@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetadataAmountRequest extends Model
 {
     /**
+     * @example amqp-cn-v0h1kb9n***
+     *
      * @var string
      */
     public $instanceId;

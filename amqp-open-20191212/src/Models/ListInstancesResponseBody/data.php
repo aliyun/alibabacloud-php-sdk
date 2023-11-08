@@ -10,23 +10,27 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
+     * @var instances[]
      */
-    public $nextToken;
+    public $instances;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @var instances[]
+     * @example caebacccb2be03f84eb48b699f0a****
+     *
+     * @var string
      */
-    public $instances;
+    public $nextToken;
     protected $_name = [
-        'nextToken'  => 'NextToken',
-        'maxResults' => 'MaxResults',
         'instances'  => 'Instances',
+        'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
     ];
 
     public function validate()
@@ -36,12 +40,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->instances) {
             $res['Instances'] = [];
             if (null !== $this->instances && \is_array($this->instances)) {
@@ -50,6 +48,12 @@ class data extends Model
                     $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -63,12 +67,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
@@ -77,6 +75,12 @@ class data extends Model
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

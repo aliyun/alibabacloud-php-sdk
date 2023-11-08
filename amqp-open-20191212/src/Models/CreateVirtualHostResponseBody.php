@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualHostResponseBody extends Model
 {
     /**
+     * @example 628705FD-03EE-4ABE-BB21-E1672960***
+     *
      * @var string
      */
     public $requestId;

@@ -9,41 +9,53 @@ use AlibabaCloud\Tea\Model;
 class DeleteBindingRequest extends Model
 {
     /**
+     * @example .test.
+     *
      * @var string
      */
-    public $instanceId;
+    public $bindingKey;
 
     /**
-     * @var string
-     */
-    public $virtualHost;
-
-    /**
-     * @var string
-     */
-    public $sourceExchange;
-
-    /**
-     * @var string
-     */
-    public $destinationName;
-
-    /**
+     * @example QUEUE
+     *
      * @var string
      */
     public $bindingType;
 
     /**
+     * @example DemoQueue
+     *
      * @var string
      */
-    public $bindingKey;
+    public $destinationName;
+
+    /**
+     * @example amqp-cn-v0h1kb9nu***
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example NormalEX
+     *
+     * @var string
+     */
+    public $sourceExchange;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $virtualHost;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'virtualHost'     => 'VirtualHost',
-        'sourceExchange'  => 'SourceExchange',
-        'destinationName' => 'DestinationName',
-        'bindingType'     => 'BindingType',
         'bindingKey'      => 'BindingKey',
+        'bindingType'     => 'BindingType',
+        'destinationName' => 'DestinationName',
+        'instanceId'      => 'InstanceId',
+        'sourceExchange'  => 'SourceExchange',
+        'virtualHost'     => 'VirtualHost',
     ];
 
     public function validate()
@@ -53,23 +65,23 @@ class DeleteBindingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->virtualHost) {
-            $res['VirtualHost'] = $this->virtualHost;
-        }
-        if (null !== $this->sourceExchange) {
-            $res['SourceExchange'] = $this->sourceExchange;
-        }
-        if (null !== $this->destinationName) {
-            $res['DestinationName'] = $this->destinationName;
+        if (null !== $this->bindingKey) {
+            $res['BindingKey'] = $this->bindingKey;
         }
         if (null !== $this->bindingType) {
             $res['BindingType'] = $this->bindingType;
         }
-        if (null !== $this->bindingKey) {
-            $res['BindingKey'] = $this->bindingKey;
+        if (null !== $this->destinationName) {
+            $res['DestinationName'] = $this->destinationName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->sourceExchange) {
+            $res['SourceExchange'] = $this->sourceExchange;
+        }
+        if (null !== $this->virtualHost) {
+            $res['VirtualHost'] = $this->virtualHost;
         }
 
         return $res;
@@ -83,23 +95,23 @@ class DeleteBindingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['VirtualHost'])) {
-            $model->virtualHost = $map['VirtualHost'];
-        }
-        if (isset($map['SourceExchange'])) {
-            $model->sourceExchange = $map['SourceExchange'];
-        }
-        if (isset($map['DestinationName'])) {
-            $model->destinationName = $map['DestinationName'];
+        if (isset($map['BindingKey'])) {
+            $model->bindingKey = $map['BindingKey'];
         }
         if (isset($map['BindingType'])) {
             $model->bindingType = $map['BindingType'];
         }
-        if (isset($map['BindingKey'])) {
-            $model->bindingKey = $map['BindingKey'];
+        if (isset($map['DestinationName'])) {
+            $model->destinationName = $map['DestinationName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['SourceExchange'])) {
+            $model->sourceExchange = $map['SourceExchange'];
+        }
+        if (isset($map['VirtualHost'])) {
+            $model->virtualHost = $map['VirtualHost'];
         }
 
         return $model;

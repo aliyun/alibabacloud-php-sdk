@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListQueuesRequest extends Model
 {
     /**
+     * @example 1880770869023***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @var string
+     * @example 1
+     *
+     * @var int
      */
-    public $virtualHost;
+    public $maxResults;
 
     /**
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var int
+     * @example test
+     *
+     * @var string
      */
-    public $maxResults;
+    public $virtualHost;
     protected $_name = [
         'instanceId'  => 'InstanceId',
-        'virtualHost' => 'VirtualHost',
-        'nextToken'   => 'NextToken',
         'maxResults'  => 'MaxResults',
+        'nextToken'   => 'NextToken',
+        'virtualHost' => 'VirtualHost',
     ];
 
     public function validate()
@@ -44,14 +52,14 @@ class ListQueuesRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->virtualHost) {
-            $res['VirtualHost'] = $this->virtualHost;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->virtualHost) {
+            $res['VirtualHost'] = $this->virtualHost;
         }
 
         return $res;
@@ -68,14 +76,14 @@ class ListQueuesRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['VirtualHost'])) {
-            $model->virtualHost = $map['VirtualHost'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['VirtualHost'])) {
+            $model->virtualHost = $map['VirtualHost'];
         }
 
         return $model;

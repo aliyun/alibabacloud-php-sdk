@@ -10,23 +10,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @example caebacccb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Queue。
+     *
      * @var queues[]
      */
     public $queues;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
     protected $_name = [
+        'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'queues'     => 'Queues',
-        'maxResults' => 'MaxResults',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -47,9 +56,6 @@ class data extends Model
                     $res['Queues'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
 
         return $res;
@@ -63,6 +69,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -74,9 +83,6 @@ class data extends Model
                     $model->queues[$n++] = null !== $item ? queues::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
 
         return $model;

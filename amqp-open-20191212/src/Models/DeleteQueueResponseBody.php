@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteQueueResponseBody extends Model
 {
     /**
+     * @example 92385FD2-624A-48C9-8FB5-753F2AFA***
+     *
      * @var string
      */
     public $requestId;

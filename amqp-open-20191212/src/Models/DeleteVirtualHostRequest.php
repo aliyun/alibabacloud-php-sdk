@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteVirtualHostRequest extends Model
 {
     /**
+     * @example amqp-cn-v0h1kb9nu***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $virtualHost;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualHostRequest extends Model
 {
     /**
+     * @example amqp-cn-v0h1kb9n***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Demo
+     *
      * @var string
      */
     public $virtualHost;

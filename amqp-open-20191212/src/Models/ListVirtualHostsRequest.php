@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListVirtualHostsRequest extends Model
 {
     /**
+     * @example 1880770869023***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
+     * @example 2
+     *
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'nextToken'  => 'NextToken',
         'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
     ];
 
     public function validate()
@@ -38,11 +44,11 @@ class ListVirtualHostsRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -59,11 +65,11 @@ class ListVirtualHostsRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

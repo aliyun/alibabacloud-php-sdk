@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteExchangeRequest extends Model
 {
     /**
+     * @example DemoExchange
+     *
+     * @var string
+     */
+    public $exchangeName;
+
+    /**
+     * @example amqp-cn-v0h1kb9nu***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $virtualHost;
-
-    /**
-     * @var string
-     */
-    public $exchangeName;
     protected $_name = [
+        'exchangeName' => 'ExchangeName',
         'instanceId'   => 'InstanceId',
         'virtualHost'  => 'VirtualHost',
-        'exchangeName' => 'ExchangeName',
     ];
 
     public function validate()
@@ -35,14 +41,14 @@ class DeleteExchangeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->exchangeName) {
+            $res['ExchangeName'] = $this->exchangeName;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->virtualHost) {
             $res['VirtualHost'] = $this->virtualHost;
-        }
-        if (null !== $this->exchangeName) {
-            $res['ExchangeName'] = $this->exchangeName;
         }
 
         return $res;
@@ -56,14 +62,14 @@ class DeleteExchangeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExchangeName'])) {
+            $model->exchangeName = $map['ExchangeName'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['VirtualHost'])) {
             $model->virtualHost = $map['VirtualHost'];
-        }
-        if (isset($map['ExchangeName'])) {
-            $model->exchangeName = $map['ExchangeName'];
         }
 
         return $model;
