@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageInfoListResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about images.
+     *
      * @var imageInfos[]
      */
     public $imageInfos;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example BC3B0DAE-CC0E-59E9-9383-6F060F22****
      *
      * @var string

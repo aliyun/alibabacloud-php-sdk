@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetHoneypotEventTrendRequest extends Model
 {
     /**
+     * @description End time, timestamp format.
+     *
      * @example 1687831329169
      *
      * @var int
@@ -16,6 +18,11 @@ class GetHoneypotEventTrendRequest extends Model
     public $endTimeStamp;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,11 +30,15 @@ class GetHoneypotEventTrendRequest extends Model
     public $lang;
 
     /**
+     * @description The risk levels of the alert events.
+     *
      * @var string[]
      */
     public $riskLevelList;
 
     /**
+     * @description The source IP address of the attack.
+     *
      * @example 10.91.254.***
      *
      * @var string
@@ -35,6 +46,8 @@ class GetHoneypotEventTrendRequest extends Model
     public $srcIp;
 
     /**
+     * @description Start time, timestamp format.
+     *
      * @example 1683516557757
      *
      * @var int

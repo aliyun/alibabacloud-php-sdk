@@ -46,6 +46,10 @@ class baseConfigs extends Model
     public $location;
 
     /**
+     * @description Corresponding configuration remark information.
+     *
+     * @example test
+     *
      * @var string
      */
     public $remark;

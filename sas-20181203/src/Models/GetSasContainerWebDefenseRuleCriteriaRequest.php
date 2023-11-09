@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RefreshAssetsResponseBody extends Model
+class GetSasContainerWebDefenseRuleCriteriaRequest extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 340D7FC4-D575-1661-8ACD-CFA7BE57B795
+     * @example 525
      *
      * @var string
      */
-    public $requestId;
+    public $value;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class RefreshAssetsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class RefreshAssetsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RefreshAssetsResponseBody
+     * @return GetSasContainerWebDefenseRuleCriteriaRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of attacks that occurred.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $count;
 
     /**
+     * @description The name of the attack.
+     *
      * @example ATTACK_EVENT
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $keyName;
 
     /**
+     * @description The timestamp when the attack event occurred.
+     *
      * @example 1686968163644
      *
      * @var int

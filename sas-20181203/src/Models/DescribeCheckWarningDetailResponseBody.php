@@ -19,11 +19,15 @@ class DescribeCheckWarningDetailResponseBody extends Model
     public $advice;
 
     /**
+     * @description List of asset details to check.
+     *
      * @var string[][]
      */
     public $checkDetailAssetInfo;
 
     /**
+     * @description Detection content details.
+     *
      * @var checkDetailColumns[]
      */
     public $checkDetailColumns;
@@ -89,7 +93,15 @@ class DescribeCheckWarningDetailResponseBody extends Model
     /**
      * @description The type of the check item. Valid values:
      *
-     * @example Security audit
+     *   **hc_exploit**: unauthorized access
+     *   **hc_djbh**: classified protection compliance
+     *   **hc_best_secruity**: best security practice
+     *   **hc_container**: container security
+     *   **hc_custom**: custom baseline
+     *   **cis**: Center for Internet Security (CIS) compliance
+     *   **weak_password**: weak password
+     *
+     * @example hc_exploit
      *
      * @var string
      */

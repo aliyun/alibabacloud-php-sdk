@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class OperationCancelIgnoreSuspEventRequest extends Model
 {
     /**
+     * @description Note information.
+     *
+     * @example remark text
+     *
      * @var string
      */
     public $remark;

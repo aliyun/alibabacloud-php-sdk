@@ -38,6 +38,13 @@ class IgnoreCheckItemsRequest extends Model
     public $reason;
 
     /**
+     * @description Data Sources. Valid values:
+     *
+     *   **default**: Host baseline
+     *   **agentless**: Agentless baseline
+     *
+     * @example agentless
+     *
      * @var string
      */
     public $source;

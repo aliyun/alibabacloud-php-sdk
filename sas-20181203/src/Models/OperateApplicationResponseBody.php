@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RefreshAssetsResponseBody extends Model
+class OperateApplicationResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 340D7FC4-D575-1661-8ACD-CFA7BE57B795
+     * @example 79B067A4-54EB-5560-B5C8-425ABEDC2784
      *
      * @var string
      */
@@ -37,7 +35,7 @@ class RefreshAssetsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RefreshAssetsResponseBody
+     * @return OperateApplicationResponseBody
      */
     public static function fromMap($map = [])
     {

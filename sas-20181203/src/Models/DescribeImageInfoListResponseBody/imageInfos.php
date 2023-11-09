@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class imageInfos extends Model
 {
     /**
+     * @description The number of alerts that are generated on the current pod, application, namespace, or cluster.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,11 @@ class imageInfos extends Model
     public $alarmCount;
 
     /**
+     * @description Indicates whether alerts are generated on the asset. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
      * @example YES
      *
      * @var string
@@ -23,6 +30,8 @@ class imageInfos extends Model
     public $alarmStatus;
 
     /**
+     * @description The digest value of the image.
+     *
      * @example a3521b04dfdd1361a24be6263f2983cf12ba910989f4d9f7324da7e1e89f****
      *
      * @var string
@@ -30,6 +39,8 @@ class imageInfos extends Model
     public $digest;
 
     /**
+     * @description The endpoint of Container Registry.
+     *
      * @example cn-hangzhou-x7
      *
      * @var string
@@ -37,6 +48,8 @@ class imageInfos extends Model
     public $endpoints;
 
     /**
+     * @description The time when the image was created.
+     *
      * @example 1636962328000
      *
      * @var int
@@ -44,6 +57,8 @@ class imageInfos extends Model
     public $imageCreate;
 
     /**
+     * @description The ID of the image.
+     *
      * @example bb0175afea16138815a8900adeeb0315d88a83a2376eeffa14db1d693a15****
      *
      * @var string
@@ -51,6 +66,8 @@ class imageInfos extends Model
     public $imageId;
 
     /**
+     * @description The size of the image.
+     *
      * @example 157408623
      *
      * @var int
@@ -58,6 +75,8 @@ class imageInfos extends Model
     public $imageSize;
 
     /**
+     * @description The time when the image was updated.
+     *
      * @example 1636974116000
      *
      * @var int
@@ -65,6 +84,8 @@ class imageInfos extends Model
     public $imageUpdate;
 
     /**
+     * @description The ID of the image instance.
+     *
      * @example i-wz95abw6pa7y79ve****
      *
      * @var string
@@ -72,6 +93,8 @@ class imageInfos extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the image instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -79,6 +102,8 @@ class imageInfos extends Model
     public $regionId;
 
     /**
+     * @description The type of the registration.
+     *
      * @example harbor
      *
      * @var string
@@ -86,6 +111,8 @@ class imageInfos extends Model
     public $registryType;
 
     /**
+     * @description The ID of the image repository.
+     *
      * @example crr-5qk9v2rdt0s****
      *
      * @var string
@@ -93,6 +120,8 @@ class imageInfos extends Model
     public $repoId;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example opa-test
      *
      * @var string
@@ -100,6 +129,8 @@ class imageInfos extends Model
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
      * @example libssh2
      *
      * @var string
@@ -107,6 +138,11 @@ class imageInfos extends Model
     public $repoNamespace;
 
     /**
+     * @description The type of the image repository. Valid values:
+     *
+     *   `PUBLIC`
+     *   `PRIVATE`
+     *
      * @example PUBLIC
      *
      * @var string
@@ -114,6 +150,11 @@ class imageInfos extends Model
     public $repoType;
 
     /**
+     * @description Indicates whether the image is at risk. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
      * @example YES
      *
      * @var string
@@ -121,6 +162,8 @@ class imageInfos extends Model
     public $riskStatus;
 
     /**
+     * @description The status of the image.
+     *
      * @example NORMAL
      *
      * @var string
@@ -128,6 +171,8 @@ class imageInfos extends Model
     public $status;
 
     /**
+     * @description The tag that is added to the image.
+     *
      * @example v1
      *
      * @var string
@@ -135,6 +180,8 @@ class imageInfos extends Model
     public $tag;
 
     /**
+     * @description The tag immutability.
+     *
      * @example 0
      *
      * @var int
@@ -142,6 +189,8 @@ class imageInfos extends Model
     public $tagImmutable;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example ff9ca084-7faa-4ab2-8728-69024755****
      *
      * @var string
@@ -149,6 +198,8 @@ class imageInfos extends Model
     public $uuid;
 
     /**
+     * @description The total number of vulnerabilities in your assets.
+     *
      * @example 1
      *
      * @var int
@@ -156,6 +207,11 @@ class imageInfos extends Model
     public $vulCount;
 
     /**
+     * @description Indicates whether vulnerabilities are detected on the asset. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
      * @example YES
      *
      * @var string

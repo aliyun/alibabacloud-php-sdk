@@ -10,21 +10,36 @@ use AlibabaCloud\Tea\Model;
 class checkDetailColumns extends Model
 {
     /**
+     * @description Detection content list.
+     *
      * @var grids[]
      */
     public $grids;
 
     /**
+     * @description Key to detect content.
+     *
+     * @example Containername
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The detection content key corresponds to the display name.
+     *
+     * @example ContainerName
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @description Display type. Value:
+     * - **grid**：Detection grid
+     * - **text**：text
+     * @example text
+     *
      * @var string
      */
     public $type;

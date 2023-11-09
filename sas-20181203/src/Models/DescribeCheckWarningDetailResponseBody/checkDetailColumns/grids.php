@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class grids extends Model
 {
     /**
+     * @description Key to detect content.
+     *
+     * @example Username
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The detection content key corresponds to the display name.
+     *
+     * @example UserName
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @description Display type. Value:
+     * - **grid**：Detection grid
+     * - **text**：text
+     * @example text
+     *
      * @var string
      */
     public $type;

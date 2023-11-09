@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoginBaseConfigsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about the configurations.
+     * @description The description of the configuration.
      *
      * @var baseConfigs[]
      */

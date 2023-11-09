@@ -19,7 +19,7 @@ class DescribeCheckWarningDetailRequest extends Model
     public $checkWarningId;
 
     /**
-     * @description The language of the content within the request and the response. Valid values:
+     * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese
      *   **en**: English

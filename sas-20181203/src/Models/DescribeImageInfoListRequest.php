@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageInfoListRequest extends Model
 {
     /**
+     * @description The UUID of the server. Separate multiple UUIDs with commas (,).
+     *
+     * > You can call the [DescribeCloudCenterInstances](~~141932~~) operation to query the UUIDs of servers.
      * @example 391abd09184cbd3743d7f5ec125d****,
      * e6aeb2a5b6004479398b0bcd1160****
      * @var string

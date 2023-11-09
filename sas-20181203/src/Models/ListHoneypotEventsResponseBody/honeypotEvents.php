@@ -57,6 +57,8 @@ class honeypotEvents extends Model
     /**
      * @description The name of the honeypot.
      *
+     * @example honeypot-2
+     *
      * @var string
      */
     public $honeypotName;
@@ -72,6 +74,8 @@ class honeypotEvents extends Model
 
     /**
      * @description The region.
+     *
+     * @example China Beijing
      *
      * @var string
      */
