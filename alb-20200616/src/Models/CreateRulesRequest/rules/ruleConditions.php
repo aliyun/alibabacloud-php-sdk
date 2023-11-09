@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleCondition
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\pathConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\queryStringConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\responseHeaderConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\responseStatusCodeConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\sourceIpConfig;
 use AlibabaCloud\Tea\Model;
 
@@ -52,6 +53,11 @@ class ruleConditions extends Model
     public $responseHeaderConfig;
 
     /**
+     * @var responseStatusCodeConfig
+     */
+    public $responseStatusCodeConfig;
+
+    /**
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
@@ -65,15 +71,16 @@ class ruleConditions extends Model
      */
     public $type;
     protected $_name = [
-        'cookieConfig'         => 'CookieConfig',
-        'headerConfig'         => 'HeaderConfig',
-        'hostConfig'           => 'HostConfig',
-        'methodConfig'         => 'MethodConfig',
-        'pathConfig'           => 'PathConfig',
-        'queryStringConfig'    => 'QueryStringConfig',
-        'responseHeaderConfig' => 'ResponseHeaderConfig',
-        'sourceIpConfig'       => 'SourceIpConfig',
-        'type'                 => 'Type',
+        'cookieConfig'             => 'CookieConfig',
+        'headerConfig'             => 'HeaderConfig',
+        'hostConfig'               => 'HostConfig',
+        'methodConfig'             => 'MethodConfig',
+        'pathConfig'               => 'PathConfig',
+        'queryStringConfig'        => 'QueryStringConfig',
+        'responseHeaderConfig'     => 'ResponseHeaderConfig',
+        'responseStatusCodeConfig' => 'ResponseStatusCodeConfig',
+        'sourceIpConfig'           => 'SourceIpConfig',
+        'type'                     => 'Type',
     ];
 
     public function validate()
@@ -103,6 +110,9 @@ class ruleConditions extends Model
         }
         if (null !== $this->responseHeaderConfig) {
             $res['ResponseHeaderConfig'] = null !== $this->responseHeaderConfig ? $this->responseHeaderConfig->toMap() : null;
+        }
+        if (null !== $this->responseStatusCodeConfig) {
+            $res['ResponseStatusCodeConfig'] = null !== $this->responseStatusCodeConfig ? $this->responseStatusCodeConfig->toMap() : null;
         }
         if (null !== $this->sourceIpConfig) {
             $res['SourceIpConfig'] = null !== $this->sourceIpConfig ? $this->sourceIpConfig->toMap() : null;
@@ -142,6 +152,9 @@ class ruleConditions extends Model
         }
         if (isset($map['ResponseHeaderConfig'])) {
             $model->responseHeaderConfig = responseHeaderConfig::fromMap($map['ResponseHeaderConfig']);
+        }
+        if (isset($map['ResponseStatusCodeConfig'])) {
+            $model->responseStatusCodeConfig = responseStatusCodeConfig::fromMap($map['ResponseStatusCodeConfig']);
         }
         if (isset($map['SourceIpConfig'])) {
             $model->sourceIpConfig = sourceIpConfig::fromMap($map['SourceIpConfig']);

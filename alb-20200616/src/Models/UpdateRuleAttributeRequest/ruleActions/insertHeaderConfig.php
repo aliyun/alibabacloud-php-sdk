@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class insertHeaderConfig extends Model
 {
     /**
+     * @var bool
+     */
+    public $coverEnabled;
+
+    /**
      * @description The key of the header. The key must be 1 to 40 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The header key specified by **InsertHeaderConfig** must be unique.
      *
      * > You cannot specify the following header keys (case-insensitive): `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`.
@@ -52,9 +57,10 @@ class insertHeaderConfig extends Model
      */
     public $valueType;
     protected $_name = [
-        'key'       => 'Key',
-        'value'     => 'Value',
-        'valueType' => 'ValueType',
+        'coverEnabled' => 'CoverEnabled',
+        'key'          => 'Key',
+        'value'        => 'Value',
+        'valueType'    => 'ValueType',
     ];
 
     public function validate()
@@ -64,6 +70,9 @@ class insertHeaderConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->coverEnabled) {
+            $res['CoverEnabled'] = $this->coverEnabled;
+        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -85,6 +94,9 @@ class insertHeaderConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CoverEnabled'])) {
+            $model->coverEnabled = $map['CoverEnabled'];
+        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

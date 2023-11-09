@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\f
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\forwardGroupConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\insertHeaderConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\redirectConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\removeHeaderConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\rewriteConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\trafficLimitConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions\trafficMirrorConfig;
@@ -54,6 +55,11 @@ class ruleActions extends Model
     public $redirectConfig;
 
     /**
+     * @var removeHeaderConfig
+     */
+    public $removeHeaderConfig;
+
+    /**
      * @var rewriteConfig
      */
     public $rewriteConfig;
@@ -83,6 +89,7 @@ class ruleActions extends Model
         'insertHeaderConfig'  => 'InsertHeaderConfig',
         'order'               => 'Order',
         'redirectConfig'      => 'RedirectConfig',
+        'removeHeaderConfig'  => 'RemoveHeaderConfig',
         'rewriteConfig'       => 'RewriteConfig',
         'trafficLimitConfig'  => 'TrafficLimitConfig',
         'trafficMirrorConfig' => 'TrafficMirrorConfig',
@@ -113,6 +120,9 @@ class ruleActions extends Model
         }
         if (null !== $this->redirectConfig) {
             $res['RedirectConfig'] = null !== $this->redirectConfig ? $this->redirectConfig->toMap() : null;
+        }
+        if (null !== $this->removeHeaderConfig) {
+            $res['RemoveHeaderConfig'] = null !== $this->removeHeaderConfig ? $this->removeHeaderConfig->toMap() : null;
         }
         if (null !== $this->rewriteConfig) {
             $res['RewriteConfig'] = null !== $this->rewriteConfig ? $this->rewriteConfig->toMap() : null;
@@ -155,6 +165,9 @@ class ruleActions extends Model
         }
         if (isset($map['RedirectConfig'])) {
             $model->redirectConfig = redirectConfig::fromMap($map['RedirectConfig']);
+        }
+        if (isset($map['RemoveHeaderConfig'])) {
+            $model->removeHeaderConfig = removeHeaderConfig::fromMap($map['RemoveHeaderConfig']);
         }
         if (isset($map['RewriteConfig'])) {
             $model->rewriteConfig = rewriteConfig::fromMap($map['RewriteConfig']);
