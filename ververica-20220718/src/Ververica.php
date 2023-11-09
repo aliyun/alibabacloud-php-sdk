@@ -9,6 +9,9 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateMemberHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateMemberRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateMemberResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSavepointHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSavepointRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSavepointResponse;
@@ -19,6 +22,8 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteJobHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteJobResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteMemberHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteMemberResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSavepointHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSavepointResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteVariableHeaders;
@@ -35,6 +40,8 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetGenerateResourcePlanResultHea
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetGenerateResourcePlanResultResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetJobHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetJobResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetMemberHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetMemberResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSavepointHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSavepointResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListDeploymentsHeaders;
@@ -48,6 +55,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\ListEngineVersionMetadataRespons
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListJobsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListJobsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListJobsResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListMembersHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListMembersRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListMembersResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSavepointsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSavepointsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSavepointsResponse;
@@ -66,6 +76,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -154,6 +167,57 @@ class Ververica extends OpenApiClient
         $headers = new CreateDeploymentHeaders([]);
 
         return $this->createDeploymentWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $namespace
+     * @param CreateMemberRequest $request
+     * @param CreateMemberHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateMemberResponse
+     */
+    public function createMemberWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMember',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gateway/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/members',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $namespace
+     * @param CreateMemberRequest $request
+     *
+     * @return CreateMemberResponse
+     */
+    public function createMember($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateMemberHeaders([]);
+
+        return $this->createMemberWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -364,6 +428,55 @@ class Ververica extends OpenApiClient
         $headers = new DeleteJobHeaders([]);
 
         return $this->deleteJobWithOptions($namespace, $jobId, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $namespace
+     * @param string              $member
+     * @param DeleteMemberHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteMemberResponse
+     */
+    public function deleteMemberWithOptions($namespace, $member, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMember',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gateway/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/members/' . OpenApiUtilClient::getEncodeParam($member) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $namespace
+     * @param string $member
+     *
+     * @return DeleteMemberResponse
+     */
+    public function deleteMember($namespace, $member)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteMemberHeaders([]);
+
+        return $this->deleteMemberWithOptions($namespace, $member, $headers, $runtime);
     }
 
     /**
@@ -727,6 +840,55 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @param string           $namespace
+     * @param string           $member
+     * @param GetMemberHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetMemberResponse
+     */
+    public function getMemberWithOptions($namespace, $member, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'GetMember',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gateway/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/members/' . OpenApiUtilClient::getEncodeParam($member) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $namespace
+     * @param string $member
+     *
+     * @return GetMemberResponse
+     */
+    public function getMember($namespace, $member)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetMemberHeaders([]);
+
+        return $this->getMemberWithOptions($namespace, $member, $headers, $runtime);
+    }
+
+    /**
      * @param string              $namespace
      * @param string              $savepointId
      * @param GetSavepointHeaders $headers
@@ -1000,6 +1162,64 @@ class Ververica extends OpenApiClient
         $headers = new ListJobsHeaders([]);
 
         return $this->listJobsWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $namespace
+     * @param ListMembersRequest $request
+     * @param ListMembersHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListMembersResponse
+     */
+    public function listMembersWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['pageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMembers',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gateway/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/members',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $namespace
+     * @param ListMembersRequest $request
+     *
+     * @return ListMembersResponse
+     */
+    public function listMembers($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListMembersHeaders([]);
+
+        return $this->listMembersWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -1338,5 +1558,56 @@ class Ververica extends OpenApiClient
         $headers = new UpdateDeploymentHeaders([]);
 
         return $this->updateDeploymentWithOptions($namespace, $deploymentId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $namespace
+     * @param UpdateMemberRequest $request
+     * @param UpdateMemberHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateMemberResponse
+     */
+    public function updateMemberWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMember',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gateway/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/members',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $namespace
+     * @param UpdateMemberRequest $request
+     *
+     * @return UpdateMemberResponse
+     */
+    public function updateMember($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateMemberHeaders([]);
+
+        return $this->updateMemberWithOptions($namespace, $request, $headers, $runtime);
     }
 }

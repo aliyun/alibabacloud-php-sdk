@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListSavepointsHeaders extends Model
+class GetMemberHeaders extends Model
 {
     public $commonHeaders;
 
@@ -40,7 +40,7 @@ class ListSavepointsHeaders extends Model
     /**
      * @param array $map
      *
-     * @return ListSavepointsHeaders
+     * @return GetMemberHeaders
      */
     public static function fromMap($map = [])
     {

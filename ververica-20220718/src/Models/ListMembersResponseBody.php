@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListSavepointsResponseBody extends Model
+class ListMembersResponseBody extends Model
 {
     /**
-     * @var Savepoint[]
+     * @var Member[]
      */
     public $data;
 
@@ -63,7 +63,7 @@ class ListSavepointsResponseBody extends Model
     public $success;
 
     /**
-     * @example 1
+     * @example 50
      *
      * @var int
      */
@@ -127,7 +127,7 @@ class ListSavepointsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListSavepointsResponseBody
+     * @return ListMembersResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -137,7 +137,7 @@ class ListSavepointsResponseBody extends Model
                 $model->data = [];
                 $n           = 0;
                 foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? Savepoint::fromMap($item) : $item;
+                    $model->data[$n++] = null !== $item ? Member::fromMap($item) : $item;
                 }
             }
         }
