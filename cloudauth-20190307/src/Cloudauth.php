@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssUploadTokenResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeSmartStatisticsPageListRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeSmartStatisticsPageListResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifySDKRequest;
@@ -653,6 +655,64 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOssUploadTokenWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeSmartStatisticsPageListRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeSmartStatisticsPageListResponse
+     */
+    public function describeSmartStatisticsPageListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSmartStatisticsPageList',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSmartStatisticsPageListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSmartStatisticsPageListRequest $request
+     *
+     * @return DescribeSmartStatisticsPageListResponse
+     */
+    public function describeSmartStatisticsPageList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSmartStatisticsPageListWithOptions($request, $runtime);
     }
 
     /**
