@@ -37,6 +37,11 @@ class workitems extends Model
     public $document;
 
     /**
+     * @var int
+     */
+    public $finishTime;
+
+    /**
      * @example 1640850318000
      *
      * @var int
@@ -159,6 +164,7 @@ class workitems extends Model
         'categoryIdentifier'     => 'categoryIdentifier',
         'creator'                => 'creator',
         'document'               => 'document',
+        'finishTime'             => 'finishTime',
         'gmtCreate'              => 'gmtCreate',
         'gmtModified'            => 'gmtModified',
         'identifier'             => 'identifier',
@@ -196,6 +202,9 @@ class workitems extends Model
         }
         if (null !== $this->document) {
             $res['document'] = $this->document;
+        }
+        if (null !== $this->finishTime) {
+            $res['finishTime'] = $this->finishTime;
         }
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
@@ -271,6 +280,9 @@ class workitems extends Model
         }
         if (isset($map['document'])) {
             $model->document = $map['document'];
+        }
+        if (isset($map['finishTime'])) {
+            $model->finishTime = $map['finishTime'];
         }
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
