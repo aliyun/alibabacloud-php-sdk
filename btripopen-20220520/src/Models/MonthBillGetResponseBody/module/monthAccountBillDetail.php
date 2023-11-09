@@ -68,6 +68,11 @@ class monthAccountBillDetail extends Model
     public $ieFlightAmount;
 
     /**
+     * @var float
+     */
+    public $ieHotelAmount;
+
+    /**
      * @description 账期日：YYYYMMDD
      *
      * @example 20200501
@@ -101,6 +106,7 @@ class monthAccountBillDetail extends Model
         'fuPoint'        => 'fuPoint',
         'hotelAmount'    => 'hotelAmount',
         'ieFlightAmount' => 'ieFlightAmount',
+        'ieHotelAmount'  => 'ieHotelAmount',
         'mailBillDate'   => 'mailBillDate',
         'serviceAmount'  => 'serviceAmount',
         'trainAmount'    => 'trainAmount',
@@ -133,6 +139,9 @@ class monthAccountBillDetail extends Model
         }
         if (null !== $this->ieFlightAmount) {
             $res['ieFlightAmount'] = $this->ieFlightAmount;
+        }
+        if (null !== $this->ieHotelAmount) {
+            $res['ieHotelAmount'] = $this->ieHotelAmount;
         }
         if (null !== $this->mailBillDate) {
             $res['mailBillDate'] = $this->mailBillDate;
@@ -175,6 +184,9 @@ class monthAccountBillDetail extends Model
         }
         if (isset($map['ieFlightAmount'])) {
             $model->ieFlightAmount = $map['ieFlightAmount'];
+        }
+        if (isset($map['ieHotelAmount'])) {
+            $model->ieHotelAmount = $map['ieHotelAmount'];
         }
         if (isset($map['mailBillDate'])) {
             $model->mailBillDate = $map['mailBillDate'];

@@ -12,6 +12,11 @@ class userList extends Model
     /**
      * @var string
      */
+    public $baseCityCode;
+
+    /**
+     * @var string
+     */
     public $birthday;
 
     /**
@@ -114,6 +119,7 @@ class userList extends Model
      */
     public $userName;
     protected $_name = [
+        'baseCityCode'      => 'base_city_code',
         'birthday'          => 'birthday',
         'certList'          => 'cert_list',
         'departId'          => 'depart_id',
@@ -140,6 +146,9 @@ class userList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseCityCode) {
+            $res['base_city_code'] = $this->baseCityCode;
+        }
         if (null !== $this->birthday) {
             $res['birthday'] = $this->birthday;
         }
@@ -209,6 +218,9 @@ class userList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['base_city_code'])) {
+            $model->baseCityCode = $map['base_city_code'];
+        }
         if (isset($map['birthday'])) {
             $model->birthday = $map['birthday'];
         }
