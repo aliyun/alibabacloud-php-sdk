@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyCustinsResourceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6B5A6839-31A7-58D4-9F96-772BFAFD1CB5
      *
@@ -18,9 +18,9 @@ class ModifyCustinsResourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
-     * @example 507176956
+     * @example 507******
      *
      * @var int
      */

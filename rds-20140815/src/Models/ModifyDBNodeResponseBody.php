@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBNodeResponseBody extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5****
      *
@@ -27,7 +27,7 @@ class ModifyDBNodeResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5CD61041-35F7-10F7-BE94-33A48B221218
      *
@@ -36,10 +36,10 @@ class ModifyDBNodeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

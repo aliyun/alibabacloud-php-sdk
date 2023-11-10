@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostGroupElasticStrategyParametersResponseBody extends Model
 {
     /**
-     * @description The current CPU usage rate of the instance.
+     * @description The CPU utilization of the instance. Unit: percentage.
      *
      * @example 20
      *
@@ -18,7 +18,7 @@ class DescribeHostGroupElasticStrategyParametersResponseBody extends Model
     public $cpuShar;
 
     /**
-     * @description The CPU usage of the instance.
+     * @description The number of CPU cores used by the instance. Unit: cores.
      *
      * @example 4
      *
@@ -27,7 +27,7 @@ class DescribeHostGroupElasticStrategyParametersResponseBody extends Model
     public $cpuZoom;
 
     /**
-     * @description Number of IO requests.
+     * @description The number of I/O requests.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class DescribeHostGroupElasticStrategyParametersResponseBody extends Model
     public $iopsZoom;
 
     /**
-     * @description The maximum number of concurrent connections for instance specifications.
+     * @description The maximum number of concurrent connections supported by the instance type.
      *
      * @example 30
      *
@@ -45,7 +45,7 @@ class DescribeHostGroupElasticStrategyParametersResponseBody extends Model
     public $maxConnZoom;
 
     /**
-     * @description The total amount of memory for instances in the current exclusive cluster.
+     * @description The total memory size of the instance in the dedicated cluster. Unit: MB.
      *
      * @example 1000
      *

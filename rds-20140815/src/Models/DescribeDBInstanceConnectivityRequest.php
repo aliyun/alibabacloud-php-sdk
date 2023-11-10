@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceConnectivityRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-t4ns09hgoy99i5gez
      *
@@ -28,7 +28,7 @@ class DescribeDBInstanceConnectivityRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy****
      *
@@ -52,7 +52,7 @@ class DescribeDBInstanceConnectivityRequest extends Model
     public $securityToken;
 
     /**
-     * @description The private IP address that is used to connect to the self-managed PostgreSQL instance.
+     * @description The source IP address.
      *
      * @example 172.16.XX.XX
      *

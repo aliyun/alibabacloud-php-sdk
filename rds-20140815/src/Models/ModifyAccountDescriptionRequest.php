@@ -19,7 +19,7 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountDescription;
 
     /**
-     * @description The username of the account. You can call the [DescribeAccounts](~~610454~~) operation to query the username of the account.
+     * @description The username of the account. You can call the DescribeAccounts operation to obtain the username of the account.
      *
      * @example test1
      *
@@ -28,7 +28,7 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountName;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

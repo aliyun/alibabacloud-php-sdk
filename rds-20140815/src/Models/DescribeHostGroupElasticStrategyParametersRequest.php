@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostGroupElasticStrategyParametersRequest extends Model
 {
     /**
-     * @description Dedicated Host Group Name.
+     * @description The name of the dedicated cluster.
      *
      * @example dhg-d0dwi82293b2w9t5
      *
@@ -18,7 +18,7 @@ class DescribeHostGroupElasticStrategyParametersRequest extends Model
     public $dedicatedHostGroupName;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-shanghai
      *

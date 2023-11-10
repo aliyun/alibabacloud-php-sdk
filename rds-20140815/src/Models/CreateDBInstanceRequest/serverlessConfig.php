@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serverlessConfig extends Model
 {
     /**
-     * @description Specifies whether to enable the smart startup and stop feature for the serverless instance. Valid values:
+     * @description Specifies whether to enable the automatic startup and stop feature for the serverless instance. Valid values:
      *
      *   **true**
      *   **false** (default)
@@ -28,7 +28,7 @@ class serverlessConfig extends Model
      *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**
      *   Serverless ApsaraDB RDS for PostgreSQL instances: **1 to 12**
      *
-     * >  The value of this parameter must be greater than or equal to the value of the **MinCapacity** parameter and must be an **integer**.
+     * >  The value of this parameter must be greater than or equal to the value of **MinCapacity** and can be specified only to an **integer**.
      * @example 8
      *
      * @var float
@@ -42,7 +42,7 @@ class serverlessConfig extends Model
      *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**. Only integers are supported.
      *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 12**.
      *
-     * >  The value of this parameter must be less than or equal to the value of the **MaxCapacity** parameter.
+     * >  The value of this parameter must be less than or equal to the value of **MaxCapacity**.
      * @example 0.5
      *
      * @var float
@@ -55,8 +55,12 @@ class serverlessConfig extends Model
      *   **true**
      *   **false** (default)
      *
-     * > *   This parameter is required if you want to create a serverless instance that run MySQL and PostgreSQL. If you set this parameter to true, a transient connection that lasts approximately 1 minute occurs during forced scaling. Process with caution.
-     * > *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
+     * >
+     *
+     *   This parameter is required if you want to create a serverless instance that run MySQL and PostgreSQL. If you set this parameter to true, a transient connection that lasts approximately 1 minute occurs during forced scaling. Process with caution.
+     *
+     *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
+     *
      * @example false
      *
      * @var bool

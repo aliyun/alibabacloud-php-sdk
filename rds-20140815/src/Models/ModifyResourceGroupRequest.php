@@ -18,7 +18,7 @@ class ModifyResourceGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-bpxxxxx
      *
@@ -37,7 +37,7 @@ class ModifyResourceGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group. You can call the [ListResourceGroups](~~158855~~) operation to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the ListResourceGroups operation to obtain the resource group ID.
      *
      * @example rg-acxxxxx
      *

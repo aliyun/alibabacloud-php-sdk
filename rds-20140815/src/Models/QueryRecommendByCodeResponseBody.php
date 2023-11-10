@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QueryRecommendByCodeResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @example {
      * "SupportOnlineResizeDisk": true,
@@ -20,7 +20,7 @@ class QueryRecommendByCodeResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 90496720-2319-42A8-87CD-FCE4DF95EBED
      *

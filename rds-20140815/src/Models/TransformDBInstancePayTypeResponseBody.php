@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class TransformDBInstancePayTypeResponseBody extends Model
 {
     /**
-     * @description The billing method.
+     * @description The payment type.
+     *
+     *   Valid value if the new billing method is pay-as-you-go: POSTPAY
+     *   Valid value if the new billing method is subscription: PREPAY
      *
      * @example Prepaid
      *

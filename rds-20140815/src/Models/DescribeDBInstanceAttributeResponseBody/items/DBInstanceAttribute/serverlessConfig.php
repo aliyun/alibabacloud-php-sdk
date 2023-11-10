@@ -11,10 +11,10 @@ class serverlessConfig extends Model
     /**
      * @description Indicates whether the automatic start and stop feature is enabled for the serverless instance. Valid values:
      *
-     *   **true**: The feature is enabled.
-     *   **false** (default): The feature is disabled.
+     *   **true**
+     *   **false** (default)
      *
-     * >  After the automatic suspension feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is automatically resumed.
+     * >  After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is automatically resumed.
      * @example true
      *
      * @var bool
@@ -42,8 +42,8 @@ class serverlessConfig extends Model
     /**
      * @description Indicates whether the forced scaling feature is enabled for the serverless instance.
      *
-     *   **true**: The feature is enabled.
-     *   **false** (default): The feature is disabled.
+     *   **true**
+     *   **false** (default)
      *
      * >  In most cases, ApsaraDB RDS automatically scales in or out the RCUs of a serverless instance based on business requirements in real time. In rare cases, the scaling does not take effect in real time. You can enable the forced scaling feature to forcefully scales in or out the RCUs of the instance.
      * @example false

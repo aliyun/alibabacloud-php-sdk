@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceVpcRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5*****
      *
@@ -20,7 +20,7 @@ class SwitchDBInstanceVpcRequest extends Model
     /**
      * @description The private IP address of the instance. The private IP address must be within the CIDR block of the vSwitch that is specified by the **VSwitchId** parameter.
      *
-     * > You can call the [DescribeVSwitches](~~35748~~) operation to query the CIDR block of a specified vSwitch.
+     * >  You can call the DescribeVSwitches operation to query the CIDR block of the vSwitch.
      * @example 10.23.XX.XX
      *
      * @var string

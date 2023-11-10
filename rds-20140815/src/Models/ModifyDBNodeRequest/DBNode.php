@@ -18,7 +18,7 @@ class DBNode extends Model
     public $classCode;
 
     /**
-     * @description Node ID
+     * @description The node ID.
      *
      * @example rn-6256r4a87xvv7he5p
      *

@@ -18,7 +18,7 @@ class ModifyDbProxyInstanceSslRequest extends Model
     public $DBProxyEngineType;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-t4n3axxxxx
      *
@@ -36,7 +36,7 @@ class ModifyDbProxyInstanceSslRequest extends Model
     public $dbProxyConnectString;
 
     /**
-     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~610507~~) operation to query the ID of the proxy endpoint.
+     * @description The ID of the proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID of the proxy endpoint.
      *
      * @example ta9um4xxxxx
      *
@@ -59,7 +59,7 @@ class ModifyDbProxyInstanceSslRequest extends Model
     public $dbProxySslEnabled;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

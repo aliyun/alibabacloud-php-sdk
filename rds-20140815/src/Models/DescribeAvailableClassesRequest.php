@@ -11,18 +11,24 @@ class DescribeAvailableClassesRequest extends Model
     /**
      * @description The RDS edition of the instance. Valid values:
      *
-     *   **Basic**: RDS Basic Edition.
-     *   **HighAvailability**: RDS High-availability Edition.
-     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
+     *   Regular instance
+     *
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability**: RDS High-availability Edition
+     *   **cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL
+     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server
      *   **Finance**: RDS Enterprise Edition
      *
-     **Serverless instances**
+     *   Serverless instance
      *
-     *   **serverless_basic**: RDS Serverless Basic Edition. This edition is available only for instances that run MySQL and PostgreSQL.
-     *   **serverless_standard**: RDS Serverless High-availability Edition for MySQL.
-     *   **serverless_ha** RDS Serverless High-availability Edition for SQL Server.
+     *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
+     *   **serverless_standard**: RDS High-availability Edition for ApsaraDB RDS for MySQL.
+     *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
      *
-     * > If you create a serverless instance, you must specify this parameter.
+     **
+     *
+     **Note** If you create a serverless instance, you must specify this parameter.
+     *
      * @example HighAvailability
      *
      * @var string
@@ -51,7 +57,7 @@ class DescribeAvailableClassesRequest extends Model
     public $commodityCode;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxx
      *
@@ -92,18 +98,23 @@ class DescribeAvailableClassesRequest extends Model
     /**
      * @description The database engine version of the instance. Valid values:
      *
+     *   Regular instance
+     *
      *   Valid values if you set Engine to MySQL: **5.5, 5.6, 5.7, and 8.0**
      *   Valid values if you set Engine to SQLServer: **2008r2, 08r2\_ent_ha, 2012, 2012\_ent_ha, 2012\_std_ha, 2012\_web, 2014\_std_ha, 2016\_ent_ha, 2016\_std_ha, 2016\_web, 2017\_std_ha, 2017\_ent, 2019\_std_ha, and 2019\_ent**
      *   Valid values if you set Engine to PostgreSQL: **10.0, 11.0, 12.0, 13.0, 14.0, and 15.0**
-     *   Valid value if you set Engine to MariaDB: **10.3**
+     *   Valid value when you set Engine to MariaDB: **10.3**
      *
-     **Serverless instances**
+     *   Serverless instance
      *
      *   Valid values if you set Engine to MySQL: **5.7** and **8.0**
-     *   Valid values if you set Engine to SQLServer: **SQL Server**, **SQL Server**, and **SQL Server**
+     *   Valid values if you set Engine to SQLServer: **2016\_std_sl**, **2017\_std_sl**, and **2019\_std_sl**
      *   Valid value if you set Engine to PostgreSQL: **14.0**
      *
-     * > ApsaraDB RDS for MariaDB does not support serverless instances.
+     **
+     *
+     **Note** ApsaraDB RDS for MariaDB does not support serverless instances.
+     *
      * @example 8.0
      *
      * @var string
@@ -134,7 +145,7 @@ class DescribeAvailableClassesRequest extends Model
     public $orderType;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the region ID of an instance.
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the region ID of the instance.
      *
      * @example cn-hangzhou
      *
@@ -148,9 +159,9 @@ class DescribeAvailableClassesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the zone ID of an instance.
+     * @description The zone ID of the instance. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the zone ID of the instance.
      *
-     * > If the DescribeDBInstanceAttribute operation returns multiple zones, you must specify only one of the returned zones. For example, if the DescribeDBInstanceAttribute operation returns `cn-hangzhou-MAZ9(g,h)`, you can set the ZoneId parameter to `cn-hangzhou-g` or `cn-hangzhou-h`.
+     * >  If the DescribeDBInstanceAttribute operation returns multiple zones, you must specify only one of the returned zones. For example, if the DescribeDBInstanceAttribute operation returns `cn-hangzhou-MAZ9(g,h)`, you can set this parameter to `cn-hangzhou-g` or `cn-hangzhou-h`.
      * @example cn-hangzhou-h
      *
      * @var string

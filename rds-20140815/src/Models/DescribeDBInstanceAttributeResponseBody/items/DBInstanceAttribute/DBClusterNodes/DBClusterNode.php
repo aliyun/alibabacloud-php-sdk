@@ -20,9 +20,7 @@ class DBClusterNode extends Model
     /**
      * @description Node specification type. Value range:
      *
-     *   **d**: Exclusive specifications
-     *   **x**: General specifications
-     *
+     * - x: General specifications
      * @example x
      *
      * @var string
@@ -88,13 +86,7 @@ class DBClusterNode extends Model
 
     /**
      * @description The status of the migration task. Valid values:
-     *
-     *   **NoStart**: The task has not started.
-     *   **Running**:The task is in progress.
-     *   **Success**: The task is successful.
-     *   **Failed**: The task failed.
-     *   **Waiting**: The task is waiting for an incremental backup file to be imported.
-     *
+     * - restarting
      * @example active
      *
      * @var string

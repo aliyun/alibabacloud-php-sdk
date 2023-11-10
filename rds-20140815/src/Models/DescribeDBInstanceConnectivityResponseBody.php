@@ -42,7 +42,7 @@ class DescribeDBInstanceConnectivityResponseBody extends Model
     public $connCheckResult;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-2ze2za3is7baay1w4
      *
@@ -51,7 +51,7 @@ class DescribeDBInstanceConnectivityResponseBody extends Model
     public $dbInstanceName;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example D880212A-F21F-5722-8422-BD06B2874CC3
      *

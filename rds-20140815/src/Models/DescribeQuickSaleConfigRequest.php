@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeQuickSaleConfigRequest extends Model
 {
     /**
-     * @description Product code.
+     * @description The product code. Valid values:
+     *
+     *   rds: The instance is a subscription instance.
+     *   bards: The instance is a pay-as-you-go instance.
      *
      * @example rds
      *
@@ -18,12 +21,12 @@ class DescribeQuickSaleConfigRequest extends Model
     public $commodity;
 
     /**
-     * @description The database engine that is run by the instance. Valid values:
+     * @description The database engine of the instance. Valid values:
      *
-     * **MySQL**
-     * **SQLServer**
-     * **PostgreSQL**
-     * **MariaDB**
+     *   **MySQL**
+     *   **SQLServer**
+     *   **PostgreSQL**
+     *   **MariaDB**
      *
      * @example MySQL
      *
@@ -32,7 +35,7 @@ class DescribeQuickSaleConfigRequest extends Model
     public $engine;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

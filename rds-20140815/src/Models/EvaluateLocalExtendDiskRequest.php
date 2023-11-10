@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EvaluateLocalExtendDiskRequest extends Model
 {
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
-     * @example rm-m5e999iqm655h6mch
+     * @example rm-m5e999iqm65******
      *
      * @var string
      */
@@ -23,7 +23,7 @@ class EvaluateLocalExtendDiskRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -32,7 +32,7 @@ class EvaluateLocalExtendDiskRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-ac****
      *
@@ -51,7 +51,7 @@ class EvaluateLocalExtendDiskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The storage capacity of the instance. This parameter is available only for instances that are created in dedicated clusters. Valid values: **5 to 2000**. Unit: GB. If you do not specify this parameter, the storage capacity of the instance remains unchanged.
+     * @description The new storage capacity. Unit: GB.
      *
      * @example 1000
      *

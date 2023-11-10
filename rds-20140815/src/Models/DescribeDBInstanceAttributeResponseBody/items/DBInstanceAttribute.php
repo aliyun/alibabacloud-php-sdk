@@ -65,7 +65,7 @@ class DBInstanceAttribute extends Model
     public $babelfishConfig;
 
     /**
-     * @description An invalid parameter. You can ignore this parameter.
+     * @description This parameter is invalid. You do not need to specify this parameter.
      *
      * @example false
      *
@@ -74,7 +74,7 @@ class DBInstanceAttribute extends Model
     public $bpeEnabled;
 
     /**
-     * @description An invalid parameter. You can ignore this parameter.
+     * @description This parameter is invalid. You do not need to specify this parameter.
      *
      * @example false
      *
@@ -87,10 +87,10 @@ class DBInstanceAttribute extends Model
      *
      *   **Basic**: RDS Basic Edition
      *   **HighAvailability**: RDS High-availability Edition
-     *   **cluster**: RDS Cluster Edition for MySQL
-     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
+     *   **cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL
+     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server
      *   **Finance**: RDS Enterprise Edition
-     *   **Serverless_basic**: RDS Serverless Basic Edition
+     *   **Serverless_basic**: RDS Basic Edition for serverless instances
      *
      * @example Basic
      *
@@ -151,7 +151,7 @@ class DBInstanceAttribute extends Model
     public $creationTime;
 
     /**
-     * @description The version of the database engine.
+     * @description The minor engine version of the instance.
      *
      * @example rds_20181010
      *
@@ -303,8 +303,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description Indicates whether the release protection feature is enabled. Valid values:
      *
-     *   **true**: The feature is enabled.
-     *   **false**: The feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -327,7 +327,7 @@ class DBInstanceAttribute extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the serverless instance.
+     * @description The database engine version.
      *
      * @example 5.5
      *
@@ -338,10 +338,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description The expiration time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     **
-     *
-     **Description** Pay-as-you-go instances never expire.
-     *
+     * >  Pay-as-you-go instances never expire.
      * @example 2019-03-27T16:00:00Z
      *
      * @var string
@@ -383,7 +380,7 @@ class DBInstanceAttribute extends Model
     public $IPType;
 
     /**
-     * @description The ID of the instance from which the incremental data comes. The incremental data of a disaster recovery instance or read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
+     * @description The ID of the instance from which incremental data comes. The incremental data of a disaster recovery instance or read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
      *
      * @example rm-uf6wjk5*****
      *
@@ -431,7 +428,7 @@ class DBInstanceAttribute extends Model
      *   **ManualLock**: The instance is manually locked.
      *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
      *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
-     *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage.
+     *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage space.
      *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked due to exhausted storage.
      *
      * @example Unlock
@@ -461,10 +458,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description The ID of the primary instance.
      *
-     **
-     *
-     **Description** If this parameter is not returned, the instance is the primary instance.
-     *
+     * >  If this parameter is not returned, the instance is the primary instance.
      * @example rm-uf6wjk5*****
      *
      * @var string
@@ -614,17 +608,17 @@ class DBInstanceAttribute extends Model
     public $serverlessConfig;
 
     /**
-     * @description Information about the zone of the secondary instance.
+     * @description The information about the zone of the secondary instance.
      *
      * @var slaveZones
      */
     public $slaveZones;
 
     /**
-     * @description Indicates whether the instance supports privileged accounts, such as the system administrator (SA) account, the Active Directory (AD) account, and the host account.
+     * @description Indicates whether the instance supports superuser accounts, such as the system administrator (SA) account, the Active Directory (AD) account, and the host account.
      *
-     *   **Enable**: Privileged accounts are supported.
-     *   **Disabled**: Privileged accounts are not supported.
+     *   **Enable**
+     *   **Disabled**
      *
      * @example Disabled
      *
@@ -663,7 +657,7 @@ class DBInstanceAttribute extends Model
      * @description The severity level of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
      *
      *   **1**: The instance is normal.
-     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance, and the performance is affected. You must adjust the specifications of these instances based on your business requirements.
+     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance. You must adjust the specifications of these instances based on your business requirements.
      *
      * @example 1
      *
@@ -690,7 +684,7 @@ class DBInstanceAttribute extends Model
     public $vpcCloudInstanceId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The virtual private cloud (VPC) ID of the instance.
      *
      * @example vpc-*****
      *
@@ -699,7 +693,7 @@ class DBInstanceAttribute extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-a
      *
@@ -708,7 +702,7 @@ class DBInstanceAttribute extends Model
     public $zoneId;
 
     /**
-     * @description An internal parameter. You can ignore this parameter.
+     * @description An internal parameter. You do not need to specify this parameter.
      *
      * @example The architecture type of the instance. Valid values:
      *

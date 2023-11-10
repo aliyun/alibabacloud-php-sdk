@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QueryRecommendByCodeRequest extends Model
 {
     /**
-     * @description code
+     * @description The code.
      *
      * @example rds_recommend
      *
@@ -23,7 +23,7 @@ class QueryRecommendByCodeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy****
      *

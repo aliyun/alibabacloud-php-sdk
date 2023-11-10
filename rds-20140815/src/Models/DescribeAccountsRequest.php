@@ -18,9 +18,9 @@ class DescribeAccountsRequest extends Model
     public $accountName;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
-     * >  This parameter is not supported if your RDS instance runs RDS Cluster Edition and SQL Server 2017.
+     * >  This parameter is not supported for RDS instances that run SQL Server 2017 on RDS Cluster Edition.
      * @example rm-uf6wjk5*****
      *
      * @var string

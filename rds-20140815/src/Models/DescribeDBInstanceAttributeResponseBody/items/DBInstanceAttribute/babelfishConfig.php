@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class babelfishConfig extends Model
 {
     /**
-     * @description The switch to enable or disable Babelfish.
+     * @description Indicates whether Babelfish is enabled.
      *
      * >  If Babelfish is enabled when you purchase an ApsaraDB RDS for PostgreSQL instance, this parameter is fixed as **true**.
      * @example true

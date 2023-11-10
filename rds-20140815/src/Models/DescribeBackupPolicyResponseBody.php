@@ -78,7 +78,7 @@ class DescribeBackupPolicyResponseBody extends Model
      *   **1**: Secondary instance preferred
      *   **2**: Primary instance preferred
      *
-     * > This parameter is valid only when the instance runs SQL Server on RDS Cluster Edition. This parameter is returned only when SupportModifyBackupPriority is set to True.
+     * >  This parameter is available only for instances that run SQL Server on RDS Cluster Edition. This parameter is returned only when SupportModifyBackupPriority is set to True.
      * @example 2
      *
      * @var int

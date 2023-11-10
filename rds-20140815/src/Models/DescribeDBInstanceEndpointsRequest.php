@@ -21,7 +21,7 @@ class DescribeDBInstanceEndpointsRequest extends Model
     /**
      * @description The endpoint ID of the instance.
      *
-     * If this parameter is not specified, the information about all endpoints is returned.
+     * >  If this parameter is not specified, the information about all endpoints is returned.
      * @example ep-****-ro
      *
      * @var string

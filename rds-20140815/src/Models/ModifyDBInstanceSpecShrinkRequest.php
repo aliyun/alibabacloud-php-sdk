@@ -32,22 +32,22 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     /**
      * @description The RDS edition of the instance. Valid values:
      *
-     *   Regular instance
+     *   Regular RDS instance
      *
      *   **Basic**: RDS Basic Edition
      *   **HighAvailability**: RDS High-availability Edition
-     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
-     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
+     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server
+     *   **Cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL.
      *
      *   Serverless instance
      *
-     *   **serverless_basic**: RDS Serverless Basic Edition. This edition is available only for instances that run MySQL and PostgreSQL.
-     *   **serverless_standard**: RDS Serverless High-availability Edition for MySQL.
-     *   **serverless_ha** RDS Serverless High-availability Edition for SQL Server.
+     *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
+     *   **serverless_standard**: RDS High-availability Edition for ApsaraDB RDS for MySQL.
+     *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
      *
      **
      *
-     **Note**If you set **EngineVersion** to an SQL Server version number, you must also specify this parameter.
+     **Note** If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
      *
      * @example HighAvailability
      *
@@ -118,7 +118,7 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
      *   **Up** (default): upgrades a subscription instance, or upgrades or downgrades a pay-as-you-go instance.
      *   **Down**: downgrades a subscription instance.
      *   **TempUpgrade**: performs auto scaling on a subscription instance that runs SQL Server. This value is required for auto scaling.
-     *   **Serverless**: modifies the auto scaling settings of a serverless instance This value is required if you want to modify the auto scaling settings of a serverless instance.
+     *   **Serverless**: modifies the auto scaling settings of a serverless instance. This value is required if you want to modify the auto scaling settings of a serverless instance.
      *
      * >  If you specify only **DBInstanceStorageType**, you can leave Direction empty. For example, if you want to change only the storage type of the instance from standard SSD to ESSD, you do not need to specify Direction.
      * @example Up
@@ -128,9 +128,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $direction;
 
     /**
-     * @description The effective time. Valid values:
+     * @description The time when you want the change to take effect. Valid values:
      *
-     *   **Immediately**: This is the default value.
+     *   **Immediate**: This is the default value.
      *   **MaintainTime**: The effective time is within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](~~610402~~).
      *
      * @example MaintainTime

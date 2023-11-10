@@ -92,7 +92,7 @@ class CreateDBInstanceForRebuildRequest extends Model
      *   **Year**
      *   **Month**
      *
-     * >  This parameter must be specified when the PayType parameter is set to **Prepaid**.
+     * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
      * @example Month
      *
      * @var string
@@ -196,7 +196,7 @@ class CreateDBInstanceForRebuildRequest extends Model
     /**
      * @description The zone ID of the secondary instance.
      *
-     * > If the instance does not run RDS Basic Edition, you must specify this parameter.
+     * >  If the instance does not run RDS Basic Edition, you must specify this parameter.
      * @example cn-hangzhou-c
      *
      * @var string
@@ -206,7 +206,7 @@ class CreateDBInstanceForRebuildRequest extends Model
     /**
      * @description The zone ID of the logger instance.
      *
-     * > This parameter is available only when the instance runs RDS Enterprise Edition.
+     * >  This parameter is available only when the instance runs RDS Enterprise Edition.
      * @example cn-hangzhou-d
      *
      * @var string

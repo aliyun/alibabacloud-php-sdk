@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyCustinsResourceRequest extends Model
 {
     /**
-     * @description AdjustDeadline
+     * @description The deadline for the modification.
      *
      * @example 2022-12-31 23:59:06
      *
@@ -18,16 +18,16 @@ class ModifyCustinsResourceRequest extends Model
     public $adjustDeadline;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
      *
-     * @example rm-j5ekvfeengm80lqke
+     * @example rm-j5ekvfeengm******
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description IncreaseRatio
+     * @description The increase rate.
      *
      * @example 10
      *
@@ -41,7 +41,7 @@ class ModifyCustinsResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Set the value to **INSTANCE**.
+     * @description The resource type.
      *
      * @example Memory
      *
@@ -50,7 +50,7 @@ class ModifyCustinsResourceRequest extends Model
     public $resourceType;
 
     /**
-     * @description RestoreOriginalSpecification
+     * @description The original value. This parameter must be specified when **ResourceType** is set to **instance**.
      *
      * @example 200
      *
@@ -59,7 +59,7 @@ class ModifyCustinsResourceRequest extends Model
     public $restoreOriginalSpecification;
 
     /**
-     * @description Specifies whether to disable scale-in. This parameter is available only if you set the ScalingRuleType parameter to TargetTrackingScalingRule.
+     * @description The target value. This parameter is available only if you set the ScalingRuleType parameter to TargetTrackingScalingRule or PredictiveScalingRule. The value must be greater than 0 and can contain up to three decimal places.
      *
      * @example 3000
      *

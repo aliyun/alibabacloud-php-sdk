@@ -60,7 +60,7 @@ class TransformDBInstancePayTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The billing method of the instance. Valid values:
+     * @description The new billing method of the instance. Valid values:
      *
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription

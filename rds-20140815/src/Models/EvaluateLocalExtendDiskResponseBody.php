@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class EvaluateLocalExtendDiskResponseBody extends Model
 {
     /**
-     * @description Specifies whether to query the virtual IP addresses of only healthy CDN POPs. Valid values:
-     *
-     *   **on**: healthy CDN edge nodes.
-     *   **off**: all CDN edge nodes.
+     * @description Indicates whether the instance is available. Valid values: true and false.
      *
      * @example True
      *
@@ -21,20 +18,16 @@ class EvaluateLocalExtendDiskResponseBody extends Model
     public $available;
 
     /**
-     * @description The ID of the RDS instance.
+     * @description The instance ID.
      *
-     * @example rm-bp1375i66nda3zn58
+     * @example rm-bp1375i66nd******
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The data migration method of the instance. This parameter is available only for instances that are created in dedicated clusters. Valid values:
-     *
-     *   **0** (default): The system preferentially upgrades or downgrades the instance without a migration. If the resources on the host on which the instance resides are insufficient, the system migrates the instance to another suitable host.
-     *   **1**: The system upgrades or downgrades the instance without a migration. If the upgrade or downgrade is not supported, the system reports an error.
-     *   **2**: The system migrates the data of the instance from the host on which the instance resides to another host. You must also specify **DedicatedHostGroupId**, **TargetDedicatedHostIdForMaster**, and **TargetDedicatedHostIdForSlave**. If you set DBInstanceTransType to 2, you cannot migrate the data of the instance to the host on which the instance resides. If you migrate the data of the instance to the host on which the instance resides, the migration fails.
+     * @description The data transfer type supported by the instance.
      *
      * @example 0
      *
@@ -43,7 +36,7 @@ class EvaluateLocalExtendDiskResponseBody extends Model
     public $DBInstanceTransType;
 
     /**
-     * @description Local Disk Restrictions.
+     * @description The maximum value of the local disk. Unit: GB.
      *
      * @example 100
      *
@@ -52,7 +45,7 @@ class EvaluateLocalExtendDiskResponseBody extends Model
     public $localUpgradeDiskLimit;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A4C4D26F-E5CE-5A28-8C54-46A6FB318223
      *

@@ -6248,10 +6248,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableClassesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeAvailableClassesRequest $request DescribeAvailableClassesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableClassesResponse
+     * @return DescribeAvailableClassesResponse DescribeAvailableClassesResponse
      */
     public function describeAvailableClassesWithOptions($request, $runtime)
     {
@@ -6309,9 +6315,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableClassesRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeAvailableClassesRequest $request DescribeAvailableClassesRequest
      *
-     * @return DescribeAvailableClassesResponse
+     * @return DescribeAvailableClassesResponse DescribeAvailableClassesResponse
      */
     public function describeAvailableClasses($request)
     {
@@ -12494,10 +12506,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionInfosRequest $request
-     * @param RuntimeOptions             $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeRegionInfosRequest $request DescribeRegionInfosRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionInfosResponse
+     * @return DescribeRegionInfosResponse DescribeRegionInfosResponse
      */
     public function describeRegionInfosWithOptions($request, $runtime)
     {
@@ -12537,9 +12555,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionInfosRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
+     *   *
+     * @param DescribeRegionInfosRequest $request DescribeRegionInfosRequest
      *
-     * @return DescribeRegionInfosResponse
+     * @return DescribeRegionInfosResponse DescribeRegionInfosResponse
      */
     public function describeRegionInfos($request)
     {
@@ -14682,14 +14706,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
-     *   * During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-     *   * *   The source and destination instances must be created by using the same user credentials.
-     *   * *   The instance is in the Running state.
-     *   * *   The source and destination databases must be in the Running state.
-     *   * *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
+     * ### [](#)Supported database engine
+     *   * *   SQL Server
+     *   * ### [](#)Description
+     *   * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
+     *   * ### [](#)Precautions
+     *   * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
+     *   * *   Before you call this operation, make sure that the following requirements are met:
+     *   *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
+     *   *     *   The source and destination instances must be created by using the same user credentials.
+     *   *     *   The instance is in the Running state.
+     *   *     *   The source and destination databases must be in the Running state.
+     *   *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
      *   * >
      *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
      *   * *   You can migrate the data of multiple databases at a time.
@@ -14743,14 +14771,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
-     *   * During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-     *   * *   The source and destination instances must be created by using the same user credentials.
-     *   * *   The instance is in the Running state.
-     *   * *   The source and destination databases must be in the Running state.
-     *   * *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
+     * ### [](#)Supported database engine
+     *   * *   SQL Server
+     *   * ### [](#)Description
+     *   * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
+     *   * ### [](#)Precautions
+     *   * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
+     *   * *   Before you call this operation, make sure that the following requirements are met:
+     *   *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
+     *   *     *   The source and destination instances must be created by using the same user credentials.
+     *   *     *   The instance is in the Running state.
+     *   *     *   The source and destination databases must be in the Running state.
+     *   *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
      *   * >
      *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
      *   * *   You can migrate the data of multiple databases at a time.
@@ -17670,10 +17702,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBNodeRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * ### [](#)References
+     *   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+     *   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~).
+     *   *
+     * @param ModifyDBNodeRequest $tmpReq  ModifyDBNodeRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBNodeResponse
+     * @return ModifyDBNodeResponse ModifyDBNodeResponse
      */
     public function modifyDBNodeWithOptions($tmpReq, $runtime)
     {
@@ -17739,9 +17777,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBNodeRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * ### [](#)References
+     *   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+     *   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~).
+     *   *
+     * @param ModifyDBNodeRequest $request ModifyDBNodeRequest
      *
-     * @return ModifyDBNodeResponse
+     * @return ModifyDBNodeResponse ModifyDBNodeResponse
      */
     public function modifyDBNode($request)
     {
@@ -20043,8 +20087,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * A disaster recovery instance is created.
+     * The operation is phased out.
      *   *
      * @param ReceiveDBInstanceRequest $request ReceiveDBInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -20092,8 +20135,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ## Prerequisites
-     *   * A disaster recovery instance is created.
+     * The operation is phased out.
      *   *
      * @param ReceiveDBInstanceRequest $request ReceiveDBInstanceRequest
      *
@@ -21616,10 +21658,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param SwitchGuardToMasterInstanceRequest $request
-     * @param RuntimeOptions                     $runtime
+     * This operation is phased out.
+     *   *
+     * @param SwitchGuardToMasterInstanceRequest $request SwitchGuardToMasterInstanceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchGuardToMasterInstanceResponse
+     * @return SwitchGuardToMasterInstanceResponse SwitchGuardToMasterInstanceResponse
      */
     public function switchGuardToMasterInstanceWithOptions($request, $runtime)
     {
@@ -21662,9 +21706,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param SwitchGuardToMasterInstanceRequest $request
+     * This operation is phased out.
+     *   *
+     * @param SwitchGuardToMasterInstanceRequest $request SwitchGuardToMasterInstanceRequest
      *
-     * @return SwitchGuardToMasterInstanceResponse
+     * @return SwitchGuardToMasterInstanceResponse SwitchGuardToMasterInstanceResponse
      */
     public function switchGuardToMasterInstance($request)
     {

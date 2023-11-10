@@ -115,7 +115,7 @@ class backup extends Model
     /**
      * @description The point in time at which the data in the backup set is consistent. The return value of this parameter is a timestamp.
      *
-     * > If the instance runs MySQL 5.6, a timestamp is returned. Otherwise, the value 0 is returned.
+     * >  If the instance runs MySQL 5.6, a timestamp is returned. Otherwise, the value 0 is returned.
      * @example 1576506856
      *
      * @var int
@@ -132,7 +132,7 @@ class backup extends Model
     public $DBInstanceComment;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

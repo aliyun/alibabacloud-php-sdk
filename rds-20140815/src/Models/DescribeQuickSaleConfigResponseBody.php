@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeQuickSaleConfigResponseBody extends Model
 {
     /**
-     * @description Product code.
+     * @description The product code. Valid values:
+     *
+     *   rds: The instance is a subscription instance.
+     *   bards: The instance is a pay-as-you-go instance.
      *
      * @example rds
      *
@@ -18,14 +21,14 @@ class DescribeQuickSaleConfigResponseBody extends Model
     public $commodity;
 
     /**
-     * @description Return data.
+     * @description The configuration details of the product.
      *
      * @var mixed[]
      */
     public $items;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 5DFFE9EC-3369-5937-A4E2-507C0C86A4C6
      *

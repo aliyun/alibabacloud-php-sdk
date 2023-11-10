@@ -60,7 +60,7 @@ class DescribeDBInstancesByExpireTimeRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -69,7 +69,7 @@ class DescribeDBInstancesByExpireTimeRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the resource group ID.
      *
      * @example rg-acfmy****
      *

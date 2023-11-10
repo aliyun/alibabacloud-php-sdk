@@ -11,10 +11,10 @@ class ModifyDBNodeShrinkRequest extends Model
     /**
      * @description Specifies whether to automatically complete the payment. Valid values:
      *
-     * 1.  **true**: automatically completes the payment. You must make sure that your account balance is sufficient.
+     * 1.  **true**: automatically completes the payment. Make sure that your account balance is sufficient.
      * 2.  **false**: does not automatically complete the payment. An unpaid order is generated.
      *
-     * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+     * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to pay for the order.
      * @example true
      *
      * @var bool
@@ -22,7 +22,7 @@ class ModifyDBNodeShrinkRequest extends Model
     public $autoPay;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxxx
      *
@@ -31,7 +31,7 @@ class ModifyDBNodeShrinkRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-bp1k8s41l2o52****
      *
@@ -40,7 +40,7 @@ class ModifyDBNodeShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The storage capacity of the new instance. Unit: GB. For more information, see [Instance types](~~26312~~).
+     * @description The new storage capacity of the instance. Unit: GB For more information, see [Instance types](~~26312~~).
      *
      * @example 20
      *
@@ -49,11 +49,11 @@ class ModifyDBNodeShrinkRequest extends Model
     public $DBInstanceStorage;
 
     /**
-     * @description The storage type of the new instance. Valid values:
+     * @description The storage type of the instance. Valid values:
      *
-     *   **local_ssd/ephemeral_ssd**: local SSD
-     *   **cloud_ssd**: standard SSD
-     *   **cloud_essd**: enhanced SSD (ESSD)
+     *   **cloud_essd**: performance level 1 (PL1) enhanced SSD (ESSD)
+     *   **cloud_essd2**: PL2 ESSD
+     *   **cloud_essd3**: PL3 ESSD
      *
      * @example cloud_essd
      *
@@ -62,17 +62,18 @@ class ModifyDBNodeShrinkRequest extends Model
     public $DBInstanceStorageType;
 
     /**
-     * @description An array that consists of the details of the node.
+     * @description The information about the node.
      *
+     * >  This parameter is supported for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
      * @var string
      */
     public $DBNodeShrink;
 
     /**
-     * @description Indicates that the system performed a dry run.
+     * @description Specifies whether to perform a dry run. Valid values: Valid values:
      *
-     *   The value is fixed as **true**.
-     *   If the system does not perform a dry run, this parameter is not returned.
+     *   **true**: performs a dry run and does not perform the actual request. The system checks items such as the request parameters, request format, service limits, and available resources.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
      *
      * @example false
      *
@@ -91,8 +92,12 @@ class ModifyDBNodeShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description Do you want to perform a pre check on the operation of this node change.
+     * @description Specifies whether to asynchronously perform the operation. Valid values:
      *
+     *   **true** (default): sends only the order. The operation is asynchronously performed.
+     *   **false**: sends the request. After the request passes the check, the operation is directly performed.
+     *
+     * >  The default value is true, which indicates that the change operation is asynchronously performed. If you set this parameter to false, the change operation is simultaneously performed. This prolongs the response time of the operation.
      * @example true
      *
      * @var bool

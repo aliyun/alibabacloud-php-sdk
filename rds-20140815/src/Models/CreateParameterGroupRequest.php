@@ -80,7 +80,7 @@ class CreateParameterGroupRequest extends Model
     public $parameters;
 
     /**
-     * @description The region ID of the parameter template. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the parameter template. You can call the DescribeRegions operation to query the most recent zone list.
      *
      * @example cn-hangzhou
      *
@@ -89,7 +89,7 @@ class CreateParameterGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource group ID. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the resource group ID.
      *
      * @example rg-acfmy*****
      *
