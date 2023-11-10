@@ -297,6 +297,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeHotelBillSettlementQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeHotelBillSettlementQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeHotelBillSettlementQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryResponse;
@@ -6813,6 +6816,71 @@ class BtripOpen extends OpenApiClient
         $headers = new IeFlightBillSettlementQueryHeaders([]);
 
         return $this->ieFlightBillSettlementQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param IeHotelBillSettlementQueryRequest $request
+     * @param IeHotelBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return IeHotelBillSettlementQueryResponse
+     */
+    public function ieHotelBillSettlementQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->periodEnd)) {
+            $query['period_end'] = $request->periodEnd;
+        }
+        if (!Utils::isUnset($request->periodStart)) {
+            $query['period_start'] = $request->periodStart;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IeHotelBillSettlementQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ie-hotel/v1/bill-settlement',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IeHotelBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param IeHotelBillSettlementQueryRequest $request
+     *
+     * @return IeHotelBillSettlementQueryResponse
+     */
+    public function ieHotelBillSettlementQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IeHotelBillSettlementQueryHeaders([]);
+
+        return $this->ieHotelBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
