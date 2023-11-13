@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeBlockStatusRequest extends Model
 {
     /**
+     * @description An array consisting of information about the IDs of the instances that you want to query.
+     *
+     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not configure this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;

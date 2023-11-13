@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class payloadLen extends Model
 {
     /**
+     * @description The maximum length of a packet. Valid values: **0** to **6000**. Unit: bytes.
+     *
+     * @example 6000
+     *
      * @var int
      */
     public $max;
 
     /**
+     * @description The minimum length of a packet. Valid values: **0** to **6000**. Unit: bytes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $min;

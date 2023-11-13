@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSchedulerRulesResponseBody extends Model
 {
     /**
+     * @example 11C55595-1757-4B17-9ACE-4ACB68C2D989
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class DescribeSchedulerRulesResponseBody extends Model
     public $schedulerRules;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

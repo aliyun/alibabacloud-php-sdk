@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDosEventAreaResponseBody extends Model
 {
     /**
+     * @description The information about the source region from which the volumetric attack was initiated.
+     *
      * @var areas[]
      */
     public $areas;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 11710C9F-BC5E-481A-BEC5-C6D8FBFCA827
+     *
      * @var string
      */
     public $requestId;

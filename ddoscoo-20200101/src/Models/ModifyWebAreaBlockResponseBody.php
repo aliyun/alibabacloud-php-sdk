@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebAreaBlockResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5AA2BD65-E289-4E91-9DD9-3E1FB2140D17
+     *
      * @var string
      */
     public $requestId;

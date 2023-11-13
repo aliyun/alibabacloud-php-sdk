@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SwitchSchedulerRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 7E3C301F-84BB-50E4-9DB9-2937B2429C1E
+     *
      * @var string
      */
     public $requestId;

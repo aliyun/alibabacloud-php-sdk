@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class domainAttackEvents extends Model
 {
     /**
+     * @description The attacked domain name.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The time when the DDoS attack stopped. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1560320160
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The peak attack QPS.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxQps;
 
     /**
+     * @description The time when the DDoS attack started. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1560312900
+     *
      * @var int
      */
     public $startTime;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkRulesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details of a port forwarding rule.
+     *
      * @var networkRules[]
      */
     public $networkRules;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 8597F235-FA5E-4FC7-BAD9-E4C0B01BC771
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned port forwarding rules.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

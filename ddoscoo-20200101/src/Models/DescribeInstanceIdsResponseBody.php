@@ -15,6 +15,8 @@ class DescribeInstanceIdsResponseBody extends Model
     public $instanceIds;
 
     /**
+     * @example 310A41FD-0990-5610-92E0-A6A55D7C6444
+     *
      * @var string
      */
     public $requestId;

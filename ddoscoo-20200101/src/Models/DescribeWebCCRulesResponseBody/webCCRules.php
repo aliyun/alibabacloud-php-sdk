@@ -9,36 +9,70 @@ use AlibabaCloud\Tea\Model;
 class webCCRules extends Model
 {
     /**
+     * @description The blocking type. Valid values:
+     *
+     *   **close**: blocks requests.
+     *   **captcha**: enables Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification.
+     *
+     * @example close
+     *
      * @var string
      */
     public $act;
 
     /**
+     * @description The number of requests that are allowed from an individual IP address. Valid values: **2** to **2000**.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The check intervals. Valid values: **5** to **10800**. Unit: seconds.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The match mode. Valid values:
+     *
+     *   **prefix**: prefix match
+     *   **match**: exact match
+     *
+     * @example prefix
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example wq
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The blocking duration. Valid values: **1** to **1440**. Unit: minutes.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @description The check path.
+     *
+     * @example /hello
+     *
      * @var string
      */
     public $uri;

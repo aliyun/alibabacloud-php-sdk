@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class objects extends Model
 {
     /**
+     * @description The domain name that is protected by the policy.
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The ID of the policy.
+     *
+     * @example 47e07ebd-0ba5-4afc-957b-59d15b90****
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @description The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance that is protected by the policy.
+     *
+     * @example 203.XX.XX.119
+     *
      * @var string
      */
     public $vip;

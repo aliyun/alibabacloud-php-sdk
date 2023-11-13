@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class networkRules extends Model
 {
     /**
+     * @description The port of the origin server.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $backendPort;
 
     /**
+     * @description The forwarding port.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $frontendPort;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether the port forwarding rule is automatically created. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isAutoCreate;
 
     /**
+     * @description The forwarding protocol. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description An array that consists of IP addresses of origin servers.
+     *
      * @var string[]
      */
     public $realServers;

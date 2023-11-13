@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeLayer4RulePolicyRequest extends Model
 {
     /**
+     * @description The port forwarding rule that you want to query.
+     *
+     * Each port forwarding rule contains the following fields:
+     *
+     *   **InstanceId**: the ID of the instance. This field is required and must be of the string type.
+     *   **Protocol**: the forwarding protocol. This field is required and must be of the string type. Valid values: **tcp** and **udp**.
+     *   **FrontendPort**: the forwarding port. This field is required and must be of the integer type.
+     *
+     * @example [{\"InstanceId\":\"ddosDip-sg-4hr2b3l****\",\"FrontendPort\":2020,\"Protocol\":\"udp\"}]
+     *
      * @var string
      */
     public $listeners;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebCCRulesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example EAED912D-909E-45F0-AF74-AC0CCDCAE314
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned custom frequency control rules.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description An array that consists of the details of the custom frequency control rule.
+     *
      * @var webCCRules[]
      */
     public $webCCRules;

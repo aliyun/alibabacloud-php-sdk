@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeSceneDefensePoliciesRequest extends Model
 {
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not configure this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the policy. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: pending enabling
+     *   **2**: enabled
+     *   **3**: expired
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the template that is used to create the policy. Valid values:
+     *
+     *   **promotion**: the Important Activity template
+     *   **bypass**: the Forward All template
+     *
+     * @example promotion
+     *
      * @var string
      */
     public $template;

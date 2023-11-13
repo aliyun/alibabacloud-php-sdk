@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticBandwidthSpecResponseBody extends Model
 {
     /**
+     * @description An array that consists of the available burstable protection bandwidths. Unit: Gbit/s.
+     *
      * @var string[]
      */
     public $elasticBandwidthSpec;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+     *
      * @var string
      */
     public $requestId;

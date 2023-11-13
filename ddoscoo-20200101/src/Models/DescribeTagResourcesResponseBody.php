@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagResourcesResponseBody extends Model
 {
     /**
+     * @description The query token that is returned in this call.
+     *
+     * @example RGuYpqDdKhzXb8C3.D1BwQgc1tMBsoxdGiEKHHUUCf****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 36E698F7-48A4-48D0-9554-0BB4BAAB99B3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of the details of the tags that are added to the Anti-DDoS Pro instance.
+     *
      * @var tagResources
      */
     public $tagResources;

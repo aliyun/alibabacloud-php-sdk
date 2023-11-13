@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainResourceRequest extends Model
 {
     /**
+     * @description The domain name for which the forwarding rule is configured.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeUnBlockCountRequest extends Model
 {
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;

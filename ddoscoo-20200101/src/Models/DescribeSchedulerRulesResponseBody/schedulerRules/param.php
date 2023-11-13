@@ -15,6 +15,8 @@ class param extends Model
     public $paramData;
 
     /**
+     * @example GA
+     *
      * @var string
      */
     public $paramType;

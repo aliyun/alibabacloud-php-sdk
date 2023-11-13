@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkRegionBlockResponseBody extends Model
 {
     /**
+     * @description The configuration of blocked locations.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class ModifyHttp2EnableRequest extends Model
 {
     /**
+     * @description The domain name of the website.
+     *
+     * > A forwarding rule must be configured for the domain name, and the domain name must be associated with an instance that uses the Enhanced function plan. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description Specifies whether to enable HTTP/2. Valid values:
+     *
+     *   **0**: disables HTTP/2.
+     *   **1**: enables HTTP/2.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enable;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;

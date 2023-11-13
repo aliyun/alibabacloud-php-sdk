@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The key of the tag that you want to query.
+     *
+     * >
+     *
+     *   You must specify at least one of the **ResourceIds.N** and **Tags.N.Key** parameters.
+     *
+     *   You can call the [DescribeTagKeys](~~159785~~) operation to query all tag keys.
+     *
+     * @example testkey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag that you want to query.
+     *
+     * @example testvalue
+     *
      * @var string
      */
     public $value;

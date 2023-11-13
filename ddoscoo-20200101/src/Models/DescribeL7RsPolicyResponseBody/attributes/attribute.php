@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class attribute extends Model
 {
     /**
+     * @description The weight of the origin server. This parameter takes effect only when **ProxyMode** is set to **rr**.
+     *
+     * Valid values: **1** to **100**. Default value: **100**. A server with a higher weight receives more requests.
+     * @example 100
+     *
      * @var int
      */
     public $weight;

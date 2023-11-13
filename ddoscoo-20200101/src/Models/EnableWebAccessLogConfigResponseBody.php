@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class EnableWebAccessLogConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
+     *
      * @var string
      */
     public $requestId;

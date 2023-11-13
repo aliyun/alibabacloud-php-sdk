@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDosEventAreaRequest extends Model
 {
     /**
+     * @description The type of the attack event that you want to query. Valid values:
+     *
+     *   **defense**: attack events that trigger traffic scrubbing
+     *   **blackhole**: attack events that trigger blackhole filtering
+     *
+     * @example defense
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *
+     * @example 203.***.***.199
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The UNIX timestamp when the query starts. Unit: seconds.
+     *
+     * > You can call the [DescribeDDosAllEventList](~~188604~~) operation to query the beginning time of all attack events.
+     * @example 1598948471
+     *
      * @var int
      */
     public $startTime;

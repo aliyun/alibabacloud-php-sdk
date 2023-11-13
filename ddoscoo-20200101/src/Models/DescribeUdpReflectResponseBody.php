@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUdpReflectResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F97A8766-FB4D-411A-9CD5-2CFF701B592F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of the source ports of the UDP traffic that are filtered out by the filtering policies for UDP reflection attacks.
+     *
      * @var string[]
      */
     public $udpSports;

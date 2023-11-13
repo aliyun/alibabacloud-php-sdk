@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ModifyCnameReuseRequest extends Model
 {
     /**
+     * @description The CNAME record that you want to reuse for the website.
+     *
+     * @example 4o6ep6q217k9****.aliyunddos0004.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @description The domain name of the website.
+     *
+     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description Specifies whether to enable CNAME reuse. Valid values:
+     *
+     *   **1**: enables CNAME reuse.
+     *   **2**: disables CNAME reuse.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enable;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainOverviewResponseBody extends Model
 {
     /**
+     * @description The peak queries per second (QPS) during HTTP traffic scrubbing. Unit: QPS.
+     *
+     * @example 41652
+     *
      * @var int
      */
     public $maxHttp;
 
     /**
+     * @description The peak QPS during HTTPS traffic scrubbing. Unit: QPS.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $maxHttps;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;

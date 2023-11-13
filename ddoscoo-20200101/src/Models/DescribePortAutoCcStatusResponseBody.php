@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePortAutoCcStatusResponseBody extends Model
 {
     /**
+     * @description An array that consists of the configurations of the Intelligent Protection policy.
+     *
      * @var portAutoCcStatus[]
      */
     public $portAutoCcStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BC3C6403-F248-4125-B2C9-8733ED94EA85
+     *
      * @var string
      */
     public $requestId;

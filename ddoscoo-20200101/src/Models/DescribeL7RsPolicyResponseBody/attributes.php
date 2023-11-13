@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class attributes extends Model
 {
     /**
+     * @description The parameter for back-to-origin.
+     *
      * @var attribute
      */
     public $attribute;
 
     /**
+     * @description The address of the origin server.
+     *
+     * @example 1.***.***.1
+     *
      * @var string
      */
     public $realServer;
 
     /**
+     * @description The address type of the origin server. Valid values:
+     *
+     *   **0**: IP address
+     *   **1**: domain name
+     *
+     * @example 0
+     *
      * @var int
      */
     public $rsType;

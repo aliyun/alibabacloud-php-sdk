@@ -10,46 +10,92 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @description The execution status of the policy. Valid values:
+     *
+     *   **1**: not executed or execution completed
+     *   **0**: being executed
+     *   **-1**: execution failed
+     *
+     * @example 1
+     *
      * @var int
      */
     public $done;
 
     /**
+     * @description The time at which the policy expires. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1586016000000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example testpolicy
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of objects that are protected by the policy.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $objectCount;
 
     /**
+     * @description The ID of the policy.
+     *
+     * @example 321a-fd31-df51-****
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @description The running rules of the policy.
+     *
      * @var runtimePolicies[]
      */
     public $runtimePolicies;
 
     /**
+     * @description The time at which the policy takes effect. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1585670400000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status of the policy. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: pending enabling
+     *   **2**: enabled
+     *   **3**: expired
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The type of the template that is used to create the policy. Valid values:
+     *
+     *   **promotion**: the Important Activity template
+     *   **bypass**: the Forward All template
+     *
+     * @example promotion
+     *
      * @var string
      */
     public $template;

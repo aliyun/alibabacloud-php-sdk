@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class gmCert extends Model
 {
     /**
+     * @example 725****
+     *
      * @var string
      */
     public $certId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $gmEnable;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $gmOnly;

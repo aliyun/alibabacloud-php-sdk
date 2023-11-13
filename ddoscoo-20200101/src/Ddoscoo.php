@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AttachSceneDefenseObjectRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AttachSceneDefenseObjectResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7RsPolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7RsPolicyResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RealLimitRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RealLimitResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RemarkRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RemarkResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RuleBakModeRequest;
@@ -124,6 +126,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQpsWithCacheRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQpsWithCacheResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainResourceRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainResourceResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainSecurityProfileRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainSecurityProfileResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainStatusCodeCountRequest;
@@ -142,12 +146,16 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainViewTopUrlRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainViewTopUrlResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeElasticBandwidthSpecRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeElasticBandwidthSpecResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHeadersRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHeadersResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHealthCheckListRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHealthCheckListResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHealthCheckStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHealthCheckStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceDetailsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceDetailsResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceExtRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceExtResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceIdsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceIdsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceSpecsRequest;
@@ -198,6 +206,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSceneDefensePoliciesReques
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSceneDefensePoliciesResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSchedulerRulesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSchedulerRulesResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSlaEventListRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSlaEventListResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSlsAuthStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSlsAuthStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSlsLogstoreInfoRequest;
@@ -212,6 +222,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTagKeysRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTagKeysResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTagResourcesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTagResourcesResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTotalAttackMaxFlowRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTotalAttackMaxFlowResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeUdpReflectRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeUdpReflectResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeUnBlackholeCountRequest;
@@ -266,6 +278,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\EnableWebCCRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\EnableWebCCResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\EnableWebCCRuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\EnableWebCCRuleResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyBizBandWidthModeRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyBizBandWidthModeResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyBlackholeStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyBlackholeStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyBlockStatusRequest;
@@ -276,8 +290,12 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyDomainResourceRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyDomainResourceResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBandWidthRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBandWidthResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBizBandWidthRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBizBandWidthResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyFullLogTtlRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyFullLogTtlResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyHeadersRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyHeadersResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyHealthCheckConfigRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyHealthCheckConfigResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyHttp2EnableRequest;
@@ -286,6 +304,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyInstanceRemarkRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyInstanceRemarkResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyNetworkRuleAttributeRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyNetworkRuleAttributeResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyOcspStatusRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyOcspStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortAutoCcStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortAutoCcStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortRequest;
@@ -415,10 +435,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param AddAutoCcWhitelistRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
+     *   * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](~~157505~~) operation to remove the IP addresses from the whitelist.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param AddAutoCcWhitelistRequest $request AddAutoCcWhitelistRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddAutoCcWhitelistResponse
+     * @return AddAutoCcWhitelistResponse AddAutoCcWhitelistResponse
      */
     public function addAutoCcWhitelistWithOptions($request, $runtime)
     {
@@ -452,9 +477,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param AddAutoCcWhitelistRequest $request
+     * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
+     *   * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](~~157505~~) operation to remove the IP addresses from the whitelist.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param AddAutoCcWhitelistRequest $request AddAutoCcWhitelistRequest
      *
-     * @return AddAutoCcWhitelistResponse
+     * @return AddAutoCcWhitelistResponse AddAutoCcWhitelistResponse
      */
     public function addAutoCcWhitelist($request)
     {
@@ -479,8 +509,14 @@ class Ddoscoo extends OpenApiClient
         if (!Utils::isUnset($request->certId)) {
             $query['CertId'] = $request->certId;
         }
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $query['CertIdentifier'] = $request->certIdentifier;
+        }
         if (!Utils::isUnset($request->certName)) {
             $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certRegion)) {
+            $query['CertRegion'] = $request->certRegion;
         }
         if (!Utils::isUnset($request->domain)) {
             $query['Domain'] = $request->domain;
@@ -571,10 +607,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigL7RsPolicyRequest $request
-     * @param RuntimeOptions          $runtime
+     * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+     *   *
+     * @param ConfigL7RsPolicyRequest $request ConfigL7RsPolicyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigL7RsPolicyResponse
+     * @return ConfigL7RsPolicyResponse ConfigL7RsPolicyResponse
      */
     public function configL7RsPolicyWithOptions($request, $runtime)
     {
@@ -608,15 +646,63 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigL7RsPolicyRequest $request
+     * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+     *   *
+     * @param ConfigL7RsPolicyRequest $request ConfigL7RsPolicyRequest
      *
-     * @return ConfigL7RsPolicyResponse
+     * @return ConfigL7RsPolicyResponse ConfigL7RsPolicyResponse
      */
     public function configL7RsPolicy($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->configL7RsPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfigLayer4RealLimitRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ConfigLayer4RealLimitResponse
+     */
+    public function configLayer4RealLimitWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->limitValue)) {
+            $query['LimitValue'] = $request->limitValue;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigLayer4RealLimit',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfigLayer4RealLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConfigLayer4RealLimitRequest $request
+     *
+     * @return ConfigLayer4RealLimitResponse
+     */
+    public function configLayer4RealLimit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configLayer4RealLimitWithOptions($request, $runtime);
     }
 
     /**
@@ -841,10 +927,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigUdpReflectRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ConfigUdpReflectRequest $request ConfigUdpReflectRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigUdpReflectResponse
+     * @return ConfigUdpReflectResponse ConfigUdpReflectResponse
      */
     public function configUdpReflectWithOptions($request, $runtime)
     {
@@ -878,9 +968,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigUdpReflectRequest $request
+     * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ConfigUdpReflectRequest $request ConfigUdpReflectRequest
      *
-     * @return ConfigUdpReflectResponse
+     * @return ConfigUdpReflectResponse ConfigUdpReflectResponse
      */
     public function configUdpReflect($request)
     {
@@ -1141,10 +1235,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CreatePortRequest $request
-     * @param RuntimeOptions    $runtime
+     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+     *   *
+     * @param CreatePortRequest $request CreatePortRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePortResponse
+     * @return CreatePortResponse CreatePortResponse
      */
     public function createPortWithOptions($request, $runtime)
     {
@@ -1184,9 +1280,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CreatePortRequest $request
+     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+     *   *
+     * @param CreatePortRequest $request CreatePortRequest
      *
-     * @return CreatePortResponse
+     * @return CreatePortResponse CreatePortResponse
      */
     public function createPort($request)
     {
@@ -1303,10 +1401,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CreateTagResourcesRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Pro instances at a time.
+     *   * > Anti-DDoS Premium does not support the tag feature.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateTagResourcesRequest $request CreateTagResourcesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTagResourcesResponse
+     * @return CreateTagResourcesResponse CreateTagResourcesResponse
      */
     public function createTagResourcesWithOptions($request, $runtime)
     {
@@ -1346,9 +1449,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CreateTagResourcesRequest $request
+     * You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Pro instances at a time.
+     *   * > Anti-DDoS Premium does not support the tag feature.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateTagResourcesRequest $request CreateTagResourcesRequest
      *
-     * @return CreateTagResourcesResponse
+     * @return CreateTagResourcesResponse CreateTagResourcesResponse
      */
     public function createTagResources($request)
     {
@@ -1710,10 +1818,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeletePortRequest $request
-     * @param RuntimeOptions    $runtime
+     * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
+     *   * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+     *   *
+     * @param DeletePortRequest $request DeletePortRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePortResponse
+     * @return DeletePortResponse DeletePortResponse
      */
     public function deletePortWithOptions($request, $runtime)
     {
@@ -1753,9 +1864,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeletePortRequest $request
+     * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
+     *   * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+     *   *
+     * @param DeletePortRequest $request DeletePortRequest
      *
-     * @return DeletePortResponse
+     * @return DeletePortResponse DeletePortResponse
      */
     public function deletePort($request)
     {
@@ -1854,10 +1968,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteTagResourcesRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Pro instances.
+     *   * > Only Anti-DDoS Pro supports tags.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteTagResourcesRequest $request DeleteTagResourcesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTagResourcesResponse
+     * @return DeleteTagResourcesResponse DeleteTagResourcesResponse
      */
     public function deleteTagResourcesWithOptions($request, $runtime)
     {
@@ -1900,9 +2019,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteTagResourcesRequest $request
+     * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Pro instances.
+     *   * > Only Anti-DDoS Pro supports tags.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteTagResourcesRequest $request DeleteTagResourcesRequest
      *
-     * @return DeleteTagResourcesResponse
+     * @return DeleteTagResourcesResponse DeleteTagResourcesResponse
      */
     public function deleteTagResources($request)
     {
@@ -1961,10 +2085,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteWebCacheCustomRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteWebCacheCustomRuleRequest $request DeleteWebCacheCustomRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWebCacheCustomRuleResponse
+     * @return DeleteWebCacheCustomRuleResponse DeleteWebCacheCustomRuleResponse
      */
     public function deleteWebCacheCustomRuleWithOptions($request, $runtime)
     {
@@ -1998,9 +2126,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteWebCacheCustomRuleRequest $request
+     * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteWebCacheCustomRuleRequest $request DeleteWebCacheCustomRuleRequest
      *
-     * @return DeleteWebCacheCustomRuleResponse
+     * @return DeleteWebCacheCustomRuleResponse DeleteWebCacheCustomRuleResponse
      */
     public function deleteWebCacheCustomRule($request)
     {
@@ -2105,10 +2237,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeAsyncTasksRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeAsyncTasksRequest $request DescribeAsyncTasksRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAsyncTasksResponse
+     * @return DescribeAsyncTasksResponse DescribeAsyncTasksResponse
      */
     public function describeAsyncTasksWithOptions($request, $runtime)
     {
@@ -2142,9 +2278,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeAsyncTasksRequest $request
+     * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeAsyncTasksRequest $request DescribeAsyncTasksRequest
      *
-     * @return DescribeAsyncTasksResponse
+     * @return DescribeAsyncTasksResponse DescribeAsyncTasksResponse
      */
     public function describeAsyncTasks($request)
     {
@@ -2359,6 +2499,9 @@ class Ddoscoo extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
         if (!Utils::isUnset($request->line)) {
             $query['Line'] = $request->line;
         }
@@ -2439,10 +2582,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeBlockStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * This operation is used to query the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
+     *   * > This operation is suitable only for Anti-DDoS Pro.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeBlockStatusRequest $request DescribeBlockStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBlockStatusResponse
+     * @return DescribeBlockStatusResponse DescribeBlockStatusResponse
      */
     public function describeBlockStatusWithOptions($request, $runtime)
     {
@@ -2473,9 +2621,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeBlockStatusRequest $request
+     * This operation is used to query the Diversion from Origin Server configurations of one or more Anti-DDoS Pro instances.
+     *   * > This operation is suitable only for Anti-DDoS Pro.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeBlockStatusRequest $request DescribeBlockStatusRequest
      *
-     * @return DescribeBlockStatusResponse
+     * @return DescribeBlockStatusResponse DescribeBlockStatusResponse
      */
     public function describeBlockStatus($request)
     {
@@ -2635,10 +2788,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDosAllEventListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDDosAllEventListRequest $request DescribeDDosAllEventListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDDosAllEventListResponse
+     * @return DescribeDDosAllEventListResponse DescribeDDosAllEventListResponse
      */
     public function describeDDosAllEventListWithOptions($request, $runtime)
     {
@@ -2678,9 +2835,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDosAllEventListRequest $request
+     * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDDosAllEventListRequest $request DescribeDDosAllEventListRequest
      *
-     * @return DescribeDDosAllEventListResponse
+     * @return DescribeDDosAllEventListResponse DescribeDDosAllEventListResponse
      */
     public function describeDDosAllEventList($request)
     {
@@ -2690,10 +2851,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDosEventAreaRequest $request
-     * @param RuntimeOptions               $runtime
+     * > This operation is suitable only for volumetric attacks.
+     *   *
+     * @param DescribeDDosEventAreaRequest $request DescribeDDosEventAreaRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDDosEventAreaResponse
+     * @return DescribeDDosEventAreaResponse DescribeDDosEventAreaResponse
      */
     public function describeDDosEventAreaWithOptions($request, $runtime)
     {
@@ -2727,9 +2890,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDosEventAreaRequest $request
+     * > This operation is suitable only for volumetric attacks.
+     *   *
+     * @param DescribeDDosEventAreaRequest $request DescribeDDosEventAreaRequest
      *
-     * @return DescribeDDosEventAreaResponse
+     * @return DescribeDDosEventAreaResponse DescribeDDosEventAreaResponse
      */
     public function describeDDosEventArea($request)
     {
@@ -2739,10 +2904,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDosEventAttackTypeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * > This operation is suitable only for volumetric attacks.
+     *   *
+     * @param DescribeDDosEventAttackTypeRequest $request DescribeDDosEventAttackTypeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDDosEventAttackTypeResponse
+     * @return DescribeDDosEventAttackTypeResponse DescribeDDosEventAttackTypeResponse
      */
     public function describeDDosEventAttackTypeWithOptions($request, $runtime)
     {
@@ -2776,9 +2943,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDosEventAttackTypeRequest $request
+     * > This operation is suitable only for volumetric attacks.
+     *   *
+     * @param DescribeDDosEventAttackTypeRequest $request DescribeDDosEventAttackTypeRequest
      *
-     * @return DescribeDDosEventAttackTypeResponse
+     * @return DescribeDDosEventAttackTypeResponse DescribeDDosEventAttackTypeResponse
      */
     public function describeDDosEventAttackType($request)
     {
@@ -2788,10 +2957,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDosEventIspRequest $request
-     * @param RuntimeOptions              $runtime
+     * > This operation is suitable only for volumetric attacks.
+     *   *
+     * @param DescribeDDosEventIspRequest $request DescribeDDosEventIspRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDDosEventIspResponse
+     * @return DescribeDDosEventIspResponse DescribeDDosEventIspResponse
      */
     public function describeDDosEventIspWithOptions($request, $runtime)
     {
@@ -2825,9 +2996,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDosEventIspRequest $request
+     * > This operation is suitable only for volumetric attacks.
+     *   *
+     * @param DescribeDDosEventIspRequest $request DescribeDDosEventIspRequest
      *
-     * @return DescribeDDosEventIspResponse
+     * @return DescribeDDosEventIspResponse DescribeDDosEventIspResponse
      */
     public function describeDDosEventIsp($request)
     {
@@ -2883,10 +3056,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDosEventSrcIpRequest $request
-     * @param RuntimeOptions                $runtime
+     * > This operation is suitable only for volumetric attacks.
+     *   *
+     * @param DescribeDDosEventSrcIpRequest $request DescribeDDosEventSrcIpRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDDosEventSrcIpResponse
+     * @return DescribeDDosEventSrcIpResponse DescribeDDosEventSrcIpResponse
      */
     public function describeDDosEventSrcIpWithOptions($request, $runtime)
     {
@@ -2923,9 +3098,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDosEventSrcIpRequest $request
+     * > This operation is suitable only for volumetric attacks.
+     *   *
+     * @param DescribeDDosEventSrcIpRequest $request DescribeDDosEventSrcIpRequest
      *
-     * @return DescribeDDosEventSrcIpResponse
+     * @return DescribeDDosEventSrcIpResponse DescribeDDosEventSrcIpResponse
      */
     public function describeDDosEventSrcIp($request)
     {
@@ -2935,10 +3112,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseCountStatisticsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Premium instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of available global advanced mitigation sessions.
+     *   * > This operation is suitable only for Anti-DDoS Premium.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDefenseCountStatisticsRequest $request DescribeDefenseCountStatisticsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseCountStatisticsResponse
+     * @return DescribeDefenseCountStatisticsResponse DescribeDefenseCountStatisticsResponse
      */
     public function describeDefenseCountStatisticsWithOptions($request, $runtime)
     {
@@ -2966,9 +3148,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseCountStatisticsRequest $request
+     * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Premium instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of available global advanced mitigation sessions.
+     *   * > This operation is suitable only for Anti-DDoS Premium.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDefenseCountStatisticsRequest $request DescribeDefenseCountStatisticsRequest
      *
-     * @return DescribeDefenseCountStatisticsResponse
+     * @return DescribeDefenseCountStatisticsResponse DescribeDefenseCountStatisticsResponse
      */
     public function describeDefenseCountStatistics($request)
     {
@@ -2978,10 +3165,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseRecordsRequest $request
-     * @param RuntimeOptions                $runtime
+     * > This operation is suitable only for Anti-DDoS Premium.
+     *   *
+     * @param DescribeDefenseRecordsRequest $request DescribeDefenseRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseRecordsResponse
+     * @return DescribeDefenseRecordsResponse DescribeDefenseRecordsResponse
      */
     public function describeDefenseRecordsWithOptions($request, $runtime)
     {
@@ -3024,9 +3213,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseRecordsRequest $request
+     * > This operation is suitable only for Anti-DDoS Premium.
+     *   *
+     * @param DescribeDefenseRecordsRequest $request DescribeDefenseRecordsRequest
      *
-     * @return DescribeDefenseRecordsResponse
+     * @return DescribeDefenseRecordsResponse DescribeDefenseRecordsResponse
      */
     public function describeDefenseRecords($request)
     {
@@ -3253,10 +3444,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainResourceRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
+     *   * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+     *   * ### Limits
+     *   * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDomainResourceRequest $request DescribeDomainResourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainResourceResponse
+     * @return DescribeDomainResourceResponse DescribeDomainResourceResponse
      */
     public function describeDomainResourceWithOptions($request, $runtime)
     {
@@ -3296,15 +3492,63 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainResourceRequest $request
+     * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
+     *   * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+     *   * ### Limits
+     *   * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDomainResourceRequest $request DescribeDomainResourceRequest
      *
-     * @return DescribeDomainResourceResponse
+     * @return DescribeDomainResourceResponse DescribeDomainResourceResponse
      */
     public function describeDomainResource($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDomainResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDomainSecurityProfileRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDomainSecurityProfileResponse
+     */
+    public function describeDomainSecurityProfileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSecurityProfile',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainSecurityProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainSecurityProfileRequest $request
+     *
+     * @return DescribeDomainSecurityProfileResponse
+     */
+    public function describeDomainSecurityProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainSecurityProfileWithOptions($request, $runtime);
     }
 
     /**
@@ -3727,10 +3971,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeElasticBandwidthSpecRequest $request
-     * @param RuntimeOptions                      $runtime
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   *
+     * @param DescribeElasticBandwidthSpecRequest $request DescribeElasticBandwidthSpecRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeElasticBandwidthSpecResponse
+     * @return DescribeElasticBandwidthSpecResponse DescribeElasticBandwidthSpecResponse
      */
     public function describeElasticBandwidthSpecWithOptions($request, $runtime)
     {
@@ -3758,15 +4004,63 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeElasticBandwidthSpecRequest $request
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   *
+     * @param DescribeElasticBandwidthSpecRequest $request DescribeElasticBandwidthSpecRequest
      *
-     * @return DescribeElasticBandwidthSpecResponse
+     * @return DescribeElasticBandwidthSpecResponse DescribeElasticBandwidthSpecResponse
      */
     public function describeElasticBandwidthSpec($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeElasticBandwidthSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHeadersRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeHeadersResponse
+     */
+    public function describeHeadersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHeaders',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHeadersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHeadersRequest $request
+     *
+     * @return DescribeHeadersResponse
+     */
+    public function describeHeaders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHeadersWithOptions($request, $runtime);
     }
 
     /**
@@ -3856,10 +4150,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceDetailsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeInstanceDetailsRequest $request DescribeInstanceDetailsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceDetailsResponse
+     * @return DescribeInstanceDetailsResponse DescribeInstanceDetailsResponse
      */
     public function describeInstanceDetailsWithOptions($request, $runtime)
     {
@@ -3887,15 +4185,68 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceDetailsRequest $request
+     * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeInstanceDetailsRequest $request DescribeInstanceDetailsRequest
      *
-     * @return DescribeInstanceDetailsResponse
+     * @return DescribeInstanceDetailsResponse DescribeInstanceDetailsResponse
      */
     public function describeInstanceDetails($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceExtRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInstanceExtResponse
+     */
+    public function describeInstanceExtWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceExt',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceExtResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceExtRequest $request
+     *
+     * @return DescribeInstanceExtResponse
+     */
+    public function describeInstanceExt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceExtWithOptions($request, $runtime);
     }
 
     /**
@@ -3948,10 +4299,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSpecsRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeInstanceSpecsRequest $request DescribeInstanceSpecsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceSpecsResponse
+     * @return DescribeInstanceSpecsResponse DescribeInstanceSpecsResponse
      */
     public function describeInstanceSpecsWithOptions($request, $runtime)
     {
@@ -3979,9 +4334,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSpecsRequest $request
+     * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeInstanceSpecsRequest $request DescribeInstanceSpecsRequest
      *
-     * @return DescribeInstanceSpecsResponse
+     * @return DescribeInstanceSpecsResponse DescribeInstanceSpecsResponse
      */
     public function describeInstanceSpecs($request)
     {
@@ -4080,10 +4439,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+     *   *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
@@ -4144,9 +4505,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
+     * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+     *   *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -4432,10 +4795,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeOpEntitiesRequest $request
-     * @param RuntimeOptions            $runtime
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+     *   *
+     * @param DescribeOpEntitiesRequest $request DescribeOpEntitiesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOpEntitiesResponse
+     * @return DescribeOpEntitiesResponse DescribeOpEntitiesResponse
      */
     public function describeOpEntitiesWithOptions($request, $runtime)
     {
@@ -4481,9 +4847,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeOpEntitiesRequest $request
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+     *   *
+     * @param DescribeOpEntitiesRequest $request DescribeOpEntitiesRequest
      *
-     * @return DescribeOpEntitiesResponse
+     * @return DescribeOpEntitiesResponse DescribeOpEntitiesResponse
      */
     public function describeOpEntities($request)
     {
@@ -4493,10 +4862,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribePortRequest $request
-     * @param RuntimeOptions      $runtime
+     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+     *   *
+     * @param DescribePortRequest $request DescribePortRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePortResponse
+     * @return DescribePortResponse DescribePortResponse
      */
     public function describePortWithOptions($request, $runtime)
     {
@@ -4536,9 +4907,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribePortRequest $request
+     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+     *   *
+     * @param DescribePortRequest $request DescribePortRequest
      *
-     * @return DescribePortResponse
+     * @return DescribePortResponse DescribePortResponse
      */
     public function describePort($request)
     {
@@ -4548,10 +4921,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribePortAttackMaxFlowRequest $request
-     * @param RuntimeOptions                   $runtime
+     * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribePortAttackMaxFlowRequest $request DescribePortAttackMaxFlowRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePortAttackMaxFlowResponse
+     * @return DescribePortAttackMaxFlowResponse DescribePortAttackMaxFlowResponse
      */
     public function describePortAttackMaxFlowWithOptions($request, $runtime)
     {
@@ -4588,9 +4965,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribePortAttackMaxFlowRequest $request
+     * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribePortAttackMaxFlowRequest $request DescribePortAttackMaxFlowRequest
      *
-     * @return DescribePortAttackMaxFlowResponse
+     * @return DescribePortAttackMaxFlowResponse DescribePortAttackMaxFlowResponse
      */
     public function describePortAttackMaxFlow($request)
     {
@@ -4915,10 +5296,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribePortViewSourceIspsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+     *   * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](~~157460~~) operation.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribePortViewSourceIspsRequest $request DescribePortViewSourceIspsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePortViewSourceIspsResponse
+     * @return DescribePortViewSourceIspsResponse DescribePortViewSourceIspsResponse
      */
     public function describePortViewSourceIspsWithOptions($request, $runtime)
     {
@@ -4955,9 +5341,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribePortViewSourceIspsRequest $request
+     * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+     *   * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](~~157460~~) operation.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribePortViewSourceIspsRequest $request DescribePortViewSourceIspsRequest
      *
-     * @return DescribePortViewSourceIspsResponse
+     * @return DescribePortViewSourceIspsResponse DescribePortViewSourceIspsResponse
      */
     public function describePortViewSourceIsps($request)
     {
@@ -5019,10 +5410,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSceneDefenseObjectsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
+     *   * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](~~159779~~) operation.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeSceneDefenseObjectsRequest $request DescribeSceneDefenseObjectsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSceneDefenseObjectsResponse
+     * @return DescribeSceneDefenseObjectsResponse DescribeSceneDefenseObjectsResponse
      */
     public function describeSceneDefenseObjectsWithOptions($request, $runtime)
     {
@@ -5053,9 +5449,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSceneDefenseObjectsRequest $request
+     * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
+     *   * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](~~159779~~) operation.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeSceneDefenseObjectsRequest $request DescribeSceneDefenseObjectsRequest
      *
-     * @return DescribeSceneDefenseObjectsResponse
+     * @return DescribeSceneDefenseObjectsResponse DescribeSceneDefenseObjectsResponse
      */
     public function describeSceneDefenseObjects($request)
     {
@@ -5065,10 +5466,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSceneDefensePoliciesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeSceneDefensePoliciesRequest $request DescribeSceneDefensePoliciesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSceneDefensePoliciesResponse
+     * @return DescribeSceneDefensePoliciesResponse DescribeSceneDefensePoliciesResponse
      */
     public function describeSceneDefensePoliciesWithOptions($request, $runtime)
     {
@@ -5102,9 +5507,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSceneDefensePoliciesRequest $request
+     * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeSceneDefensePoliciesRequest $request DescribeSceneDefensePoliciesRequest
      *
-     * @return DescribeSceneDefensePoliciesResponse
+     * @return DescribeSceneDefensePoliciesResponse DescribeSceneDefensePoliciesResponse
      */
     public function describeSceneDefensePolicies($request)
     {
@@ -5163,6 +5572,64 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSchedulerRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSlaEventListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeSlaEventListResponse
+     */
+    public function describeSlaEventListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSlaEventList',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSlaEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSlaEventListRequest $request
+     *
+     * @return DescribeSlaEventListResponse
+     */
+    public function describeSlaEventList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSlaEventListWithOptions($request, $runtime);
     }
 
     /**
@@ -5295,10 +5762,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeStsGrantStatusRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeStsGrantStatusRequest $request DescribeStsGrantStatusRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStsGrantStatusResponse
+     * @return DescribeStsGrantStatusResponse DescribeStsGrantStatusResponse
      */
     public function describeStsGrantStatusWithOptions($request, $runtime)
     {
@@ -5329,9 +5800,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeStsGrantStatusRequest $request
+     * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeStsGrantStatusRequest $request DescribeStsGrantStatusRequest
      *
-     * @return DescribeStsGrantStatusResponse
+     * @return DescribeStsGrantStatusResponse DescribeStsGrantStatusResponse
      */
     public function describeStsGrantStatus($request)
     {
@@ -5341,10 +5816,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemLogRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
+     *   * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeSystemLogRequest $request DescribeSystemLogRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSystemLogResponse
+     * @return DescribeSystemLogResponse DescribeSystemLogResponse
      */
     public function describeSystemLogWithOptions($request, $runtime)
     {
@@ -5387,9 +5867,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemLogRequest $request
+     * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
+     *   * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeSystemLogRequest $request DescribeSystemLogRequest
      *
-     * @return DescribeSystemLogResponse
+     * @return DescribeSystemLogResponse DescribeSystemLogResponse
      */
     public function describeSystemLog($request)
     {
@@ -5399,10 +5884,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagKeysRequest $request
-     * @param RuntimeOptions         $runtime
+     * You can call this operation to query all tag keys and the Anti-DDoS Pro instances to which the tag keys are added by page.
+     *   * > The tag feature is suitable only for Anti-DDoS Pro.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeTagKeysRequest $request DescribeTagKeysRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagKeysResponse
+     * @return DescribeTagKeysResponse DescribeTagKeysResponse
      */
     public function describeTagKeysWithOptions($request, $runtime)
     {
@@ -5442,9 +5932,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagKeysRequest $request
+     * You can call this operation to query all tag keys and the Anti-DDoS Pro instances to which the tag keys are added by page.
+     *   * > The tag feature is suitable only for Anti-DDoS Pro.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeTagKeysRequest $request DescribeTagKeysRequest
      *
-     * @return DescribeTagKeysResponse
+     * @return DescribeTagKeysResponse DescribeTagKeysResponse
      */
     public function describeTagKeys($request)
     {
@@ -5454,10 +5949,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagResourcesRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Pro instance.
+     *   * > Only Anti-DDoS Pro supports tags.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeTagResourcesRequest $request DescribeTagResourcesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagResourcesResponse
+     * @return DescribeTagResourcesResponse DescribeTagResourcesResponse
      */
     public function describeTagResourcesWithOptions($request, $runtime)
     {
@@ -5500,15 +6000,72 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagResourcesRequest $request
+     * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Pro instance.
+     *   * > Only Anti-DDoS Pro supports tags.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeTagResourcesRequest $request DescribeTagResourcesRequest
      *
-     * @return DescribeTagResourcesResponse
+     * @return DescribeTagResourcesResponse DescribeTagResourcesResponse
      */
     public function describeTagResources($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTotalAttackMaxFlowRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeTotalAttackMaxFlowResponse
+     */
+    public function describeTotalAttackMaxFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTotalAttackMaxFlow',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTotalAttackMaxFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTotalAttackMaxFlowRequest $request
+     *
+     * @return DescribeTotalAttackMaxFlowResponse
+     */
+    public function describeTotalAttackMaxFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTotalAttackMaxFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -5601,10 +6158,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeUnBlockCountRequest $request
-     * @param RuntimeOptions              $runtime
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   *
+     * @param DescribeUnBlockCountRequest $request DescribeUnBlockCountRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUnBlockCountResponse
+     * @return DescribeUnBlockCountResponse DescribeUnBlockCountResponse
      */
     public function describeUnBlockCountWithOptions($request, $runtime)
     {
@@ -5632,9 +6191,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeUnBlockCountRequest $request
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   *
+     * @param DescribeUnBlockCountRequest $request DescribeUnBlockCountRequest
      *
-     * @return DescribeUnBlockCountResponse
+     * @return DescribeUnBlockCountResponse DescribeUnBlockCountResponse
      */
     public function describeUnBlockCount($request)
     {
@@ -5644,10 +6205,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebAccessLogDispatchStatusRequest $request
-     * @param RuntimeOptions                            $runtime
+     * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeWebAccessLogDispatchStatusRequest $request DescribeWebAccessLogDispatchStatusRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebAccessLogDispatchStatusResponse
+     * @return DescribeWebAccessLogDispatchStatusResponse DescribeWebAccessLogDispatchStatusResponse
      */
     public function describeWebAccessLogDispatchStatusWithOptions($request, $runtime)
     {
@@ -5681,9 +6246,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebAccessLogDispatchStatusRequest $request
+     * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeWebAccessLogDispatchStatusRequest $request DescribeWebAccessLogDispatchStatusRequest
      *
-     * @return DescribeWebAccessLogDispatchStatusResponse
+     * @return DescribeWebAccessLogDispatchStatusResponse DescribeWebAccessLogDispatchStatusResponse
      */
     public function describeWebAccessLogDispatchStatus($request)
     {
@@ -5923,10 +6492,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebCacheConfigsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeWebCacheConfigsRequest $request DescribeWebCacheConfigsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebCacheConfigsResponse
+     * @return DescribeWebCacheConfigsResponse DescribeWebCacheConfigsResponse
      */
     public function describeWebCacheConfigsWithOptions($request, $runtime)
     {
@@ -5957,9 +6530,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebCacheConfigsRequest $request
+     * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeWebCacheConfigsRequest $request DescribeWebCacheConfigsRequest
      *
-     * @return DescribeWebCacheConfigsResponse
+     * @return DescribeWebCacheConfigsResponse DescribeWebCacheConfigsResponse
      */
     public function describeWebCacheConfigs($request)
     {
@@ -6751,6 +7328,56 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+     *   *
+     * @param ModifyBizBandWidthModeRequest $request ModifyBizBandWidthModeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyBizBandWidthModeResponse ModifyBizBandWidthModeResponse
+     */
+    public function modifyBizBandWidthModeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBizBandWidthMode',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyBizBandWidthModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+     *   *
+     * @param ModifyBizBandWidthModeRequest $request ModifyBizBandWidthModeRequest
+     *
+     * @return ModifyBizBandWidthModeResponse ModifyBizBandWidthModeResponse
+     */
+    public function modifyBizBandWidthMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBizBandWidthModeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyBlackholeStatusRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -6797,10 +7424,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyBlockStatusRequest $request
-     * @param RuntimeOptions           $runtime
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   *
+     * @param ModifyBlockStatusRequest $request ModifyBlockStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBlockStatusResponse
+     * @return ModifyBlockStatusResponse ModifyBlockStatusResponse
      */
     public function modifyBlockStatusWithOptions($request, $runtime)
     {
@@ -6837,9 +7466,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyBlockStatusRequest $request
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   *
+     * @param ModifyBlockStatusRequest $request ModifyBlockStatusRequest
      *
-     * @return ModifyBlockStatusResponse
+     * @return ModifyBlockStatusResponse ModifyBlockStatusResponse
      */
     public function modifyBlockStatus($request)
     {
@@ -6849,10 +7480,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyCnameReuseRequest $request
-     * @param RuntimeOptions          $runtime
+     * > This operation is suitable only for Anti-DDoS Premium.
+     *   *
+     * @param ModifyCnameReuseRequest $request ModifyCnameReuseRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCnameReuseResponse
+     * @return ModifyCnameReuseResponse ModifyCnameReuseResponse
      */
     public function modifyCnameReuseWithOptions($request, $runtime)
     {
@@ -6889,9 +7522,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyCnameReuseRequest $request
+     * > This operation is suitable only for Anti-DDoS Premium.
+     *   *
+     * @param ModifyCnameReuseRequest $request ModifyCnameReuseRequest
      *
-     * @return ModifyCnameReuseResponse
+     * @return ModifyCnameReuseResponse ModifyCnameReuseResponse
      */
     public function modifyCnameReuse($request)
     {
@@ -6959,10 +7594,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyElasticBandWidthRequest $request
-     * @param RuntimeOptions                $runtime
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   *
+     * @param ModifyElasticBandWidthRequest $request ModifyElasticBandWidthRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyElasticBandWidthResponse
+     * @return ModifyElasticBandWidthResponse ModifyElasticBandWidthResponse
      */
     public function modifyElasticBandWidthWithOptions($request, $runtime)
     {
@@ -6993,15 +7630,70 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyElasticBandWidthRequest $request
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   *
+     * @param ModifyElasticBandWidthRequest $request ModifyElasticBandWidthRequest
      *
-     * @return ModifyElasticBandWidthResponse
+     * @return ModifyElasticBandWidthResponse ModifyElasticBandWidthResponse
      */
     public function modifyElasticBandWidth($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyElasticBandWidthWithOptions($request, $runtime);
+    }
+
+    /**
+     * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+     *   *
+     * @param ModifyElasticBizBandWidthRequest $request ModifyElasticBizBandWidthRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyElasticBizBandWidthResponse ModifyElasticBizBandWidthResponse
+     */
+    public function modifyElasticBizBandWidthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->elasticBizBandwidth)) {
+            $query['ElasticBizBandwidth'] = $request->elasticBizBandwidth;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyElasticBizBandWidth',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyElasticBizBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+     *   *
+     * @param ModifyElasticBizBandWidthRequest $request ModifyElasticBizBandWidthRequest
+     *
+     * @return ModifyElasticBizBandWidthResponse ModifyElasticBizBandWidthResponse
+     */
+    public function modifyElasticBizBandWidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyElasticBizBandWidthWithOptions($request, $runtime);
     }
 
     /**
@@ -7048,6 +7740,55 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyFullLogTtlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyHeadersRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyHeadersResponse
+     */
+    public function modifyHeadersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->customHeaders)) {
+            $query['CustomHeaders'] = $request->customHeaders;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHeaders',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyHeadersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyHeadersRequest $request
+     *
+     * @return ModifyHeadersResponse
+     */
+    public function modifyHeaders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHeadersWithOptions($request, $runtime);
     }
 
     /**
@@ -7103,10 +7844,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyHttp2EnableRequest $request
-     * @param RuntimeOptions           $runtime
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   *
+     * @param ModifyHttp2EnableRequest $request ModifyHttp2EnableRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHttp2EnableResponse
+     * @return ModifyHttp2EnableResponse ModifyHttp2EnableResponse
      */
     public function modifyHttp2EnableWithOptions($request, $runtime)
     {
@@ -7140,9 +7883,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyHttp2EnableRequest $request
+     * > This operation is suitable only for Anti-DDoS Pro.
+     *   *
+     * @param ModifyHttp2EnableRequest $request ModifyHttp2EnableRequest
      *
-     * @return ModifyHttp2EnableResponse
+     * @return ModifyHttp2EnableResponse ModifyHttp2EnableResponse
      */
     public function modifyHttp2Enable($request)
     {
@@ -7250,10 +7995,62 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyPortRequest $request
-     * @param RuntimeOptions    $runtime
+     * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
+     *   *
+     * @param ModifyOcspStatusRequest $request ModifyOcspStatusRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPortResponse
+     * @return ModifyOcspStatusResponse ModifyOcspStatusResponse
+     */
+    public function modifyOcspStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyOcspStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyOcspStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
+     *   *
+     * @param ModifyOcspStatusRequest $request ModifyOcspStatusRequest
+     *
+     * @return ModifyOcspStatusResponse ModifyOcspStatusResponse
+     */
+    public function modifyOcspStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOcspStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+     *   *
+     * @param ModifyPortRequest $request ModifyPortRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyPortResponse ModifyPortResponse
      */
     public function modifyPortWithOptions($request, $runtime)
     {
@@ -7293,9 +8090,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyPortRequest $request
+     * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
+     *   *
+     * @param ModifyPortRequest $request ModifyPortRequest
      *
-     * @return ModifyPortResponse
+     * @return ModifyPortResponse ModifyPortResponse
      */
     public function modifyPort($request)
     {
@@ -7706,10 +8505,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebAreaBlockSwitchRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyWebAreaBlockSwitchRequest $request ModifyWebAreaBlockSwitchRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebAreaBlockSwitchResponse
+     * @return ModifyWebAreaBlockSwitchResponse ModifyWebAreaBlockSwitchResponse
      */
     public function modifyWebAreaBlockSwitchWithOptions($request, $runtime)
     {
@@ -7743,9 +8546,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebAreaBlockSwitchRequest $request
+     * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyWebAreaBlockSwitchRequest $request ModifyWebAreaBlockSwitchRequest
      *
-     * @return ModifyWebAreaBlockSwitchResponse
+     * @return ModifyWebAreaBlockSwitchResponse ModifyWebAreaBlockSwitchResponse
      */
     public function modifyWebAreaBlockSwitch($request)
     {
@@ -7920,10 +8727,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebCacheSwitchRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyWebCacheSwitchRequest $request ModifyWebCacheSwitchRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebCacheSwitchResponse
+     * @return ModifyWebCacheSwitchResponse ModifyWebCacheSwitchResponse
      */
     public function modifyWebCacheSwitchWithOptions($request, $runtime)
     {
@@ -7957,9 +8768,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebCacheSwitchRequest $request
+     * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyWebCacheSwitchRequest $request ModifyWebCacheSwitchRequest
      *
-     * @return ModifyWebCacheSwitchResponse
+     * @return ModifyWebCacheSwitchResponse ModifyWebCacheSwitchResponse
      */
     public function modifyWebCacheSwitch($request)
     {
@@ -8180,10 +8995,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *   *
+     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseInstanceResponse
+     * @return ReleaseInstanceResponse ReleaseInstanceResponse
      */
     public function releaseInstanceWithOptions($request, $runtime)
     {
@@ -8211,9 +9028,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstanceRequest $request
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *   *
+     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      *
-     * @return ReleaseInstanceResponse
+     * @return ReleaseInstanceResponse ReleaseInstanceResponse
      */
     public function releaseInstance($request)
     {
@@ -8223,10 +9042,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param SwitchSchedulerRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
+     *   * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](~~157479~~) operation.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param SwitchSchedulerRuleRequest $request SwitchSchedulerRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchSchedulerRuleResponse
+     * @return SwitchSchedulerRuleResponse SwitchSchedulerRuleResponse
      */
     public function switchSchedulerRuleWithOptions($request, $runtime)
     {
@@ -8260,9 +9084,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param SwitchSchedulerRuleRequest $request
+     * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
+     *   * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](~~157479~~) operation.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param SwitchSchedulerRuleRequest $request SwitchSchedulerRuleRequest
      *
-     * @return SwitchSchedulerRuleResponse
+     * @return SwitchSchedulerRuleResponse SwitchSchedulerRuleResponse
      */
     public function switchSchedulerRule($request)
     {

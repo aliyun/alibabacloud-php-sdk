@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebAccessLogDispatchStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the log analysis feature is enabled for domain names.
+     *
      * @var slsConfigStatus[]
      */
     public $slsConfigStatus;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

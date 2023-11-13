@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class isps extends Model
 {
     /**
+     * @description The total number of requests that are sent from the ISP.
+     *
+     * > This parameter does not indicate the accurate number of requests. You can use this parameter to calculate the proportion of requests from different ISPs.
+     * @example 3390671
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The ID of the ISP. For more information, see the ISP codes table.
+     *
+     * @example 100017
+     *
      * @var string
      */
     public $ispId;

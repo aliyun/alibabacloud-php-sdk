@@ -9,36 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeOpEntitiesRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * > The time must be in the latest 30 days.
+     * @example 1583683200000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The operation object that you want to query.
+     *
+     * @example 203.***.***.132
+     *
      * @var string
      */
     public $entityObject;
 
     /**
+     * @description The type of the operation object that you want to query. Valid values:
+     *
+     *   **1**: the IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance
+     *   **2**: Anti-DDoS plans
+     *   **3**: ECS instances
+     *   **4**: all logs
+     *
+     * @example 1
+     *
      * @var int
      */
     public $entityType;
 
     /**
+     * @description The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * > The time must be in the latest 30 days.
+     * @example 1582992000000
+     *
      * @var int
      */
     public $startTime;

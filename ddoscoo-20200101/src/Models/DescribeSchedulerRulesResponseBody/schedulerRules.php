@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class schedulerRules extends Model
 {
     /**
+     * @example 4eru5229a843****.aliyunddos0001.com
+     *
      * @var string
      */
     public $cname;
@@ -21,6 +23,8 @@ class schedulerRules extends Model
     public $param;
 
     /**
+     * @example doctest
+     *
      * @var string
      */
     public $ruleName;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeAsyncTasksResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details of the asynchronous export tasks.
+     *
      * @var asyncTasks[]
      */
     public $asyncTasks;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of asynchronous export tasks that are returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

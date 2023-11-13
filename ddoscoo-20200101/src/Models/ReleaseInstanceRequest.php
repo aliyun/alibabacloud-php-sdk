@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceRequest extends Model
 {
     /**
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class webCustomPorts extends Model
 {
     /**
+     * @description An array that consists of supported custom ports.
+     *
      * @var string[]
      */
     public $proxyPorts;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **http**
+     *   **https**
+     *
+     * @example http
+     *
      * @var string
      */
     public $proxyType;

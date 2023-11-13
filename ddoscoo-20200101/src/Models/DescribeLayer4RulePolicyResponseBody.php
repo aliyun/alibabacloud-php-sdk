@@ -11,46 +11,84 @@ use AlibabaCloud\Tea\Model;
 class DescribeLayer4RulePolicyResponseBody extends Model
 {
     /**
+     * @description The port of the origin server.
+     *
+     * @example 2022
+     *
      * @var int
      */
     public $backendPort;
 
     /**
+     * @description The mode that is used to forward service traffic. Valid values:
+     *
+     *   0: the default mode. In this mode, Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the origin IP address that you specified when you created the port forwarding rule. You can call the [CreateNetworkRules](~~157482~~) operation to create a port forwarding rule.
+     *   1: the origin redundancy mode. In this mode, Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary or secondary origin servers. You can call the [ConfigLayer4RulePolicy](~~312684~~) operation to configure IP addresses.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $bakMode;
 
     /**
+     * @description The origin server that is used to receive service traffic. Valid values:
+     *
+     *   **1**: the primary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary origin server.
+     *   **2**: the secondary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the secondary origin server.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentIndex;
 
     /**
+     * @description The type of the protocol.
+     *
+     * @example udp
+     *
      * @var string
      */
     public $forwardProtocol;
 
     /**
+     * @description The forwarding port.
+     *
+     * @example 2020
+     *
      * @var int
      */
     public $frontendPort;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddosDip-sg-4hr2b3l****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description An array that consists of the information about the primary origin server, including the IP addresses, forwarding protocol, and forwarding port.
+     *
      * @var priRealServers[]
      */
     public $priRealServers;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6E46CC51-36BE-1100-B14C-DAF8381B8F73
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the information about the secondary origin server, including the IP addresses, forwarding protocol, and forwarding port.
+     *
      * @var secRealServers[]
      */
     public $secRealServers;

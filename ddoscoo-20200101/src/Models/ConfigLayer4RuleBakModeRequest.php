@@ -9,11 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ConfigLayer4RuleBakModeRequest extends Model
 {
     /**
+     * @description The mode that you want to use to forward service traffic. Valid values:
+     *
+     *   **0**: the default mode. In this mode, Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the origin IP address that you specified when you created the port forwarding rule. You can call the [CreateNetworkRules](~~157482~~) operation to create a port forwarding rule.
+     *   **1**: the origin redundancy mode. In this mode, Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary or secondary origin servers. You can call the [ConfigLayer4RulePolicy](~~312684~~) operation to configure IP addresses.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $bakMode;
 
     /**
+     * @description The port forwarding rule that you want to manage.
+     *
+     * Each port forwarding rule contains the following fields:
+     *
+     *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
+     *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
+     *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
+     *
+     * @example [{\"InstanceId\":\"ddosDip-sg-4hr2b3l****\",\"FrontendPort\":2020,\"Protocol\":\"udp\"}]
+     *
      * @var string
      */
     public $listeners;

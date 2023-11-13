@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class instanceStatistics extends Model
 {
     /**
+     * @description The number of advanced mitigation sessions that are used in this month.
+     *
+     * > This parameter is returned only if Anti-DDoS Premium instances are queried.
+     * @example 1
+     *
      * @var int
      */
     public $defenseCountUsage;
 
     /**
+     * @description The number of domain names that are protected by the instance.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $domainUsage;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of ports that are protected by the instance.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $portUsage;
 
     /**
+     * @description The number of websites that are protected by the instance.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $siteUsage;

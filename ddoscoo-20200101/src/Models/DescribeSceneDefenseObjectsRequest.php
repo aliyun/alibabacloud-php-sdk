@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeSceneDefenseObjectsRequest extends Model
 {
     /**
+     * @description The ID of the policy that you want to query.
+     *
+     * > You can call the [DescribeSceneDefensePolicies](~~159382~~) operation to query the IDs of all policies.
+     * @example 47e07ebd-0ba5-4afc-957b-59d15b90****
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not configure this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;

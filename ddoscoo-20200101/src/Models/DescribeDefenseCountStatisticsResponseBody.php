@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefenseCountStatisticsResponseBody extends Model
 {
     /**
+     * @description The statistics on the number of advanced mitigation sessions.
+     *
      * @var defenseCountStatistics
      */
     public $defenseCountStatistics;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 310A41FD-0990-5610-92E0-A6A55D7C6444
+     *
      * @var string
      */
     public $requestId;

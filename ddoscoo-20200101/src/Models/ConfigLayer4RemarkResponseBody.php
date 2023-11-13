@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ConfigLayer4RemarkResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6E46CC51-36BE-1100-B14C-DAF8381B8F73
+     *
      * @var string
      */
     public $requestId;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoCcWhitelistResponseBody extends Model
 {
     /**
+     * @description An array that consists of details of the IP address in the whitelist of the instance.
+     *
      * @var autoCcWhitelist[]
      */
     public $autoCcWhitelist;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F09D085E-5E0F-4FF2-B32E-F4A644049162
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned IP addresses in the whitelist.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

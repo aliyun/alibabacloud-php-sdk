@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainViewTopCostTimeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The URLs which require the longest time to respond to requests.
+     *
      * @var urlList[]
      */
     public $urlList;

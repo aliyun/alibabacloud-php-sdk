@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeStsGrantStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The authorization status of Anti-DDoS Pro or Anti-DDoS Premium.
+     *
      * @var stsGrant
      */
     public $stsGrant;

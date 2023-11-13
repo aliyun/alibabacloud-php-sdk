@@ -9,61 +9,91 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainQpsWithCacheResponseBody extends Model
 {
     /**
+     * @description An array that consists of the attack QPS.
+     *
      * @var string[]
      */
     public $blocks;
 
     /**
+     * @description An array consisting of cache hit ratios.
+     *
      * @var string[]
      */
     public $cacheHits;
 
     /**
+     * @description An array consisting of the QPS that is blocked by the Frequency Control policy.
+     *
      * @var string[]
      */
     public $ccBlockQps;
 
     /**
+     * @description An array consisting of the QPS for which the Frequency Control policy triggers Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA).
+     *
      * @var string[]
      */
     public $ccJsQps;
 
     /**
+     * @description The intervals between every two adjacent records. Unit: seconds.
+     *
+     * @example 20384
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description An array consisting of the QPS that is blocked by the blacklist for domain names.
+     *
      * @var string[]
      */
     public $ipBlockQps;
 
     /**
+     * @description An array consisting of the QPS that is blocked by the Accurate Access Control policy.
+     *
      * @var string[]
      */
     public $preciseBlocks;
 
     /**
+     * @description An array consisting of the QPS for which the Accurate Access Control policy triggers the JavaScript challenge.
+     *
      * @var string[]
      */
     public $preciseJsQps;
 
     /**
+     * @description An array consisting of the QPS that is blocked by the Location Blacklist policy.
+     *
      * @var string[]
      */
     public $regionBlocks;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start time. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1582992000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description An array consisting of the total QPS.
+     *
      * @var string[]
      */
     public $totals;

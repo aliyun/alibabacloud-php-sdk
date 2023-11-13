@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class ModifyPortRequest extends Model
 {
     /**
+     * @description The port of the origin server. Valid values: **0** to **65535**.
+     *
+     * @example 55
+     *
      * @var string
      */
     public $backendPort;
 
     /**
+     * @description The forwarding port. Valid values: **0** to **65535**.
+     *
+     * @example 55
+     *
      * @var string
      */
     public $frontendPort;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $frontendProtocol;
 
     /**
+     * @description The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance to which the port forwarding rule belongs.
+     *
+     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * @example ddoscoo-cn-st21zbyq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description An array that consists of the IP addresses of origin servers.
+     *
      * @var string[]
      */
     public $realServers;

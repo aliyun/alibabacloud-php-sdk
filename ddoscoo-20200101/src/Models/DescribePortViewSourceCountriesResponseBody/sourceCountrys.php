@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class sourceCountrys extends Model
 {
     /**
+     * @description The number of requests.
+     *
+     * @example 3390671
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The abbreviation of the country or area. For example, **cn** indicates China and **us** indicates the United States.
+     *
+     * > For more information, see [Location parameters](~~167926~~).
+     * @example cn
+     *
      * @var string
      */
     public $countryId;

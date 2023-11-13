@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $restoreDelay;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example A
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 203.***.***.39
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $valueType;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class defenseCountStatistics extends Model
 {
     /**
+     * @description The number of advanced mitigation sessions that are used within the current calendar month.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $defenseCountTotalUsageOfCurrentMonth;
 
     /**
+     * @description The number of available global advanced mitigation sessions for the Insurance mitigation plan.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $flowPackCountRemain;
 
     /**
+     * @description The maximum number of advanced mitigation sessions available for the current calendar month. The advanced mitigation sessions include the advanced mitigation sessions that are provided free of charge and the global advanced mitigation sessions that you purchase.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxUsableDefenseCountCurrentMonth;
 
     /**
+     * @description The number of available global advanced mitigation sessions for the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $secHighSpeedCountRemain;

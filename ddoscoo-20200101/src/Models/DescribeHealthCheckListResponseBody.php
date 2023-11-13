@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeHealthCheckListResponseBody extends Model
 {
     /**
+     * @description An array that consists of information about the health check configuration.
+     *
      * @var healthCheckList[]
      */
     public $healthCheckList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 83B4AF42-E8EE-4DC9-BD73-87B7733A36F9
+     *
      * @var string
      */
     public $requestId;

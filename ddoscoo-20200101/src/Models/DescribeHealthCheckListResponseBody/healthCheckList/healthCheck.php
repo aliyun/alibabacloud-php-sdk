@@ -9,41 +9,78 @@ use AlibabaCloud\Tea\Model;
 class healthCheck extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * > This parameter is returned only when the Layer 7 health check configuration is queried.
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The number of consecutive failed health checks that must occur before a port is declared unhealthy. Valid values: **1** to **10**.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $down;
 
     /**
+     * @description The interval at which checks are performed. Valid values: **1** to **30**. Unit: seconds.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The port that was checked.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The response timeout period. Valid values: **1** to **30**. Unit: seconds.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $timeout;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **tcp**: The Layer 4 health check configuration was queried.
+     *   **http**: The Layer 7 health check configuration was queried.
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The number of consecutive successful health checks that must occur before a port is declared healthy. Valid values: **1** to **10**.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $up;
 
     /**
+     * @description The check path.
+     *
+     * > This parameter is returned only when the Layer 7 health check configuration is queried.
+     * @example /abc
+     *
      * @var string
      */
     public $uri;

@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatusRequest extends Model
 {
     /**
+     * @description The ID of the instance to query.
+     *
+     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all Anti-DDoS Pro or Anti-DDoS Premium instances.
+     * @example ddoscoo-cn-6ja1y6p5****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the instance to query. Valid values:
+     *
+     *   **1**: an Anti-DDoS Pro instance
+     *   **2**: an Anti-DDoS Premium instance
+     *
+     * @example 1
+     *
      * @var int
      */
     public $productType;

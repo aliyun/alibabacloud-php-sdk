@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeSchedulerRulesRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example testrule
+     *
      * @var string
      */
     public $ruleName;

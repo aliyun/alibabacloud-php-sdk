@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePortMaxConnsResponseBody extends Model
 {
     /**
+     * @description An array consisting of the details of the maximum number of connections that are established over a port of the instance.
+     *
      * @var portMaxConns[]
      */
     public $portMaxConns;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 08F79110-2AF5-4FA7-998E-7C5E75EACF9C
+     *
      * @var string
      */
     public $requestId;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebRulesRequest extends Model
 {
     /**
+     * @example kzmk7b8tt351****.aliyunddos1014****
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example exact
+     *
      * @var string
      */
     public $queryDomainPattern;
 
     /**
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;

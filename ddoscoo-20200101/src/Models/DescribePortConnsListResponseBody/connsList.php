@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class connsList extends Model
 {
     /**
+     * @description The number of active connections.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $actConns;
 
     /**
+     * @description The number of concurrent connections.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $conns;
 
     /**
+     * @description The new connection creation rate.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $cps;
 
     /**
+     * @description The number of inactive connections.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $inActConns;
 
     /**
+     * @description The index number of the returned data.
+     *
+     * @example 16506
+     *
      * @var int
      */
     public $index;

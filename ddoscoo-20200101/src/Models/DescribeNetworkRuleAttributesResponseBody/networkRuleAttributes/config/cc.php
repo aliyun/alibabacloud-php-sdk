@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class cc extends Model
 {
     /**
+     * @description The protection policy that a source IP address is added to the blacklist when the number of connections initiated from the IP address frequently exceeds the limit.
+     *
      * @var sblack[]
      */
     public $sblack;

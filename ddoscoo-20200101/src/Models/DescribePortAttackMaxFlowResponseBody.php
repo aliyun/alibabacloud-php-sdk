@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribePortAttackMaxFlowResponseBody extends Model
 {
     /**
+     * @description The peak bandwidth of attack traffic. Unit: bit/s.
+     *
+     * @example 149559
+     *
      * @var int
      */
     public $bps;
 
     /**
+     * @description The peak packet rate of attack traffic . Unit: packets per second (pps).
+     *
+     * @example 23
+     *
      * @var int
      */
     public $pps;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;

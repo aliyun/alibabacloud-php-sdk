@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebRuleRequest extends Model
 {
     /**
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example {"Http2":1,"Http2https":1,"Https2http":1}
+     *
      * @var string
      */
     public $httpsExt;
 
     /**
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @example [{"ProxyType":"https","ProxyPorts":[443]}]
+     *
      * @var string
      */
     public $proxyTypes;
 
     /**
+     * @example 1.xxx.xxx.1
+     *
      * @var string[]
      */
     public $realServers;
 
     /**
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $rsType;

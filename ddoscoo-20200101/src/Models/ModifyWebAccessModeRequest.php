@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebAccessModeRequest extends Model
 {
     /**
+     * @description The mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium. Valid values:
+     *
+     *   **0**: A record mode
+     *   **1**: anti-DDoS mode
+     *   **2**: origin redundancy mode
+     *
+     * @example 2
+     *
      * @var int
      */
     public $accessMode;
 
     /**
+     * @description The domain name of the website.
+     *
+     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;

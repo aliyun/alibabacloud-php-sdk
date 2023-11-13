@@ -14,6 +14,8 @@ class proxyTypes extends Model
     public $proxyPorts;
 
     /**
+     * @example https
+     *
      * @var string
      */
     public $proxyType;

@@ -13,36 +13,62 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The protection policy applied when the number of connections initiated from a source IP address frequently exceeds the limit.
+     *
      * @var cc
      */
     public $cc;
 
     /**
+     * @description The status of the Empty Connection switch. Valid values:
+     *
+     *   **on**: The switch is turned on.
+     *   **off**: The switch is turned off.
+     *
+     * @example off
+     *
      * @var string
      */
     public $nodataConn;
 
     /**
+     * @description The settings of the Packet Length Limit policy.
+     *
      * @var payloadLen
      */
     public $payloadLen;
 
     /**
+     * @description The timeout period of session persistence. Valid values: **30** to **3600**. Unit: seconds. Default value: **0**, which indicates that session persistence is disabled.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $persistenceTimeout;
 
     /**
+     * @description The settings of the Speed Limit for Destination policy.
+     *
      * @var sla
      */
     public $sla;
 
     /**
+     * @description The settings of the Speed Limit for Source policy.
+     *
      * @var slimit
      */
     public $slimit;
 
     /**
+     * @description The status of the False Source switch. Valid values:
+     *
+     *   **on**: The switch is turned on.
+     *   **off**: The switch is turned off.
+     *
+     * @example off
+     *
      * @var string
      */
     public $synproxy;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class stsGrant extends Model
 {
     /**
+     * @description The authorization status. Valid values:
+     *
+     *   **0**: Anti-DDoS Pro or Anti-DDoS Premium is not authorized to access other cloud services.
+     *   **1**: Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

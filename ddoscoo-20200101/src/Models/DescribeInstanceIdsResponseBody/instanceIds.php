@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class instanceIds extends Model
 {
     /**
+     * @example 9
+     *
      * @var int
      */
     public $edition;
 
     /**
+     * @example ddoscoo-cn-zvp2eibz****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example fnat
+     *
      * @var string
      */
     public $ipMode;
 
     /**
+     * @example Ipv4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $remark;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class autoCcWhitelist extends Model
 {
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 203.***.***.117
+     *
      * @var string
      */
     public $destIp;
 
     /**
+     * @description The validity period of the IP address in the whitelist. Unit: seconds. **0** indicates that the IP address in the whitelist never expires.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The IP addresses that is contained in the IP address whitelist.
+     *
+     * @example 2.2.2.2
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
+     * @description The mode of how an IP address is added to the whitelist. Valid values:
+     *
+     *   **manual**: manually added
+     *   **auto**: automatically added
+     *
+     * @example manual
+     *
      * @var string
      */
     public $type;

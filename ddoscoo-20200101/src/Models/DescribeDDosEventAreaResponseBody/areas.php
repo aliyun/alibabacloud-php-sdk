@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class areas extends Model
 {
     /**
+     * @description The code or ID of the source region. For more information, see [Codes of administrative regions in China and codes of countries and areas](~~167926~~). For example, **110000** indicates Beijing, China, and **us** indicates the United States.
+     *
+     * @example 110000
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @description The number of request packets that were sent from the source region.
+     *
+     * @example 228
+     *
      * @var int
      */
     public $inPkts;

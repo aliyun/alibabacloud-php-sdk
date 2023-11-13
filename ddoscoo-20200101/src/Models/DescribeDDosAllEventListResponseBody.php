@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDosAllEventListResponseBody extends Model
 {
     /**
+     * @description An array that consists of attack events.
+     *
      * @var attackEvents[]
      */
     public $attackEvents;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25D83ED5-28CB-5683-9CF7-AECE521F3005
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of DDoS attack events.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;

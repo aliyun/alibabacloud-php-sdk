@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeUnBlockCountResponseBody extends Model
 {
     /**
+     * @description The remaining quota that you can use the Diversion from Origin Server policy.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $remainCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total quota that you can use the Diversion from Origin Server policy.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

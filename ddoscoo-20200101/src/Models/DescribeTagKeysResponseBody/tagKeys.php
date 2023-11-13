@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tagKeys extends Model
 {
     /**
+     * @description The number of Anti-DDoS Pro instances to which the tag key is added.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $tagCount;
 
     /**
+     * @description The tag key.
+     *
+     * @example aa1
+     *
      * @var string
      */
     public $tagKey;

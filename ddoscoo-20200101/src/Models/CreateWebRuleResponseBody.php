@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateWebRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 9EC62E89-BD30-4FCD-9CB8-FA53865FF0D7
+     *
      * @var string
      */
     public $requestId;

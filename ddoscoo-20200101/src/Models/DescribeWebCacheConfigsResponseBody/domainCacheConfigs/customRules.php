@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class customRules extends Model
 {
     /**
+     * @description The expiration time of the page cache. Unit: seconds.
+     *
+     * @example 86400
+     *
      * @var int
      */
     public $cacheTtl;
 
     /**
+     * @description The cache mode. Valid values:
+     *
+     *   **standard**: The standard cache mode is used.
+     *   **aggressive**: The enhanced cache mode is used.
+     *   **bypass**: No data is cached.
+     *
+     * @example standard
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example c1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The path to the cached page.
+     *
+     * @example /blog/
+     *
      * @var string
      */
     public $uri;

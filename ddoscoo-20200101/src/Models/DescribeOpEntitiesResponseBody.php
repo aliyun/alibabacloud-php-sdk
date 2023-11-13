@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeOpEntitiesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details of the operation log.
+     *
      * @var opEntities[]
      */
     public $opEntities;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FB24D70C-71F5-4000-8CD8-22CDA0C53CD1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned operation records.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class preciseAccessConfigList extends Model
 {
     /**
+     * @description The domain name of the website.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description An array that consists of the rules.
+     *
      * @var ruleList[]
      */
     public $ruleList;

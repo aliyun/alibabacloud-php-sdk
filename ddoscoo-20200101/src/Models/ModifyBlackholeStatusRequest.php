@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyBlackholeStatusRequest extends Model
 {
     /**
+     * @description The action that you want to perform on the instance. Set the value to **undo**, which indicates that you want to deactivate blackhole filtering.
+     *
+     * @example undo
+     *
      * @var string
      */
     public $blackholeStatus;
 
     /**
+     * @description The ID of the instance.
+     *
+     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;

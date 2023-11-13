@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceIdsRequest extends Model
 {
     /**
+     * @example 9
+     *
      * @var int
      */
     public $edition;
 
     /**
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;

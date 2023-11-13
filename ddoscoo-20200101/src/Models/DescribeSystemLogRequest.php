@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemLogRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The bills of the burstable clean bandwidth that are issued before this point in time are queried. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1640966400000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The IP address of the instance.
+     *
+     * > You can call the [DescribeInstanceDetails](~~91490~~) operation to query the IP addresses of all instances.
+     * @example 203.107.XX.XX
+     *
      * @var string
      */
     public $entityObject;
 
     /**
+     * @description The type of the system log. Set the value to **20**, which indicates the billing logs for the burstable clean bandwidth.
+     *
+     * > You must specify this parameter. Otherwise, the call fails.
+     * @example 20
+     *
      * @var int
      */
     public $entityType;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query. The bills of the burstable clean bandwidth that are issued after this point in time are queried. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1609430400000
+     *
      * @var int
      */
     public $startTime;

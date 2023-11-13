@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyFullLogTtlRequest extends Model
 {
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The log storage duration of a website. Valid values: **30** to **180**. Unit: days.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $ttl;

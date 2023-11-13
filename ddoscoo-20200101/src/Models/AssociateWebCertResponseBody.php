@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AssociateWebCertResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 40F11005-A75C-4644-95F2-52A4E7D43E91
+     *
      * @var string
      */
     public $requestId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainStatusCodeListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3B63C0DD-8AC5-44B2-95D6-064CA9296B9C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The statistics on response status codes.
+     *
      * @var statusCodeList[]
      */
     public $statusCodeList;

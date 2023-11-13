@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoCcBlacklistResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details of the IP addresses in the blacklist of the instance.
+     *
      * @var autoCcBlacklist[]
      */
     public $autoCcBlacklist;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example E78C8472-0B15-42D5-AF22-A32A78818AB2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned IP addresses in the blacklist.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

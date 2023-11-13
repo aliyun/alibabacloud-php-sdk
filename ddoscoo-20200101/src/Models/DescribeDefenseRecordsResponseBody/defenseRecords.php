@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class defenseRecords extends Model
 {
     /**
+     * @description The peak attack traffic. Unit: bit/s.
+     *
+     * @example 6584186000
+     *
      * @var int
      */
     public $attackPeak;
 
     /**
+     * @description The end time of the advanced mitigation session. This value is a UNIX timestamp. Units: miliseconds.
+     *
+     * @example 1583683200000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The number of attacks.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $eventCount;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The start time of the advanced mitigation session. This value is a UNIX timestamp. Units: miliseconds.
+     *
+     * @example 1582992000000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status of the advanced mitigation session. Valid values:
+     *
+     *   **0**: The advanced mitigation session is being used.
+     *   **1**: The advanced mitigation session is used.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;

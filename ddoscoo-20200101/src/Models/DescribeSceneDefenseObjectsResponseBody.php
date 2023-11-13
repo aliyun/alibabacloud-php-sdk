@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeSceneDefenseObjectsResponseBody extends Model
 {
     /**
+     * @description The information about the protected assets.
+     *
      * @var objects[]
      */
     public $objects;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FE07E73F-F19E-4A51-B62F-AC59E3B962D8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

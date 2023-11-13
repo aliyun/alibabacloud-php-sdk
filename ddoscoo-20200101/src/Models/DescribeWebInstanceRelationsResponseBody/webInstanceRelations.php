@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class webInstanceRelations extends Model
 {
     /**
+     * @description The domain name of the website.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The information about the instance to which a website service is added.
+     *
      * @var instanceDetails[]
      */
     public $instanceDetails;

@@ -9,11 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ConfigNetworkRegionBlockRequest extends Model
 {
     /**
+     * @description The details of the configurations of blocked locations. This parameter is a JSON string. The value consists of the following fields:
+     *
+     *   **RegionBlockSwitch**: the status of the Location Blacklist policy. This field is required and must be of the string type. Valid values:
+     *
+     *   **on**: enables the policy.
+     *   **off**: disables the policy.
+     *
+     *   **Countries**: the codes of the countries or areas from which you want to block requests. This field is optional and must be of the array type.
+     *
+     **
+     *
+     **Note**For more information, see the **Codes of countries and areas** section of the [Codes of administrative regions in China and codes of countries and areas](~~167926~~) topic.
+     *
+     * For example, `[1,2]` specifies China and Australia.
+     *
+     *   **Provinces**: the codes of the administrative regions in China from which you want to block requests. This field is optional and must be of the array type.
+     *
+     **
+     *
+     **Note**For more information, see the **Codes of administrative regions in China** section of the [Codes of administrative regions in China and codes of countries and areas](~~167926~~) topic.
+     *
+     * For example, `[11,12]` specifies Beijing and Tianjin.
+     * @example {"RegionBlockSwitch":"off","Countries":[],"Provinces":[11,12,13,14,15,21,22,23,31,32,33,34,35,36,37,41,42,43,44,45,46,50,51,52,53,54,61,62,63,64,65,71,81,82]}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The ID of the instance.
+     *
+     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;

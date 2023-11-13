@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteAutoCcWhitelistResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;

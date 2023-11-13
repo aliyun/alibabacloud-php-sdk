@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class domainQPSList extends Model
 {
     /**
+     * @description The attack QPS.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $attackQps;
 
     /**
+     * @description The number of cache hits.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $cacheHits;
 
     /**
+     * @description The index number of the returned data.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @description The peak attack QPS.
+     *
+     * @example 37
+     *
      * @var int
      */
     public $maxAttackQps;
 
     /**
+     * @description The peak of normal QPS.
+     *
+     * @example 93
+     *
      * @var int
      */
     public $maxNormalQps;
 
     /**
+     * @description The peak of total QPS.
+     *
+     * @example 130
+     *
      * @var int
      */
     public $maxQps;
 
     /**
+     * @description The time when the data was collected. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1582992000
+     *
      * @var int
      */
     public $time;
 
     /**
+     * @description The total number of requests.
+     *
+     * @example 20008
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The total QPS.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalQps;

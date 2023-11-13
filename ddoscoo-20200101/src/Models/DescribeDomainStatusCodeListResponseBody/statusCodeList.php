@@ -9,71 +9,127 @@ use AlibabaCloud\Tea\Model;
 class statusCodeList extends Model
 {
     /**
+     * @description The index number of the returned data.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @description The number of 200 status codes.
+     *
+     * @example 15520
+     *
      * @var int
      */
     public $status200;
 
     /**
+     * @description The number of 2xx status codes.
+     *
+     * @example 15520
+     *
      * @var int
      */
     public $status2XX;
 
     /**
+     * @description The number of 3xx status codes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status3XX;
 
     /**
+     * @description The number of 403 status codes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status403;
 
     /**
+     * @description The number of 404 status codes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status404;
 
     /**
+     * @description The number of 405 status codes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status405;
 
     /**
+     * @description The number of 4xx status codes.
+     *
+     * @example 4486
+     *
      * @var int
      */
     public $status4XX;
 
     /**
+     * @description The number of 501 status codes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status501;
 
     /**
+     * @description The number of 502 status codes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status502;
 
     /**
+     * @description The number of 503 status codes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status503;
 
     /**
+     * @description The number of 504 status codes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status504;
 
     /**
+     * @description The number of 5xx status codes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status5XX;
 
     /**
+     * @description The time when the data was collected. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1582992000
+     *
      * @var int
      */
     public $time;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainResourceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of forwarding rules.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The configurations of the forwarding rule.
+     *
      * @var webRules[]
      */
     public $webRules;

@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class CreateTagResourcesRequest extends Model
 {
     /**
+     * @description The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Pro instance in the Chinese mainland.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not specify this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description An array consisting of the IDs of the Anti-DDoS Pro instances to which you want to add the tag.
+     *
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
+     * @description The type of the resource to which the tag belongs. Set the value to **INSTANCE**, which indicates an Anti-DDoS Pro instance.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description An array that consists of the tags to add.
+     *
      * @var tags[]
      */
     public $tags;

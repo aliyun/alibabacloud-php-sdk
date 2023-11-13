@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDoSEventsResponseBody extends Model
 {
     /**
+     * @description The DDoS attack events.
+     *
      * @var DDoSEvents[]
      */
     public $DDoSEvents;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0CA72AF5-1795-4350-8C77-50A448A2F334
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned attack events.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;

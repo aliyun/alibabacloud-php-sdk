@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSpecsResponseBody extends Model
 {
     /**
+     * @description An array that consists of the specifications of instances.
+     *
      * @var instanceSpecs[]
      */
     public $instanceSpecs;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 4E3A9B5F-5DDB-593D-A1E6-F1F451DB5E0B
+     *
      * @var string
      */
     public $requestId;

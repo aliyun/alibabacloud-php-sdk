@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class realServers extends Model
 {
     /**
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $realServer;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $rsType;

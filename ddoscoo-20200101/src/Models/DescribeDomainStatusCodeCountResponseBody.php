@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainStatusCodeCountResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of 200 status codes within the specified period of time.
+     *
+     * @example 951159
+     *
      * @var int
      */
     public $status200;
 
     /**
+     * @description The number of 2xx status codes within the specified period of time.
+     *
+     * @example 951472
+     *
      * @var int
      */
     public $status2XX;
 
     /**
+     * @description The number of 3xx status codes within the specified period of time.
+     *
+     * @example 133209
+     *
      * @var int
      */
     public $status3XX;
 
     /**
+     * @description The number of 403 status codes within the specified period of time.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status403;
 
     /**
+     * @description The number of 404 status codes within the specified period of time.
+     *
+     * @example 897
+     *
      * @var int
      */
     public $status404;
 
     /**
+     * @description The number of 405 status codes within the specified period of time.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status405;
 
     /**
+     * @description The number of 4xx status codes within the specified period of time.
+     *
+     * @example 5653
+     *
      * @var int
      */
     public $status4XX;
 
     /**
+     * @description The number of 501 status codes within the specified period of time.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status501;
 
     /**
+     * @description The number of 502 status codes within the specified period of time.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status502;
 
     /**
+     * @description The number of 503 status codes within the specified period of time.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status503;
 
     /**
+     * @description The number of 504 status codes within the specified period of time.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status504;
 
     /**
+     * @description The number of 5xx status codes within the specified period of time.
+     *
+     * @example 14
+     *
      * @var int
      */
     public $status5XX;

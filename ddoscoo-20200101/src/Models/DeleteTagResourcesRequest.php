@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class DeleteTagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the specified resource. Valid values:
+     *
+     *   **true**: yes.
+     *   **false** no. This is the default value.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @description The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Pro instance in the Chinese mainland.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not configure this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description An array consisting of the IDs of instances from which you want to remove tags.
+     *
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
+     * @description The type of the resource to which the tag belongs. Set the value to **INSTANCE**, which indicates an Anti-DDoS Pro instance.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description An array consisting of the keys of the tags that you want to remove.
+     *
+     * @example testkey
+     *
      * @var string[]
      */
     public $tagKey;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceDetailsRequest extends Model
 {
     /**
+     * @description An array that consists of the IDs of instances to query.
+     *
      * @var string[]
      */
     public $instanceIds;

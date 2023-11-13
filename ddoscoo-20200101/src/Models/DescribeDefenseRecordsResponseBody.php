@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefenseRecordsResponseBody extends Model
 {
     /**
+     * @description An array that consists of details of the log of an advanced mitigation session.
+     *
      * @var defenseRecords[]
      */
     public $defenseRecords;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of advanced mitigation sessions.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

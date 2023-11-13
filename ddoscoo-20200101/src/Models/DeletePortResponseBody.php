@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeletePortResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
+     *
      * @var string
      */
     public $requestId;

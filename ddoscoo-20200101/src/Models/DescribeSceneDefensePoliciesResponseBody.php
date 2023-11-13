@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeSceneDefensePoliciesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the configurations of the scenario-specific custom policy.
+     *
      * @var policies[]
      */
     public $policies;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F65DF043-E0EB-4796-9467-23DDCDF92C1D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

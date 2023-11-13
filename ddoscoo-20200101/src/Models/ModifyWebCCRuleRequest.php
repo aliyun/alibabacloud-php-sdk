@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebCCRuleRequest extends Model
 {
     /**
+     * @example close
+     *
      * @var string
      */
     public $act;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example prefix
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example testrule
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,6 +63,8 @@ class ModifyWebCCRuleRequest extends Model
     public $ttl;
 
     /**
+     * @example /abc
+     *
      * @var string
      */
     public $uri;

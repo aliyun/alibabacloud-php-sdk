@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeBlackholeStatusResponseBody extends Model
 {
     /**
+     * @description An array that consists of the blackhole filtering status of the instance.
+     *
      * @var blackholeStatus[]
      */
     public $blackholeStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;

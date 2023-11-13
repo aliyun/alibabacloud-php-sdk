@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDosEventSrcIpResponseBody extends Model
 {
     /**
+     * @description An array that consists of information about the source IP address of the volumetric attack.
+     *
      * @var ips[]
      */
     public $ips;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 38A0224E-FDBC-4733-A362-B391827FC1E9
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebCacheModeRequest extends Model
 {
     /**
+     * @description The domain name of the website.
+     *
+     * > A forwarding rule must be configured for the domain name, and the domain name must be associated with an instance that uses the Enhanced function plan. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The cache mode of the Static Page Caching policy. Valid values:
+     *
+     *   **standard**: uses the standard cache mode.
+     *   **aggressive**: uses the enhanced cache mode.
+     *   **bypass**: caches no data.
+     *
+     * @example standard
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;

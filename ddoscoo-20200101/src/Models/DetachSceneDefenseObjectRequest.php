@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DetachSceneDefenseObjectRequest extends Model
 {
     /**
+     * @description The type of the object. Set the value to **Domain**, which indicates a domain name.
+     *
+     * @example Domain
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @description The protection asset that you want to remove from a policy. Separate multiple protection assets with commas (,).
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $objects;
 
     /**
+     * @description The ID of the policy.
+     *
+     * > You can call the [DescribeSceneDefensePolicies](~~159382~~) operation to query the IDs of all policies.
+     * @example 321a-fd31-df51-****
+     *
      * @var string
      */
     public $policyId;

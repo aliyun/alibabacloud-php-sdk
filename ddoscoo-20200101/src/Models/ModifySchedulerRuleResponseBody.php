@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifySchedulerRuleResponseBody extends Model
 {
     /**
+     * @description The CNAME that is assigned by Sec-Traffic Manager for the scheduling rule.
+     *
+     * > To enable the scheduling rule, you must map the domain name of the service to the CNAME.
+     * @example 48k7b372gpl4****.aliyunddos0001.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example FFC77501-BDF8-4BC8-9BF5-B295FBC3189B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example testrule
+     *
      * @var string
      */
     public $ruleName;

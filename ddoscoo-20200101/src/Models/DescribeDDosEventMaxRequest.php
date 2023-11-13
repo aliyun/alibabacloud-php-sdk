@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDosEventMaxRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1604073600
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1598889600
+     *
      * @var int
      */
     public $startTime;

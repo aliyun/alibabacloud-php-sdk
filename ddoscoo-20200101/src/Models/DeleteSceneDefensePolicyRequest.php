@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSceneDefensePolicyRequest extends Model
 {
     /**
+     * @description The ID of the policy that you want to delete.
+     *
+     * > You can call the [DescribeSceneDefensePolicies](~~159382~~) operation to query the IDs of all policies.
+     * @example 321a-fd31-df51-****
+     *
      * @var string
      */
     public $policyId;

@@ -10,26 +10,50 @@ use AlibabaCloud\Tea\Model;
 class healthCheckStatus extends Model
 {
     /**
+     * @description The forwarding port.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $frontendPort;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The forwarding protocol. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description An array that consists of the health states of the IP addresses of the origin server.
+     *
      * @var realServerStatusList[]
      */
     public $realServerStatusList;
 
     /**
+     * @description The health status of the origin server. Valid values:
+     *
+     *   **normal**: healthy
+     *   **abnormal**: unhealthy
+     *
+     * @example normal
+     *
      * @var string
      */
     public $status;

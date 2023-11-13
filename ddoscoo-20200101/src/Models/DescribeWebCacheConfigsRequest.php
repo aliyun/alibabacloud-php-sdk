@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebCacheConfigsRequest extends Model
 {
     /**
+     * @description An array consisting of domain names for which you want to query the Static Page Caching configurations.
+     *
+     * @example www.aliyun.com
+     *
      * @var string[]
      */
     public $domains;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not configure this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;

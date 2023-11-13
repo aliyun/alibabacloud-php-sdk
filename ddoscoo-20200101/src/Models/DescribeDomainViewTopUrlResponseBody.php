@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainViewTopUrlResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of the URLs that receive the most requests.
+     *
      * @var urlList[]
      */
     public $urlList;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePortConnsListResponseBody extends Model
 {
     /**
+     * @description An array that consists of the connections established over the port.
+     *
      * @var connsList[]
      */
     public $connsList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 6D48AED0-41DB-5D9B-B484-3B6AAD312AD1
+     *
      * @var string
      */
     public $requestId;

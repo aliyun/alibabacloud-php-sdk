@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebRulesResponseBody extends Model
 {
     /**
+     * @example 0F5B72DD-96F4-423A-B12B-A5151DD746B8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyPortAutoCcStatusRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The mode of the Intelligent Protection policy. Valid values:
+     *
+     *   **normal**
+     *   **loose**
+     *   **strict**
+     *
+     * @example normal
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description Specifies the status of the Intelligent Protection policy. Valid values:
+     *
+     *   **on**: enables the policy.
+     *   **off**: disables the policy.
+     *
+     * @example on
+     *
      * @var string
      */
     public $switch;

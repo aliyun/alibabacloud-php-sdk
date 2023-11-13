@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlsLogstoreInfoResponseBody extends Model
 {
     /**
+     * @description The Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *
+     * @example ddoscoo-logstore
+     *
      * @var string
      */
     public $logStore;
 
     /**
+     * @description The Logstore project of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *
+     * @example ddoscoo-project-181071506993****-cn-hangzhou
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @description The available log storage capacity. Unit: bytes.
+     *
+     * @example 3298534883328
+     *
      * @var int
      */
     public $quota;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The log storage duration. Unit: days.
+     *
+     * @example 180
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @description The used log storage capacity. Unit: bytes.
+     *
+     * > The statistics on Log Service are delayed for about two hours.
+     * @example 0
+     *
      * @var int
      */
     public $used;

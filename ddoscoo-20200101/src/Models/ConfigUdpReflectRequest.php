@@ -9,16 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ConfigUdpReflectRequest extends Model
 {
     /**
+     * @description The configuration of the filtering policy for UDP reflection attacks.
+     *
+     * The value is a string that consists of a JSON struct. The JSON struct contains the following field:
+     *
+     *   **UdpSports**: the source ports of the UDP traffic that you want to block. This field is required and must be of the ARRAY type. Example: `[17,19]`.
+     *
+     * We recommend that you block the following source ports of UDP traffic:
+     *
+     *   UDP 17: QOTD reflection attacks
+     *   UDP 19: CharGEN reflection attacks
+     *   UDP 69: TFTP reflection attacks
+     *   UDP 111: Portmap reflection attacks
+     *   UDP 123: NTP reflection attacks
+     *   UDP 137: NetBIOS reflection attacks
+     *   UDP 161: SNMPv2 reflection attacks
+     *   UDP 389: CLDAP reflection attacks
+     *   UDP 1194: OpenVPN reflection attacks
+     *   UDP 1900: SSDP reflection attacks
+     *   UDP 3389: RDP reflection attacks
+     *   UDP 11211: memcached reflection attacks
+     *
+     * @example {\"UdpSports\":[17,19]}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The ID of the instance.
+     *
+     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * @example ddoscoo-cn-i7m25564****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the instance. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland, which indicates Anti-DDoS Pro instances. This is the default value.
+     *   **ap-southeast-1**: outside the Chinese mainland, which indicates Anti-DDoS Premium instances.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

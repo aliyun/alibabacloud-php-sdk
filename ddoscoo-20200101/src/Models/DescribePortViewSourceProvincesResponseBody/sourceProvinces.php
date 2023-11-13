@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class sourceProvinces extends Model
 {
     /**
+     * @description The total number of requests that are sent from the ISP.
+     *
+     * > This parameter does not indicate the accurate number of requests. You can use this parameter to calculate the proportion of requests from different administrative regions in China.
+     * @example 3390671
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The ID of the administrative region in China from which the requests are sent. For example, **110000** indicates Beijing, and **120000** indicates Tianjin.
+     *
+     * > For more information, see [Location parameters](~~167926~~).
+     * @example 440000
+     *
      * @var string
      */
     public $provinceId;

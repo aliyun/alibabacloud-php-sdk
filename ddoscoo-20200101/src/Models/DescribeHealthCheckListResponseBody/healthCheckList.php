@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class healthCheckList extends Model
 {
     /**
+     * @description The forwarding port.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $frontendPort;
 
     /**
+     * @description The health check configuration.
+     *
      * @var healthCheck
      */
     public $healthCheck;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The forwarding protocol. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $protocol;

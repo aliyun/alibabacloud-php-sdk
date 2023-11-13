@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteAutoCcWhitelistRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IP addresses that you want to manage. This parameter is a JSON string. This parameter is a JSON string. The string contains the following field:
+     *
+     *   **src**: the IP address. This field is required and must be of the string type.
+     *
+     * @example [{"src":"1.1.1.1"},{"src":"2.2.2.2"}]
+     *
      * @var string
      */
     public $whitelist;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeBlockStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of details of the Diversion from Origin Server configurations of the instance.
+     *
      * @var statusList[]
      */
     public $statusList;

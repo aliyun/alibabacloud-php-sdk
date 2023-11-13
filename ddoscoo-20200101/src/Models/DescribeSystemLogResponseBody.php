@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemLogResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8BC3A33A-F832-58DB-952F-7682A25AD14C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of details of the billing logs for the burstable clean bandwidth.
+     *
      * @var systemLog[]
      */
     public $systemLog;
 
     /**
+     * @description The total number of billing logs for the burstable clean bandwidth.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;

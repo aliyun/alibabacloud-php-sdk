@@ -17,26 +17,41 @@ class webRules extends Model
     public $blackList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ccEnabled;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ccRuleEnabled;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $ccTemplate;
 
     /**
+     * @example testcert
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @var string
+     */
+    public $certRegion;
+
+    /**
+     * @example kzmk7b8tt351****.aliyunddos1014****
+     *
      * @var string
      */
     public $cname;
@@ -47,6 +62,8 @@ class webRules extends Model
     public $customCiphers;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
@@ -57,31 +74,43 @@ class webRules extends Model
     public $gmCert;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $http2Enable;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $http2HttpsEnable;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $https2HttpEnable;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ocspEnabled;
 
     /**
+     * @example ip_hash
+     *
      * @var string
      */
     public $policyMode;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $proxyEnabled;
@@ -92,11 +121,15 @@ class webRules extends Model
     public $proxyTypes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $punishReason;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $punishStatus;
@@ -107,16 +140,22 @@ class webRules extends Model
     public $realServers;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ssl13Enabled;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $sslCiphers;
 
     /**
+     * @example tls1.1
+     *
      * @var string
      */
     public $sslProtocols;
@@ -131,6 +170,7 @@ class webRules extends Model
         'ccRuleEnabled'    => 'CcRuleEnabled',
         'ccTemplate'       => 'CcTemplate',
         'certName'         => 'CertName',
+        'certRegion'       => 'CertRegion',
         'cname'            => 'Cname',
         'customCiphers'    => 'CustomCiphers',
         'domain'           => 'Domain',
@@ -172,6 +212,9 @@ class webRules extends Model
         }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
+        }
+        if (null !== $this->certRegion) {
+            $res['CertRegion'] = $this->certRegion;
         }
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
@@ -267,6 +310,9 @@ class webRules extends Model
         }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
+        }
+        if (isset($map['CertRegion'])) {
+            $model->certRegion = $map['CertRegion'];
         }
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];

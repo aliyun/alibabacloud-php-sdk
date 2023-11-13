@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class proxyTypes extends Model
 {
     /**
+     * @description An array that consists of port numbers.
+     *
      * @var int[]
      */
     public $proxyPorts;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **http**
+     *   **https**
+     *   **websocket**
+     *   **websockets**
+     *
+     * @example https
+     *
      * @var string
      */
     public $proxyType;

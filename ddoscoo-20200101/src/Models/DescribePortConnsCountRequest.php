@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class DescribePortConnsCountRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * @example 1583683200
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description An array that consists of the IDs of instances.
+     *
+     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The number of port that you want to query. If you do not specify this parameter, all ports are queried.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * @example 1582992000
+     *
      * @var int
      */
     public $startTime;

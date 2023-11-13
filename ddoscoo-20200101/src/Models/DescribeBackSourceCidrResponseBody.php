@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackSourceCidrResponseBody extends Model
 {
     /**
+     * @description An array that consists of the back-to-origin CIDR blocks of the instance.
+     *
      * @var string[]
      */
     public $cidrs;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+     *
      * @var string
      */
     public $requestId;

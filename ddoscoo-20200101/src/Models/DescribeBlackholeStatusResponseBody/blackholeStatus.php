@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class blackholeStatus extends Model
 {
     /**
+     * @description Indicates whether blackhole filtering is triggered for the instance. Valid values:
+     *
+     *   **blackhole**: yes
+     *   **normal**: no
+     *
+     * @example blackhole
+     *
      * @var string
      */
     public $blackStatus;
 
     /**
+     * @description The end time of blackhole filtering. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1540196323
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 203.***.***.132
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The start time of blackhole filtering. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1540195323
+     *
      * @var int
      */
     public $startTime;

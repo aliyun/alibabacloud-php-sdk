@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class sourceProvinces extends Model
 {
     /**
+     * @description The total number of requests.
+     *
+     * @example 3390671
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The ID of the region inside China. For more information, see the **Codes of administrative regions in China** section of the [Codes of administrative regions in China and codes of countries and areas](~~167926~~) topic. For example, **110000** indicates Beijing, and **120000** indicates Tianjin.
+     *
+     * @example 440000
+     *
      * @var string
      */
     public $provinceId;

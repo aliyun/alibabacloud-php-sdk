@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddAutoCcBlacklistRequest extends Model
 {
     /**
+     * @example [{"src":"198.51.XX.XX"},{"src":"198.52.XX.XX"}]
+     *
      * @var string
      */
     public $blacklist;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;

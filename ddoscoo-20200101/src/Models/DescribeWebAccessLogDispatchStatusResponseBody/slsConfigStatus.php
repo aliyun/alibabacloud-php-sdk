@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class slsConfigStatus extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description Indicates whether the log analysis feature is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;

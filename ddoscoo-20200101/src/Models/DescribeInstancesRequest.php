@@ -10,21 +10,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @description The mitigation plan of the instance to query. Valid values:
+     *
+     *   **0**: Anti-DDoS Premium instance of the Insurance mitigation plan
+     *   **1**: Anti-DDoS Premium instance of the Unlimited mitigation plan
+     *   **2**: Anti-DDoS Premium instance of the Mainland China Acceleration (MCA) mitigation plan
+     *   **9**: Anti-DDoS Pro instance of the Profession mitigation plan
+     *
+     * @example 9
+     *
      * @var int
      */
     public $edition;
 
     /**
+     * @description The traffic forwarding status of the instance to query. Valid values:
+     *
+     *   **0**: The instance no longer forwards service traffic.
+     *   **1**: The instance forwards service traffic as expected.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enabled;
 
     /**
+     * @description The end of the time range to query. Instances whose expiration time is earlier than the point in time are queried. This value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1640361700000
+     *
      * @var int
      */
     public $expireEndTime;
 
     /**
+     * @description The beginning of the time range to query. Instances whose expiration time is later than the point in time are queried. This value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1640361500000
+     *
      * @var int
      */
     public $expireStartTime;
@@ -35,26 +59,47 @@ class DescribeInstancesRequest extends Model
     public $instanceIds;
 
     /**
+     * @description The IP address of the instance to query.
+     *
+     * @example 203.107.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The remarks of the instance to query. Fuzzy match is supported.
+     *
+     * @example doc-test
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not specify this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;

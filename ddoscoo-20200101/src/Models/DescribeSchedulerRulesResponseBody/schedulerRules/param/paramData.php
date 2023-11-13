@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class paramData extends Model
 {
     /**
+     * @example ga-bp1htlajy5509rc99****
+     *
      * @var string
      */
     public $cloudInstanceId;

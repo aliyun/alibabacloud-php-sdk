@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainResourceRequest extends Model
 {
     /**
+     * @description The domain name of the website that you want to query.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description An array that consists of the IDs of instances to query.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The match mode. Valid values:
+     *
+     *   **fuzzy**: fuzzy match. This is the default value.
+     *   **exact**: exact match.
+     *
+     * @example fuzzy
+     *
      * @var string
      */
     public $queryDomainPattern;

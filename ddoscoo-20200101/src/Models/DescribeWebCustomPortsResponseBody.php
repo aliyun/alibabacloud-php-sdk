@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebCustomPortsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of information about supported custom ports that are used by a website.
+     *
      * @var webCustomPorts[]
      */
     public $webCustomPorts;

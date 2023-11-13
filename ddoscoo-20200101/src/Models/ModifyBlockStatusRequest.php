@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class ModifyBlockStatusRequest extends Model
 {
     /**
+     * @description The blocking period. Valid values: **15** to **43200**. Unit: minutes.
+     *
+     * > If you set **Status** to **do**, you must also specify this parameter.
+     * @example 60
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The ID of the Anti-DDoS Pro instance to manage.
+     *
+     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description An array consisting of the Internet service provider (ISP) lines from which traffic is blocked.
+     *
+     * @example ct
+     *
      * @var string[]
      */
     public $lines;
 
     /**
+     * @description Specifies the status of the Diversion from Origin Server policy. Valid values:
+     *
+     *   **do**: enables the policy.
+     *   **undo**: disables the policy.
+     *
+     * @example do
+     *
      * @var string
      */
     public $status;

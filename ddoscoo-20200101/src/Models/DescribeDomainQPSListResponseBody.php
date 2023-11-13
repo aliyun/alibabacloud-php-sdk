@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainQPSListResponseBody extends Model
 {
     /**
+     * @description An array that consists of the statistics on the QPS of the website.
+     *
      * @var domainQPSList[]
      */
     public $domainQPSList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 327F2ABB-104D-437A-AAB5-D633E29A8C51
+     *
      * @var string
      */
     public $requestId;

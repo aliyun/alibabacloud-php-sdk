@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class regionList extends Model
 {
     /**
+     * @description Indicates whether the location is blocked. Valid values:
+     *
+     *   **0**: yes
+     *   **1**: no
+     *
+     * @example 0
+     *
      * @var int
      */
     public $block;
 
     /**
+     * @description The name of the location.
+     *
+     * @example CN-SHANGHAI
+     *
      * @var string
      */
     public $region;

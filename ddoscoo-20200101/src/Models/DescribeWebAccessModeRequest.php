@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebAccessModeRequest extends Model
 {
     /**
+     * @description The domain name of the website.
+     *
+     * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * @example www.aliyun.com
+     *
      * @var string[]
      */
     public $domains;

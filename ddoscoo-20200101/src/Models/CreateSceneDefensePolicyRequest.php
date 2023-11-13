@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class CreateSceneDefensePolicyRequest extends Model
 {
     /**
+     * @description The end time of the policy. This value is a UNIX timestamp. Units: milliseconds.
+     *
+     * @example 1586016000000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example testpolicy
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The start time of the policy. This value is a UNIX timestamp. Units: milliseconds.
+     *
+     * @example 1585670400000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The template of the policy. Valid values:
+     *
+     *   **promotion**: important activity
+     *   **bypass**: all traffic forwarded
+     *
+     * @example promotion
+     *
      * @var string
      */
     public $template;

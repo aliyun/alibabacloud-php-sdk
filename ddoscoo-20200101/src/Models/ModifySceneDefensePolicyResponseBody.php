@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifySceneDefensePolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F65DF043-E0EB-4796-9467-23DDCDF92C1D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

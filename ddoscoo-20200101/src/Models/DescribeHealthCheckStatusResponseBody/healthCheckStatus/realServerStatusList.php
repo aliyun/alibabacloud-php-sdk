@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class realServerStatusList extends Model
 {
     /**
+     * @description The IP address of the origin server.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The health state of the IP address. Valid values:
+     *
+     *   **normal**: healthy
+     *   **abnormal**: unhealthy
+     *
+     * @example abnormal
+     *
      * @var string
      */
     public $status;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAttackAnalysisMaxQpsResponseBody extends Model
 {
     /**
+     * @description The peak queries per second (QPS) of DDoS attacks. Units: QPS.
+     *
+     * @example 41652
+     *
      * @var int
      */
     public $qps;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8DFB602D-1AAC-46C4-90F2-C84086E7A6E4
+     *
      * @var string
      */
     public $requestId;

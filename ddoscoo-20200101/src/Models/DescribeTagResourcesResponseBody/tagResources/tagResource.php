@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The ID of the Anti-DDoS Pro instance.
+     *
+     * @example ddoscoo-cn-zz121ogz****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. The value is fixed as **INSTANCE**, which indicates an Anti-DDoS Pro instance.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The key of the tag that is added to the Anti-DDoS Pro instance.
+     *
+     * @example testvalue
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The value of the tag that is added to the Anti-DDoS Pro instance.
+     *
+     * @example testkey
+     *
      * @var string
      */
     public $tagValue;

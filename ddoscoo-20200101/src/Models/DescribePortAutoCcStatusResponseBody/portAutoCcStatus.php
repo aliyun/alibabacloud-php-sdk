@@ -9,21 +9,51 @@ use AlibabaCloud\Tea\Model;
 class portAutoCcStatus extends Model
 {
     /**
+     * @description The mode of the Intelligent Protection policy. Valid values:
+     *
+     *   **normal**
+     *   **loose**
+     *   **strict**
+     *
+     * @example normal
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The status of the Intelligent Protection policy. Valid values:
+     *
+     *   **on**: enabled
+     *   **off**: disabled
+     *
+     * @example on
+     *
      * @var string
      */
     public $switch;
 
     /**
+     * @description The protection mode for ports 80 and 443. Valid values:
+     *
+     *   **normal**
+     *   **loose**
+     *   **strict**
+     *
+     * @example normal
+     *
      * @var string
      */
     public $webMode;
 
     /**
+     * @description The status of the Intelligent Protection policy for ports 80 and 443. Valid values:
+     *
+     *   **on**: enabled
+     *   **off**: disabled
+     *
+     * @example off
+     *
      * @var string
      */
     public $webSwitch;

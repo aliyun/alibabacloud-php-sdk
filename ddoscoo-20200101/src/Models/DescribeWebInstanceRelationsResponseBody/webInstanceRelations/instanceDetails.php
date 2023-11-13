@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class instanceDetails extends Model
 {
     /**
+     * @description The IP addresses of the instance.
+     *
      * @var string[]
      */
     public $eipList;
 
     /**
+     * @description The function plan of the instance. Valid values:
+     *
+     *   **default**: Standard function plan
+     *   **enhance**: Enhanced function plan
+     *
+     * @example enhance
+     *
      * @var string
      */
     public $functionVersion;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddoscoo-cn-0pp163pd****
+     *
      * @var string
      */
     public $instanceId;

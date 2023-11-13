@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteAsyncTaskRequest extends Model
 {
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the task that you want to delete.
+     *
+     * > You can call the [DescribeAsyncTasks](~~159405~~) operation to query the IDs of all asynchronous export tasks.
+     * @example 1
+     *
      * @var int
      */
     public $taskId;

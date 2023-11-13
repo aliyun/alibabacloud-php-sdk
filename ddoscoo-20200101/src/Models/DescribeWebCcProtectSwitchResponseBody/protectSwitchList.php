@@ -9,51 +9,121 @@ use AlibabaCloud\Tea\Model;
 class protectSwitchList extends Model
 {
     /**
+     * @description The mode of the Intelligent Protection policy. Valid values:
+     *
+     *   **watch**: the Warning mode
+     *   **defense**: the Defense mode
+     *
+     * @example defense
+     *
      * @var string
      */
     public $aiMode;
 
     /**
+     * @description The status of the Intelligent Protection policy. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $aiRuleEnable;
 
     /**
+     * @description The level of the Intelligent Protection policy. Valid values:
+     *
+     *   **level30**: the Low level
+     *   **level60**: the Normal level
+     *   **level90**: the Strict level
+     *
+     * @example level60
+     *
      * @var string
      */
     public $aiTemplate;
 
     /**
+     * @description The status of the Black Lists and White Lists (Domain Names) policy. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $blackWhiteListEnable;
 
     /**
+     * @description The status of the Custom Rule switch for the Frequency Control policy. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ccCustomRuleEnable;
 
     /**
+     * @description The status of the Frequency Control policy. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ccEnable;
 
     /**
+     * @description The mode of the Frequency Control policy. Valid values:
+     *
+     *   **default**: Normal
+     *   **gf_under_attack**: Emergency
+     *   **gf_sos_verify**: Strict
+     *   **gf_sos_enhance**: Super Strict
+     *
+     * @example default
+     *
      * @var string
      */
     public $ccTemplate;
 
     /**
+     * @description The domain name of the website.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The status of the Accurate Access Control policy. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * @example 0
+     *
      * @var int
      */
     public $preciseRuleEnable;
 
     /**
+     * @description The status of the Location Blacklist (Domain Names) policy. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * @example 0
+     *
      * @var int
      */
     public $regionBlockEnable;

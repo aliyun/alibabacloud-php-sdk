@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceRemarkResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7EFA2BA6-9C0A-4410-B735-FC337EB634A1
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreatePortResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 4787A9A6-8230-4B4A-8211-AFBF7C416B4D
+     *
      * @var string
      */
     public $requestId;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class instanceDetails extends Model
 {
     /**
+     * @description The information about the IP address of the instance.
+     *
      * @var eipInfos[]
      */
     public $eipInfos;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddoscoo-cn-zvp2eibz****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The protection line of the instance.
+     *
+     * @example coop-line-001
+     *
      * @var string
      */
     public $line;

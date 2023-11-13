@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class cnameReuses extends Model
 {
     /**
+     * @example 4o6ep6q217k9****.aliyunddos0004.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $enable;

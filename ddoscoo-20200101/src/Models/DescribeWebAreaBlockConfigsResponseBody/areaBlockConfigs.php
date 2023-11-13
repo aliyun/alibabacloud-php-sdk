@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class areaBlockConfigs extends Model
 {
     /**
+     * @description The domain name of the website.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The configuration of the blocked locations.
+     *
      * @var regionList[]
      */
     public $regionList;

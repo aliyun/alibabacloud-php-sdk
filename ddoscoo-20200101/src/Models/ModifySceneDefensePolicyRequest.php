@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ModifySceneDefensePolicyRequest extends Model
 {
     /**
+     * @description The end time of the policy. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1586016000000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example testpolicy
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the policy that you want to modify.
+     *
+     * > You can call the [DescribeSceneDefensePolicies](~~159382~~) operation to query the IDs of all policies.
+     * @example 321a-fd31-df51-****
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @description The start time of the policy. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1585670400000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The template of the policy. Valid values:
+     *
+     *   **promotion**: important activity
+     *   **bypass**: all traffic forwarded
+     *
+     * @example promotion
+     *
      * @var string
      */
     public $template;

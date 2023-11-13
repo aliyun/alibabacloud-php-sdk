@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeHealthCheckStatusResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details of the health status of the origin server.
+     *
      * @var healthCheckStatus[]
      */
     public $healthCheckStatus;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example DE9FF9E1-569C-4B6C-AB6A-0F6D927BB27C
+     *
      * @var string
      */
     public $requestId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class statusList extends Model
 {
     /**
+     * @description An array that consists of details of the Diversion from Origin Server configuration.
+     *
      * @var blockStatusList[]
      */
     public $blockStatusList;
 
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 203.XX.XX.88
+     *
      * @var string
      */
     public $ip;

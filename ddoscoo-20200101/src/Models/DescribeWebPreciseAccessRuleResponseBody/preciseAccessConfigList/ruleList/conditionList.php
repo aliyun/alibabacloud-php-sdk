@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class conditionList extends Model
 {
     /**
+     * @description The match content.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The match field.
+     *
+     * @example ip
+     *
      * @var string
      */
     public $field;
 
     /**
+     * @description The custom HTTP header.
+     *
+     * > This parameter takes effect only when **Field** is set to **header**.
+     * @example null
+     *
      * @var string
      */
     public $headerName;
 
     /**
+     * @description The logical operator.
+     *
+     * @example belong
+     *
      * @var string
      */
     public $matchMethod;

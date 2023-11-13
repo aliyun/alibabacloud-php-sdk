@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribePortViewSourceIspsRequest extends Model
 {
     /**
+     * @description The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+     *
+     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * @example 1583683200
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description An array that consists of the IDs of instances to query.
+     *
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not configure this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+     *
+     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * @example 1582992000
+     *
      * @var int
      */
     public $startTime;

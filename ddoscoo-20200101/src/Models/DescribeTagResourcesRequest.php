@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagResourcesRequest extends Model
 {
     /**
+     * @description The query token. Set the value to the value of **NextToken** that is returned in the last call.
+     *
+     * > You do not need to configure this parameter if you call this operation for the first time.
+     * @example RGuYpqDdKhzXb8C3.D1BwQgc1tMBsoxdGiEKHHUUCf****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Pro instance in the Chinese mainland.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not configure this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description An array consisting of IDs of the Anti-DDoS Pro instances that you want to query.
+     *
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
+     * @description The type of the resource to which the tag belongs. Set the value to **INSTANCE**, which indicates an Anti-DDoS Pro instance.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description An array consisting of tags that you want to query. Each tag consists of a tag **key** and a tag **value**.
+     *
      * @var tags[]
      */
     public $tags;

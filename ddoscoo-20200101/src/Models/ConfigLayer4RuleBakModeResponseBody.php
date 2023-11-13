@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ConfigLayer4RuleBakModeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CC042262-15A3-4A49-ADF0-130968EA47BC
+     *
      * @var string
      */
     public $requestId;

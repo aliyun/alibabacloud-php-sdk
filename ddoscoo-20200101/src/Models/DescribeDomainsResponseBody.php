@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsResponseBody extends Model
 {
     /**
+     * @description An array consisting of details of the domain name for which the forwarding rules are configured.
+     *
      * @var string[]
      */
     public $domains;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F908E959-ADA8-4D7B-8A05-FF2F67F50964
+     *
      * @var string
      */
     public $requestId;

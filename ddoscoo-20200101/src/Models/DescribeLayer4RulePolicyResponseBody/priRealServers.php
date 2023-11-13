@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class priRealServers extends Model
 {
     /**
+     * @description The origin server that is used to receive service traffic. Valid values:
+     *
+     *   **1**: the primary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary origin server.
+     *   **2**: the secondary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the secondary origin server.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentIndex;
 
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 203.107.XX.XX
+     *
      * @var string
      */
     public $eip;
 
     /**
+     * @description The forwarding port.
+     *
+     * @example 2020
+     *
      * @var int
      */
     public $frontendPort;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddosDip-sg-4hr2b3l****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the protocol.
+     *
+     * @example udp
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The IP address of the primary origin server.
+     *
+     * @example 192.0.2.1
+     *
      * @var string
      */
     public $realServer;

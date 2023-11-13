@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatisticsResponseBody extends Model
 {
     /**
+     * @description The statistics on the instances.
+     *
      * @var instanceStatistics[]
      */
     public $instanceStatistics;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 642319A9-D1F2-4459-A447-E57CFC599FDE
+     *
      * @var string
      */
     public $requestId;

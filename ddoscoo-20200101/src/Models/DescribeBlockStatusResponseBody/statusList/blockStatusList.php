@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class blockStatusList extends Model
 {
     /**
+     * @description The blocking status of the network traffic. Valid values:
+     *
+     *   **areablock**: Network traffic is blocked.
+     *   **normal**: Network traffic is not blocked.
+     *
+     * @example areablock
+     *
      * @var string
      */
     public $blockStatus;
 
     /**
+     * @description The end time of the blocking. This value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1540196323
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The Internet service provider (ISP) line from which the traffic is blocked. Valid values:
+     *
+     *   **ct**: China Telecom (International)
+     *   **cut**: China Unicom (International)
+     *
+     * @example cut
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description The start time of the blocking. This value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1540195323
+     *
      * @var int
      */
     public $startTime;

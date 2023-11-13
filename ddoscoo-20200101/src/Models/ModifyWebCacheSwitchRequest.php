@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebCacheSwitchRequest extends Model
 {
     /**
+     * @description The domain name for which you want to configure the Static Page Caching policy.
+     *
+     * > You can call the [DescribeDomains](~~91724~~) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description Specifies whether to enable or disable the Static Page Caching policy for a website. Valid values:
+     *
+     *   **1**: enables the policy.
+     *   **0**: disables the policy.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enable;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not configure this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;

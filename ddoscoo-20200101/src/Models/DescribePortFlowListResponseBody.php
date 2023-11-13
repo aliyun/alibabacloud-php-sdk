@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePortFlowListResponseBody extends Model
 {
     /**
+     * @description The returned traffic data.
+     *
      * @var portFlowList[]
      */
     public $portFlowList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FFC77501-BDF8-4BC8-9BF5-B295FBC3189B
+     *
      * @var string
      */
     public $requestId;

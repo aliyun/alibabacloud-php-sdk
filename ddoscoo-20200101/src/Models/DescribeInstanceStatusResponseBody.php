@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddoscoo-cn-6ja1y6p5****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   **1**: normal
+     *   **2**: expired
+     *   **3**: overdue
+     *   **4**: released
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 112777CC-2AD6-46FC-A263-00B931406FCD
+     *
      * @var string
      */
     public $requestId;

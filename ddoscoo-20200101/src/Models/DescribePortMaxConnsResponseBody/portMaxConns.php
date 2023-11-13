@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class portMaxConns extends Model
 {
     /**
+     * @description The maximum number of connections per second (CPS).
+     *
+     * @example 100
+     *
      * @var int
      */
     public $cps;
 
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 203.***.***.117
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The port of the instance.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $port;

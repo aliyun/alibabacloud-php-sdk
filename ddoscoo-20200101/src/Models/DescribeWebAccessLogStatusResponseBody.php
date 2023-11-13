@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebAccessLogStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The Logstore of the instance.
+     *
+     * @example ddoscoo-logstore
+     *
      * @var string
      */
     public $slsLogstore;
 
     /**
+     * @description The Log Service project of the instance.
+     *
+     * @example ddoscoo-project-128965410602****-cn-hangzhou
+     *
      * @var string
      */
     public $slsProject;
 
     /**
+     * @description Indicates whether the Log Analysis feature is enabled for the website. Valid values:
+     *
+     *   **true**: enabled
+     *   **false**: disabled
+     *
+     * @example true
+     *
      * @var bool
      */
     public $slsStatus;

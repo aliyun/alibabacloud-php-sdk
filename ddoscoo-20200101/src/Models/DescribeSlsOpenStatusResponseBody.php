@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlsOpenStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether Log Service is activated. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $slsOpenStatus;

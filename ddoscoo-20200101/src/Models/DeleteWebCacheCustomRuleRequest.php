@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DeleteWebCacheCustomRuleRequest extends Model
 {
     /**
+     * @description The domain name for which you want to delete the custom rules of the Static Page Caching policy.
+     *
+     * > You can call the [DescribeDomains](~~91724~~) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management.
+     *
+     * If you do not configure this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description An array consisting of the names of the rules that you want to delete.
+     *
+     * @example test
+     *
      * @var string[]
      */
     public $ruleNames;

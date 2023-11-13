@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebInstanceRelationsRequest extends Model
 {
     /**
+     * @description The domain names of the website. list
+     *
+     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * @example www.aliyun.com
+     *
      * @var string[]
      */
     public $domains;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;

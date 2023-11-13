@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePortViewSourceCountriesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array consisting of countries or areas from which the requests are sent.
+     *
      * @var sourceCountrys[]
      */
     public $sourceCountrys;

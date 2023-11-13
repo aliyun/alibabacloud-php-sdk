@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class attackList extends Model
 {
     /**
+     * @description The attack QPS. Unit: QPS
+     *
+     * @example 0
+     *
      * @var int
      */
     public $attack;
 
     /**
+     * @description The number of all QPS, which includes normal and attack QPS. Unit: QPS.
+     *
+     * @example 294
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The domain name of the website.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;

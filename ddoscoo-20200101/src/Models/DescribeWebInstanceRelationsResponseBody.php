@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebInstanceRelationsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0222382B-5FE5-4FF7-BC9B-97EE31D58818
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the instances to which a website service is added.
+     *
      * @var webInstanceRelations[]
      */
     public $webInstanceRelations;

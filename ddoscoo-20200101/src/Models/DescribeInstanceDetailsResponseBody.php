@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceDetailsResponseBody extends Model
 {
     /**
+     * @description The IP address and ISP line information about the instance.
+     *
      * @var instanceDetails[]
      */
     public $instanceDetails;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3C814429-21A5-4673-827E-FDD19DC75681
+     *
      * @var string
      */
     public $requestId;

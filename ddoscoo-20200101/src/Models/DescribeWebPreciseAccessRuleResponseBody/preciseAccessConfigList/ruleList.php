@@ -10,26 +10,51 @@ use AlibabaCloud\Tea\Model;
 class ruleList extends Model
 {
     /**
+     * @description The action triggered if the rule is matched. Valid values:
+     *
+     *   **accept**: allows the requests that match the rule.
+     *   **block**: blocks the requests that match the rule.
+     *   **challenge**: implements Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule.
+     *
+     * @example accept
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description The match conditions.
+     *
      * @var conditionList[]
      */
     public $conditionList;
 
     /**
+     * @description The validity period of the rule. Unit: seconds. This parameter takes effect only when **action** of a rule is **block**. Access requests that match the rule are blocked within the specified validity period of the rule. **0** indicates that the rule takes effect all the time.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $expires;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example testrule
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The source of the rule. Valid values:
+     *
+     *   **manual**: manually created. This is the default value.
+     *   **auto**: automatically generated.
+     *
+     * @example manual
+     *
      * @var string
      */
     public $owner;

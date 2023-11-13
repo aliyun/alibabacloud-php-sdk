@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class ConfigWebIpSetRequest extends Model
 {
     /**
+     * @description IP address N or CIDR block N that you want to add to the blacklist. The maximum value of N is 200. You can add up to 200 IP addresses or CIDR blocks to the blacklist.
+     *
+     * @example 1.1.1.1
+     *
      * @var string[]
      */
     public $blackList;
 
     /**
+     * @description The domain name of the website.
+     *
+     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description IP address N or CIDR block N that you want to add to the whitelist. The maximum value of N is 200. You can add up to 200 IP addresses or CIDR blocks to the whitelist.
+     *
+     * @example 2.2.2.2/24
+     *
      * @var string[]
      */
     public $whiteList;

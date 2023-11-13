@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoCcListCountRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * > You can call the **DescribeInstanceIds** operation to query the IDs of all instances.
+     * @example ddoscoo-cn-mp91j1ao****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The mode of how an IP address is added to the whitelist or blacklist. Valid values:
+     *
+     *   **manual**: manually added
+     *   **auto**: automatically added
+     *
+     * @example manual
+     *
      * @var string
      */
     public $queryType;

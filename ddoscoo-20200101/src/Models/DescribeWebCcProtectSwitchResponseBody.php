@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebCcProtectSwitchResponseBody extends Model
 {
     /**
+     * @description The status of each protection policy for a website.
+     *
      * @var protectSwitchList[]
      */
     public $protectSwitchList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3ADD9EED-CA4B-488C-BC82-01B0B899363D
+     *
      * @var string
      */
     public $requestId;

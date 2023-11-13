@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDosEventAttackTypeResponseBody extends Model
 {
     /**
+     * @description The information about the attack types.
+     *
      * @var attackTypes[]
      */
     public $attackTypes;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6F644A6E-40E7-483F-9DBB-CC27E16BB555
+     *
      * @var string
      */
     public $requestId;

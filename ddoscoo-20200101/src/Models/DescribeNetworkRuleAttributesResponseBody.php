@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkRuleAttributesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
+     *
      * @var networkRuleAttributes[]
      */
     public $networkRuleAttributes;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F9F2F77D-307C-4F15-8D02-AB5957EEBF97
+     *
      * @var string
      */
     public $requestId;

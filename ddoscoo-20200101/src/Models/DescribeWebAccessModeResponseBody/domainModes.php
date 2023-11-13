@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class domainModes extends Model
 {
     /**
+     * @description The mode in which the website service is added. Valid values:
+     *
+     *   **0**: A record
+     *   **1**: anti-DDoS mode
+     *   **2**: origin redundancy mode
+     *
+     * @example 0
+     *
      * @var int
      */
     public $accessMode;
 
     /**
+     * @description The domain name of the website.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;

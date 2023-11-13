@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EnableSceneDefensePolicyRequest extends Model
 {
     /**
+     * @description The ID of the policy that you want to enable.
+     *
+     * > You can call the [DescribeSceneDefensePolicies](~~159382~~) operation to query the IDs of all policies.
+     * @example 321a-fd31-df51-****
+     *
      * @var string
      */
     public $policyId;

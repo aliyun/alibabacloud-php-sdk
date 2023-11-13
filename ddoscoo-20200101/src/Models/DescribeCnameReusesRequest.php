@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCnameReusesRequest extends Model
 {
     /**
+     * @example www.aliyun.com
+     *
      * @var string[]
      */
     public $domains;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $resourceGroupId;

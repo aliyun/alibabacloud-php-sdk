@@ -9,21 +9,49 @@ use AlibabaCloud\Tea\Model;
 class eipInfos extends Model
 {
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 203.117.XX.XX
+     *
      * @var string
      */
     public $eip;
 
     /**
+     * @description The IP address-based forwarding mode of the instance. Valid values:
+     *
+     *   **fnat**: Requests from IPv4 addresses are forwarded to origin servers that use IPv4 addresses and requests from IPv6 addresses are forwarded to origin servers that use IPv6 addresses.
+     *   **v6tov4**: All requests are forwarded to origin servers that use IPv4 addresses.
+     *
+     * @example fnat
+     *
      * @var string
      */
     public $ipMode;
 
     /**
+     * @description The IP version of the protocol. Valid values:
+     *
+     *   **Ipv4**: IPv4
+     *   **Ipv6**: IPv6
+     *
+     * @example Ipv4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   **normal**: indicates that the instance is normal.
+     *   **expired**: indicates that the instance expired.
+     *   **defense**: indicates that traffic scrubbing is performed on the asset that is protected by the instance.
+     *   **blackhole**: indicates that blackhole filtering is triggered for the asset that is protected by the instance.
+     *   **punished**: indicates that the instance is in penalty.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $status;

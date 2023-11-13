@@ -10,21 +10,42 @@ use AlibabaCloud\Tea\Model;
 class domainCacheConfigs extends Model
 {
     /**
+     * @description An array that consists of custom caching rules.
+     *
      * @var customRules[]
      */
     public $customRules;
 
     /**
+     * @description The domain name of the website.
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The status of the Static Page Caching policy. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enable;
 
     /**
+     * @description The cache mode. Valid values:
+     *
+     *   **standard**: The standard cache mode is used.
+     *   **aggressive**: The enhanced cache mode is used.
+     *   **bypass**: No data is cached.
+     *
+     * @example bypass
+     *
      * @var string
      */
     public $mode;
