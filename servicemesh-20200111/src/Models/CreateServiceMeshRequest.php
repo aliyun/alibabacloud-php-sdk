@@ -160,6 +160,11 @@ class CreateServiceMeshRequest extends Model
     public $chargeType;
 
     /**
+     * @var string
+     */
+    public $clusterDomain;
+
+    /**
      * @description The edition of the ASM instance. Valid values:
      *
      * - `ultimate`: Ultimate Edition
@@ -807,6 +812,7 @@ class CreateServiceMeshRequest extends Model
         'autoRenewPeriod'            => 'AutoRenewPeriod',
         'CRAggregationEnabled'       => 'CRAggregationEnabled',
         'chargeType'                 => 'ChargeType',
+        'clusterDomain'              => 'ClusterDomain',
         'clusterSpec'                => 'ClusterSpec',
         'configSourceEnabled'        => 'ConfigSourceEnabled',
         'configSourceNacosID'        => 'ConfigSourceNacosID',
@@ -917,6 +923,9 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->clusterDomain) {
+            $res['ClusterDomain'] = $this->clusterDomain;
         }
         if (null !== $this->clusterSpec) {
             $res['ClusterSpec'] = $this->clusterSpec;
@@ -1157,6 +1166,9 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['ClusterDomain'])) {
+            $model->clusterDomain = $map['ClusterDomain'];
         }
         if (isset($map['ClusterSpec'])) {
             $model->clusterSpec = $map['ClusterSpec'];

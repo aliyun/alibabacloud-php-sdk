@@ -624,6 +624,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->chargeType)) {
             $body['ChargeType'] = $request->chargeType;
         }
+        if (!Utils::isUnset($request->clusterDomain)) {
+            $body['ClusterDomain'] = $request->clusterDomain;
+        }
         if (!Utils::isUnset($request->clusterSpec)) {
             $body['ClusterSpec'] = $request->clusterSpec;
         }
