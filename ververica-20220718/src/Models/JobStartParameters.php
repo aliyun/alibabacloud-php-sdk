@@ -14,12 +14,20 @@ class JobStartParameters extends Model
     public $deploymentId;
 
     /**
+     * @example default-queue
+     *
+     * @var string
+     */
+    public $resourceQueueName;
+
+    /**
      * @var DeploymentRestoreStrategy
      */
     public $restoreStrategy;
     protected $_name = [
-        'deploymentId'    => 'deploymentId',
-        'restoreStrategy' => 'restoreStrategy',
+        'deploymentId'      => 'deploymentId',
+        'resourceQueueName' => 'resourceQueueName',
+        'restoreStrategy'   => 'restoreStrategy',
     ];
 
     public function validate()
@@ -31,6 +39,9 @@ class JobStartParameters extends Model
         $res = [];
         if (null !== $this->deploymentId) {
             $res['deploymentId'] = $this->deploymentId;
+        }
+        if (null !== $this->resourceQueueName) {
+            $res['resourceQueueName'] = $this->resourceQueueName;
         }
         if (null !== $this->restoreStrategy) {
             $res['restoreStrategy'] = null !== $this->restoreStrategy ? $this->restoreStrategy->toMap() : null;
@@ -49,6 +60,9 @@ class JobStartParameters extends Model
         $model = new self();
         if (isset($map['deploymentId'])) {
             $model->deploymentId = $map['deploymentId'];
+        }
+        if (isset($map['resourceQueueName'])) {
+            $model->resourceQueueName = $map['resourceQueueName'];
         }
         if (isset($map['restoreStrategy'])) {
             $model->restoreStrategy = DeploymentRestoreStrategy::fromMap($map['restoreStrategy']);
