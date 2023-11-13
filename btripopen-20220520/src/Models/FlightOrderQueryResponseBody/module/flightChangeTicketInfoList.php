@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class flightChangeTicketInfoList extends Model
 {
     /**
+     * @var string
+     */
+    public $applyId;
+
+    /**
      * @example 2022-07-20T10:40Z
      *
      * @var string
@@ -91,11 +96,26 @@ class flightChangeTicketInfoList extends Model
     public $originTicketNo;
 
     /**
+     * @var string
+     */
+    public $outApplyId;
+
+    /**
      * @example 000-123123
      *
      * @var string
      */
     public $ticketNo;
+
+    /**
+     * @var string
+     */
+    public $ticketStatus;
+
+    /**
+     * @var int
+     */
+    public $ticketStatusCode;
 
     /**
      * @example 100
@@ -104,6 +124,7 @@ class flightChangeTicketInfoList extends Model
      */
     public $upgradeFee;
     protected $_name = [
+        'applyId'          => 'apply_id',
         'arrTime'          => 'arr_time',
         'changeCabin'      => 'change_cabin',
         'changeCabinLevel' => 'change_cabin_level',
@@ -116,7 +137,10 @@ class flightChangeTicketInfoList extends Model
         'gmtCreate'        => 'gmt_create',
         'gmtModify'        => 'gmt_modify',
         'originTicketNo'   => 'origin_ticket_no',
+        'outApplyId'       => 'out_apply_id',
         'ticketNo'         => 'ticket_no',
+        'ticketStatus'     => 'ticket_status',
+        'ticketStatusCode' => 'ticket_status_code',
         'upgradeFee'       => 'upgrade_fee',
     ];
 
@@ -127,6 +151,9 @@ class flightChangeTicketInfoList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applyId) {
+            $res['apply_id'] = $this->applyId;
+        }
         if (null !== $this->arrTime) {
             $res['arr_time'] = $this->arrTime;
         }
@@ -163,8 +190,17 @@ class flightChangeTicketInfoList extends Model
         if (null !== $this->originTicketNo) {
             $res['origin_ticket_no'] = $this->originTicketNo;
         }
+        if (null !== $this->outApplyId) {
+            $res['out_apply_id'] = $this->outApplyId;
+        }
         if (null !== $this->ticketNo) {
             $res['ticket_no'] = $this->ticketNo;
+        }
+        if (null !== $this->ticketStatus) {
+            $res['ticket_status'] = $this->ticketStatus;
+        }
+        if (null !== $this->ticketStatusCode) {
+            $res['ticket_status_code'] = $this->ticketStatusCode;
         }
         if (null !== $this->upgradeFee) {
             $res['upgrade_fee'] = $this->upgradeFee;
@@ -181,6 +217,9 @@ class flightChangeTicketInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apply_id'])) {
+            $model->applyId = $map['apply_id'];
+        }
         if (isset($map['arr_time'])) {
             $model->arrTime = $map['arr_time'];
         }
@@ -217,8 +256,17 @@ class flightChangeTicketInfoList extends Model
         if (isset($map['origin_ticket_no'])) {
             $model->originTicketNo = $map['origin_ticket_no'];
         }
+        if (isset($map['out_apply_id'])) {
+            $model->outApplyId = $map['out_apply_id'];
+        }
         if (isset($map['ticket_no'])) {
             $model->ticketNo = $map['ticket_no'];
+        }
+        if (isset($map['ticket_status'])) {
+            $model->ticketStatus = $map['ticket_status'];
+        }
+        if (isset($map['ticket_status_code'])) {
+            $model->ticketStatusCode = $map['ticket_status_code'];
         }
         if (isset($map['upgrade_fee'])) {
             $model->upgradeFee = $map['upgrade_fee'];

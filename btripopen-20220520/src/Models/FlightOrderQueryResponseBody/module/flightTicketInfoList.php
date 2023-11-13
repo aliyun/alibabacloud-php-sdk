@@ -30,6 +30,11 @@ class flightTicketInfoList extends Model
     public $discount;
 
     /**
+     * @var string
+     */
+    public $flightNo;
+
+    /**
      * @example 2022-07-20T10:40Z
      *
      * @var string
@@ -100,6 +105,7 @@ class flightTicketInfoList extends Model
         'buildPrice'       => 'build_price',
         'changed'          => 'changed',
         'discount'         => 'discount',
+        'flightNo'         => 'flight_no',
         'gmtCreate'        => 'gmt_create',
         'gmtModify'        => 'gmt_modify',
         'oilPrice'         => 'oil_price',
@@ -127,6 +133,9 @@ class flightTicketInfoList extends Model
         }
         if (null !== $this->discount) {
             $res['discount'] = $this->discount;
+        }
+        if (null !== $this->flightNo) {
+            $res['flight_no'] = $this->flightNo;
         }
         if (null !== $this->gmtCreate) {
             $res['gmt_create'] = $this->gmtCreate;
@@ -178,6 +187,9 @@ class flightTicketInfoList extends Model
         }
         if (isset($map['discount'])) {
             $model->discount = $map['discount'];
+        }
+        if (isset($map['flight_no'])) {
+            $model->flightNo = $map['flight_no'];
         }
         if (isset($map['gmt_create'])) {
             $model->gmtCreate = $map['gmt_create'];

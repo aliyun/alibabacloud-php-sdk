@@ -46,6 +46,16 @@ class orderBaseInfo extends Model
     public $departName;
 
     /**
+     * @var string
+     */
+    public $exceedApplyId;
+
+    /**
+     * @var string
+     */
+    public $exceedThirdPartApplyId;
+
+    /**
      * @example 2022-07-20T10:40Z
      *
      * @var string
@@ -111,23 +121,25 @@ class orderBaseInfo extends Model
      */
     public $userId;
     protected $_name = [
-        'applyId'              => 'apply_id',
-        'btripTitle'           => 'btrip_title',
-        'contactName'          => 'contact_name',
-        'corpId'               => 'corp_id',
-        'corpName'             => 'corp_name',
-        'departId'             => 'depart_id',
-        'departName'           => 'depart_name',
-        'gmtCreate'            => 'gmt_create',
-        'gmtModify'            => 'gmt_modify',
-        'itineraryId'          => 'itinerary_id',
-        'orderId'              => 'order_id',
-        'orderStatus'          => 'order_status',
-        'thirdpartApplyId'     => 'thirdpart_apply_id',
-        'thirdpartCorpId'      => 'thirdpart_corp_id',
-        'thirdpartItineraryId' => 'thirdpart_itinerary_id',
-        'tripType'             => 'trip_type',
-        'userId'               => 'user_id',
+        'applyId'                => 'apply_id',
+        'btripTitle'             => 'btrip_title',
+        'contactName'            => 'contact_name',
+        'corpId'                 => 'corp_id',
+        'corpName'               => 'corp_name',
+        'departId'               => 'depart_id',
+        'departName'             => 'depart_name',
+        'exceedApplyId'          => 'exceed_apply_id',
+        'exceedThirdPartApplyId' => 'exceed_third_part_apply_id',
+        'gmtCreate'              => 'gmt_create',
+        'gmtModify'              => 'gmt_modify',
+        'itineraryId'            => 'itinerary_id',
+        'orderId'                => 'order_id',
+        'orderStatus'            => 'order_status',
+        'thirdpartApplyId'       => 'thirdpart_apply_id',
+        'thirdpartCorpId'        => 'thirdpart_corp_id',
+        'thirdpartItineraryId'   => 'thirdpart_itinerary_id',
+        'tripType'               => 'trip_type',
+        'userId'                 => 'user_id',
     ];
 
     public function validate()
@@ -157,6 +169,12 @@ class orderBaseInfo extends Model
         }
         if (null !== $this->departName) {
             $res['depart_name'] = $this->departName;
+        }
+        if (null !== $this->exceedApplyId) {
+            $res['exceed_apply_id'] = $this->exceedApplyId;
+        }
+        if (null !== $this->exceedThirdPartApplyId) {
+            $res['exceed_third_part_apply_id'] = $this->exceedThirdPartApplyId;
         }
         if (null !== $this->gmtCreate) {
             $res['gmt_create'] = $this->gmtCreate;
@@ -220,6 +238,12 @@ class orderBaseInfo extends Model
         }
         if (isset($map['depart_name'])) {
             $model->departName = $map['depart_name'];
+        }
+        if (isset($map['exceed_apply_id'])) {
+            $model->exceedApplyId = $map['exceed_apply_id'];
+        }
+        if (isset($map['exceed_third_part_apply_id'])) {
+            $model->exceedThirdPartApplyId = $map['exceed_third_part_apply_id'];
         }
         if (isset($map['gmt_create'])) {
             $model->gmtCreate = $map['gmt_create'];
