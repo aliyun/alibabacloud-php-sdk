@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class constraints extends Model
 {
     /**
-     * @description 最大值
+     * @description The maximum number of nodes in the node group. Default value: 2000.
      *
      * @example 2000
      *
@@ -18,7 +18,7 @@ class constraints extends Model
     public $maxCapacity;
 
     /**
-     * @description 最小值
+     * @description The minimum number of nodes in the node group. Default value: 0.
      *
      * @example 0
      *

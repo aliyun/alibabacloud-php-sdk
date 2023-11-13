@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetAutoScalingActivityRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,7 +18,7 @@ class GetAutoScalingActivityRequest extends Model
     public $clusterId;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class GetAutoScalingActivityRequest extends Model
     public $regionId;
 
     /**
-     * @description 伸缩活动ID。
+     * @description The ID of the scaling activity.
      *
      * @example asa-36373b084d6b4b13aa50f4129a9e****
      *

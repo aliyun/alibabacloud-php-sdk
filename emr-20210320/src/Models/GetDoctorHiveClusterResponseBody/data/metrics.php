@@ -54,226 +54,316 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+     *
      * @var coldDataDayGrowthSize
      */
     public $coldDataDayGrowthSize;
 
     /**
+     * @description The proportion of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+     *
      * @var coldDataRatio
      */
     public $coldDataRatio;
 
     /**
+     * @description The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+     *
      * @var coldDataSize
      */
     public $coldDataSize;
 
     /**
+     * @description The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+     *
      * @var coldDataSizeDayGrowthRatio
      */
     public $coldDataSizeDayGrowthRatio;
 
     /**
+     * @description The number of databases.
+     *
      * @var databaseCount
      */
     public $databaseCount;
 
     /**
+     * @description The number of empty files. Empty files are those with a size of 0 MB.
+     *
      * @var emptyFileCount
      */
     public $emptyFileCount;
 
     /**
+     * @description The day-to-day growth rate of the number of empty files. Empty files are those with a size of 0 MB.
+     *
      * @var emptyFileCountDayGrowthRatio
      */
     public $emptyFileCountDayGrowthRatio;
 
     /**
+     * @description The daily increment of the number of empty files. Empty files are those with a size of 0 MB.
+     *
      * @var emptyFileDayGrowthCount
      */
     public $emptyFileDayGrowthCount;
 
     /**
+     * @description The proportion of empty files. Empty files are those with a size of 0 MB.
+     *
      * @var emptyFileRatio
      */
     public $emptyFileRatio;
 
     /**
+     * @description The daily increment of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+     *
      * @var freezeDataDayGrowthSize
      */
     public $freezeDataDayGrowthSize;
 
     /**
+     * @description The proportion of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+     *
      * @var freezeDataRatio
      */
     public $freezeDataRatio;
 
     /**
+     * @description The amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+     *
      * @var freezeDataSize
      */
     public $freezeDataSize;
 
     /**
+     * @description The day-to-day growth rate of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
+     *
      * @var freezeDataSizeDayGrowthRatio
      */
     public $freezeDataSizeDayGrowthRatio;
 
     /**
+     * @description The daily increment of the amount of hot data. Hot data refers to data that is accessed in recent seven days.
+     *
      * @var hotDataDayGrowthSize
      */
     public $hotDataDayGrowthSize;
 
     /**
+     * @description The proportion of hot data. Hot data refers to data that is accessed in recent seven days.
+     *
      * @var hotDataRatio
      */
     public $hotDataRatio;
 
     /**
+     * @description The amount of hot data. Hot data refers to data that is accessed in recent seven days.
+     *
      * @var hotDataSize
      */
     public $hotDataSize;
 
     /**
+     * @description The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in recent seven days.
+     *
      * @var hotDataSizeDayGrowthRatio
      */
     public $hotDataSizeDayGrowthRatio;
 
     /**
+     * @description The number of large files. Large files are those with a size greater than 1 GB.
+     *
      * @var largeFileCount
      */
     public $largeFileCount;
 
     /**
+     * @description The day-to-day growth rate of the number of large files. Large files are those with a size greater than 1 GB.
+     *
      * @var largeFileCountDayGrowthRatio
      */
     public $largeFileCountDayGrowthRatio;
 
     /**
+     * @description The daily increment of the number of large files. Large files are those with a size greater than 1 GB.
+     *
      * @var largeFileDayGrowthCount
      */
     public $largeFileDayGrowthCount;
 
     /**
+     * @description The proportion of large files. Large files are those with a size greater than 1 GB.
+     *
      * @var largeFileRatio
      */
     public $largeFileRatio;
 
     /**
+     * @description The number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+     *
      * @var mediumFileCount
      */
     public $mediumFileCount;
 
     /**
+     * @description The day-to-day growth rate of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+     *
      * @var mediumFileCountDayGrowthRatio
      */
     public $mediumFileCountDayGrowthRatio;
 
     /**
+     * @description The daily increment of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+     *
      * @var mediumFileDayGrowthCount
      */
     public $mediumFileDayGrowthCount;
 
     /**
+     * @description The proportion of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
+     *
      * @var mediumFileRatio
      */
     public $mediumFileRatio;
 
     /**
+     * @description The number of partitions.
+     *
      * @var partitionNum
      */
     public $partitionNum;
 
     /**
+     * @description The number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+     *
      * @var smallFileCount
      */
     public $smallFileCount;
 
     /**
+     * @description The day-to-day growth rate of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+     *
      * @var smallFileCountDayGrowthRatio
      */
     public $smallFileCountDayGrowthRatio;
 
     /**
+     * @description The daily increment of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+     *
      * @var smallFileDayGrowthCount
      */
     public $smallFileDayGrowthCount;
 
     /**
+     * @description The proportion of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
+     *
      * @var smallFileRatio
      */
     public $smallFileRatio;
 
     /**
+     * @description The number of tables.
+     *
      * @var tableCount
      */
     public $tableCount;
 
     /**
+     * @description The number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+     *
      * @var tinyFileCount
      */
     public $tinyFileCount;
 
     /**
+     * @description The day-to-day growth rate of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+     *
      * @var tinyFileCountDayGrowthRatio
      */
     public $tinyFileCountDayGrowthRatio;
 
     /**
+     * @description The daily increment of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+     *
      * @var tinyFileDayGrowthCount
      */
     public $tinyFileDayGrowthCount;
 
     /**
+     * @description The proportion of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
+     *
      * @var tinyFileRatio
      */
     public $tinyFileRatio;
 
     /**
+     * @description The daily incremental of the total data volume.
+     *
      * @var totalDataDayGrowthSize
      */
     public $totalDataDayGrowthSize;
 
     /**
+     * @description The total amount of data.
+     *
      * @var totalDataSize
      */
     public $totalDataSize;
 
     /**
+     * @description The day-to-day growth rate of the total data volume.
+     *
      * @var totalDataSizeDayGrowthRatio
      */
     public $totalDataSizeDayGrowthRatio;
 
     /**
+     * @description The total number of files.
+     *
      * @var totalFileCount
      */
     public $totalFileCount;
 
     /**
+     * @description The day-to-day growth rate of the total number of files.
+     *
      * @var totalFileCountDayGrowthRatio
      */
     public $totalFileCountDayGrowthRatio;
 
     /**
+     * @description The daily increment of the total number of files.
+     *
      * @var totalFileDayGrowthCount
      */
     public $totalFileDayGrowthCount;
 
     /**
+     * @description The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+     *
      * @var warmDataDayGrowthSize
      */
     public $warmDataDayGrowthSize;
 
     /**
+     * @description The proportion of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+     *
      * @var warmDataRatio
      */
     public $warmDataRatio;
 
     /**
+     * @description The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+     *
      * @var warmDataSize
      */
     public $warmDataSize;
 
     /**
+     * @description The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+     *
      * @var warmDataSizeDayGrowthRatio
      */
     public $warmDataSizeDayGrowthRatio;

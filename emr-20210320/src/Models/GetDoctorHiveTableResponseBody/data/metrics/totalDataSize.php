@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class totalDataSize extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Total data size in megabytes (MB)
      *
      * @var string
@@ -16,6 +18,8 @@ class totalDataSize extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example totalDataSize
      *
      * @var string
@@ -23,6 +27,8 @@ class totalDataSize extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example MB
      *
      * @var string
@@ -30,6 +36,8 @@ class totalDataSize extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 33800296
      *
      * @var int

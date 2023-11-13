@@ -11,8 +11,11 @@ use AlibabaCloud\Tea\Model;
 class scalingRules extends Model
 {
     /**
-     * @description 伸缩类型。取值范围：
-     * - SCALE_IN：缩容
+     * @description The type of the scaling activity. Valid values:
+     *
+     *   SCALE_OUT: scale-out rules
+     *   SCALE_IN: scale-in rules
+     *
      * @example SCALE_OUT
      *
      * @var string
@@ -20,7 +23,7 @@ class scalingRules extends Model
     public $activityType;
 
     /**
-     * @description 调整类型。CHANGE_IN_CAPACITY/EXACT_CAPACITY。
+     * @description The adjustment type.
      *
      * @example CHANGE_IN_CAPACITY
      *
@@ -29,7 +32,7 @@ class scalingRules extends Model
     public $adjustmentType;
 
     /**
-     * @description 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
+     * @description The adjustment value. The value must be a positive number, which indicates the number of instances to be scaled out or in.
      *
      * @example 100
      *
@@ -38,14 +41,14 @@ class scalingRules extends Model
     public $adjustmentValue;
 
     /**
-     * @description 按照负载伸缩描述。
+     * @description The description of scaling by load.
      *
      * @var MetricsTrigger
      */
     public $metricsTrigger;
 
     /**
-     * @description 弹性伸缩规则名称。
+     * @description The name of the auto scaling rule.
      *
      * @example scaling-out-memory
      *
@@ -54,15 +57,18 @@ class scalingRules extends Model
     public $ruleName;
 
     /**
-     * @description 按照时间伸缩描述。
+     * @description The description of scaling by time.
      *
      * @var TimeTrigger
      */
     public $timeTrigger;
 
     /**
-     * @description 伸缩规则类型。取值范围：
-     * - METRICS_TRIGGER: 按负载伸缩。
+     * @description The type of the scaling rule. Valid values:
+     *
+     *   TIME_TRIGGER: scaling by time.
+     *   METRICS_TRIGGER: scaling by load.
+     *
      * @example TIME_TRIGGER
      *
      * @var string

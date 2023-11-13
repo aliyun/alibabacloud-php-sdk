@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorHDFSDirectoryResponseBody extends Model
 {
     /**
+     * @description The analysis results of the HDFS directory.
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *

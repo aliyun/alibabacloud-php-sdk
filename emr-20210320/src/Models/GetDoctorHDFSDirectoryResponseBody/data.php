@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The directory level.
+     *
      * @example 2
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $depth;
 
     /**
+     * @description The group to which the directory belongs.
+     *
      * @example DW
      *
      * @var string
@@ -24,11 +28,15 @@ class data extends Model
     public $group;
 
     /**
+     * @description The metric information.
+     *
      * @var metrics
      */
     public $metrics;
 
     /**
+     * @description The directory owner.
+     *
      * @example DW
      *
      * @var string

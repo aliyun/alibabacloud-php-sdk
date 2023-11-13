@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tinyFileDayGrowthCount extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Day growth count of tiny files
      *
      * @var string
@@ -16,6 +18,8 @@ class tinyFileDayGrowthCount extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example tinyFileDayGrowthCount
      *
      * @var string
@@ -23,6 +27,8 @@ class tinyFileDayGrowthCount extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class tinyFileDayGrowthCount extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 1000
      *
      * @var int

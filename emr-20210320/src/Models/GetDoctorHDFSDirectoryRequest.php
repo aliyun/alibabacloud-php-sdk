@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorHDFSDirectoryRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,6 +18,8 @@ class GetDoctorHDFSDirectoryRequest extends Model
     public $clusterId;
 
     /**
+     * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -25,6 +27,8 @@ class GetDoctorHDFSDirectoryRequest extends Model
     public $dateTime;
 
     /**
+     * @description The directory name. The depth of the directory is not greater than five.
+     *
      * @example /tmp/test
      *
      * @var string
@@ -32,7 +36,7 @@ class GetDoctorHDFSDirectoryRequest extends Model
     public $dirPath;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

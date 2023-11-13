@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running.
+     *
      * @var memSeconds
      */
     public $memSeconds;
 
     /**
+     * @description The memory usage.
+     *
      * @var memUtilization
      */
     public $memUtilization;
 
     /**
+     * @description The aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running.
+     *
      * @var vcoreSeconds
      */
     public $vcoreSeconds;
 
     /**
+     * @description The CPU utilization. The meaning is the same as that of the %CPU command in the output of the Linux top command.
+     *
      * @var vcoreUtilization
      */
     public $vcoreUtilization;

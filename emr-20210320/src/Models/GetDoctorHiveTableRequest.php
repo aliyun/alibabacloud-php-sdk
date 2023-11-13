@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorHiveTableRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,6 +18,8 @@ class GetDoctorHiveTableRequest extends Model
     public $clusterId;
 
     /**
+     * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -25,7 +27,7 @@ class GetDoctorHiveTableRequest extends Model
     public $dateTime;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -34,6 +36,8 @@ class GetDoctorHiveTableRequest extends Model
     public $regionId;
 
     /**
+     * @description The table name. The table name must follow the rule in Hive. A name in the {database name.table identifier} format uniquely identifies a table.
+     *
      * @example dw.dwd_creta_service_order_long_renew_long_da
      *
      * @var string

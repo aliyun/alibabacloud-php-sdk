@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tinyFileCountDayGrowthRatio extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Day growth ratio of tiny files
      *
      * @var string
@@ -16,6 +18,8 @@ class tinyFileCountDayGrowthRatio extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example tinyFileCountDayGrowthRatio
      *
      * @var string
@@ -23,6 +27,8 @@ class tinyFileCountDayGrowthRatio extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example ”“
      *
      * @var string
@@ -30,6 +36,8 @@ class tinyFileCountDayGrowthRatio extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 0.003
      *
      * @var float

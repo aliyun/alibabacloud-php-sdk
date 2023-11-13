@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsRequest extends Model
 {
     /**
-     * @description 应用名称列表。
+     * @description The application names.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,7 +18,7 @@ class ListApplicationsRequest extends Model
     public $applicationNames;
 
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-e6a9d46e92675****
      *
@@ -27,7 +27,7 @@ class ListApplicationsRequest extends Model
     public $clusterId;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The total number of pages.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class ListApplicationsRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The page number of the next page returned.
      *
      * @example 0
      *
@@ -45,7 +45,7 @@ class ListApplicationsRequest extends Model
     public $nextToken;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hotDataSize extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Size of the hot data size
      *
      * @var string
@@ -16,6 +18,8 @@ class hotDataSize extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example hotDataSize
      *
      * @var string
@@ -23,6 +27,8 @@ class hotDataSize extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example MB
      *
      * @var string
@@ -30,6 +36,8 @@ class hotDataSize extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 203431
      *
      * @var int

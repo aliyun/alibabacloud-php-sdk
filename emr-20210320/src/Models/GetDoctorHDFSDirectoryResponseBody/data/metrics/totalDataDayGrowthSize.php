@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class totalDataDayGrowthSize extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Day growth size of total data
      *
      * @var string
@@ -16,6 +18,8 @@ class totalDataDayGrowthSize extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example totalDataDayGrowthSize
      *
      * @var string
@@ -23,6 +27,8 @@ class totalDataDayGrowthSize extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example MB
      *
      * @var string
@@ -30,6 +36,8 @@ class totalDataDayGrowthSize extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 256482228248
      *
      * @var int

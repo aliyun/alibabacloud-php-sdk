@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class scalingPolicy extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -20,14 +20,14 @@ class scalingPolicy extends Model
     public $clusterId;
 
     /**
-     * @description 最大最小值约束
+     * @description The maximum and minimum numbers of node groups.
      *
      * @var constraints
      */
     public $constraints;
 
     /**
-     * @description 节点组ID。
+     * @description The ID of the node group.
      *
      * @example ng-869471354ecd****
      *
@@ -36,7 +36,7 @@ class scalingPolicy extends Model
     public $nodeGroupId;
 
     /**
-     * @description 伸缩策略ID。
+     * @description The ID of the scaling policy.
      *
      * @example asp-asduwe23znl***
      *
@@ -45,7 +45,7 @@ class scalingPolicy extends Model
     public $scalingPolicyId;
 
     /**
-     * @description 伸缩规则列表
+     * @description The scaling rules.
      *
      * @var scalingRules[]
      */

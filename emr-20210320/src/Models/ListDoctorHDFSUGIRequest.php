@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDoctorHDFSUGIRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,6 +18,8 @@ class ListDoctorHDFSUGIRequest extends Model
     public $clusterId;
 
     /**
+     * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -25,7 +27,7 @@ class ListDoctorHDFSUGIRequest extends Model
     public $dateTime;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The maximum number of entries to return on each page.
      *
      * @example 20
      *
@@ -34,7 +36,7 @@ class ListDoctorHDFSUGIRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the request to retrieve a new page of results.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -43,6 +45,12 @@ class ListDoctorHDFSUGIRequest extends Model
     public $nextToken;
 
     /**
+     * @description The basis on which you want to sort the query results. Valid values:
+     *
+     *   totalFileCount: the total number of files
+     *   totalDataSize: the total data size
+     *   totalDirCount: the total number of directories
+     *
      * @example totalFileCount
      *
      * @var string
@@ -50,6 +58,11 @@ class ListDoctorHDFSUGIRequest extends Model
     public $orderBy;
 
     /**
+     * @description The order in which you want to sort the query results. Valid values:
+     *
+     *   ASC: in ascending order
+     *   DESC: in descending order
+     *
      * @example ASC
      *
      * @var string
@@ -57,7 +70,7 @@ class ListDoctorHDFSUGIRequest extends Model
     public $orderType;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -66,6 +79,11 @@ class ListDoctorHDFSUGIRequest extends Model
     public $regionId;
 
     /**
+     * @description The filter condition. Valid values:
+     *
+     *   user
+     *   group
+     *
      * @example group
      *
      * @var string

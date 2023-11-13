@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorApplicationRequest extends Model
 {
     /**
-     * @description app id
+     * @description The ID of the job that is submitted to YARN.
      *
      * @example application_1542620905989_****
      *
@@ -18,7 +18,7 @@ class GetDoctorApplicationRequest extends Model
     public $appId;
 
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -27,6 +27,8 @@ class GetDoctorApplicationRequest extends Model
     public $clusterId;
 
     /**
+     * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -34,7 +36,7 @@ class GetDoctorApplicationRequest extends Model
     public $dateTime;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

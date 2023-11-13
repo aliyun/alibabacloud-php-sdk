@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListNodeGroupsRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,7 +18,7 @@ class ListNodeGroupsRequest extends Model
     public $clusterId;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The number of maximum number of records to obtain at a time. Valid values: 1 to 100.
      *
      * @example 20
      *
@@ -27,7 +27,7 @@ class ListNodeGroupsRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description Marks the current position where reading starts. If you set this value to null, you can start from the beginning.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -36,7 +36,7 @@ class ListNodeGroupsRequest extends Model
     public $nextToken;
 
     /**
-     * @description 节点组ID列表。
+     * @description The IDs of node groups. Valid values of the number of array elements N: 1 to 100.
      *
      * @example c-b933c5aac8fe****
      *
@@ -45,7 +45,7 @@ class ListNodeGroupsRequest extends Model
     public $nodeGroupIds;
 
     /**
-     * @description 节点组名称列表。
+     * @description The list of node group names. Valid values of the number of array elements N: 1 to 100.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -54,7 +54,7 @@ class ListNodeGroupsRequest extends Model
     public $nodeGroupNames;
 
     /**
-     * @description 节点组状态。
+     * @description The status of the node group. Valid values of the number of array elements N: 1 to 100.
      *
      * @example ["CORE"]
      *
@@ -63,7 +63,7 @@ class ListNodeGroupsRequest extends Model
     public $nodeGroupStates;
 
     /**
-     * @description 节点组类型列表。
+     * @description The list of node group types. Valid values of the number of array elements N: 1 to 100.
      *
      * @example 20
      *
@@ -72,7 +72,7 @@ class ListNodeGroupsRequest extends Model
     public $nodeGroupTypes;
 
     /**
-     * @description 区域ID。
+     * @description The ID of the region in which you want to create the instance.
      *
      * @example cn-hangzhou
      *

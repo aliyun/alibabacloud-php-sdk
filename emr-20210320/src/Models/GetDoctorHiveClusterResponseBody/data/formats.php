@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class formats extends Model
 {
     /**
+     * @description The name of the storage format.
+     *
      * @example TextInputFormat
      *
      * @var string
@@ -16,6 +18,8 @@ class formats extends Model
     public $formatName;
 
     /**
+     * @description The proportion of data in a specific storage format.
+     *
      * @example 0.5
      *
      * @var float
@@ -23,6 +27,8 @@ class formats extends Model
     public $formatRatio;
 
     /**
+     * @description The size of storage format-specific data.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +36,8 @@ class formats extends Model
     public $formatSize;
 
     /**
+     * @description The unit of the data size.
+     *
      * @example MB
      *
      * @var string

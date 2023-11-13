@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The analysis results of the jobs.
+     *
      * @var analysis
      */
     public $analysis;
 
     /**
+     * @description The job ID in YARN. The value of QueryID or SessionID is returned for a Hive job.
+     *
      * @example application_1665056147236_*****
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $appId;
 
     /**
+     * @description The name of the job.
+     *
      * @example data-upload
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $appName;
 
     /**
+     * @description The time when the job ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+     *
      * @example 1682049088086
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description The job IDs. Multiple job IDs are separated with commas (,).
+     *
      * @example null
      *
      * @var string[]
@@ -44,11 +54,15 @@ class data extends Model
     public $ids;
 
     /**
+     * @description The data about metrics.
+     *
      * @var metrics
      */
     public $metrics;
 
     /**
+     * @description The query statement. This parameter is left empty for non-SQL jobs.
+     *
      * @example SELECT id, count(1) FROM test group by id;
      *
      * @var string
@@ -56,6 +70,8 @@ class data extends Model
     public $querySql;
 
     /**
+     * @description The YARN queue to which the job was submitted.
+     *
      * @example DW
      *
      * @var string
@@ -63,6 +79,8 @@ class data extends Model
     public $queue;
 
     /**
+     * @description The time when the job was submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+     *
      * @example 1677465658275
      *
      * @var int
@@ -70,6 +88,8 @@ class data extends Model
     public $startTime;
 
     /**
+     * @description The type of the compute engine.
+     *
      * @example TEZ
      *
      * @var string
@@ -77,6 +97,8 @@ class data extends Model
     public $type;
 
     /**
+     * @description The username that was used to submit the job.
+     *
      * @example DW
      *
      * @var string

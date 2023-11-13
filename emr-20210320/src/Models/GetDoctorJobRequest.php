@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorJobRequest extends Model
 {
     /**
-     * @description app id
+     * @description The ID of the job that is submitted to YARN.
      *
      * @example application_1542620905989_****
      *
@@ -18,7 +18,7 @@ class GetDoctorJobRequest extends Model
     public $appId;
 
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -27,7 +27,7 @@ class GetDoctorJobRequest extends Model
     public $clusterId;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

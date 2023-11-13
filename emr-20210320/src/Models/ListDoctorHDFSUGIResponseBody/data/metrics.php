@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The total data size.
+     *
      * @var totalDataSize
      */
     public $totalDataSize;
 
     /**
+     * @description The total number of directories.
+     *
      * @var totalDirCount
      */
     public $totalDirCount;
 
     /**
+     * @description The total number of files.
+     *
      * @var totalFileCount
      */
     public $totalFileCount;

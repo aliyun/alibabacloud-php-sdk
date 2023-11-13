@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The analysis results.
+     *
      * @var analysis
      */
     public $analysis;
 
     /**
+     * @description The information from the perspective of formats.
+     *
      * @var formats[]
      */
     public $formats;
 
     /**
+     * @description The metric information.
+     *
      * @var metrics
      */
     public $metrics;
 
     /**
+     * @description The owner.
+     *
      * @example DW
      *
      * @var string

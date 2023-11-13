@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class analysis extends Model
 {
     /**
+     * @description The score of the job.
+     *
      * @example 67
      *
      * @var int
@@ -16,6 +18,8 @@ class analysis extends Model
     public $score;
 
     /**
+     * @description The suggestion for running the job.
+     *
      * @var string
      */
     public $suggestion;

@@ -18,6 +18,15 @@ class NodeAttributes extends Model
     public $keyPairName;
 
     /**
+     * @description MASTER节点root密码。
+     *
+     * @example Adxefswfd****
+     *
+     * @var string
+     */
+    public $masterRootPassword;
+
+    /**
      * @description ECS访问资源绑定的角色。
      *
      * @example AliyunECSInstanceForEMRRole
@@ -53,11 +62,12 @@ class NodeAttributes extends Model
      */
     public $zoneId;
     protected $_name = [
-        'keyPairName'     => 'KeyPairName',
-        'ramRole'         => 'RamRole',
-        'securityGroupId' => 'SecurityGroupId',
-        'vpcId'           => 'VpcId',
-        'zoneId'          => 'ZoneId',
+        'keyPairName'        => 'KeyPairName',
+        'masterRootPassword' => 'MasterRootPassword',
+        'ramRole'            => 'RamRole',
+        'securityGroupId'    => 'SecurityGroupId',
+        'vpcId'              => 'VpcId',
+        'zoneId'             => 'ZoneId',
     ];
 
     public function validate()
@@ -69,6 +79,9 @@ class NodeAttributes extends Model
         $res = [];
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
+        }
+        if (null !== $this->masterRootPassword) {
+            $res['MasterRootPassword'] = $this->masterRootPassword;
         }
         if (null !== $this->ramRole) {
             $res['RamRole'] = $this->ramRole;
@@ -96,6 +109,9 @@ class NodeAttributes extends Model
         $model = new self();
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['MasterRootPassword'])) {
+            $model->masterRootPassword = $map['MasterRootPassword'];
         }
         if (isset($map['RamRole'])) {
             $model->ramRole = $map['RamRole'];

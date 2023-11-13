@@ -47,6 +47,8 @@ class ListInstanceTypesRequest extends Model
     /**
      * @description 是否变配。
      *
+     * @example false
+     *
      * @var bool
      */
     public $isModification;
@@ -54,7 +56,7 @@ class ListInstanceTypesRequest extends Model
     /**
      * @description 节点组ID。
      *
-     * @example G-F06C4B47966AB170
+     * @example G-F06C4B47966A****
      *
      * @var string
      */

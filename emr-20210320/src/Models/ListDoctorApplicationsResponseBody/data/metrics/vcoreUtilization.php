@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vcoreUtilization extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Ratio of used vcore to total available cores
      *
      * @var string
@@ -16,6 +18,8 @@ class vcoreUtilization extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example vcoreUtilization
      *
      * @var string
@@ -23,6 +27,8 @@ class vcoreUtilization extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class vcoreUtilization extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 23.1
      *
      * @var float

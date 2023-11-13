@@ -9,8 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RunApplicationActionRequest extends Model
 {
     /**
-     * @description 操作名称。取值范围：
-     * 等
+     * @description The name of the action. Valid values:
+     *
+     *   start
+     *   stop
+     *   config
+     *   restart
+     *   refresh_queues
+     *
      * @example start
      *
      * @var string
@@ -18,7 +24,7 @@ class RunApplicationActionRequest extends Model
     public $actionName;
 
     /**
-     * @description 每批数量。
+     * @description The number of applications in each batch.
      *
      * @example 1
      *
@@ -27,7 +33,7 @@ class RunApplicationActionRequest extends Model
     public $batchSize;
 
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example C-C95F0A39D8FF****
      *
@@ -36,14 +42,14 @@ class RunApplicationActionRequest extends Model
     public $clusterId;
 
     /**
-     * @description 组件实例选择器。
+     * @description The name of the operation.
      *
      * @var ComponentInstanceSelector
      */
     public $componentInstanceSelector;
 
     /**
-     * @description 描述。
+     * @description The description of the execution.
      *
      * @example 运行描述
      *
@@ -52,7 +58,10 @@ class RunApplicationActionRequest extends Model
     public $description;
 
     /**
-     * @description 运行策略。
+     * @description The execution policy. Valid values:
+     *
+     *   FAILED_BLOCK: The system stops the execution if the execution fails.
+     *   FAILED_CONTINUE: The system continues the execution if the execution fails.
      *
      * @example FAILED_CONTINUE
      *
@@ -61,7 +70,7 @@ class RunApplicationActionRequest extends Model
     public $executeStrategy;
 
     /**
-     * @description 间隔时间。
+     * @description The interval for rolling execution. Unit: seconds.
      *
      * @example 10
      *
@@ -70,7 +79,7 @@ class RunApplicationActionRequest extends Model
     public $interval;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -79,7 +88,7 @@ class RunApplicationActionRequest extends Model
     public $regionId;
 
     /**
-     * @description 是否滚动执行。
+     * @description Specifies whether to enable rolling execution.
      *
      * @example true
      *

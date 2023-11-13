@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The analysis results.
+     *
      * @var analysis
      */
     public $analysis;
 
     /**
+     * @description The information from the perspective of formats.
+     *
      * @var formats[]
      */
     public $formats;
 
     /**
+     * @description The metric information.
+     *
      * @var metrics
      */
     public $metrics;
 
     /**
+     * @description The owner.
+     *
      * @example DW
      *
      * @var string
@@ -34,6 +42,8 @@ class data extends Model
     public $owner;
 
     /**
+     * @description The table name. The table name must follow the naming rule in Hive. A name in the {database name.table identifier} format uniquely identifies a table.
+     *
      * @example dw.dwd_creta_service_order_long_renew_long_da
      *
      * @var string

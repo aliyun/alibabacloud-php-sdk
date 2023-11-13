@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationConfigsRequest extends Model
 {
     /**
-     * @description 应用名称。
+     * @description The name of the application.
      *
      * @example HDFS
      *
@@ -18,7 +18,7 @@ class ListApplicationConfigsRequest extends Model
     public $applicationName;
 
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-e6a9d46e9267****
      *
@@ -27,7 +27,7 @@ class ListApplicationConfigsRequest extends Model
     public $clusterId;
 
     /**
-     * @description 配置文件名称。
+     * @description The name of the configuration file.
      *
      * @example hdfs-site.xml
      *
@@ -36,7 +36,7 @@ class ListApplicationConfigsRequest extends Model
     public $configFileName;
 
     /**
-     * @description 配置键值，支持模糊查询。
+     * @description The name of the configuration item.
      *
      * @example dfs.replication
      *
@@ -45,7 +45,7 @@ class ListApplicationConfigsRequest extends Model
     public $configItemKey;
 
     /**
-     * @description 配置项值。
+     * @description The value of the configuration item.
      *
      * @example 2
      *
@@ -54,7 +54,7 @@ class ListApplicationConfigsRequest extends Model
     public $configItemValue;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The number of entries per page.
      *
      * @example 100
      *
@@ -63,7 +63,7 @@ class ListApplicationConfigsRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The page number of the next page returned.
      *
      * @example 1
      *
@@ -72,7 +72,7 @@ class ListApplicationConfigsRequest extends Model
     public $nextToken;
 
     /**
-     * @description 节点组ID。
+     * @description The ID of the node group.
      *
      * @example ng-d555335ced5c****
      *
@@ -81,7 +81,7 @@ class ListApplicationConfigsRequest extends Model
     public $nodeGroupId;
 
     /**
-     * @description 节点ID。
+     * @description The node ID.
      *
      * @example i-bp10h9rezawz1i4o****
      *
@@ -90,7 +90,7 @@ class ListApplicationConfigsRequest extends Model
     public $nodeId;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

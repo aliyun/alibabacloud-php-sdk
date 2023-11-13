@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The analysis results.
+     *
      * @var analysis
      */
     public $analysis;
 
     /**
+     * @description The database name.
+     *
      * @example db1
      *
      * @var string
@@ -24,11 +28,15 @@ class data extends Model
     public $databaseName;
 
     /**
+     * @description The information from the perspective of storage formats.
+     *
      * @var formats[]
      */
     public $formats;
 
     /**
+     * @description The metric information.
+     *
      * @var metrics
      */
     public $metrics;

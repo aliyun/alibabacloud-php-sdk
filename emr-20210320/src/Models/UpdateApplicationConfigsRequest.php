@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationConfigsRequest extends Model
 {
     /**
-     * @description 应用配置列表。
+     * @description The list of application configurations.
      *
      * @example CLUSTER
      *
@@ -18,7 +18,7 @@ class UpdateApplicationConfigsRequest extends Model
     public $applicationConfigs;
 
     /**
-     * @description 应用名称。
+     * @description The application name.
      *
      * @example HDFS
      *
@@ -27,7 +27,7 @@ class UpdateApplicationConfigsRequest extends Model
     public $applicationName;
 
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-e6a9d46e9267****
      *
@@ -36,8 +36,12 @@ class UpdateApplicationConfigsRequest extends Model
     public $clusterId;
 
     /**
-     * @description 配置项操作。取值范围：
-     * - UPDATE：更新。
+     * @description The operation performed on configuration items. Valid values:
+     *
+     *   ADD
+     *   UPDATE
+     *   DELETE
+     *
      * @example ADD
      *
      * @var string
@@ -45,8 +49,11 @@ class UpdateApplicationConfigsRequest extends Model
     public $configAction;
 
     /**
-     * @description 配置操作范围。取值范围：
-     * - NODE_GROUP：节点组范围。
+     * @description The operation scope. Valid values:
+     *
+     *   CLUSTER
+     *   NODE_GROUP
+     *
      * @example CLUSTER
      *
      * @var string
@@ -54,7 +61,7 @@ class UpdateApplicationConfigsRequest extends Model
     public $configScope;
 
     /**
-     * @description 本次更新操作描述。
+     * @description The description.
      *
      * @example 更新YARN内存配置。
      *
@@ -63,7 +70,7 @@ class UpdateApplicationConfigsRequest extends Model
     public $description;
 
     /**
-     * @description 节点组ID。
+     * @description The ID of the node group.
      *
      * @example ng-869471354ecd****
      *
@@ -72,7 +79,7 @@ class UpdateApplicationConfigsRequest extends Model
     public $nodeGroupId;
 
     /**
-     * @description 节点ID。
+     * @description The node ID.
      *
      * @example i-bp1cudc25w2bfwl5****
      *
@@ -81,7 +88,7 @@ class UpdateApplicationConfigsRequest extends Model
     public $nodeId;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

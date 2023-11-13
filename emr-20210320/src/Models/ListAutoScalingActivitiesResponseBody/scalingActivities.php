@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scalingActivities extends Model
 {
     /**
-     * @description 伸缩活动ID。
+     * @description The ID of the scaling activity.
      *
      * @example asa-36373b084d6b4b13aa50f4129a9e****
      *
@@ -18,8 +18,13 @@ class scalingActivities extends Model
     public $activityId;
 
     /**
-     * @description 伸缩活动状态。取值范围：
-     * - IN_PROGRESS：进行中
+     * @description The status of the scaling activity. Valid values:
+     *
+     *   REJECTED
+     *   SUCCESSFUL
+     *   FAILED
+     *   IN_PROGRESS
+     *
      * @example IN_PROGRESS
      *
      * @var string
@@ -27,8 +32,11 @@ class scalingActivities extends Model
     public $activityState;
 
     /**
-     * @description 伸缩活动类型。取值范围：
-     * - SCALE_OUT：扩容
+     * @description The type of the scaling activity. Valid values:
+     *
+     *   SCALE_OUT
+     *   SCALE_IN
+     *
      * @example SCALE_OUT
      *
      * @var string
@@ -36,7 +44,7 @@ class scalingActivities extends Model
     public $activityType;
 
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -45,7 +53,7 @@ class scalingActivities extends Model
     public $clusterId;
 
     /**
-     * @description 伸缩活动描述。
+     * @description The description of the scaling activity.
      *
      * @example clusterId not exist
      *
@@ -54,7 +62,7 @@ class scalingActivities extends Model
     public $description;
 
     /**
-     * @description 伸缩结束时间。
+     * @description The end time of the scaling. Unit: milliseconds.
      *
      * @example 1639715634819
      *
@@ -63,7 +71,7 @@ class scalingActivities extends Model
     public $endTime;
 
     /**
-     * @description 本次扩缩数量。
+     * @description The number of added or removed instances.
      *
      * @example 10
      *
@@ -72,7 +80,7 @@ class scalingActivities extends Model
     public $expectNum;
 
     /**
-     * @description 节点组ID。
+     * @description The ID of the node group.
      *
      * @example ng-869471354ecd****
      *
@@ -81,7 +89,7 @@ class scalingActivities extends Model
     public $nodeGroupId;
 
     /**
-     * @description 节点组名称。
+     * @description The name of the node group.
      *
      * @example task-01
      *
@@ -90,7 +98,7 @@ class scalingActivities extends Model
     public $nodeGroupName;
 
     /**
-     * @description 操作ID。
+     * @description The operation ID.
      *
      * @example op-13c37a77c505****
      *
@@ -99,7 +107,7 @@ class scalingActivities extends Model
     public $operationId;
 
     /**
-     * @description 伸缩规则名称。
+     * @description The name of the scaling rule.
      *
      * @example scaling-out-memory
      *
@@ -108,7 +116,7 @@ class scalingActivities extends Model
     public $ruleName;
 
     /**
-     * @description 伸缩启动时间。
+     * @description The start time of the scaling. Unit: milliseconds.
      *
      * @example 1639714634819
      *

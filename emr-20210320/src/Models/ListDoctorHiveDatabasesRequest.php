@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDoctorHiveDatabasesRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,6 +18,8 @@ class ListDoctorHiveDatabasesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The database names.
+     *
      * @example null
      *
      * @var string[]
@@ -25,6 +27,8 @@ class ListDoctorHiveDatabasesRequest extends Model
     public $databaseNames;
 
     /**
+     * @description The query date.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -32,7 +36,7 @@ class ListDoctorHiveDatabasesRequest extends Model
     public $dateTime;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The maximum number of entries to return on each page.
      *
      * @example 20
      *
@@ -41,7 +45,7 @@ class ListDoctorHiveDatabasesRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the request to retrieve a new page of results.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -50,6 +54,10 @@ class ListDoctorHiveDatabasesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The basis on which you want to sort the query results. Valid values:
+     *
+     *   tableCount: the number of tables
+     *
      * @example tableCount
      *
      * @var string
@@ -57,6 +65,11 @@ class ListDoctorHiveDatabasesRequest extends Model
     public $orderBy;
 
     /**
+     * @description The order in which you want to sort the query results. Valid values:
+     *
+     *   ASC: in ascending order
+     *   DESC: in descending order
+     *
      * @example ASC
      *
      * @var string
@@ -64,7 +77,7 @@ class ListDoctorHiveDatabasesRequest extends Model
     public $orderType;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

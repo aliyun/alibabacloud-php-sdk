@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorHiveDatabaseRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,6 +18,8 @@ class GetDoctorHiveDatabaseRequest extends Model
     public $clusterId;
 
     /**
+     * @description The database name.
+     *
      * @example db1
      *
      * @var string
@@ -25,6 +27,8 @@ class GetDoctorHiveDatabaseRequest extends Model
     public $databaseName;
 
     /**
+     * @description The query date.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -32,7 +36,7 @@ class GetDoctorHiveDatabaseRequest extends Model
     public $dateTime;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

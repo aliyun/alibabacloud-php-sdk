@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateNodeGroupRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example C-E525E04F3914****
      *
@@ -18,14 +18,14 @@ class CreateNodeGroupRequest extends Model
     public $clusterId;
 
     /**
-     * @description 节点组信息。
+     * @description The information about a machine group.
      *
      * @var NodeGroupConfig
      */
     public $nodeGroup;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

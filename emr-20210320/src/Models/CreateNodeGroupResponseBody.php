@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNodeGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the machine group.
+     *
      * @example G-21E39B11837E****
      *
      * @var string
@@ -16,7 +18,7 @@ class CreateNodeGroupResponseBody extends Model
     public $nodeGroupId;
 
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example 9E3A7161-EB7B-172B-8D18-FFB06BA3****
      *

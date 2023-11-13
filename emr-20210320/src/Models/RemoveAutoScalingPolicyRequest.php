@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveAutoScalingPolicyRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,7 +18,7 @@ class RemoveAutoScalingPolicyRequest extends Model
     public $clusterId;
 
     /**
-     * @description 节点组ID。节点组 Id-针对 ACK 集群，此字段为空。
+     * @description The ID of the node group.
      *
      * @example ng-869471354ecd****
      *
@@ -27,7 +27,7 @@ class RemoveAutoScalingPolicyRequest extends Model
     public $nodeGroupId;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

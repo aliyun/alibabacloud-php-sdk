@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RunApplicationActionResponseBody extends Model
 {
     /**
-     * @description 操作ID。
+     * @description The operation ID.
      *
      * @example op-13c37a77c505****
      *
@@ -18,7 +18,7 @@ class RunApplicationActionResponseBody extends Model
     public $operationId;
 
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example 9E3A7161-EB7B-172B-8D18-FFB06BA3****
      *

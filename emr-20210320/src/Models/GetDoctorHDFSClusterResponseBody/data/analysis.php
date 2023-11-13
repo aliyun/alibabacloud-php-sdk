@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class analysis extends Model
 {
     /**
+     * @description The overall score of HDFS storage resources.
+     *
      * @example 55
      *
      * @var int

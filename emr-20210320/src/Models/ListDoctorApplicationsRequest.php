@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDoctorApplicationsRequest extends Model
 {
     /**
+     * @description The IDs of jobs that are submitted to YARN.
+     *
      * @example null
      *
      * @var string[]
@@ -16,7 +18,7 @@ class ListDoctorApplicationsRequest extends Model
     public $appIds;
 
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -25,6 +27,8 @@ class ListDoctorApplicationsRequest extends Model
     public $clusterId;
 
     /**
+     * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -32,7 +36,7 @@ class ListDoctorApplicationsRequest extends Model
     public $dateTime;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The maximum number of entries to return on each page.
      *
      * @example 20
      *
@@ -41,7 +45,7 @@ class ListDoctorApplicationsRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the request to retrieve a new page of results.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -50,6 +54,9 @@ class ListDoctorApplicationsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The field that you use to sort the query results. Valid values:
+     *
+     * 7.  score: the score of the job
      * @example score
      *
      * @var string
@@ -57,6 +64,11 @@ class ListDoctorApplicationsRequest extends Model
     public $orderBy;
 
     /**
+     * @description The order in which you want to sort the query results. Valid values:
+     *
+     *   ASC: the ascending order
+     *   DESC: the descending order
+     *
      * @example ASC
      *
      * @var string
@@ -64,6 +76,8 @@ class ListDoctorApplicationsRequest extends Model
     public $orderType;
 
     /**
+     * @description The YARN queues to which the jobs are submitted.
+     *
      * @example null
      *
      * @var string[]
@@ -71,7 +85,7 @@ class ListDoctorApplicationsRequest extends Model
     public $queues;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -80,6 +94,8 @@ class ListDoctorApplicationsRequest extends Model
     public $regionId;
 
     /**
+     * @description The YARN engines to which the jobs are submitted.
+     *
      * @example null
      *
      * @var string[]
@@ -87,6 +103,8 @@ class ListDoctorApplicationsRequest extends Model
     public $types;
 
     /**
+     * @description The users who submit the jobs.
+     *
      * @example null
      *
      * @var string[]

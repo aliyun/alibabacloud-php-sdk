@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class applications extends Model
 {
     /**
-     * @description 应用名称。
+     * @description The application name.
      *
      * @example HDFS
      *
@@ -18,14 +18,16 @@ class applications extends Model
     public $applicationName;
 
     /**
-     * @description 应用操作状态
+     * @description The status of the application operation.
+     *
+     * @example RUNNING
      *
      * @var string
      */
     public $applicationState;
 
     /**
-     * @description 应用版本。
+     * @description The version of the application.
      *
      * @example 2.8.1
      *
@@ -36,7 +38,7 @@ class applications extends Model
     public $applicationVersion;
 
     /**
-     * @description 社区版本。
+     * @description The community edition.
      *
      * @example 2.8.5
      *

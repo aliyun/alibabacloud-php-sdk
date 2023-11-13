@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The amount of memory consumed.
+     *
      * @var memSeconds
      */
     public $memSeconds;
 
     /**
+     * @description The memory usage
+     *
      * @var memUtilization
      */
     public $memUtilization;
 
     /**
+     * @description The CPU usage.
+     *
      * @var vcoreSeconds
      */
     public $vcoreSeconds;
 
     /**
+     * @description The CPU utilization. This parameter has the same meaning as %CPU in the Linux top command.
+     *
      * @var vcoreUtilization
      */
     public $vcoreUtilization;

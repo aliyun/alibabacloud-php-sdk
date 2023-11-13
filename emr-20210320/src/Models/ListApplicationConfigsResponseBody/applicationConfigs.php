@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class applicationConfigs extends Model
 {
     /**
-     * @description 应用名称。
+     * @description The name of the application.
      *
      * @example HDFS
      *
@@ -18,7 +18,7 @@ class applicationConfigs extends Model
     public $applicationName;
 
     /**
-     * @description 配置值生效状态。
+     * @description The status of the configuration value.
      *
      * @example EFFECT
      *
@@ -27,7 +27,7 @@ class applicationConfigs extends Model
     public $configEffectState;
 
     /**
-     * @description 配置文件名称。
+     * @description The name of the configuration file.
      *
      * @example hdfs-site.xml
      *
@@ -36,7 +36,7 @@ class applicationConfigs extends Model
     public $configFileName;
 
     /**
-     * @description 配置项键。
+     * @description The name of the configuration item.
      *
      * @example dfs.replication
      *
@@ -45,7 +45,7 @@ class applicationConfigs extends Model
     public $configItemKey;
 
     /**
-     * @description 配置项值。
+     * @description The value of the configuration item.
      *
      * @example 2
      *
@@ -54,7 +54,7 @@ class applicationConfigs extends Model
     public $configItemValue;
 
     /**
-     * @description 创建时间。
+     * @description The time when the application was created.
      *
      * @example 1628589439114
      *
@@ -63,7 +63,7 @@ class applicationConfigs extends Model
     public $createTime;
 
     /**
-     * @description 是否是自定义配置。
+     * @description Indicates whether the configurations are custom.
      *
      * @example false
      *
@@ -72,7 +72,7 @@ class applicationConfigs extends Model
     public $custom;
 
     /**
-     * @description 描述。
+     * @description The description.
      *
      * @example dfs.replication description
      *
@@ -81,7 +81,7 @@ class applicationConfigs extends Model
     public $description;
 
     /**
-     * @description 初始值。
+     * @description The initial value.
      *
      * @example 2
      *
@@ -90,7 +90,7 @@ class applicationConfigs extends Model
     public $initValue;
 
     /**
-     * @description 修改人。
+     * @description The person who modified the configurations.
      *
      * @example 170906468757****
      *
@@ -99,7 +99,7 @@ class applicationConfigs extends Model
     public $modifier;
 
     /**
-     * @description 节点组ID。
+     * @description The ID of the node group.
      *
      * @example ng-d555335ced5****
      *
@@ -108,7 +108,7 @@ class applicationConfigs extends Model
     public $nodeGroupId;
 
     /**
-     * @description 节点ID。
+     * @description The node ID.
      *
      * @example i-bp18y0ng3qqxog4mw****
      *
@@ -117,7 +117,7 @@ class applicationConfigs extends Model
     public $nodeId;
 
     /**
-     * @description 更新时间。
+     * @description The time when the application was updated.
      *
      * @example 1628589439114
      *

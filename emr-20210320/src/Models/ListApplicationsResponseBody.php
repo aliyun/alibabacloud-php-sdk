@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsResponseBody extends Model
 {
     /**
+     * @description The information about applications.
+     *
      * @var applications[]
      */
     public $applications;
 
     /**
-     * @description 本次请求所返回的最大记录条数。
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -24,7 +26,7 @@ class ListApplicationsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description 返回读取到的数据位置，空代表数据已经读取完毕。
+     * @description The page number of the next page returned.
      *
      * @example 2
      *
@@ -33,7 +35,7 @@ class ListApplicationsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example 9E3A7161-EB7B-172B-8D18-FFB06BA3****
      *
@@ -42,7 +44,7 @@ class ListApplicationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 本次请求条件下的数据总量。
+     * @description The total number of pages.
      *
      * @example 20
      *

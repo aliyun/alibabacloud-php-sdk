@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The metric information.
+     *
      * @var metrics
      */
     public $metrics;
 
     /**
+     * @description The actual name of the owner or group returned based on the value of Type.
+     *
      * @example DW
      *
      * @var string
