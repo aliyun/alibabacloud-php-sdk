@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Resource instance ID bound to the environment, including container instance ID or VpcId.
+     * @description The ID of the resource associated with the environment, such as the ACK cluster ID or VPC ID.
      *
      * @example vpc-xxxxx
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $bindResourceId;
 
     /**
-     * @description Profile of bound resources.
+     * @description The profile of the resource.
      *
      * @example Default
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $bindResourceProfile;
 
     /**
-     * @description The state of the bound resource.
+     * @description The status of the resource.
      *
      * @example running
      *
@@ -37,7 +37,7 @@ class data extends Model
     public $bindResourceStatus;
 
     /**
-     * @description The storage duration of bound resources (days).
+     * @description The retention period of the resource. Unit: days.
      *
      * @example 15
      *
@@ -46,7 +46,7 @@ class data extends Model
     public $bindResourceStoreDuration;
 
     /**
-     * @description The bound resource type.
+     * @description The resource type.
      *
      * @example ECS
      *
@@ -55,7 +55,7 @@ class data extends Model
     public $bindResourceType;
 
     /**
-     * @description Bind the network segment of the vpc.
+     * @description The VPC CIDR block.
      *
      * @example 192.168.0.0/16
      *
@@ -64,7 +64,7 @@ class data extends Model
     public $bindVpcCidr;
 
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxxx
      *
@@ -73,7 +73,7 @@ class data extends Model
     public $environmentId;
 
     /**
-     * @description Environment name.
+     * @description The environment name.
      *
      * @example env1
      *
@@ -82,13 +82,21 @@ class data extends Model
     public $environmentName;
 
     /**
+     * @description Environment subtypes:
+     * - Cloud: Currently supports Cloud.
+     * @example ACK
+     *
      * @var string
      */
     public $environmentSubType;
 
     /**
-     * @description Environment type:
-     * - Cloud: cloud service.
+     * @description The type of the environment. Valid values:
+     *
+     *   CS: Container Service for Kubernetes (ACK)
+     *   ECS: Elastic Compute Service
+     *   Cloud: cloud service
+     *
      * @example CS
      *
      * @var string
@@ -96,7 +104,7 @@ class data extends Model
     public $environmentType;
 
     /**
-     * @description Grafana data source name.
+     * @description The name of the Grafana data source.
      *
      * @example datasource1
      *
@@ -105,7 +113,7 @@ class data extends Model
     public $grafaDataSourceName;
 
     /**
-     * @description Grafana data source unique ID.
+     * @description The unique ID of the Grafana data source.
      *
      * @example zuvw
      *
@@ -114,7 +122,7 @@ class data extends Model
     public $grafanaDatasourceUid;
 
     /**
-     * @description Grafana directory name.
+     * @description The name of the Grafana directory.
      *
      * @example folder1
      *
@@ -123,7 +131,7 @@ class data extends Model
     public $grafanaFolderTitle;
 
     /**
-     * @description Grafana directory unique ID.
+     * @description The unique ID of the Grafana directory.
      *
      * @example xyz
      *
@@ -132,7 +140,7 @@ class data extends Model
     public $grafanaFolderUid;
 
     /**
-     * @description Grafana directory URL.
+     * @description The URL of the Grafana directory.
      *
      * @example https://g.console.aliyun.com/dashboards/f/xxx/yyyy
      *
@@ -141,7 +149,7 @@ class data extends Model
     public $grafanaFolderUrl;
 
     /**
-     * @description The bound prometheus instance ID.
+     * @description The ID of the Prometheus instance.
      *
      * @example xxxxyyyyyzzzzz
      *
@@ -150,7 +158,7 @@ class data extends Model
     public $prometheusInstanceId;
 
     /**
-     * @description The name of the bound prometheus instance.
+     * @description The name of the Prometheus instance.
      *
      * @example name1
      *
@@ -184,7 +192,7 @@ class data extends Model
     public $tags;
 
     /**
-     * @description UserId.
+     * @description The user ID.
      *
      * @example 13002222xxxx
      *
@@ -193,6 +201,10 @@ class data extends Model
     public $userId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-8vb02uk57qbcktqcvqqqj
+     *
      * @var string
      */
     public $vpcId;

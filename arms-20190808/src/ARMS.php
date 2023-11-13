@@ -205,6 +205,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetCloudClusterAllUrlRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetCloudClusterAllUrlResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetClusterAllUrlRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetClusterAllUrlResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetCommercialStatusRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetCommercialStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetExploreUrlRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetExploreUrlResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetIntegrationStateRequest;
@@ -3748,6 +3750,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->deletePromInstance)) {
+            $query['DeletePromInstance'] = $request->deletePromInstance;
+        }
         if (!Utils::isUnset($request->environmentId)) {
             $query['EnvironmentId'] = $request->environmentId;
         }
@@ -5745,6 +5750,52 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getClusterAllUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCommercialStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCommercialStatusResponse
+     */
+    public function getCommercialStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCommercialStatus',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCommercialStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCommercialStatusRequest $request
+     *
+     * @return GetCommercialStatusResponse
+     */
+    public function getCommercialStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCommercialStatusWithOptions($request, $runtime);
     }
 
     /**

@@ -6,27 +6,23 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeEnvironmentRequest extends Model
+class GetCommercialStatusRequest extends Model
 {
     /**
-     * @description The ID of the environment instance.
-     *
-     * @example env-xxxxx
+     * @example arms_app_post
      *
      * @var string
      */
-    public $environmentId;
+    public $commodityCode;
 
     /**
-     * @description The region ID.
-     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'environmentId' => 'EnvironmentId',
+        'commodityCode' => 'CommodityCode',
         'regionId'      => 'RegionId',
     ];
 
@@ -37,8 +33,8 @@ class DescribeEnvironmentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->environmentId) {
-            $res['EnvironmentId'] = $this->environmentId;
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -50,13 +46,13 @@ class DescribeEnvironmentRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeEnvironmentRequest
+     * @return GetCommercialStatusRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnvironmentId'])) {
-            $model->environmentId = $map['EnvironmentId'];
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

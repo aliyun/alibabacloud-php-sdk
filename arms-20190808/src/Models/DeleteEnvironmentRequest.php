@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnvironmentRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $deletePromInstance;
+
+    /**
      * @description Environment instance ID.
      *
      * @example env-xxxxxx
@@ -26,8 +31,9 @@ class DeleteEnvironmentRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'environmentId' => 'EnvironmentId',
-        'regionId'      => 'RegionId',
+        'deletePromInstance' => 'DeletePromInstance',
+        'environmentId'      => 'EnvironmentId',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class DeleteEnvironmentRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deletePromInstance) {
+            $res['DeletePromInstance'] = $this->deletePromInstance;
+        }
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
         }
@@ -55,6 +64,9 @@ class DeleteEnvironmentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeletePromInstance'])) {
+            $model->deletePromInstance = $map['DeletePromInstance'];
+        }
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];
         }

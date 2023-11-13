@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTimingSyntheticTaskRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,11 +18,17 @@ class DeleteTimingSyntheticTaskRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aek2eq4peca****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the synthetic monitoring task.
+     *
      * @example 5308a2691f59422c8c3b7aeccec9cd3b
      *
      * @var string

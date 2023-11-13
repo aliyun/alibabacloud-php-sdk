@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTimingSyntheticTaskResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteTimingSyntheticTaskResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the synthetic monitoring task was deleted. true: The synthetic monitoring task was deleted. false: The synthetic monitoring task failed to be deleted.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class DeleteTimingSyntheticTaskResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteTimingSyntheticTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
      *
      * @var string

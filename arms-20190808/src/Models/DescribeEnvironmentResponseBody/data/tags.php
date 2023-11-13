@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description Tag的键。
+     *
+     * @example user1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description Tag的值
+     *
+     * @example p_运维
+     *
      * @var string
      */
     public $value;
