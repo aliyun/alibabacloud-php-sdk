@@ -6,10 +6,20 @@ namespace AlibabaCloud\SDK\ResourceCenter\V20221201;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateSavedQueryRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateSavedQueryResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteSavedQueryRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteSavedQueryResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DisableMultiAccountResourceCenterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DisableResourceCenterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\EnableMultiAccountResourceCenterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\EnableResourceCenterResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ExecuteMultiAccountSQLQueryRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ExecuteMultiAccountSQLQueryResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ExecuteSQLQueryRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ExecuteSQLQueryResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetExampleQueryRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetExampleQueryResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceCenterServiceStatusResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceConfigurationRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceConfigurationResponse;
@@ -18,6 +28,10 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceConfigurationReq
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceConfigurationResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetSavedQueryRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetSavedQueryResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListExampleQueriesRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListExampleQueriesResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceGroupsRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceGroupsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountTagKeysRequest;
@@ -26,6 +40,8 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountTagValuesRe
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountTagValuesResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListResourceTypesRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListResourceTypesResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListSavedQueriesRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListSavedQueriesResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListTagValuesRequest;
@@ -34,6 +50,8 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResources
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchResourcesRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchResourcesResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateSavedQueryRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateSavedQueryResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -71,6 +89,98 @@ class ResourceCenter extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CreateSavedQueryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSavedQueryResponse
+     */
+    public function createSavedQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->expression)) {
+            $query['Expression'] = $request->expression;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSavedQuery',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSavedQueryRequest $request
+     *
+     * @return CreateSavedQueryResponse
+     */
+    public function createSavedQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSavedQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSavedQueryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteSavedQueryResponse
+     */
+    public function deleteSavedQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->queryId)) {
+            $query['QueryId'] = $request->queryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSavedQuery',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSavedQueryRequest $request
+     *
+     * @return DeleteSavedQueryResponse
+     */
+    public function deleteSavedQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSavedQueryWithOptions($request, $runtime);
     }
 
     /**
@@ -207,6 +317,141 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableResourceCenterWithOptions($runtime);
+    }
+
+    /**
+     * @param ExecuteMultiAccountSQLQueryRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ExecuteMultiAccountSQLQueryResponse
+     */
+    public function executeMultiAccountSQLQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expression)) {
+            $query['Expression'] = $request->expression;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteMultiAccountSQLQuery',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteMultiAccountSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExecuteMultiAccountSQLQueryRequest $request
+     *
+     * @return ExecuteMultiAccountSQLQueryResponse
+     */
+    public function executeMultiAccountSQLQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeMultiAccountSQLQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExecuteSQLQueryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ExecuteSQLQueryResponse
+     */
+    public function executeSQLQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expression)) {
+            $query['Expression'] = $request->expression;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteSQLQuery',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExecuteSQLQueryRequest $request
+     *
+     * @return ExecuteSQLQueryResponse
+     */
+    public function executeSQLQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeSQLQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetExampleQueryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetExampleQueryResponse
+     */
+    public function getExampleQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->queryId)) {
+            $query['QueryId'] = $request->queryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetExampleQuery',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetExampleQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetExampleQueryRequest $request
+     *
+     * @return GetExampleQueryResponse
+     */
+    public function getExampleQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getExampleQueryWithOptions($request, $runtime);
     }
 
     /**
@@ -420,6 +665,95 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getResourceCountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSavedQueryRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetSavedQueryResponse
+     */
+    public function getSavedQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->queryId)) {
+            $query['QueryId'] = $request->queryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSavedQuery',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSavedQueryRequest $request
+     *
+     * @return GetSavedQueryResponse
+     */
+    public function getSavedQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSavedQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListExampleQueriesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListExampleQueriesResponse
+     */
+    public function listExampleQueriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExampleQueries',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListExampleQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListExampleQueriesRequest $request
+     *
+     * @return ListExampleQueriesResponse
+     */
+    public function listExampleQueries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listExampleQueriesWithOptions($request, $runtime);
     }
 
     /**
@@ -637,6 +971,52 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
+     * @param ListSavedQueriesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListSavedQueriesResponse
+     */
+    public function listSavedQueriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSavedQueries',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSavedQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSavedQueriesRequest $request
+     *
+     * @return ListSavedQueriesResponse
+     */
+    public function listSavedQueries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSavedQueriesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTagKeysRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -744,10 +1124,17 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param SearchMultiAccountResourcesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
+     *   * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](~~600556~~).
+     *   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     *   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     *   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+     *   * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
+     *   *
+     * @param SearchMultiAccountResourcesRequest $request SearchMultiAccountResourcesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchMultiAccountResourcesResponse
+     * @return SearchMultiAccountResourcesResponse SearchMultiAccountResourcesResponse
      */
     public function searchMultiAccountResourcesWithOptions($request, $runtime)
     {
@@ -787,9 +1174,16 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param SearchMultiAccountResourcesRequest $request
+     * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
+     *   * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](~~600556~~).
+     *   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     *   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     *   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+     *   * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
+     *   *
+     * @param SearchMultiAccountResourcesRequest $request SearchMultiAccountResourcesRequest
      *
-     * @return SearchMultiAccountResourcesResponse
+     * @return SearchMultiAccountResourcesResponse SearchMultiAccountResourcesResponse
      */
     public function searchMultiAccountResources($request)
     {
@@ -799,10 +1193,16 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param SearchResourcesRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
+     *   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     *   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     *   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+     *   * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
+     *   *
+     * @param SearchResourcesRequest $request SearchResourcesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchResourcesResponse
+     * @return SearchResourcesResponse SearchResourcesResponse
      */
     public function searchResourcesWithOptions($request, $runtime)
     {
@@ -842,14 +1242,72 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param SearchResourcesRequest $request
+     * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
+     *   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     *   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     *   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+     *   * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
+     *   *
+     * @param SearchResourcesRequest $request SearchResourcesRequest
      *
-     * @return SearchResourcesResponse
+     * @return SearchResourcesResponse SearchResourcesResponse
      */
     public function searchResources($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->searchResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSavedQueryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateSavedQueryResponse
+     */
+    public function updateSavedQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->expression)) {
+            $query['Expression'] = $request->expression;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->queryId)) {
+            $query['QueryId'] = $request->queryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSavedQuery',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSavedQueryRequest $request
+     *
+     * @return UpdateSavedQueryResponse
+     */
+    public function updateSavedQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSavedQueryWithOptions($request, $runtime);
     }
 }

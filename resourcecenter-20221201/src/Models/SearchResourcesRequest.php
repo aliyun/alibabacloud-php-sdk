@@ -18,7 +18,7 @@ class SearchResourcesRequest extends Model
     public $filter;
 
     /**
-     * @description The maximum number of entries to return on each page.
+     * @description The maximum number of entries per page.
      *
      * Default value: 20.
      * @example 10

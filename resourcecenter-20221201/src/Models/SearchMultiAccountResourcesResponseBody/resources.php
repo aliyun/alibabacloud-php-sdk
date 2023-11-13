@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesResponseBody;
 
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesResponseBody\resources\ipAddressAttributes;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesResponseBody\resources\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -27,6 +28,16 @@ class resources extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $expireTime;
+
+    /**
+     * @var ipAddressAttributes[]
+     */
+    public $ipAddressAttributes;
 
     /**
      * @description The IP addresses.
@@ -98,16 +109,18 @@ class resources extends Model
      */
     public $zoneId;
     protected $_name = [
-        'accountId'       => 'AccountId',
-        'createTime'      => 'CreateTime',
-        'ipAddresses'     => 'IpAddresses',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'resourceId'      => 'ResourceId',
-        'resourceName'    => 'ResourceName',
-        'resourceType'    => 'ResourceType',
-        'tags'            => 'Tags',
-        'zoneId'          => 'ZoneId',
+        'accountId'           => 'AccountId',
+        'createTime'          => 'CreateTime',
+        'expireTime'          => 'ExpireTime',
+        'ipAddressAttributes' => 'IpAddressAttributes',
+        'ipAddresses'         => 'IpAddresses',
+        'regionId'            => 'RegionId',
+        'resourceGroupId'     => 'ResourceGroupId',
+        'resourceId'          => 'ResourceId',
+        'resourceName'        => 'ResourceName',
+        'resourceType'        => 'ResourceType',
+        'tags'                => 'Tags',
+        'zoneId'              => 'ZoneId',
     ];
 
     public function validate()
@@ -122,6 +135,18 @@ class resources extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->ipAddressAttributes) {
+            $res['IpAddressAttributes'] = [];
+            if (null !== $this->ipAddressAttributes && \is_array($this->ipAddressAttributes)) {
+                $n = 0;
+                foreach ($this->ipAddressAttributes as $item) {
+                    $res['IpAddressAttributes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->ipAddresses) {
             $res['IpAddresses'] = $this->ipAddresses;
@@ -170,6 +195,18 @@ class resources extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['IpAddressAttributes'])) {
+            if (!empty($map['IpAddressAttributes'])) {
+                $model->ipAddressAttributes = [];
+                $n                          = 0;
+                foreach ($map['IpAddressAttributes'] as $item) {
+                    $model->ipAddressAttributes[$n++] = null !== $item ? ipAddressAttributes::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['IpAddresses'])) {
             if (!empty($map['IpAddresses'])) {
