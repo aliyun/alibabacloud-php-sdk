@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The number of unusual logons to the asset.
+     * @description The number of unusual logons by using the account of the asset.
      *
      * @example 0
      *
@@ -63,6 +63,8 @@ class data extends Model
     public $agentlessVulSca;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $agentlessVulSys;
@@ -131,7 +133,7 @@ class data extends Model
     public $scaNum;
 
     /**
-     * @description The number of alerts generated for the asset.
+     * @description The number of alerts generated on the asset.
      *
      * @example 2
      *
@@ -158,7 +160,7 @@ class data extends Model
     public $trojan;
 
     /**
-     * @description The UUID of the asset.
+     * @description The instance UUID of the asset.
      *
      * @example 6690a46c-0edb-4663-a641-3629d1a9****
      *

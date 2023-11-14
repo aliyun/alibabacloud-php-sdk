@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about the check item.
+     * @description The information about the check item.
      *
      * @var checkWarnings[]
      */

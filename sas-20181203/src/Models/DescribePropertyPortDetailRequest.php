@@ -72,6 +72,11 @@ class DescribePropertyPortDetailRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The UUID of the server.
      *
      * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
@@ -80,14 +85,15 @@ class DescribePropertyPortDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'bindIp'      => 'BindIp',
-        'currentPage' => 'CurrentPage',
-        'extend'      => 'Extend',
-        'pageSize'    => 'PageSize',
-        'port'        => 'Port',
-        'procName'    => 'ProcName',
-        'remark'      => 'Remark',
-        'uuid'        => 'Uuid',
+        'bindIp'                     => 'BindIp',
+        'currentPage'                => 'CurrentPage',
+        'extend'                     => 'Extend',
+        'pageSize'                   => 'PageSize',
+        'port'                       => 'Port',
+        'procName'                   => 'ProcName',
+        'remark'                     => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'uuid'                       => 'Uuid',
     ];
 
     public function validate()
@@ -117,6 +123,9 @@ class DescribePropertyPortDetailRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
@@ -153,6 +162,9 @@ class DescribePropertyPortDetailRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];

@@ -95,6 +95,13 @@ class ListCheckItemWarningMachineRequest extends Model
     public $riskType;
 
     /**
+     * @description The data source. Default value: default. Valid values:
+     *
+     *   **default**: The check items of baselines for hosts.
+     *   **agentless**: The check items of baselines for agentless detection.
+     *
+     * @example agentless
+     *
      * @var string
      */
     public $source;

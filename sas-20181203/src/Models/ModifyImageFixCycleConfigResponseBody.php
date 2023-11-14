@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageFixCycleConfigResponseBody extends Model
 {
     /**
+     * @description Indicates whether the configurations of the scheduled image fix are modified.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class ModifyImageFixCycleConfigResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example F7A4DF7E-57A4-5BBF-8290-223754AD****
      *
      * @var string

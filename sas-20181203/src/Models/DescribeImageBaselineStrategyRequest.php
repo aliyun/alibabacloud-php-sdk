@@ -21,6 +21,13 @@ class DescribeImageBaselineStrategyRequest extends Model
     public $lang;
 
     /**
+     * @description The data source. Default value: default. Valid values:
+     *
+     *   **default**: queries the information about a baseline check policy for images.
+     *   **agentless**: queries the information about a baseline check policy for agentless detection.
+     *
+     * @example agentless
+     *
      * @var string
      */
     public $source;

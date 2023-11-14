@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class bindPortList extends Model
 {
     /**
+     * @description Specifies whether to bind the port. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class bindPortList extends Model
     public $bindPort;
 
     /**
+     * @description The end port on which the probe monitors.
+     *
      * @example 80
      *
      * @var int
@@ -23,6 +30,11 @@ class bindPortList extends Model
     public $endPort;
 
     /**
+     * @description Specifies whether the port is a fixed port. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +42,11 @@ class bindPortList extends Model
     public $fixed;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *
      * @example tcp
      *
      * @var string
@@ -37,6 +54,8 @@ class bindPortList extends Model
     public $proto;
 
     /**
+     * @description The start port on which the probe monitors.
+     *
      * @example 80
      *
      * @var int
@@ -44,6 +63,8 @@ class bindPortList extends Model
     public $startPort;
 
     /**
+     * @description The destination port.
+     *
      * @example 8080
      *
      * @var int

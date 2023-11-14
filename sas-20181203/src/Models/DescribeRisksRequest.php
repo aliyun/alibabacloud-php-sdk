@@ -30,6 +30,11 @@ class DescribeRisksRequest extends Model
     public $limit;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The baseline ID.
      *
      * >  You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the baseline IDs.
@@ -48,10 +53,11 @@ class DescribeRisksRequest extends Model
      */
     public $riskName;
     protected $_name = [
-        'lang'     => 'Lang',
-        'limit'    => 'Limit',
-        'riskId'   => 'RiskId',
-        'riskName' => 'RiskName',
+        'lang'                       => 'Lang',
+        'limit'                      => 'Limit',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'riskId'                     => 'RiskId',
+        'riskName'                   => 'RiskName',
     ];
 
     public function validate()
@@ -66,6 +72,9 @@ class DescribeRisksRequest extends Model
         }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
@@ -90,6 +99,9 @@ class DescribeRisksRequest extends Model
         }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];

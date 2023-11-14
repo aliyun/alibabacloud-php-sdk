@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMaliciousNoteRequest extends Model
 {
     /**
+     * @description The ID of the alert event to which you want to add remarks.
+     *
+     * >  You can call the [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) operation to obtain the ID of the alert event from the NoteId parameter.
      * @example 80****
      *
      * @var int
@@ -16,6 +19,8 @@ class CreateMaliciousNoteRequest extends Model
     public $eventId;
 
     /**
+     * @description The remarks that you want to add.
+     *
      * @example Ignore
      *
      * @var string

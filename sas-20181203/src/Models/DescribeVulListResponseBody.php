@@ -19,6 +19,10 @@ class DescribeVulListResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The value of NextToken that is returned when the NextToken method is used.
+     *
+     * @example E17B501887A2D3AA5E8360A6EFA3B***
+     *
      * @var string
      */
     public $nextToken;
@@ -51,7 +55,7 @@ class DescribeVulListResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description An array that consists of the details about the vulnerability.
+     * @description The information about the vulnerability.
      *
      * @var vulRecords[]
      */

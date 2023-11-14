@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageVulWhitelistTargetRequest extends Model
 {
     /**
+     * @description The whitelist ID.
+     *
      * @example 2000083
      *
      * @var int
@@ -16,6 +18,11 @@ class UpdateImageVulWhitelistTargetRequest extends Model
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class UpdateImageVulWhitelistTargetRequest extends Model
     public $lang;
 
     /**
+     * @description The reason why you add the vulnerability to the whitelist.
+     *
      * @example ignore
      *
      * @var string
@@ -30,6 +39,11 @@ class UpdateImageVulWhitelistTargetRequest extends Model
     public $reason;
 
     /**
+     * @description The source of the whitelist. Valid values:
+     *
+     *   **image**
+     *   **agentless**
+     *
      * @example image
      *
      * @var string
@@ -37,6 +51,11 @@ class UpdateImageVulWhitelistTargetRequest extends Model
     public $source;
 
     /**
+     * @description The vulnerability that you want to add to the whitelist. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **type**: The type of the vulnerability. The value is fixed to repo.
+     *   **target**: The content of the vulnerability. The value is in the format of Namespace/Image repository.
+     *
      * @example {\"type\":\"repo\",\"target\":[\"sas_test/script_0209\",\"sas_test/script\"]}
      *
      * @var string

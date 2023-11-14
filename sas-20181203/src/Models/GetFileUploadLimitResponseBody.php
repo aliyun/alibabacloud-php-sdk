@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetFileUploadLimitResponseBody extends Model
 {
     /**
+     * @description The data returned if the request is successful.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 1A975D03-5F49-5354-B2CB-3918D5DA431A
      *
      * @var string

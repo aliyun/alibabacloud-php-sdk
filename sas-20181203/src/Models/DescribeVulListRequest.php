@@ -93,6 +93,10 @@ class DescribeVulListRequest extends Model
     public $necessity;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken. You do not need to specify this parameter for the first request.
+     *
+     * @example E17B501887A2D3AA5E8360A6EFA3B***
+     *
      * @var string
      */
     public $nextToken;
@@ -116,11 +120,21 @@ class DescribeVulListRequest extends Model
     public $remark;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * @example 1232428423234****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;
 
     /**
+     * @description The status of the vulnerability. Separate multiple statuses with commas (,). Valid values:
+     *
+     * - 20: expired
+     * @example 1,2,3
+     *
      * @var string
      */
     public $statusList;
@@ -142,6 +156,13 @@ class DescribeVulListRequest extends Model
     public $type;
 
     /**
+     * @description Specifies whether to use NextToken to query the data of vulnerabilities. If you set UseNextToken to true, the value of TotalCount is not returned. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $useNextToken;

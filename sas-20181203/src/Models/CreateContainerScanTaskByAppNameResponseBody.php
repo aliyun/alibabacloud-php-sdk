@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateContainerScanTaskByAppNameResponseBody extends Model
 {
     /**
+     * @description The data returned if the request was successful.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,8 @@ class CreateContainerScanTaskByAppNameResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 1EE7B150-D67E-53FD-A52D-3E8E669A****
      *
      * @var string

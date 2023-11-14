@@ -13,7 +13,7 @@ class list_ extends Model
     /**
      * @description The edition of Security Center that is authorized to protect the asset. Valid values:
      *
-     *   **1**: Basic edition (Unauthorized)
+     *   **1**: Basic edition
      *   **6**: Anti-virus edition
      *   **5**: Advanced edition
      *   **3**: Enterprise edition
@@ -27,10 +27,10 @@ class list_ extends Model
     public $authVersion;
 
     /**
-     * @description Indicates whether Security Center is authorized to scan the asset. Valid values:
+     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
      *
-     *   **true**: Security Center is authorized to scan the asset.
-     *   **false**: Security Center is not authorized to scan the asset.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -39,7 +39,7 @@ class list_ extends Model
     public $bind;
 
     /**
-     * @description The ID of the container.
+     * @description The container ID.
      *
      * @example 48a6d9a92435a13ad573372c3f3c63b7e04d106458141df9f9215570********
      *
@@ -57,14 +57,14 @@ class list_ extends Model
     public $containerName;
 
     /**
-     * @description An array consisting of the details about the baselines for which the risk item can be fixed.
+     * @description The details of the baselines for which the risk item can be fixed.
      *
      * @var fixList[]
      */
     public $fixList;
 
     /**
-     * @description The ID of the server.
+     * @description The instance ID of the server.
      *
      * @example i-bp1a69mvjujbakxu****
      *
@@ -100,6 +100,10 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @description The timestamp generated when the last scan was performed. Unit: milliseconds.
+     *
+     * @example 1694692471000
+     *
      * @var int
      */
     public $lastScanTime;
@@ -107,8 +111,8 @@ class list_ extends Model
     /**
      * @description Indicates whether a port on the server is accessible over the Internet. Valid values:
      *
-     *   **true**: A port on the server is accessible over the Internet.
-     *   **false**: No ports on the server are accessible over the Internet.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -138,13 +142,9 @@ class list_ extends Model
      * @description The status of the check item. Valid values:
      *
      *   1: failed
-     *
      *   2: verifying
-     *
      *   3: passed
-     *
      *   6: ignored
-     *
      *   7: fixing
      *
      * @example 1
@@ -154,16 +154,31 @@ class list_ extends Model
     public $status;
 
     /**
+     * @description The ID of the asset that is scanned.
+     *
+     * @example 30****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @description The name of the asset that is scanned.
+     *
+     * @example jenkins****
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **ECS_SNAPSHOT**
+     *   **ECS_IMAGE**
+     *
+     * @example ECS_IMAGE
+     *
      * @var string
      */
     public $targetType;
@@ -178,7 +193,7 @@ class list_ extends Model
     public $uuid;
 
     /**
-     * @description An array consisting of the details about the baselines based on which the risk item is detected.
+     * @description The information about the baselines on which the risk item is detected.
      *
      * @var warningRiskList[]
      */

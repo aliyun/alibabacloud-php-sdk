@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemWarningMachineResponseBody extends Model
 {
     /**
-     * @description An array consisting of the servers on which the alerts are generated.
+     * @description The servers on which the alerts are generated.
      *
      * @var list_[]
      */

@@ -31,6 +31,11 @@ class DescribeCheckWarningDetailRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The source IP address of the request.
      *
      * @example 103.25.XX.XX
@@ -39,9 +44,10 @@ class DescribeCheckWarningDetailRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'checkWarningId' => 'CheckWarningId',
-        'lang'           => 'Lang',
-        'sourceIp'       => 'SourceIp',
+        'checkWarningId'             => 'CheckWarningId',
+        'lang'                       => 'Lang',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'sourceIp'                   => 'SourceIp',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class DescribeCheckWarningDetailRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -77,6 +86,9 @@ class DescribeCheckWarningDetailRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class vulRecords extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
      * @example CVE-2018-25010:libwebp up to 1.0.0 ApplyFilter out-of-bounds read
      *
      * @var string
@@ -17,6 +19,11 @@ class vulRecords extends Model
     public $aliasName;
 
     /**
+     * @description Indicates whether the vulnerability can be fixed in the Security Center console. Valid values:
+     *
+     *   **yes**
+     *   **no**
+     *
      * @example yes
      *
      * @var string
@@ -24,6 +31,11 @@ class vulRecords extends Model
     public $canFix;
 
     /**
+     * @description Indicates whether the packages of the software that has the vulnerability can be upgraded by using Security Center. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -31,6 +43,8 @@ class vulRecords extends Model
     public $canUpdate;
 
     /**
+     * @description The cluster ID.
+     *
      * @example c08d5fc1a329a4b88950a253d082f1****
      *
      * @var string
@@ -38,6 +52,8 @@ class vulRecords extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example docker-law
      *
      * @var string
@@ -45,6 +61,8 @@ class vulRecords extends Model
     public $clusterName;
 
     /**
+     * @description The container ID.
+     *
      * @example 04d20e98c8e2c93b7b864372084320a15a58c8671e53c972ce3a71d9c163****
      *
      * @var string
@@ -52,11 +70,15 @@ class vulRecords extends Model
     public $containerId;
 
     /**
+     * @description The extended information about the vulnerability.
+     *
      * @var extendContentJson
      */
     public $extendContentJson;
 
     /**
+     * @description The timestamp generated when the vulnerability was first detected. Unit: milliseconds.
+     *
      * @example 1620752053000
      *
      * @var int
@@ -64,6 +86,8 @@ class vulRecords extends Model
     public $firstTs;
 
     /**
+     * @description The name of the image.
+     *
      * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-conta****
      *
      * @var string
@@ -71,6 +95,8 @@ class vulRecords extends Model
     public $image;
 
     /**
+     * @description The unique identifier of the image.
+     *
      * @example 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d50****
      *
      * @var string
@@ -78,6 +104,9 @@ class vulRecords extends Model
     public $imageDigest;
 
     /**
+     * @description The name of the instance.
+     *
+     * The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
      * @example testInstance
      *
      * @var string
@@ -85,6 +114,8 @@ class vulRecords extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the asset.
+     *
      * @example 1.2.XX.XX
      *
      * @var string
@@ -92,6 +123,8 @@ class vulRecords extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the asset.
+     *
      * @example 172.19.XX.XX
      *
      * @var string
@@ -99,6 +132,8 @@ class vulRecords extends Model
     public $intranetIp;
 
     /**
+     * @description The timestamp generated when the vulnerability was last detected. Unit: milliseconds.
+     *
      * @example 1620404763000
      *
      * @var int
@@ -106,11 +141,19 @@ class vulRecords extends Model
     public $lastTs;
 
     /**
+     * @description The image layers.
+     *
      * @var string[]
      */
     public $layers;
 
     /**
+     * @description The source of the malicious file. Valid values:
+     *
+     *   **agentless**
+     *   **image**
+     *   **container**
+     *
      * @example agentless
      *
      * @var string
@@ -118,6 +161,8 @@ class vulRecords extends Model
     public $maliciousSource;
 
     /**
+     * @description The timestamp generated when the vulnerability status was modified. Unit: milliseconds.
+     *
      * @example 1620404763000
      *
      * @var int
@@ -125,6 +170,8 @@ class vulRecords extends Model
     public $modifyTs;
 
     /**
+     * @description The name of the vulnerability.
+     *
      * @example debian:10:CVE-2019-9893
      *
      * @var string
@@ -132,6 +179,8 @@ class vulRecords extends Model
     public $name;
 
     /**
+     * @description The namespace.
+     *
      * @example test-002
      *
      * @var string
@@ -139,6 +188,13 @@ class vulRecords extends Model
     public $namespace;
 
     /**
+     * @description The priority to fix the vulnerability. Valid values:
+     *
+     *   **asap**: high
+     *   **later**: medium
+     *   **nntf**: low
+     *
+     * >  We recommend that you fix high-level vulnerabilities as soon as possible.
      * @example asap,later,nntf
      *
      * @var string
@@ -146,6 +202,8 @@ class vulRecords extends Model
     public $necessity;
 
     /**
+     * @description The name of the container group.
+     *
      * @example 22222-7xsqq
      *
      * @var string
@@ -153,6 +211,8 @@ class vulRecords extends Model
     public $pod;
 
     /**
+     * @description The vulnerability ID.
+     *
      * @example 782661
      *
      * @var int
@@ -160,6 +220,8 @@ class vulRecords extends Model
     public $primaryId;
 
     /**
+     * @description The CVE IDs related to the vulnerability. Multiple CVE IDs are separated by commas (,).
+     *
      * @example CVE-2017-7518,CVE-2017-12188
      *
      * @var string
@@ -167,6 +229,8 @@ class vulRecords extends Model
     public $related;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example varnish
      *
      * @var string
@@ -174,6 +238,8 @@ class vulRecords extends Model
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
      * @example 3rdparty
      *
      * @var string
@@ -181,6 +247,8 @@ class vulRecords extends Model
     public $repoNamespace;
 
     /**
+     * @description The timestamp generated when the scan task was performed. Unit: milliseconds.
+     *
      * @example 1649814050000
      *
      * @var int
@@ -188,6 +256,12 @@ class vulRecords extends Model
     public $scanTime;
 
     /**
+     * @description The status of the vulnerability. Valid values:
+     *
+     *   **1**: The vulnerability is unfixed.
+     *   **4**: The vulnerability is being fixed.
+     *   **7**: The vulnerability is fixed.
+     *
      * @example 1
      *
      * @var int
@@ -195,6 +269,8 @@ class vulRecords extends Model
     public $status;
 
     /**
+     * @description The tag that is added to the image.
+     *
      * @example latest
      *
      * @var string
@@ -202,6 +278,8 @@ class vulRecords extends Model
     public $tag;
 
     /**
+     * @description The ID of the asset that is scanned.
+     *
      * @example 300269
      *
      * @var string
@@ -209,6 +287,8 @@ class vulRecords extends Model
     public $targetId;
 
     /**
+     * @description The name of the asset that is scanned.
+     *
      * @example source-test-obj-XM0Ma
      *
      * @var string
@@ -216,6 +296,12 @@ class vulRecords extends Model
     public $targetName;
 
     /**
+     * @description The type of the asset that is scanned. Valid values:
+     *
+     *   **IMAGE**
+     *   **ECS_IMAGE**
+     *   **ECS_SNAPSHOT**
+     *
      * @example ECS_IMAGE
      *
      * @var string
@@ -223,6 +309,11 @@ class vulRecords extends Model
     public $targetType;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: system vulnerability
+     *   **sca**: application vulnerability
+     *
      * @example cve
      *
      * @var string
@@ -230,6 +321,8 @@ class vulRecords extends Model
     public $type;
 
     /**
+     * @description The UUID of the container image.
+     *
      * @example 0004a32a0305a7f6ab5ff9600d47****
      *
      * @var string

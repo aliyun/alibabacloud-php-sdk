@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total number of container applications in the cluster.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $allCount;
 
     /**
+     * @description The names of the container applications.
+     *
      * @example [\"alicloud-monitor-controller\"]
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $appNames;
 
     /**
+     * @description The number of selected container applications.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $chooseCount;
 
     /**
+     * @description The cluster ID.
+     *
      * @example c8ca91e0907d94efaba7fb0827eb9****
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example hhht-cluster-02
      *
      * @var string

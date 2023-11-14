@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateContainerScanTaskByAppNameRequest extends Model
 {
     /**
+     * @description The name of the container application.
+     *
      * @example app-centos-01
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateContainerScanTaskByAppNameRequest extends Model
     public $appNames;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cfb7a55a81f7246b5ac18845ea79a****
      *
      * @var string
@@ -23,6 +27,11 @@ class CreateContainerScanTaskByAppNameRequest extends Model
     public $clusterId;
 
     /**
+     * @description The language of the content within the request and response.
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

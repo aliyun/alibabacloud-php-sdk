@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class vulRecords extends Model
 {
     /**
-     * @description The alias of the vulnerability.
+     * @description The name of the vulnerability.
      *
      * @example RHSA-2019:0230-Important: polkit security update
      *
@@ -54,7 +54,7 @@ class vulRecords extends Model
     public $extendContentJson;
 
     /**
-     * @description The timestamp when the vulnerability was first detected. Unit: milliseconds.
+     * @description The timestamp that was generated when the vulnerability was first detected. Unit: milliseconds.
      *
      * @example 1554189334000
      *
@@ -108,7 +108,7 @@ class vulRecords extends Model
     public $intranetIp;
 
     /**
-     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
+     * @description The timestamp that was generated when the vulnerability was last detected. Unit: milliseconds.
      *
      * @example 1620404763000
      *
@@ -117,7 +117,7 @@ class vulRecords extends Model
     public $lastTs;
 
     /**
-     * @description The timestamp when the vulnerability status was modified. Unit: milliseconds.
+     * @description The timestamp that was generated when the vulnerability status was modified. Unit: milliseconds.
      *
      * @example 1620404763000
      *
@@ -141,7 +141,7 @@ class vulRecords extends Model
      *   **later**: medium
      *   **nntf**: low
      *
-     * > We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
+     * >  We recommend that you fix **high-level** vulnerabilities as soon as possible.
      * @example asap
      *
      * @var string
@@ -149,7 +149,7 @@ class vulRecords extends Model
     public $necessity;
 
     /**
-     * @description Indicates whether the Security Center agent on the asset is online. Valid values:
+     * @description Indicates whether the Security Center agent of the asset is online. Valid values:
      *
      *   **true**
      *   **false**
@@ -161,7 +161,7 @@ class vulRecords extends Model
     public $online;
 
     /**
-     * @description The name of the operating system for your asset.
+     * @description The name of the operating system of your asset.
      *
      * @example CentOS 7.2 64-bit
      *
@@ -170,7 +170,7 @@ class vulRecords extends Model
     public $osName;
 
     /**
-     * @description The name of the operating system for your asset.
+     * @description The name of the operating system of your asset.
      *
      * @example linux
      *
@@ -179,7 +179,7 @@ class vulRecords extends Model
     public $osVersion;
 
     /**
-     * @description The ID of the vulnerability.
+     * @description The vulnerability ID.
      *
      * @example 101162078
      *
@@ -188,12 +188,12 @@ class vulRecords extends Model
     public $primaryId;
 
     /**
-     * @description Indicates whether the application protection feature is supported.
+     * @description Indicates whether the runtime application self-protection (RASP) feature is supported. Valid values:
      *
-     *   **0**: no
-     *   **1**: yes
+     *   **0**: TheRASP feature is not supported.
+     *   **1**: The RASP feature is supported
      *
-     * > If this parameter is not returned, the application protection feature is not supported.
+     * >  If this parameter is not returned, the RASP is not supported.
      * @example 1
      *
      * @var int
@@ -201,12 +201,12 @@ class vulRecords extends Model
     public $raspDefend;
 
     /**
-     * @description The protection mode of the application protection feature. Valid values:
+     * @description The protection mode of the RASP feature. Valid values:
      *
-     *   **0**: unprotected
-     *   **1**: the Monitor mode
-     *   **2**: the Block mode
-     *   **3**: disabled
+     *   **0**: The RASP feature is not supported.
+     *   **1**: The RASP feature is in Monitor mode.
+     *   **2**: The RASP feature is in Block mode.
+     *   **3**: The RASP feature is disabled.
      *
      * @example 1
      *
@@ -215,7 +215,7 @@ class vulRecords extends Model
     public $raspStatus;
 
     /**
-     * @description The ID of the region in which the server resides.
+     * @description The ID of the region in which the instance resides.
      *
      * @example cn-hangzhou
      *
@@ -233,7 +233,7 @@ class vulRecords extends Model
     public $related;
 
     /**
-     * @description The timestamp when the vulnerability was fixed. Unit: milliseconds.
+     * @description The timestamp that was generated when the vulnerability was fixed. Unit: milliseconds.
      *
      * @example 1541207563000
      *
@@ -242,7 +242,7 @@ class vulRecords extends Model
     public $repairTs;
 
     /**
-     * @description The code that indicates the vulnerability fixing result.
+     * @description The code that indicates the fixing result of the vulnerability.
      *
      * @example 0
      *
@@ -251,7 +251,7 @@ class vulRecords extends Model
     public $resultCode;
 
     /**
-     * @description The message that indicates the vulnerability fixing result.
+     * @description The message that indicates the fixing result of the vulnerability.
      *
      * @example timeout
      *
@@ -262,19 +262,19 @@ class vulRecords extends Model
     /**
      * @description The status of the vulnerability. Valid values:
      *
-     *   **1**: unfixed
-     *   **2**: fix failed
-     *   **3**: rollback failed
-     *   **4**: fixing
-     *   **5**: being rolled back
-     *   **6**: being verified
-     *   **7**: fixed
-     *   **8**: fixed and to be restarted
-     *   **9**: rolled back
-     *   **10**: ignored
-     *   **11**: rolled back and to be restarted
-     *   **12**: not found
-     *   **20**: expired
+     *   **1**: The vulnerability is unfixed.
+     *   **2**: The vulnerability failed to be fixed.
+     *   **3**: The system failed to be rolled back.
+     *   **4**: The vulnerability is being fixed.
+     *   **5**: The system is being rolled back.
+     *   **6**: The vulnerability is being verified.
+     *   **7**: The vulnerability is fixed.
+     *   **8**: The vulnerability is fixed and the system is to be restarted.
+     *   **9**: The system is rolled back.
+     *   **10**: The vulnerability is ignored.
+     *   **11**: The system is rolled back and is to be restarted.
+     *   **12**: The vulnerability is not found.
+     *   **20**: The vulnerability expires.
      *
      * @example 1
      *
@@ -283,7 +283,7 @@ class vulRecords extends Model
     public $status;
 
     /**
-     * @description The tag that is added to the vulnerability.
+     * @description The tag of the vulnerability.
      *
      * @example oval
      *
@@ -299,7 +299,7 @@ class vulRecords extends Model
      *   **cms**: Web-CMS vulnerability
      *   **emg**: urgent vulnerability
      *   **app**: application vulnerability
-     *   **sca**: application vulnerability that is detected by using software component analysis
+     *   **sca**: application vulnerability that is detected by using Software Component Analysis (SCA).
      *
      * @example cve
      *
@@ -308,7 +308,7 @@ class vulRecords extends Model
     public $type;
 
     /**
-     * @description The UUID of the asset.
+     * @description The instance UUID of the asset.
      *
      * @example 04c56617-23fc-43a5-ab9b-****
      *

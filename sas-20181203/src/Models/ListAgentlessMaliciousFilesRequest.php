@@ -83,6 +83,22 @@ class ListAgentlessMaliciousFilesRequest extends Model
     public $maliciousMd5;
 
     /**
+     * @description The alert type.
+     *
+     * Valid values when Lang is set to zh:
+     *
+     *   WebShell
+     *   Malicious Software
+     *   Malicious Script
+     *
+     * Valid values when Lang is set to en:
+     *
+     *   WebShell
+     *   Malicious Software
+     *   Malicious Script
+     *
+     * @example WebShell
+     *
      * @var string
      */
     public $maliciousType;

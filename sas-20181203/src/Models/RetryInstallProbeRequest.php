@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RetryInstallProbeRequest extends Model
 {
     /**
+     * @description The probe ID.
+     *
+     * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
      * @example c4c47cc1-f60a-4b2f-bcdb-9aed6644****
      *
      * @var string

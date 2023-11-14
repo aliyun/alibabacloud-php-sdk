@@ -81,6 +81,11 @@ class DescribePropertyProcDetailRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The user who runs the process.
      *
      * @example root
@@ -98,16 +103,17 @@ class DescribePropertyProcDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'cmdline'       => 'Cmdline',
-        'currentPage'   => 'CurrentPage',
-        'extend'        => 'Extend',
-        'name'          => 'Name',
-        'pageSize'      => 'PageSize',
-        'procTimeEnd'   => 'ProcTimeEnd',
-        'procTimeStart' => 'ProcTimeStart',
-        'remark'        => 'Remark',
-        'user'          => 'User',
-        'uuid'          => 'Uuid',
+        'cmdline'                    => 'Cmdline',
+        'currentPage'                => 'CurrentPage',
+        'extend'                     => 'Extend',
+        'name'                       => 'Name',
+        'pageSize'                   => 'PageSize',
+        'procTimeEnd'                => 'ProcTimeEnd',
+        'procTimeStart'              => 'ProcTimeStart',
+        'remark'                     => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'user'                       => 'User',
+        'uuid'                       => 'Uuid',
     ];
 
     public function validate()
@@ -140,6 +146,9 @@ class DescribePropertyProcDetailRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->user) {
             $res['User'] = $this->user;
@@ -182,6 +191,9 @@ class DescribePropertyProcDetailRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['User'])) {
             $model->user = $map['User'];

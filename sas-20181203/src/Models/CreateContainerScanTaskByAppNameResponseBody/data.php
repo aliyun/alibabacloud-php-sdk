@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether you can create more scan tasks. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class data extends Model
     public $canCreate;
 
     /**
+     * @description The timestamp generated when the image information was collected. Unit: milliseconds.
+     *
      * @example 1644286364150
      *
      * @var int
@@ -23,6 +30,8 @@ class data extends Model
     public $collectTime;
 
     /**
+     * @description The timestamp generated when the scan task started. Unit: milliseconds.
+     *
      * @example 1644286364150
      *
      * @var int
@@ -30,6 +39,8 @@ class data extends Model
     public $execTime;
 
     /**
+     * @description The number of container applications that are scanned.
+     *
      * @example 5
      *
      * @var int
@@ -37,6 +48,8 @@ class data extends Model
     public $finishCount;
 
     /**
+     * @description The progress of the scan task in percentage.
+     *
      * @example 100
      *
      * @var int
@@ -44,6 +57,12 @@ class data extends Model
     public $progress;
 
     /**
+     * @description The result of the scan task. Valid values:
+     *
+     *   **SUCCESS**: The task is successful.
+     *   **TASK_NOT_SUPPORT_REGION**: The task is not supported in the region where the image is deployed.
+     *
+     * >
      * @example SUCCESS
      *
      * @var string
@@ -51,6 +70,13 @@ class data extends Model
     public $result;
 
     /**
+     * @description The status of the scan task. Valid values:
+     *
+     *   **INIT**: The task is being initialized.
+     *   **PRE_ANALYZER**: The task is being pre-processed.
+     *   **SUCCESS**: The task succeeds.
+     *   **FAIL**: The task fails.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -58,6 +84,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The ID of the scan task.
+     *
      * @example fc98d58eb56f699d49bf7ebbd6d7****
      *
      * @var string
@@ -65,6 +93,8 @@ class data extends Model
     public $taskId;
 
     /**
+     * @description The total number of container applications that you want to scan.
+     *
      * @example 5
      *
      * @var int

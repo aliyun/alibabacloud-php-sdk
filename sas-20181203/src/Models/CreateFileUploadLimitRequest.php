@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileUploadLimitRequest extends Model
 {
     /**
+     * @description The QPS limit on the files uploaded from the client. Valid values: 100 to 10000.
+     *
      * @example 100
      *
      * @var int

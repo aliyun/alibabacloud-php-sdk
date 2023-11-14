@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
-     * @description The name of the exception.
+     * @description The name of the detailed item.
      *
      * @example MD5
      *
@@ -18,7 +18,7 @@ class details extends Model
     public $name;
 
     /**
-     * @description The name key of the exception.
+     * @description The name key of the detailed item.
      *
      * @example ${suspicious.mp.db.maliciousfilemd5}
      *
@@ -27,7 +27,7 @@ class details extends Model
     public $nameKey;
 
     /**
-     * @description The type of the exception.
+     * @description The type of the detailed item.
      *
      * @example text
      *
@@ -36,7 +36,7 @@ class details extends Model
     public $type;
 
     /**
-     * @description The value of the exception.
+     * @description The value of the detailed item.
      *
      * @example 1
      *

@@ -20,7 +20,7 @@ class extendContentJson extends Model
     public $absolutePath;
 
     /**
-     * @description The alias of the vulnerability.
+     * @description The name of the vulnerability.
      *
      * @example RHSA-2019:0230-Important: polkit security update
      *
@@ -38,6 +38,8 @@ class extendContentJson extends Model
     public $description;
 
     /**
+     * @example com.xxl.rpc.util.XxlRpcException: xxl-rpc request data is empty.\n\tat com.xxl.rpc.remoting.net.impl.servlet.serve"
+     *
      * @var string
      */
     public $emgProof;
@@ -52,7 +54,7 @@ class extendContentJson extends Model
     public $ip;
 
     /**
-     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
+     * @description The timestamp that was generated when the vulnerability was last detected. Unit: milliseconds.
      *
      * @example 1620404763000
      *
@@ -68,7 +70,7 @@ class extendContentJson extends Model
     public $necessity;
 
     /**
-     * @description The name of the operating system for your asset.
+     * @description The name of the operating system.
      *
      * @example centos
      *
@@ -77,7 +79,7 @@ class extendContentJson extends Model
     public $os;
 
     /**
-     * @description The release of the operating system.
+     * @description The information about the operating system version.
      *
      * @example 7
      *
@@ -86,7 +88,7 @@ class extendContentJson extends Model
     public $osRelease;
 
     /**
-     * @description The ID of the vulnerability.
+     * @description The vulnerability ID.
      *
      * @example 111
      *
@@ -95,7 +97,7 @@ class extendContentJson extends Model
     public $primaryId;
 
     /**
-     * @description The RPM Package Manager (RPM) packages.
+     * @description The information about RPM Package Manager (RPM) packages.
      *
      * @var rpmEntityList[]
      */
@@ -104,19 +106,19 @@ class extendContentJson extends Model
     /**
      * @description The status of the vulnerability. Valid values:
      *
-     *   **1**: unfixed
-     *   **2**: fix failed
-     *   3: rollback failed
-     *   **4**: fixing
-     *   **5**: being rolled back
-     *   **6**: being verified
-     *   **7**: fixed
-     *   **8**: fixed and to be restarted
-     *   **9**: rolled back
-     *   **10**: ignored
-     *   **11**: rolled back and to be restarted
-     *   **12**: not found
-     *   **20**: expired
+     *   **1**: The vulnerability is unfixed.
+     *   **2**: The vulnerability failed to be fixed.
+     *   3: The system failed to be rolled back.
+     *   **4**: The vulnerability is being fixed.
+     *   **5**: The system is being rolled back.
+     *   **6**: The vulnerability is being verified.
+     *   **7**: The vulnerability is fixed.
+     *   **8**: The vulnerability is fixed and the system is to be restarted.
+     *   **9**: The system is rolled back.
+     *   **10**: The vulnerability is ignored.
+     *   **11**: The system is rolled back and is to be restarted.
+     *   **12**: The vulnerability is not found.
+     *   **20**: The vulnerability expires.
      *
      * @example 1
      *
@@ -125,7 +127,7 @@ class extendContentJson extends Model
     public $status;
 
     /**
-     * @description The tag that is added to the vulnerability.
+     * @description The tag of the vulnerability.
      *
      * @example oval
      *
@@ -134,12 +136,14 @@ class extendContentJson extends Model
     public $tag;
 
     /**
+     * @example http://39.99.XX.XX:30005/toLogin
+     *
      * @var string
      */
     public $target;
 
     /**
-     * @description The CVE list.
+     * @description The CVE.
      *
      * @var string[]
      */

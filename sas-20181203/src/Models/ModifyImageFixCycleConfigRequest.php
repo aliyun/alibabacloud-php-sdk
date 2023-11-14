@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageFixCycleConfigRequest extends Model
 {
     /**
+     * @description The cycle of the scheduled fix. Unit: day.
+     *
      * @example 7
      *
      * @var int
@@ -16,6 +18,11 @@ class ModifyImageFixCycleConfigRequest extends Model
     public $imageFixCycle;
 
     /**
+     * @description Specifies whether to enable the schedule image fix.
+     *
+     *   **on**: enable
+     *   **off**: disable
+     *
      * @example on
      *
      * @var string
@@ -23,6 +30,11 @@ class ModifyImageFixCycleConfigRequest extends Model
     public $imageFixSwitch;
 
     /**
+     * @description The range of the scheduled fix. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **type**: The type of the image. The value is fixed to repo.
+     *   **target**: The content of the image. The value is in the format of Namespace/Image repository.
+     *
      * @example {\"type\":\"repo\",\"target\":[\"cdp-uat/zentao\",\"qa-dac/yyuan9\",\"cafdms-qa/xxl-job-admin\"]}
      *
      * @var string
@@ -30,6 +42,8 @@ class ModifyImageFixCycleConfigRequest extends Model
     public $imageFixTarget;
 
     /**
+     * @description The time range during which the image was modified. Unit: day.
+     *
      * @example 30
      *
      * @var int

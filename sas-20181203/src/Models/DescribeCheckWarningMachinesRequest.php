@@ -31,6 +31,11 @@ class DescribeCheckWarningMachinesRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The ID of the baseline.
      *
      * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of baselines.
@@ -51,10 +56,11 @@ class DescribeCheckWarningMachinesRequest extends Model
      */
     public $status;
     protected $_name = [
-        'checkId' => 'CheckId',
-        'lang'    => 'Lang',
-        'riskId'  => 'RiskId',
-        'status'  => 'Status',
+        'checkId'                    => 'CheckId',
+        'lang'                       => 'Lang',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'riskId'                     => 'RiskId',
+        'status'                     => 'Status',
     ];
 
     public function validate()
@@ -69,6 +75,9 @@ class DescribeCheckWarningMachinesRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
@@ -93,6 +102,9 @@ class DescribeCheckWarningMachinesRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListVulGlobalConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *
      * @var string
@@ -17,6 +19,8 @@ class ListVulGlobalConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The configurations.
+     *
      * @var vulGlobalConfigList[]
      */
     public $vulGlobalConfigList;

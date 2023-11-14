@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vulGlobalConfigList extends Model
 {
     /**
+     * @description The key of the configuration item.
+     *
      * @example vul_scan_ip_list
      *
      * @var string
@@ -16,6 +18,8 @@ class vulGlobalConfigList extends Model
     public $configKey;
 
     /**
+     * @description The value of the configuration item.
+     *
      * @example 127.0.*.*,127.0.*.*
      *
      * @var string

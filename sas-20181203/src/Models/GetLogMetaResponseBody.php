@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetLogMetaResponseBody extends Model
 {
     /**
+     * @description The data of a data shipping task.
+     *
      * @var logMeta
      */
     public $logMeta;
 
     /**
+     * @description The request ID.
+     *
      * @example 3956048F-9D73-5EDB-834B-4827BB48****
      *
      * @var string

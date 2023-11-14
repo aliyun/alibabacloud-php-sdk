@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCanFixVulListRequest extends Model
 {
     /**
+     * @description The alias of the vulnerability that is specified in Common Vulnerabilities and Exposures (CVE).
+     *
      * @example RHSA-2017:0184-Important: mysql security update
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeCanFixVulListRequest extends Model
     public $aliasName;
 
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
      * @example c80f79959fd724a888e1187779b13****
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeCanFixVulListRequest extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example sas-test-cnnf
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeCanFixVulListRequest extends Model
     public $clusterName;
 
     /**
+     * @description The container ID.
+     *
      * @example 48a6d9a92435a13ad573372c3f3c63b7e04d106458141df9f92155709d5a****
      *
      * @var string
@@ -37,6 +46,8 @@ class DescribeCanFixVulListRequest extends Model
     public $containerId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +55,10 @@ class DescribeCanFixVulListRequest extends Model
     public $currentPage;
 
     /**
+     * @description Specifies whether the vulnerability is handled. Valid values:
+     *
+     **y**: The vulnerability is handled. **n**: The vulnerability is not handled.
+     *
      * @example n
      *
      * @var string
@@ -51,6 +66,8 @@ class DescribeCanFixVulListRequest extends Model
     public $dealed;
 
     /**
+     * @description The unique identifier of the image.
+     *
      * @example 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d50****
      *
      * @var string
@@ -58,6 +75,8 @@ class DescribeCanFixVulListRequest extends Model
     public $digest;
 
     /**
+     * @description The name of the image.
+     *
      * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-****
      *
      * @var string
@@ -65,6 +84,9 @@ class DescribeCanFixVulListRequest extends Model
     public $image;
 
     /**
+     * @description The ID of the container image.
+     *
+     * >  You can call the [ListRepository](~~451339~~) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
      * @example cri-rv4nvbv8iju4****
      *
      * @var string
@@ -72,6 +94,8 @@ class DescribeCanFixVulListRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the vulnerability.
+     *
      * @example scan:AVD-2022-953356
      *
      * @var string
@@ -79,6 +103,9 @@ class DescribeCanFixVulListRequest extends Model
     public $name;
 
     /**
+     * @description The namespace of the cluster.
+     *
+     * >  You can call the [GetOpaClusterNamespaceList](~~GetOpaClusterNamespaceList~~) operation to query the namespaces of clusters.
      * @example default
      *
      * @var string
@@ -86,6 +113,12 @@ class DescribeCanFixVulListRequest extends Model
     public $namespace;
 
     /**
+     * @description The priority to fix the vulnerability. Separate multiple priorities with commas (,). Valid values:
+     *
+     *   **asap**: high
+     *   **later**: medium
+     *   **nntf**: low
+     *
      * @example asap,later,nntf
      *
      * @var string
@@ -93,6 +126,8 @@ class DescribeCanFixVulListRequest extends Model
     public $necessity;
 
     /**
+     * @description The number of entries per page. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -100,6 +135,8 @@ class DescribeCanFixVulListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the container group.
+     *
      * @example 22222-7xsqq
      *
      * @var string
@@ -107,6 +144,22 @@ class DescribeCanFixVulListRequest extends Model
     public $pod;
 
     /**
+     * @description The region ID of the image repository. Valid values:
+     *
+     *   **cn-beijing**: China (Beijing)
+     *   **cn-zhangjiakou**: China (Zhangjiakou)
+     *   **cn-hangzhou**: China (Hangzhou)
+     *   **cn-shanghai**: China (Shanghai)
+     *   **cn-shenzhen**: China (Shenzhen)
+     *   **cn-hongkong**: China (Hong Kong)
+     *   **ap-southeast-1**: Singapore
+     *   **ap-southeast-5**: Indonesia (Jakarta)
+     *   **us-east-1**: US (Virginia)
+     *   **us-west-1**: US (Silicon Valley)
+     *   **eu-central-1**: Germany (Frankfurt)
+     *   **eu-west-1**: UK (London)
+     *   **ap-south-1**: India (Mumbai)
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -114,6 +167,9 @@ class DescribeCanFixVulListRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * >  You can call the [ListRepository](~~145293~~) operation of Container Registry and obtain the ID of the image repository from **RepoId** in the response.
      * @example crr-avo7qp02simz2njo
      *
      * @var string
@@ -121,6 +177,9 @@ class DescribeCanFixVulListRequest extends Model
     public $repoId;
 
     /**
+     * @description The ID of the container image.
+     *
+     * >  You can call the [ListRepository](~~451339~~) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
      * @example cri-rv4nvbv8iju4****
      *
      * @var string
@@ -128,6 +187,9 @@ class DescribeCanFixVulListRequest extends Model
     public $repoInstanceId;
 
     /**
+     * @description The name of the image repository.
+     *
+     * >  Fuzzy match is supported.
      * @example digital-account
      *
      * @var string
@@ -135,6 +197,9 @@ class DescribeCanFixVulListRequest extends Model
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
+     * >  Fuzzy match is supported.
      * @example ns-digital-dev
      *
      * @var string
@@ -142,6 +207,22 @@ class DescribeCanFixVulListRequest extends Model
     public $repoNamespace;
 
     /**
+     * @description The region ID of the image repository. Valid values:
+     *
+     *   **cn-beijing**: China (Beijing)
+     *   **cn-zhangjiakou**: China (Zhangjiakou)
+     *   **cn-hangzhou**: China (Hangzhou)
+     *   **cn-shanghai**: China (Shanghai)
+     *   **cn-shenzhen**: China (Shenzhen)
+     *   **cn-hongkong**: China (Hong Kong)
+     *   **ap-southeast-1**: Singapore
+     *   **ap-southeast-5**: Indonesia (Jakarta)
+     *   **us-east-1**: US (Virginia)
+     *   **us-west-1**: US (Silicon Valley)
+     *   **eu-central-1**: Germany (Frankfurt)
+     *   **eu-west-1**: UK (London)
+     *   **ap-south-1**: India (Mumbai)
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -149,11 +230,22 @@ class DescribeCanFixVulListRequest extends Model
     public $repoRegionId;
 
     /**
+     * @description The type of the asset that you want to scan. Valid values:
+     *
+     *   **image**
+     *   **container**
+     *
      * @var string[]
      */
     public $scanRange;
 
     /**
+     * @description The status of the vulnerability. Valid values:
+     *
+     *   **1**: The vulnerability is unfixed.
+     *   **4**: The vulnerability is being fixed.
+     *   **7**:The vulnerability is fixed.
+     *
      * @example 1
      *
      * @var string
@@ -161,6 +253,8 @@ class DescribeCanFixVulListRequest extends Model
     public $statusList;
 
     /**
+     * @description The tag to add to the image.
+     *
      * @example 0.1.0
      *
      * @var string
@@ -168,6 +262,11 @@ class DescribeCanFixVulListRequest extends Model
     public $tag;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: system vulnerability
+     *   **sca**: application vulnerability
+     *
      * @example cve
      *
      * @var string
@@ -175,6 +274,8 @@ class DescribeCanFixVulListRequest extends Model
     public $type;
 
     /**
+     * @description The UUID of the image. Separate multiple UUIDs with commas (,).
+     *
      * @example d15df12472809c1c3b158606c0f1****
      *
      * @var string

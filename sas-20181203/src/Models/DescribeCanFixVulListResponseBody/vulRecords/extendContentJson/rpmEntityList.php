@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rpmEntityList extends Model
 {
     /**
+     * @description The complete version number of the software package.
+     *
      * @example 3.10.0-693.2.2.el7
      *
      * @var string
@@ -16,6 +18,8 @@ class rpmEntityList extends Model
     public $fullVersion;
 
     /**
+     * @description The SHA-256 value of the digest of the image layer.
+     *
      * @example b1f5b9420803ad0657cf21566e3e20acc08581e7f22991249ef3aa80b8b1****
      *
      * @var string
@@ -23,6 +27,8 @@ class rpmEntityList extends Model
     public $layer;
 
     /**
+     * @description The information about the detected vulnerability.
+     *
      * @example python-perf version less than 0:3.10.0-693.21.1.el7
      *
      * @var string
@@ -30,11 +36,15 @@ class rpmEntityList extends Model
     public $matchDetail;
 
     /**
+     * @description The rule that is used to detect the vulnerability.
+     *
      * @var string[]
      */
     public $matchList;
 
     /**
+     * @description The name of the software package.
+     *
      * @example python-perf
      *
      * @var string
@@ -42,6 +52,8 @@ class rpmEntityList extends Model
     public $name;
 
     /**
+     * @description The path of the software that has the vulnerability.
+     *
      * @example /usr/lib64/python2.7/site-packages
      *
      * @var string
@@ -49,6 +61,8 @@ class rpmEntityList extends Model
     public $path;
 
     /**
+     * @description The command that is used to fix the vulnerability.
+     *
      * @example apt-get update && apt-get install libseccomp2  --only-upgrade
      *
      * @var string
@@ -56,6 +70,8 @@ class rpmEntityList extends Model
     public $updateCmd;
 
     /**
+     * @description The version number of the software package.
+     *
      * @example 3.10.0
      *
      * @var string

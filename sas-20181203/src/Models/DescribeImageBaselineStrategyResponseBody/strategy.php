@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class strategy extends Model
 {
     /**
+     * @description The baseline check policy for agentless detection.
+     *
+     * @example hc_win2008_cis_rules
+     *
      * @var string
      */
     public $baselineItem;

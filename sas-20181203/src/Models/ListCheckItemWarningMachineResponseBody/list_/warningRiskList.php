@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class warningRiskList extends Model
 {
     /**
-     * @description The ID of the baseline.
+     * @description The baseline ID.
      *
      * @example 72
      *

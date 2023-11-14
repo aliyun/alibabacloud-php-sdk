@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
-     * @description The metadata information about the details of the instances.
+     * @description The metadata information about the details of the instance.
      *
      * @var grids[]
      */
@@ -26,7 +26,7 @@ class columns extends Model
     public $key;
 
     /**
-     * @description Indicates whether the search condition is used. Valid values:
+     * @description Indicates whether the search condition is supported. Valid values:
      *
      *   **true**
      *   **false**
@@ -56,7 +56,7 @@ class columns extends Model
     public $showName;
 
     /**
-     * @description The type of the check result for the instance. Valid values:
+     * @description The format of the check result for the instance. Valid values:
      *
      *   **text**
      *   **link**

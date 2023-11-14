@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageFixCycleConfigResponseBody extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example D65AADFC-1D20-5A6A-8F6A-9FA53C0D****
      *
      * @var string

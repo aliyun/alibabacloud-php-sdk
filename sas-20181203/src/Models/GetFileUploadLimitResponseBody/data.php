@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The QPS limit on the files uploaded from the client.
+     *
      * @example 100
      *
      * @var string

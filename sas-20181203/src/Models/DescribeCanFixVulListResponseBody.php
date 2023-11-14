@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCanFixVulListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1408FDB3-46F4-513C-9918-FE7D356DF048
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeCanFixVulListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the vulnerability.
+     *
      * @var vulRecords[]
      */
     public $vulRecords;

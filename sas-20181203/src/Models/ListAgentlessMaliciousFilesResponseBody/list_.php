@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The details of the exception.
+     * @description The details of the alert event.
      *
      * @var details[]
      */
@@ -130,6 +130,10 @@ class list_ extends Model
     public $maliciousName;
 
     /**
+     * @description The type of the virus.
+     *
+     * @example WebShell
+     *
      * @var string
      */
     public $maliciousType;
@@ -142,7 +146,7 @@ class list_ extends Model
     public $notes;
 
     /**
-     * @description The handling result of the exception.
+     * @description The handling result of the alert.
      *
      * @example addWhitelist.USER.Success
      *
@@ -151,7 +155,7 @@ class list_ extends Model
     public $operateResult;
 
     /**
-     * @description The timestamp generated when the exception is handled. Unit: milliseconds.
+     * @description The timestamp generated when the alert is handled. Unit: milliseconds.
      *
      * @example 168257753****
      *

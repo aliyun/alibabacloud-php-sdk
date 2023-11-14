@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteHoneypotProbeBindRequest extends Model
 {
     /**
+     * @description The unique ID of the bound service.
+     *
      * @example aa20815f-f0f3-4e3b-8e13-55771742****
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteHoneypotProbeBindRequest extends Model
     public $bindId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,9 @@ class DeleteHoneypotProbeBindRequest extends Model
     public $lang;
 
     /**
+     * @description The probe ID.
+     *
+     * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
      * @example aa234650-cfcf-4e25-b61f-c58f603f****
      *
      * @var string

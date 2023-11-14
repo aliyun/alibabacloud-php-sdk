@@ -75,9 +75,14 @@ class DescribeCheckWarningsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the baseline risk item.
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
+     * @description The ID of the risk item.
      *
-     * > To query specified baseline risk items and the check items of a specified server, you must provide the IDs of the baseline risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs.
+     * >  To query the information about the risk items and check items of a server, you must provide the IDs of risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs.
      * @example 10354
      *
      * @var int
@@ -118,16 +123,17 @@ class DescribeCheckWarningsRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'checkId'       => 'CheckId',
-        'checkType'     => 'CheckType',
-        'containerName' => 'ContainerName',
-        'currentPage'   => 'CurrentPage',
-        'lang'          => 'Lang',
-        'pageSize'      => 'PageSize',
-        'riskId'        => 'RiskId',
-        'riskStatus'    => 'RiskStatus',
-        'sourceIp'      => 'SourceIp',
-        'uuid'          => 'Uuid',
+        'checkId'                    => 'CheckId',
+        'checkType'                  => 'CheckType',
+        'containerName'              => 'ContainerName',
+        'currentPage'                => 'CurrentPage',
+        'lang'                       => 'Lang',
+        'pageSize'                   => 'PageSize',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'riskId'                     => 'RiskId',
+        'riskStatus'                 => 'RiskStatus',
+        'sourceIp'                   => 'SourceIp',
+        'uuid'                       => 'Uuid',
     ];
 
     public function validate()
@@ -154,6 +160,9 @@ class DescribeCheckWarningsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
@@ -196,6 +205,9 @@ class DescribeCheckWarningsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];

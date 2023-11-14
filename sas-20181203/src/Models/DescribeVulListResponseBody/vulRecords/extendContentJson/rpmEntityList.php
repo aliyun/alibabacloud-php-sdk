@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rpmEntityList extends Model
 {
     /**
-     * @description The name of the init container.
+     * @description The name of the container.
      *
      * @example k8s_67895c4_xxx
      *

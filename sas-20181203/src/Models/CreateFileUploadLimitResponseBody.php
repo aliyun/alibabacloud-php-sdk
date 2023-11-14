@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileUploadLimitResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
      *
      * @var string

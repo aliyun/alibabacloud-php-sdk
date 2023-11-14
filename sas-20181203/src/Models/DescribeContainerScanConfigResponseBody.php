@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerScanConfigResponseBody extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeContainerScanConfigResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 69BFFCDE-37D6-5A49-A8BC-BB03AC83****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteHoneypotProbeBindResponseBody extends Model
 {
     /**
+     * @description The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteHoneypotProbeBindResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class DeleteHoneypotProbeBindResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteHoneypotProbeBindResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 571B2642-BF51-5BDD-906B-D2340DB9****
      *
      * @var string
@@ -37,6 +45,11 @@ class DeleteHoneypotProbeBindResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

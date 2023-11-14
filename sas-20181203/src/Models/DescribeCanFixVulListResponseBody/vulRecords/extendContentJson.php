@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class extendContentJson extends Model
 {
     /**
+     * @description The name of the operating system.
+     *
      * @example debian
      *
      * @var string
@@ -17,6 +19,8 @@ class extendContentJson extends Model
     public $os;
 
     /**
+     * @description The version of the operating system in the image.
+     *
      * @example 10.9
      *
      * @var string
@@ -24,6 +28,8 @@ class extendContentJson extends Model
     public $osRelease;
 
     /**
+     * @description The RPM packages.
+     *
      * @var rpmEntityList[]
      */
     public $rpmEntityList;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyContainerScanConfigResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class ModifyContainerScanConfigResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +30,8 @@ class ModifyContainerScanConfigResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example BFF355BC-8A40-55F3-8CBC-CC3E9DAC****
      *
      * @var string

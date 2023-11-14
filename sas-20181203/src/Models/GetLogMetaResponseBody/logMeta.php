@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logMeta extends Model
 {
     /**
+     * @description The name of the dedicated Logstore in which logs are stored.
+     *
      * @example aegis-log-login
      *
      * @var string
@@ -16,6 +18,8 @@ class logMeta extends Model
     public $logStore;
 
     /**
+     * @description The Simple Log Service project.
+     *
      * @example sas-log
      *
      * @var string
@@ -23,6 +27,11 @@ class logMeta extends Model
     public $project;
 
     /**
+     * @description The status of a data shipping task of a log. Valid values:
+     *
+     *   **enabled**
+     *   **disabled**
+     *
      * @example enabled
      *
      * @var string

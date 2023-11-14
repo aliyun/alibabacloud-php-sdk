@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreateHoneypotProbeBindRequest extends Model
 {
     /**
+     * @description The ports that are bound to the probe.
+     *
      * @var bindPortList[]
      */
     public $bindPortList;
 
     /**
+     * @description The honeypot ID.
+     *
+     * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
      * @example dba7d44775be8e0e5888ee3b1a62554a93d2512247cabc38ddeac17a3b3f****
      *
      * @var string
@@ -22,6 +27,11 @@ class CreateHoneypotProbeBindRequest extends Model
     public $honeypotId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -29,6 +39,9 @@ class CreateHoneypotProbeBindRequest extends Model
     public $lang;
 
     /**
+     * @description The probe ID.
+     *
+     * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
      * @example 36bad711-d1ac-4419-ac68-c1aa280f****
      *
      * @var string
@@ -36,6 +49,8 @@ class CreateHoneypotProbeBindRequest extends Model
     public $probeId;
 
     /**
+     * @description The IP addresses that are monitored.
+     *
      * @var string[]
      */
     public $serviceIpList;

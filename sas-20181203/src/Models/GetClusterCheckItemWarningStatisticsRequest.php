@@ -19,6 +19,10 @@ class GetClusterCheckItemWarningStatisticsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The UUID of the server.
+     *
+     * @example e4af3620-6895-4e2f-a641-a9d8fb53****
+     *
      * @var string
      */
     public $uuid;

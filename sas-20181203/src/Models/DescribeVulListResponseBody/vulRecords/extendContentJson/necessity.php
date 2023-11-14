@@ -11,9 +11,9 @@ class necessity extends Model
     /**
      * @description The asset importance score. Valid values:
      *
-     *   **2**: an important asset
-     *   **1**: a common asset
-     *   **0**: a test asset
+     *   **2**: important asset
+     *   **1**: common asset
+     *   **0**: test asset
      *
      * @example 1
      *
@@ -42,8 +42,8 @@ class necessity extends Model
     /**
      * @description Indicates whether the score of urgency to fix a vulnerability is calculated. Valid values:
      *
-     *   **0**: no
-     *   **1**: yes
+     *   **0**: The score is not calculated.
+     *   **1**: The score is calculated.
      *
      * @example 1
      *
@@ -55,7 +55,7 @@ class necessity extends Model
      * @description The status of the score of urgency to fix a vulnerability. Valid values:
      *
      *   **none**: No score is generated.
-     *   **pending**: The score is pending calculation.
+     *   **pending**: The score is to be calculated.
      *   **normal**: The calculation is normal.
      *
      * @example normal
@@ -76,11 +76,11 @@ class necessity extends Model
     /**
      * @description The score of urgency to fix a vulnerability.
      *
-     * The following list describes scores and related fixing suggestions:
+     * The fixing suggestions vary based on the score of urgency of a vulnerability.
      *
-     *   If the score is from **13.5 to 15**, the vulnerability is a high-risk vulnerability. You must fix the vulnerability at the earliest opportunity.
-     *   If the score is **greater than or equal to 7 but less than 13.5**, the vulnerability is a medium-risk vulnerability. You can fix the vulnerability at your convenience.
-     *   If the score is **less than 7**, the vulnerability is a low-risk vulnerability. You can ignore the vulnerability.
+     *   **\[13.5,15]**: The vulnerability is a high-risk vulnerability. You must fix the vulnerability at the earliest opportunity.
+     *   **\[7,13.5)**: The vulnerability is a medium-risk vulnerability. You can fix the vulnerability at your convenience.
+     *   **\[0,7)**: The vulnerability is a low-risk vulnerability. You can ignore the vulnerability.
      *
      * @example 7.8
      *

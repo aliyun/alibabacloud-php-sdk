@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListVulGlobalConfigRequest extends Model
 {
     /**
+     * @description The key of the configuration item. Valid values:
+     *
+     *   **vul_scan_ip_list**: The IP addresses that are detected.
+     *
      * @example vul_scan_ip_list
      *
      * @var string

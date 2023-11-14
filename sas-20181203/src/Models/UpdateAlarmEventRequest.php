@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlarmEventRequest extends Model
 {
     /**
+     * @description The IDs of the alert events.
+     *
      * @var int[]
      */
     public $alarmEventIdList;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -21,6 +28,12 @@ class UpdateAlarmEventRequest extends Model
     public $lang;
 
     /**
+     * @description The operation that you want to perform on the alert events. Valid values:
+     *
+     *   **manual_handled**: handle the alert events.
+     *   **ignore**: igore the alert events.
+     *   **cancel_ignore**: remove the alert events from the whitelist.
+     *
      * @example ignore
      *
      * @var string

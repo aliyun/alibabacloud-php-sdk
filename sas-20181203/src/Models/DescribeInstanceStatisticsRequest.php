@@ -39,7 +39,7 @@ class DescribeInstanceStatisticsRequest extends Model
     public $sourceIp;
 
     /**
-     * @description The UUIDs of the assets to query. Separate multiple UUIDs with commas (,). You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets.
+     * @description The UUIDs of the assets to query. Separate multiple UUIDs with commas (,). You can call the [DescribeCloudCenterInstances](~~141932~~) operation to query the UUIDs of assets.
      *
      * @example 6690a46c-0edb-4663-a641-3629d1a9****
      *

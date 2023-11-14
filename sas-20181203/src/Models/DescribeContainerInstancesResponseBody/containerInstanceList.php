@@ -75,11 +75,19 @@ class containerInstanceList extends Model
     public $createTimestamp;
 
     /**
+     * @description The container is exposed.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $exposed;
 
     /**
+     * @description The container exposed details .
+     *
+     * @example [{}]
+     *
      * @var string
      */
     public $exposedDetail;

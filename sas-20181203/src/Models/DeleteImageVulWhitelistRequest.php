@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteImageVulWhitelistRequest extends Model
 {
     /**
+     * @description The ID of the whitelist. Separate multiple IDs with commas (,).
+     *
      * @example 123
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteImageVulWhitelistRequest extends Model
     public $ids;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

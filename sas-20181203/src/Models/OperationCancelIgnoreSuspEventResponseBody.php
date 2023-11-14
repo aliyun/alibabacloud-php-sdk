@@ -36,7 +36,7 @@ class OperationCancelIgnoreSuspEventResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyOperateVulRequest extends Model
 {
     /**
-     * @description The ID of the request source. Set the value to **sas**.
+     * @description The request ID. Set the value to **sas**.
      *
      * @example sas
      *

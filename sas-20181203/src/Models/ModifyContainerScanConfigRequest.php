@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyContainerScanConfigRequest extends Model
 {
     /**
+     * @description The name of the container application.
+     *
      * @example [\"logtail-ds\",\"alicloud-monitor-controller\",\"storage-snapshot-manager\"]
      *
      * @var string
@@ -16,6 +18,9 @@ class ModifyContainerScanConfigRequest extends Model
     public $appNames;
 
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
      * @example cfb7a55a81f7246b5ac18845ea79a****
      *
      * @var string
@@ -23,6 +28,11 @@ class ModifyContainerScanConfigRequest extends Model
     public $clusterId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

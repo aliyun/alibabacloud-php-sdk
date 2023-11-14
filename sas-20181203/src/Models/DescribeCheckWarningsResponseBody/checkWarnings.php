@@ -27,7 +27,7 @@ class checkWarnings extends Model
     public $checkWarningId;
 
     /**
-     * @description The error message in check result.
+     * @description The error message in the check result.
      *
      * @example ScriptKilledOfCpuHigh
      *
@@ -36,10 +36,10 @@ class checkWarnings extends Model
     public $execErrorMessage;
 
     /**
-     * @description The fixing status of the check item. Valid values:
+     * @description Indicates whether the fix is supported. Valid values:
      *
-     *   **0**: disabled
-     *   **1**: enabled
+     *   **0**: The fix is not supported.
+     *   **1**: The fix is supported.
      *
      * @example 0
      *
@@ -57,7 +57,7 @@ class checkWarnings extends Model
     public $item;
 
     /**
-     * @description The risk level of the risk item. Valid values:
+     * @description The severity level of a risk item. Valid values:
      *
      *   **high**
      *   **medium**
@@ -70,7 +70,7 @@ class checkWarnings extends Model
     public $level;
 
     /**
-     * @description The description of the check item.
+     * @description The remarks.
      *
      * @example ignore
      *

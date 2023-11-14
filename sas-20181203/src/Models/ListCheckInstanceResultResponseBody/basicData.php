@@ -60,6 +60,8 @@ class basicData extends Model
     public $status;
 
     /**
+     * @description The information about the exceptions of check items.
+     *
      * @example Task is failed.
      *
      * @var string

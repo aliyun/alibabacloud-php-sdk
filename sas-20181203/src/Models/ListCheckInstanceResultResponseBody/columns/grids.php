@@ -27,7 +27,7 @@ class grids extends Model
     public $showName;
 
     /**
-     * @description The format of the check results for the instances. Valid values:
+     * @description The format of the check results for the instance. Valid values:
      *
      *   **text**
      *   **link**
