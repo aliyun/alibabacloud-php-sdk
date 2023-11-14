@@ -34,10 +34,16 @@ class ListFunctionsRequest extends Model
      * @var string
      */
     public $prefix;
+
+    /**
+     * @var string
+     */
+    public $schemaName;
     protected $_name = [
-        'marker'  => 'marker',
-        'maxItem' => 'maxItem',
-        'prefix'  => 'prefix',
+        'marker'     => 'marker',
+        'maxItem'    => 'maxItem',
+        'prefix'     => 'prefix',
+        'schemaName' => 'schemaName',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class ListFunctionsRequest extends Model
         }
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
+        }
+        if (null !== $this->schemaName) {
+            $res['schemaName'] = $this->schemaName;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ListFunctionsRequest extends Model
         }
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
+        }
+        if (isset($map['schemaName'])) {
+            $model->schemaName = $map['schemaName'];
         }
 
         return $model;

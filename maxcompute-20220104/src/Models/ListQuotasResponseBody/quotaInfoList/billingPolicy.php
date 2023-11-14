@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class billingPolicy extends Model
 {
     /**
+     * @description The billing method of the quota. Valid values:
+     *
+     *   subscription: a subscription quota.
+     *   payasyougo: a pay-as-you-go quota.
+     *
      * @example subscription
      *
      * @var string
@@ -16,6 +21,8 @@ class billingPolicy extends Model
     public $billingMethod;
 
     /**
+     * @description The specifications of the order.
+     *
      * @example OdpsStandard
      *
      * @var string
@@ -23,6 +30,8 @@ class billingPolicy extends Model
     public $odpsSpecCode;
 
     /**
+     * @description The order ID.
+     *
      * @example 45245678
      *
      * @var string

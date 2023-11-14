@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaScheduleRequest extends Model
 {
     /**
+     * @description The time zone.
+     *
+     * @example UTC+8
+     *
      * @var string
      */
     public $displayTimezone;

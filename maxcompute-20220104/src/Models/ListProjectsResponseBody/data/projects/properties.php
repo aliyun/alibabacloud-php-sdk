@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class properties extends Model
 {
     /**
+     * @description Indicates whether a full table scan on the project is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -18,6 +20,8 @@ class properties extends Model
     public $allowFullScan;
 
     /**
+     * @description Indicates whether the DECIMAL data type in MaxCompute V2.0 is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -25,6 +29,8 @@ class properties extends Model
     public $enableDecimal2;
 
     /**
+     * @description Indicates whether tunnel quota routing is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -32,11 +38,15 @@ class properties extends Model
     public $enableTunnelQuotaRoute;
 
     /**
+     * @description The encryption information.
+     *
      * @var encryption
      */
     public $encryption;
 
     /**
+     * @description The number of days for which backup data can be retained.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class properties extends Model
     public $retentionDays;
 
     /**
+     * @description The upper limit for the resources that are consumed by an SQL statement.
+     *
      * @example 1500
      *
      * @var string
@@ -51,11 +63,15 @@ class properties extends Model
     public $sqlMeteringMax;
 
     /**
+     * @description The lifecycle of tables in the project.
+     *
      * @var tableLifecycle
      */
     public $tableLifecycle;
 
     /**
+     * @description The time zone of the project.
+     *
      * @example Asia/Shanghai
      *
      * @var string
@@ -63,6 +79,8 @@ class properties extends Model
     public $timezone;
 
     /**
+     * @description The name of the tunnel quota.
+     *
      * @example quota_tunnel
      *
      * @var string
@@ -70,6 +88,8 @@ class properties extends Model
     public $tunnelQuota;
 
     /**
+     * @description The data type edition. Valid values: -1: MaxCompute V1.0 data type edition. -2: MaxCompute V2.0 data type edition. -hive: Hive-compatible data type edition.
+     *
      * @example 2
      *
      * @var string

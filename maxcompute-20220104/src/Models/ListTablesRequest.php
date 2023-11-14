@@ -36,6 +36,11 @@ class ListTablesRequest extends Model
     public $prefix;
 
     /**
+     * @var string
+     */
+    public $schemaName;
+
+    /**
      * @description The type of the table.
      *
      * @example internal
@@ -44,10 +49,11 @@ class ListTablesRequest extends Model
      */
     public $type;
     protected $_name = [
-        'marker'  => 'marker',
-        'maxItem' => 'maxItem',
-        'prefix'  => 'prefix',
-        'type'    => 'type',
+        'marker'     => 'marker',
+        'maxItem'    => 'maxItem',
+        'prefix'     => 'prefix',
+        'schemaName' => 'schemaName',
+        'type'       => 'type',
     ];
 
     public function validate()
@@ -65,6 +71,9 @@ class ListTablesRequest extends Model
         }
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
+        }
+        if (null !== $this->schemaName) {
+            $res['schemaName'] = $this->schemaName;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -89,6 +98,9 @@ class ListTablesRequest extends Model
         }
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
+        }
+        if (isset($map['schemaName'])) {
+            $model->schemaName = $map['schemaName'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

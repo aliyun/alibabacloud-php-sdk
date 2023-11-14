@@ -1093,6 +1093,9 @@ class MaxCompute extends OpenApiClient
         if (!Utils::isUnset($request->prefix)) {
             $query['prefix'] = $request->prefix;
         }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['schemaName'] = $request->schemaName;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1217,6 +1220,9 @@ class MaxCompute extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->listSystemCatalog)) {
+            $query['listSystemCatalog'] = $request->listSystemCatalog;
+        }
         if (!Utils::isUnset($request->marker)) {
             $query['marker'] = $request->marker;
         }
@@ -1412,6 +1418,9 @@ class MaxCompute extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
         }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['schemaName'] = $request->schemaName;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1505,6 +1514,9 @@ class MaxCompute extends OpenApiClient
         }
         if (!Utils::isUnset($request->prefix)) {
             $query['prefix'] = $request->prefix;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['schemaName'] = $request->schemaName;
         }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;

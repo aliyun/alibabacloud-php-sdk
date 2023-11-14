@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class encryption extends Model
 {
     /**
+     * @description The name of the encryption algorithm.
+     *
      * @example SHA1
      *
      * @var string
@@ -16,6 +18,8 @@ class encryption extends Model
     public $algorithm;
 
     /**
+     * @description Indicates whether data encryption is enabled. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class encryption extends Model
     public $enable;
 
     /**
+     * @description The key of the encryption algorithm.
+     *
      * @example dafault
      *
      * @var string

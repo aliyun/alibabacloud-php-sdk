@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListQuotasRequest extends Model
 {
     /**
+     * @description The billing method of the quota.
+     *
      * @example subscription
      *
      * @var string
@@ -16,6 +18,8 @@ class ListQuotasRequest extends Model
     public $billingType;
 
     /**
+     * @description Specifies the marker after which the returned list begins.
+     *
      * @example cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
      *
      * @var string
@@ -23,6 +27,8 @@ class ListQuotasRequest extends Model
     public $marker;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +36,8 @@ class ListQuotasRequest extends Model
     public $maxItem;
 
     /**
+     * @description The service ID.
+     *
      * @example ODPS
      *
      * @var string
@@ -37,6 +45,8 @@ class ListQuotasRequest extends Model
     public $productId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -44,11 +54,17 @@ class ListQuotasRequest extends Model
     public $region;
 
     /**
+     * @description The cost tag. You can filter out quota objects based on the cost tag. The cost tag is created when you tag a service.
+     *
+     * @example {"tag":"this_is_tag_demo"}
+     *
      * @var string
      */
     public $saleTags;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 280747109771520
      *
      * @var string

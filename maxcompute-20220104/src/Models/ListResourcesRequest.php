@@ -34,10 +34,16 @@ class ListResourcesRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $schemaName;
     protected $_name = [
-        'marker'  => 'marker',
-        'maxItem' => 'maxItem',
-        'name'    => 'name',
+        'marker'     => 'marker',
+        'maxItem'    => 'maxItem',
+        'name'       => 'name',
+        'schemaName' => 'schemaName',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class ListResourcesRequest extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->schemaName) {
+            $res['schemaName'] = $this->schemaName;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ListResourcesRequest extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['schemaName'])) {
+            $model->schemaName = $map['schemaName'];
         }
 
         return $model;

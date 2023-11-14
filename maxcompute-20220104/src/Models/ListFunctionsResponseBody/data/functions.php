@@ -27,6 +27,11 @@ class functions extends Model
     public $creationTime;
 
     /**
+     * @var string
+     */
+    public $displayName;
+
+    /**
      * @description The name of the function.
      *
      * @example getdate
@@ -64,6 +69,7 @@ class functions extends Model
     protected $_name = [
         'class'        => 'class',
         'creationTime' => 'creationTime',
+        'displayName'  => 'displayName',
         'name'         => 'name',
         'owner'        => 'owner',
         'resources'    => 'resources',
@@ -82,6 +88,9 @@ class functions extends Model
         }
         if (null !== $this->creationTime) {
             $res['creationTime'] = $this->creationTime;
+        }
+        if (null !== $this->displayName) {
+            $res['displayName'] = $this->displayName;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -112,6 +121,9 @@ class functions extends Model
         }
         if (isset($map['creationTime'])) {
             $model->creationTime = $map['creationTime'];
+        }
+        if (isset($map['displayName'])) {
+            $model->displayName = $map['displayName'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];

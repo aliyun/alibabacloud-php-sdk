@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class saleTag extends Model
 {
     /**
+     * @description The identifier of an object in a MaxCompute quota. This identifier is the same as the identifier in the sales bill of Alibaba Cloud. This parameter is used for tags.
+     *
+     * @example "aaaa-bbbb"
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the object. Valid values: quota and project.
+     *
+     * @example "project"
+     *
      * @var string
      */
     public $resourceType;

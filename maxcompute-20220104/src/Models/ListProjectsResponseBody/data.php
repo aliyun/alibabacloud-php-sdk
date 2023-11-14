@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description A pagination token. Only continuous page turning is supported. If NextToken is not empty, the next page exists. The value of NextToken can be used in the next request to retrieve a new page of results.
+     *
+     * @example AAAAAV3MpHK1AP0pfERHZN5pu6kvikyUl3ChyRxN+qLPvtOb
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Indicates the marker after which the returned list begins.
+     *
      * @example cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
      *
      * @var string
@@ -22,6 +28,8 @@ class data extends Model
     public $marker;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +37,8 @@ class data extends Model
     public $maxItem;
 
     /**
+     * @description The description of the project.
+     *
      * @var projects[]
      */
     public $projects;

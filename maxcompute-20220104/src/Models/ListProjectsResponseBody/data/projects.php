@@ -14,16 +14,24 @@ use AlibabaCloud\Tea\Model;
 class projects extends Model
 {
     /**
+     * @description The tag.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The remarks.
+     *
+     * @example maxcompute projects
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The storage usage.
+     *
      * @example 16489027
      *
      * @var string
@@ -31,6 +39,8 @@ class projects extends Model
     public $costStorage;
 
     /**
+     * @description The default computing quota.
+     *
      * @example quotaA
      *
      * @var string
@@ -38,11 +48,15 @@ class projects extends Model
     public $defaultQuota;
 
     /**
+     * @description The IP address whitelist.
+     *
      * @var ipWhiteList
      */
     public $ipWhiteList;
 
     /**
+     * @description The name of the MaxCompute project.
+     *
      * @example odps_project
      *
      * @var string
@@ -50,6 +64,8 @@ class projects extends Model
     public $name;
 
     /**
+     * @description The owner of the project.
+     *
      * @example 1139815775606813
      *
      * @var string
@@ -57,21 +73,29 @@ class projects extends Model
     public $owner;
 
     /**
+     * @description The properties of the project.
+     *
      * @var properties
      */
     public $properties;
 
     /**
+     * @description The identifier of an object in a MaxCompute quota. This identifier is the same as the identifier in the sales bill of Alibaba Cloud. This parameter is used for tags.
+     *
      * @var saleTag
      */
     public $saleTag;
 
     /**
+     * @description The permission properties.
+     *
      * @var securityProperties
      */
     public $securityProperties;
 
     /**
+     * @description The status of the project. Valid values: -AVAILABLE: The project is available. -READONLY: The project is read only. -FROZEN: The project is frozen. -DELETING: The project is being deleted.
+     *
      * @example AVAILABLE
      *
      * @var string
@@ -79,6 +103,13 @@ class projects extends Model
     public $status;
 
     /**
+     * @var bool
+     */
+    public $threeTierModel;
+
+    /**
+     * @description The project type. Valid values: -managed: The project is an internal project. -external: The project is an external project.
+     *
      * @example managed
      *
      * @var string
@@ -96,6 +127,7 @@ class projects extends Model
         'saleTag'            => 'saleTag',
         'securityProperties' => 'securityProperties',
         'status'             => 'status',
+        'threeTierModel'     => 'threeTierModel',
         'type'               => 'type',
     ];
 
@@ -144,6 +176,9 @@ class projects extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->threeTierModel) {
+            $res['threeTierModel'] = $this->threeTierModel;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -198,6 +233,9 @@ class projects extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['threeTierModel'])) {
+            $model->threeTierModel = $map['threeTierModel'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

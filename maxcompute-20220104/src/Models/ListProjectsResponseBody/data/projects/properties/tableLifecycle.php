@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableLifecycle extends Model
 {
     /**
+     * @description The type of the lifecycle. Valid values: -mandatory: The lifecycle clause is required. You must configure a lifecycle for a table. -optional: The lifecycle clause is optional in a table creation statement. If you do not configure a lifecycle for a table, the table does not expire. -inherit: If you do not configure a lifecycle for a table when you create the table, the value of odps.table.lifecycle.value is used by default.
+     *
      * @example optional
      *
      * @var string
@@ -16,6 +18,8 @@ class tableLifecycle extends Model
     public $type;
 
     /**
+     * @description The retention period of a table. Unit: days.
+     *
      * @example 37231
      *
      * @var string

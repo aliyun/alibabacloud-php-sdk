@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 167835629082
      *
      * @var string
@@ -16,6 +18,8 @@ class users extends Model
     public $accountId;
 
     /**
+     * @description The username of the account.
+     *
      * @example Bob@
      *
      * @var string
@@ -23,6 +27,8 @@ class users extends Model
     public $accountName;
 
     /**
+     * @description The type of the account.
+     *
      * @example ALIYUN
      *
      * @var string
@@ -30,6 +36,8 @@ class users extends Model
     public $accountType;
 
     /**
+     * @description The display name.
+     *
      * @example Bob
      *
      * @var string
@@ -37,6 +45,8 @@ class users extends Model
     public $displayName;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 1567253789
      *
      * @var string

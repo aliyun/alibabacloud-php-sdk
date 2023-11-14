@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scheduleInfo extends Model
 {
     /**
+     * @description The quota plan that takes effect based on the scheduling plan.
+     *
      * @example planA
      *
      * @var string
@@ -16,6 +18,8 @@ class scheduleInfo extends Model
     public $currPlan;
 
     /**
+     * @description The time when the current quota plan is scheduled.
+     *
      * @example 0800
      *
      * @var string
@@ -23,6 +27,8 @@ class scheduleInfo extends Model
     public $currTime;
 
     /**
+     * @description The next quota plan that will take effect based on the scheduling plan.
+     *
      * @example planB
      *
      * @var string
@@ -30,6 +36,8 @@ class scheduleInfo extends Model
     public $nextPlan;
 
     /**
+     * @description The time when the next quota plan is scheduled.
+     *
      * @example 1700
      *
      * @var string
@@ -37,6 +45,8 @@ class scheduleInfo extends Model
     public $nextTime;
 
     /**
+     * @description The quota plan that immediately takes effect. If the quota plan that immediately takes effect is different from the current quota plan, this parameter is not empty.
+     *
      * @example planC
      *
      * @var string
@@ -44,6 +54,8 @@ class scheduleInfo extends Model
     public $oncePlan;
 
     /**
+     * @description The time when the quota plan immediately takes effect.
+     *
      * @example 1500
      *
      * @var string
@@ -51,6 +63,8 @@ class scheduleInfo extends Model
     public $onceTime;
 
     /**
+     * @description The name of the operator.
+     *
      * @example userA
      *
      * @var string
@@ -58,6 +72,10 @@ class scheduleInfo extends Model
     public $operatorName;
 
     /**
+     * @description The time zone of the project.
+     *
+     * @example UTC+8
+     *
      * @var string
      */
     public $timezone;

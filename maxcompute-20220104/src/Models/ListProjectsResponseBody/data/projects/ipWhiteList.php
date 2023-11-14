@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipWhiteList extends Model
 {
     /**
+     * @description The list of IP addresses.
+     *
      * @example 10.88.111.3
      *
      * @var string
@@ -16,6 +18,8 @@ class ipWhiteList extends Model
     public $ipList;
 
     /**
+     * @description The list of virtual private cloud (VPC) IP addresses.
+     *
      * @example 10.88.111.3
      *
      * @var string

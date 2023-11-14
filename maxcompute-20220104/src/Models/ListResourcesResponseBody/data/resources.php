@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @var string
+     */
+    public $comment;
+
+    /**
+     * @var string
+     */
+    public $contentMD5;
+
+    /**
      * @description The time when the resource was created.
      *
      * @example 2022-01-29T03:34:09Z
@@ -16,6 +26,21 @@ class resources extends Model
      * @var int
      */
     public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $displayName;
+
+    /**
+     * @var int
+     */
+    public $lastModifiedTime;
+
+    /**
+     * @var string
+     */
+    public $lastUpdator;
 
     /**
      * @description The name of the resource.
@@ -45,6 +70,11 @@ class resources extends Model
     public $schema;
 
     /**
+     * @var int
+     */
+    public $size;
+
+    /**
      * @description The type of the resource.
      *
      * @example file
@@ -53,11 +83,17 @@ class resources extends Model
      */
     public $type;
     protected $_name = [
-        'creationTime' => 'creationTime',
-        'name'         => 'name',
-        'owner'        => 'owner',
-        'schema'       => 'schema',
-        'type'         => 'type',
+        'comment'          => 'comment',
+        'contentMD5'       => 'contentMD5',
+        'creationTime'     => 'creationTime',
+        'displayName'      => 'displayName',
+        'lastModifiedTime' => 'lastModifiedTime',
+        'lastUpdator'      => 'lastUpdator',
+        'name'             => 'name',
+        'owner'            => 'owner',
+        'schema'           => 'schema',
+        'size'             => 'size',
+        'type'             => 'type',
     ];
 
     public function validate()
@@ -67,8 +103,23 @@ class resources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->comment) {
+            $res['comment'] = $this->comment;
+        }
+        if (null !== $this->contentMD5) {
+            $res['contentMD5'] = $this->contentMD5;
+        }
         if (null !== $this->creationTime) {
             $res['creationTime'] = $this->creationTime;
+        }
+        if (null !== $this->displayName) {
+            $res['displayName'] = $this->displayName;
+        }
+        if (null !== $this->lastModifiedTime) {
+            $res['lastModifiedTime'] = $this->lastModifiedTime;
+        }
+        if (null !== $this->lastUpdator) {
+            $res['lastUpdator'] = $this->lastUpdator;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -78,6 +129,9 @@ class resources extends Model
         }
         if (null !== $this->schema) {
             $res['schema'] = $this->schema;
+        }
+        if (null !== $this->size) {
+            $res['size'] = $this->size;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -94,8 +148,23 @@ class resources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['comment'])) {
+            $model->comment = $map['comment'];
+        }
+        if (isset($map['contentMD5'])) {
+            $model->contentMD5 = $map['contentMD5'];
+        }
         if (isset($map['creationTime'])) {
             $model->creationTime = $map['creationTime'];
+        }
+        if (isset($map['displayName'])) {
+            $model->displayName = $map['displayName'];
+        }
+        if (isset($map['lastModifiedTime'])) {
+            $model->lastModifiedTime = $map['lastModifiedTime'];
+        }
+        if (isset($map['lastUpdator'])) {
+            $model->lastUpdator = $map['lastUpdator'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
@@ -105,6 +174,9 @@ class resources extends Model
         }
         if (isset($map['schema'])) {
             $model->schema = $map['schema'];
+        }
+        if (isset($map['size'])) {
+            $model->size = $map['size'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

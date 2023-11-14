@@ -17,16 +17,29 @@ class GetQuotaScheduleResponseBody extends Model
     public $data;
 
     /**
+     * @description *   If the value of success was false, an error code was returned.
+     *   If the value of success was true, a null value was returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example errorMsg
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;

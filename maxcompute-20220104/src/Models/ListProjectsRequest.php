@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $listSystemCatalog;
+
+    /**
+     * @description The maximum number of entries to return on each page.
+     *
      * @example cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
      *
      * @var string
@@ -16,6 +23,8 @@ class ListProjectsRequest extends Model
     public $marker;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +32,8 @@ class ListProjectsRequest extends Model
     public $maxItem;
 
     /**
+     * @description Specifies the marker after which the returned list begins.
+     *
      * @example a
      *
      * @var string
@@ -30,11 +41,17 @@ class ListProjectsRequest extends Model
     public $prefix;
 
     /**
+     * @description The name of the quota. The value of this parameter is the identifier of the quota in MaxCompute, which differs from the quotaNickname parameter. You can configure the quotaNickname parameter. The system automatically generates a value for the quotaName parameter. This parameter is only used to describe the tunnel quota.
+     *
+     * @example "hsajkdgbkaubh"
+     *
      * @var string
      */
     public $quotaName;
 
     /**
+     * @description The name of the quota.
+     *
      * @example quotaA
      *
      * @var string
@@ -42,6 +59,8 @@ class ListProjectsRequest extends Model
     public $quotaNickName;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -49,11 +68,17 @@ class ListProjectsRequest extends Model
     public $region;
 
     /**
+     * @description The identifier of an object in a MaxCompute quota. This identifier is the same as the identifier in the sales bill of Alibaba Cloud. This parameter is used for tags.
+     *
+     * @example "aaaa-bbbb"
+     *
      * @var string
      */
     public $saleTags;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 549532154333697
      *
      * @var string
@@ -61,19 +86,24 @@ class ListProjectsRequest extends Model
     public $tenantId;
 
     /**
+     * @description The project type. Valid values: external and managed. The value external indicates an external project, which is used in the data lakehouse solution. The value managed indicates an internal project.
+     *
+     * @example "managed"
+     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'marker'        => 'marker',
-        'maxItem'       => 'maxItem',
-        'prefix'        => 'prefix',
-        'quotaName'     => 'quotaName',
-        'quotaNickName' => 'quotaNickName',
-        'region'        => 'region',
-        'saleTags'      => 'saleTags',
-        'tenantId'      => 'tenantId',
-        'type'          => 'type',
+        'listSystemCatalog' => 'listSystemCatalog',
+        'marker'            => 'marker',
+        'maxItem'           => 'maxItem',
+        'prefix'            => 'prefix',
+        'quotaName'         => 'quotaName',
+        'quotaNickName'     => 'quotaNickName',
+        'region'            => 'region',
+        'saleTags'          => 'saleTags',
+        'tenantId'          => 'tenantId',
+        'type'              => 'type',
     ];
 
     public function validate()
@@ -83,6 +113,9 @@ class ListProjectsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->listSystemCatalog) {
+            $res['listSystemCatalog'] = $this->listSystemCatalog;
+        }
         if (null !== $this->marker) {
             $res['marker'] = $this->marker;
         }
@@ -122,6 +155,9 @@ class ListProjectsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['listSystemCatalog'])) {
+            $model->listSystemCatalog = $map['listSystemCatalog'];
+        }
         if (isset($map['marker'])) {
             $model->marker = $map['marker'];
         }

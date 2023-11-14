@@ -44,6 +44,10 @@ class data extends Model
     public $plan;
 
     /**
+     * @description The time zone.
+     *
+     * @example UTC+8
+     *
      * @var string
      */
     public $timezone;

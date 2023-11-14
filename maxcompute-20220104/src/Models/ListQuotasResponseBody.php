@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class ListQuotasResponseBody extends Model
 {
     /**
+     * @description A pagination token. Only continuous page turning is supported. If NextToken is not empty, the next page exists. The value of NextToken can be used in the next request to retrieve a new page of results.
+     *
+     * @example AAAAAdDWBF2w6Olxc+cMPjUtUMo/CvPe4IK7f7kIQFrIZjyc
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Indicates the marker after which the returned list begins.
+     *
      * @example cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
      *
      * @var string
@@ -28,6 +36,8 @@ class ListQuotasResponseBody extends Model
     public $marker;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -35,11 +45,15 @@ class ListQuotasResponseBody extends Model
     public $maxItem;
 
     /**
+     * @description The list of quotas.
+     *
      * @var quotaInfoList[]
      */
     public $quotaInfoList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc12e6f16677875480593081d2956
      *
      * @var string

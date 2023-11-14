@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class securityProperties extends Model
 {
     /**
+     * @description Indicates whether Download control is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -17,6 +19,8 @@ class securityProperties extends Model
     public $enableDownloadPrivilege;
 
     /**
+     * @description Indicates whether label-based access control is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -24,6 +28,8 @@ class securityProperties extends Model
     public $labelSecurity;
 
     /**
+     * @description Indicates whether the object creator is allowed to perform operations on objects.
+     *
      * @example true
      *
      * @var bool
@@ -31,6 +37,8 @@ class securityProperties extends Model
     public $objectCreatorHasAccessPermission;
 
     /**
+     * @description Indicates whether the object creator is allowed to authorize other users to perform operations on objects.
+     *
      * @example true
      *
      * @var bool
@@ -38,11 +46,15 @@ class securityProperties extends Model
     public $objectCreatorHasGrantPermission;
 
     /**
+     * @description Indicates whether project data protection is enabled.
+     *
      * @var projectProtection
      */
     public $projectProtection;
 
     /**
+     * @description Indicates whether ACL-based access control is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -50,6 +62,8 @@ class securityProperties extends Model
     public $usingAcl;
 
     /**
+     * @description Indicates whether policy-based access control is enabled.
+     *
      * @example true
      *
      * @var bool

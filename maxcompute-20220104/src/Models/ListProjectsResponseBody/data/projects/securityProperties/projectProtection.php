@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class projectProtection extends Model
 {
     /**
+     * @description The exception policy. If cross-project data access operations are required, the project owner must configure an exception policy in advance to allow the specified user to transfer data of a specified object from the current project to a specified project. After the exception policy is configured, data of the object can be transferred to the specified project even if the project data protection feature is enabled.
+     *
      * @example {
      * ],
      * "Resource": "acs:odps:*:",
@@ -18,6 +20,8 @@ class projectProtection extends Model
     public $exceptionPolicy;
 
     /**
+     * @description Indicates whether project data protection is enabled.
+     *
      * @example true
      *
      * @var bool
