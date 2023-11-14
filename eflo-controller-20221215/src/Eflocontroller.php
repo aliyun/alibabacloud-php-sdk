@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Eflocontroller\V20221215;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ApproveOperationRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ApproveOperationResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest;
@@ -84,6 +86,52 @@ class Eflocontroller extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ApproveOperationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ApproveOperationResponse
+     */
+    public function approveOperationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $body['OperationType'] = $request->operationType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ApproveOperation',
+            'version'     => '2022-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApproveOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApproveOperationRequest $request
+     *
+     * @return ApproveOperationResponse
+     */
+    public function approveOperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->approveOperationWithOptions($request, $runtime);
     }
 
     /**
