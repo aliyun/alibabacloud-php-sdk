@@ -54,6 +54,11 @@ class module extends Model
     public $internationalFlightInvoiceFee;
 
     /**
+     * @var string
+     */
+    public $internationalHotelInvoiceFee;
+
+    /**
      * @example 123
      *
      * @var string
@@ -132,6 +137,7 @@ class module extends Model
         'hotelNormalInvoiceFee'         => 'hotel_normal_invoice_fee',
         'hotelSpecialInvoiceFee'        => 'hotel_special_invoice_fee',
         'internationalFlightInvoiceFee' => 'international_flight_invoice_fee',
+        'internationalHotelInvoiceFee'  => 'international_hotel_invoice_fee',
         'invoiceThirdPartId'            => 'invoice_third_part_id',
         'invoiceTitle'                  => 'invoice_title',
         'mailAddress'                   => 'mail_address',
@@ -173,6 +179,9 @@ class module extends Model
         }
         if (null !== $this->internationalFlightInvoiceFee) {
             $res['international_flight_invoice_fee'] = $this->internationalFlightInvoiceFee;
+        }
+        if (null !== $this->internationalHotelInvoiceFee) {
+            $res['international_hotel_invoice_fee'] = $this->internationalHotelInvoiceFee;
         }
         if (null !== $this->invoiceThirdPartId) {
             $res['invoice_third_part_id'] = $this->invoiceThirdPartId;
@@ -242,6 +251,9 @@ class module extends Model
         }
         if (isset($map['international_flight_invoice_fee'])) {
             $model->internationalFlightInvoiceFee = $map['international_flight_invoice_fee'];
+        }
+        if (isset($map['international_hotel_invoice_fee'])) {
+            $model->internationalHotelInvoiceFee = $map['international_hotel_invoice_fee'];
         }
         if (isset($map['invoice_third_part_id'])) {
             $model->invoiceThirdPartId = $map['invoice_third_part_id'];
