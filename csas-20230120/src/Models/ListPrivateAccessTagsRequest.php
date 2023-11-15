@@ -44,6 +44,11 @@ class ListPrivateAccessTagsRequest extends Model
     public $policyId;
 
     /**
+     * @var bool
+     */
+    public $simpleMode;
+
+    /**
      * @var string[]
      */
     public $tagIds;
@@ -53,6 +58,7 @@ class ListPrivateAccessTagsRequest extends Model
         'name'          => 'Name',
         'pageSize'      => 'PageSize',
         'policyId'      => 'PolicyId',
+        'simpleMode'    => 'SimpleMode',
         'tagIds'        => 'TagIds',
     ];
 
@@ -77,6 +83,9 @@ class ListPrivateAccessTagsRequest extends Model
         }
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
+        }
+        if (null !== $this->simpleMode) {
+            $res['SimpleMode'] = $this->simpleMode;
         }
         if (null !== $this->tagIds) {
             $res['TagIds'] = $this->tagIds;
@@ -107,6 +116,9 @@ class ListPrivateAccessTagsRequest extends Model
         }
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
+        }
+        if (isset($map['SimpleMode'])) {
+            $model->simpleMode = $map['SimpleMode'];
         }
         if (isset($map['TagIds'])) {
             if (!empty($map['TagIds'])) {

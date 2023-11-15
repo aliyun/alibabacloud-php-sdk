@@ -105,6 +105,11 @@ class ListUserDevicesRequest extends Model
     /**
      * @var string
      */
+    public $sortBy;
+
+    /**
+     * @var string
+     */
     public $username;
     protected $_name = [
         'appStatuses'    => 'AppStatuses',
@@ -123,6 +128,7 @@ class ListUserDevicesRequest extends Model
         'pageSize'       => 'PageSize',
         'saseUserId'     => 'SaseUserId',
         'sharingStatus'  => 'SharingStatus',
+        'sortBy'         => 'SortBy',
         'username'       => 'Username',
     ];
 
@@ -180,6 +186,9 @@ class ListUserDevicesRequest extends Model
         }
         if (null !== $this->sharingStatus) {
             $res['SharingStatus'] = $this->sharingStatus;
+        }
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
@@ -259,6 +268,9 @@ class ListUserDevicesRequest extends Model
         }
         if (isset($map['SharingStatus'])) {
             $model->sharingStatus = $map['SharingStatus'];
+        }
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
