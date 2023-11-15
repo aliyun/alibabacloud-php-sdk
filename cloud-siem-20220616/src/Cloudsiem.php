@@ -30,6 +30,12 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertSourceRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertSourceResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertSourceWithEventRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertSourceWithEventResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertsRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertsResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertsWithEntityRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertsWithEntityResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertsWithEventRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertsWithEventResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertTypeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertTypeResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAttackTimeLineRequest;
@@ -737,6 +743,79 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * @param DescribeAlertsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeAlertsResponse
+     */
+    public function describeAlertsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertTitle)) {
+            $body['AlertTitle'] = $request->alertTitle;
+        }
+        if (!Utils::isUnset($request->alertUuid)) {
+            $body['AlertUuid'] = $request->alertUuid;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->isDefend)) {
+            $body['IsDefend'] = $request->isDefend;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $body['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $body['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->subUserId)) {
+            $body['SubUserId'] = $request->subUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlerts',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAlertsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAlertsRequest $request
+     *
+     * @return DescribeAlertsResponse
+     */
+    public function describeAlerts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlertsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAlertsCountRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -783,6 +862,131 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAlertsCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAlertsWithEntityRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAlertsWithEntityResponse
+     */
+    public function describeAlertsWithEntityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $body['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->incidentUuid)) {
+            $body['IncidentUuid'] = $request->incidentUuid;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sophonTaskId)) {
+            $body['SophonTaskId'] = $request->sophonTaskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlertsWithEntity',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAlertsWithEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAlertsWithEntityRequest $request
+     *
+     * @return DescribeAlertsWithEntityResponse
+     */
+    public function describeAlertsWithEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlertsWithEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAlertsWithEventRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAlertsWithEventResponse
+     */
+    public function describeAlertsWithEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertTitle)) {
+            $body['AlertTitle'] = $request->alertTitle;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->incidentUuid)) {
+            $body['IncidentUuid'] = $request->incidentUuid;
+        }
+        if (!Utils::isUnset($request->isDefend)) {
+            $body['IsDefend'] = $request->isDefend;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $body['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $body['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->subUserId)) {
+            $body['SubUserId'] = $request->subUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlertsWithEvent',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAlertsWithEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAlertsWithEventRequest $request
+     *
+     * @return DescribeAlertsWithEventResponse
+     */
+    public function describeAlertsWithEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlertsWithEventWithOptions($request, $runtime);
     }
 
     /**
