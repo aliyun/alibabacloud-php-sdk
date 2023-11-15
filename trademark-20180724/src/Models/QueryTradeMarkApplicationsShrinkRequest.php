@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Trademark\V20180724\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryTradeMarkApplicationsRequest extends Model
+class QueryTradeMarkApplicationsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -79,9 +79,9 @@ class QueryTradeMarkApplicationsRequest extends Model
     public $status;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $statusList;
+    public $statusListShrink;
 
     /**
      * @var int
@@ -117,7 +117,7 @@ class QueryTradeMarkApplicationsRequest extends Model
         'sortOrder'          => 'SortOrder',
         'specification'      => 'Specification',
         'status'             => 'Status',
-        'statusList'         => 'StatusList',
+        'statusListShrink'   => 'StatusList',
         'supplementStatus'   => 'SupplementStatus',
         'tmName'             => 'TmName',
         'tmNumber'           => 'TmNumber',
@@ -173,8 +173,8 @@ class QueryTradeMarkApplicationsRequest extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->statusList) {
-            $res['StatusList'] = $this->statusList;
+        if (null !== $this->statusListShrink) {
+            $res['StatusList'] = $this->statusListShrink;
         }
         if (null !== $this->supplementStatus) {
             $res['SupplementStatus'] = $this->supplementStatus;
@@ -195,7 +195,7 @@ class QueryTradeMarkApplicationsRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryTradeMarkApplicationsRequest
+     * @return QueryTradeMarkApplicationsShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -243,9 +243,7 @@ class QueryTradeMarkApplicationsRequest extends Model
             $model->status = $map['Status'];
         }
         if (isset($map['StatusList'])) {
-            if (!empty($map['StatusList'])) {
-                $model->statusList = $map['StatusList'];
-            }
+            $model->statusListShrink = $map['StatusList'];
         }
         if (isset($map['SupplementStatus'])) {
             $model->supplementStatus = $map['SupplementStatus'];

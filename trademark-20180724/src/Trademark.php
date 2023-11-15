@@ -151,6 +151,7 @@ use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTradeMarkApplicationsByInte
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTradeMarkApplicationsByIntentionResponse;
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTradeMarkApplicationsRequest;
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTradeMarkApplicationsResponse;
+use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTradeMarkApplicationsShrinkRequest;
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkDetailByApplyNumberEspRequest;
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkDetailByApplyNumberEspResponse;
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkDetailByApplyNumberRequest;
@@ -4192,14 +4193,19 @@ class Trademark extends OpenApiClient
     }
 
     /**
-     * @param QueryTradeMarkApplicationsRequest $request
+     * @param QueryTradeMarkApplicationsRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
      * @return QueryTradeMarkApplicationsResponse
      */
-    public function queryTradeMarkApplicationsWithOptions($request, $runtime)
+    public function queryTradeMarkApplicationsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new QueryTradeMarkApplicationsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->statusList)) {
+            $request->statusListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'StatusList', 'simple');
+        }
         $query = [];
         if (!Utils::isUnset($request->bizId)) {
             $query['BizId'] = $request->bizId;
@@ -4242,6 +4248,9 @@ class Trademark extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->statusListShrink)) {
+            $query['StatusList'] = $request->statusListShrink;
         }
         if (!Utils::isUnset($request->supplementStatus)) {
             $query['SupplementStatus'] = $request->supplementStatus;
