@@ -208,6 +208,11 @@ class DBInstanceAttribute extends Model
     public $DBInstanceDescription;
 
     /**
+     * @var string
+     */
+    public $DBInstanceDiskUsed;
+
+    /**
      * @description The instance ID.
      *
      * @example rm-uf6wjk5*****
@@ -731,6 +736,7 @@ class DBInstanceAttribute extends Model
         'DBInstanceClass'                => 'DBInstanceClass',
         'DBInstanceClassType'            => 'DBInstanceClassType',
         'DBInstanceDescription'          => 'DBInstanceDescription',
+        'DBInstanceDiskUsed'             => 'DBInstanceDiskUsed',
         'DBInstanceId'                   => 'DBInstanceId',
         'DBInstanceMemory'               => 'DBInstanceMemory',
         'DBInstanceNetType'              => 'DBInstanceNetType',
@@ -847,6 +853,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        }
+        if (null !== $this->DBInstanceDiskUsed) {
+            $res['DBInstanceDiskUsed'] = $this->DBInstanceDiskUsed;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -1069,6 +1078,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        }
+        if (isset($map['DBInstanceDiskUsed'])) {
+            $model->DBInstanceDiskUsed = $map['DBInstanceDiskUsed'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
