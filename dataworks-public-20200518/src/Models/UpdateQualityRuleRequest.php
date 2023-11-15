@@ -171,6 +171,11 @@ class UpdateQualityRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @var string
+     */
+    public $taskSetting;
+
+    /**
      * @description The ID of the monitoring template. You can call the [ListQualityRules](~~173995~~) operation to obtain the ID of the monitoring template that is used to create the monitoring rule.
      *
      * @example 7
@@ -227,6 +232,7 @@ class UpdateQualityRuleRequest extends Model
         'propertyType'      => 'PropertyType',
         'ruleName'          => 'RuleName',
         'ruleType'          => 'RuleType',
+        'taskSetting'       => 'TaskSetting',
         'templateId'        => 'TemplateId',
         'trend'             => 'Trend',
         'warningThreshold'  => 'WarningThreshold',
@@ -290,6 +296,9 @@ class UpdateQualityRuleRequest extends Model
         }
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
+        }
+        if (null !== $this->taskSetting) {
+            $res['TaskSetting'] = $this->taskSetting;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -365,6 +374,9 @@ class UpdateQualityRuleRequest extends Model
         }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
+        }
+        if (isset($map['TaskSetting'])) {
+            $model->taskSetting = $map['TaskSetting'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

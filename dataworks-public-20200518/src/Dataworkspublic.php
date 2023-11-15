@@ -2985,6 +2985,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->ruleType)) {
             $body['RuleType'] = $request->ruleType;
         }
+        if (!Utils::isUnset($request->taskSetting)) {
+            $body['TaskSetting'] = $request->taskSetting;
+        }
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;
         }
@@ -15332,6 +15335,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->ruleType)) {
             $body['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->taskSetting)) {
+            $body['TaskSetting'] = $request->taskSetting;
         }
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;

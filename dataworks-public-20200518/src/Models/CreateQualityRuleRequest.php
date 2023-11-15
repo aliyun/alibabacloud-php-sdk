@@ -138,6 +138,11 @@ class CreateQualityRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @var string
+     */
+    public $taskSetting;
+
+    /**
      * @description The ID of the template that is used to create the monitoring rule.
      *
      * @example 7
@@ -192,6 +197,7 @@ class CreateQualityRuleRequest extends Model
         'propertyType'      => 'PropertyType',
         'ruleName'          => 'RuleName',
         'ruleType'          => 'RuleType',
+        'taskSetting'       => 'TaskSetting',
         'templateId'        => 'TemplateId',
         'trend'             => 'Trend',
         'warningThreshold'  => 'WarningThreshold',
@@ -249,6 +255,9 @@ class CreateQualityRuleRequest extends Model
         }
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
+        }
+        if (null !== $this->taskSetting) {
+            $res['TaskSetting'] = $this->taskSetting;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -318,6 +327,9 @@ class CreateQualityRuleRequest extends Model
         }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
+        }
+        if (isset($map['TaskSetting'])) {
+            $model->taskSetting = $map['TaskSetting'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
