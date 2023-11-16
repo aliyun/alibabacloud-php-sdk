@@ -18,7 +18,7 @@ class GetManagedPrometheusStatusRequest extends Model
     public $clusterId;
 
     /**
-     * @description The type of the monitoring object. Valid values: ask and ecs.
+     * @description The type of the monitoring object. Valid values: ask , acs , one and ecs.
      *
      * @example ask
      *

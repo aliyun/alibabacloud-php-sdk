@@ -79,7 +79,7 @@ class feature extends Model
     public $name;
 
     /**
-     * @description Status of Feature.
+     * @description Installation status of Feature.
      *
      * @example Success
      *

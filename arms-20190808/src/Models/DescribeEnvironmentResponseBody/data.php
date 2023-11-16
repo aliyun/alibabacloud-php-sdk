@@ -201,7 +201,7 @@ class data extends Model
     public $userId;
 
     /**
-     * @description VPC ID。
+     * @description VPC ID.
      *
      * @example vpc-8vb02uk57qbcktqcvqqqj
      *

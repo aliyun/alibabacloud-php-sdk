@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UninstallPromClusterRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $aliyunLang;
+
+    /**
      * @description The cluster ID.
      *
      * @example c0bad479465464e1d8c1e641b0afb****
@@ -26,8 +31,9 @@ class UninstallPromClusterRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'regionId'  => 'RegionId',
+        'aliyunLang' => 'AliyunLang',
+        'clusterId'  => 'ClusterId',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class UninstallPromClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliyunLang) {
+            $res['AliyunLang'] = $this->aliyunLang;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -55,6 +64,9 @@ class UninstallPromClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunLang'])) {
+            $model->aliyunLang = $map['AliyunLang'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
