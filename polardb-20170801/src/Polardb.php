@@ -1093,6 +1093,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
         }
+        if (!Utils::isUnset($request->provisionedIops)) {
+            $query['ProvisionedIops'] = $request->provisionedIops;
+        }
         if (!Utils::isUnset($request->proxyClass)) {
             $query['ProxyClass'] = $request->proxyClass;
         }

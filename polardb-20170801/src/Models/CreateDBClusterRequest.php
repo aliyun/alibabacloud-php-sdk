@@ -355,6 +355,11 @@ class CreateDBClusterRequest extends Model
     public $period;
 
     /**
+     * @var int
+     */
+    public $provisionedIops;
+
+    /**
      * @description 标准版数据库代理规格。
      *
      * @example polar.maxscale.g2.medium.c
@@ -632,6 +637,7 @@ class CreateDBClusterRequest extends Model
         'parameterGroupId'                       => 'ParameterGroupId',
         'payType'                                => 'PayType',
         'period'                                 => 'Period',
+        'provisionedIops'                        => 'ProvisionedIops',
         'proxyClass'                             => 'ProxyClass',
         'proxyType'                              => 'ProxyType',
         'regionId'                               => 'RegionId',
@@ -747,6 +753,9 @@ class CreateDBClusterRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->provisionedIops) {
+            $res['ProvisionedIops'] = $this->provisionedIops;
         }
         if (null !== $this->proxyClass) {
             $res['ProxyClass'] = $this->proxyClass;
@@ -924,6 +933,9 @@ class CreateDBClusterRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['ProvisionedIops'])) {
+            $model->provisionedIops = $map['ProvisionedIops'];
         }
         if (isset($map['ProxyClass'])) {
             $model->proxyClass = $map['ProxyClass'];
