@@ -15,6 +15,8 @@ class data extends Model
     public $jobList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

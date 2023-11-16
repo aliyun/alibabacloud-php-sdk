@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkvisual\V20180120\Models;
 
-use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordDownloadJobListResponseBody\data;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalRecordDownloadByTimeJobResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class QueryRecordDownloadJobListResponseBody extends Model
+class CreateLocalRecordDownloadByTimeJobResponseBody extends Model
 {
     /**
-     * @example 400
-     *
      * @var string
      */
     public $code;
@@ -22,22 +20,16 @@ class QueryRecordDownloadJobListResponseBody extends Model
     public $data;
 
     /**
-     * @example iot.vision.RequestFailed
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example E55***B7-4***-4***-8***-D3******F565
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -78,7 +70,7 @@ class QueryRecordDownloadJobListResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return QueryRecordDownloadJobListResponseBody
+     * @return CreateLocalRecordDownloadByTimeJobResponseBody
      */
     public static function fromMap($map = [])
     {

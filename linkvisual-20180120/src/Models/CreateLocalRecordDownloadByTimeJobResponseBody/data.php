@@ -2,15 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordDownloadByTimeJobResponseBody;
+namespace AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalRecordDownloadByTimeJobResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example w2s******
-     *
      * @var string
      */
     public $jobId;

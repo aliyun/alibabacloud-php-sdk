@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryRecordDownloadJobListRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example Device01
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example C47T6xwp6ms4bNlkHRWCg4****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-2w******
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1Bw******
+     *
      * @var string
      */
     public $productKey;

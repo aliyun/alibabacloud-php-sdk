@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateEventRecordPlanRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateEventRecordPlanResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalFileUploadJobRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalFileUploadJobResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalRecordDownloadByTimeJobRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalRecordDownloadByTimeJobResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreatePictureSearchAppRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreatePictureSearchAppResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreatePictureSearchJobRequest;
@@ -1027,6 +1029,67 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createLocalFileUploadJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateLocalRecordDownloadByTimeJobRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateLocalRecordDownloadByTimeJobResponse
+     */
+    public function createLocalRecordDownloadByTimeJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->speed)) {
+            $query['Speed'] = $request->speed;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLocalRecordDownloadByTimeJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateLocalRecordDownloadByTimeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateLocalRecordDownloadByTimeJobRequest $request
+     *
+     * @return CreateLocalRecordDownloadByTimeJobResponse
+     */
+    public function createLocalRecordDownloadByTimeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLocalRecordDownloadByTimeJobWithOptions($request, $runtime);
     }
 
     /**

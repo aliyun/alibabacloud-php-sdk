@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class jobList extends Model
 {
     /**
+     * @example 1900000000
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 2100000000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example testfile
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example C47T6xwp6ms4bNlkHRWCg4****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example 9441
+     *
      * @var int
      */
     public $jobErrorCode;
 
     /**
+     * @example w2s******
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 90
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $recordType;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $streamType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example http://*********
+     *
      * @var string
      */
     public $url;

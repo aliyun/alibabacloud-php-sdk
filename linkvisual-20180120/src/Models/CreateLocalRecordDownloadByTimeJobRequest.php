@@ -6,63 +6,42 @@ namespace AlibabaCloud\SDK\Linkvisual\V20180120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateRecordDownloadByTimeJobRequest extends Model
+class CreateLocalRecordDownloadByTimeJobRequest extends Model
 {
     /**
-     * @example 1900000000
-     *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @example Device01
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example 2100000000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example C47T6xwp6ms4bNlkHRWCg4****
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @example iot-******
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a1Bw******
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @example 0
-     *
-     * @var int
+     * @var float
      */
-    public $recordType;
-
-    /**
-     * @example 0
-     *
-     * @var int
-     */
-    public $streamType;
+    public $speed;
     protected $_name = [
         'beginTime'     => 'BeginTime',
         'deviceName'    => 'DeviceName',
@@ -70,8 +49,7 @@ class CreateRecordDownloadByTimeJobRequest extends Model
         'iotId'         => 'IotId',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
-        'recordType'    => 'RecordType',
-        'streamType'    => 'StreamType',
+        'speed'         => 'Speed',
     ];
 
     public function validate()
@@ -99,11 +77,8 @@ class CreateRecordDownloadByTimeJobRequest extends Model
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
-        if (null !== $this->recordType) {
-            $res['RecordType'] = $this->recordType;
-        }
-        if (null !== $this->streamType) {
-            $res['StreamType'] = $this->streamType;
+        if (null !== $this->speed) {
+            $res['Speed'] = $this->speed;
         }
 
         return $res;
@@ -112,7 +87,7 @@ class CreateRecordDownloadByTimeJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateRecordDownloadByTimeJobRequest
+     * @return CreateLocalRecordDownloadByTimeJobRequest
      */
     public static function fromMap($map = [])
     {
@@ -135,11 +110,8 @@ class CreateRecordDownloadByTimeJobRequest extends Model
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['RecordType'])) {
-            $model->recordType = $map['RecordType'];
-        }
-        if (isset($map['StreamType'])) {
-            $model->streamType = $map['StreamType'];
+        if (isset($map['Speed'])) {
+            $model->speed = $map['Speed'];
         }
 
         return $model;

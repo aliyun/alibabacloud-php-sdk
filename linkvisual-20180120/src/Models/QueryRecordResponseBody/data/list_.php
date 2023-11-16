@@ -23,6 +23,11 @@ class list_ extends Model
     public $endTime;
 
     /**
+     * @var int
+     */
+    public $eventType;
+
+    /**
      * @example file1
      *
      * @var string
@@ -66,6 +71,7 @@ class list_ extends Model
     protected $_name = [
         'beginTime'        => 'BeginTime',
         'endTime'          => 'EndTime',
+        'eventType'        => 'EventType',
         'fileName'         => 'FileName',
         'fileSize'         => 'FileSize',
         'recordType'       => 'RecordType',
@@ -86,6 +92,9 @@ class list_ extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
@@ -122,6 +131,9 @@ class list_ extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];

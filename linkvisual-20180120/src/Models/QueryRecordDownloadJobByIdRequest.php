@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryRecordDownloadJobByIdRequest extends Model
 {
     /**
+     * @example Iot-r******
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example w2s******
+     *
      * @var string
      */
     public $jobId;
