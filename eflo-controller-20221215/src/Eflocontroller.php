@@ -722,6 +722,9 @@ class Eflocontroller extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $body['NextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);

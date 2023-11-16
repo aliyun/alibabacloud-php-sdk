@@ -42,6 +42,11 @@ class nodes extends Model
     public $nodeId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example sn_pozkHBgicd
      *
      * @var string
@@ -55,13 +60,14 @@ class nodes extends Model
      */
     public $zoneId;
     protected $_name = [
-        'createTime'  => 'CreateTime',
-        'expiredTime' => 'ExpiredTime',
-        'hpnZone'     => 'HpnZone',
-        'machineType' => 'MachineType',
-        'nodeId'      => 'NodeId',
-        'sn'          => 'Sn',
-        'zoneId'      => 'ZoneId',
+        'createTime'      => 'CreateTime',
+        'expiredTime'     => 'ExpiredTime',
+        'hpnZone'         => 'HpnZone',
+        'machineType'     => 'MachineType',
+        'nodeId'          => 'NodeId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sn'              => 'Sn',
+        'zoneId'          => 'ZoneId',
     ];
 
     public function validate()
@@ -85,6 +91,9 @@ class nodes extends Model
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sn) {
             $res['Sn'] = $this->sn;
@@ -118,6 +127,9 @@ class nodes extends Model
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Sn'])) {
             $model->sn = $map['Sn'];

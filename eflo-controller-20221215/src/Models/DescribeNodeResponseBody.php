@@ -111,6 +111,11 @@ class DescribeNodeResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example sag42ckf4jx
      *
      * @var string
@@ -124,23 +129,24 @@ class DescribeNodeResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
-        'clusterName'    => 'ClusterName',
-        'createTime'     => 'CreateTime',
-        'expiredTime'    => 'ExpiredTime',
-        'hostname'       => 'Hostname',
-        'hpnZone'        => 'HpnZone',
-        'imageId'        => 'ImageId',
-        'imageName'      => 'ImageName',
-        'machineType'    => 'MachineType',
-        'networks'       => 'Networks',
-        'nodeGroupId'    => 'NodeGroupId',
-        'nodeGroupName'  => 'NodeGroupName',
-        'nodeId'         => 'NodeId',
-        'operatingState' => 'OperatingState',
-        'requestId'      => 'RequestId',
-        'sn'             => 'Sn',
-        'zoneId'         => 'ZoneId',
+        'clusterId'       => 'ClusterId',
+        'clusterName'     => 'ClusterName',
+        'createTime'      => 'CreateTime',
+        'expiredTime'     => 'ExpiredTime',
+        'hostname'        => 'Hostname',
+        'hpnZone'         => 'HpnZone',
+        'imageId'         => 'ImageId',
+        'imageName'       => 'ImageName',
+        'machineType'     => 'MachineType',
+        'networks'        => 'Networks',
+        'nodeGroupId'     => 'NodeGroupId',
+        'nodeGroupName'   => 'NodeGroupName',
+        'nodeId'          => 'NodeId',
+        'operatingState'  => 'OperatingState',
+        'requestId'       => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sn'              => 'Sn',
+        'zoneId'          => 'ZoneId',
     ];
 
     public function validate()
@@ -200,6 +206,9 @@ class DescribeNodeResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sn) {
             $res['Sn'] = $this->sn;
@@ -269,6 +278,9 @@ class DescribeNodeResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Sn'])) {
             $model->sn = $map['Sn'];

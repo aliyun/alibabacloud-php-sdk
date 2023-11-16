@@ -33,11 +33,17 @@ class ListFreeNodesRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'hpnZone'     => 'HpnZone',
-        'machineType' => 'MachineType',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
+        'hpnZone'         => 'HpnZone',
+        'machineType'     => 'MachineType',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class ListFreeNodesRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -82,6 +91,9 @@ class ListFreeNodesRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;
