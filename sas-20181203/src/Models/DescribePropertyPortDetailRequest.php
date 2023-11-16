@@ -72,6 +72,9 @@ class DescribePropertyPortDetailRequest extends Model
     public $remark;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
      * @var int
      */
     public $resourceDirectoryAccountId;

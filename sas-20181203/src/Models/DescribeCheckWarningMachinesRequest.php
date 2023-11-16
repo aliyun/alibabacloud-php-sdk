@@ -31,6 +31,11 @@ class DescribeCheckWarningMachinesRequest extends Model
     public $lang;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * @example 1232428423234****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;
