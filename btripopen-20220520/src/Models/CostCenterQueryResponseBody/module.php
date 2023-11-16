@@ -24,6 +24,11 @@ class module extends Model
     public $corpId;
 
     /**
+     * @var int
+     */
+    public $disable;
+
+    /**
      * @var entityDOS[]
      */
     public $entityDOS;
@@ -72,6 +77,7 @@ class module extends Model
     protected $_name = [
         'alipayNo'    => 'alipay_no',
         'corpId'      => 'corp_id',
+        'disable'     => 'disable',
         'entityDOS'   => 'entity_d_o_s',
         'id'          => 'id',
         'number'      => 'number',
@@ -93,6 +99,9 @@ class module extends Model
         }
         if (null !== $this->corpId) {
             $res['corp_id'] = $this->corpId;
+        }
+        if (null !== $this->disable) {
+            $res['disable'] = $this->disable;
         }
         if (null !== $this->entityDOS) {
             $res['entity_d_o_s'] = [];
@@ -138,6 +147,9 @@ class module extends Model
         }
         if (isset($map['corp_id'])) {
             $model->corpId = $map['corp_id'];
+        }
+        if (isset($map['disable'])) {
+            $model->disable = $map['disable'];
         }
         if (isset($map['entity_d_o_s'])) {
             if (!empty($map['entity_d_o_s'])) {

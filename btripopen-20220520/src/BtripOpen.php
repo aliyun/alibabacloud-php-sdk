@@ -2306,6 +2306,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->alipayNo)) {
             $body['alipay_no'] = $request->alipayNo;
         }
+        if (!Utils::isUnset($request->disable)) {
+            $body['disable'] = $request->disable;
+        }
         if (!Utils::isUnset($request->number)) {
             $body['number'] = $request->number;
         }
@@ -2368,6 +2371,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->disable)) {
+            $query['disable'] = $request->disable;
+        }
         if (!Utils::isUnset($request->needOrgEntity)) {
             $query['need_org_entity'] = $request->needOrgEntity;
         }
@@ -2432,6 +2438,9 @@ class BtripOpen extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->alipayNo)) {
             $body['alipay_no'] = $request->alipayNo;
+        }
+        if (!Utils::isUnset($request->disable)) {
+            $body['disable'] = $request->disable;
         }
         if (!Utils::isUnset($request->number)) {
             $body['number'] = $request->number;

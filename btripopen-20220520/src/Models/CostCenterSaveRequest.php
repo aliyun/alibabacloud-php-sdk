@@ -16,6 +16,11 @@ class CostCenterSaveRequest extends Model
     public $alipayNo;
 
     /**
+     * @var int
+     */
+    public $disable;
+
+    /**
      * @example 12345
      *
      * @var string
@@ -42,6 +47,7 @@ class CostCenterSaveRequest extends Model
     public $title;
     protected $_name = [
         'alipayNo'    => 'alipay_no',
+        'disable'     => 'disable',
         'number'      => 'number',
         'scope'       => 'scope',
         'thirdpartId' => 'thirdpart_id',
@@ -57,6 +63,9 @@ class CostCenterSaveRequest extends Model
         $res = [];
         if (null !== $this->alipayNo) {
             $res['alipay_no'] = $this->alipayNo;
+        }
+        if (null !== $this->disable) {
+            $res['disable'] = $this->disable;
         }
         if (null !== $this->number) {
             $res['number'] = $this->number;
@@ -84,6 +93,9 @@ class CostCenterSaveRequest extends Model
         $model = new self();
         if (isset($map['alipay_no'])) {
             $model->alipayNo = $map['alipay_no'];
+        }
+        if (isset($map['disable'])) {
+            $model->disable = $map['disable'];
         }
         if (isset($map['number'])) {
             $model->number = $map['number'];
