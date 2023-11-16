@@ -282,13 +282,9 @@ class data extends Model
     public $protocol;
 
     /**
-     * @description The number of repeated packets.
-     *
-     * @example 0
-     *
      * @var float
      */
-    public $retranCount;
+    public $retransmitRate;
 
     /**
      * @description The round-trip time (RTT). Unit: milliseconds.
@@ -329,7 +325,7 @@ class data extends Model
         'outRetranCount'   => 'OutRetranCount',
         'packetCount'      => 'PacketCount',
         'protocol'         => 'Protocol',
-        'retranCount'      => 'RetranCount',
+        'retransmitRate'   => 'RetransmitRate',
         'rtt'              => 'Rtt',
     ];
 
@@ -430,8 +426,8 @@ class data extends Model
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
-        if (null !== $this->retranCount) {
-            $res['RetranCount'] = $this->retranCount;
+        if (null !== $this->retransmitRate) {
+            $res['RetransmitRate'] = $this->retransmitRate;
         }
         if (null !== $this->rtt) {
             $res['Rtt'] = $this->rtt;
@@ -538,8 +534,8 @@ class data extends Model
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
-        if (isset($map['RetranCount'])) {
-            $model->retranCount = $map['RetranCount'];
+        if (isset($map['RetransmitRate'])) {
+            $model->retransmitRate = $map['RetransmitRate'];
         }
         if (isset($map['Rtt'])) {
             $model->rtt = $map['Rtt'];
