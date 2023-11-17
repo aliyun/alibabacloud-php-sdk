@@ -66,6 +66,10 @@ class cves extends Model
     public $cveId;
 
     /**
+     * @description The link of the CVE content.
+     *
+     * @example https://avd.aliyun.com/detail/CVE-2022-1184
+     *
      * @var string
      */
     public $cveLink;

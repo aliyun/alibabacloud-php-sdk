@@ -110,6 +110,9 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMaliciousNoteRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMaliciousNoteResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaClusterPluginRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaClusterPluginResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaStrategyNewRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaStrategyNewResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaStrategyNewShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateDingTalkRequest;
@@ -185,6 +188,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteLoginBaseConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteLoginBaseConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousNoteRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousNoteResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteOpaStrategyNewRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteOpaStrategyNewResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeletePrivateRegistryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeletePrivateRegistryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSasContainerWebDefenseRuleRequest;
@@ -715,6 +720,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckItemWarningStatisticsRe
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckItemWarningStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterRuleSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterRuleSummaryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterStrategyCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterSuspEventStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterSuspEventStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCommonSwitchConfigRequest;
@@ -781,6 +787,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaClusterNamespaceListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaClusterNamespaceListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaPluginStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaPluginStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaStrategyDetailNewRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaStrategyDetailNewResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaStrategyTemplateSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOssBucketScanStatisticRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOssBucketScanStatisticResponse;
@@ -1011,6 +1019,9 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClusterCnnfStatusUserConfirmRequ
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClusterCnnfStatusUserConfirmResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyConcernNecessityRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyConcernNecessityResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyContainerDefenseRuleRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyContainerDefenseRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyContainerDefenseRuleShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyContainerDefenseRuleSwitchRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyContainerDefenseRuleSwitchResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyContainerPluginRuleRequest;
@@ -1105,6 +1116,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebPathRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebPathResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OpenPartialBuyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OpenPartialBuyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OpenSensitiveFileScanRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OpenSensitiveFileScanResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateAgentClientInstallRequest;
@@ -1178,6 +1191,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshOssBucketScanInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ReleaseSasInstanceRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ReleaseSasInstanceResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RemoveCheckInstanceResultWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RemoveCheckInstanceResultWhiteListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RemoveCheckResultWhiteListRequest;
@@ -4143,6 +4158,93 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param CreateOpaStrategyNewRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateOpaStrategyNewResponse
+     */
+    public function createOpaStrategyNewWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateOpaStrategyNewShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->alarmDetail)) {
+            $request->alarmDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alarmDetail, 'AlarmDetail', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->alarmDetailShrink)) {
+            $query['AlarmDetail'] = $request->alarmDetailShrink;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->imageName)) {
+            $query['ImageName'] = $request->imageName;
+        }
+        if (!Utils::isUnset($request->label)) {
+            $query['Label'] = $request->label;
+        }
+        if (!Utils::isUnset($request->maliciousImage)) {
+            $query['MaliciousImage'] = $request->maliciousImage;
+        }
+        if (!Utils::isUnset($request->ruleAction)) {
+            $query['RuleAction'] = $request->ruleAction;
+        }
+        if (!Utils::isUnset($request->scopes)) {
+            $query['Scopes'] = $request->scopes;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
+        }
+        if (!Utils::isUnset($request->strategyTemplateId)) {
+            $query['StrategyTemplateId'] = $request->strategyTemplateId;
+        }
+        if (!Utils::isUnset($request->unScanedImage)) {
+            $query['UnScanedImage'] = $request->unScanedImage;
+        }
+        if (!Utils::isUnset($request->whiteList)) {
+            $query['WhiteList'] = $request->whiteList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOpaStrategyNew',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOpaStrategyNewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOpaStrategyNewRequest $request
+     *
+     * @return CreateOpaStrategyNewResponse
+     */
+    public function createOpaStrategyNew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOpaStrategyNewWithOptions($request, $runtime);
+    }
+
+    /**
      * A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
      *   *
      * @param CreateOrUpdateAssetGroupRequest $request CreateOrUpdateAssetGroupRequest
@@ -5961,6 +6063,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMaliciousNoteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteOpaStrategyNewRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteOpaStrategyNewResponse
+     */
+    public function deleteOpaStrategyNewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->strategyIds)) {
+            $query['StrategyIds'] = $request->strategyIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOpaStrategyNew',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteOpaStrategyNewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteOpaStrategyNewRequest $request
+     *
+     * @return DeleteOpaStrategyNewResponse
+     */
+    public function deleteOpaStrategyNew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOpaStrategyNewWithOptions($request, $runtime);
     }
 
     /**
@@ -20587,6 +20732,39 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetClusterStrategyCountResponse
+     */
+    public function getClusterStrategyCountWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetClusterStrategyCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClusterStrategyCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetClusterStrategyCountResponse
+     */
+    public function getClusterStrategyCount()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClusterStrategyCountWithOptions($runtime);
+    }
+
+    /**
      * @param GetClusterSuspEventStatisticsRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -22191,6 +22369,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOpaPluginStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOpaStrategyDetailNewRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetOpaStrategyDetailNewResponse
+     */
+    public function getOpaStrategyDetailNewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOpaStrategyDetailNew',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOpaStrategyDetailNewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOpaStrategyDetailNewRequest $request
+     *
+     * @return GetOpaStrategyDetailNewResponse
+     */
+    public function getOpaStrategyDetailNew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOpaStrategyDetailNewWithOptions($request, $runtime);
     }
 
     /**
@@ -28288,6 +28509,75 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ModifyContainerDefenseRuleRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyContainerDefenseRuleResponse
+     */
+    public function modifyContainerDefenseRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyContainerDefenseRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->whitelist)) {
+            $request->whitelistShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->whitelist, 'Whitelist', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ruleAction)) {
+            $query['RuleAction'] = $request->ruleAction;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->ruleSwitch)) {
+            $query['RuleSwitch'] = $request->ruleSwitch;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->whitelistShrink)) {
+            $query['Whitelist'] = $request->whitelistShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyContainerDefenseRule',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyContainerDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyContainerDefenseRuleRequest $request
+     *
+     * @return ModifyContainerDefenseRuleResponse
+     */
+    public function modifyContainerDefenseRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyContainerDefenseRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyContainerDefenseRuleSwitchRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -30822,6 +31112,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param OpenPartialBuyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return OpenPartialBuyResponse
+     */
+    public function openPartialBuyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenPartialBuy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenPartialBuyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenPartialBuyRequest $request
+     *
+     * @return OpenPartialBuyResponse
+     */
+    public function openPartialBuy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openPartialBuyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param OpenSensitiveFileScanRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -32677,6 +33010,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->refreshOssBucketScanInfoWithOptions($runtime);
+    }
+
+    /**
+     * @param ReleaseSasInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ReleaseSasInstanceResponse
+     */
+    public function releaseSasInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->chargeType)) {
+            $body['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseSasInstance',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseSasInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseSasInstanceRequest $request
+     *
+     * @return ReleaseSasInstanceResponse
+     */
+    public function releaseSasInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseSasInstanceWithOptions($request, $runtime);
     }
 
     /**
