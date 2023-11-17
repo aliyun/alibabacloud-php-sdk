@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RemoveUsersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $filePath;
+
+    /**
      * @var bool
      */
     public $force;
@@ -21,15 +26,22 @@ class RemoveUsersRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $notificationEmail;
+
+    /**
      * @example ["agent1@ccc-test","agent2@ccc-test"]
      *
      * @var string
      */
     public $userIdList;
     protected $_name = [
-        'force'      => 'Force',
-        'instanceId' => 'InstanceId',
-        'userIdList' => 'UserIdList',
+        'filePath'          => 'FilePath',
+        'force'             => 'Force',
+        'instanceId'        => 'InstanceId',
+        'notificationEmail' => 'NotificationEmail',
+        'userIdList'        => 'UserIdList',
     ];
 
     public function validate()
@@ -39,11 +51,17 @@ class RemoveUsersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->filePath) {
+            $res['FilePath'] = $this->filePath;
+        }
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->notificationEmail) {
+            $res['NotificationEmail'] = $this->notificationEmail;
         }
         if (null !== $this->userIdList) {
             $res['UserIdList'] = $this->userIdList;
@@ -60,11 +78,17 @@ class RemoveUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FilePath'])) {
+            $model->filePath = $map['FilePath'];
+        }
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NotificationEmail'])) {
+            $model->notificationEmail = $map['NotificationEmail'];
         }
         if (isset($map['UserIdList'])) {
             $model->userIdList = $map['UserIdList'];

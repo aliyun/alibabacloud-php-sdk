@@ -34,6 +34,11 @@ class ListDoNotCallNumbersResponseBody extends Model
     public $message;
 
     /**
+     * @var string[]
+     */
+    public $params;
+
+    /**
      * @example BA03159C-E808-4FF1-B27E-A61B6E888D7F
      *
      * @var string
@@ -44,6 +49,7 @@ class ListDoNotCallNumbersResponseBody extends Model
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
+        'params'         => 'Params',
         'requestId'      => 'RequestId',
     ];
 
@@ -65,6 +71,9 @@ class ListDoNotCallNumbersResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -92,6 +101,11 @@ class ListDoNotCallNumbersResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Params'])) {
+            if (!empty($map['Params'])) {
+                $model->params = $map['Params'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

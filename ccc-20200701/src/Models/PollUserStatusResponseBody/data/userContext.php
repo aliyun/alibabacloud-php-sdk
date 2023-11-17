@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusResponseBody\data;
 
+use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusResponseBody\data\userContext\parallelJobList;
 use AlibabaCloud\Tea\Model;
 
 class userContext extends Model
@@ -65,6 +66,11 @@ class userContext extends Model
     public $outboundScenario;
 
     /**
+     * @var parallelJobList[]
+     */
+    public $parallelJobList;
+
+    /**
      * @example 1609136956378
      *
      * @var int
@@ -105,6 +111,7 @@ class userContext extends Model
         'jobId'                  => 'JobId',
         'mobile'                 => 'Mobile',
         'outboundScenario'       => 'OutboundScenario',
+        'parallelJobList'        => 'ParallelJobList',
         'reserved'               => 'Reserved',
         'signedSkillGroupIdList' => 'SignedSkillGroupIdList',
         'userId'                 => 'UserId',
@@ -142,6 +149,15 @@ class userContext extends Model
         }
         if (null !== $this->outboundScenario) {
             $res['OutboundScenario'] = $this->outboundScenario;
+        }
+        if (null !== $this->parallelJobList) {
+            $res['ParallelJobList'] = [];
+            if (null !== $this->parallelJobList && \is_array($this->parallelJobList)) {
+                $n = 0;
+                foreach ($this->parallelJobList as $item) {
+                    $res['ParallelJobList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->reserved) {
             $res['Reserved'] = $this->reserved;
@@ -193,6 +209,15 @@ class userContext extends Model
         }
         if (isset($map['OutboundScenario'])) {
             $model->outboundScenario = $map['OutboundScenario'];
+        }
+        if (isset($map['ParallelJobList'])) {
+            if (!empty($map['ParallelJobList'])) {
+                $model->parallelJobList = [];
+                $n                      = 0;
+                foreach ($map['ParallelJobList'] as $item) {
+                    $model->parallelJobList[$n++] = null !== $item ? parallelJobList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Reserved'])) {
             $model->reserved = $map['Reserved'];

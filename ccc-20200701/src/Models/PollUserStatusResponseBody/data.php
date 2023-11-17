@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusResponseBody;
 
 use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusResponseBody\data\callContext;
+use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusResponseBody\data\chatContexts;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusResponseBody\data\userContext;
 use AlibabaCloud\Tea\Model;
 
@@ -14,6 +15,11 @@ class data extends Model
      * @var callContext
      */
     public $callContext;
+
+    /**
+     * @var chatContexts[]
+     */
+    public $chatContexts;
 
     /**
      * @example 103655
@@ -27,9 +33,10 @@ class data extends Model
      */
     public $userContext;
     protected $_name = [
-        'callContext' => 'CallContext',
-        'contextId'   => 'ContextId',
-        'userContext' => 'UserContext',
+        'callContext'  => 'CallContext',
+        'chatContexts' => 'ChatContexts',
+        'contextId'    => 'ContextId',
+        'userContext'  => 'UserContext',
     ];
 
     public function validate()
@@ -41,6 +48,15 @@ class data extends Model
         $res = [];
         if (null !== $this->callContext) {
             $res['CallContext'] = null !== $this->callContext ? $this->callContext->toMap() : null;
+        }
+        if (null !== $this->chatContexts) {
+            $res['ChatContexts'] = [];
+            if (null !== $this->chatContexts && \is_array($this->chatContexts)) {
+                $n = 0;
+                foreach ($this->chatContexts as $item) {
+                    $res['ChatContexts'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->contextId) {
             $res['ContextId'] = $this->contextId;
@@ -62,6 +78,15 @@ class data extends Model
         $model = new self();
         if (isset($map['CallContext'])) {
             $model->callContext = callContext::fromMap($map['CallContext']);
+        }
+        if (isset($map['ChatContexts'])) {
+            if (!empty($map['ChatContexts'])) {
+                $model->chatContexts = [];
+                $n                   = 0;
+                foreach ($map['ChatContexts'] as $item) {
+                    $model->chatContexts[$n++] = null !== $item ? chatContexts::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ContextId'])) {
             $model->contextId = $map['ContextId'];

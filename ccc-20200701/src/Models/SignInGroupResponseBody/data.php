@@ -16,6 +16,11 @@ class data extends Model
     public $breakCode;
 
     /**
+     * @var string
+     */
+    public $chatDeviceId;
+
+    /**
      * @example ACC-YUNBS-1.0.10-****
      *
      * @var string
@@ -75,6 +80,7 @@ class data extends Model
     public $workMode;
     protected $_name = [
         'breakCode'              => 'BreakCode',
+        'chatDeviceId'           => 'ChatDeviceId',
         'deviceId'               => 'DeviceId',
         'extension'              => 'Extension',
         'instanceId'             => 'InstanceId',
@@ -95,6 +101,9 @@ class data extends Model
         $res = [];
         if (null !== $this->breakCode) {
             $res['BreakCode'] = $this->breakCode;
+        }
+        if (null !== $this->chatDeviceId) {
+            $res['ChatDeviceId'] = $this->chatDeviceId;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
@@ -137,6 +146,9 @@ class data extends Model
         $model = new self();
         if (isset($map['BreakCode'])) {
             $model->breakCode = $map['BreakCode'];
+        }
+        if (isset($map['ChatDeviceId'])) {
+            $model->chatDeviceId = $map['ChatDeviceId'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];

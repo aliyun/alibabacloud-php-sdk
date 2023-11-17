@@ -28,10 +28,22 @@ class ListAudioFilesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $usage;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'status'     => 'Status',
+        'usage'      => 'Usage',
     ];
 
     public function validate()
@@ -49,6 +61,12 @@ class ListAudioFilesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->usage) {
+            $res['Usage'] = $this->usage;
         }
 
         return $res;
@@ -70,6 +88,12 @@ class ListAudioFilesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Usage'])) {
+            $model->usage = $map['Usage'];
         }
 
         return $model;

@@ -16,6 +16,11 @@ class list_ extends Model
     public $createTime;
 
     /**
+     * @var int
+     */
+    public $createdTime;
+
+    /**
      * @example agent
      *
      * @var string
@@ -41,11 +46,12 @@ class list_ extends Model
      */
     public $scope;
     protected $_name = [
-        'createTime' => 'CreateTime',
-        'creator'    => 'Creator',
-        'number'     => 'Number',
-        'remark'     => 'Remark',
-        'scope'      => 'Scope',
+        'createTime'  => 'CreateTime',
+        'createdTime' => 'CreatedTime',
+        'creator'     => 'Creator',
+        'number'      => 'Number',
+        'remark'      => 'Remark',
+        'scope'       => 'Scope',
     ];
 
     public function validate()
@@ -57,6 +63,9 @@ class list_ extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
         }
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
@@ -84,6 +93,9 @@ class list_ extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
         }
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];

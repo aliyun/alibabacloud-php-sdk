@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyUserRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $avatarUrl;
+
+    /**
      * @example 1001
      *
      * @var string
@@ -40,6 +45,11 @@ class ModifyUserRequest extends Model
     public $mobile;
 
     /**
+     * @var string
+     */
+    public $nickname;
+
+    /**
      * @example Admin@ccc-test
      *
      * @var string
@@ -60,11 +70,13 @@ class ModifyUserRequest extends Model
      */
     public $workMode;
     protected $_name = [
+        'avatarUrl'   => 'AvatarUrl',
         'displayId'   => 'DisplayId',
         'displayName' => 'DisplayName',
         'force'       => 'Force',
         'instanceId'  => 'InstanceId',
         'mobile'      => 'Mobile',
+        'nickname'    => 'Nickname',
         'roleId'      => 'RoleId',
         'userId'      => 'UserId',
         'workMode'    => 'WorkMode',
@@ -77,6 +89,9 @@ class ModifyUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->avatarUrl) {
+            $res['AvatarUrl'] = $this->avatarUrl;
+        }
         if (null !== $this->displayId) {
             $res['DisplayId'] = $this->displayId;
         }
@@ -91,6 +106,9 @@ class ModifyUserRequest extends Model
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->nickname) {
+            $res['Nickname'] = $this->nickname;
         }
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
@@ -113,6 +131,9 @@ class ModifyUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvatarUrl'])) {
+            $model->avatarUrl = $map['AvatarUrl'];
+        }
         if (isset($map['DisplayId'])) {
             $model->displayId = $map['DisplayId'];
         }
@@ -127,6 +148,9 @@ class ModifyUserRequest extends Model
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['Nickname'])) {
+            $model->nickname = $map['Nickname'];
         }
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];

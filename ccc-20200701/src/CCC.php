@@ -938,10 +938,14 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param AssignUsersRequest $request
-     * @param RuntimeOptions     $runtime
+     * @deprecated : AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
+     *   *
+     * Deprecated
      *
-     * @return AssignUsersResponse
+     * @param AssignUsersRequest $request AssignUsersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AssignUsersResponse AssignUsersResponse
      */
     public function assignUsersWithOptions($request, $runtime)
     {
@@ -981,9 +985,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param AssignUsersRequest $request
+     * @deprecated : AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
+     *   *
+     * Deprecated
      *
-     * @return AssignUsersResponse
+     * @param AssignUsersRequest $request AssignUsersRequest
+     *
+     * @return AssignUsersResponse AssignUsersResponse
      */
     public function assignUsers($request)
     {
@@ -2278,10 +2286,14 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ExportCustomCallTaggingRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @deprecated : ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead.
+     *   *
+     * Deprecated
      *
-     * @return ExportCustomCallTaggingResponse
+     * @param ExportCustomCallTaggingRequest $request ExportCustomCallTaggingRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportCustomCallTaggingResponse ExportCustomCallTaggingResponse
      */
     public function exportCustomCallTaggingWithOptions($request, $runtime)
     {
@@ -2309,9 +2321,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ExportCustomCallTaggingRequest $request
+     * @deprecated : ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead.
+     *   *
+     * Deprecated
      *
-     * @return ExportCustomCallTaggingResponse
+     * @param ExportCustomCallTaggingRequest $request ExportCustomCallTaggingRequest
+     *
+     * @return ExportCustomCallTaggingResponse ExportCustomCallTaggingResponse
      */
     public function exportCustomCallTagging($request)
     {
@@ -3845,10 +3861,14 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ImportCustomCallTaggingRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @deprecated : ImportCustomCallTagging is deprecated, please use CCC::2020-07-01::ImportCustomCallTaggings instead.
+     *   *
+     * Deprecated
      *
-     * @return ImportCustomCallTaggingResponse
+     * @param ImportCustomCallTaggingRequest $request ImportCustomCallTaggingRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ImportCustomCallTaggingResponse ImportCustomCallTaggingResponse
      */
     public function importCustomCallTaggingWithOptions($request, $runtime)
     {
@@ -3879,9 +3899,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ImportCustomCallTaggingRequest $request
+     * @deprecated : ImportCustomCallTagging is deprecated, please use CCC::2020-07-01::ImportCustomCallTaggings instead.
+     *   *
+     * Deprecated
      *
-     * @return ImportCustomCallTaggingResponse
+     * @param ImportCustomCallTaggingRequest $request ImportCustomCallTaggingRequest
+     *
+     * @return ImportCustomCallTaggingResponse ImportCustomCallTaggingResponse
      */
     public function importCustomCallTagging($request)
     {
@@ -4404,6 +4428,12 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->usage)) {
+            $query['Usage'] = $request->usage;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4446,6 +4476,9 @@ class CCC extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -4914,10 +4947,14 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListCustomCallTaggingRequest $request
-     * @param RuntimeOptions               $runtime
+     * @deprecated : ListCustomCallTagging is deprecated, please use CCC::2020-07-01::ListCustomCallTaggings instead.
+     *   *
+     * Deprecated
      *
-     * @return ListCustomCallTaggingResponse
+     * @param ListCustomCallTaggingRequest $request ListCustomCallTaggingRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCustomCallTaggingResponse ListCustomCallTaggingResponse
      */
     public function listCustomCallTaggingWithOptions($request, $runtime)
     {
@@ -4957,9 +4994,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListCustomCallTaggingRequest $request
+     * @deprecated : ListCustomCallTagging is deprecated, please use CCC::2020-07-01::ListCustomCallTaggings instead.
+     *   *
+     * Deprecated
      *
-     * @return ListCustomCallTaggingResponse
+     * @param ListCustomCallTaggingRequest $request ListCustomCallTaggingRequest
+     *
+     * @return ListCustomCallTaggingResponse ListCustomCallTaggingResponse
      */
     public function listCustomCallTagging($request)
     {
@@ -6983,6 +7024,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->ossFileKey)) {
             $query['OssFileKey'] = $request->ossFileKey;
         }
+        if (!Utils::isUnset($request->usage)) {
+            $query['Usage'] = $request->usage;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7274,6 +7318,9 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->avatarUrl)) {
+            $query['AvatarUrl'] = $request->avatarUrl;
+        }
         if (!Utils::isUnset($request->displayId)) {
             $query['DisplayId'] = $request->displayId;
         }
@@ -7288,6 +7335,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->mobile)) {
             $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->nickname)) {
+            $query['Nickname'] = $request->nickname;
         }
         if (!Utils::isUnset($request->roleId)) {
             $query['RoleId'] = $request->roleId;
@@ -8305,11 +8355,17 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->filePath)) {
+            $query['FilePath'] = $request->filePath;
+        }
         if (!Utils::isUnset($request->force)) {
             $query['Force'] = $request->force;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->notificationEmail)) {
+            $query['NotificationEmail'] = $request->notificationEmail;
         }
         if (!Utils::isUnset($request->userIdList)) {
             $query['UserIdList'] = $request->userIdList;
@@ -8944,6 +9000,12 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->additivity)) {
+            $query['Additivity'] = $request->additivity;
+        }
+        if (!Utils::isUnset($request->chatDeviceId)) {
+            $query['ChatDeviceId'] = $request->chatDeviceId;
+        }
         if (!Utils::isUnset($request->deviceId)) {
             $query['DeviceId'] = $request->deviceId;
         }

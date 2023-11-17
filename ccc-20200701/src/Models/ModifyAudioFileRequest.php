@@ -40,12 +40,18 @@ class ModifyAudioFileRequest extends Model
      * @var string
      */
     public $ossFileKey;
+
+    /**
+     * @var string
+     */
+    public $usage;
     protected $_name = [
         'audioFileName'   => 'AudioFileName',
         'audioResourceId' => 'AudioResourceId',
         'instanceId'      => 'InstanceId',
         'name'            => 'Name',
         'ossFileKey'      => 'OssFileKey',
+        'usage'           => 'Usage',
     ];
 
     public function validate()
@@ -69,6 +75,9 @@ class ModifyAudioFileRequest extends Model
         }
         if (null !== $this->ossFileKey) {
             $res['OssFileKey'] = $this->ossFileKey;
+        }
+        if (null !== $this->usage) {
+            $res['Usage'] = $this->usage;
         }
 
         return $res;
@@ -96,6 +105,9 @@ class ModifyAudioFileRequest extends Model
         }
         if (isset($map['OssFileKey'])) {
             $model->ossFileKey = $map['OssFileKey'];
+        }
+        if (isset($map['Usage'])) {
+            $model->usage = $map['Usage'];
         }
 
         return $model;

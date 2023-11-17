@@ -23,6 +23,11 @@ class list_ extends Model
     public $audioResourceId;
 
     /**
+     * @var string
+     */
+    public $auditResult;
+
+    /**
      * @example 2021-03-05 17:35:45.0
      *
      * @var string
@@ -49,19 +54,32 @@ class list_ extends Model
     public $ossFileKey;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @example 2021-03-08 15:34:49.0
      *
      * @var string
      */
     public $updatedTime;
+
+    /**
+     * @var string
+     */
+    public $usage;
     protected $_name = [
         'audioFileName'   => 'AudioFileName',
         'audioResourceId' => 'AudioResourceId',
+        'auditResult'     => 'AuditResult',
         'createdTime'     => 'CreatedTime',
         'instanceId'      => 'InstanceId',
         'name'            => 'Name',
         'ossFileKey'      => 'OssFileKey',
+        'status'          => 'Status',
         'updatedTime'     => 'UpdatedTime',
+        'usage'           => 'Usage',
     ];
 
     public function validate()
@@ -77,6 +95,9 @@ class list_ extends Model
         if (null !== $this->audioResourceId) {
             $res['AudioResourceId'] = $this->audioResourceId;
         }
+        if (null !== $this->auditResult) {
+            $res['AuditResult'] = $this->auditResult;
+        }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
@@ -89,8 +110,14 @@ class list_ extends Model
         if (null !== $this->ossFileKey) {
             $res['OssFileKey'] = $this->ossFileKey;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->updatedTime) {
             $res['UpdatedTime'] = $this->updatedTime;
+        }
+        if (null !== $this->usage) {
+            $res['Usage'] = $this->usage;
         }
 
         return $res;
@@ -110,6 +137,9 @@ class list_ extends Model
         if (isset($map['AudioResourceId'])) {
             $model->audioResourceId = $map['AudioResourceId'];
         }
+        if (isset($map['AuditResult'])) {
+            $model->auditResult = $map['AuditResult'];
+        }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
@@ -122,8 +152,14 @@ class list_ extends Model
         if (isset($map['OssFileKey'])) {
             $model->ossFileKey = $map['OssFileKey'];
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['UpdatedTime'])) {
             $model->updatedTime = $map['UpdatedTime'];
+        }
+        if (isset($map['Usage'])) {
+            $model->usage = $map['Usage'];
         }
 
         return $model;

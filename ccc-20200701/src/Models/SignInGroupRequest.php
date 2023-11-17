@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SignInGroupRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $additivity;
+
+    /**
+     * @var string
+     */
+    public $chatDeviceId;
+
+    /**
      * @example device
      *
      * @var string
@@ -36,6 +46,8 @@ class SignInGroupRequest extends Model
      */
     public $userId;
     protected $_name = [
+        'additivity'             => 'Additivity',
+        'chatDeviceId'           => 'ChatDeviceId',
         'deviceId'               => 'DeviceId',
         'instanceId'             => 'InstanceId',
         'signedSkillGroupIdList' => 'SignedSkillGroupIdList',
@@ -49,6 +61,12 @@ class SignInGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->additivity) {
+            $res['Additivity'] = $this->additivity;
+        }
+        if (null !== $this->chatDeviceId) {
+            $res['ChatDeviceId'] = $this->chatDeviceId;
+        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
@@ -73,6 +91,12 @@ class SignInGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Additivity'])) {
+            $model->additivity = $map['Additivity'];
+        }
+        if (isset($map['ChatDeviceId'])) {
+            $model->chatDeviceId = $map['ChatDeviceId'];
+        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }

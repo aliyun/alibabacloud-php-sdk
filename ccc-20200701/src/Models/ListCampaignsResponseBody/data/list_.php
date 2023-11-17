@@ -51,6 +51,11 @@ class list_ extends Model
     public $casesUncompleted;
 
     /**
+     * @var float
+     */
+    public $completionRate;
+
+    /**
      * @example 1
      *
      * @var int
@@ -138,6 +143,7 @@ class list_ extends Model
         'casesAborted'       => 'CasesAborted',
         'casesConnected'     => 'CasesConnected',
         'casesUncompleted'   => 'CasesUncompleted',
+        'completionRate'     => 'CompletionRate',
         'maxAttemptCount'    => 'MaxAttemptCount',
         'minAttemptInterval' => 'MinAttemptInterval',
         'name'               => 'Name',
@@ -176,6 +182,9 @@ class list_ extends Model
         }
         if (null !== $this->casesUncompleted) {
             $res['CasesUncompleted'] = $this->casesUncompleted;
+        }
+        if (null !== $this->completionRate) {
+            $res['CompletionRate'] = $this->completionRate;
         }
         if (null !== $this->maxAttemptCount) {
             $res['MaxAttemptCount'] = $this->maxAttemptCount;
@@ -242,6 +251,9 @@ class list_ extends Model
         }
         if (isset($map['CasesUncompleted'])) {
             $model->casesUncompleted = $map['CasesUncompleted'];
+        }
+        if (isset($map['CompletionRate'])) {
+            $model->completionRate = $map['CompletionRate'];
         }
         if (isset($map['MaxAttemptCount'])) {
             $model->maxAttemptCount = $map['MaxAttemptCount'];

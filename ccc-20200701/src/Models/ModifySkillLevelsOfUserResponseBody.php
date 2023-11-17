@@ -16,6 +16,11 @@ class ModifySkillLevelsOfUserResponseBody extends Model
     public $code;
 
     /**
+     * @var string
+     */
+    public $data;
+
+    /**
      * @example 200
      *
      * @var int
@@ -35,6 +40,7 @@ class ModifySkillLevelsOfUserResponseBody extends Model
     public $requestId;
     protected $_name = [
         'code'           => 'Code',
+        'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
@@ -49,6 +55,9 @@ class ModifySkillLevelsOfUserResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -73,6 +82,9 @@ class ModifySkillLevelsOfUserResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
