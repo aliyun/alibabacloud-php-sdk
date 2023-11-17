@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableInternet;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $enableIntranet;
 
     /**
-     * @example ecs.c6.4xlarge
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @example mygateway1
-     *
      * @var string
      */
     public $name;
