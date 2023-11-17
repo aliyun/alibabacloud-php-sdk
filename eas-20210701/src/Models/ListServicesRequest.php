@@ -106,6 +106,11 @@ class ListServicesRequest extends Model
      * @var string
      */
     public $sort;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'filter'           => 'Filter',
         'groupName'        => 'GroupName',
@@ -120,6 +125,7 @@ class ListServicesRequest extends Model
         'serviceType'      => 'ServiceType',
         'serviceUid'       => 'ServiceUid',
         'sort'             => 'Sort',
+        'workspaceId'      => 'WorkspaceId',
     ];
 
     public function validate()
@@ -167,6 +173,9 @@ class ListServicesRequest extends Model
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -218,6 +227,9 @@ class ListServicesRequest extends Model
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

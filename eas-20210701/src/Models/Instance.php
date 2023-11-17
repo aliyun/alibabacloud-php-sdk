@@ -48,6 +48,13 @@ class Instance extends Model
     public $isSpot;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $isolated;
+
+    /**
      * @var mixed[][]
      */
     public $lastState;
@@ -129,6 +136,7 @@ class Instance extends Model
         'instanceName'     => 'InstanceName',
         'instancePort'     => 'InstancePort',
         'isSpot'           => 'IsSpot',
+        'isolated'         => 'Isolated',
         'lastState'        => 'LastState',
         'namespace'        => 'Namespace',
         'originalAmount'   => 'OriginalAmount',
@@ -171,6 +179,9 @@ class Instance extends Model
         }
         if (null !== $this->isSpot) {
             $res['IsSpot'] = $this->isSpot;
+        }
+        if (null !== $this->isolated) {
+            $res['Isolated'] = $this->isolated;
         }
         if (null !== $this->lastState) {
             $res['LastState'] = $this->lastState;
@@ -243,6 +254,9 @@ class Instance extends Model
         }
         if (isset($map['IsSpot'])) {
             $model->isSpot = $map['IsSpot'];
+        }
+        if (isset($map['Isolated'])) {
+            $model->isolated = $map['Isolated'];
         }
         if (isset($map['LastState'])) {
             if (!empty($map['LastState'])) {

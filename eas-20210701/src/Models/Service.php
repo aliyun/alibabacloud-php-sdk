@@ -17,6 +17,26 @@ class Service extends Model
     /**
      * @var string
      */
+    public $appConfig;
+
+    /**
+     * @var string
+     */
+    public $appSpecName;
+
+    /**
+     * @var string
+     */
+    public $appType;
+
+    /**
+     * @var string
+     */
+    public $appVersion;
+
+    /**
+     * @var string
+     */
     public $callerUid;
 
     /**
@@ -198,8 +218,17 @@ class Service extends Model
      * @var int
      */
     public $weight;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'accessToken'               => 'AccessToken',
+        'appConfig'                 => 'AppConfig',
+        'appSpecName'               => 'AppSpecName',
+        'appType'                   => 'AppType',
+        'appVersion'                => 'AppVersion',
         'callerUid'                 => 'CallerUid',
         'cpu'                       => 'Cpu',
         'createTime'                => 'CreateTime',
@@ -237,6 +266,7 @@ class Service extends Model
         'totalInstance'             => 'TotalInstance',
         'updateTime'                => 'UpdateTime',
         'weight'                    => 'Weight',
+        'workspaceId'               => 'WorkspaceId',
     ];
 
     public function validate()
@@ -248,6 +278,18 @@ class Service extends Model
         $res = [];
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
+        }
+        if (null !== $this->appConfig) {
+            $res['AppConfig'] = $this->appConfig;
+        }
+        if (null !== $this->appSpecName) {
+            $res['AppSpecName'] = $this->appSpecName;
+        }
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
+        }
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
         }
         if (null !== $this->callerUid) {
             $res['CallerUid'] = $this->callerUid;
@@ -366,6 +408,9 @@ class Service extends Model
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
+        }
 
         return $res;
     }
@@ -380,6 +425,18 @@ class Service extends Model
         $model = new self();
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
+        }
+        if (isset($map['AppConfig'])) {
+            $model->appConfig = $map['AppConfig'];
+        }
+        if (isset($map['AppSpecName'])) {
+            $model->appSpecName = $map['AppSpecName'];
+        }
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
+        }
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
         }
         if (isset($map['CallerUid'])) {
             $model->callerUid = $map['CallerUid'];
@@ -497,6 +554,9 @@ class Service extends Model
         }
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

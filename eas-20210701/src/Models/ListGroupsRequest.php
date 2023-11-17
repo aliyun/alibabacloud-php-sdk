@@ -28,10 +28,16 @@ class ListGroupsRequest extends Model
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
-        'filter'     => 'Filter',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'filter'      => 'Filter',
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class ListGroupsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class ListGroupsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

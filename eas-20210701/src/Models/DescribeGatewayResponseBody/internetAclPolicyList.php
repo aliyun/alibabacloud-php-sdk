@@ -1,0 +1,77 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGatewayResponseBody;
+
+use AlibabaCloud\Tea\Model;
+
+class internetAclPolicyList extends Model
+{
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $comment;
+
+    /**
+     * @example 192.168.1.1/32
+     *
+     * @var string
+     */
+    public $entry;
+
+    /**
+     * @example Running
+     *
+     * @var string
+     */
+    public $status;
+    protected $_name = [
+        'comment' => 'Comment',
+        'entry'   => 'Entry',
+        'status'  => 'Status',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->entry) {
+            $res['Entry'] = $this->entry;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return internetAclPolicyList
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+        if (isset($map['Entry'])) {
+            $model->entry = $map['Entry'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+
+        return $model;
+    }
+}

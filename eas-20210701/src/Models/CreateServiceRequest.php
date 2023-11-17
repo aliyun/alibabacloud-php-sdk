@@ -23,11 +23,17 @@ class CreateServiceRequest extends Model
     /**
      * @var string
      */
+    public $workspaceId;
+
+    /**
+     * @var string
+     */
     public $body;
     protected $_name = [
-        'develop' => 'Develop',
-        'labels'  => 'Labels',
-        'body'    => 'body',
+        'develop'     => 'Develop',
+        'labels'      => 'Labels',
+        'workspaceId' => 'WorkspaceId',
+        'body'        => 'body',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class CreateServiceRequest extends Model
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
         if (null !== $this->body) {
             $res['body'] = $this->body;
@@ -63,6 +72,9 @@ class CreateServiceRequest extends Model
         }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
         if (isset($map['body'])) {
             $model->body = $map['body'];

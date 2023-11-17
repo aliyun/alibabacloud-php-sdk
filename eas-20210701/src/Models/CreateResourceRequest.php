@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceRequest\nodeTolerations;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceRequest\selfManagedResourceOptions;
 use AlibabaCloud\Tea\Model;
 
 class CreateResourceRequest extends Model
@@ -40,27 +40,12 @@ class CreateResourceRequest extends Model
     /**
      * @var string
      */
-    public $externalClusterId;
-
-    /**
-     * @var string[]
-     */
-    public $nodeMatchLabels;
-
-    /**
-     * @var nodeTolerations[]
-     */
-    public $nodeTolerations;
-
-    /**
-     * @var string
-     */
     public $resourceType;
 
     /**
-     * @var string
+     * @var selfManagedResourceOptions
      */
-    public $roleName;
+    public $selfManagedResourceOptions;
 
     /**
      * @example 200
@@ -76,17 +61,14 @@ class CreateResourceRequest extends Model
      */
     public $zone;
     protected $_name = [
-        'autoRenewal'       => 'AutoRenewal',
-        'chargeType'        => 'ChargeType',
-        'ecsInstanceCount'  => 'EcsInstanceCount',
-        'ecsInstanceType'   => 'EcsInstanceType',
-        'externalClusterId' => 'ExternalClusterId',
-        'nodeMatchLabels'   => 'NodeMatchLabels',
-        'nodeTolerations'   => 'NodeTolerations',
-        'resourceType'      => 'ResourceType',
-        'roleName'          => 'RoleName',
-        'systemDiskSize'    => 'SystemDiskSize',
-        'zone'              => 'Zone',
+        'autoRenewal'                => 'AutoRenewal',
+        'chargeType'                 => 'ChargeType',
+        'ecsInstanceCount'           => 'EcsInstanceCount',
+        'ecsInstanceType'            => 'EcsInstanceType',
+        'resourceType'               => 'ResourceType',
+        'selfManagedResourceOptions' => 'SelfManagedResourceOptions',
+        'systemDiskSize'             => 'SystemDiskSize',
+        'zone'                       => 'Zone',
     ];
 
     public function validate()
@@ -108,26 +90,11 @@ class CreateResourceRequest extends Model
         if (null !== $this->ecsInstanceType) {
             $res['EcsInstanceType'] = $this->ecsInstanceType;
         }
-        if (null !== $this->externalClusterId) {
-            $res['ExternalClusterId'] = $this->externalClusterId;
-        }
-        if (null !== $this->nodeMatchLabels) {
-            $res['NodeMatchLabels'] = $this->nodeMatchLabels;
-        }
-        if (null !== $this->nodeTolerations) {
-            $res['NodeTolerations'] = [];
-            if (null !== $this->nodeTolerations && \is_array($this->nodeTolerations)) {
-                $n = 0;
-                foreach ($this->nodeTolerations as $item) {
-                    $res['NodeTolerations'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
+        if (null !== $this->selfManagedResourceOptions) {
+            $res['SelfManagedResourceOptions'] = null !== $this->selfManagedResourceOptions ? $this->selfManagedResourceOptions->toMap() : null;
         }
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
@@ -159,26 +126,11 @@ class CreateResourceRequest extends Model
         if (isset($map['EcsInstanceType'])) {
             $model->ecsInstanceType = $map['EcsInstanceType'];
         }
-        if (isset($map['ExternalClusterId'])) {
-            $model->externalClusterId = $map['ExternalClusterId'];
-        }
-        if (isset($map['NodeMatchLabels'])) {
-            $model->nodeMatchLabels = $map['NodeMatchLabels'];
-        }
-        if (isset($map['NodeTolerations'])) {
-            if (!empty($map['NodeTolerations'])) {
-                $model->nodeTolerations = [];
-                $n                      = 0;
-                foreach ($map['NodeTolerations'] as $item) {
-                    $model->nodeTolerations[$n++] = null !== $item ? nodeTolerations::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
+        if (isset($map['SelfManagedResourceOptions'])) {
+            $model->selfManagedResourceOptions = selfManagedResourceOptions::fromMap($map['SelfManagedResourceOptions']);
         }
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];

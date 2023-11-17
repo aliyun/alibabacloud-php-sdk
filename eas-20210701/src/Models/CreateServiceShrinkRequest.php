@@ -23,10 +23,16 @@ class CreateServiceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $workspaceId;
+
+    /**
+     * @var string
+     */
     public $body;
     protected $_name = [
         'develop'      => 'Develop',
         'labelsShrink' => 'Labels',
+        'workspaceId'  => 'WorkspaceId',
         'body'         => 'body',
     ];
 
@@ -42,6 +48,9 @@ class CreateServiceShrinkRequest extends Model
         }
         if (null !== $this->labelsShrink) {
             $res['Labels'] = $this->labelsShrink;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
         if (null !== $this->body) {
             $res['body'] = $this->body;
@@ -63,6 +72,9 @@ class CreateServiceShrinkRequest extends Model
         }
         if (isset($map['Labels'])) {
             $model->labelsShrink = $map['Labels'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
         if (isset($map['body'])) {
             $model->body = $map['body'];

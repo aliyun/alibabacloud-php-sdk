@@ -4,31 +4,25 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceRequest\nodeTolerations;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceRequest\selfManagedResourceOptions;
 use AlibabaCloud\Tea\Model;
 
 class UpdateResourceRequest extends Model
 {
-    /**
-     * @var string[]
-     */
-    public $nodeMatchLabels;
-
-    /**
-     * @var nodeTolerations[]
-     */
-    public $nodeTolerations;
-
     /**
      * @example iot
      *
      * @var string
      */
     public $resourceName;
+
+    /**
+     * @var selfManagedResourceOptions
+     */
+    public $selfManagedResourceOptions;
     protected $_name = [
-        'nodeMatchLabels' => 'NodeMatchLabels',
-        'nodeTolerations' => 'NodeTolerations',
-        'resourceName'    => 'ResourceName',
+        'resourceName'               => 'ResourceName',
+        'selfManagedResourceOptions' => 'SelfManagedResourceOptions',
     ];
 
     public function validate()
@@ -38,20 +32,11 @@ class UpdateResourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nodeMatchLabels) {
-            $res['NodeMatchLabels'] = $this->nodeMatchLabels;
-        }
-        if (null !== $this->nodeTolerations) {
-            $res['NodeTolerations'] = [];
-            if (null !== $this->nodeTolerations && \is_array($this->nodeTolerations)) {
-                $n = 0;
-                foreach ($this->nodeTolerations as $item) {
-                    $res['NodeTolerations'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->selfManagedResourceOptions) {
+            $res['SelfManagedResourceOptions'] = null !== $this->selfManagedResourceOptions ? $this->selfManagedResourceOptions->toMap() : null;
         }
 
         return $res;
@@ -65,20 +50,11 @@ class UpdateResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NodeMatchLabels'])) {
-            $model->nodeMatchLabels = $map['NodeMatchLabels'];
-        }
-        if (isset($map['NodeTolerations'])) {
-            if (!empty($map['NodeTolerations'])) {
-                $model->nodeTolerations = [];
-                $n                      = 0;
-                foreach ($map['NodeTolerations'] as $item) {
-                    $model->nodeTolerations[$n++] = null !== $item ? nodeTolerations::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['SelfManagedResourceOptions'])) {
+            $model->selfManagedResourceOptions = selfManagedResourceOptions::fromMap($map['SelfManagedResourceOptions']);
         }
 
         return $model;

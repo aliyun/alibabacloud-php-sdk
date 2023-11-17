@@ -7,8 +7,14 @@ namespace AlibabaCloud\SDK\Eas\V20210701;
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CommitServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceLogRequest;
@@ -25,6 +31,9 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstancesResponse;
@@ -42,6 +51,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGroupResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceLogResponse;
@@ -60,6 +70,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DevelopServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DevelopServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstancesRequest;
@@ -85,8 +96,12 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\StartBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StartServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StopBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StopServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateAppServiceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateAppServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceDLinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceInstanceRequest;
@@ -97,6 +112,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceAutoScalerRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceAutoScalerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceCronScalerRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceCronScalerResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceInstanceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceInstanceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceLabelRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceLabelResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceMirrorRequest;
@@ -206,6 +223,75 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @param CreateAppServiceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAppServiceResponse
+     */
+    public function createAppServiceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->quotaId)) {
+            $query['QuotaId'] = $request->quotaId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appType)) {
+            $body['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->appVersion)) {
+            $body['AppVersion'] = $request->appVersion;
+        }
+        if (!Utils::isUnset($request->config)) {
+            $body['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $body['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $body['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceSpec)) {
+            $body['ServiceSpec'] = $request->serviceSpec;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppService',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/app_services',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAppServiceRequest $request
+     *
+     * @return CreateAppServiceResponse
+     */
+    public function createAppService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAppServiceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param CreateBenchmarkTaskRequest $request
      * @param string[]                   $headers
      * @param RuntimeOptions             $runtime
@@ -248,6 +334,119 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @param CreateGatewayRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateGatewayResponse
+     */
+    public function createGatewayWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceName)) {
+            $query['ResourceName'] = $request->resourceName;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->enableInternet)) {
+            $body['EnableInternet'] = $request->enableInternet;
+        }
+        if (!Utils::isUnset($request->enableIntranet)) {
+            $body['EnableIntranet'] = $request->enableIntranet;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGateway',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGatewayRequest $request
+     *
+     * @return CreateGatewayResponse
+     */
+    public function createGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGatewayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                $ClusterId
+     * @param string                                $GatewayId
+     * @param CreateGatewayIntranetLinkedVpcRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateGatewayIntranetLinkedVpcResponse
+     */
+    public function createGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGatewayIntranetLinkedVpc',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGatewayIntranetLinkedVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                                $ClusterId
+     * @param string                                $GatewayId
+     * @param CreateGatewayIntranetLinkedVpcRequest $request
+     *
+     * @return CreateGatewayIntranetLinkedVpcResponse
+     */
+    public function createGatewayIntranetLinkedVpc($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param CreateResourceRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
@@ -270,20 +469,11 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->ecsInstanceType)) {
             $body['EcsInstanceType'] = $request->ecsInstanceType;
         }
-        if (!Utils::isUnset($request->externalClusterId)) {
-            $body['ExternalClusterId'] = $request->externalClusterId;
-        }
-        if (!Utils::isUnset($request->nodeMatchLabels)) {
-            $body['NodeMatchLabels'] = $request->nodeMatchLabels;
-        }
-        if (!Utils::isUnset($request->nodeTolerations)) {
-            $body['NodeTolerations'] = $request->nodeTolerations;
-        }
         if (!Utils::isUnset($request->resourceType)) {
             $body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $body['RoleName'] = $request->roleName;
+        if (!Utils::isUnset($request->selfManagedResourceOptions)) {
+            $body['SelfManagedResourceOptions'] = $request->selfManagedResourceOptions;
         }
         if (!Utils::isUnset($request->systemDiskSize)) {
             $body['SystemDiskSize'] = $request->systemDiskSize;
@@ -465,6 +655,9 @@ class Eas extends OpenApiClient
         }
         if (!Utils::isUnset($request->labelsShrink)) {
             $query['Labels'] = $request->labelsShrink;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -704,6 +897,101 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->deleteBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $GatewayId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteGatewayResponse
+     */
+    public function deleteGatewayWithOptions($ClusterId, $GatewayId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGateway',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $GatewayId
+     *
+     * @return DeleteGatewayResponse
+     */
+    public function deleteGateway($ClusterId, $GatewayId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteGatewayWithOptions($ClusterId, $GatewayId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                $ClusterId
+     * @param string                                $GatewayId
+     * @param DeleteGatewayIntranetLinkedVpcRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteGatewayIntranetLinkedVpcResponse
+     */
+    public function deleteGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGatewayIntranetLinkedVpc',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGatewayIntranetLinkedVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                                $ClusterId
+     * @param string                                $GatewayId
+     * @param DeleteGatewayIntranetLinkedVpcRequest $request
+     *
+     * @return DeleteGatewayIntranetLinkedVpcResponse
+     */
+    public function deleteGatewayIntranetLinkedVpc($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -1254,6 +1542,48 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $GatewayId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeGatewayResponse
+     */
+    public function describeGatewayWithOptions($ClusterId, $GatewayId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGateway',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $GatewayId
+     *
+     * @return DescribeGatewayResponse
+     */
+    public function describeGateway($ClusterId, $GatewayId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeGatewayWithOptions($ClusterId, $GatewayId, $headers, $runtime);
     }
 
     /**
@@ -1923,6 +2253,48 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @param string         $ClusterId
+     * @param string         $GatewayId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListGatewayIntranetLinkedVpcResponse
+     */
+    public function listGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayIntranetLinkedVpc',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayIntranetLinkedVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $GatewayId
+     *
+     * @return ListGatewayIntranetLinkedVpcResponse
+     */
+    public function listGatewayIntranetLinkedVpc($ClusterId, $GatewayId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $headers, $runtime);
+    }
+
+    /**
      * @param ListGroupsRequest $request
      * @param string[]          $headers
      * @param RuntimeOptions    $runtime
@@ -1941,6 +2313,9 @@ class Eas extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2455,6 +2830,9 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->sort)) {
             $query['Sort'] = $request->sort;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -2751,6 +3129,76 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @param string                  $ClusterId
+     * @param string                  $ServiceName
+     * @param UpdateAppServiceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateAppServiceResponse
+     */
+    public function updateAppServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->quotaId)) {
+            $query['QuotaId'] = $request->quotaId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appType)) {
+            $body['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->appVersion)) {
+            $body['AppVersion'] = $request->appVersion;
+        }
+        if (!Utils::isUnset($request->config)) {
+            $body['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $body['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->serviceSpec)) {
+            $body['ServiceSpec'] = $request->serviceSpec;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAppService',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/app_services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAppServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $ClusterId
+     * @param string                  $ServiceName
+     * @param UpdateAppServiceRequest $request
+     *
+     * @return UpdateAppServiceResponse
+     */
+    public function updateAppService($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAppServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                     $ClusterId
      * @param string                     $TaskName
      * @param UpdateBenchmarkTaskRequest $request
@@ -2797,6 +3245,65 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @param string               $GatewayId
+     * @param string               $ClusterId
+     * @param UpdateGatewayRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateGatewayResponse
+     */
+    public function updateGatewayWithOptions($GatewayId, $ClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->enableInternet)) {
+            $body['EnableInternet'] = $request->enableInternet;
+        }
+        if (!Utils::isUnset($request->enableIntranet)) {
+            $body['EnableIntranet'] = $request->enableIntranet;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGateway',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $GatewayId
+     * @param string               $ClusterId
+     * @param UpdateGatewayRequest $request
+     *
+     * @return UpdateGatewayResponse
+     */
+    public function updateGateway($GatewayId, $ClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGatewayWithOptions($GatewayId, $ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                $ClusterId
      * @param string                $ResourceId
      * @param UpdateResourceRequest $request
@@ -2809,14 +3316,11 @@ class Eas extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->nodeMatchLabels)) {
-            $body['NodeMatchLabels'] = $request->nodeMatchLabels;
-        }
-        if (!Utils::isUnset($request->nodeTolerations)) {
-            $body['NodeTolerations'] = $request->nodeTolerations;
-        }
         if (!Utils::isUnset($request->resourceName)) {
             $body['ResourceName'] = $request->resourceName;
+        }
+        if (!Utils::isUnset($request->selfManagedResourceOptions)) {
+            $body['SelfManagedResourceOptions'] = $request->selfManagedResourceOptions;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3119,6 +3623,58 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->updateServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $ClusterId
+     * @param string                       $ServiceName
+     * @param string                       $InstanceName
+     * @param UpdateServiceInstanceRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateServiceInstanceResponse
+     */
+    public function updateServiceInstanceWithOptions($ClusterId, $ServiceName, $InstanceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->isolate)) {
+            $body['Isolate'] = $request->isolate;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceInstance',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceName) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $ClusterId
+     * @param string                       $ServiceName
+     * @param string                       $InstanceName
+     * @param UpdateServiceInstanceRequest $request
+     *
+     * @return UpdateServiceInstanceResponse
+     */
+    public function updateServiceInstance($ClusterId, $ServiceName, $InstanceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateServiceInstanceWithOptions($ClusterId, $ServiceName, $InstanceName, $request, $headers, $runtime);
     }
 
     /**

@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceRequest;
+namespace AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceRequest\selfManagedResourceOptions;
 
 use AlibabaCloud\Tea\Model;
 
