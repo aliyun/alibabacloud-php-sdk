@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Linkvisual\V20230630;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\BatchBindDeviceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\BatchBindDeviceResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\BindStorageOrderRequest;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\BindStorageOrderResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\CheckFreeStorageValidRequest;
@@ -26,6 +28,22 @@ use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GenerateDeviceByBatchIdRequest;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GenerateDeviceByBatchIdResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GenerateDeviceRequest;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GenerateDeviceResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GetAccountByIdRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GetAccountByIdResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GetDeviceStatusRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GetDeviceStatusResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GetSubDeviceListRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GetSubDeviceListResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GetThingEventSnapshotRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GetThingEventSnapshotResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GetThingPropertySnapshotRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\GetThingPropertySnapshotResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\InvokeThingServiceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\InvokeThingServiceResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\ListBindingAccountByDeviceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\ListBindingAccountByDeviceResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\ListBindingDeviceByAccountRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\ListBindingDeviceByAccountResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryBatchStatusRequest;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryBatchStatusResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryDevicesDownloadUrlRequest;
@@ -41,8 +59,14 @@ use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryStorageOrderListRequest;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryStorageOrderListResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryStorageOrderRequest;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryStorageOrderResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\SetThingPropertyRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\SetThingPropertyResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\TransferStorageOrderRequest;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\TransferStorageOrderResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\UnbindAllUserByDeviceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\UnbindAllUserByDeviceResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\UnbindDeviceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\UnbindDeviceResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\UploadDeviceNameListRequest;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\UploadDeviceNameListResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -136,6 +160,58 @@ class Linkvisual extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param BatchBindDeviceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return BatchBindDeviceResponse
+     */
+    public function batchBindDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceList)) {
+            $query['DeviceList'] = $request->deviceList;
+        }
+        if (!Utils::isUnset($request->identityId)) {
+            $query['IdentityId'] = $request->identityId;
+        }
+        if (!Utils::isUnset($request->openId)) {
+            $query['OpenId'] = $request->openId;
+        }
+        if (!Utils::isUnset($request->openIdAppKey)) {
+            $query['OpenIdAppKey'] = $request->openIdAppKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchBindDevice',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchBindDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchBindDeviceRequest $request
+     *
+     * @return BatchBindDeviceResponse
+     */
+    public function batchBindDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchBindDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -716,6 +792,431 @@ class Linkvisual extends OpenApiClient
     }
 
     /**
+     * @param GetAccountByIdRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAccountByIdResponse
+     */
+    public function getAccountByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identityId)) {
+            $query['IdentityId'] = $request->identityId;
+        }
+        if (!Utils::isUnset($request->openId)) {
+            $query['OpenId'] = $request->openId;
+        }
+        if (!Utils::isUnset($request->openIdAppKey)) {
+            $query['OpenIdAppKey'] = $request->openIdAppKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccountById',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccountByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccountByIdRequest $request
+     *
+     * @return GetAccountByIdResponse
+     */
+    public function getAccountById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccountByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDeviceStatusRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDeviceStatusResponse
+     */
+    public function getDeviceStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDeviceStatus',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDeviceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDeviceStatusRequest $request
+     *
+     * @return GetDeviceStatusResponse
+     */
+    public function getDeviceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeviceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSubDeviceListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSubDeviceListResponse
+     */
+    public function getSubDeviceListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSubDeviceList',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSubDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSubDeviceListRequest $request
+     *
+     * @return GetSubDeviceListResponse
+     */
+    public function getSubDeviceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSubDeviceListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetThingEventSnapshotRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetThingEventSnapshotResponse
+     */
+    public function getThingEventSnapshotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetThingEventSnapshot',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetThingEventSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetThingEventSnapshotRequest $request
+     *
+     * @return GetThingEventSnapshotResponse
+     */
+    public function getThingEventSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getThingEventSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetThingPropertySnapshotRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetThingPropertySnapshotResponse
+     */
+    public function getThingPropertySnapshotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetThingPropertySnapshot',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetThingPropertySnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetThingPropertySnapshotRequest $request
+     *
+     * @return GetThingPropertySnapshotResponse
+     */
+    public function getThingPropertySnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getThingPropertySnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InvokeThingServiceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return InvokeThingServiceResponse
+     */
+    public function invokeThingServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->args)) {
+            $query['Args'] = $request->args;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InvokeThingService',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InvokeThingServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InvokeThingServiceRequest $request
+     *
+     * @return InvokeThingServiceResponse
+     */
+    public function invokeThingService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->invokeThingServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBindingAccountByDeviceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListBindingAccountByDeviceResponse
+     */
+    public function listBindingAccountByDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->owned)) {
+            $query['Owned'] = $request->owned;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBindingAccountByDevice',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBindingAccountByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBindingAccountByDeviceRequest $request
+     *
+     * @return ListBindingAccountByDeviceResponse
+     */
+    public function listBindingAccountByDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBindingAccountByDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBindingDeviceByAccountRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListBindingDeviceByAccountResponse
+     */
+    public function listBindingDeviceByAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identityId)) {
+            $query['IdentityId'] = $request->identityId;
+        }
+        if (!Utils::isUnset($request->openId)) {
+            $query['OpenId'] = $request->openId;
+        }
+        if (!Utils::isUnset($request->openIdAppKey)) {
+            $query['OpenIdAppKey'] = $request->openIdAppKey;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->subDevice)) {
+            $query['SubDevice'] = $request->subDevice;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBindingDeviceByAccount',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBindingDeviceByAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBindingDeviceByAccountRequest $request
+     *
+     * @return ListBindingDeviceByAccountResponse
+     */
+    public function listBindingDeviceByAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBindingDeviceByAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryBatchStatusRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1110,6 +1611,58 @@ class Linkvisual extends OpenApiClient
     }
 
     /**
+     * @param SetThingPropertyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SetThingPropertyResponse
+     */
+    public function setThingPropertyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->args)) {
+            $query['Args'] = $request->args;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetThingProperty',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetThingPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetThingPropertyRequest $request
+     *
+     * @return SetThingPropertyResponse
+     */
+    public function setThingProperty($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setThingPropertyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param TransferStorageOrderRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1180,6 +1733,119 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->transferStorageOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindAllUserByDeviceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UnbindAllUserByDeviceResponse
+     */
+    public function unbindAllUserByDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->unbindSubDevice)) {
+            $query['UnbindSubDevice'] = $request->unbindSubDevice;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindAllUserByDevice',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindAllUserByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnbindAllUserByDeviceRequest $request
+     *
+     * @return UnbindAllUserByDeviceResponse
+     */
+    public function unbindAllUserByDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindAllUserByDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindDeviceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UnbindDeviceResponse
+     */
+    public function unbindDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->identityId)) {
+            $query['IdentityId'] = $request->identityId;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->openId)) {
+            $query['OpenId'] = $request->openId;
+        }
+        if (!Utils::isUnset($request->openIdAppKey)) {
+            $query['OpenIdAppKey'] = $request->openIdAppKey;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->unbindSubDevice)) {
+            $query['UnbindSubDevice'] = $request->unbindSubDevice;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindDevice',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnbindDeviceRequest $request
+     *
+     * @return UnbindDeviceResponse
+     */
+    public function unbindDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindDeviceWithOptions($request, $runtime);
     }
 
     /**
