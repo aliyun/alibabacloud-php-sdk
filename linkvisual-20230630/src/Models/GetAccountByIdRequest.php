@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetAccountByIdRequest extends Model
 {
     /**
+     * @example 5035op97******************a63994
+     *
      * @var string
      */
     public $identityId;
 
     /**
+     * @example 60yqjd1**************************561da00851
+     *
      * @var string
      */
     public $openId;
 
     /**
+     * @example 76****57
+     *
      * @var string
      */
     public $openIdAppKey;

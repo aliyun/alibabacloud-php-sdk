@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class accountList extends Model
 {
     /**
+     * @example 2222220000000
+     *
      * @var int
      */
     public $bindTime;
 
     /**
+     * @example 18*******20
+     *
      * @var string
      */
     public $identityAlias;
 
     /**
+     * @example 5035op97******************a63994
+     *
      * @var string
      */
     public $identityId;

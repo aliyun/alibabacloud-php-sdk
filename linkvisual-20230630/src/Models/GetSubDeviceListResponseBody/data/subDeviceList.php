@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class subDeviceList extends Model
 {
     /**
+     * @example device-test
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example qswdfrttgg*********
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example wse5******
+     *
      * @var string
      */
     public $productKey;

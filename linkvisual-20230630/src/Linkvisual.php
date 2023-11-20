@@ -46,6 +46,8 @@ use AlibabaCloud\SDK\Linkvisual\V20230630\Models\ListBindingDeviceByAccountReque
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\ListBindingDeviceByAccountResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryBatchStatusRequest;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryBatchStatusResponse;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryDeviceDetailRequest;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryDeviceDetailResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryDevicesDownloadUrlRequest;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryDevicesDownloadUrlResponse;
 use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryFreeStorageRequest;
@@ -1263,6 +1265,58 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryBatchStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDeviceDetailRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryDeviceDetailResponse
+     */
+    public function queryDeviceDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDeviceDetail',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDeviceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDeviceDetailRequest $request
+     *
+     * @return QueryDeviceDetailResponse
+     */
+    public function queryDeviceDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDeviceDetailWithOptions($request, $runtime);
     }
 
     /**

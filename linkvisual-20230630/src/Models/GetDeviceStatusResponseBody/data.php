@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example ONLINE
+     *
      * @var string
      */
     public $status;

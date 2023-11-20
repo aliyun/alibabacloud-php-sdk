@@ -6,15 +6,8 @@ namespace AlibabaCloud\SDK\Linkvisual\V20230630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetThingPropertyRequest extends Model
+class QueryDeviceDetailRequest extends Model
 {
-    /**
-     * @example {"Switch":1,"Color":"blue"}
-     *
-     * @var string
-     */
-    public $args;
-
     /**
      * @example Device01
      *
@@ -35,11 +28,18 @@ class SetThingPropertyRequest extends Model
      * @var string
      */
     public $productKey;
+
+    /**
+     * @example a123qs*****sy4QU
+     *
+     * @var string
+     */
+    public $projectId;
     protected $_name = [
-        'args'       => 'Args',
         'deviceName' => 'DeviceName',
         'iotId'      => 'IotId',
         'productKey' => 'ProductKey',
+        'projectId'  => 'ProjectId',
     ];
 
     public function validate()
@@ -49,9 +49,6 @@ class SetThingPropertyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->args) {
-            $res['Args'] = $this->args;
-        }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
@@ -61,6 +58,9 @@ class SetThingPropertyRequest extends Model
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
 
         return $res;
     }
@@ -68,14 +68,11 @@ class SetThingPropertyRequest extends Model
     /**
      * @param array $map
      *
-     * @return SetThingPropertyRequest
+     * @return QueryDeviceDetailRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Args'])) {
-            $model->args = $map['Args'];
-        }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
@@ -84,6 +81,9 @@ class SetThingPropertyRequest extends Model
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

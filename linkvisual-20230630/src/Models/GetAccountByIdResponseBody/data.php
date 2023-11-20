@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example ******
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1700189358000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1700209499000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example 5035op97******************a63994
+     *
      * @var string
      */
     public $identityId;
 
     /**
+     * @example 1700209499000
+     *
      * @var int
      */
     public $lastLoginTime;
 
     /**
+     * @example 18*******20
+     *
      * @var string
      */
     public $loginName;
 
     /**
+     * @example 18*******20
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @example 18*******20
+     *
      * @var string
      */
     public $phone;

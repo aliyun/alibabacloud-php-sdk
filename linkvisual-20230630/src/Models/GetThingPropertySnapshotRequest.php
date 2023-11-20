@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetThingPropertySnapshotRequest extends Model
 {
     /**
+     * @example Device01
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example C47T6xwp6ms4bNlkHRWCg4****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example a1Bw******
+     *
      * @var string
      */
     public $productKey;

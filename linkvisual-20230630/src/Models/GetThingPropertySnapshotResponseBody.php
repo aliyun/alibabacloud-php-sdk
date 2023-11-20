@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetThingPropertySnapshotResponseBody extends Model
 {
     /**
+     * @example 400
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example {\"StreamVideoQuality\":{\"time\":1699951400324,\"value\":\"0\"},\"MotionDetectSensitivity\":{\"time\":1699951400324,\"value\":\"0\"},\"ImageFlipState\":{\"time\":1699951400324,\"value\":\"0\"},\"SubStreamVideoQuality\":{\"time\":1699951400324,\"value\":\"0\"},\"AlarmSwitch\":{\"time\":1699951400324,\"value\":\"0\"},\"AlarmFrequencyLevel\":{\"time\":1700009930921,\"value\":\"10\"}}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example Request parameter error.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example E55***B7-4***-4***-8***-D3******F565
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

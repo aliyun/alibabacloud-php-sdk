@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SetThingPropertyResponseBody extends Model
 {
     /**
+     * @example 400
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example Request parameter error.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example E55***B7-4***-4***-8***-D3******F565
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

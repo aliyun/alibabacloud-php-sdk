@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListBindingAccountByDeviceRequest extends Model
 {
     /**
+     * @example Device01
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example C47T6xwp6ms4bNlkHRWCg4****
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $owned;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1Bw******
+     *
      * @var string
      */
     public $productKey;

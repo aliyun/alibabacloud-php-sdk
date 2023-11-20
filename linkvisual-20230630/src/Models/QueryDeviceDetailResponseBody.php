@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Linkvisual\V20230630\Models;
 
-use AlibabaCloud\SDK\Linkvisual\V20230630\Models\InvokeThingServiceResponseBody\data;
+use AlibabaCloud\SDK\Linkvisual\V20230630\Models\QueryDeviceDetailResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class InvokeThingServiceResponseBody extends Model
+class QueryDeviceDetailResponseBody extends Model
 {
     /**
      * @example 400
@@ -78,7 +78,7 @@ class InvokeThingServiceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return InvokeThingServiceResponseBody
+     * @return QueryDeviceDetailResponseBody
      */
     public static function fromMap($map = [])
     {
