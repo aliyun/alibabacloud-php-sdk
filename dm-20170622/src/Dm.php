@@ -78,6 +78,9 @@ use AlibabaCloud\SDK\Dm\V20170622\Models\SenderStatisticsDetailByParamRequest;
 use AlibabaCloud\SDK\Dm\V20170622\Models\SenderStatisticsDetailByParamResponse;
 use AlibabaCloud\SDK\Dm\V20170622\Models\SingleSendMailRequest;
 use AlibabaCloud\SDK\Dm\V20170622\Models\SingleSendMailResponse;
+use AlibabaCloud\SDK\Dm\V20170622\Models\SingleSendMailV2Request;
+use AlibabaCloud\SDK\Dm\V20170622\Models\SingleSendMailV2Response;
+use AlibabaCloud\SDK\Dm\V20170622\Models\SingleSendMailV2ShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -2265,5 +2268,98 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->singleSendMailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SingleSendMailV2Request $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SingleSendMailV2Response
+     */
+    public function singleSendMailV2WithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SingleSendMailV2ShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->htmlBodyPlaceHolders)) {
+            $request->htmlBodyPlaceHoldersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->htmlBodyPlaceHolders, 'HtmlBodyPlaceHolders', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->clickTrace)) {
+            $query['ClickTrace'] = $request->clickTrace;
+        }
+        if (!Utils::isUnset($request->fromAlias)) {
+            $query['FromAlias'] = $request->fromAlias;
+        }
+        if (!Utils::isUnset($request->htmlBody)) {
+            $query['HtmlBody'] = $request->htmlBody;
+        }
+        if (!Utils::isUnset($request->htmlBodyPlaceHoldersShrink)) {
+            $query['HtmlBodyPlaceHolders'] = $request->htmlBodyPlaceHoldersShrink;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->replyAddress)) {
+            $query['ReplyAddress'] = $request->replyAddress;
+        }
+        if (!Utils::isUnset($request->replyAddressAlias)) {
+            $query['ReplyAddressAlias'] = $request->replyAddressAlias;
+        }
+        if (!Utils::isUnset($request->replyToAddress)) {
+            $query['ReplyToAddress'] = $request->replyToAddress;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $query['Subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
+        }
+        if (!Utils::isUnset($request->textBody)) {
+            $query['TextBody'] = $request->textBody;
+        }
+        if (!Utils::isUnset($request->toAddress)) {
+            $query['ToAddress'] = $request->toAddress;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SingleSendMailV2',
+            'version'     => '2017-06-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SingleSendMailV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SingleSendMailV2Request $request
+     *
+     * @return SingleSendMailV2Response
+     */
+    public function singleSendMailV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->singleSendMailV2WithOptions($request, $runtime);
     }
 }
