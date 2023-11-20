@@ -22,6 +22,11 @@ class InvoiceRuleSaveRequest extends Model
     public $entities;
 
     /**
+     * @var int
+     */
+    public $scope;
+
+    /**
      * @example i123
      *
      * @var string
@@ -30,6 +35,7 @@ class InvoiceRuleSaveRequest extends Model
     protected $_name = [
         'allEmploye'  => 'all_employe',
         'entities'    => 'entities',
+        'scope'       => 'scope',
         'thirdPartId' => 'third_part_id',
     ];
 
@@ -51,6 +57,9 @@ class InvoiceRuleSaveRequest extends Model
                     $res['entities'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->scope) {
+            $res['scope'] = $this->scope;
         }
         if (null !== $this->thirdPartId) {
             $res['third_part_id'] = $this->thirdPartId;
@@ -78,6 +87,9 @@ class InvoiceRuleSaveRequest extends Model
                     $model->entities[$n++] = null !== $item ? entities::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['scope'])) {
+            $model->scope = $map['scope'];
         }
         if (isset($map['third_part_id'])) {
             $model->thirdPartId = $map['third_part_id'];

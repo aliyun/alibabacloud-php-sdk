@@ -21,6 +21,11 @@ class InvoiceRuleSaveShrinkRequest extends Model
     public $entitiesShrink;
 
     /**
+     * @var int
+     */
+    public $scope;
+
+    /**
      * @example i123
      *
      * @var string
@@ -29,6 +34,7 @@ class InvoiceRuleSaveShrinkRequest extends Model
     protected $_name = [
         'allEmploye'     => 'all_employe',
         'entitiesShrink' => 'entities',
+        'scope'          => 'scope',
         'thirdPartId'    => 'third_part_id',
     ];
 
@@ -44,6 +50,9 @@ class InvoiceRuleSaveShrinkRequest extends Model
         }
         if (null !== $this->entitiesShrink) {
             $res['entities'] = $this->entitiesShrink;
+        }
+        if (null !== $this->scope) {
+            $res['scope'] = $this->scope;
         }
         if (null !== $this->thirdPartId) {
             $res['third_part_id'] = $this->thirdPartId;
@@ -65,6 +74,9 @@ class InvoiceRuleSaveShrinkRequest extends Model
         }
         if (isset($map['entities'])) {
             $model->entitiesShrink = $map['entities'];
+        }
+        if (isset($map['scope'])) {
+            $model->scope = $map['scope'];
         }
         if (isset($map['third_part_id'])) {
             $model->thirdPartId = $map['third_part_id'];

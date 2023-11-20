@@ -7868,6 +7868,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->entitiesShrink)) {
             $body['entities'] = $request->entitiesShrink;
         }
+        if (!Utils::isUnset($request->scope)) {
+            $body['scope'] = $request->scope;
+        }
         if (!Utils::isUnset($request->thirdPartId)) {
             $body['third_part_id'] = $request->thirdPartId;
         }
