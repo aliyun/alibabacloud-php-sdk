@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rolloutPolicy extends Model
 {
     /**
+     * @description The maximum number of nodes that can be patched in parallel. The minimum value is 1. The maximum value equals the number of nodes in the node pool.
+     *
      * @example 1
      *
      * @var int

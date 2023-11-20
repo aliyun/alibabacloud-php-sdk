@@ -85,7 +85,7 @@ class body extends Model
     public $autoCreate;
 
     /**
-     * @var dependencies
+     * @var dependencies[]
      */
     public $dependencies;
     protected $_name = [
@@ -128,7 +128,13 @@ class body extends Model
             $res['auto_create'] = $this->autoCreate;
         }
         if (null !== $this->dependencies) {
-            $res['dependencies'] = null !== $this->dependencies ? $this->dependencies->toMap() : null;
+            $res['dependencies'] = [];
+            if (null !== $this->dependencies && \is_array($this->dependencies)) {
+                $n = 0;
+                foreach ($this->dependencies as $item) {
+                    $res['dependencies'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -164,7 +170,13 @@ class body extends Model
             $model->autoCreate = $map['auto_create'];
         }
         if (isset($map['dependencies'])) {
-            $model->dependencies = dependencies::fromMap($map['dependencies']);
+            if (!empty($map['dependencies'])) {
+                $model->dependencies = [];
+                $n                   = 0;
+                foreach ($map['dependencies'] as $item) {
+                    $model->dependencies[$n++] = null !== $item ? dependencies::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

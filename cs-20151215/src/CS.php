@@ -115,6 +115,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterCheckResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetUpgradeStatusResponse;
@@ -122,6 +123,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesShrinkRequest;
@@ -157,6 +160,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeTaskResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeUpgradeClusterResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\RunClusterCheckRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\RunClusterCheckResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
@@ -3918,18 +3923,26 @@ class CS extends OpenApiClient
     }
 
     /**
+     * 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
+     *   * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
+     *   * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
+     *   * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+     *   *
      * @param string                 $clusterId
      * @param string                 $nodepoolId
-     * @param FixNodePoolVulsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param FixNodePoolVulsRequest $request    FixNodePoolVulsRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return FixNodePoolVulsResponse
+     * @return FixNodePoolVulsResponse FixNodePoolVulsResponse
      */
     public function fixNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->autoRestart)) {
+            $body['auto_restart'] = $request->autoRestart;
+        }
         if (!Utils::isUnset($request->nodes)) {
             $body['nodes'] = $request->nodes;
         }
@@ -3959,11 +3972,16 @@ class CS extends OpenApiClient
     }
 
     /**
+     * 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
+     *   * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
+     *   * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
+     *   * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+     *   *
      * @param string                 $clusterId
      * @param string                 $nodepoolId
-     * @param FixNodePoolVulsRequest $request
+     * @param FixNodePoolVulsRequest $request    FixNodePoolVulsRequest
      *
-     * @return FixNodePoolVulsResponse
+     * @return FixNodePoolVulsResponse FixNodePoolVulsResponse
      */
     public function fixNodePoolVuls($clusterId, $nodepoolId, $request)
     {
@@ -3971,6 +3989,48 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->fixNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterId
+     * @param string         $checkId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetClusterCheckResponse
+     */
+    public function getClusterCheckWithOptions($clusterId, $checkId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetClusterCheck',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/%5Bcluster_id%5D/checks/%5Bcheck_id%5D',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClusterCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $clusterId
+     * @param string $checkId
+     *
+     * @return GetClusterCheckResponse
+     */
+    public function getClusterCheck($clusterId, $checkId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getClusterCheckWithOptions($clusterId, $checkId, $headers, $runtime);
     }
 
     /**
@@ -4166,6 +4226,54 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->installClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $clusterId
+     * @param ListClusterChecksRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListClusterChecksResponse
+     */
+    public function listClusterChecksWithOptions($clusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterChecks',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/%5Bcluster_id%5D/checks',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListClusterChecksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $clusterId
+     * @param ListClusterChecksRequest $request
+     *
+     * @return ListClusterChecksResponse
+     */
+    public function listClusterChecks($clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listClusterChecksWithOptions($clusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -5076,6 +5184,9 @@ class CS extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->autoRestart)) {
+            $body['auto_restart'] = $request->autoRestart;
+        }
         if (!Utils::isUnset($request->nodes)) {
             $body['nodes'] = $request->nodes;
         }
@@ -5233,6 +5344,57 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->resumeUpgradeClusterWithOptions($ClusterId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $clusterId
+     * @param RunClusterCheckRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RunClusterCheckResponse
+     */
+    public function runClusterCheckWithOptions($clusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->options)) {
+            $body['options'] = $request->options;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunClusterCheck',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/%5Bcluster_id%5D/checks',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunClusterCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $clusterId
+     * @param RunClusterCheckRequest $request
+     *
+     * @return RunClusterCheckResponse
+     */
+    public function runClusterCheck($clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runClusterCheckWithOptions($clusterId, $request, $headers, $runtime);
     }
 
     /**

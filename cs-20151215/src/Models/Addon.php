@@ -28,10 +28,18 @@ class Addon extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @example v1.9.3-aliyun.1
+     *
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'config'   => 'config',
         'disabled' => 'disabled',
         'name'     => 'name',
+        'version'  => 'version',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class Addon extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -70,6 +81,9 @@ class Addon extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

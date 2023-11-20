@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class autoRepairPolicy extends Model
 {
     /**
+     * @description 是否允许重启节点。
+     *
      * @example true
      *
      * @var bool

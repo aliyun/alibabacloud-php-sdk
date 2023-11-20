@@ -18,7 +18,7 @@ class EdgeClusterAddEdgeMachineResponseBody extends Model
     public $edgeMachineId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0adf3a23-6841-41e8-9f55-7b290216c980
      *

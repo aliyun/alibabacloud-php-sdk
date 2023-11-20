@@ -25,11 +25,15 @@ class management extends Model
     public $autoRepair;
 
     /**
+     * @description 自动修复节点策略。
+     *
      * @var autoRepairPolicy
      */
     public $autoRepairPolicy;
 
     /**
+     * @description 是否自动升级。
+     *
      * @example true
      *
      * @var bool
@@ -37,11 +41,15 @@ class management extends Model
     public $autoUpgrade;
 
     /**
+     * @description 自动升级策略。
+     *
      * @var autoUpgradePolicy
      */
     public $autoUpgradePolicy;
 
     /**
+     * @description 是否自动修复CVE。
+     *
      * @example true
      *
      * @var bool
@@ -49,6 +57,8 @@ class management extends Model
     public $autoVulFix;
 
     /**
+     * @description 自动修复CVE策略。
+     *
      * @var autoVulFixPolicy
      */
     public $autoVulFixPolicy;

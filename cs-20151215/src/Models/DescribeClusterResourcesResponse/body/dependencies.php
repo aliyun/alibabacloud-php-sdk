@@ -9,28 +9,16 @@ use AlibabaCloud\Tea\Model;
 class dependencies extends Model
 {
     /**
-     * @description 依赖资源的集群ID。
-     *
-     * @example cc5ee03f63e43425cb6f71f1a1756****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 依赖资源类型。
-     *
-     * @example ALIYUN::VPC::NatGateway
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 依赖资源实例ID。
-     *
-     * @example ngw-wz9sphwk42sdtjixo****
-     *
      * @var string
      */
     public $instanceId;

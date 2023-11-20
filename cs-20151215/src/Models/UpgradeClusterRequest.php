@@ -20,10 +20,10 @@ class UpgradeClusterRequest extends Model
     public $componentName;
 
     /**
-     * @description Specifies whether to upgrade only master nodes. Valid values:
+     * @description Specifies whether to update only master nodes. Valid values:
      *
-     *   true: upgrade only master nodes.
-     *   false: upgrade master and worker nodes.
+     *   true: update only master nodes.
+     *   false: update master and worker nodes.
      *
      * @example true
      *
@@ -32,7 +32,7 @@ class UpgradeClusterRequest extends Model
     public $masterOnly;
 
     /**
-     * @description The Kubernetes version to which the cluster can be upgraded.
+     * @description The Kubernetes version to which the cluster can be updated.
      *
      * @example 1.16.9-aliyun.1
      *

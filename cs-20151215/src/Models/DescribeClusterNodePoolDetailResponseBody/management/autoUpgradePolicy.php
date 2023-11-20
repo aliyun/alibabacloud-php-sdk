@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class autoUpgradePolicy extends Model
 {
     /**
+     * @description 是否允许自动升级kubelet。
+     *
      * @example true
      *
      * @var bool

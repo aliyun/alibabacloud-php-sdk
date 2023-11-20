@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class FixNodePoolVulsResponseBody extends Model
+class ListClusterChecksRequest extends Model
 {
     /**
-     * @description The ID of the CVE patching task.
-     *
-     * @example T-60fea8ad2e277f087900****
+     * @example ClusterUpgrade
      *
      * @var string
      */
-    public $taskId;
+    public $type;
     protected $_name = [
-        'taskId' => 'task_id',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class FixNodePoolVulsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['task_id'] = $this->taskId;
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class FixNodePoolVulsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return FixNodePoolVulsResponseBody
+     * @return ListClusterChecksRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['task_id'])) {
-            $model->taskId = $map['task_id'];
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

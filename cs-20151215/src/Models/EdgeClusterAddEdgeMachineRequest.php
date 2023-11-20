@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EdgeClusterAddEdgeMachineRequest extends Model
 {
     /**
+     * @description The timeout period of sessions. Unit: seconds.
+     *
      * @example 1024
      *
      * @var int
@@ -16,6 +18,8 @@ class EdgeClusterAddEdgeMachineRequest extends Model
     public $expired;
 
     /**
+     * @description The node pool ID.
+     *
      * @example c26607f52179f4472a0d9723e7595****
      *
      * @var string
@@ -23,6 +27,8 @@ class EdgeClusterAddEdgeMachineRequest extends Model
     public $nodepoolId;
 
     /**
+     * @description The options that you want to configure.
+     *
      * @example "{\"enableIptables\":true,\"quiet\":true,\"manageRuntime\":true,\"allowedClusterAddons\":[\"kube-proxy\",\"flannel\",\"coredns\"]}"
      *
      * @var string

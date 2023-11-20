@@ -6,28 +6,26 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AttachInstancesToNodePoolResponseBody extends Model
+class RunClusterCheckResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @example 1697100584236600453-ce0da5a1d627e4e9e9f96cae8ad07****-clustercheck-lboto
      *
-     * @example D7631D83-6E98-1949-B665-766A62xxxxxx
+     * @var string
+     */
+    public $checkId;
+
+    /**
+     * @description Id of the request
+     *
+     * @example F04DF81D-5C12-1524-B36A-86E02526****
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description The task ID.
-     *
-     * @example T-5a54309c80282e39ea00002f
-     *
-     * @var string
-     */
-    public $taskId;
     protected $_name = [
+        'checkId'   => 'check_id',
         'requestId' => 'request_id',
-        'taskId'    => 'task_id',
     ];
 
     public function validate()
@@ -37,11 +35,11 @@ class AttachInstancesToNodePoolResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkId) {
+            $res['check_id'] = $this->checkId;
+        }
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
-        }
-        if (null !== $this->taskId) {
-            $res['task_id'] = $this->taskId;
         }
 
         return $res;
@@ -50,16 +48,16 @@ class AttachInstancesToNodePoolResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AttachInstancesToNodePoolResponseBody
+     * @return RunClusterCheckResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['check_id'])) {
+            $model->checkId = $map['check_id'];
+        }
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
-        }
-        if (isset($map['task_id'])) {
-            $model->taskId = $map['task_id'];
         }
 
         return $model;

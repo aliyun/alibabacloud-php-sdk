@@ -9,13 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RepairClusterNodePoolRequest extends Model
 {
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $autoRestart;
+
+    /**
      * @description The list of nodes. If you do not specify nodes, all nodes in the node pool are selected.
      *
      * @var string[]
      */
     public $nodes;
     protected $_name = [
-        'nodes' => 'nodes',
+        'autoRestart' => 'auto_restart',
+        'nodes'       => 'nodes',
     ];
 
     public function validate()
@@ -25,6 +33,9 @@ class RepairClusterNodePoolRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoRestart) {
+            $res['auto_restart'] = $this->autoRestart;
+        }
         if (null !== $this->nodes) {
             $res['nodes'] = $this->nodes;
         }
@@ -40,6 +51,9 @@ class RepairClusterNodePoolRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['auto_restart'])) {
+            $model->autoRestart = $map['auto_restart'];
+        }
         if (isset($map['nodes'])) {
             if (!empty($map['nodes'])) {
                 $model->nodes = $map['nodes'];
