@@ -874,6 +874,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckStandardRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckStandardResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckTypesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckTypesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClientAlertModeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClientAlertModeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClientUserDefineRulesRequest;
@@ -1270,6 +1272,9 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryNameResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryPersistenceDayRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryPersistenceDayResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOssScanConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOssScanConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateSelectionKeyByTypeRequest;
@@ -24723,6 +24728,61 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ListCheckTypesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListCheckTypesResponse
+     */
+    public function listCheckTypesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskId)) {
+            $query['RiskId'] = $request->riskId;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCheckTypes',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCheckTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCheckTypesRequest $request
+     *
+     * @return ListCheckTypesResponse
+     */
+    public function listCheckTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCheckTypesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListClientAlertModeRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -34963,6 +35023,93 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateJenkinsImageRegistryPersistenceDayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateOpaStrategyNewRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateOpaStrategyNewResponse
+     */
+    public function updateOpaStrategyNewWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateOpaStrategyNewShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->alarmDetail)) {
+            $request->alarmDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alarmDetail, 'AlarmDetail', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->alarmDetailShrink)) {
+            $query['AlarmDetail'] = $request->alarmDetailShrink;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->imageName)) {
+            $query['ImageName'] = $request->imageName;
+        }
+        if (!Utils::isUnset($request->label)) {
+            $query['Label'] = $request->label;
+        }
+        if (!Utils::isUnset($request->maliciousImage)) {
+            $query['MaliciousImage'] = $request->maliciousImage;
+        }
+        if (!Utils::isUnset($request->ruleAction)) {
+            $query['RuleAction'] = $request->ruleAction;
+        }
+        if (!Utils::isUnset($request->scopes)) {
+            $query['Scopes'] = $request->scopes;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
+        }
+        if (!Utils::isUnset($request->strategyTemplateId)) {
+            $query['StrategyTemplateId'] = $request->strategyTemplateId;
+        }
+        if (!Utils::isUnset($request->unScanedImage)) {
+            $query['UnScanedImage'] = $request->unScanedImage;
+        }
+        if (!Utils::isUnset($request->whiteList)) {
+            $query['WhiteList'] = $request->whiteList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOpaStrategyNew',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateOpaStrategyNewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateOpaStrategyNewRequest $request
+     *
+     * @return UpdateOpaStrategyNewResponse
+     */
+    public function updateOpaStrategyNew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOpaStrategyNewWithOptions($request, $runtime);
     }
 
     /**
