@@ -11,6 +11,8 @@ class DBAccount extends Model
     /**
      * @description The description of the database account.
      *
+     * @example test_accout_des
+     *
      * @var string
      */
     public $accountDescription;

@@ -127,6 +127,8 @@ class DescribeAuditLogRecordsRequest extends Model
     /**
      * @description A reserved parameter.
      *
+     * @example none
+     *
      * @var string
      */
     public $proxyUser;

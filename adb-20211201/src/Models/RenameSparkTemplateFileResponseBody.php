@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class RenameSparkTemplateFileResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 16D332C4-ACEB-526A-9B53-2B708FED594A
      *
      * @var string

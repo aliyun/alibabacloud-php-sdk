@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
-     * @description The reserved computing resources. Unit: ACUs. Valid values: 0 to 4096. The value must be in increments of 16 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The amount of reserved computing resources. Unit: ACUs. Valid values: 0 to 4096. The value must be in increments of 16 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
      *
-     * >  You must specify a value with the unit for this parameter.
+     * >  This parameter must be specified with a unit.
      * @example 16ACU
      *
      * @var string
@@ -21,6 +21,7 @@ class ModifyDBClusterRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * >  You can call the [DescribeDBClusters](~~454250~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
      * @example amv-bp1r053byu48p****
      *
      * @var string
@@ -28,6 +29,13 @@ class ModifyDBClusterRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to allocate all reserved computing resources to the user_default resource group. Valid values:
+     *
+     *   true (default)
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableDefaultResourcePool;
@@ -58,9 +66,9 @@ class ModifyDBClusterRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The reserved storage resources. Unit: AnalyticDB Compute Units (ACUs). Valid values: 0 to 2064. The value must be in increments of 24 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The amount of reserved storage resources. Unit: ACUs. Valid values: 0 to 2064. The value must be in increments of 24 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
      *
-     * >  You must specify a value with the unit for this parameter.
+     * >  This parameter must be specified with a unit.
      * @example 24ACU
      *
      * @var string

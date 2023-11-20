@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ExistRunningSQLEngineRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the [DescribeDBClusters](~~612397~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
      * @example amv-bp1cit7z8j****
      *
      * @var string
@@ -16,6 +19,9 @@ class ExistRunningSQLEngineRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The name of the resource group.
+     *
+     * >  You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the name of the resource group for a cluster.
      * @example spark_test
      *
      * @var string

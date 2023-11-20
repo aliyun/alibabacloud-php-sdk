@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSparkAppsRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListSparkAppsRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,11 @@ class ListSparkAppsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10. Valid values:
+     *
+     * - **10**
+     * - **50**
+     * - **100**
      * @example 30
      *
      * @var int
@@ -30,6 +39,8 @@ class ListSparkAppsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the job resource group.
+     *
      * @example test_instance
      *
      * @var string

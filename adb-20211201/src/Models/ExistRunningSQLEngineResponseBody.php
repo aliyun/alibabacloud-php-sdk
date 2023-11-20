@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ExistRunningSQLEngineResponseBody extends Model
 {
     /**
+     * @description Indicates whether a running SQL engine exists in the resource group.
+     *
+     * Valid values:
+     *
+     *   **True**
+     *   **False**
+     *
      * @example True
      *
      * @var bool
@@ -16,6 +23,8 @@ class ExistRunningSQLEngineResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example FA675D68-14A4-5D9C-8820-92537D9F447E
      *
      * @var string

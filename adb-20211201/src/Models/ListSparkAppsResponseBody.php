@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListSparkAppsResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListSparkAppsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListSparkAppsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D65A809F-34CE-4550-9BC1-0ED21ETG380
      *
      * @var string
@@ -36,6 +44,8 @@ class ListSparkAppsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

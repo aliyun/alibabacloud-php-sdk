@@ -18,7 +18,7 @@ class ModifyDBClusterResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 2035629****
      *
@@ -27,7 +27,7 @@ class ModifyDBClusterResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0D6BF3E2-41D8-57F6-9A62-A13A70377952
      *

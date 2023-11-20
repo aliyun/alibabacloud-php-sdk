@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenameSparkTemplateFileRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example amv-d*****
      *
      * @var string
@@ -16,6 +18,8 @@ class RenameSparkTemplateFileRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The template file ID.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class RenameSparkTemplateFileRequest extends Model
     public $id;
 
     /**
+     * @description The name of the template file that you want to rename.
+     *
      * @example new_template_name
      *
      * @var string
