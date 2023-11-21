@@ -1538,6 +1538,9 @@ class Cams extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->permissions)) {
+            $body['Permissions'] = $request->permissions;
+        }
         if (!Utils::isUnset($request->type)) {
             $body['Type'] = $request->type;
         }
@@ -2260,6 +2263,9 @@ class Cams extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new SendChatappMessageShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->flowAction)) {
+            $request->flowActionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->flowAction, 'FlowAction', 'json');
+        }
         if (!Utils::isUnset($tmpReq->payload)) {
             $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
@@ -2300,6 +2306,9 @@ class Cams extends OpenApiClient
         }
         if (!Utils::isUnset($request->fallBackRule)) {
             $body['FallBackRule'] = $request->fallBackRule;
+        }
+        if (!Utils::isUnset($request->flowActionShrink)) {
+            $body['FlowAction'] = $request->flowActionShrink;
         }
         if (!Utils::isUnset($request->from)) {
             $body['From'] = $request->from;

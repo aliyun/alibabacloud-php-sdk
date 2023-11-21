@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest;
 
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest\senderList\flowAction;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest\senderList\productAction;
 use AlibabaCloud\Tea\Model;
 
 class senderList extends Model
 {
+    /**
+     * @var flowAction
+     */
+    public $flowAction;
+
     /**
      * @description payload
      *
@@ -37,6 +43,7 @@ class senderList extends Model
      */
     public $to;
     protected $_name = [
+        'flowAction'     => 'FlowAction',
         'payload'        => 'Payload',
         'productAction'  => 'ProductAction',
         'templateParams' => 'TemplateParams',
@@ -50,6 +57,9 @@ class senderList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->flowAction) {
+            $res['FlowAction'] = null !== $this->flowAction ? $this->flowAction->toMap() : null;
+        }
         if (null !== $this->payload) {
             $res['Payload'] = $this->payload;
         }
@@ -74,6 +84,9 @@ class senderList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FlowAction'])) {
+            $model->flowAction = flowAction::fromMap($map['FlowAction']);
+        }
         if (isset($map['Payload'])) {
             if (!empty($map['Payload'])) {
                 $model->payload = $map['Payload'];

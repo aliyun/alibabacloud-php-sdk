@@ -25,6 +25,20 @@ class buttons extends Model
     public $couponCode;
 
     /**
+     * @example NAVIGATE
+     *
+     * @var string
+     */
+    public $flowAction;
+
+    /**
+     * @example 28383872***
+     *
+     * @var string
+     */
+    public $flowId;
+
+    /**
      * @description The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY in a WhatsApp message template. After you configure message sending in the ChatApp Message Service console, marketing messages will not be sent to customers if they click this button.
      *
      * @example false
@@ -114,17 +128,27 @@ class buttons extends Model
      * @var string
      */
     public $urlType;
+
+    /**
+     * @example SIGN_UP
+     *
+     * @var string
+     */
+    public $navigateScreen;
     protected $_name = [
-        'autofillText'  => 'AutofillText',
-        'couponCode'    => 'CouponCode',
-        'isOptOut'      => 'IsOptOut',
-        'packageName'   => 'PackageName',
-        'phoneNumber'   => 'PhoneNumber',
-        'signatureHash' => 'SignatureHash',
-        'text'          => 'Text',
-        'type'          => 'Type',
-        'url'           => 'Url',
-        'urlType'       => 'UrlType',
+        'autofillText'   => 'AutofillText',
+        'couponCode'     => 'CouponCode',
+        'flowAction'     => 'FlowAction',
+        'flowId'         => 'FlowId',
+        'isOptOut'       => 'IsOptOut',
+        'packageName'    => 'PackageName',
+        'phoneNumber'    => 'PhoneNumber',
+        'signatureHash'  => 'SignatureHash',
+        'text'           => 'Text',
+        'type'           => 'Type',
+        'url'            => 'Url',
+        'urlType'        => 'UrlType',
+        'navigateScreen' => 'navigateScreen',
     ];
 
     public function validate()
@@ -139,6 +163,12 @@ class buttons extends Model
         }
         if (null !== $this->couponCode) {
             $res['CouponCode'] = $this->couponCode;
+        }
+        if (null !== $this->flowAction) {
+            $res['FlowAction'] = $this->flowAction;
+        }
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
         }
         if (null !== $this->isOptOut) {
             $res['IsOptOut'] = $this->isOptOut;
@@ -164,6 +194,9 @@ class buttons extends Model
         if (null !== $this->urlType) {
             $res['UrlType'] = $this->urlType;
         }
+        if (null !== $this->navigateScreen) {
+            $res['navigateScreen'] = $this->navigateScreen;
+        }
 
         return $res;
     }
@@ -181,6 +214,12 @@ class buttons extends Model
         }
         if (isset($map['CouponCode'])) {
             $model->couponCode = $map['CouponCode'];
+        }
+        if (isset($map['FlowAction'])) {
+            $model->flowAction = $map['FlowAction'];
+        }
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
         }
         if (isset($map['IsOptOut'])) {
             $model->isOptOut = $map['IsOptOut'];
@@ -205,6 +244,9 @@ class buttons extends Model
         }
         if (isset($map['UrlType'])) {
             $model->urlType = $map['UrlType'];
+        }
+        if (isset($map['navigateScreen'])) {
+            $model->navigateScreen = $map['navigateScreen'];
         }
 
         return $model;

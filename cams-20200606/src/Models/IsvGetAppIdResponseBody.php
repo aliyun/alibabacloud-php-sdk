@@ -35,6 +35,11 @@ class IsvGetAppIdResponseBody extends Model
     public $code;
 
     /**
+     * @var string
+     */
+    public $configId;
+
+    /**
      * @description The error message returned.
      *
      * @example null
@@ -55,6 +60,7 @@ class IsvGetAppIdResponseBody extends Model
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'appId'              => 'AppId',
         'code'               => 'Code',
+        'configId'           => 'ConfigId',
         'message'            => 'Message',
         'requestId'          => 'RequestId',
     ];
@@ -74,6 +80,9 @@ class IsvGetAppIdResponseBody extends Model
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -101,6 +110,9 @@ class IsvGetAppIdResponseBody extends Model
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

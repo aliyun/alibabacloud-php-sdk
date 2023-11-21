@@ -116,6 +116,11 @@ class SendChatappMessageShrinkRequest extends Model
     public $fallBackRule;
 
     /**
+     * @var string
+     */
+    public $flowActionShrink;
+
+    /**
      * @description The phone number of the message sender.
      *
      * > You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the ChatAPP console.
@@ -285,6 +290,7 @@ class SendChatappMessageShrinkRequest extends Model
         'fallBackDuration'     => 'FallBackDuration',
         'fallBackId'           => 'FallBackId',
         'fallBackRule'         => 'FallBackRule',
+        'flowActionShrink'     => 'FlowAction',
         'from'                 => 'From',
         'isvCode'              => 'IsvCode',
         'label'                => 'Label',
@@ -335,6 +341,9 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (null !== $this->fallBackRule) {
             $res['FallBackRule'] = $this->fallBackRule;
+        }
+        if (null !== $this->flowActionShrink) {
+            $res['FlowAction'] = $this->flowActionShrink;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
@@ -419,6 +428,9 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (isset($map['FallBackRule'])) {
             $model->fallBackRule = $map['FallBackRule'];
+        }
+        if (isset($map['FlowAction'])) {
+            $model->flowActionShrink = $map['FlowAction'];
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class IsvGetAppIdRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $permissions;
+
+    /**
      * @description The type of the application. Set the value to WHATSAPP.
      *
      * @example WHATSAPP
@@ -17,7 +22,8 @@ class IsvGetAppIdRequest extends Model
      */
     public $type;
     protected $_name = [
-        'type' => 'Type',
+        'permissions' => 'Permissions',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class IsvGetAppIdRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->permissions) {
+            $res['Permissions'] = $this->permissions;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -42,6 +51,9 @@ class IsvGetAppIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Permissions'])) {
+            $model->permissions = $map['Permissions'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

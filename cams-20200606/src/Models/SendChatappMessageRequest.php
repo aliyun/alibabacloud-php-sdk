@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest\flowAction;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest\productAction;
 use AlibabaCloud\Tea\Model;
 
@@ -115,6 +116,11 @@ class SendChatappMessageRequest extends Model
      * @var string
      */
     public $fallBackRule;
+
+    /**
+     * @var flowAction
+     */
+    public $flowAction;
 
     /**
      * @description The phone number of the message sender.
@@ -286,6 +292,7 @@ class SendChatappMessageRequest extends Model
         'fallBackDuration' => 'FallBackDuration',
         'fallBackId'       => 'FallBackId',
         'fallBackRule'     => 'FallBackRule',
+        'flowAction'       => 'FlowAction',
         'from'             => 'From',
         'isvCode'          => 'IsvCode',
         'label'            => 'Label',
@@ -336,6 +343,9 @@ class SendChatappMessageRequest extends Model
         }
         if (null !== $this->fallBackRule) {
             $res['FallBackRule'] = $this->fallBackRule;
+        }
+        if (null !== $this->flowAction) {
+            $res['FlowAction'] = null !== $this->flowAction ? $this->flowAction->toMap() : null;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
@@ -420,6 +430,9 @@ class SendChatappMessageRequest extends Model
         }
         if (isset($map['FallBackRule'])) {
             $model->fallBackRule = $map['FallBackRule'];
+        }
+        if (isset($map['FlowAction'])) {
+            $model->flowAction = flowAction::fromMap($map['FlowAction']);
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];

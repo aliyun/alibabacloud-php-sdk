@@ -33,6 +33,16 @@ class buttons extends Model
     public $extendAttrs;
 
     /**
+     * @var string
+     */
+    public $flowAction;
+
+    /**
+     * @var string
+     */
+    public $flowId;
+
+    /**
      * @description Whatsapp模板，在Category为Marketing,并且Button type为QUICK_REPLY时有效，表示按钮为营销退订按钮，客户如果点击了此按钮，并且在chatapp平台上配置了发送控制操作，则后续Marketing消息则不会发送到客户
      *
      * @example false
@@ -40,6 +50,11 @@ class buttons extends Model
      * @var bool
      */
     public $isOptOut;
+
+    /**
+     * @var string
+     */
+    public $navigateScreen;
 
     /**
      * @description Whatsapp模板，Category为Authentication，并且Button Type为ONE_TAP时必填，表示Whatsapp调起应用的包名
@@ -119,17 +134,20 @@ class buttons extends Model
      */
     public $urlType;
     protected $_name = [
-        'autofillText'  => 'AutofillText',
-        'couponCode'    => 'CouponCode',
-        'extendAttrs'   => 'ExtendAttrs',
-        'isOptOut'      => 'IsOptOut',
-        'packageName'   => 'PackageName',
-        'phoneNumber'   => 'PhoneNumber',
-        'signatureHash' => 'SignatureHash',
-        'text'          => 'Text',
-        'type'          => 'Type',
-        'url'           => 'Url',
-        'urlType'       => 'UrlType',
+        'autofillText'   => 'AutofillText',
+        'couponCode'     => 'CouponCode',
+        'extendAttrs'    => 'ExtendAttrs',
+        'flowAction'     => 'FlowAction',
+        'flowId'         => 'FlowId',
+        'isOptOut'       => 'IsOptOut',
+        'navigateScreen' => 'NavigateScreen',
+        'packageName'    => 'PackageName',
+        'phoneNumber'    => 'PhoneNumber',
+        'signatureHash'  => 'SignatureHash',
+        'text'           => 'Text',
+        'type'           => 'Type',
+        'url'            => 'Url',
+        'urlType'        => 'UrlType',
     ];
 
     public function validate()
@@ -148,8 +166,17 @@ class buttons extends Model
         if (null !== $this->extendAttrs) {
             $res['ExtendAttrs'] = null !== $this->extendAttrs ? $this->extendAttrs->toMap() : null;
         }
+        if (null !== $this->flowAction) {
+            $res['FlowAction'] = $this->flowAction;
+        }
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
+        }
         if (null !== $this->isOptOut) {
             $res['IsOptOut'] = $this->isOptOut;
+        }
+        if (null !== $this->navigateScreen) {
+            $res['NavigateScreen'] = $this->navigateScreen;
         }
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
@@ -193,8 +220,17 @@ class buttons extends Model
         if (isset($map['ExtendAttrs'])) {
             $model->extendAttrs = extendAttrs::fromMap($map['ExtendAttrs']);
         }
+        if (isset($map['FlowAction'])) {
+            $model->flowAction = $map['FlowAction'];
+        }
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
+        }
         if (isset($map['IsOptOut'])) {
             $model->isOptOut = $map['IsOptOut'];
+        }
+        if (isset($map['NavigateScreen'])) {
+            $model->navigateScreen = $map['NavigateScreen'];
         }
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];
