@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @description The inbound network throughput, which indicates the number of bits that are sent inbound per second. Unit: bit/s.
+     *
      * @example 187
      *
      * @var int
@@ -16,6 +18,8 @@ class dataList extends Model
     public $inBps;
 
     /**
+     * @description The inbound network throughput, which indicates the total number of bytes that are sent inbound. Unit: bytes.
+     *
      * @example 235
      *
      * @var int
@@ -23,6 +27,8 @@ class dataList extends Model
     public $inBytes;
 
     /**
+     * @description The inbound network throughput, which indicates the number of packets that are sent inbound per second. Unit: packets per second (pps).
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +36,8 @@ class dataList extends Model
     public $inPps;
 
     /**
+     * @description The number of new connections.
+     *
      * @example 27
      *
      * @var int
@@ -37,6 +45,8 @@ class dataList extends Model
     public $newConn;
 
     /**
+     * @description The outbound network throughput, which indicates the number of bits that are sent inbound per second. Unit: bit/s.
+     *
      * @example 45
      *
      * @var int
@@ -44,6 +54,8 @@ class dataList extends Model
     public $outBps;
 
     /**
+     * @description The outbound network throughput, which indicates the total number of bytes that are sent outbound. Unit: bytes.
+     *
      * @example 1123
      *
      * @var int
@@ -51,6 +63,8 @@ class dataList extends Model
     public $outBytes;
 
     /**
+     * @description The outbound network throughput, which indicates the number of packets that are sent outbound per second. Unit: pps.
+     *
      * @example 2
      *
      * @var int
@@ -58,6 +72,8 @@ class dataList extends Model
     public $outPps;
 
     /**
+     * @description The number of requests.
+     *
      * @example 27
      *
      * @var int
@@ -65,6 +81,8 @@ class dataList extends Model
     public $sessionCount;
 
     /**
+     * @description The time when traffic is generated. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1659405600
      *
      * @var int
@@ -72,6 +90,10 @@ class dataList extends Model
     public $time;
 
     /**
+     * @description The total inbound and outbound network throughput, which indicates the number of bits that are sent inbound per second. Unit: bit/s.
+     *
+     * @example 323
+     *
      * @var int
      */
     public $totalBps;

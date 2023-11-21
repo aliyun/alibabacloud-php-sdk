@@ -22,9 +22,9 @@ class ModifyControlPolicyRequest extends Model
     public $aclAction;
 
     /**
-     * @description The ID of the access control policy.
+     * @description The UUID of the access control policy.
      *
-     * >  If you want to modify the configurations of an access control policy, you must provide the ID of the policy. You can call the [DescribeControlPolicy](~~138866~~) operation to query the ID.
+     * >  To modify an access control policy, you must specify the UUID of the policy. You can call the [DescribeControlPolicy](~~138866~~) interface to query the UUID.
      * @example 00281255-d220-4db1-8f4f-c4df221ad84c
      *
      * @var string
@@ -49,7 +49,7 @@ class ModifyControlPolicyRequest extends Model
      *   **Memcache**
      *   **SSL**
      *
-     * >  The value **ANY** indicates all types of applications.
+     * >  The value ANY** indicates all types of applications.
      * @example HTTP
      *
      * @var string
@@ -57,7 +57,7 @@ class ModifyControlPolicyRequest extends Model
     public $applicationName;
 
     /**
-     * @description The application names. You can specify multiple application names.
+     * @description The application names.
      *
      * @var string[]
      */
@@ -105,10 +105,10 @@ class ModifyControlPolicyRequest extends Model
     /**
      * @description The destination address in the access control policy.
      *
-     *   If **DestinationType** is set to net, the value of **Destination** is a CIDR block. Example: 1.2.XX.XX/24
-     *   If **DestinationType** is set to group, the value of **Destination** is an address book. Example: db_group
-     *   If **DestinationType** is set to domain, the value of **Destination** is a domain name. Example: \*.aliyuncs.com
-     *   If **DestinationType** is set to location, the value of **Destination** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: \["BJ11", "ZB"]
+     *   If **DestinationType** is set to net, the value of **Destination** is a CIDR block. Example: 1.2.XX.XX/24.
+     *   If **DestinationType** is set to group, the value of **Destination** is an address book. Example: db_group.
+     *   If **DestinationType** is set to domain, the value of **Destination** is a domain name. Example: \*.aliyuncs.com.
+     *   If **DestinationType** is set to location, the value of **Destination** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: \["BJ11", "ZB"].
      *
      * @example 192.0.XX.XX/24
      *
@@ -119,10 +119,10 @@ class ModifyControlPolicyRequest extends Model
     /**
      * @description The type of the destination address in the access control policy. Valid values:
      *
-     *   **net**: destination CIDR block
-     *   **group**: destination address book
-     *   **domain**: destination domain name
-     *   **location**: destination location
+     *   **net**: CIDR block
+     *   **group**: address book
+     *   **domain**: domain name
+     *   **location**: location
      *
      * @example net
      *
@@ -143,12 +143,14 @@ class ModifyControlPolicyRequest extends Model
     public $direction;
 
     /**
+     * @example 1694764800
+     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The language of the content within the request and response. Valid values:
+     * @description The language of the content within the request and the response. Valid values:
      *
      *   **zh**: Chinese (default)
      *   **en**: English
@@ -160,14 +162,14 @@ class ModifyControlPolicyRequest extends Model
     public $lang;
 
     /**
-     * @description The type of the protocol in the access control policy. Valid values:
+     * @description The protocol type supported by the access control policy. Valid values:
      *
      *   **ANY**
      *   **TCP**
      *   **UDP**
      *   **ICMP**
      *
-     * >  The value **ANY** indicates all types of protocols.
+     * >  The value ANY** indicates all types of applications.
      * @example TCP
      *
      * @var string
@@ -192,16 +194,22 @@ class ModifyControlPolicyRequest extends Model
     public $repeatDays;
 
     /**
+     * @example 23:30
+     *
      * @var string
      */
     public $repeatEndTime;
 
     /**
+     * @example 08:00
+     *
      * @var string
      */
     public $repeatStartTime;
 
     /**
+     * @example Permanent
+     *
      * @var string
      */
     public $repeatType;
@@ -209,8 +217,8 @@ class ModifyControlPolicyRequest extends Model
     /**
      * @description The source address in the access control policy.
      *
-     *   If **SourceType** is set to net, the value of **Source** is a CIDR block. Example: 1.2.XX.XX/24
-     *   If **SourceType** is set to group, the value of **Source** is an address book. Example: db_group
+     *   If **SourceType** is set to net, the value of **Source** is a CIDR block. Example: 1.2.XX.XX/24.
+     *   If **SourceType** is set to group, the value of **Source** is an address book. Example: db_group.
      *   If **SourceType** is set to location, the value of **Source** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: \["BJ11", "ZB"]
      *
      * @example 192.0.XX.XX/24
@@ -222,9 +230,9 @@ class ModifyControlPolicyRequest extends Model
     /**
      * @description The type of the source address in the access control policy. Valid values:
      *
-     *   **net**: source CIDR block
-     *   **group**: source address book
-     *   **location**: source location
+     *   **net**: CIDR block
+     *   **group**: address book
+     *   **location**: location
      *
      * @example net
      *
@@ -233,6 +241,8 @@ class ModifyControlPolicyRequest extends Model
     public $sourceType;
 
     /**
+     * @example 1694761200
+     *
      * @var int
      */
     public $startTime;

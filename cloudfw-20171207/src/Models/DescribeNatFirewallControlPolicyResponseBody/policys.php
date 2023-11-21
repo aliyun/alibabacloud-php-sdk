@@ -38,7 +38,7 @@ class policys extends Model
     public $applicationNameList;
 
     /**
-     * @description The time at which the access control policy was created.
+     * @description The time when the access control policy was created.
      *
      * @example 1761062400
      *
@@ -91,7 +91,7 @@ class policys extends Model
     public $destPortType;
 
     /**
-     * @description The destination address in the access control policy. The value of this parameter varies based on the value of the DestinationType parameter. Valid values:
+     * @description The destination address in the access control policy. The value of this parameter varies based on the value of DestinationType. Valid values:
      *
      *   If **DestinationType** is set to **net**, the value of Destination is a CIDR block. Example: 192.0.XX.XX/24.
      *   If **DestinationType** is set to **domain**, the value of Destination is a domain name. Example: aliyuncs.com.
@@ -129,7 +129,7 @@ class policys extends Model
      *   **net**: CIDR block
      *   **group**: address book
      *   **domain**: domain name
-     *   **location**
+     *   **location**: location
      *
      * @example net
      *
@@ -147,7 +147,7 @@ class policys extends Model
     public $dnsResult;
 
     /**
-     * @description The time of the DNS resolution result. The value is a timestamp. Unit: seconds.
+     * @description The time when the Domain Name System (DNS) resolution was performed. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1579261141
      *
@@ -158,9 +158,9 @@ class policys extends Model
     /**
      * @description The domain name resolution method of the access control policy. By default, an access control policy is enabled after it is created. Valid values:
      *
-     *   **1**: Fully qualified domain name (FQDN)-based
-     *   **2**: Domain Name System (DNS)-based
-     *   **3**: FQDN and DNS-based
+     *   **0**: fully qualified domain name (FQDN) resolution
+     *   **1**: dynamic DNS resolution
+     *   **2**: FQDN resolution and dynamic DNS resolution
      *
      * @example 1
      *
@@ -169,12 +169,14 @@ class policys extends Model
     public $domainResolveType;
 
     /**
+     * @example 1694764800
+     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The times when the access control policy was last hit. The value is a timestamp. Unit: seconds.
+     * @description The time when the access control policy was last hit. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1579261141
      *
@@ -192,7 +194,7 @@ class policys extends Model
     public $hitTimes;
 
     /**
-     * @description The time at which the access control policy was modified.
+     * @description The time when the access control policy was modified.
      *
      * @example 1761062400
      *
@@ -220,7 +222,7 @@ class policys extends Model
     public $order;
 
     /**
-     * @description The type of the protocol in the access control policy. Valid values:
+     * @description The protocol type in the access control policy. Valid values:
      *
      *   **ANY**
      *   **TCP**
@@ -251,16 +253,22 @@ class policys extends Model
     public $repeatDays;
 
     /**
+     * @example 23:30
+     *
      * @var string
      */
     public $repeatEndTime;
 
     /**
+     * @example 08:00
+     *
      * @var string
      */
     public $repeatStartTime;
 
     /**
+     * @example Permanent
+     *
      * @var string
      */
     public $repeatType;
@@ -295,7 +303,7 @@ class policys extends Model
     public $sourceGroupType;
 
     /**
-     * @description The type of the source address book in the access control policy. Valid values:
+     * @description The type of the source address in the access control policy. Valid values:
      *
      *   **net**: CIDR block
      *   **group**: address book
@@ -308,7 +316,7 @@ class policys extends Model
     public $sourceType;
 
     /**
-     * @description The total quota consumed by the returned access control policies, which is the sum of the quota consumed by each policy. The quota that is consumed by an access control policy is calculated based on the following formula: Quota that is consumed by an access control policy = Number of source CIDR blocks × Number of destination CIDR blocks, regions, or resolved domain names × *Number of applications* × Number of ports.
+     * @description The total quota consumed by the returned access control policies, which is the sum of the quota consumed by each policy. The quota that is consumed by an access control policy is calculated by using the following formula: Quota that is consumed by an access control policy = Number of source addresses (number of CIDR blocks or regions) × Number of destination addresses (number of CIDR blocks, regions, or domain names) × Number of port ranges × Number of applications.
      *
      * @example 10,000
      *
@@ -317,6 +325,8 @@ class policys extends Model
     public $spreadCnt;
 
     /**
+     * @example 1694761200
+     *
      * @var int
      */
     public $startTime;

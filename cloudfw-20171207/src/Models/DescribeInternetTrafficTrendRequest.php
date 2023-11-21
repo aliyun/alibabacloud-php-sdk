@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeInternetTrafficTrendRequest extends Model
 {
     /**
+     * @description The direction of the internet traffic.
+     *
+     * Valid values:
+     *
+     *   **in**: inbound traffic
+     *   **out**: outbound traffic
+     *
      * @example in
      *
      * @var string
@@ -16,6 +23,8 @@ class DescribeInternetTrafficTrendRequest extends Model
     public $direction;
 
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1674958929
      *
      * @var string
@@ -23,6 +32,11 @@ class DescribeInternetTrafficTrendRequest extends Model
     public $endTime;
 
     /**
+     * @description The language of the content in the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +44,8 @@ class DescribeInternetTrafficTrendRequest extends Model
     public $lang;
 
     /**
+     * @description The source code.
+     *
      * @example yundun
      *
      * @var string
@@ -37,6 +53,8 @@ class DescribeInternetTrafficTrendRequest extends Model
     public $sourceCode;
 
     /**
+     * @description The IP address of the access source.
+     *
      * @example 101.80.171.196
      *
      * @deprecated
@@ -46,6 +64,8 @@ class DescribeInternetTrafficTrendRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The private IP address of the source.
+     *
      * @example 10.100.134.60
      *
      * @var string
@@ -53,6 +73,8 @@ class DescribeInternetTrafficTrendRequest extends Model
     public $srcPrivateIP;
 
     /**
+     * @description The public IP address of the source.
+     *
      * @example 47.112.210.136
      *
      * @var string
@@ -60,6 +82,8 @@ class DescribeInternetTrafficTrendRequest extends Model
     public $srcPublicIP;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1670307484
      *
      * @var string
@@ -67,6 +91,11 @@ class DescribeInternetTrafficTrendRequest extends Model
     public $startTime;
 
     /**
+     * @description The type of the traffic that is captured. Valid values:
+     *
+     *   **max** (default): peak traffic
+     *   **avg**: average traffic
+     *
      * @example max
      *
      * @var string

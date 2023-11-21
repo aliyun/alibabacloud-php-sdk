@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTrFirewallV2ResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A774E66E-B170-59FC-9AAF-3068B15E991F
      *
      * @var string

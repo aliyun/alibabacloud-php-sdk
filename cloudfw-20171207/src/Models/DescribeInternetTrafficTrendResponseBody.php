@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInternetTrafficTrendResponseBody extends Model
 {
     /**
+     * @description The average inbound network throughput, which indicates the average number of bits that are sent inbound per second. Unit: bit/s.
+     *
      * @example 6114152
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $avgInBps;
 
     /**
+     * @description The average outbound network throughput, which indicates the average number of bits that are sent outbound per second. Unit: bit/s.
+     *
      * @example 70148993
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $avgOutBps;
 
     /**
+     * @description The average number of requests.
+     *
      * @example 79013
      *
      * @var int
@@ -31,6 +37,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $avgSession;
 
     /**
+     * @description The total average inbound and outbound network throughput, which indicates the average number of bits that are sent inbound and outbound per second. Unit: bit/s.
+     *
      * @example 2306
      *
      * @var int
@@ -38,11 +46,15 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $avgTotalBps;
 
     /**
+     * @description The statistics on traffic.
+     *
      * @var dataList[]
      */
     public $dataList;
 
     /**
+     * @description The timestamp generated when the bandwidth reaches the peak value. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1672736400
      *
      * @var int
@@ -50,6 +62,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $maxBandwidthTime;
 
     /**
+     * @description The maximum inbound network throughput, which indicates the maximum number of bits that are sent inbound per second. Unit: bit/s.
+     *
      * @example 10275643
      *
      * @var int
@@ -57,6 +71,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $maxInBps;
 
     /**
+     * @description The maximum outbound network throughput, which indicates the maximum number of bits that are sent outbound per second. Unit: bit/s.
+     *
      * @example 395188
      *
      * @var int
@@ -64,6 +80,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $maxOutBps;
 
     /**
+     * @description The number of requests during the peak hour of the network throughout.
+     *
      * @example 931641
      *
      * @var int
@@ -71,6 +89,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $maxSession;
 
     /**
+     * @description The total maximum inbound and outbound network throughput, which indicates the maximum number of bits that are sent inbound and outbound per second. Unit: bit/s.
+     *
      * @example 89783147
      *
      * @var int
@@ -78,6 +98,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $maxTotalBps;
 
     /**
+     * @description The request ID.
+     *
      * @example C7E837BE-0379-565E-B7B4-DE595C8D337C
      *
      * @var string
@@ -85,6 +107,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total inbound and outbound network throughput, which indicates the total number of bytes that are sent inbound and outbound. Unit: bytes.
+     *
      * @example 963227674958
      *
      * @var int
@@ -92,6 +116,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $totalBytes;
 
     /**
+     * @description The inbound network throughput, which indicates the total number of bytes that are sent inbound. Unit: bytes.
+     *
      * @example 41536824243873
      *
      * @var int
@@ -99,6 +125,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $totalInBytes;
 
     /**
+     * @description The outbound network throughput, which indicates the total number of bytes that are sent outbound. Unit: bytes.
+     *
      * @example 2660894567178
      *
      * @var int
@@ -106,6 +134,8 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $totalOutBytes;
 
     /**
+     * @description The total number of requests.
+     *
      * @example 1061449
      *
      * @var int

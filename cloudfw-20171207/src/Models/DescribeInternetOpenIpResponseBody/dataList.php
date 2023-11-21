@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @description The reason why recommended intelligent policies are unavailable. Valid values:
+     *
+     *   No recommended intelligent policies are available.
+     *   This feature is available only to some users.
+     *   The policy configuration has been modified. No recommended intelligent policies are available.
+     *   The recommended intelligent policies have been configured. No new recommended intelligent policies are available.
+     *
+     * @example No recommended intelligent policies are available.
+     *
      * @var string
      */
     public $aclRecommendDetail;
 
     /**
+     * @description The instance ID.
+     *
      * @example i-bp1ix9w22kv6aew9****
      *
      * @var string
@@ -21,6 +32,8 @@ class dataList extends Model
     public $assetsInstanceId;
 
     /**
+     * @description The instance name.
+     *
      * @example launch-advisor-2023****
      *
      * @var string
@@ -28,6 +41,8 @@ class dataList extends Model
     public $assetsName;
 
     /**
+     * @description The asset type of the instance.
+     *
      * @example EcsEIP
      *
      * @var string
@@ -35,6 +50,8 @@ class dataList extends Model
     public $assetsType;
 
     /**
+     * @description The total number of ports.
+     *
      * @example 5
      *
      * @var int
@@ -42,6 +59,11 @@ class dataList extends Model
     public $detailNum;
 
     /**
+     * @description Specifies whether an access control policy is recommended. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -49,11 +71,15 @@ class dataList extends Model
     public $hasAclRecommend;
 
     /**
+     * @description The list of ports.
+     *
      * @var string[]
      */
     public $portList;
 
     /**
+     * @description The public IP address of the instance.
+     *
      * @example 203.0.113.1
      *
      * @var string
@@ -61,6 +87,8 @@ class dataList extends Model
     public $publicIp;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -68,6 +96,13 @@ class dataList extends Model
     public $regionNo;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **3**: high risk
+     *   **2**: medium risk
+     *   **1**: low risk
+     *   **0**: no risk
+     *
      * @example 3
      *
      * @var int
@@ -75,16 +110,24 @@ class dataList extends Model
     public $riskLevel;
 
     /**
+     * @description The reason for the risk.
+     *
+     * @example Previous traffic is all malicious traffic.
+     *
      * @var string
      */
     public $riskReason;
 
     /**
+     * @description The list of applications.
+     *
      * @var string[]
      */
     public $serviceNameList;
 
     /**
+     * @description The percentage of traffic of a day. Unit: percent (%).
+     *
      * @example 11.1
      *
      * @var string
@@ -92,6 +135,8 @@ class dataList extends Model
     public $trafficPercent1Day;
 
     /**
+     * @description The percentage of traffic of 30 days. Unit: percent (%).
+     *
      * @example 99.9
      *
      * @var string
@@ -99,6 +144,8 @@ class dataList extends Model
     public $trafficPercent30Day;
 
     /**
+     * @description The percentage of traffic of seven days. Unit: percent (%).
+     *
      * @example 77.7
      *
      * @var string

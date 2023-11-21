@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeInternetOpenIpResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var dataList[]
      */
     public $dataList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 6B780BD6-282C-51A9-A8E6-59F636BAFA54
      *
      * @var string

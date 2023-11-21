@@ -11,21 +11,36 @@ use AlibabaCloud\Tea\Model;
 class trFirewallRoutePolicies extends Model
 {
     /**
+     * @description The secondary traffic redirection instances.
+     *
      * @var destCandidateList[]
      */
     public $destCandidateList;
 
     /**
+     * @description The description of the routing policy.
+     *
      * @var string
      */
     public $policyDescription;
 
     /**
+     * @description The name of the routing policy.
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The status of the routing policy. Valid values:
+     *
+     *   creating: The policy is being created.
+     *   deleting: The policy is being deleted.
+     *   opening: The policy is being enabled.
+     *   opened: The policy is enabled.
+     *   closing: The policy is being disabled.
+     *   closed: The policy is disabled.
+     *
      * @example opened
      *
      * @var string
@@ -33,6 +48,12 @@ class trFirewallRoutePolicies extends Model
     public $policyStatus;
 
     /**
+     * @description The type of the traffic redirection scenario of the VPC firewall. Valid values:
+     *
+     *   **fullmesh**: interconnected instances
+     *   **one_to_one**: instance to instance
+     *   **end_to_end**: instance to instances
+     *
      * @example fullmesh
      *
      * @var string
@@ -40,11 +61,17 @@ class trFirewallRoutePolicies extends Model
     public $policyType;
 
     /**
+     * @description The primary traffic redirection instances.
+     *
      * @var srcCandidateList[]
      */
     public $srcCandidateList;
 
     /**
+     * @description The ID of the routing policy.
+     *
+     * @example policy-7b66257c14e141fb****
+     *
      * @var string
      */
     public $trFirewallRoutePolicyId;

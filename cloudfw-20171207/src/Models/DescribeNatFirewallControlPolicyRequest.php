@@ -133,6 +133,8 @@ class DescribeNatFirewallControlPolicyRequest extends Model
     public $release;
 
     /**
+     * @example Permanent
+     *
      * @var string
      */
     public $repeatType;

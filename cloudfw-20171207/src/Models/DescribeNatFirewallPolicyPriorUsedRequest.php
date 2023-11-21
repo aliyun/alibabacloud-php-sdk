@@ -33,7 +33,7 @@ class DescribeNatFirewallPolicyPriorUsedRequest extends Model
     public $ipVersion;
 
     /**
-     * @description The language of the content within the request and response. Valid values:
+     * @description The language of the content within the request and the response. Valid values:
      *
      *   **zh**: Chinese (default)
      *   **en**: English

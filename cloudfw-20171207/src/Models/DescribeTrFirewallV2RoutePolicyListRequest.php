@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrFirewallV2RoutePolicyListRequest extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,11 +18,20 @@ class DescribeTrFirewallV2RoutePolicyListRequest extends Model
     public $currentPage;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-tr-d5ba592ac6c84aff****
+     *
      * @var string
      */
     public $firewallId;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -28,6 +39,8 @@ class DescribeTrFirewallV2RoutePolicyListRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +48,10 @@ class DescribeTrFirewallV2RoutePolicyListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the routing policy.
+     *
+     * @example policy-7b66257c14e141fb****
+     *
      * @var string
      */
     public $policyId;

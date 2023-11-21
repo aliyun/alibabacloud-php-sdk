@@ -11,8 +11,8 @@ class CreateVpcFirewallConfigureRequest extends Model
     /**
      * @description The status of the VPC firewall after you create the firewall. Valid values:
      *
-     *   **open**: After you create the VPC firewall, the firewall is automatically enabled. This is the default value.
-     *   **close**: After you create the VPC firewall, the firewall is not automatically enabled. To enable the firewall, you can call the [ModifyVpcFirewallSwitchStatus](~~342935~~) operation.
+     *   **open**: After you create the VPC firewall, the VPC firewall is automatically enabled. This is the default value.
+     *   **close**: After you create the VPC firewall, the VPC firewall is disabled. To enable the firewall, you can call the [ModifyVpcFirewallSwitchStatus](~~342935~~) operation.
      *
      * @example open
      *
@@ -21,10 +21,10 @@ class CreateVpcFirewallConfigureRequest extends Model
     public $firewallSwitch;
 
     /**
-     * @description The natural language of the request and response. Valid values:
+     * @description The language of the content within the request and the response. Valid values:
      *
      *   **zh**: Chinese (default)
-     *   **en**: English
+     *   **en**: English.
      *
      * @example zh
      *
@@ -56,7 +56,7 @@ class CreateVpcFirewallConfigureRequest extends Model
     /**
      * @description The region ID of the local VPC.
      *
-     * >  For more information about regions in which Cloud Firewall is supported, see [Supported regions](~~195657~~).
+     * >  For more information about the regions in which Cloud Firewall is available, see [Supported regions](~~195657~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -96,7 +96,7 @@ class CreateVpcFirewallConfigureRequest extends Model
     /**
      * @description The region ID of the peer VPC.
      *
-     * >  For more information about regions in which Cloud Firewall is supported, see [Supported regions](~~195657~~).
+     * >  For more information about Cloud Firewall supported regions, see [Supported regions](~~195657~~).
      * @example cn-shanghai
      *
      * @var string
