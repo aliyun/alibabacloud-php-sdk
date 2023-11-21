@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class qrCodeDetails extends Model
 {
     /**
-     * @var int
-     */
-    public $angle;
-
-    /**
-     * @var int[]
+     * @var mixed
      */
     public $data;
+
+    /**
+     * @var int
+     */
+    public $qrCodeAngle;
 
     /**
      * @var qrCodePoints[]
@@ -29,17 +29,11 @@ class qrCodeDetails extends Model
      * @var qrCodeRect
      */
     public $qrCodeRect;
-
-    /**
-     * @var string
-     */
-    public $type;
     protected $_name = [
-        'angle'        => 'Angle',
         'data'         => 'Data',
+        'qrCodeAngle'  => 'QrCodeAngle',
         'qrCodePoints' => 'QrCodePoints',
         'qrCodeRect'   => 'QrCodeRect',
-        'type'         => 'Type',
     ];
 
     public function validate()
@@ -49,11 +43,11 @@ class qrCodeDetails extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->angle) {
-            $res['Angle'] = $this->angle;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->qrCodeAngle) {
+            $res['QrCodeAngle'] = $this->qrCodeAngle;
         }
         if (null !== $this->qrCodePoints) {
             $res['QrCodePoints'] = [];
@@ -67,9 +61,6 @@ class qrCodeDetails extends Model
         if (null !== $this->qrCodeRect) {
             $res['QrCodeRect'] = null !== $this->qrCodeRect ? $this->qrCodeRect->toMap() : null;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
 
         return $res;
     }
@@ -82,11 +73,11 @@ class qrCodeDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Angle'])) {
-            $model->angle = $map['Angle'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['QrCodeAngle'])) {
+            $model->qrCodeAngle = $map['QrCodeAngle'];
         }
         if (isset($map['QrCodePoints'])) {
             if (!empty($map['QrCodePoints'])) {
@@ -99,9 +90,6 @@ class qrCodeDetails extends Model
         }
         if (isset($map['QrCodeRect'])) {
             $model->qrCodeRect = qrCodeRect::fromMap($map['QrCodeRect']);
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

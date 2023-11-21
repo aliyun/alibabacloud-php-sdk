@@ -26,7 +26,7 @@ class barCodeDetails extends Model
     public $barCodeRect;
 
     /**
-     * @var int[]
+     * @var mixed
      */
     public $data;
 
