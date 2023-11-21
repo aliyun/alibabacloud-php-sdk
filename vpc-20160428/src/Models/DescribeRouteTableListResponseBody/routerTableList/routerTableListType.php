@@ -87,8 +87,8 @@ class routerTableListType extends Model
     /**
      * @description The type of the route table. Valid values:
      *
-     *   **Custom**: a custom route table
-     *   **System**: a system route table
+     *   **Custom**
+     *   **System**
      *
      * @example System
      *
@@ -108,8 +108,8 @@ class routerTableListType extends Model
     /**
      * @description The type of the router to which the route table belongs. Valid values:
      *
-     *   **VRouter**: a vRouter
-     *   **VBR**: a VBR
+     *   **VRouter**
+     *   **VBR**
      *
      * @example VRouter
      *
@@ -120,9 +120,9 @@ class routerTableListType extends Model
     /**
      * @description The status of the route table. Valid values:
      *
-     *   **Pending**: being created
-     *   **Available**: available
-     *   **Deleting**: being deleted
+     *   **Pending**
+     *   **Available**
+     *   **Deleting**
      *
      * @example Available
      *
@@ -138,7 +138,7 @@ class routerTableListType extends Model
     public $tags;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The information about the vSwitches.
      *
      * @var vSwitchIds
      */

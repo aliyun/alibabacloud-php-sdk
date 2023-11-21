@@ -20,8 +20,8 @@ class DescribeBgpGroupsRequest extends Model
     /**
      * @description Specifies whether the BGP group is the default one. Valid values:
      *
-     *   **false**: yes
-     *   **true**: no
+     *   **false**
+     *   **true**
      *
      * @example false
      *
@@ -40,7 +40,7 @@ class DescribeBgpGroupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -49,7 +49,7 @@ class DescribeBgpGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. The maximum value is **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -58,9 +58,9 @@ class DescribeBgpGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the VBR.
+     * @description The ID of the region in which the VBR is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-shanghai
      *
      * @var string

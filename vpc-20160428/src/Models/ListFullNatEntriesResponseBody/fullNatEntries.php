@@ -57,7 +57,7 @@ class fullNatEntries extends Model
     /**
      * @description The name of the FULLNAT entry.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string
@@ -67,10 +67,10 @@ class fullNatEntries extends Model
     /**
      * @description The status of the FULLNAT entry. Valid values:
      *
-     *   **Pending**: The FULLNAT entry is being configured.
-     *   **Available**: The FULLNAT entry is available.
-     *   **Deleting**: The FULLNAT entry is being deleted.
-     *   **Deleted**: The FULLNAT entry is deleted.
+     *   **Pending**
+     *   **Available**
+     *   **Deleting**
+     *   **Deleted**
      *
      * @example Available
      *
@@ -118,7 +118,7 @@ class fullNatEntries extends Model
     public $natIpPort;
 
     /**
-     * @description The ID of the ENI.
+     * @description The ID of the elastic network interface (ENI).
      *
      * @example eni-gw80wedm8pq0tpr2****
      *

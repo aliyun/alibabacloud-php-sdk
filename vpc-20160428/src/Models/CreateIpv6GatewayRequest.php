@@ -12,9 +12,9 @@ class CreateIpv6GatewayRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must ensure that the value is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -52,7 +52,7 @@ class CreateIpv6GatewayRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      *
      * @example cn-huhehaote
      *
@@ -61,7 +61,7 @@ class CreateIpv6GatewayRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the IPv6 gateway belongs.
      *
      * @example rg-acfmxazb4ph6aiy****
      *
@@ -80,12 +80,14 @@ class CreateIpv6GatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the VPC for which you want to create the IPv6 gateway.
+     * @description The ID of the VPC in which you want to create the IPv6 gateway.
      *
      * @example vpc-123sedrfswd23****
      *

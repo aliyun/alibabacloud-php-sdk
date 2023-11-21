@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of the tag that is added to the route table.
+     * @description The key of tag N added to the resource.
      *
      * @example type
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of the tag that is added to the route table.
+     * @description The value of tag N added to the resource.
      *
      * @example ingress
      *

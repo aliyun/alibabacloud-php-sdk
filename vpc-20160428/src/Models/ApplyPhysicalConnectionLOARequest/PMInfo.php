@@ -21,8 +21,8 @@ class PMInfo extends Model
     /**
      * @description The type of the identity document of the construction engineer. Valid values:
      *
-     *   **IDCard**: identity card
-     *   **Passport**: international passport
+     *   **IDCard**
+     *   **Passport**
      *
      * @example IDCard
      *

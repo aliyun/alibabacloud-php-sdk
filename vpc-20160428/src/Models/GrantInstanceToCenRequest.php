@@ -18,7 +18,7 @@ class GrantInstanceToCenRequest extends Model
     public $cenId;
 
     /**
-     * @description The user ID (UID) of the Alibaba Cloud account to which the CEN instance belongs.
+     * @description The user ID (UID) of the Apsara Stack tenant account to which the CEN instance belongs.
      *
      * @example 123456789
      *
@@ -29,9 +29,9 @@ class GrantInstanceToCenRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must ensure that the value is unique among all requests. The token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -50,8 +50,8 @@ class GrantInstanceToCenRequest extends Model
     /**
      * @description The type of the network instance. Valid values:
      *
-     *   **VPC**: a VPC
-     *   **VBR**: a VBR
+     *   **VPC**
+     *   **VBR**
      *
      * @example VPC
      *

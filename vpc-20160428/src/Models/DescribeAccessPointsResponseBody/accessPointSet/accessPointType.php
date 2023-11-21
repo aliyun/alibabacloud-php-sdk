@@ -42,7 +42,7 @@ class accessPointType extends Model
     public $description;
 
     /**
-     * @description The colocation provider of the access point.
+     * @description The Internet service provider (ISP) of the access point. Valid values:
      *
      * @var string
      */
@@ -65,7 +65,7 @@ class accessPointType extends Model
     /**
      * @description The status of the access point. Valid values:
      *
-     *   **Recommended**: The access point is ready for use.
+     *   **recommended**: The access point is ready for use.
      *   **hot**: A large number of Express Connect circuits are connected to the access point.
      *   **full**: The number of Express Connect circuits connected to the access point has reached the upper limit.
      *   **disabled**: The access point is unavailable.

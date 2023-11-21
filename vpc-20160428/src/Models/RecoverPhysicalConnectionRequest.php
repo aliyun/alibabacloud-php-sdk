@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RecoverPhysicalConnectionRequest extends Model
 {
     /**
-     * @description Specifies whether to precheck the request only. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: only prechecks the request but does not resume the Express Connect circuit. The system prechecks the request syntax, instance status, and whether the required parameters are specified. An error message is returned if the request fails to pass the precheck. If the request passes the precheck, the system returns the ID of the request.
-     *   **false** (default): sends the request. If the request passes the precheck, the Express Connect circuit is resumed.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, the request ID is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -23,7 +23,7 @@ class RecoverPhysicalConnectionRequest extends Model
     /**
      * @description The ID of the Express Connect circuit.
      *
-     * >  You can resume only shared Express Connect circuits.
+     * >  You can resume only shared Express Connect circuits by calling this API operation.
      * @example pc-bp1mrgfbtmc9brre7****
      *
      * @var string
@@ -43,7 +43,7 @@ class RecoverPhysicalConnectionRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate a token, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example CBCE910E-D396-4944-8****
      *
      * @var string

@@ -38,7 +38,7 @@ class vSwitch extends Model
     public $creationTime;
 
     /**
-     * @description The description of the vSwitches.
+     * @description The description of the vSwitch.
      *
      * @example VSwitchDescription
      *
@@ -47,6 +47,13 @@ class vSwitch extends Model
     public $description;
 
     /**
+     * @description Indicates whether IPv6 is enabled for the vSwitch. If you enable IPv6, you must configure an IPv6 CIDR block for the vSwitch. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabledIpv6;
@@ -63,8 +70,8 @@ class vSwitch extends Model
     /**
      * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
      *
-     *   **true**: The vSwitch is the default vSwitch.
-     *   **false**: The vSwitch is not the default vSwitch.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -107,6 +114,14 @@ class vSwitch extends Model
     public $routeTable;
 
     /**
+     * @description Indicates whether the vSwitch is shared.
+     *
+     *   If no value is returned, the vSwitch is a regular vSwitch.
+     *   If **Shared** is returned, the vSwitch is shared.
+     *   If **Sharing** is returned, the vSwitch is being shared.
+     *
+     * @example Shared
+     *
      * @var string
      */
     public $shareType;
@@ -114,8 +129,8 @@ class vSwitch extends Model
     /**
      * @description The status of the vSwitch. Valid values:
      *
-     *   **Pending**: The vSwitch is being configured.
-     *   **Available**: The vSwitch is available.
+     *   **Pending**
+     *   **Available**
      *
      * @example Available
      *
@@ -124,14 +139,14 @@ class vSwitch extends Model
     public $status;
 
     /**
-     * @description The tag information about the vSwitch.
+     * @description The tags of the vSwitch.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-25bcdxs7pv1****
      *
@@ -140,7 +155,7 @@ class vSwitch extends Model
     public $vSwitchId;
 
     /**
-     * @description The name of the vSwitch.
+     * @description The vSwitch name.
      *
      * @example vSwitch
      *

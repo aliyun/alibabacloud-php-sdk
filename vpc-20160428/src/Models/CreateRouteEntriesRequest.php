@@ -20,7 +20,7 @@ class CreateRouteEntriesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the route table is created.
+     * @description The region ID of the route table.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -40,6 +40,8 @@ class CreateRouteEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The route entries.
+     *
      * @var routeEntries[]
      */
     public $routeEntries;

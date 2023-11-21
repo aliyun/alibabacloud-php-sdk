@@ -21,8 +21,8 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     /**
      * @description Indicates whether the IPv4 gateway is activated. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -67,7 +67,7 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $ipv4GatewayRouteTableId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7F79A919-6FE9-50C4-967B-45705E1F9C38
      *
@@ -108,7 +108,7 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $tags;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) with which the IPv4 gateway is associated.
+     * @description The ID of the VPC with which the IPv4 gateway is associated.
      *
      * @example vpc-5tsrxlw7dv074gci4****
      *

@@ -20,7 +20,7 @@ class DescribeRouteTableListRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -29,7 +29,7 @@ class DescribeRouteTableListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -96,8 +96,8 @@ class DescribeRouteTableListRequest extends Model
     /**
      * @description The type of the router to which the route table belongs. Valid values:
      *
-     *   **VRouter** (default): a vRouter
-     *   **VBR**: a virtual border router (VBR)
+     *   **VRouter** (default)
+     *   **VBR**
      *
      * @example VRouter
      *
@@ -106,6 +106,8 @@ class DescribeRouteTableListRequest extends Model
     public $routerType;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tag[]
      */
     public $tag;
@@ -113,7 +115,7 @@ class DescribeRouteTableListRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC) to which the route table belongs.
      *
-     * After this parameter is set, the value of the **RouterType** parameter is automatically set to **VRouter**.
+     * After this parameter is specified, the value of the **RouterType** parameter is automatically set to **VRouter**.
      * @example vpc-bp15zckdt37pq72****
      *
      * @var string

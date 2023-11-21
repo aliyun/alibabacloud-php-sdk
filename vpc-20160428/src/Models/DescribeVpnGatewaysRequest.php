@@ -44,7 +44,7 @@ class DescribeVpnGatewaysRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -53,7 +53,7 @@ class DescribeVpnGatewaysRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     * @description The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -72,6 +72,11 @@ class DescribeVpnGatewaysRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the VPN gateway belongs.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group list.
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;

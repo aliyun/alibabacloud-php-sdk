@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AssociateNetworkAclResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4CF20CC7-D1FC-425B-A15B-DF7C8E2131A7
      *

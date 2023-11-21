@@ -30,7 +30,7 @@ class ingressAclEntries extends Model
     /**
      * @description The ID of the inbound rule.
      *
-     * Valid values of **N**: **0** to **29**. You can update at most 30 inbound rules.
+     * Valid values of **N**: **0** to **99**. You can specify at most 100 inbound rules.
      * @example nae-2zepn32de59j8m4****
      *
      * @var string
@@ -40,7 +40,7 @@ class ingressAclEntries extends Model
     /**
      * @description The name of the inbound rule.
      *
-     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example acl-3
      *
      * @var string
@@ -48,10 +48,10 @@ class ingressAclEntries extends Model
     public $networkAclEntryName;
 
     /**
-     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     * @description The rule action that determines whether to allow inbound requests. Valid values:
      *
-     *   **accept**: allows the network traffic.
-     *   **drop**: blocks the network traffic.
+     *   **accept**
+     *   **drop**
      *
      * @example accept
      *
@@ -62,8 +62,8 @@ class ingressAclEntries extends Model
     /**
      * @description The source port range of the inbound rule.
      *
-     *   If **Protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which specifies all ports.
-     *   If **Protocol** of the inbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid values for a port: **1** to **65535**.
+     *   If the **protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which specifies all ports.
+     *   If the **protocol** of the inbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid ports: **1** to **65535**.
      *
      * @example -1/-1
      *
@@ -74,11 +74,11 @@ class ingressAclEntries extends Model
     /**
      * @description The protocol type. Valid values:
      *
-     *   **icmp**: Internet Control Message Protocol (ICMP)
-     *   **gre**: Generic Routing Encapsulation (GRE)
-     *   **tcp**: TCP
-     *   **udp**: UDP
-     *   **all**: all protocols
+     *   **icmp**
+     *   **gre**
+     *   **tcp**
+     *   **udp**
+     *   **all**
      *
      * @example all
      *

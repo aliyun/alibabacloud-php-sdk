@@ -93,6 +93,11 @@ class CreateCustomerGatewayRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the customer gateway belongs.
+     *
+     * - If you do not specify a resource group, the customer gateway will belong to the default resource group after being created.
+     * @example rg-aek2qo2h4jy****
+     *
      * @var string
      */
     public $resourceGroupId;

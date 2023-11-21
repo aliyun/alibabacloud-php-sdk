@@ -35,8 +35,8 @@ class DescribeVpcAttributeResponseBody extends Model
     /**
      * @description Indicates whether the ClassicLink feature is enabled. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -81,10 +81,10 @@ class DescribeVpcAttributeResponseBody extends Model
     /**
      * @description The status of the DHCP options set. Valid values:
      *
-     *   **Available**: available
-     *   **InUse**: in use
-     *   **Deleted**: deleted
-     *   **Pending**: being configured
+     *   **Available**
+     *   **InUse**
+     *   **Deleted**
+     *   **Pending**
      *
      * @example Available
      *
@@ -111,7 +111,7 @@ class DescribeVpcAttributeResponseBody extends Model
     public $ipv6CidrBlock;
 
     /**
-     * @description The information about the IPv6 CIDR blocks of the VPC.
+     * @description The IPv6 CIDR block of the VPC.
      *
      * @var ipv6CidrBlocks
      */
@@ -120,8 +120,8 @@ class DescribeVpcAttributeResponseBody extends Model
     /**
      * @description Indicates whether the VPC is the default VPC. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -139,7 +139,7 @@ class DescribeVpcAttributeResponseBody extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the VPC.
+     * @description The ID of the region to which the VPC belongs.
      *
      * @example cn-hangzhou
      *
@@ -148,7 +148,7 @@ class DescribeVpcAttributeResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7486AE4A-129D-43DB-A714-2432C074BA04
      *
@@ -175,8 +175,8 @@ class DescribeVpcAttributeResponseBody extends Model
     /**
      * @description The status of the VPC. Valid values:
      *
-     *   **Available**: available
-     *   **Pending**: being configured
+     *   **Available**
+     *   **Pending**
      *
      * @example Available
      *
@@ -187,8 +187,9 @@ class DescribeVpcAttributeResponseBody extends Model
     /**
      * @description Indicates whether the VPC supports IPv4 gateways.
      *
-     * - **true**: yes
-     * - **false**: no
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -196,6 +197,8 @@ class DescribeVpcAttributeResponseBody extends Model
     public $supportIpv4Gateway;
 
     /**
+     * @description The information about the tags.
+     *
      * @var tags
      */
     public $tags;

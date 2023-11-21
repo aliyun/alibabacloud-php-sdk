@@ -29,8 +29,8 @@ class sslVpnServer extends Model
     /**
      * @description Indicates whether data compression is enabled. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -57,10 +57,10 @@ class sslVpnServer extends Model
     public $createTime;
 
     /**
-     * @description Indicates whether two-factor authentication is enabled. Valid values:
+     * @description Indicates whether two-factor authentication is enabled.
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
      * @example true
      *
@@ -69,7 +69,7 @@ class sslVpnServer extends Model
     public $enableMultiFactorAuth;
 
     /**
-     * @description The ID of the Identity as a Service (IDaaS) instance.
+     * @description The ID of the IDaaS instance.
      *
      * @example idaas-cn-hangzhou-****
      *
@@ -150,6 +150,11 @@ class sslVpnServer extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the SSL server belongs.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -19,7 +19,7 @@ class customerGateway extends Model
     public $asn;
 
     /**
-     * @description The authentication key of the BGP routing protocol for the gateway device in the data center.
+     * @description The authentication key of the Border Gateway Protocol (BGP) routing protocol for the gateway device in the data center.
      *
      * @example AuthKey****
      *
@@ -28,7 +28,7 @@ class customerGateway extends Model
     public $authKey;
 
     /**
-     * @description The timestamp generated when the customer gateway was created. Unit: milliseconds.
+     * @description The timestamp generated when the customer gateway was created. Unit: millisecond.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492747187000
@@ -74,6 +74,11 @@ class customerGateway extends Model
     public $name;
 
     /**
+     * @description The ID of the resource group to which the customer gateway belongs.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;

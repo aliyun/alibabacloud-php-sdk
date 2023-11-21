@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSslVpnServersRequest extends Model
 {
     /**
-     * @description The name of the SSL-VPN server.
+     * @description The SSL server name.
      *
      * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
      * @example test
@@ -29,7 +29,7 @@ class DescribeSslVpnServersRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the returned page. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -38,7 +38,7 @@ class DescribeSslVpnServersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -47,7 +47,7 @@ class DescribeSslVpnServersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the SSL servers are created.
+     * @description The region ID of the SSL server.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -57,6 +57,11 @@ class DescribeSslVpnServersRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the SSL server belongs.
+     *
+     * You can call the [DescribeVpnGateway](~~2526915~~) operation to query the ID of the resource group to which the VPN gateway instance belongs.
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -72,7 +77,7 @@ class DescribeSslVpnServersRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the SSL-VPN server.
+     * @description The ID of the SSL server.
      *
      * @example vss-bp15j3du13gq1dgey****
      *

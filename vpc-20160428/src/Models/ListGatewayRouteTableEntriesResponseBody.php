@@ -17,10 +17,10 @@ class ListGatewayRouteTableEntriesResponseBody extends Model
     public $gatewayRouteEntryModels;
 
     /**
-     * @description The token that determines the start point of the query. Valid values:
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If no value is returned for **NextToken**, no next queries are sent.
-     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *

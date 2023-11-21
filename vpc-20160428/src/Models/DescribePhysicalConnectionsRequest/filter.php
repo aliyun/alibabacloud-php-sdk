@@ -15,7 +15,7 @@ class filter extends Model
      *
      *   **AccessPointId**: the ID of the access point.
      *
-     *   **Type**: the type of the Express Connect circuit. You can set Type only to **VPC**.
+     *   **Type**: the type of resource to which the Express Connect circuit is connected. You can set Type only to **VPC**.
      *
      *   **LineOperator**: the connectivity provider of the Express Connect circuit. Valid values:
      *
@@ -29,14 +29,11 @@ class filter extends Model
      *   **Spec**: the specification of the Express Connect circuit. Valid values:
      *
      *   **1G and below**
-     *
      *   **10G**
-     *
      *   **40G**
-     *
      *   **100G**
      *
-     * > By default, you cannot set Spec to **40G** or **100G**. To query 40 Gbit/s or 100 Gbit/s Express Connect circuits, you must first submit an application to acquire the permissions.
+     * >  By default, you cannot set the value to **40G** or **100G**. To use these values, you must first contact your account manager.
      *
      *   **Status**: the status of the Express Connect circuit. Valid values:
      *
@@ -44,7 +41,7 @@ class filter extends Model
      *   **Approved**: The application is approved.
      *   **Allocating**: The system is allocating resources.
      *   **Allocated**: The Express Connect circuit is under construction.
-     *   **Confirmed**: The Express Connect circuit is pending user confirmation.
+     *   **Confirmed**: The Express Connect circuit is pending for user confirmation.
      *   **Enabled**: The Express Connect circuit is enabled.
      *   **Rejected**: The application is rejected.
      *   **Canceled**: The application is canceled.
@@ -54,7 +51,12 @@ class filter extends Model
      *
      *   **Name**: the name of the Express Connect circuit.
      *
-     * You can specify at most five filter conditions in each call. The logical relation among the filter conditions is **AND**. Therefore, an Express Connect circuit is returned only when all specified filter conditions are matched.
+     *   **ProductType**: the type of the Express Connect circuit. Valid values:
+     *
+     *   **VirtualPhysicalConnection**: shared Express Connect circuit
+     *   **PhysicalConnection**: dedicated Express Connect circuit.
+     *
+     * You can specify at most five filter conditions in each request. The logical relation among the filter conditions is **AND**. Therefore, an Express Connect circuit is returned only when all specified filter conditions are matched.
      * @example Name
      *
      * @var string
@@ -62,6 +64,8 @@ class filter extends Model
     public $key;
 
     /**
+     * @description The filter values.
+     *
      * @example 1
      *
      * @var string[]

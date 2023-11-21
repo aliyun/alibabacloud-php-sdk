@@ -11,9 +11,9 @@ class ModifyForwardEntryRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -35,7 +35,7 @@ class ModifyForwardEntryRequest extends Model
      *
      *   Valid values: **1** to **65535**.
      *   If you want to modify the port range, separate port numbers with a forward slash (/), such as `10/20`.
-     *   If you want to modify **ExternalPort** and **InternalPort** at the same time, and set **ExternalPort** to a port range, you must also set **InternalPort** to a port range. For example, you can set **ExternalPort** to `10/20` and set **InternalPor** to `80/90`.
+     *   If you need to modify **ExternalPort** and **InternalPort** at the same time, and **ExternalPort** specifies a port range, make sure that **InternalPort** also specifies a port range, and both ranges specify the same number of ports. For example, you can set **ExternalPort** to `10/20` and **InternalPort** to `80/90`.
      *
      *   The port that is accessed by external networks when you modify DNAT entries of VPC NAT gateways. Valid values: **1** to **65535**.
      *
@@ -94,11 +94,11 @@ class ModifyForwardEntryRequest extends Model
     public $internalPort;
 
     /**
-     * @description The protocol type. Valid values:
+     * @description The protocol. Valid values:
      *
-     *   **TCP**: The NAT gateway forwards TCP packets.
-     *   **UDP**: The NAT gateway forwards UDP packets.
-     *   **Any**: The NAT gateway forwards packets of all protocols.
+     *   **TCP**
+     *   **UDP**
+     *   **Any**
      *
      * @example TCP
      *
@@ -119,8 +119,8 @@ class ModifyForwardEntryRequest extends Model
     /**
      * @description Specifies whether to remove limits on the port range. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no If an SNAT entry and a DNAT entry use the same public IP address, and you want to specify a port number greater than `1024`, set `PortBreak` to `true`.
+     *   **true**
+     *   **false** If an SNAT entry and a DNAT entry use the same public IP address, and you want to specify a port number greater than `1024`, set `PortBreak` to `true`.
      *
      * @example false
      *

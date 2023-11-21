@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteNatIpResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E9AD97A0-5338-43F8-8A80-5E274CCBA11B
      *

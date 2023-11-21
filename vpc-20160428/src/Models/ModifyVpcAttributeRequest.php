@@ -11,7 +11,7 @@ class ModifyVpcAttributeRequest extends Model
     /**
      * @description The new IPv4 CIDR block of the VPC.
      *
-     * >  Your services are not affected when you modify the VPC CIDR block.
+     * >  If you modify the CIDR block of a VPC, your existing services are not affected.
      * @example 192.168.0.0/24
      *
      * @var string
@@ -31,8 +31,8 @@ class ModifyVpcAttributeRequest extends Model
     /**
      * @description Specifies whether to enable IPv6 CIDR blocks. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -52,12 +52,12 @@ class ModifyVpcAttributeRequest extends Model
     /**
      * @description The type of IPv6 CIDR block. Valid values:
      *
-     *   **BGP** (default): Alibaba Cloud Border Gateway Protocol (BGP) IPv6
-     *   **ChinaMobile**: China Mobile (single ISP)
-     *   **ChinaUnicom**: China Unicom (single ISP)
-     *   **ChinaTelecom**: China Telecom (single ISP)
+     *   **BGP** (default)
+     *   **ChinaMobile**
+     *   **ChinaUnicom**
+     *   **ChinaTelecom**
      *
-     * >  If your Alibaba Cloud account is allowed to use single-ISP bandwidth, valid values are: **ChinaTelecom**, **ChinaUnicom**, and **ChinaMobile**.
+     * >  If your Alibaba Cloud account is allowed to activate single-ISP bandwidth, you can set this parameter to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
      * @example BGP
      *
      * @var string
@@ -106,7 +106,7 @@ class ModifyVpcAttributeRequest extends Model
     /**
      * @description The new name of the VPC.
      *
-     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example Vpc-1
      *
      * @var string

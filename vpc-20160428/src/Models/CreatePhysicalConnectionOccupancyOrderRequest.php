@@ -23,7 +23,7 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must ensure that it is unique among different requests.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests.
      * @example CBCE910E-D396-4944
      *
      * @var string
@@ -31,7 +31,7 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
     public $clientToken;
 
     /**
-     * @description The billing method of the Express Connect circuit. Set the value to
+     * @description The billing method. Set the value to
      *
      **PrePaid**, which specifies the subscription billing method. If you choose this billing method, make sure that your Alibaba Cloud account supports balance payments or credit payments.
      *
@@ -75,8 +75,8 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
     /**
      * @description The billing cycle of the subscription. Valid values:
      *
-     *   **Month**: Bills are paid on a monthly basis. This is the default value.
-     *   **Year**: Bills are paid on an annual basis.
+     *   **Month** (default)
+     *   **Year**
      *
      * @example Month
      *

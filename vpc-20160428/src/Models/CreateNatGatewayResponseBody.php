@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class CreateNatGatewayResponseBody extends Model
 {
     /**
-     * @description The list of DNAT entries.
+     * @description A list of DNAT entries.
      *
      * @var forwardTableIds
      */
     public $forwardTableIds;
 
     /**
-     * @description The list of FULLNAT entries.
+     * @description A list of FULLNAT entries.
      *
      * @var fullNatTableIds
      */
@@ -35,7 +35,7 @@ class CreateNatGatewayResponseBody extends Model
     public $natGatewayId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2315DEB7-5E92-423A-91F7-4C1EC9AD97C3
      *
@@ -44,7 +44,7 @@ class CreateNatGatewayResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of SNAT entries.
+     * @description A list of SNAT entries.
      *
      * @var snatTableIds
      */

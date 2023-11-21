@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description The ID of the resource with which you want to associate the network ACL.
+     * @description The ID of the associated resource.
      *
      * @example vsw-bp1de348lntdw****
      *

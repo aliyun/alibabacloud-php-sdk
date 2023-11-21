@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomerGatewaysResponseBody extends Model
 {
     /**
-     * @description The tag value.
+     * @description The information about customer gateways.
      *
      * @var customerGateways
      */

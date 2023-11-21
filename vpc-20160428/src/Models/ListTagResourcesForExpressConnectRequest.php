@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesForExpressConnectRequest extends Model
 {
     /**
-     * @description The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -19,10 +19,10 @@ class ListTagResourcesForExpressConnectRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
-     *   If this is your first query or no next query is to be sent, ignore this parameter.
-     *   If a next query is to be sent, set the value to the value of **NextToken** that is returned in the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -41,9 +41,9 @@ class ListTagResourcesForExpressConnectRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the resource.
+     * @description The ID of the region to which the resource resides.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +51,8 @@ class ListTagResourcesForExpressConnectRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource IDs.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -66,7 +68,11 @@ class ListTagResourcesForExpressConnectRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Set the value to **PHYSICALCONNECTION**, which specifies the Express Connect circuit.
+     * @description The type of the resource. Valid values:
+     *
+     *   **PHYSICALCONNECTION**: Express Connect circuit.
+     *   **VIRTUALBORDERROUTER**: virtual border router (VBR).
+     *   **ROUTERINTERFACE**: router interface.
      *
      * @example PHYSICALCONNECTION
      *
@@ -75,6 +81,8 @@ class ListTagResourcesForExpressConnectRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

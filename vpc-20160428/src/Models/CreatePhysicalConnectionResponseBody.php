@@ -18,7 +18,7 @@ class CreatePhysicalConnectionResponseBody extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8A6A5EC5-6F6C-4906-9689-56ACE58A13E0
      *

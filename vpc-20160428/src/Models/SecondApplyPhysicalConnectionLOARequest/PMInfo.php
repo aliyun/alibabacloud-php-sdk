@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PMInfo extends Model
 {
     /**
+     * @description The ID number of the construction engineer. You can specify the ID number of an ID card or an international passport.
+     *
+     * You can configure information for up to 16 construction engineers.
      * @example 5****************9
      *
      * @var string
@@ -16,6 +19,11 @@ class PMInfo extends Model
     public $PMCertificateNo;
 
     /**
+     * @description The type of the identity document of the construction engineer. Valid values:
+     *
+     *   **IDCard**
+     *   **Passport**
+     *
      * @example IDCard
      *
      * @var string
@@ -23,6 +31,8 @@ class PMInfo extends Model
     public $PMCertificateType;
 
     /**
+     * @description The contact information about the construction engineer.
+     *
      * @example 1390000****
      *
      * @var string
@@ -30,6 +40,8 @@ class PMInfo extends Model
     public $PMContactInfo;
 
     /**
+     * @description The gender of the construction engineer.
+     *
      * @example Male
      *
      * @var string
@@ -37,6 +49,8 @@ class PMInfo extends Model
     public $PMGender;
 
     /**
+     * @description The name of the construction engineer.
+     *
      * @var string
      */
     public $PMName;

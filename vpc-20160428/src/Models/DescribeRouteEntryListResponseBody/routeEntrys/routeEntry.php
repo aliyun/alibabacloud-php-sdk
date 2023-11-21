@@ -19,7 +19,7 @@ class routeEntry extends Model
     public $description;
 
     /**
-     * @description The destination CIDR blocks of the route.
+     * @description The destination CIDR block of the route.
      *
      * @example 192.168.2.0/24
      *
@@ -28,7 +28,7 @@ class routeEntry extends Model
     public $destinationCidrBlock;
 
     /**
-     * @description The time when the route was modified. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format in UTC.
+     * @description The time when the route was modified. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format in UTC.
      *
      * @example 2022-05-09T03:00:07Z
      *
@@ -49,7 +49,7 @@ class routeEntry extends Model
     public $ipVersion;
 
     /**
-     * @description The information about the next hops.
+     * @description The information about the next hop.
      *
      * @var nextHops
      */
@@ -65,7 +65,7 @@ class routeEntry extends Model
     public $routeEntryId;
 
     /**
-     * @description The name of the route.
+     * @description The route name.
      *
      * @example aaa
      *
@@ -85,7 +85,7 @@ class routeEntry extends Model
     /**
      * @description Indicates whether the route is hosted. If the parameter is empty, the route is not hosted.
      *
-     * If the value is set to **TR**, the route is hosted by a transit router.
+     * If **TR** is returned, the route is hosted by a transit router.
      * @example TR
      *
      * @var string
@@ -95,9 +95,9 @@ class routeEntry extends Model
     /**
      * @description The status of the route. Valid values:
      *
-     *   **Pending**: The route is being configured.
-     *   **Available**: The route is available.
-     *   **Modifying**: The route is being modified.
+     *   **Pending**
+     *   **Available**
+     *   **Modifying**
      *
      * @example Available
      *
@@ -106,12 +106,12 @@ class routeEntry extends Model
     public $status;
 
     /**
-     * @description The type of the route. Valid values:
+     * @description The route type. Valid values:
      *
-     *   **Custom**: a custom route
-     *   **System**: a system route
-     *   **BGP**: a BGP route
-     *   **CEN**: a CEN route
+     *   **Custom**
+     *   **System**
+     *   **BGP**
+     *   **CEN**
      *
      * @example Custom
      *

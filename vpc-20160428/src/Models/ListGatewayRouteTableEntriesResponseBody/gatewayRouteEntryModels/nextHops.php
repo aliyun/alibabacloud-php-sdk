@@ -33,7 +33,7 @@ class nextHops extends Model
      * @description The type of the next hop. Valid values:
      *
      *   **Instance** (default): an ECS instance
-     *   **HaVip**: a high-availability virtual IP address (HAVIP)
+     *   **HaVip**: a high-availability virtual IP address (HAVIP).
      *   **VpnGateway**: a VPN gateway
      *   **NatGateway**: a NAT gateway
      *   **NetworkInterface**: a secondary ENI

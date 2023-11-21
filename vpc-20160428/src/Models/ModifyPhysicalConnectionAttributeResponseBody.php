@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhysicalConnectionAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 013EE132-A109-4247-91B0-099A8FF49AD7
      *

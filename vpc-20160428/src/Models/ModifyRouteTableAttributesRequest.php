@@ -27,7 +27,7 @@ class ModifyRouteTableAttributesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the virtual private cloud (VPC) to which the route table belongs.
+     * @description The region ID of the virtual private cloud (VPC) to which the custom route table belongs.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -58,7 +58,7 @@ class ModifyRouteTableAttributesRequest extends Model
     /**
      * @description The name of the route table.
      *
-     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example doctest
      *
      * @var string

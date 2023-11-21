@@ -19,6 +19,9 @@ class DeleteVSwitchCidrReservationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the vSwitch is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +39,8 @@ class DeleteVSwitchCidrReservationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the reserved CIDR block.
+     *
      * @example vcr-bp1m12saqteraw3rp****
      *
      * @var string

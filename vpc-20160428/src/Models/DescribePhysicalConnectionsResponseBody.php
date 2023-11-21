@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionsResponseBody extends Model
 {
     /**
-     * @description The number of the returned page. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribePhysicalConnectionsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: **10**. Valid values: **1** to **50**.
+     * @description The number of entries per page. Default value: **10**. Valid values: **1** to **50**.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribePhysicalConnectionsResponseBody extends Model
     public $physicalConnectionSet;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0E6D0EC4-7C91-53E2-9F65-64BF713114B0
      *
@@ -44,7 +44,7 @@ class DescribePhysicalConnectionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned.
+     * @description The number of returned entries.
      *
      * @example 1
      *

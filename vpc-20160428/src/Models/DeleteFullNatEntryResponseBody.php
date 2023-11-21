@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteFullNatEntryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2BCC426F-A9F2-3F03-99D2-1E0D647236DB
      *

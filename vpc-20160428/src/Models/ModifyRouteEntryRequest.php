@@ -19,11 +19,19 @@ class ModifyRouteEntryRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the new next hop instance.
+     *
+     * @example eni-bp17y37ytsenqyim****
+     *
      * @var string
      */
     public $newNextHopId;
 
     /**
+     * @description The new next hop type of the route.
+     *
+     * @example NetworkInterface
+     *
      * @var string
      */
     public $newNextHopType;

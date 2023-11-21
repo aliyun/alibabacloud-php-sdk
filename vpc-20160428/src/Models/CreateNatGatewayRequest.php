@@ -23,7 +23,7 @@ class CreateNatGatewayRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests.
      *
-     * >  If you do not specify this parameter, the system automatically sets **ClientToken** to the value of **RequestId**. **RequestId** might be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -54,9 +54,12 @@ class CreateNatGatewayRequest extends Model
      *
      *   **MULTI_BINDED** (default): Multi-EIP-to-ENI mode.
      *
-     *   **NAT**: NAT mode. IPv4 gateways are supported.
+     *   **NAT**: NAT mode. IPv4 gateways are supported in this mode.
      *
-     * > If you use the NAT mode, the EIP occupies one private IP address on the vSwitch of the NAT gateway. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the NAT gateway fails to be associated with the EIP. In NAT mode, you can associate a NAT gateway with at most 50 EIPs.
+     **
+     *
+     **Note** If a NAT gateway is associated with an EIP in NAT mode, the EIP occupies one private IP address in the vSwitch. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the NAT gateway fails to be associated with the EIP. In NAT mode, a maximum number of 50 EIPs can be associated with each NAT gateway.
+     *
      * @example MULTI_BINDED
      *
      * @var string
@@ -64,10 +67,10 @@ class CreateNatGatewayRequest extends Model
     public $eipBindMode;
 
     /**
-     * @description Specifies whether to enable the ICMP non-retrieval feature. Valid values:
+     * @description Specifies whether to enable ICMP retrieval. Valid values:
      *
-     *   **false** (default): no
-     *   **true**: yes
+     *   **true** (default)
+     *   **false**
      *
      * @example false
      *
@@ -107,7 +110,7 @@ class CreateNatGatewayRequest extends Model
     public $name;
 
     /**
-     * @description The type of NAT gateway. Set the value to **Enhanced** (enhanced NAT gateway).
+     * @description The type of NAT gateway. Set the value to **Enhanced**, which specifies enhanced NAT gateway.
      *
      * @example Enhanced
      *
@@ -118,8 +121,8 @@ class CreateNatGatewayRequest extends Model
     /**
      * @description The network type of the NAT gateway. Valid values:
      *
-     *   **internet**: an Internet NAT gateway
-     *   **intranet**: a VPC NAT gateway
+     *   **internet**: Internet
+     *   **intranet**: VPC
      *
      * @example internet
      *
@@ -147,9 +150,9 @@ class CreateNatGatewayRequest extends Model
     public $pricingCycle;
 
     /**
-     * @description The ID of the region where you want to create the NAT gateway.
+     * @description The region ID of the NAT gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -169,8 +172,8 @@ class CreateNatGatewayRequest extends Model
     /**
      * @description Specifies whether to enable the firewall feature. Valid values:
      *
-     *   **false** (default): no
-     *   **true**: yes
+     *   **false** (default)
+     *   **true**
      *
      * @example false
      *
@@ -188,7 +191,7 @@ class CreateNatGatewayRequest extends Model
     public $spec;
 
     /**
-     * @description The list of Tag entries.
+     * @description The tags.
      *
      * @var tag[]
      */
@@ -202,7 +205,7 @@ class CreateNatGatewayRequest extends Model
      *   To attach the NAT gateway to an existing vSwitch, make sure that the zone to which the vSwitch belongs supports NAT gateways. In addition, the vSwitch must have idle IP addresses.
      *   If no vSwitch exists in the VPC, create a vSwitch in a zone that supports NAT gateways. Then, specify the vSwitch for the NAT gateway.
      *
-     * >  You can query the zones that support NAT gateways by calling the [ListEnhanhcedNatGatewayAvailableZones](~~182292~~) operation. You can query the number of available IP addresses in a vSwitch by calling the [DescribeVSwitches](~~35748~~) operation.
+     * >  You can call the [ListEnhanhcedNatGatewayAvailableZones](~~182292~~) operation to query zones that support NAT gateways. You can call the [DescribeVSwitches](~~35748~~) operation to query idle IP addresses in a vSwitch.
      * @example vsw-bp1e3se98n9fq8hle****
      *
      * @var string

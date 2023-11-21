@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSslVpnServersResponseBody extends Model
 {
     /**
-     * @description The number of the returned page.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeSslVpnServersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeSslVpnServersResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D350187B-EA41-4577-950B-95434C8302E1
      *
@@ -44,7 +44,7 @@ class DescribeSslVpnServersResponseBody extends Model
     public $sslVpnServers;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries returned.
      *
      * @example 1
      *

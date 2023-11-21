@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class associatedPhysicalConnection extends Model
 {
     /**
-     * @description The circuit code of the Express Connect circuit. The circuit code is predefined by the connectivity provider.
+     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the ISP.
      *
      * @example longtel0**
      *
@@ -20,8 +20,8 @@ class associatedPhysicalConnection extends Model
     /**
      * @description Indicates whether IPv6 is enabled. Valid values:
      *
-     *   **true**: enabled.
-     *   **false**: disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -48,7 +48,7 @@ class associatedPhysicalConnection extends Model
     public $localIpv6GatewayIp;
 
     /**
-     * @description The IPv4 address of the VBR on the user side.
+     * @description The IPv4 address of the gateway device on the user side.
      *
      * @example 116.62.XX.XX
      *
@@ -57,7 +57,7 @@ class associatedPhysicalConnection extends Model
     public $peerGatewayIp;
 
     /**
-     * @description The IPv6 address of the gateway device in the data center.
+     * @description The IPv6 address of the gateway device on the user side.
      *
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
@@ -88,8 +88,8 @@ class associatedPhysicalConnection extends Model
     /**
      * @description The business status of the Express Connect circuit.
      *
-     *   **Normal**: normal
-     *   **FinancialLocked**: locked due to overdue payments
+     *   **Normal:** The Express Connect circuit is running as normal.
+     *   **FinancialLocked:** The Express Connect circuit is locked due to overdue payments.
      *
      * @example Normal
      *
@@ -107,7 +107,7 @@ class associatedPhysicalConnection extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The UID of the Alibaba Cloud account to which the Express Connect circuit belongs.
+     * @description The ID of the Alibaba Cloud account to which the Express Connect circuit belongs.
      *
      * @example 12345678****
      *
@@ -118,16 +118,16 @@ class associatedPhysicalConnection extends Model
     /**
      * @description The status of the Express Connect circuit.
      *
-     *   **Initial**: The application is under review.
+     *   **Initial:** The application is under review.
      *   **Approved**: The application is approved.
      *   **Allocating**: The system is allocating resources.
      *   **Allocated**: The Express Connect circuit is under construction.
-     *   **Confirmed**: The Express Connect circuit is pending for user confirmation.
+     *   **Confirmed**: The Express Connect circuit is to be confirmed.
      *   **Enabled**: The Express Connect circuit is enabled.
      *   **Rejected**: The application is rejected.
      *   **Canceled**: The application is canceled.
-     *   **Allocation Failed**: The system failed to allocate resources.
-     *   **Terminated**: The Express Connect circuit is disabled.
+     *   **Allocation Failed:** The system failed to allocate resources.
+     *   **Terminated:** The Express Connect circuit is disabled.
      *
      * @example Enabled
      *
@@ -138,12 +138,12 @@ class associatedPhysicalConnection extends Model
     /**
      * @description The status of the VBR. Valid values:
      *
-     *   **unconfirmed**: pending confirmation from other users
-     *   **active**: normal
-     *   **terminating**: being disabled
-     *   **terminated**: disabled
-     *   **recovering**: being enabled
-     *   **deleting:** The endpoint is being deleted.
+     *   **unconfirmed**
+     *   **active**
+     *   **terminating**
+     *   **terminated**
+     *   **recovering**
+     *   **deleting**
      *
      * @example active
      *

@@ -26,7 +26,7 @@ class CreateRouteEntriesResponseBody extends Model
     public $failedRouteEntries;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
@@ -35,7 +35,7 @@ class CreateRouteEntriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the custom route entry that was successfully added.
+     * @description The information about the ID of the custom route entry that was successfully added.
      *
      * @var string[]
      */

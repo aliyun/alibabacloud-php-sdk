@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagKeysForExpressConnectRequest extends Model
 {
     /**
-     * @description The keyword of the tag. The keyword is used to perform a fuzzy match. You can specify a keyword to query all tags that contain the keyword.
+     * @description The keyword of the tag. Fuzzy match is supported. You can specify a keyword to query all tags that contain the keyword.
      *
      * @example keyword
      *
@@ -18,7 +18,7 @@ class DescribeTagKeysForExpressConnectRequest extends Model
     public $keyword;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -27,10 +27,10 @@ class DescribeTagKeysForExpressConnectRequest extends Model
     public $maxResult;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
-     *   If this is your first query and no next queries are to be sent, ignore this parameter.
-     *   If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -49,9 +49,9 @@ class DescribeTagKeysForExpressConnectRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the resource belongs.
+     * @description The ID of the region to which the resource resides.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -59,6 +59,8 @@ class DescribeTagKeysForExpressConnectRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the resources. You can specify up to 20 resource IDs.
+     *
      * @var string[]
      */
     public $resourceId;

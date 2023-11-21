@@ -13,7 +13,7 @@ class DescribePhysicalConnectionsRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example 02fb3da4-130e-11e9-8e44-001
      *
      * @var string
@@ -21,6 +21,8 @@ class DescribePhysicalConnectionsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The filter keys.
+     *
      * @var filter[]
      */
     public $filter;
@@ -28,8 +30,8 @@ class DescribePhysicalConnectionsRequest extends Model
     /**
      * @description Specifies whether to return the data about pending orders. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -48,7 +50,7 @@ class DescribePhysicalConnectionsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -57,7 +59,7 @@ class DescribePhysicalConnectionsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     * @description The number of entries per page. Default value: **10**. Valid values: **1** to **50**.
      *
      * @example 10
      *
@@ -76,6 +78,8 @@ class DescribePhysicalConnectionsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the Express Connect circuit belongs.
+     *
      * @example rg-aek2yvwibxrmrkq
      *
      * @var string
@@ -93,6 +97,8 @@ class DescribePhysicalConnectionsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;

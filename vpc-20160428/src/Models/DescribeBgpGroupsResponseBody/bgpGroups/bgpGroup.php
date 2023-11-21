@@ -58,8 +58,8 @@ class bgpGroup extends Model
     /**
      * @description Indicates whether the ASN is fake. Valid values:
      *
-     *   **false**: no
-     *   **true**: yes
+     *   **false**
+     *   **true**
      *
      * @example true
      *
@@ -77,7 +77,7 @@ class bgpGroup extends Model
     public $keepalive;
 
     /**
-     * @description The ASN of the VBR.
+     * @description The ASN of the device on the Alibaba Cloud side.
      *
      * @example 45104
      *
@@ -95,7 +95,7 @@ class bgpGroup extends Model
     public $name;
 
     /**
-     * @description The autonomous system number (ASN) of the gateway device in the data center.
+     * @description The autonomous system number (ASN) of the on-premises device in the data center.
      *
      * @example 1****
      *

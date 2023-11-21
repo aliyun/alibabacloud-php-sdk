@@ -39,7 +39,7 @@ class egressAclEntries extends Model
     /**
      * @description The ID of the outbound rule.
      *
-     * Valid values of **N**: **0** to **29**. You can update at most 30 outbound rules.
+     * Valid values of **N**: **0** to **99**. You can specify at most 100 outbound rules.
      * @example nae-2zecs97e0brcge46****
      *
      * @var string
@@ -49,7 +49,7 @@ class egressAclEntries extends Model
     /**
      * @description The name of the outbound rule.
      *
-     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example acl-2
      *
      * @var string
@@ -57,10 +57,10 @@ class egressAclEntries extends Model
     public $networkAclEntryName;
 
     /**
-     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     * @description The rule action that determines whether to allow outbound traffic. Valid values:
      *
-     *   **accept**: allows the network traffic.
-     *   **drop**: blocks the network traffic.
+     *   **accept**
+     *   **drop**
      *
      * @example accept
      *
@@ -69,10 +69,10 @@ class egressAclEntries extends Model
     public $policy;
 
     /**
-     * @description The destination port range of the outbound rule.
+     * @description The destination port range of the outbound traffic.
      *
-     *   If **Protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which specifies all ports.
-     *   If **Protocol** of the outbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid values for a port: **1** to **65535**.
+     *   If the **protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which specified all ports.
+     *   If the **protocol** of the outbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid values for a port: **1** to **65535**.
      *
      * @example -1/-1
      *
@@ -83,11 +83,11 @@ class egressAclEntries extends Model
     /**
      * @description The protocol type. Valid values:
      *
-     *   **icmp**: ICMP
-     *   **gre**: GRE
-     *   **tcp**: TCP
-     *   **udp**: UDP
-     *   **all**: all protocols
+     *   **icmp**
+     *   **gre**
+     *   **tcp**
+     *   **udp**
+     *   **all**
      *
      * @example all
      *

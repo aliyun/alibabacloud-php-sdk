@@ -26,7 +26,7 @@ class DescribeEcGrantRelationResponseBody extends Model
     public $ecGrantRelations;
 
     /**
-     * @description The number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeEcGrantRelationResponseBody extends Model
     public $page;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -44,7 +44,7 @@ class DescribeEcGrantRelationResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E6E90F6B-2B41-5AAF-ABEB-236ADBAAD91D
      *

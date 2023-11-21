@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyBgpGroupAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8C3C6D7C-A1CE-4FD8-BC57-DC493A55F76F
      *

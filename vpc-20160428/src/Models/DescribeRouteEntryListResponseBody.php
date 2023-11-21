@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteEntryListResponseBody extends Model
 {
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If **NextToken** is empty, it indicates that no next query is to be sent.
-     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -22,7 +22,7 @@ class DescribeRouteEntryListResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
      *
@@ -31,7 +31,7 @@ class DescribeRouteEntryListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the routes.
+     * @description The information about the route.
      *
      * @var routeEntrys
      */

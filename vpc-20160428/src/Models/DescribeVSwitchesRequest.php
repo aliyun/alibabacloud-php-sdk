@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesRequest extends Model
 {
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
+     * @description Specifies whether to perform a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *   **false**: sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed. This is the default value.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example true
      *
@@ -22,12 +22,12 @@ class DescribeVSwitchesRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether to query the default vSwitch in the specified region. Valid values:
+     * @description Specifies whether to query the default vSwitches in the specified region. Valid values:
      *
-     *   **true**: queries the default vSwitch in the specified region.
-     *   **false**: does not query the default vSwitch in the specified region.
+     *   **true**
+     *   **false**
      *
-     * If you do not specify this parameter, the system queries all vSwitches in the specified region by default.
+     * If you do not set this parameter, the system queries all vSwitches in the specified region by default.
      * @example true
      *
      * @var bool
@@ -65,7 +65,7 @@ class DescribeVSwitchesRequest extends Model
     /**
      * @description The region ID of the vSwitch. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      *
-     * >  You must set at least one of the **RegionId** and **VpcId** parameters.
+     * >  You must set at least one of **RegionId** and **VpcId**.
      * @example cn-hangzhou
      *
      * @var string
@@ -101,6 +101,8 @@ class DescribeVSwitchesRequest extends Model
     public $routeTableId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
@@ -115,7 +117,7 @@ class DescribeVSwitchesRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The name of the vSwitch.
+     * @description The vSwitch name.
      *
      * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example vSwitch
@@ -125,7 +127,7 @@ class DescribeVSwitchesRequest extends Model
     public $vSwitchName;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     * @description The ID of the Alibaba Cloud account to which the vSwitch belongs.
      *
      * @example 2546073170691****
      *
@@ -134,9 +136,9 @@ class DescribeVSwitchesRequest extends Model
     public $vSwitchOwnerId;
 
     /**
-     * @description The ID of the VPC to which the vSwitches belong.
+     * @description The ID of the virtual private cloud (VPC) to which the vSwitches belong.
      *
-     * >  You must set at least one of the **RegionId** and **VpcId** parameters.
+     * >  You must set at least one of **RegionId** and **VpcId**.
      * @example vpc-25cdvfeq58pl****
      *
      * @var string
@@ -144,7 +146,7 @@ class DescribeVSwitchesRequest extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone to which the vSwitch belongs. You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
+     * @description The ID of the zone to which the vSwitches belong. You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-d
      *

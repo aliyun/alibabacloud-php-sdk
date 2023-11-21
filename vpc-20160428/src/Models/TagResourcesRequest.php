@@ -66,11 +66,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tag value of the resource. You must enter at least one tag value and at most 20 tag values. It can be an empty string.
+     * @description The tags.
      *
-     * The tag value cannot exceed 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
-     *
-     * >  When you call this operation, **Tag.N.Value** is required.
      * @example TagResources
      *
      * @var tag[]

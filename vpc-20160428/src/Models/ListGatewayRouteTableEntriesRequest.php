@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayRouteTableEntriesRequest extends Model
 {
     /**
-     * @description The destination CIDR block of the route in the gateway route table.
+     * @description The destination CIDR block of the route entry in the gateway route table.
      *
      * @example 192.168.0.5
      *
@@ -36,10 +36,10 @@ class ListGatewayRouteTableEntriesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query and no next queries are to be sent, ignore this parameter.
-     *   If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   If a value is returned for NextToken, specify the value in the next request to retrieve a new page of results.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -60,7 +60,7 @@ class ListGatewayRouteTableEntriesRequest extends Model
     /**
      * @description The region ID of the gateway route table.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent list of regions.
      * @example ap-southeast-6
      *
      * @var string

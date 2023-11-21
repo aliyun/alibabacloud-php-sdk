@@ -56,11 +56,11 @@ class bgpPeer extends Model
     /**
      * @description The status of the BGP connection. Valid values:
      *
-     *   **Idle**: not connected
-     *   **Connect**: in use
-     *   **Active**: available
-     *   **Established**: established
-     *   **Down**: unavailable
+     *   **Idle**: The BGP connection is not used.
+     *   **Connect**: The BGP connection is used.
+     *   **Active**: The BGP connection is available.
+     *   **Established**: The BGP connection is established.
+     *   **Down**: The BGP connection is unavailable.
      *
      * @example Connect
      *
@@ -80,8 +80,8 @@ class bgpPeer extends Model
     /**
      * @description Indicates whether BFD is enabled. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -117,10 +117,10 @@ class bgpPeer extends Model
     public $ipVersion;
 
     /**
-     * @description Indicates whether a fake ASN is used. Valid values:
+     * @description Indicates whether a fake autonomous system number (ASN) is used. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -138,7 +138,7 @@ class bgpPeer extends Model
     public $keepalive;
 
     /**
-     * @description The AS number of the device on the Alibaba Cloud side.
+     * @description The ASN of the device on the Alibaba Cloud side.
      *
      * @example 45104
      *
@@ -156,7 +156,7 @@ class bgpPeer extends Model
     public $name;
 
     /**
-     * @description The autonomous system (AS) number of the BGP peer.
+     * @description The autonomous system number (ASN)of the BGP peer.
      *
      * @example 65515
      *
@@ -192,7 +192,7 @@ class bgpPeer extends Model
     public $regionId;
 
     /**
-     * @description The limit on routes.
+     * @description The maximum number of routes.
      *
      * @example 110
      *
@@ -201,7 +201,7 @@ class bgpPeer extends Model
     public $routeLimit;
 
     /**
-     * @description The ID of the router.
+     * @description The Router ID.
      *
      * @example vbr-2zecmmvg5gvu8i4te****
      *

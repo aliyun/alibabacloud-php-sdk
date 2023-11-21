@@ -20,9 +20,9 @@ class TagResourcesForExpressConnectRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the resource to which you want to create and add tags.
+     * @description The ID of the region in which the resource is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +30,8 @@ class TagResourcesForExpressConnectRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource IDs. You can specify up to 20 resource IDs.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -45,7 +47,11 @@ class TagResourcesForExpressConnectRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Set the value to **PHYSICALCONNECTION**, which indicates the Express Connect circuit.
+     * @description The type of the resource. Valid values:
+     *
+     *   **PHYSICALCONNECTION**: Express Connect circuit.
+     *   **VIRTUALBORDERROUTER**: virtual border router (VBR).
+     *   **ROUTERINTERFACE**: router interface.
      *
      * @example PHYSICALCONNECTION
      *
@@ -54,6 +60,8 @@ class TagResourcesForExpressConnectRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags to add to the resource.
+     *
      * @var tag[]
      */
     public $tag;

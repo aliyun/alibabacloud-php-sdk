@@ -22,9 +22,9 @@ class ApplyPhysicalConnectionLOARequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -41,7 +41,7 @@ class ApplyPhysicalConnectionLOARequest extends Model
     public $companyName;
 
     /**
-     * @description The time when construction started. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     * @description The time when construction started. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2022-02-28T16:00:00Z
      *
@@ -59,7 +59,7 @@ class ApplyPhysicalConnectionLOARequest extends Model
     public $instanceId;
 
     /**
-     * @description The type of Express Connect circuit. Valid values:
+     * @description The type of the Express Connect circuit. Valid values:
      *
      *   **MSTP**: MSTP line
      *   **MPLSVPN**: MPLSVPN line
@@ -83,12 +83,14 @@ class ApplyPhysicalConnectionLOARequest extends Model
     public $ownerId;
 
     /**
+     * @description The information about the construction engineer.
+     *
      * @var PMInfo[]
      */
     public $PMInfo;
 
     /**
-     * @description The geographical location where the Express Connect circuit is deployed.
+     * @description The geographic location where the Express Connect circuit is deployed.
      *
      * @var string
      */

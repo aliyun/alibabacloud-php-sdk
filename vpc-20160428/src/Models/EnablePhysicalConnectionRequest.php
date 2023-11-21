@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class EnablePhysicalConnectionRequest extends Model
 {
     /**
+     * @description Specifies whether to skip the order lifecycle. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * >  To use this feature, you must contact your account manager.
+     * @example false
+     *
      * @var bool
      */
     public $byPassSp;
@@ -43,9 +51,9 @@ class EnablePhysicalConnectionRequest extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The region ID of the Express Connect circuit.
+     * @description The region where the Express Connect circuit is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the DescribeRegions operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

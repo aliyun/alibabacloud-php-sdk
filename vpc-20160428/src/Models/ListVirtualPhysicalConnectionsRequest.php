@@ -12,8 +12,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     /**
      * @description Specifies whether the hosted connection is accepted by the tenant. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -22,7 +22,7 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $isConfirmed;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -31,10 +31,10 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example dd20****
      *
@@ -43,7 +43,7 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the Express Connect circuit over which the hosted connection is created.
+     * @description The ID of the Express Connect circuit over which the hosted connections are created.
      *
      * Express Connect circuits in this topic refer to Express Connect circuits over which hosted connections are created.
      * @example pc-bp1ciz7ekd2grn1as****
@@ -63,6 +63,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the hosted connection belongs.
+     *
      * @example rg-acfmxazb4p****
      *
      * @var string
@@ -70,11 +72,15 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The information about the Alibaba Cloud account that owns the hosted connection.
+     *
      * @example 189xxx
      *
      * @var string[]
@@ -84,9 +90,9 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     /**
      * @description The business status of the hosted connection. Valid values:
      *
-     *   **Normal**: normal
-     *   **FinancialLocked**: locked due to overdue payments
-     *   **SecurityLocked**: locked for security reasons
+     *   **Normal**
+     *   **FinancialLocked**
+     *   **SecurityLocked**
      *
      * @example Normal
      *
@@ -95,6 +101,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $virtualPhysicalConnectionBusinessStatus;
 
     /**
+     * @description The information about the hosted connection.
+     *
      * @example pc-xxx
      *
      * @var string[]
@@ -102,6 +110,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $virtualPhysicalConnectionIds;
 
     /**
+     * @description The business status of the hosted connection.
+     *
      * @example pc-xxx
      *
      * @var string[]
@@ -109,6 +119,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $virtualPhysicalConnectionStatuses;
 
     /**
+     * @description The VLAN ID of the hosted connection.
+     *
      * @example pc-xxx
      *
      * @var string[]

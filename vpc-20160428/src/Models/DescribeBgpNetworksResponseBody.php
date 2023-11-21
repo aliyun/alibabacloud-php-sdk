@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeBgpNetworksResponseBody extends Model
 {
     /**
-     * @description BGP networks.
+     * @description The BGP network.
      *
      * @var bgpNetworks
      */
     public $bgpNetworks;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeBgpNetworksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeBgpNetworksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6F513A15-669F-419D-B511-08A85292059B
      *

@@ -47,6 +47,13 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $description;
 
     /**
+     * @description Indicates whether IPv6 is enabled for the vSwitch. If you enable IPv6, you must configure the IPv6 CIDR block of the vSwitch. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabledIpv6;
@@ -63,8 +70,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     /**
      * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -82,7 +89,7 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $networkAclId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the vSwitch belongs.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
      * @example 287683832402436789
      *
@@ -91,7 +98,7 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7B48B4B9-1EAD-469F-B488-594DAB4B6A1A
      *
@@ -100,7 +107,7 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the ACL belongs.
      *
      * @example rg-acfmxazb4ph****
      *
@@ -116,6 +123,14 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $routeTable;
 
     /**
+     * @description Indicates whether the vSwitch is shared.
+     *
+     *   If no value is returned, the vSwitch is a regular vSwitch.
+     *   If **Shared** is returned, the vSwitch is shared.
+     *   If **Sharing** is returned, the vSwitch is being shared.
+     *
+     * @example Shared
+     *
      * @var string
      */
     public $shareType;
@@ -133,14 +148,14 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $status;
 
     /**
-     * @description The tag list.
+     * @description The information about the tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-25b7pv15t****
      *
@@ -149,7 +164,7 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $vSwitchId;
 
     /**
-     * @description The name of the vSwitch.
+     * @description The vSwitch name.
      *
      * @example test
      *

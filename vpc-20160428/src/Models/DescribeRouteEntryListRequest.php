@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteEntryListRequest extends Model
 {
     /**
+     * @description The destination CIDR blocks of the routes.
+     *
      * @var string[]
      */
     public $destCidrBlockList;
@@ -35,7 +37,7 @@ class DescribeRouteEntryListRequest extends Model
     public $ipVersion;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
      *
      * @example 10
      *
@@ -56,7 +58,7 @@ class DescribeRouteEntryListRequest extends Model
      * @description The type of the next hop. Valid values:
      *
      *   **Instance** (default): an Elastic Compute Service (ECS) instance
-     *   **HaVip**: a high-availability virtual IP address (HAVIP)
+     *   **HaVip**: a high-availability virtual IP address (HAVIP).
      *   **VpnGateway**: a VPN gateway
      *   **NatGateway**: a NAT gateway
      *   **NetworkInterface**: a secondary elastic network interface (ENI)
@@ -71,10 +73,10 @@ class DescribeRouteEntryListRequest extends Model
     public $nextHopType;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query and no next queries are to be sent, ignore this parameter.
-     *   If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -122,9 +124,9 @@ class DescribeRouteEntryListRequest extends Model
     public $routeEntryId;
 
     /**
-     * @description The name of the route.
+     * @description The name of the route entry.
      *
-     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example abc
      *
      * @var string
@@ -132,12 +134,12 @@ class DescribeRouteEntryListRequest extends Model
     public $routeEntryName;
 
     /**
-     * @description The type of the route. Valid values:
+     * @description The route type. Valid values:
      *
-     *   **Custom**: a custom route
-     *   **System**: a system route
-     *   **BGP**: a BGP route
-     *   **CEN**: a Cloud Enterprise Network (CEN) route
+     *   **Custom**
+     *   **System**
+     *   **BGP**
+     *   **CEN**
      *
      * @example System
      *
@@ -146,7 +148,7 @@ class DescribeRouteEntryListRequest extends Model
     public $routeEntryType;
 
     /**
-     * @description The ID of the route table.
+     * @description The ID of the route table that you want to query.
      *
      * @example vtb-bp1r9pvl4xen8s9ju****
      *
@@ -157,7 +159,7 @@ class DescribeRouteEntryListRequest extends Model
     /**
      * @description Specifies whether to host the route. If the parameter is empty, the route is not hosted.
      *
-     * If you set the value to **TR**, the route is hosted by a transit router.
+     * Set the value to **TR**, which specifies that the route is hosted by a transit router.
      * @example TR
      *
      * @var string

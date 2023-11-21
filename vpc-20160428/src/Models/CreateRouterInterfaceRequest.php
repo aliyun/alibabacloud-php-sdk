@@ -12,7 +12,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The ID of the access point to which the VBR belongs.
      *
-     * >  This parameter is required if an Express Connect circuit is used.
+     * >  This parameter is required if the VBR is connected to an Express Connect circuit.
      * @example ap-cn-hangzhou-yh-ts-A
      *
      * @var string
@@ -22,8 +22,8 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **false** (default): disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
-     *   **true**: enables automatic payment. Payments are automatically completed.
+     *   **false** (default): The automatic payment is disabled. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
+     *   **true**: The automatic payment is enabled. Payments are automatically complete after an order is generated.
      *
      * >  This parameter is required if **InstanceChargeType** is set to **PrePaid**.
      * @example false
@@ -33,6 +33,13 @@ class CreateRouterInterfaceRequest extends Model
     public $autoPay;
 
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   **false** (default)
+     *   **true**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
@@ -40,7 +47,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -50,7 +57,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The description of the router interface.
      *
-     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example abcabc
      *
      * @var string
@@ -58,14 +65,16 @@ class CreateRouterInterfaceRequest extends Model
     public $description;
 
     /**
-     * @description Indicates whether the VBR that is created in the Fast Link mode is uplinked to the router interface. The Fast Link mode helps automatically connect router interfaces that are created for the VBR and its peer VPC. Valid values:
+     * @description Specifies whether the VBR that is created in the Fast Link mode is uplinked to the router interface. The Fast Link mode helps automatically connect router interfaces that are created for the VBR and its peer VPC. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * >
+     *
      *   This parameter takes effect only if **RouterType** is set to **VBR** and **OppositeRouterType** is set to **VRouter**.
-     *   If **FastLinkMode** is set to **true**, **Role** must be set to **InitiatingSide**. **AccessPointId**, **OppositeRouterType**, **OpppsiteRouterId**, and **OppositeInterfaceOwnerId** are required.
+     *
+     *   If **FastLinkMode** is set to **true**, **Role** must be set to **InitiatingSide**. In this case, **AccessPointId**, **OppositeRouterType**, **OpppsiteRouterId**, and **OppositeInterfaceOwnerId** are required.
      *
      * @example false
      *
@@ -76,7 +85,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The source IP address that is used to perform health checks. The source IP address must be an idle IP address of the local virtual private cloud (VPC).
      *
-     * >  You can set this parameter if an Express Connect circuit is used.
+     * >  You can set this parameter when an Express Connect circuit is used.
      * @example 192.168.0.6
      *
      * @var string
@@ -86,7 +95,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The destination IP address that is used to perform health checks.
      *
-     * >  This parameter is required if the **HealthCheckSourceIp** parameter is set.
+     * >  This parameter is required if you specify **HealthCheckSourceIp**
      * @example 192.168.0.8
      *
      * @var string
@@ -108,7 +117,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The name of the router interface.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
      * @example abc
      *
      * @var string
@@ -144,7 +153,7 @@ class CreateRouterInterfaceRequest extends Model
     public $oppositeInterfaceOwnerId;
 
     /**
-     * @description The ID of the region where the acceptor is deployed.
+     * @description The ID of the region in which the acceptor is deployed.
      *
      * @example cn-shanghai
      *
@@ -186,8 +195,8 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The subscription duration. Valid values:
      *
-     *   Valid values if the PricingCycle parameter is set to Month: **1 to 9**.
-     *   Valid values if the PricingCycle parameter is set to Year: **1 to 3**.
+     *   Valid values when PricingCycle is set to Month: **1 to 9**.
+     *   Valid values when PricingCycle is set to Year: **1 to 3**.
      *
      * >  This parameter is required if **InstanceChargeType** is set to **PrePaid**.
      * @example 3
@@ -199,8 +208,8 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The billing cycle of the subscription. Valid values:
      *
-     *   **Month** (default): monthly subscription
-     *   **Year**: annual subscription
+     *   **Month** (default)
+     *   **Year**
      *
      * >  This parameter is required if **InstanceChargeType** is set to **PrePaid**.
      * @example Month
@@ -212,7 +221,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The ID of the region to which the router interface belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -220,6 +229,11 @@ class CreateRouterInterfaceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * For more information about resource group, see [What is Resource Management?](~~94475~~)
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -256,7 +270,7 @@ class CreateRouterInterfaceRequest extends Model
     public $routerId;
 
     /**
-     * @description The type of router associated with the router interface. Valid values:
+     * @description The type of router that is associated with the router interface. Valid values:
      *
      *   **VRouter**
      *   **VBR**
@@ -268,7 +282,7 @@ class CreateRouterInterfaceRequest extends Model
     public $routerType;
 
     /**
-     * @description The specification of the router interface. Valid specifications and bandwidth values:
+     * @description The specification of the router interface and the corresponding bandwidth. Valid values:
      *
      *   **Mini.2**: 2 Mbit/s
      *   **Mini.5**: 5 Mbit/s
@@ -283,7 +297,7 @@ class CreateRouterInterfaceRequest extends Model
      *   **Large.5**: 5,000 Mbit/s
      *   **Xlarge.1**: 10,000 Mbit/s
      *
-     * >  If **Role** is set to **AcceptingSide** (acceptor), set **Spec** to **Negative**. You do not need to specify specifications when you create an acceptor router interface.
+     * >  If **Role** is set to **AcceptingSide**, set **Spec** to **Negative**. This indicates that you do not need to specify the specification when you create an acceptor router interface.
      * @example Mini.2
      *
      * @var string
@@ -291,6 +305,8 @@ class CreateRouterInterfaceRequest extends Model
     public $spec;
 
     /**
+     * @description The tag to add to the resource.
+     *
      * @var tags[]
      */
     public $tags;

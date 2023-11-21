@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfirmPhysicalConnectionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example API-20365164-5b0d-460a-83c2-2189972b****
      *

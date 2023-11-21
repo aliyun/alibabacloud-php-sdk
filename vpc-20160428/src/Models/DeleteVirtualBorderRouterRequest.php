@@ -29,7 +29,7 @@ class DeleteVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the VBR is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the VBR. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      *
      * @example cn-shanghai
      *

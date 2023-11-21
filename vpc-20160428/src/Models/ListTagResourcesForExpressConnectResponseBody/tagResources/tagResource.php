@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example pc-bp16qjewdsunr41m1****
      *
@@ -18,7 +18,11 @@ class tagResource extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. The value is set to **PHYSICALCONNECTION**, which indicates the Express Connect circuit.
+     * @description The type of the resource. Valid values:
+     *
+     *   **PHYSICALCONNECTION**: Express Connect circuit.
+     *   **VIRTUALBORDERROUTER**: VBR.
+     *   **ROUTERINTERFACE**: router interface.
      *
      * @example PHYSICALCONNECTION
      *

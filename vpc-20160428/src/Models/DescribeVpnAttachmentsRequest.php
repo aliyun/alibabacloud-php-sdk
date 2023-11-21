@@ -29,7 +29,7 @@ class DescribeVpnAttachmentsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -38,7 +38,7 @@ class DescribeVpnAttachmentsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     * @description The number of entries per page. Default value: **10**. Valid values: **1** to **50**.
      *
      * @example 10
      *
@@ -47,7 +47,7 @@ class DescribeVpnAttachmentsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region to which the IPsec-VPN connection belongs.
+     * @description The ID of the region where the IPsec-VPN connection is established.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-2
@@ -69,7 +69,7 @@ class DescribeVpnAttachmentsRequest extends Model
     /**
      * @description The ID of the IPsec-VPN connection.
      *
-     * >  If you do not specify an ID, the system queries all IPsec-VPN connections associated with the transit router in the region.
+     * >  If you do not specify an IPsec-VPN connection ID, all IPsec-VPN connections associated with a transit router in the region are queried.
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string

@@ -20,9 +20,10 @@ class cloudResourceSetType extends Model
     /**
      * @description The type of resources deployed in the VPC. Valid values:
      *
-     * - **VSwitch**: vSwitches
-     * - **VRouter**: vRouters
-     * - **RouteTable**: route tables
+     *   **VSwitch**
+     *   **VRouter**
+     *   **RouteTable**
+     *
      * @example VSwitch
      *
      * @var string

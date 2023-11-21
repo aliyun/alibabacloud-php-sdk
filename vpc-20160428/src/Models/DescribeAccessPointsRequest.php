@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessPointsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **zh-CN**: Chinese
+     *   **en-US** (default): English
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;

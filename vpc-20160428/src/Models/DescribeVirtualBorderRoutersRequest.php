@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVirtualBorderRoutersRequest extends Model
 {
     /**
+     * @description The information about the filter.
+     *
      * @var filter[]
      */
     public $filter;
@@ -18,8 +20,8 @@ class DescribeVirtualBorderRoutersRequest extends Model
     /**
      * @description Specifies whether cross-account VBRs are included.
      *
-     *   **true**: yes
-     *   **false**: no. This is the default value.
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -33,7 +35,7 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -42,7 +44,7 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
      *
      * @example 10
      *
@@ -51,7 +53,7 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the VBRs are deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region in which the VBR is deployed. You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      *
      * @example cn-shanghai
      *
@@ -60,6 +62,11 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * For more information about resource groups, see [What is a resource group?](~~94475~~)
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -75,6 +82,8 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;

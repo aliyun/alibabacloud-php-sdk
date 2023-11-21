@@ -11,8 +11,8 @@ class UntagResourcesForExpressConnectRequest extends Model
     /**
      * @description Specifies whether to remove all tags from the specified resource. Valid values:
      *
-     *   **true**: removes all tags from the specified resource.
-     *   **false**: does not remove all tags from the specified resource. This is the default value.
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -31,9 +31,9 @@ class UntagResourcesForExpressConnectRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the resource.
+     * @description The ID of the region in which the resource is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +41,8 @@ class UntagResourcesForExpressConnectRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the resources from which you want to remove tags.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -56,7 +58,11 @@ class UntagResourcesForExpressConnectRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Set the value to **PHYSICALCONNECTION**, which indicates the Express Connect circuit.
+     * @description The type of the resource. Valid values:
+     *
+     *   **PHYSICALCONNECTION**: Express Connect circuit.
+     *   **VIRTUALBORDERROUTER**: virtual border router (VBR).
+     *   **ROUTERINTERFACE**: router interface.
      *
      * @example PHYSICALCONNECTION
      *
@@ -65,6 +71,8 @@ class UntagResourcesForExpressConnectRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags to remove from the specified resource.
+     *
      * @var string[]
      */
     public $tagKey;

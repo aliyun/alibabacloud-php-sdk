@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateVpconnFromVbrResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5356F028-0F5C-56FC-8574-897D24379041
      *
@@ -18,7 +18,7 @@ class CreateVpconnFromVbrResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the shared Express Connect circuit.
+     * @description The ID of the hosted connection.
      *
      * @example pc-bp1mrgfbtmc9brre7****
      *

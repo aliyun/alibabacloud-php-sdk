@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesForExpressConnectResponseBody extends Model
 {
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
-     *   If the return value of **NextToken** is empty, no next query is to be sent.
-     *   If a value is returned for **NextToken**, the value is the token that is used for the next query.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -22,7 +22,7 @@ class ListTagResourcesForExpressConnectResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
      *
@@ -31,7 +31,7 @@ class ListTagResourcesForExpressConnectResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details about the tag.
+     * @description The tags that are added to the resource.
      *
      * @var tagResources
      */

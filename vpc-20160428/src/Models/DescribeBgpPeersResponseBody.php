@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeBgpPeersResponseBody extends Model
 {
     /**
-     * @description The detailed information about the BGP peers.
+     * @description The information about the BGP peer.
      *
      * @var bgpPeers
      */
     public $bgpPeers;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeBgpPeersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeBgpPeersResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
      *

@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class SecondApplyPhysicalConnectionLOARequest extends Model
 {
     /**
+     * @description The bandwidth of the Express Connect circuit. Unit: Mbit/s.
+     *
+     * Valid values: **2** to **10240**.
      * @example 3
      *
      * @var int
@@ -17,6 +20,9 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
     public $bandwidth;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -24,6 +30,8 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
     public $clientToken;
 
     /**
+     * @description The name of the customer company that requires the Express Connect circuit.
+     *
      * @example company
      *
      * @var string
@@ -31,6 +39,8 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
     public $companyName;
 
     /**
+     * @description The time when construction started. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-02-28T16:00:00Z
      *
      * @var string
@@ -38,6 +48,8 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
     public $constructionTime;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-bp1qrb3044eqi****
      *
      * @var string
@@ -45,6 +57,13 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of Express Connect circuit. Valid values:
+     *
+     *   **MSTP**
+     *   **MPLSVPN**
+     *   **FIBRE**
+     *   **Other**
+     *
      * @example FIBRE
      *
      * @var string
@@ -62,16 +81,22 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
     public $ownerId;
 
     /**
+     * @description The information about the construction engineer.
+     *
      * @var PMInfo[]
      */
     public $PMInfo;
 
     /**
+     * @description The geographic location where the Express Connect circuit is deployed.
+     *
      * @var string
      */
     public $peerLocation;
 
     /**
+     * @description The region where the Express Connect circuit is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -89,6 +114,8 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The construction company.
+     *
      * @var string
      */
     public $si;

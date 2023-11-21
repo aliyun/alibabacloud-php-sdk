@@ -14,10 +14,9 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description The ID of the customer gateway associated with the tunnel.
      *
-     *
-     *
      * > *   This parameter is required if the VPN gateway supports the dual-tunnel mode.
-     * > *   If the VPN gateway supports the dual-tunnel mode, you must configure the active tunnel and standby tunnel by specifying **TunnelOptionsSpecification**. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
+     * >*   You can specify the parameters in the **TunnelOptionsSpecification** array if you create an IPsec-VPN connection in dual-tunnel mode.
+     * >*   If you create an IPsec-VPN connection in dual-tunnel mode, you need to configure an active tunnel and a standby tunnel. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
      * @example cgw-p0wy363lucf1uyae8****
      *
      * @var string
@@ -25,10 +24,10 @@ class tunnelOptionsSpecification extends Model
     public $customerGatewayId;
 
     /**
-     * @description Specifies whether to enable the Dead Peer Detection (DPD) feature for the tunnel. Valid values:
+     * @description Specifies whether to enable DPD for the tunnel. Valid values:
      *
-     *   **true** (default): The DPD feature is enabled. The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
-     *   **false**: The DPD feature is disabled. The initiator of the IPsec-VPN connection does not send DPD packets.
+     *   **true** (default) The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
+     *   **false**
      *
      * @example true
      *
@@ -39,8 +38,8 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description Specifies whether to enable NAT traversal for the tunnel. Valid values:
      *
-     *   **true** (default): NAT traversal is enabled. After NAT traversal is enabled, the verification process for the peer UDP port is deleted from IKE negotiations. In addition, the NAT gateway in the tunnel can be found.
-     *   **false**: NAT traversal is disabled.
+     *   **true** (default) After NAT traversal is enabled, the verification process for the peer UDP port is deleted from IKE negotiations. In addition, the NAT gateway in the tunnel can be found.
+     *   **false**
      *
      * @example true
      *

@@ -36,7 +36,7 @@ class bgpNetwork extends Model
     public $status;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The ID of the virtual private cloud (VPC) in which the master instance resides.
      *
      * @example vpc-bp1qpo0kug3a2*****
      *

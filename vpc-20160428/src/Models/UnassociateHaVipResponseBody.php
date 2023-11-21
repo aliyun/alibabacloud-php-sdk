@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnassociateHaVipResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C44F62BE-9CE7-4277-B117-69243F3988BF
      *

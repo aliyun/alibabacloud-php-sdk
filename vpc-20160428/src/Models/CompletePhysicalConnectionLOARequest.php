@@ -21,6 +21,13 @@ class CompletePhysicalConnectionLOARequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether the construction is completed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $finishWork;
@@ -53,11 +60,24 @@ class CompletePhysicalConnectionLOARequest extends Model
     public $lineLabel;
 
     /**
+     * @description The contact information about line O\&M.
+     *
+     * @example 1388888****
+     *
      * @var string
      */
     public $lineSPContactInfo;
 
     /**
+     * @description The ISP. Valid values:
+     *
+     *   **China Telecom**
+     *   **China Unicom**
+     *   **China Mobile**
+     *   **Other ISPs in China**
+     *
+     * @example Other ISPs in China
+     *
      * @var string
      */
     public $lineServiceProvider;

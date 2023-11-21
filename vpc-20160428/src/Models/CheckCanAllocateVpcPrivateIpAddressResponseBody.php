@@ -11,8 +11,8 @@ class CheckCanAllocateVpcPrivateIpAddressResponseBody extends Model
     /**
      * @description Indicates whether the private IP address is available. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class CheckCanAllocateVpcPrivateIpAddressResponseBody extends Model
     public $canAllocate;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 93360B0-2969-40BF-8542-EBB34FD358AB
      *

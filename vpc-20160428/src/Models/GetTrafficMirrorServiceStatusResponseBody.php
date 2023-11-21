@@ -11,8 +11,8 @@ class GetTrafficMirrorServiceStatusResponseBody extends Model
     /**
      * @description Indicates whether the traffic mirroring feature is enabled. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class GetTrafficMirrorServiceStatusResponseBody extends Model
     public $enabled;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 37626066-2C6C-4B62-ADD3-498920C409C5
      *

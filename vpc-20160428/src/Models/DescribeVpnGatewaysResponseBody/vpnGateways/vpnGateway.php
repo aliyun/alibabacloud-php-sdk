@@ -45,9 +45,9 @@ class vpnGateway extends Model
     public $chargeType;
 
     /**
-     * @description The timestamp when the VPN gateway was created. Unit: milliseconds.
+     * @description The timestamp when the VPN gateway was created. Unit: millisecond.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1515383700000
      *
      * @var int
@@ -84,7 +84,7 @@ class vpnGateway extends Model
     public $disasterRecoveryVSwitchId;
 
     /**
-     * @description Indicates whether BGP is enabled for the VPN gateway.
+     * @description The BGP status of the VPN gateway.
      *
      *   **true**
      *   **false**
@@ -96,7 +96,7 @@ class vpnGateway extends Model
     public $enableBgp;
 
     /**
-     * @description The timestamp when the VPN gateway expires. Unit: milliseconds.
+     * @description The timestamp when the VPN gateway expires. Unit: millisecond.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1518105600000
@@ -159,6 +159,11 @@ class vpnGateway extends Model
     public $reservationData;
 
     /**
+     * @description The ID of the resource group to which the VPN gateway belongs.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -241,9 +246,9 @@ class vpnGateway extends Model
      *   **true**
      *   **false**
      *
-     *   **description**
+     *   **description**: the description of the VPN gateway. This parameter is for internal system use only.
      *
-     *   **VpnVersion**
+     *   **VpnVersion**: the version of the VPN gateway.
      *
      * @example {\"VpnEnableBgp\":\"true\",\"VisuallySsl\":\"true\",\"PbrPriority\":\"true\",\"VpnNewImage\":\"true\",\"description\":\"forwarding1.3.7\",\"VpnVersion\":\"v1.2.4\"}
      *

@@ -11,7 +11,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The ID of the new resource group.
      *
-     * >  You can use resource groups to manage resources owned by your Alibaba Cloud account. Resource groups simplify the resource and permission management of your Alibaba Cloud account. For more information, see [What is resource management?](~~94475~~).
+     * >  You can use resource groups to manage resources within your Alibaba Cloud account by group. This helps you resolve issues such as resource grouping and permission management for your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
      * @example rg-bp1drpcfz9srr393h****
      *
      * @var string
@@ -19,9 +19,9 @@ class ChangeResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
-     * @description The region ID of the resource group.
+     * @description The ID of the region to which the new resource group belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query available regions.
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,7 +29,7 @@ class ChangeResourceGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the Express Connect circuit.
+     * @description The ID of the Express Connect circuit whose resource group you want to modify.
      *
      * @example pc-bp16qjewdsunr41m1****
      *
@@ -38,7 +38,11 @@ class ChangeResourceGroupRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. Set the value to **PHYSICALCONNECTION**, which specifies an Express Connect circuit.
+     * @description The type of the resource. Valid values:
+     *
+     *   **PHYSICALCONNECTION**: Express Connect circuit.
+     *   **VIRTUALBORDERROUTER**: virtual border router (VBR).
+     *   **ROUTERINTERFACE**: router interface.
      *
      * @example PHYSICALCONNECTION
      *

@@ -56,7 +56,7 @@ class ListFullNatEntriesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F03E41F6-1A74-311F-8D98-124EEE9F37B8
      *

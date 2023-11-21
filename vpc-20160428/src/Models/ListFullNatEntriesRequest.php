@@ -11,9 +11,9 @@ class ListFullNatEntriesRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must ensure that it is unique among all requests. The token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -30,8 +30,9 @@ class ListFullNatEntriesRequest extends Model
     public $fullNatEntryId;
 
     /**
-     * @description The name of the FULLNAT entry.
+     * @description The name of the FULLNAT entry that you want to query. You can specify at most 20 names.
      *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @var string[]
      */
     public $fullNatEntryNames;
@@ -39,7 +40,7 @@ class ListFullNatEntriesRequest extends Model
     /**
      * @description The ID of the FULLNAT table to which the FULLNAT entries to be queried belong.
      *
-     * >  You must specify at least one of the **FullNatTableId** and **NatGatewayId** parameters.
+     * >  You must specify at least one of **FullNatTableId** and **NatGatewayId**.
      * @example fulltb-gw88z7hhlv43rmb26****
      *
      * @var string
@@ -59,7 +60,7 @@ class ListFullNatEntriesRequest extends Model
     public $ipProtocol;
 
     /**
-     * @description The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -70,7 +71,7 @@ class ListFullNatEntriesRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
-     * >  You must specify at least one of the **FullNatTableId** and **NatGatewayId** parameters.
+     * >  You must specify at least one of **FullNatTableId** and **NatGatewayId**.
      * @example ngw-bp1uewa15k4iy5770****
      *
      * @var string
@@ -78,17 +79,17 @@ class ListFullNatEntriesRequest extends Model
     public $natGatewayId;
 
     /**
-     * @description The IDs of ENIs.
+     * @description The ID of the elastic network interface (ENI) that you want to query.
      *
      * @var string[]
      */
     public $networkInterfaceIds;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query or no next queries are to be sent, ignore this parameter.
-     *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of the **NextToken** parameter.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *

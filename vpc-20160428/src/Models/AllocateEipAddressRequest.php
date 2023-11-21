@@ -120,9 +120,9 @@ class AllocateEipAddressRequest extends Model
      *   **PayByBandwidth** (default): pay-by-bandwidth
      *   **PayByTraffic**: pay-by-data-transfer
      *
-     * If **InstanceChargeType** is set to **PrePaid**, set **InternetChargeType** to **PayByBandwidth**.
+     * When **InstanceChargeType** is set to **PrePaid**, set **InternetChargeType** to **PayByBandwidth**.
      *
-     * If **InstanceChargeType** is set to **PostPaid**, set **InternetChargeType** to **PayByBandwidth** or **PayByTraffic**.
+     * When **InstanceChargeType** is set to **PostPaid**, set **InternetChargeType** to **PayByBandwidth** or **PayByTraffic**.
      * @example PayByTraffic
      *
      * @var string

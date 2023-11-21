@@ -30,9 +30,9 @@ class CreatePhysicalConnectionRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must ensure that the value is unique among all requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -50,6 +50,8 @@ class CreatePhysicalConnectionRequest extends Model
     public $description;
 
     /**
+     * @description The advanced features of the device.
+     *
      * @var string[]
      */
     public $deviceAdvancedCapacity;
@@ -57,12 +59,12 @@ class CreatePhysicalConnectionRequest extends Model
     /**
      * @description The connectivity provider of the Express Connect circuit. Valid values:
      *
-     *   **CT**: China Telecom
-     *   **CU**: China Unicom
-     *   **CM**: China Mobile
-     *   **CO**: other connectivity providers in the Chinese mainland
-     *   **Equinix**: Equinix
-     *   **Other**: other connectivity providers outside the Chinese mainland
+     *   **CT**: China Telecom.
+     *   **CU**: China Unicom.
+     *   **CM**: China Mobile.
+     *   **CO**: other connectivity providers in the Chinese mainland.
+     *   **Equinix**: Equinix.
+     *   **Other**: other connectivity providers outside the Chinese mainland.
      *
      * @example CT
      *
@@ -98,17 +100,17 @@ class CreatePhysicalConnectionRequest extends Model
     public $peerLocation;
 
     /**
-     * @description The port type of the Express Connect circuit. Valid values:
+     * @description The port type. Valid values:
      *
      *   **100Base-T**: 100 Mbit/s copper Ethernet port
      *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
      *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
      *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
-     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km)
      *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
      *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
      *
-     * >  If you want to use the 40GBase-LR or 100GBase-LR port for an Express Connect circuit, you must first contact your account manager to obtain information about resource supplies.
+     * >  To use ports 40GBase-LR and 100GBase-LR, you must first contact your account manager.
      * @example 1000Base-T
      *
      * @var string
@@ -154,12 +156,14 @@ class CreatePhysicalConnectionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag list.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The type of the Express Connect circuit. Default value: **VPC**.
+     * @description The type of Express Connect circuit. Default value: **VPC**.
      *
      * @example VPC
      *

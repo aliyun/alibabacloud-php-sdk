@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnassociateHaVipRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
@@ -20,8 +20,8 @@ class UnassociateHaVipRequest extends Model
     /**
      * @description Specifies whether to forcefully disassociate the HAVIP from the ECS instance or ENI. Valid values:
      *
-     *   **True**: yes
-     *   **False** (default): no
+     *   **True**
+     *   **False** (default)
      *
      * >  If you set the value to **False**, you cannot disassociate the HAVIP from the primary instance.
      * @example True
@@ -72,7 +72,7 @@ class UnassociateHaVipRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the HAVIP belongs.
+     * @description The region ID of the HAVIP.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai

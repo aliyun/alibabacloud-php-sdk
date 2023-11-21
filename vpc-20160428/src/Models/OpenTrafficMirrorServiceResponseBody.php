@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class OpenTrafficMirrorServiceResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The information returned after traffic mirroring is enabled.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4FCCF008-4C13-4231-BE77-D5203801A9E2
      *

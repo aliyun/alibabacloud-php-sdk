@@ -44,11 +44,11 @@ class virtualPhysicalConnections extends Model
     public $bandwidth;
 
     /**
-     * @description The business status of the Express Connect circuit. Valid values:
+     * @description The status of the Express Connect circuit. Valid values:
      *
-     *   **Normal**: enabled
-     *   **FinancialLocked**: locked due to overdue payments
-     *   **SecurityLocked**: locked for security reasons
+     *   **Normal**
+     *   **FinancialLocked**
+     *   **SecurityLocked**
      *
      * @example Normal
      *
@@ -59,7 +59,7 @@ class virtualPhysicalConnections extends Model
     /**
      * @description The billing method of the Express Connect circuit.
      *
-     * The value is set to **Prepaid**, which indicates the subscription billing method.
+     * If **Prepaid** is returned, it indicates that the Express Connect circuit is billed on a subscription basis.
      * @example Prepaid
      *
      * @var string
@@ -94,7 +94,7 @@ class virtualPhysicalConnections extends Model
     public $description;
 
     /**
-     * @description The time when the Express Connect circuit was enabled.
+     * @description The time when the Express Connect circuit is enabled.
      *
      * @example 2021-10-08T10:44Z
      *
@@ -113,7 +113,7 @@ class virtualPhysicalConnections extends Model
     public $endTime;
 
     /**
-     * @description The estimated bandwidth value of the hosted connection. The estimated bandwidth takes effect after you complete the payment.
+     * @description The estimated maximum bandwidth of the shared Express Connect circuit. The estimated bandwidth takes effect after you complete the payment.
      *
      **M** indicates Mbit/s and **G** indicates Gbit/s.
      *
@@ -126,12 +126,12 @@ class virtualPhysicalConnections extends Model
     /**
      * @description The connectivity provider of the Express Connect circuit. Valid values:
      *
-     *   **CT**: China Telecom
-     *   **CU**: China Unicom
-     *   **CM**: China Mobile
-     *   **CO**: other connectivity providers in the Chinese mainland
-     *   **Equinix**: Equinix
-     *   **Other**: other connectivity providers outside the Chinese mainland
+     *   **CT**: China Telecom.
+     *   **CU**: China Unicom.
+     *   **CM**: China Mobile.
+     *   **CO**: other connectivity providers in the Chinese mainland.
+     *   **Equinix**: Equinix.
+     *   **Other**: other connectivity providers outside the Chinese mainland.
      *
      * @example CU
      *
@@ -140,15 +140,15 @@ class virtualPhysicalConnections extends Model
     public $lineOperator;
 
     /**
-     * @description The status of the LOA. Valid values:
+     * @description The status of the letter of authorization (LOA). Valid values:
      *
-     *   **Applying**: The LOA is pending approval.
-     *   **Accept**: The LOA is approved.
-     *   **Available**: The LOA is available.
-     *   **Rejected**: The LOA is rejected.
-     *   **Completing**: The Express Connect circuit is under construction.
-     *   **Complete**: The Express Connect circuit is installed.
-     *   **Deleted**: The LOA is deleted.
+     *   **Applying**
+     *   **Accept**
+     *   **Available**
+     *   **Rejected**
+     *   **Completing**
+     *   **Complete**
+     *   **Deleted**
      *
      * @example Available
      *
@@ -166,7 +166,7 @@ class virtualPhysicalConnections extends Model
     public $name;
 
     /**
-     * @description The payer of the hosted connection. Valid values:
+     * @description The payer for the shared Express Connect circuit. Valid values:
      *
      *   **PayByPhysicalConnectionOwner**: the owner of the shared Express Connect circuit
      *   **PayByVirtualPhysicalConnectionOwner**: the owner of the hosted connection
@@ -212,7 +212,7 @@ class virtualPhysicalConnections extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The port number of the access device.
+     * @description The ID of the port on the access device.
      *
      * @example 80
      *
@@ -225,9 +225,9 @@ class virtualPhysicalConnections extends Model
      *
      *   **100Base-T**: 100 Mbit/s copper Ethernet port
      *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
-     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
      *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
-     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km)
      *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
      *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
      *
@@ -238,10 +238,10 @@ class virtualPhysicalConnections extends Model
     public $portType;
 
     /**
-     * @description The type of connection over the Express Connect circuit. Valid values:
+     * @description The type of the Express Connect circuit. Valid values:
      *
-     *   **VirtualPhysicalConnection**: a hosted connection
-     *   **PhysicalConnection**: a dedicated connection
+     *   **VirtualPhysicalConnection**: shared Express Connect circuit
+     *   **PhysicalConnection**: dedicated Express Connect circuit
      *
      * @example VirtualPhysicalConnection
      *
@@ -259,6 +259,8 @@ class virtualPhysicalConnections extends Model
     public $redundantPhysicalConnectionId;
 
     /**
+     * @description The ID of the resource group to which the hosted connection belongs.
+     *
      * @example rg-acfm3wmsyuimpma
      *
      * @var string
@@ -283,7 +285,7 @@ class virtualPhysicalConnections extends Model
      *   **Approved**: The application is approved.
      *   **Allocating**: The system is allocating resources.
      *   **Allocated**: The Express Connect circuit is under construction.
-     *   **Confirmed**: The Express Connect circuit is pending user confirmation.
+     *   **Confirmed**: The Express Connect circuit is pending for user confirmation.
      *   **Enabled**: The Express Connect circuit is enabled.
      *   **Rejected**: The application is rejected.
      *   **Canceled**: The application is canceled.
@@ -297,6 +299,8 @@ class virtualPhysicalConnections extends Model
     public $status;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;
@@ -311,11 +315,11 @@ class virtualPhysicalConnections extends Model
     public $type;
 
     /**
-     * @description The service status of the hosted connection. Valid values:
+     * @description The status of the hosted connection. Valid values:
      *
-     *   **Confirmed**: accepted
-     *   **UnConfirmed**: pending acceptance
-     *   **Deleted**: deleted
+     *   **Confirmed**
+     *   **UnConfirmed**
+     *   **Deleted**
      *
      * @example Confirmed
      *

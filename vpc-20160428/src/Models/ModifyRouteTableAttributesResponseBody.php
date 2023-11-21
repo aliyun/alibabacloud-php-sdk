@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyRouteTableAttributesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 62172DD5-6BAC-45DF-8D44
      *

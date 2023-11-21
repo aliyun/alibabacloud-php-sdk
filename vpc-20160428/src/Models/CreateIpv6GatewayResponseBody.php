@@ -18,7 +18,7 @@ class CreateIpv6GatewayResponseBody extends Model
     public $ipv6GatewayId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC
      *
@@ -27,7 +27,7 @@ class CreateIpv6GatewayResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the IPv6 gateway belongs.
      *
      * @example rg-acfmxazb4ph6aiy****
      *

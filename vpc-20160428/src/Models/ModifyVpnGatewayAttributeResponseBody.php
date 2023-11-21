@@ -134,6 +134,11 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description VPN网关实例所属的资源组ID。
+     *
+     * 您可以调用[ListResourceGroups](~~158855~~)接口查询资源组信息。
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;

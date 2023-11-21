@@ -19,10 +19,10 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
     public $count;
 
     /**
-     * @description The token that determines the start point of the query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If **NextToken** was not returned, it indicates that no additional results exist.
-     *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+     *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
+     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
      *
      * @example dd20****
      *
@@ -31,7 +31,7 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2A55F69E-EE3D-5CBE-8805-734F7D5B46B9
      *

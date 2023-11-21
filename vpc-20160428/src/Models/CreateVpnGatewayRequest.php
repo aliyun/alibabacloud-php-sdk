@@ -86,7 +86,6 @@ class CreateVpnGatewayRequest extends Model
     /**
      * @description The billing method of the VPN gateway. Set the value to **POSTPAY**, which specifies the pay-as-you-go billing method.
      *
-     * > This parameter is required when you create a VPN gateway.
      * @example Example value for the Alibaba Cloud China site: PREPAY. Example value for the Alibaba Cloud International site: POSTPAY.
      *
      * @var string
@@ -144,6 +143,11 @@ class CreateVpnGatewayRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the VPN gateway belongs.
+     *
+     * If you change the resource group to which the VPN gateway belongs, the resource group to which the resource belongs will also be changed.
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;

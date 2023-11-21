@@ -19,7 +19,7 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $asn;
 
     /**
-     * @description The authentication key of the BGP routing protocol for the gateway device in the data center.
+     * @description The authentication key of the Border Gateway Protocol (BGP) routing protocol for the gateway device in the data center.
      *
      * @example AuthKey****
      *
@@ -74,7 +74,7 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A0457BC9-6C0F-4437-AB9D-FB2EABC1D6A2
      *
@@ -83,6 +83,11 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the customer gateway belongs.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;

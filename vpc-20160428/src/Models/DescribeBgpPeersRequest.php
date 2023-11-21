@@ -27,10 +27,10 @@ class DescribeBgpPeersRequest extends Model
     public $bgpPeerId;
 
     /**
-     * @description Specifies whether the BGP group is the default BGP group. Valid values:
+     * @description Specifies whether the BGP group is the default group. Valid values:
      *
-     *   **true**: The BGP group is the default BGP group.
-     *   **false**: The BGP group is not the default BGP group.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -49,7 +49,7 @@ class DescribeBgpPeersRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -58,7 +58,7 @@ class DescribeBgpPeersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
      *
      * @example 10
      *
@@ -69,7 +69,7 @@ class DescribeBgpPeersRequest extends Model
     /**
      * @description The region ID of the BGP group to which the BGP peer that you want to query belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-shanghai
      *
      * @var string

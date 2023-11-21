@@ -17,7 +17,7 @@ class DescribeAccessPointsResponseBody extends Model
     public $accessPointSet;
 
     /**
-     * @description The number of the returned page. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeAccessPointsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeAccessPointsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3E85D803-C7CF-4BCD-9CFE-6DBA1DFFA027
      *
@@ -44,7 +44,7 @@ class DescribeAccessPointsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries.
+     * @description The total number of entries returned.
      *
      * @example 5
      *

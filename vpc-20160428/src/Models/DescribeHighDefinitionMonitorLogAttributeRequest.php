@@ -39,7 +39,7 @@ class DescribeHighDefinitionMonitorLogAttributeRequest extends Model
     /**
      * @description The region ID of the instance.
      *
-     * You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

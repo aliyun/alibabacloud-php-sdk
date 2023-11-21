@@ -20,7 +20,7 @@ class nextHopRelatedInfo extends Model
     /**
      * @description The type of the instance associated with the next hop. Valid values:
      *
-     *   **VPC**: a virtual private cloud (VPC)
+     *   **VPC**: a VPC
      *   **VBR**: a VBR
      *   **PCONN**: an Express Connect circuit
      *

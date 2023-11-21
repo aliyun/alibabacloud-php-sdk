@@ -42,7 +42,7 @@ class reservationData extends Model
     /**
      * @description The type of the order that has not taken effect. Valid values:
      *
-     *   **RENEWCHANGE**: renewal with a specification change
+     *   **RENEWCHANGE**: renewal with upgrade or downgrade
      *   **TEMP_UPGRADE**: temporary upgrade
      *   **RENEW**: renewal
      *

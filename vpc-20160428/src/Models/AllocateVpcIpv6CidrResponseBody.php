@@ -18,7 +18,7 @@ class AllocateVpcIpv6CidrResponseBody extends Model
     public $ipv6CidrBlock;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D20C13EA-2584-53BC-8393-69DE6D98EFF1
      *

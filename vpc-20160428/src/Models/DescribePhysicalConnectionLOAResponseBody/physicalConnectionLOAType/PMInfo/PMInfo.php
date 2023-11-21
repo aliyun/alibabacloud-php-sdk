@@ -20,9 +20,9 @@ class PMInfo extends Model
     /**
      * @description The identity document type of the construction worker. Valid values:
      *
-     *   **IDCard**: identity card
-     *   **Passport**: passport
-     *   **Other**: other identity documents
+     *   **IDCard**
+     *   **Passport**
+     *   **Other**
      *
      * @example Other
      *
@@ -42,8 +42,8 @@ class PMInfo extends Model
     /**
      * @description The gender of the construction worker. Valid values:
      *
-     *   **Male**: male
-     *   **Female**: female
+     *   **Male**
+     *   **Female**
      *
      * @example Male
      *

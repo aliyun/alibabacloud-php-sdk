@@ -64,11 +64,24 @@ class physicalConnectionLOAType extends Model
     public $lineLabel;
 
     /**
+     * @description The contact information about line O\&M.
+     *
+     * @example 1388888****
+     *
      * @var string
      */
     public $lineSPContactInfo;
 
     /**
+     * @description The ISP. Valid values:
+     *
+     *   **China Telecom**
+     *   **China Unicom**
+     *   **China Mobile**
+     *   **Other ISPs in China**
+     *
+     * @example Other ISPs in China
+     *
      * @var string
      */
     public $lineServiceProvider;

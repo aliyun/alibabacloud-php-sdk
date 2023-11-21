@@ -13,9 +13,9 @@ class UpdateNetworkAclEntriesRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -23,11 +23,15 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The information about the outbound rules.
+     *
      * @var egressAclEntries[]
      */
     public $egressAclEntries;
 
     /**
+     * @description The information about the inbound rule.
+     *
      * @var ingressAclEntries[]
      */
     public $ingressAclEntries;
@@ -69,9 +73,10 @@ class UpdateNetworkAclEntriesRequest extends Model
     /**
      * @description Specifies whether to update outbound rules. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
+     * >  This parameter cannot be used to add outbound rules to ACLs. If you want to add more outbound rules to ACLs, specify both the existing rule and the rule that you want to add when you call this API operation. If you specify only the rule that you want to add, it overwrites the existing rule.
      * @example false
      *
      * @var bool
@@ -81,9 +86,10 @@ class UpdateNetworkAclEntriesRequest extends Model
     /**
      * @description Specifies whether to update inbound rules. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
+     * >  This parameter cannot be used to add inbound rules to ACLs. If you want to add more inbound rules to ACLs, you must specify both the existing rule and the rule that you want to add when you call this API operation. If you specify only the rule that you want to add, it overwrites the existing rule.
      * @example false
      *
      * @var bool

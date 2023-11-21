@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class routeEntries extends Model
 {
     /**
+     * @description The description of the custom route entry. You can specify up to 50 descriptions.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -28,10 +31,10 @@ class routeEntries extends Model
     public $dstCidrBlock;
 
     /**
-     * @description The version of the IP protocol. You can specify up to 50 IP protocol versions. Valid values:
+     * @description The IP version. You can specify up to 50 IP versions. Valid values:
      *
-     *   **IPv4**
-     *   **IPv6**
+     *   **4**: IPv4
+     *   **6**: IPv6
      *
      * @example IPv4
      *
@@ -42,7 +45,7 @@ class routeEntries extends Model
     /**
      * @description The name of the custom route entry that you want to add. You can specify up to 50 names.
      *
-     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -50,7 +53,7 @@ class routeEntries extends Model
     public $name;
 
     /**
-     * @description The ID of the next hop of the custom route entry. You can specify up to 50 next hop IDs.
+     * @description The next hop ID of the custom route entry. You can specify up to 50 next hop IDs.
      *
      * @example i-j6c2fp57q8rr4jlu****
      *
@@ -61,15 +64,15 @@ class routeEntries extends Model
     /**
      * @description The type of next hop. You can specify up to 50 next hop types. Valid values:
      *
-     *   **Instance**: Elastic Compute Service (ECS) instance. This is the default value.
-     *   **HaVip**: high-availability virtual IP address (HAVIP).
-     *   **RouterInterface**: router interface.
-     *   **NetworkInterface**: elastic network interface (ENI).
-     *   **VpnGateway**: VPN gateway.
-     *   **IPv6Gateway**: IPv6 gateway.
-     *   **NatGateway**: NAT gateway.
-     *   **Attachment**: transit router.
-     *   **VpcPeer**: VPC peering connection.
+     *   **Instance** (default): an Elastic Compute Service (ECS) instance
+     *   **HaVip**: a high-availability virtual IP address (HAVIP).
+     *   **RouterInterface**: a router interface.
+     *   **NetworkInterface**: an elastic network interface (ENI).
+     *   **VpnGateway**: a VPN gateway.
+     *   **IPv6Gateway**: an IPv6 gateway.
+     *   **NatGateway**: a NAT gateway.
+     *   **Attachment**: a transit router.
+     *   **VpcPeer**: a VPC peering connection.
      *
      * @example RouterInterface
      *
@@ -78,7 +81,7 @@ class routeEntries extends Model
     public $nextHopType;
 
     /**
-     * @description The ID of the route table to which you want to add the custom route entry. You can specify up to 50 route table IDs.
+     * @description The ID of the route table to which you want to add a custom route entry. You can specify up to 50 route table IDs.
      *
      * @example vtb-bp145q7glnuzd****
      *

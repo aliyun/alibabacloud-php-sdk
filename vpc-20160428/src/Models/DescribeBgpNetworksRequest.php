@@ -19,7 +19,7 @@ class DescribeBgpNetworksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeBgpNetworksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -37,7 +37,7 @@ class DescribeBgpNetworksRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the BGP group is deployed.
+     * @description The region ID of the BGP group.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -57,7 +57,7 @@ class DescribeBgpNetworksRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the virtual border router (VBR).
+     * @description The ID of the VBR.
      *
      * @example vrt-bp1lhl0taikrteen8****
      *

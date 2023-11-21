@@ -21,7 +21,7 @@ class virtualBorderRouterType extends Model
     public $accessPointId;
 
     /**
-     * @description The first time when the VBR was activated.
+     * @description The time when the VBR was first activated.
      *
      * @example 2021-06-08T12:20:55
      *
@@ -53,7 +53,7 @@ class virtualBorderRouterType extends Model
     public $bandwidth;
 
     /**
-     * @description The circuit code of the Express Connect circuit. The circuit code is predefined by the connectivity provider.
+     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the Internet service provider (ISP).
      *
      * @example longtel0****
      *
@@ -112,8 +112,8 @@ class virtualBorderRouterType extends Model
     /**
      * @description Indicates whether IPv6 is enabled. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -140,7 +140,7 @@ class virtualBorderRouterType extends Model
     public $localIpv6GatewayIp;
 
     /**
-     * @description The time interval to receive Bidirectional Forwarding Detection (BFD) packets. Valid values: **200 to 1000**. Unit: milliseconds.
+     * @description The time interval to receive BFD packets. Valid values: **200 to 1000**. Unit: milliseconds.
      *
      * @example 300
      *
@@ -167,9 +167,9 @@ class virtualBorderRouterType extends Model
     public $name;
 
     /**
-     * @description The billing method of the VBR.
+     * @description The billing method of the VBR. Valid values:
      *
-     *   **PrePaid**: subscription If you choose this billing method, make sure that your Alibaba Cloud account supports balance payments or credit payments.
+     *   **PrePaid**: subscription. If you choose this billing method, make sure that your Alibaba Cloud account supports balance payments or credit payments.
      *   **PostPaid**: pay-as-you-go
      *
      * @example PrePaid
@@ -188,7 +188,7 @@ class virtualBorderRouterType extends Model
     public $PConnVbrExpireTime;
 
     /**
-     * @description The IPv4 address of the VBR on the user side.
+     * @description The IPv4 address of the gateway device on the user side.
      *
      * @example 192.168.XX.XX
      *
@@ -226,8 +226,8 @@ class virtualBorderRouterType extends Model
     /**
      * @description The business status of the Express Connect circuit.
      *
-     *   **Normal**: normal
-     *   **FinancialLocked**: locked due to overdue payments
+     *   **Normal:** The Express Connect circuit is running asnormal.
+     *   **FinancialLocked:** The Express Connect circuit is locked due to overdue payments.
      *
      * @example Normal
      *
@@ -245,7 +245,7 @@ class virtualBorderRouterType extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The UID of the Alibaba Cloud account to which the Express Connect circuit belongs.
+     * @description The ID of the Alibaba Cloud account to which the Express Connect circuit belongs.
      *
      * @example 1688000000000****
      *
@@ -256,16 +256,16 @@ class virtualBorderRouterType extends Model
     /**
      * @description The status of the Express Connect circuit.
      *
-     *   **Initial**: The application is under review.
+     *   **Initial:** The application is under review.
      *   **Approved**: The application is approved.
      *   **Allocating**: The system is allocating resources.
      *   **Allocated**: The Express Connect circuit is under construction.
-     *   **Confirmed**: The Express Connect circuit is pending for user confirmation.
+     *   **Confirmed**: The Express Connect circuit is to be confirmed.
      *   **Enabled**: The Express Connect circuit is enabled.
      *   **Rejected**: The application is rejected.
      *   **Canceled**: The application is canceled.
-     *   **Allocation Failed**: The system failed to allocate resources.
-     *   **Terminated**: The Express Connect circuit is disabled.
+     *   **Allocation Failed:** The system failed to allocate resources.
+     *   **Terminated:** The Express Connect circuit is disabled.
      *
      * @example Normal
      *
@@ -274,7 +274,7 @@ class virtualBorderRouterType extends Model
     public $physicalConnectionStatus;
 
     /**
-     * @description The last time when the status of the VBR changed from **terminated** to **active**.
+     * @description The time when the status of the VBR last changed from **terminated** to **active**.
      *
      * @example 2021-05-08T12:20:55
      *
@@ -283,6 +283,10 @@ class virtualBorderRouterType extends Model
     public $recoveryTime;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -299,12 +303,12 @@ class virtualBorderRouterType extends Model
     /**
      * @description The status of the VBR. Valid values:
      *
-     *   **unconfirmed**: pending confirmation from other users
-     *   **active**: normal
-     *   **terminating**: being disabled
-     *   **terminated**: disabled
-     *   **recovering**: being enabled
-     *   **deleting:**: being deleted
+     *   **unconfirmed**
+     *   **active**
+     *   **terminating**
+     *   **terminated**
+     *   **recovering**
+     *   **deleting**
      *
      * @example active
      *
@@ -313,12 +317,14 @@ class virtualBorderRouterType extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The last time when the VBR was disabled.
+     * @description The time when the VBR was last disabled.
      *
      * @example 2021-06-08T12:20:55
      *
@@ -336,7 +342,7 @@ class virtualBorderRouterType extends Model
     public $type;
 
     /**
-     * @description The ID of the VBR.
+     * @description The VBR ID.
      *
      * @example vbr-bp1jcg5cmxjbl9xgc****
      *

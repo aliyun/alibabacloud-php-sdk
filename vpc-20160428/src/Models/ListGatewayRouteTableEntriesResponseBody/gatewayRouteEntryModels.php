@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class gatewayRouteEntryModels extends Model
 {
     /**
-     * @description The name of the route.
+     * @description The name of the route entry.
      *
      * @example test
      *
@@ -28,9 +28,9 @@ class gatewayRouteEntryModels extends Model
     public $destinationCidrBlock;
 
     /**
-     * @description The name of the route.
+     * @description The name of the route entry.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length and can contain letter, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
      * @example name
      *
      * @var string
@@ -49,9 +49,9 @@ class gatewayRouteEntryModels extends Model
     /**
      * @description The type of the next hop. Valid values:
      *
-     *   **EcsInstance**: an Elastic Compute Service (ECS) instance
-     *   **NetworkInterface**: an elastic network interface (ENI)
-     *   **Local**: a local next hop
+     *   **EcsInstance**: Elastic Compute Service (ECS) instance
+     *   **NetworkInterface**: elastic network interfaces (ENIs).
+     *   **Local**: local next hop
      *
      * @example EcsInstance
      *
@@ -67,7 +67,7 @@ class gatewayRouteEntryModels extends Model
     public $nextHops;
 
     /**
-     * @description The status of the route. Valid values:
+     * @description The status of the route entry. Valid values:
      *
      *   **Pending**
      *   **Available**

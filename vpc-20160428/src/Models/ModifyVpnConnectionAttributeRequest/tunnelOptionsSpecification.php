@@ -12,10 +12,10 @@ use AlibabaCloud\Tea\Model;
 class tunnelOptionsSpecification extends Model
 {
     /**
-     * @description Specifies whether to enable the DPD feature for the tunnel. Valid values:
+     * @description Specifies whether to enable the Dead Peer Detection (DPD) feature for the tunnel. Valid values:
      *
-     *   **true:**: enables the DPD feature. The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within a specific period of time, the connection fails. Then, the ISAKMP SA, IPsec SA, and IPsec tunnel are deleted.
-     *   **false**: disables the DPD feature. The initiator of the IPsec-VPN connection does not send DPD packets.
+     *   **true** The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SA and IPsec SA are deleted. The security tunnel is also deleted.
+     *   **false**
      *
      * @example true
      *
@@ -26,7 +26,7 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description Specifies whether to enable NAT traversal for the tunnel. Valid values:
      *
-     *   **true** After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec tunnel.
+     *   **true** After NAT traversal is enabled, the initiator does not check the UDP ports during Internet Key Exchange (IKE) negotiations and can automatically discover NAT gateway devices along the IPsec-VPN tunnel.
      *   **false**
      *
      * @example true
@@ -38,7 +38,7 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description If the VPN gateway uses an SM certificate, you can modify the CA certificate used by the IPsec peer.
      *
-     * If the VPN gateway does not use an SM certificate, you cannot specify this parameter.
+     * If the VPN gateway does not use an SM certificate, this parameter is not supported.
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
      * @var string
@@ -46,19 +46,25 @@ class tunnelOptionsSpecification extends Model
     public $remoteCaCertificate;
 
     /**
+     * @description The tunnel role. Valid values:
+     *
+     * - **master**: The tunnel is an active tunnel.
+     * - **slave**: The tunnel is a standby tunnel.
+     * @example master
+     *
      * @var string
      */
     public $role;
 
     /**
-     * @description The BGP configuration to be modified for the IPsec tunnel.
+     * @description The Border Gateway Protocol (BGP) configurations of the tunnel.
      *
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
 
     /**
-     * @description You can specify **TunnelOptionsSpecification** parameters if you modify the configuration of a dual-tunnel IPsec-VPN connection. You can modify both the active and standby tunnels of the IPsec-VPN connection.
+     * @description **TunnelOptionsSpecification** parameters are supported by dual-tunnel IPsec-VPN gateways. You can modify both the active and standby tunnels of the IPsec-VPN connection.
      *
      * The tunnel ID.
      * @example tun-opsqc4d97wni27****
@@ -68,14 +74,14 @@ class tunnelOptionsSpecification extends Model
     public $tunnelId;
 
     /**
-     * @description The configuration of Phase 1 negotiations.
+     * @description The configurations of Phase 1 negotiations.
      *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
-     * @description The configuration of Phase 2 negotiations.
+     * @description The configurations of Phase 2 negotiations.
      *
      * @var tunnelIpsecConfig
      */

@@ -18,7 +18,7 @@ class UpdateVirtualBorderBandwidthResponseBody extends Model
     public $code;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code
      *
      * @example 200
      *
@@ -27,7 +27,7 @@ class UpdateVirtualBorderBandwidthResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The response message.
+     * @description The returned message.
      *
      * @example none
      *
@@ -36,7 +36,7 @@ class UpdateVirtualBorderBandwidthResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example AA4486A8-B6AE-469E-AB09-820EF8ECFA2B
      *
@@ -45,7 +45,7 @@ class UpdateVirtualBorderBandwidthResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the maximum bandwidth is updated. Valid values:
+     * @description Indicates whether the maximum bandwidth value is updated.
      *
      *   **true**
      *   **false**

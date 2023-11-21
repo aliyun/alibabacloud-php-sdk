@@ -20,8 +20,8 @@ class routeTable extends Model
     /**
      * @description The type of the route table. Valid values:
      *
-     *   **System**: system route table
-     *   **Custom**: custom route table
+     *   **System**
+     *   **Custom**
      *
      * @example System
      *

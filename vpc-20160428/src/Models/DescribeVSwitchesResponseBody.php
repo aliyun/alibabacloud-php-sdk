@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9A572171-4E27-40D1-BD36-D26C9E71E29E
      *

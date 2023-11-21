@@ -13,8 +13,8 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
      *
      *   **CircuitCode**: the circuit code provided by the connectivity provider for the Express Connect circuit.
      *   **LocalGatewayIp**: the IP address of the gateway device on the Alibaba Cloud side.
-     *   **PeerGatewayIp**: the IP address of the gateway device on the user side.
-     *   **PeeringSubnetMask**: the subnet mask for the IP addresses of gateway devices on the Alibaba Cloud side and the user side.
+     *   **PeerGatewayIp**: the IP address of the gateway device on the customer side.
+     *   **PeeringSubnetMask**: the subnet mask for the IP addresses of gateway devices on the Alibaba Cloud side and the customer side.
      *   **PhysicalConnectionId**: the ID of the Express Connect circuit.
      *
      * @example [   {     "CircuitCode ": "longtel001",     " LocalGatewayIp ": "192.168.XX.XX",     "PeerGatewayIp" : "192.168.XX.XX",     " PeeringSubnetMask ": "255.255.255.252",     " PhysicalConnectionId ": "pc-kojok19****"   } ]
@@ -35,7 +35,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     /**
      * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
      *
-     * >  Only the owner of the Express Connect circuit can set this parameter.
+     * >  Only the owner of the Express Connect circuit can set this property.
      * @example longtel001
      *
      * @var string
@@ -47,7 +47,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-00****
      *
      * @var string
@@ -77,8 +77,8 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     /**
      * @description Specifies whether to enable IPv6. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -87,7 +87,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $enableIpv6;
 
     /**
-     * @description The IP address of the gateway device on the Alibaba Cloud side.
+     * @description The IP address of the VBR.
      *
      * Only the owner of the VBR can set or modify this parameter.
      * @example 192.168.XX.XX
@@ -97,7 +97,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $localGatewayIp;
 
     /**
-     * @description The IPv6 address of the gateway device on the Alibaba Cloud side.
+     * @description The IPv6 address of the VBR.
      *
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
@@ -144,7 +144,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The IP address of the gateway device on the user side.
+     * @description The IP address of the gateway device in the data center.
      *
      * Only the owner of the VBR can set or modify this parameter.
      * @example 192.168.XX.X
@@ -176,7 +176,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $peeringIpv6SubnetMask;
 
     /**
-     * @description The subnet mask for the IP addresses of the gateway devices on the Alibaba Cloud side and on the user side. Only the owner of the VBR can set or modify this parameter.
+     * @description The subnet mask for the IP addresses of the gateway devices on the Alibaba Cloud side and on the customer side. Only the owner of the VBR can set or modify this parameter.
      *
      * The two IP addresses must fall within the same subnet.
      * @example 255.255.255.252
@@ -206,7 +206,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the VBR.
+     * @description The VBR ID.
      *
      * @example vbr-bp1lhl0taikrte****
      *
@@ -217,7 +217,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     /**
      * @description The VLAN ID of the VBR. Valid values: **0 to 2999**.
      *
-     * >  Only the owner of the Express Connect circuit can set this parameter. The VLAN IDs of two VBRs of the same the Express Connect circuit must be different.
+     * >  This parameter is available only to Express Connect owners. The VLAN IDs of VBRs on the same Express Connect circuit must be unique.
      * @example 0
      *
      * @var int

@@ -23,19 +23,21 @@ class CreateVpnConnectionRequest extends Model
     public $autoConfigRoute;
 
     /**
-     * @description The Border Gateway Protocol (BGP) configurations:
+     * @description This parameter is available if you create an IPsec-VPN connection in single-tunnel mode.
+     *
+     * The Border Gateway Protocol (BGP) configurations:
      *
      *   **BgpConfig.EnableBgp**: specifies whether to enable BGP. Valid values: **true** and **false**. Default value: false.
      *
      *   **BgpConfig.LocalAsn**: the autonomous system number (ASN) on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
      *
-     *   **BgpConfig.TunnelCidr**: the CIDR block of the IPsec tunnel. The CIDR block must fall within the 169.254.0.0/16 range. The subnet mask of the CIDR block must be 30 bits in length.
+     *   **BgpConfig.TunnelCidr**: the CIDR block of the IPsec tunnel. The CIDR block must belong to 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
      *
-     * The CIDR block of an IPsec tunnel associated with a VPN gateway must be unique.
+     * > The CIDR block of an IPsec tunnel associated with a VPN gateway must be unique.
      *
      *   **LocalBgpIp**: the BGP address on the Alibaba Cloud side. This IP address must fall within the CIDR block range of the IPsec tunnel.
      *
-     * > *   Before you configure BGP, we recommend that you learn about how BGP works and its limits. For more information, see [VPN Gateway supports BGP dynamic routing](~~170235~~).
+     * >*   Before you configure BGP, we recommend that you learn about how BGP works and its limits. For more information, see [VPN Gateway supports BGP dynamic routing](~~170235~~).
      * >*   We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. For information about the range of private ASNs, see the relevant documentation.
      * @example {"EnableBgp":"true","LocalAsn":"45104","TunnelCidr":"169.254.11.0/30","LocalBgpIp":"169.254.11.1"}
      *
@@ -56,9 +58,9 @@ class CreateVpnConnectionRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the customer gateway.
+     * @description When you create an IPsec-VPN connection in single-tunnel mode, this parameter is required.
      *
-     * >  If the VPN gateway supports only the single-tunnel mode, this parameter is required.
+     * The ID of the customer gateway.
      * @example cgw-p0w2jemrcj5u61un8****
      *
      * @var string
@@ -78,10 +80,12 @@ class CreateVpnConnectionRequest extends Model
     public $effectImmediately;
 
     /**
-     * @description Specifies whether to enable the dead peer detection (DPD) feature. Valid values:
+     * @description This parameter is available if you create an IPsec-VPN connection in single-tunnel mode.
      *
-     *   **true** (default) The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no response is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
-     *   **false**: disables DPD. The IPsec initiator does not send DPD packets.
+     * Specifies whether to enable the dead peer detection (DPD) feature. Valid values:
+     *
+     *   **true** (default) The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
+     *   **false**
      *
      * @example true
      *
@@ -90,7 +94,9 @@ class CreateVpnConnectionRequest extends Model
     public $enableDpd;
 
     /**
-     * @description Specifies whether to enable NAT traversal. Valid values:
+     * @description This parameter is available if you create an IPsec-VPN connection in single-tunnel mode.
+     *
+     * Specifies whether to enable NAT traversal. Valid values:
      *
      *   **true** (default) After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the VPN tunnel.
      *   **false**
@@ -102,8 +108,9 @@ class CreateVpnConnectionRequest extends Model
     public $enableNatTraversal;
 
     /**
-     * @description Specifies whether to enable the BGP feature for the tunnel. Valid values: **true** and **false**. Default value: false.
+     * @description This parameter is available if you create an IPsec-VPN connection in dual-tunnel mode.
      *
+     * Specifies whether to enable the BGP feature for the tunnel. Valid values: **true** and **false**. Default value: false.
      * @example true
      *
      * @var bool
@@ -111,7 +118,9 @@ class CreateVpnConnectionRequest extends Model
     public $enableTunnelsBgp;
 
     /**
-     * @description The health check configuration:
+     * @description This parameter is available if you create an IPsec-VPN connection in single-tunnel mode.
+     *
+     * The health check configuration:
      *
      *   **HealthCheckConfig.enable**: specifies whether to enable health checks. Valid values: **true** and **false**. Default value: false.
      *   **HealthCheckConfig.dip**: the destination IP address configured for health checks.
@@ -126,13 +135,16 @@ class CreateVpnConnectionRequest extends Model
     public $healthCheckConfig;
 
     /**
-     * @description The configurations of Phase 1 negotiations:
+     * @description This parameter is available if you create an IPsec-VPN connection in single-tunnel mode.
+     *
+     * The configurations of Phase 1 negotiations:
      *
      *   **IkeConfig.Psk**: The pre-shared key that is used for authentication between the VPN gateway and the on-premises database.
      *
      *   The key must be 1 to 100 characters in length and can contain digits, letters, and the following characters: ``~!\`@#$%^&*()_-+={}[]|;:\",.<>/?``
      *
-     *   If you do not specify a pre-shared key, the system generates a random 16-character string as the pre-shared key. You can call the [DescribeVpnConnection](~~120374~~) operation to query the pre-shared key that is generated by the system.
+     *   If you do not specify a pre-shared key, the system generates a random 16-character string as the pre-shared key. You can call the [DescribeVpnConnection](~~448847~~) operation to query the pre-shared key that is generated by the system.
+     *
      * >The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the on-premises database. Otherwise, the on-premises database and the VPN gateway cannot establish a connection.
      *
      *   **IkeConfig.IkeVersion**: the version of the Internet Key Exchange (IKE) protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
@@ -167,7 +179,9 @@ class CreateVpnConnectionRequest extends Model
     public $ikeConfig;
 
     /**
-     * @description The configurations of Phase 2 negotiations:
+     * @description This parameter is available if you create an IPsec-VPN connection in single-tunnel mode.
+     *
+     * The configurations of Phase 2 negotiations:
      *
      *   **IpsecConfig.IpsecEncAlg**: the encryption algorithm that is used in Phase 2 negotiations.
      *
@@ -231,7 +245,9 @@ class CreateVpnConnectionRequest extends Model
     public $regionId;
 
     /**
-     * @description The certificate authority (CA) certificate. If the VPN gateway is of the ShangMi (SM) type, you need to configure a CA certificate for the peer gateway device.
+     * @description This parameter is available if you create an IPsec-VPN connection in single-tunnel mode.
+     *
+     * The certificate authority (CA) certificate. If the VPN gateway is of the ShangMi (SM) type, you need to configure a CA certificate for the peer gateway device.
      *
      *   If an SM VPN gateway is used to create the IPsec-VPN connection, this parameter is required.
      *   If a standard VPN gateway is used to create the IPsec-VPN connection, leave this parameter empty.
@@ -277,7 +293,9 @@ class CreateVpnConnectionRequest extends Model
     /**
      * @description The tunnel configurations.
      *
-     * If the VPN gateway supports the dual-tunnel mode, you must configure the active tunnel and standby tunnel by specifying **TunnelOptionsSpecification**. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
+     *   You can specify the parameters in the **TunnelOptionsSpecification** array if you create an IPsec-VPN connection in dual-tunnel mode.
+     *   If you create an IPsec-VPN connection in dual-tunnel mode, you need to configure an active tunnel and a standby tunnel. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
+     *
      * @var tunnelOptionsSpecification[]
      */
     public $tunnelOptionsSpecification;
