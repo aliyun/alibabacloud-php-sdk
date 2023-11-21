@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAggregateFunctionRequest
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAggregateFunctionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertSceneByEventRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertSceneByEventResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertSceneRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertSceneResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertsCountRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertsCountResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertSourceRequest;
@@ -90,6 +92,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeStorageResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWafScopeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWafScopeResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWhiteRuleListRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWhiteRuleListResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoQuickFieldRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoQuickFieldResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoSelfDelegateRequest;
@@ -553,6 +557,49 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAggregateFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAlertSceneRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeAlertSceneResponse
+     */
+    public function describeAlertSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlertScene',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAlertSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAlertSceneRequest $request
+     *
+     * @return DescribeAlertSceneResponse
+     */
+    public function describeAlertScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlertSceneWithOptions($request, $runtime);
     }
 
     /**
@@ -2243,6 +2290,64 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeWafScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWhiteRuleListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeWhiteRuleListResponse
+     */
+    public function describeWhiteRuleListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertName)) {
+            $body['AlertName'] = $request->alertName;
+        }
+        if (!Utils::isUnset($request->alertType)) {
+            $body['AlertType'] = $request->alertType;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->incidentUuid)) {
+            $body['IncidentUuid'] = $request->incidentUuid;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWhiteRuleList',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWhiteRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWhiteRuleListRequest $request
+     *
+     * @return DescribeWhiteRuleListResponse
+     */
+    public function describeWhiteRuleList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhiteRuleListWithOptions($request, $runtime);
     }
 
     /**
