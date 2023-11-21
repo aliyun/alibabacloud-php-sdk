@@ -2,36 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesResponseBody\resources;
+namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceConfigurationResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class ipAddressAttributes extends Model
 {
     /**
-     * @description The IP address.
-     *
      * @var string
      */
     public $ipAddress;
 
     /**
-     * @description The network type. Valid values:
-     *
-     *   **Public**: the Internet
-     *   **Private**: internal network
-     *
-     * @example Public
-     *
      * @var string
      */
     public $networkType;
 
     /**
-     * @description The version.
-     *
-     * @example Ipv4
-     *
      * @var string
      */
     public $version;

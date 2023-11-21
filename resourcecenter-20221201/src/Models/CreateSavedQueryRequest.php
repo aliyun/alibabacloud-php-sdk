@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateSavedQueryRequest extends Model
 {
     /**
+     * @description The description of the template.
+     *
+     * The description must be 1 to 256 characters in length.
      * @var string
      */
     public $description;
 
     /**
+     * @description The query statement in the template.
+     *
      * @example SELECT * FROM resources;
      *
      * @var string
@@ -21,6 +26,12 @@ class CreateSavedQueryRequest extends Model
     public $expression;
 
     /**
+     * @description The name of the template.
+     *
+     *   The name must be 1 to 64 characters in length.
+     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The name must be unique.
+     *
      * @var string
      */
     public $name;

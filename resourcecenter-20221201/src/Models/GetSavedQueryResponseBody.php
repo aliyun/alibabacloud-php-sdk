@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSavedQueryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 6D98D9B0-318D-56A4-910C-93B5F945AF2B
      *
      * @var string
@@ -17,6 +19,8 @@ class GetSavedQueryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the custom query template.
+     *
      * @var savedQuery
      */
     public $savedQuery;

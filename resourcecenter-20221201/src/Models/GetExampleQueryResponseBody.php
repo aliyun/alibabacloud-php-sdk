@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetExampleQueryResponseBody extends Model
 {
     /**
+     * @description The information about the sample query template.
+     *
      * @var exampleQuery
      */
     public $exampleQuery;
 
     /**
+     * @description The request ID.
+     *
      * @example 36A3D9BE-B607-5993-B546-7E19EF65DC00
      *
      * @var string

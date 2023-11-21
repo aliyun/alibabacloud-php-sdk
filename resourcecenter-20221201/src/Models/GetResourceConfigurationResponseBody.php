@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceConfigurationResponseBody\ipAddressAttributes;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceConfigurationResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -33,6 +34,16 @@ class GetResourceConfigurationResponseBody extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $expireTime;
+
+    /**
+     * @var ipAddressAttributes[]
+     */
+    public $ipAddressAttributes;
 
     /**
      * @description The IP addresses.
@@ -112,18 +123,20 @@ class GetResourceConfigurationResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
-        'accountId'       => 'AccountId',
-        'configuration'   => 'Configuration',
-        'createTime'      => 'CreateTime',
-        'ipAddresses'     => 'IpAddresses',
-        'regionId'        => 'RegionId',
-        'requestId'       => 'RequestId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'resourceId'      => 'ResourceId',
-        'resourceName'    => 'ResourceName',
-        'resourceType'    => 'ResourceType',
-        'tags'            => 'Tags',
-        'zoneId'          => 'ZoneId',
+        'accountId'           => 'AccountId',
+        'configuration'       => 'Configuration',
+        'createTime'          => 'CreateTime',
+        'expireTime'          => 'ExpireTime',
+        'ipAddressAttributes' => 'IpAddressAttributes',
+        'ipAddresses'         => 'IpAddresses',
+        'regionId'            => 'RegionId',
+        'requestId'           => 'RequestId',
+        'resourceGroupId'     => 'ResourceGroupId',
+        'resourceId'          => 'ResourceId',
+        'resourceName'        => 'ResourceName',
+        'resourceType'        => 'ResourceType',
+        'tags'                => 'Tags',
+        'zoneId'              => 'ZoneId',
     ];
 
     public function validate()
@@ -141,6 +154,18 @@ class GetResourceConfigurationResponseBody extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->ipAddressAttributes) {
+            $res['IpAddressAttributes'] = [];
+            if (null !== $this->ipAddressAttributes && \is_array($this->ipAddressAttributes)) {
+                $n = 0;
+                foreach ($this->ipAddressAttributes as $item) {
+                    $res['IpAddressAttributes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->ipAddresses) {
             $res['IpAddresses'] = $this->ipAddresses;
@@ -195,6 +220,18 @@ class GetResourceConfigurationResponseBody extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['IpAddressAttributes'])) {
+            if (!empty($map['IpAddressAttributes'])) {
+                $model->ipAddressAttributes = [];
+                $n                          = 0;
+                foreach ($map['IpAddressAttributes'] as $item) {
+                    $model->ipAddressAttributes[$n++] = null !== $item ? ipAddressAttributes::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['IpAddresses'])) {
             if (!empty($map['IpAddresses'])) {

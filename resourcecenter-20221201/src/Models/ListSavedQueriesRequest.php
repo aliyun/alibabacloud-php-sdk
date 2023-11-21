@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListSavedQueriesRequest extends Model
 {
     /**
+     * @description The maximum number of entries per page.
+     *
+     * Default value: 50.
      * @example 10
      *
      * @var string
@@ -16,6 +19,8 @@ class ListSavedQueriesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
      *
      * @var string

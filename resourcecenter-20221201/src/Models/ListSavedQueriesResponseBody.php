@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSavedQueriesResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -17,6 +19,8 @@ class ListSavedQueriesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example AAAAARfZmVDe9NvRXloR5+8CK9nNJufMdRA7W1miLC1P****
      *
      * @var string
@@ -24,6 +28,8 @@ class ListSavedQueriesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example D696E6EF-3A6D-5770-801E-4982081FE4D0
      *
      * @var string
@@ -31,6 +37,8 @@ class ListSavedQueriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the custom query templates.
+     *
      * @var savedQueries[]
      */
     public $savedQueries;

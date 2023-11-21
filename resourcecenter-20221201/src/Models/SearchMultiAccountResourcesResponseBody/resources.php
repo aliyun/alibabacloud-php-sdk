@@ -22,7 +22,7 @@ class resources extends Model
     /**
      * @description The time when the resource was created.
      *
-     * > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
+     * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
      * @example 2021-06-30T09:20:08Z
      *
      * @var string
@@ -30,11 +30,17 @@ class resources extends Model
     public $createTime;
 
     /**
+     * @description The time when the resource expires.
+     *
+     * @example 2023-06-14T14:35:45Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The attributes of the IP address.
+     *
      * @var ipAddressAttributes[]
      */
     public $ipAddressAttributes;
@@ -42,13 +48,13 @@ class resources extends Model
     /**
      * @description The IP addresses.
      *
-     * > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
+     * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
      * @var string[]
      */
     public $ipAddresses;
 
     /**
-     * @description The region ID of the resource.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -57,7 +63,7 @@ class resources extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the resource belongs.
+     * @description The resource group ID.
      *
      * @example rg-acfmzawhxxc****
      *
@@ -66,7 +72,7 @@ class resources extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example vtb-bp11lbh452fr8940s****
      *
@@ -75,7 +81,7 @@ class resources extends Model
     public $resourceId;
 
     /**
-     * @description The name of the resource.
+     * @description The resource name.
      *
      * @example group1
      *
@@ -84,7 +90,7 @@ class resources extends Model
     public $resourceName;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
      * @example ACS::VPC::RouteTable
      *
@@ -93,16 +99,16 @@ class resources extends Model
     public $resourceType;
 
     /**
-     * @description The tags of the resource.
+     * @description The tags.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The zone ID of the resource.
+     * @description The zone ID.
      *
-     * > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
+     * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
      * @example cn-hangzhou-k
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetExampleQueryRequest extends Model
 {
     /**
+     * @description The ID of the template.
+     *
+     * >  You can call the [ListExampleQueries](~~ListExampleQueries~~) operation to obtain the template ID.
      * @example sq-0PfKy****
      *
      * @var string

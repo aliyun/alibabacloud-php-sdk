@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ipAddressAttributes extends Model
 {
     /**
-     * @var string[]
+     * @description The IP address.
+     *
+     * @var string
      */
     public $ipAddress;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **Public**: the Internet
+     *   **Private**: internal network
+     *
+     * @example Public
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The version.
+     *
+     * @example Ipv4
+     *
      * @var string
      */
     public $version;
@@ -57,9 +70,7 @@ class ipAddressAttributes extends Model
     {
         $model = new self();
         if (isset($map['IpAddress'])) {
-            if (!empty($map['IpAddress'])) {
-                $model->ipAddress = $map['IpAddress'];
-            }
+            $model->ipAddress = $map['IpAddress'];
         }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];

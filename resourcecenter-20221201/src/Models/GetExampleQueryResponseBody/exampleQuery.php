@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class exampleQuery extends Model
 {
     /**
+     * @description The description of the template.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The query statement in the template.
+     *
      * @example SELECT
      * 1000 OFFSET 0;
      * @var string
@@ -21,11 +25,15 @@ class exampleQuery extends Model
     public $expression;
 
     /**
+     * @description The name of the template.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the template.
+     *
      * @example sq-0PfKy****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class savedQuery extends Model
 {
     /**
+     * @description The time when the template was created.
+     *
      * @example 2023-10-30T01:43:16Z
      *
      * @var string
@@ -16,11 +18,15 @@ class savedQuery extends Model
     public $createTime;
 
     /**
+     * @description The description of the template.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The query statement in the template.
+     *
      * @example SELECT * FROM resources;
      *
      * @var string
@@ -28,11 +34,15 @@ class savedQuery extends Model
     public $expression;
 
     /**
+     * @description The name of the template.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the template.
+     *
      * @example sq-GeAck****
      *
      * @var string
@@ -40,6 +50,8 @@ class savedQuery extends Model
     public $queryId;
 
     /**
+     * @description The time when the template was last updated.
+     *
      * @example 2023-10-30T01:43:16Z
      *
      * @var string

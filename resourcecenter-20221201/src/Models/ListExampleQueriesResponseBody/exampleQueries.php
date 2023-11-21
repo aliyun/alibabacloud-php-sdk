@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class exampleQueries extends Model
 {
     /**
+     * @description The description of the template.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the template.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the template.
+     *
      * @example sq-0PfKy****
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ExecuteSQLQueryRequest extends Model
 {
     /**
+     * @description The SQL statement to be executed.
+     *
+     * For more information about the SQL syntax, see [Basic SQL syntax](~~2539395~~).
      * @example SELECT * FROM resources LIMIT 100;
      *
      * @var string
@@ -16,6 +19,9 @@ class ExecuteSQLQueryRequest extends Model
     public $expression;
 
     /**
+     * @description The search scope.
+     *
+     * For information about how to obtain the ID of a resource group, see [ListResourceGroups](~~158855~~).
      * @example rg-acfmzawhxxc****
      *
      * @var string

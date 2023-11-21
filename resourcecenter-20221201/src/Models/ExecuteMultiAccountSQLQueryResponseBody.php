@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ExecuteMultiAccountSQLQueryResponseBody extends Model
 {
     /**
+     * @description The columns.
+     *
      * @var columns[]
      */
     public $columns;
 
     /**
+     * @description The request ID.
+     *
      * @example 44C8A952-D6B0-5BC8-82D5-93BA02E26F2E
      *
      * @var string
@@ -22,6 +26,8 @@ class ExecuteMultiAccountSQLQueryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array of search results.
+     *
      * @var mixed[]
      */
     public $rows;

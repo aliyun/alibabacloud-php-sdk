@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListExampleQueriesResponseBody extends Model
 {
     /**
+     * @description The information about the sample query templates.
+     *
      * @var exampleQueries[]
      */
     public $exampleQueries;
 
     /**
+     * @description The maximum number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -22,6 +26,8 @@ class ListExampleQueriesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
      *
      * @var string
@@ -29,6 +35,8 @@ class ListExampleQueriesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example D696E6EF-3A6D-5770-801E-4982081FE4D0
      *
      * @var string

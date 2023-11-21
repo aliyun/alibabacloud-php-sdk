@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteSavedQueryRequest extends Model
 {
     /**
+     * @description The ID of the template.
+     *
+     * You can call the [ListSavedQueries](~~ListSavedQueries~~) operation to obtain the template ID.
      * @example sq-GeAck****
      *
      * @var string
