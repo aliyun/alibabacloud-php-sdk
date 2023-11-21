@@ -208,6 +208,10 @@ class DBInstanceAttribute extends Model
     public $DBInstanceDescription;
 
     /**
+     * @description The disk usage of the instance.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $DBInstanceDiskUsed;

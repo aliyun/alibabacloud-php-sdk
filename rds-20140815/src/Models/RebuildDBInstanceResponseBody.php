@@ -18,7 +18,7 @@ class RebuildDBInstanceResponseBody extends Model
     public $migrationId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 355DA57C-8CC4-40AB-B3F8-B684BA32EB9E
      *
@@ -27,7 +27,7 @@ class RebuildDBInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 208676661
      *

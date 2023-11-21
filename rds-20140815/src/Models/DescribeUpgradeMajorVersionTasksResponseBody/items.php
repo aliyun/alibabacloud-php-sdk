@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The time at which ApsaraDB RDS collects the statistics of the new RDS instance.
+     * @description The time when the system collects the statistics.
      *
      * Valid values:
      *
-     *   **After**: ApsaraDB RDS collects the statistics of the new instance after a switchover.
-     *   **Before**: ApsaraDB RDS collects the statistics of the new instance before a switchover.
+     *   **After**: The system collects the statistics after a switchover.
+     *   **Before**: The system collects the statistics before a switchover.
      *
      * @example After
      *
@@ -32,9 +32,9 @@ class items extends Model
     public $detail;
 
     /**
-     * @description The time at which the task ended.
+     * @description The end time of the task.
      *
-     * The value of this parameter is a timestamp that follows the UNIX time format. Unit: milliseconds.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
      * @example 1614237779000
      *
      * @var string
@@ -73,9 +73,9 @@ class items extends Model
     public $sourceMajorVersion;
 
     /**
-     * @description The time at which the task started.
+     * @description The start time of the task.
      *
-     * The value of this parameter is a timestamp that follows the UNIX time format. Unit: milliseconds.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
      * @example 1614236007000
      *
      * @var string
@@ -85,7 +85,7 @@ class items extends Model
     /**
      * @description The time at which your workloads are switched over from the original instance to the new instance.
      *
-     * The value of this parameter is a timestamp that follows the UNIX time format. Unit: milliseconds.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
      * @example 1614237539000
      *
      * @var string
@@ -108,6 +108,8 @@ class items extends Model
      *   **11.0**
      *   **12.0**
      *   **13.0**
+     *   **14.0**
+     *   **15.0**
      *
      * @example 12.0
      *
@@ -116,7 +118,7 @@ class items extends Model
     public $targetMajorVersion;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 342900000
      *
@@ -125,12 +127,12 @@ class items extends Model
     public $taskId;
 
     /**
-     * @description Indicates whether ApsaraDB RDS migrates data to the new instance and switches your workloads over to the new instance.
+     * @description The upgrade mode.
      *
      * Valid values:
      *
-     *   **clone**: ApsaraDB RDS does not migrate data to the new instance and does not switch your workloads over to the new instance.
-     *   **switch**: ApsaraDB RDS migrates data to the new instance and switches your workloads over to the new instance.
+     *   **clone**: The system does not migrate data to the new instance and does not switch your workloads over to the new instance.
+     *   **switch**: The system migrates data to the new instance and switches your workloads over to the new instance.
      *
      * @example switch
      *

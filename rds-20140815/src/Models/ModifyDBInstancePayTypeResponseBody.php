@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstancePayTypeResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 100789370230206
      *

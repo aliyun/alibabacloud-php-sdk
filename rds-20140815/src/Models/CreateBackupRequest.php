@@ -57,7 +57,7 @@ class CreateBackupRequest extends Model
     public $backupType;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5****
      *
@@ -76,7 +76,7 @@ class CreateBackupRequest extends Model
     public $DBName;
 
     /**
-     * @description The resource group ID. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute to query the resource group ID.
      *
      * @example rg-acfmy*****
      *

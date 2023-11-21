@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
-     * @description Indicates whether auto-renewal is enabled.
+     * @description Indicates whether to enable auto-renewal for the instance.
      *
      * @example True
      *
@@ -18,7 +18,7 @@ class item extends Model
     public $autoRenew;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-bpxxxxxxx
      *
@@ -27,7 +27,7 @@ class item extends Model
     public $DBInstanceId;
 
     /**
-     * @description The billing cycle of renewal.
+     * @description The renewal period.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class item extends Model
     public $duration;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -45,7 +45,7 @@ class item extends Model
     public $regionId;
 
     /**
-     * @description The status of the instance.
+     * @description The instance status.
      *
      * @example Normal
      *

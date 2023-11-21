@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceDelayedReplicationTimeResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5*****
      *
@@ -27,7 +27,7 @@ class ModifyDBInstanceDelayedReplicationTimeResponseBody extends Model
     public $readSQLReplicationTime;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EFB6083A-7699-489B-8278-C0CB4793A96E
      *
@@ -36,7 +36,7 @@ class ModifyDBInstanceDelayedReplicationTimeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 1715482.0
      *

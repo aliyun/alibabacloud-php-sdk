@@ -39,7 +39,7 @@ class binLogFile extends Model
     /**
      * @description The ID of the instance to which the log file belongs. This parameter helps determine whether the log file is generated on the primary instance or the secondary instance.
      *
-     * > You can log on to the ApsaraDB RDS console and go to the instance details page. In the left-side navigation pane, click **Service Availability** to view the values of **Primary Instance No.** and **Secondary Instance No.**.
+     * >  You can log on to the ApsaraDB RDS console and go to the instance details page. In the left-side navigation pane, click **Service Availability** to view the values of **Primary Instance No.** and **Secondary Instance No.**.
      * @example 5841973
      *
      * @var string
@@ -66,7 +66,7 @@ class binLogFile extends Model
     public $linkExpiredTime;
 
     /**
-     * @description The start time of the log file.
+     * @description The beginning of the time range to query.
      *
      * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      * @example 2019-02-09T17:45:21Z
@@ -76,7 +76,7 @@ class binLogFile extends Model
     public $logBeginTime;
 
     /**
-     * @description The end time of the log file.
+     * @description The end of the time range to query.
      *
      * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      * @example 2019-02-15T13:10:28Z

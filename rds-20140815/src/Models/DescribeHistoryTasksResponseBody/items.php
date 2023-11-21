@@ -157,7 +157,7 @@ class items extends Model
      *
      * @example Running
      *
-     * @var int
+     * @var string
      */
     public $status;
 

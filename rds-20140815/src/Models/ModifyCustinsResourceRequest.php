@@ -27,7 +27,7 @@ class ModifyCustinsResourceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The increase rate.
+     * @description The increase rate in percentage.
      *
      * @example 10
      *
@@ -50,7 +50,7 @@ class ModifyCustinsResourceRequest extends Model
     public $resourceType;
 
     /**
-     * @description The original value. This parameter must be specified when **ResourceType** is set to **instance**.
+     * @description The original value. This parameter must be specified when the **ResourceType** parameter is set to **instance**.
      *
      * @example 200
      *

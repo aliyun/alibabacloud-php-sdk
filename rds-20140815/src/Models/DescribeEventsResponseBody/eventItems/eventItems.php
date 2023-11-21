@@ -18,7 +18,7 @@ class eventItems extends Model
     public $callerUid;
 
     /**
-     * @description The ID of the event.
+     * @description The event ID.
      *
      * @example 11000053
      *
@@ -27,7 +27,7 @@ class eventItems extends Model
     public $eventId;
 
     /**
-     * @description The name of the event. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+     * @description The event name.
      *
      * @example ModifySecurityIPList
      *
@@ -45,7 +45,7 @@ class eventItems extends Model
     public $eventPayload;
 
     /**
-     * @description The source of the event. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+     * @description The source of the event.
      *
      * @example FROM_USER
      *
@@ -72,7 +72,7 @@ class eventItems extends Model
     public $eventTime;
 
     /**
-     * @description The type of the event. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+     * @description The event type.
      *
      * @example NetworkManagement
      *
@@ -90,7 +90,7 @@ class eventItems extends Model
     public $eventUserType;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

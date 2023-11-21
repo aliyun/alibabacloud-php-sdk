@@ -23,7 +23,7 @@ class DescribeEventsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: **1**.
      * @example 1
@@ -33,7 +33,7 @@ class DescribeEventsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values:
+     * @description The number of entries per page. Valid values:
      *
      *   **30**
      *   **50**
@@ -47,7 +47,7 @@ class DescribeEventsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the IDs of regions.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -66,7 +66,7 @@ class DescribeEventsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2019-06-11T15:00:00Z
      *

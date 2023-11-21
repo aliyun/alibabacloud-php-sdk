@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDTCSecurityIpHostsForSQLServerRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -28,7 +28,7 @@ class DescribeDTCSecurityIpHostsForSQLServerRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the region ID.
+     * @description The region ID. You can call the DescribeDBInstanceAttribute operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -37,7 +37,7 @@ class DescribeDTCSecurityIpHostsForSQLServerRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
      *
      * @example rg-acfmy*****
      *

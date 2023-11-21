@@ -18,7 +18,7 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -30,7 +30,7 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
      * @description The effective time. Valid values:
      *
      *   **Immediate**: This is the default value.
-     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](~~610402~~).
+     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
      *
      * @example Immediate
      *

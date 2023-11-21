@@ -18,7 +18,7 @@ class CheckServiceLinkedRoleResponseBody extends Model
     public $hasServiceLinkedRole;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example AB44DC0A-7E77-442A-97A9-C6418694CB22
      *

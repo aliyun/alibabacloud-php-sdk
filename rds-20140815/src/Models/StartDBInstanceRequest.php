@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartDBInstanceRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-bp****
      *
@@ -31,7 +31,7 @@ class StartDBInstanceRequest extends Model
     public $DBInstanceTransType;
 
     /**
-     * @description The ID of the dedicated cluster. This parameter is required when you want to resume an instance in a dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~610640~~) operation to query the ID of the dedicated cluster.
+     * @description The dedicated cluster ID. This parameter is supported if you call this operation to suspend an RDS instance in the dedicated cluster. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
      *
      * @example dhg-39****
      *
@@ -43,8 +43,8 @@ class StartDBInstanceRequest extends Model
      * @description The effective time. This parameter is available only for instances that are created in dedicated clusters.
      *
      *   **Immediate**
-     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](~~26249~~).
-     *   **SpecificTime**: The effective time is specified.
+     *   **MaintainTime**: The change takes effect during the planned maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+     *   **SpecificTime**: The change takes effect at a specified point in time.
      *
      * Default value: MaintainTime.
      * @example Immediate
@@ -68,7 +68,7 @@ class StartDBInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

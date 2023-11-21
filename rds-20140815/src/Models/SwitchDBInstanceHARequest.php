@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceHARequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -44,7 +44,7 @@ class SwitchDBInstanceHARequest extends Model
     public $force;
 
     /**
-     * @description The globally unique identifier (GUID) of the secondary instance. You can call the [DescribeDBInstanceHAConfig](~~610434~~) operation to query the GUID of the secondary instance.
+     * @description The secondary instance ID. You can call the DescribeDBInstanceHAConfig operation to query the secondary instance ID.
      *
      * @example 349054
      *

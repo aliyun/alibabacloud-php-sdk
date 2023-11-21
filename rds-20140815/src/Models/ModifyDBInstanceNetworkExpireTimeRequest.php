@@ -30,7 +30,7 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
     public $connectionString;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

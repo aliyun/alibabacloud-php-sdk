@@ -32,7 +32,7 @@ class DescribeDBInstancePromoteActivityRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example 111
      *

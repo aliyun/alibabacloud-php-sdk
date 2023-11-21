@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsResponseBody extends Model
 {
     /**
-     * @description The details of the events.
+     * @description The events.
      *
      * @var eventItems
      */
     public $eventItems;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeEventsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 30
      *
@@ -35,7 +35,7 @@ class DescribeEventsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A103039D-B1B2-4C57-B989-7D7C0DA95426
      *

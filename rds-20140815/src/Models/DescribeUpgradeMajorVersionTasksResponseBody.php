@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpgradeMajorVersionTasksResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about the tasks that are returned.
+     * @description The tasks for major engine version upgrades.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeUpgradeMajorVersionTasksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries per page.
      *
      * @example 30
      *
@@ -35,7 +35,7 @@ class DescribeUpgradeMajorVersionTasksResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 152E0C6D-B9C3-4468-9F2C-FEF9D9E8417B
      *
@@ -44,7 +44,7 @@ class DescribeUpgradeMajorVersionTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

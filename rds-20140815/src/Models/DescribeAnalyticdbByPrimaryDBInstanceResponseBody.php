@@ -18,7 +18,7 @@ class DescribeAnalyticdbByPrimaryDBInstanceResponseBody extends Model
     public $analyticDBCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 77862BFF-ED59-552A-A2E8-692FEAFC9527
      *

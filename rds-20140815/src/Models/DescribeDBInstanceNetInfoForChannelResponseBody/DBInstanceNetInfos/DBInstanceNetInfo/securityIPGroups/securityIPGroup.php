@@ -18,7 +18,7 @@ class securityIPGroup extends Model
     public $securityIPGroupName;
 
     /**
-     * @description The IP addresses contained in the IP address whitelist.
+     * @description The IP addresses that is contained in the IP address whitelist.
      *
      * @example 127.0.XX.XX
      *

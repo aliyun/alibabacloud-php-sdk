@@ -44,7 +44,7 @@ class DBInstanceNetInfo extends Model
     public $connectionStringType;
 
     /**
-     * @description An array that consists of the information about read weights to implement read/write splitting after the shared proxy feature is enabled.
+     * @description The information about read weights to implement read/write splitting after the shared proxy feature is enabled.
      *
      * @var DBInstanceWeights
      */
@@ -54,7 +54,7 @@ class DBInstanceNetInfo extends Model
      * @description The policy that is used to assign read weights. This parameter is returned only for a read/write splitting endpoint that is assigned after the shared proxy feature is enabled. Valid values:
      *
      *   **Standard**: The system automatically allocates read weights to the instance and its read-only instances based on the specifications of the instances.
-     *   **Custom**: You must manually assign read weights to the instance and its read-only instances.
+     *   **Custom**: You must manually allocate read weights to the instance and its read-only instances.
      *
      * @example Standard
      *
@@ -63,7 +63,7 @@ class DBInstanceNetInfo extends Model
     public $distributionType;
 
     /**
-     * @description The IP address.
+     * @description The IP address of the instance.
      *
      * @example 172.16.XX.XX
      *
@@ -76,7 +76,7 @@ class DBInstanceNetInfo extends Model
      *
      *   **Public**: the Internet
      *   **Inner**: the classic network
-     *   **Private**: a VPC
+     *   **Private**: a virtual private cloud (VPC)
      *
      * @example Inner
      *
@@ -85,9 +85,9 @@ class DBInstanceNetInfo extends Model
     public $IPType;
 
     /**
-     * @description The latency threshold that is allowed for read/write splitting of the shared proxy feature. Unit: seconds
+     * @description The latency threshold that is allowed for read/write splitting of the shared proxy feature. Unit: seconds.
      *
-     * > This parameter is returned only when the **ConnectionStringType** parameter is set to **ReadWriteSplitting**.
+     * >  This parameter is returned only when **ConnectionStringType** is set to **ReadWriteSplitting**.
      * @example 12
      *
      * @var string
@@ -95,7 +95,7 @@ class DBInstanceNetInfo extends Model
     public $maxDelayTime;
 
     /**
-     * @description The service port number.
+     * @description The port number of the instance.
      *
      * @example 6379
      *
@@ -104,14 +104,14 @@ class DBInstanceNetInfo extends Model
     public $port;
 
     /**
-     * @description An array that consists of the details about the IP address whitelist.
+     * @description The details of the IP address whitelist.
      *
      * @var securityIPGroups
      */
     public $securityIPGroups;
 
     /**
-     * @description An internal parameter. This operation does not return a value for this parameter.
+     * @description An internal parameter. You do not need to specify this parameter.
      *
      * @example Disabled
      *
@@ -120,7 +120,7 @@ class DBInstanceNetInfo extends Model
     public $upgradeable;
 
     /**
-     * @description The ID of the VPC in which the instance is deployed.
+     * @description The VPC ID of the instance.
      *
      * @example vpc-bp1nme44gek34slfc****
      *
@@ -129,7 +129,7 @@ class DBInstanceNetInfo extends Model
     public $VPCId;
 
     /**
-     * @description The ID of the vSwitch to which the instance belongs.
+     * @description The vSwitch ID of the instance.
      *
      * @example vsw-bp1e7clcw529l773d****
      *

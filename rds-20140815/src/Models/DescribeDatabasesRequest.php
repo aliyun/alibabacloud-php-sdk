@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5****
      *
@@ -50,7 +50,7 @@ class DescribeDatabasesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: **1**.
      * @example 1
@@ -60,7 +60,7 @@ class DescribeDatabasesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values:
+     * @description The number of entries per page. Valid values:
      *
      *   **30**
      *   **50**

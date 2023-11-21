@@ -18,7 +18,7 @@ class ReleaseInstanceConnectionRequest extends Model
     public $currentConnectionString;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -29,8 +29,8 @@ class ReleaseInstanceConnectionRequest extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **VPC**
-     *   **Classic**
+     *   **0**: virtual private cloud (VPC)
+     *   **1**: classic network
      *
      * @example Classic
      *

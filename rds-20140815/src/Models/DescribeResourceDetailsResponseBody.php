@@ -129,7 +129,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $vSwitchId;
 
     /**
-     * @description VPC ID。
+     * @description VPC ID.
      *
      * @example vpc-wz9rbibex7v0lxbeyo6at
      *

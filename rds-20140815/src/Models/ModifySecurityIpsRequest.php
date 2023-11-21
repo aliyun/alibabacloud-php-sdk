@@ -29,7 +29,7 @@ class ModifySecurityIpsRequest extends Model
     public $DBInstanceIPArrayName;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example pgm-bp18n0c8zt45****
      *

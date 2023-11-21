@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class errorLog extends Model
 {
     /**
-     * @description The time when the error log was generated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the error log entry was generated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2011-05-30T12:11:04Z
      *

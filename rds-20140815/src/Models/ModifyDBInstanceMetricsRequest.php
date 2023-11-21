@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceMetricsRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example pgm-bp1s1j103lo6****
      *
@@ -20,7 +20,7 @@ class ModifyDBInstanceMetricsRequest extends Model
     /**
      * @description The keys of the Enhanced Monitoring metrics that you want to display for the instance. You can enter a maximum of 30 metric keys. If you enter multiple metric keys, you must separate the metric keys with commas (,).
      *
-     * You can call the [DescribeAvailableMetrics](~~314326~~) operation to query the keys of metrics.
+     * You can call the DescribeAvailableMetrics operation to query the keys of metrics.
      * @example os.cpu_usage.sys.avg,os.cpu_usage.user.avg
      *
      * @var string

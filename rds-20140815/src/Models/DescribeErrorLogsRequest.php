@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeErrorLogsRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -37,7 +37,7 @@ class DescribeErrorLogsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: a non-zero positive integer.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: **1**.
      * @example 1
@@ -47,7 +47,7 @@ class DescribeErrorLogsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30** to **100**. Default value: **30**.
+     * @description The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
      *
      * @example 30
      *
@@ -66,7 +66,7 @@ class DescribeErrorLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2011-05-01T20:10Z
      *

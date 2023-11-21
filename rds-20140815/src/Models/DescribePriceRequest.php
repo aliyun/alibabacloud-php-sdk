@@ -85,7 +85,7 @@ class DescribePriceRequest extends Model
     /**
      * @description The information about the node.
      *
-     * > This parameter is suitable for RDS instances that run MySQL on RDS Cluster Edition.
+     * >  This parameter is supported for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
      * @var DBNode[]
      */
     public $DBNode;
@@ -176,7 +176,7 @@ class DescribePriceRequest extends Model
     public $quantity;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -228,9 +228,9 @@ class DescribePriceRequest extends Model
     public $usedTime;
 
     /**
-     * @description The zone ID of the primary instance. You can call the [DescribeRegions](~~610399~~) operation to query the most recent zone list.
+     * @description The zone ID of the primary instance. You can call the DescribeRegions operation to query the most recent zone list.
      *
-     * > If you specify a virtual private cloud (VPC) and a vSwitch, you must specify this parameter to identify the zone for the vSwitch.
+     * >  If you specify a virtual private cloud (VPC) and a vSwitch, this parameter is required to identify the zone for the vSwitch.
      * @example cn-hangzhou-b
      *
      * @var string

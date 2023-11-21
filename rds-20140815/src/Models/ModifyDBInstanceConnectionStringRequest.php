@@ -39,7 +39,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $currentConnectionString;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5****
      *

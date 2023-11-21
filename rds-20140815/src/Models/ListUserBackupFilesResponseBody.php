@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListUserBackupFilesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about the full backup files that are returned.
+     * @description The information about the full backup files.
      *
      * @var records[]
      */

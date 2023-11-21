@@ -20,19 +20,6 @@ class slots extends Model
     /**
      * @description The extension used by the replication slot.
      *
-     * Valid values:
-     *
-     *   test_decoding
-     *
-     * <!-- -->
-     *
-     *   pgoutput
-     *
-     * <!-- -->
-     *
-     *   wal2json
-     *
-     * <!-- -->
      * @example test_decoding
      *
      * @var string
@@ -40,7 +27,7 @@ class slots extends Model
     public $plugin;
 
     /**
-     * @description The name of the replication slot.
+     * @description The replication slot name.
      *
      * @example slot_test01
      *
@@ -49,17 +36,11 @@ class slots extends Model
     public $slotName;
 
     /**
-     * @description The status of the replication slot.
-     *
-     * Valid values:
+     * @description The replication slot status. Valid values:
      *
      *   ACTIVE
-     *
-     * <!-- -->
-     *
      *   INACTIVE
      *
-     * <!-- -->
      * @example INACTIVE
      *
      * @var string
@@ -67,17 +48,11 @@ class slots extends Model
     public $slotStatus;
 
     /**
-     * @description The type of the replication slot.
-     *
-     * Valid values:
+     * @description The replication slot type. Valid values:
      *
      *   physical
-     *
-     * <!-- -->
-     *
      *   logical
      *
-     * <!-- -->
      * @example logical
      *
      * @var string
@@ -94,17 +69,11 @@ class slots extends Model
     public $subReplayLag;
 
     /**
-     * @description Indicates whether the replication slot is a temporary replication slot.
-     *
-     * Valid values:
+     * @description Indicates whether the replication slot is a temporary replication slot. Valid values:
      *
      *   true
-     *
-     * <!-- -->
-     *
      *   false
      *
-     * <!-- -->
      * @example false
      *
      * @var string

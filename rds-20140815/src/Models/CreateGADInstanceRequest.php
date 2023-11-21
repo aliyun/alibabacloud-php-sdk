@@ -11,14 +11,10 @@ use AlibabaCloud\Tea\Model;
 class CreateGADInstanceRequest extends Model
 {
     /**
-     * @description The ID of the primary instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of instance. The primary instance serves as the central node of the global active database cluster.
+     * @description The ID of the primary instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID. The primary instance serves as the central node of the global active database cluster.
      *
-     * >
-     *
-     *   A primary instance can serve as the central node only of a single global active database cluster.
-     *
-     *   Only a primary instance that is created in one of the following regions can serve as the central node of a global active database cluster: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
-     *
+     * > *   A primary instance can serve as the central node only of a single global active database cluster.
+     * > *   Only a primary instance that is created in one of the following regions can serve as the central node of a global active database cluster: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
      * @example rm-uf6wjk5*******
      *
      * @var string
@@ -76,7 +72,7 @@ class CreateGADInstanceRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *
@@ -92,7 +88,7 @@ class CreateGADInstanceRequest extends Model
     public $tag;
 
     /**
-     * @description An array that consists of the details about the unit node.
+     * @description The information about the unit node.
      *
      * @var unitNode[]
      */

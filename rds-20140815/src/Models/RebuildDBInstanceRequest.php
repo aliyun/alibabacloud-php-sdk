@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RebuildDBInstanceRequest extends Model
 {
     /**
-     * @description The ID of the primary instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -18,7 +18,7 @@ class RebuildDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the IDs of dedicated clusters.
+     * @description The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
      *
      * @example dhg-4nxxxxxxx
      *
@@ -29,7 +29,7 @@ class RebuildDBInstanceRequest extends Model
     /**
      * @description The ID of the host on which the system rebuilds the secondary instance.
      *
-     * >  If you do not specify this parameter, the system preferentially rebuilds the secondary instance on the original host on which the secondary instance resides. If the remaining storage space of the original host is insufficient, the system rebuilds the secondary instance on a host on which the primary instance does not reside. If no suitable hosts are found, the system reports an error that indicates insufficient storage space.
+     * >  If you do not specify this parameter, the system preferentially rebuilds the secondary instance on the original host on which the secondary instance resides. If the remaining storage of the original host is insufficient, the system rebuilds the secondary instance on a host on which the primary instance does not reside. If no suitable hosts are found, the system reports an error that indicates insufficient storage.
      * @example i-bpxxxxxxx
      *
      * @var string
@@ -54,7 +54,7 @@ class RebuildDBInstanceRequest extends Model
     public $rebuildNodeType;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

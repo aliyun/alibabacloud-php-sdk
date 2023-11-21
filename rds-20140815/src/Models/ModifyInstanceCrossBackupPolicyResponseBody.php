@@ -39,7 +39,7 @@ class ModifyInstanceCrossBackupPolicyResponseBody extends Model
     public $crossBackupType;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *

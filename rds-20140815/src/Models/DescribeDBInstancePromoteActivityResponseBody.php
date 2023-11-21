@@ -18,7 +18,8 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $aliUid;
 
     /**
-     * @description China site: 26842 International site: 26888
+     * @description *   China site: 26842
+     *   International site: 26888
      *
      * @example 268**
      *
@@ -27,7 +28,7 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $bid;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -58,7 +59,7 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $DBType;
 
     /**
-     * @description The activity information about the instance. For more information, see [Instance activities](~~26312~~).
+     * @description The activity information about the instance. For more information, see [Instance activities](~~2391834~~).
      *
      * @example 1
      *

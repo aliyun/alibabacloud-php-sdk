@@ -19,7 +19,7 @@ class DeleteSlotRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the IDs of instances.
+     * @description The ID of the instance. You can call the DescribeDBInstances operation to query the IDs of instances.
      *
      * @example pgm-bp102g323jd4****
      *
@@ -57,7 +57,7 @@ class DeleteSlotRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The name of the replication slot. You can call the [DescribeSlots](~~613399~~) operation to query the name of the replication slot.
+     * @description The name of the replication slot. You can call the DescribeSlots operation to query the name of the replication slot.
      *
      * @example slot_test01
      *
@@ -66,7 +66,7 @@ class DeleteSlotRequest extends Model
     public $slotName;
 
     /**
-     * @description The status of the replication slot. You can call the [DescribeSlots](~~613399~~) operation to query the status of the replication slot. Valid values:
+     * @description The status of the replication slot. You can call the DescribeSlots operation to query the status of the replication slot. Valid values:
      *
      *   ACTIVE
      *   INACTIVE

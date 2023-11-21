@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CopyDatabaseBetweenInstancesRequest extends Model
 {
     /**
-     * @description The ID of the backup set by which you want to restore databases of the source instance. When you replicate databases by backup set, you can call the [DescribeBackups](~~610544~~) operation to obtain the ID of the backup set.
+     * @description The ID of the backup set by which you want to restore databases of the source instance. When you replicate databases by backup set, you can call the DescribeBackups operation to obtain the ID of the backup set.
      *
      * > : You must specify one of the **BackupId** and **RestoreTime** parameters.
      * @example 106523874****
@@ -19,7 +19,7 @@ class CopyDatabaseBetweenInstancesRequest extends Model
     public $backupId;
 
     /**
-     * @description The ID of the source instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The source instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -28,7 +28,7 @@ class CopyDatabaseBetweenInstancesRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The names of the databases. Format: `{"Original database name 1":"New database name 1","Original database name 2":"New database name 2"}`.
+     * @description The names of the databases that you want to copy. Format: `Source database name 1,Source database name 2`.
      *
      * @example {"test1":"newtest1","test2":"newtest2"}
      *
@@ -65,7 +65,7 @@ class CopyDatabaseBetweenInstancesRequest extends Model
     public $syncUserPrivilege;
 
     /**
-     * @description The ID of the destination instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The destination instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-ut5ajk3xxxxxxx
      *

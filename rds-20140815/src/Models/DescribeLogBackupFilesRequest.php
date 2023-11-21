@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogBackupFilesRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -37,7 +37,7 @@ class DescribeLogBackupFilesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Pages start from page 1.
+     * @description The page number. Valid values: any non-zero positive integer.
      *
      * Default value: **1**.
      * @example 1
@@ -47,7 +47,7 @@ class DescribeLogBackupFilesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: **30** to **1000**. Default value: **30**.
+     * @description The number of entries to return on each page. Valid values: **30** to **1000**. Default value: **30**.
      *
      * @example 30
      *

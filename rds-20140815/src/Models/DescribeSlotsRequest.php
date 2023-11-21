@@ -38,7 +38,7 @@ class DescribeSlotsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group. You can leave this parameter empty.
+     * @description The resource group ID. You can leave this parameter empty.
      *
      * @example rg-acfmy*****
      *

@@ -23,7 +23,7 @@ class CreateYouhuiForOrderRequest extends Model
     public $ownerId;
 
     /**
-     * @description The promotion ID. You can call the [GetResourcePrice](~~428503~~) operation to query the promotion ID.
+     * @description The promotion ID. You can call the GetResourcePrice operation to query the promotion ID.
      *
      * @example 2000001******
      *
@@ -32,7 +32,7 @@ class CreateYouhuiForOrderRequest extends Model
     public $promotionId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

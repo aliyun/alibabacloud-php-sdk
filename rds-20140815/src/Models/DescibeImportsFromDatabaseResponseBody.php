@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescibeImportsFromDatabaseResponseBody extends Model
 {
     /**
-     * @description An array that consists of migration tasks.
+     * @description The migration tasks.
      *
      * @var items
      */

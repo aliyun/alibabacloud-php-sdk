@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstancePayTypeRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-bp1842vmucoa5w874
      *
@@ -18,10 +18,7 @@ class ModifyDBInstancePayTypeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The billing method of the instance. Valid values:
-     *
-     *   Postpaid: pay-as-you-go
-     *   Prepaid: subscription
+     * @description The billing method of the instance. The value is fixed as **Prepaid**, which indicates the subscription billing method.
      *
      * @example Prepaid
      *
@@ -30,10 +27,10 @@ class ModifyDBInstancePayTypeRequest extends Model
     public $payType;
 
     /**
-     * @description The subscription method of the instance. This parameter must be specified when PayType is set to Prepaid.
+     * @description The renewal cycle of the instance.
      *
-     *   Year
-     *   Month
+     *   **Year**
+     *   **Month**
      *
      * @example Year
      *
@@ -47,7 +44,10 @@ class ModifyDBInstancePayTypeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Valid values when Period is set to Year: 1 to 9. Valid values when Period is set to Month: 1, 2, and 3.
+     * @description The subscription duration of the instance. Valid values:
+     *
+     *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from 1 to 5.
+     *   If you set the **Period** parameter to **Month**, the value of the **UsedTime** parameter ranges from 1 to 11.
      *
      * @example 2
      *

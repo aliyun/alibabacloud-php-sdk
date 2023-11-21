@@ -21,7 +21,7 @@ class DBInstanceWeight extends Model
     public $availability;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5*****
      *
@@ -30,7 +30,7 @@ class DBInstanceWeight extends Model
     public $DBInstanceId;
 
     /**
-     * @description The type of the instance. Valid values:
+     * @description The instance type. Valid values:
      *
      *   **Master**: primary instance
      *   **Readonly**: read-only instance

@@ -9,10 +9,20 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether payment is automatically made during renewal. Valid values:
+     * @description Specifies whether to enable automatic payment during the renewal. Valid values:
      *
      *   **True**: enables automatic payment. Make sure that your Alibaba Cloud account has adequate balance.
-     *   **False** (default): disables automatic payment. You have to manually pay the order in the console. Log on to the ApsaraDB RDS console. In the upper-right corner, choose **Expenses > User Center**. In the left-side navigation pane, click **Orders**. On the page that appears, find your order and complete the payment.
+     *   **False** (default): disables automatic payment. You have to manually pay the order in the console.
+     *
+     * >  For more information about manual renewal in the console, see the following topics:
+     *
+     *   [Manually renew an ApsaraDB RDS for MySQL instance](~~96050~~)
+     *
+     *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](~~96741~~)
+     *
+     *   [Manually renew an ApsaraDB RDS for SQL Server instance](~~95637~~)
+     *
+     *   [Manually renew an ApsaraDB RDS for MariaDB instance](~~97122~~)
      *
      * @example True
      *
@@ -42,7 +52,7 @@ class RenewInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *

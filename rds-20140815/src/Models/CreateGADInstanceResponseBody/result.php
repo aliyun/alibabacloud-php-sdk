@@ -27,7 +27,7 @@ class result extends Model
     public $gadInstanceName;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 5374xxxx
      *

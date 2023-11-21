@@ -18,7 +18,7 @@ class CreateSecretResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ARN of the credential for the created Data API account.
+     * @description The Alibaba Cloud Resource Name (ARN) of the credential for the created Data API account.
      *
      * @example acs:rds:cn-hangzhou:1335786***:dbInstance/rm-bp1m7l3j63****
      *

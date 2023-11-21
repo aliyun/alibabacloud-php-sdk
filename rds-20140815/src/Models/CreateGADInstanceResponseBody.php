@@ -19,7 +19,7 @@ class CreateGADInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the information returned.
+     * @description The data returned.
      *
      * @var result
      */

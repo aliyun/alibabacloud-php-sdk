@@ -54,7 +54,7 @@ class records extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version.
      *
      * @example 5.7
      *

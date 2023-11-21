@@ -32,9 +32,9 @@ class ListClassesRequest extends Model
     public $commodityCode;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
-     * > If you use **CommodityCode** to query the instance types that are available to read-only instances, you must specify DBInstanceId.
+     * >  If you set the **CommodityCode** parameter to the commodity code of read-only instances, you must specify this parameter.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -61,9 +61,9 @@ class ListClassesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
-     * > If you are using an Alibaba Cloud account on the International site (alibabacloud.com), you must specify RegionId.
+     * >  If you are using an Alibaba Cloud account on the International site (alibabacloud.com), you must specify this parameter.
      * @example cn-hangzhou
      *
      * @var string
