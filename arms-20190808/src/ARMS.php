@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ChangeAlarmSeverityRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ChangeAlarmSeverityResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CheckCommercialStatusRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CheckCommercialStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CheckServiceStatusRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CheckServiceStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ClaimAlarmRequest;
@@ -1325,6 +1327,46 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckCommercialStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckCommercialStatusResponse
+     */
+    public function checkCommercialStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckCommercialStatus',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckCommercialStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckCommercialStatusRequest $request
+     *
+     * @return CheckCommercialStatusResponse
+     */
+    public function checkCommercialStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkCommercialStatusWithOptions($request, $runtime);
     }
 
     /**

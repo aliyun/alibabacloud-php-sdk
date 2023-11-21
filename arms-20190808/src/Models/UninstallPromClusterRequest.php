@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UninstallPromClusterRequest extends Model
 {
     /**
+     * @description 语言环境, 默认为中文 zh | en
+     *
+     * @example zh
+     *
      * @var string
      */
     public $aliyunLang;
