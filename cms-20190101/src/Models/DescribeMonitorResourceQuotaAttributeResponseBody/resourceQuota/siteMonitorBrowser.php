@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class siteMonitorBrowser extends Model
 {
     /**
+     * @description The total quota of browser detection tasks.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $quotaLimit;
 
     /**
+     * @description The quota of browser detection tasks in your resource plan.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $quotaPackage;
 
     /**
+     * @description The used quota of browser detection tasks in your resource plan.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $quotaUsed;

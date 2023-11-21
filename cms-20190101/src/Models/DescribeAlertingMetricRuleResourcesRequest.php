@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertingMetricRuleResourcesRequest extends Model
 {
     /**
+     * @description Queries the alerts that were triggered before the specified time. Timestamps in milliseconds are supported.
+     *
+     * @example 1698827400000
+     *
      * @var string
      */
     public $alertBeforeTime;

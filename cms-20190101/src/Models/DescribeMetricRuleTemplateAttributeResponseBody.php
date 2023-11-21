@@ -12,7 +12,7 @@ class DescribeMetricRuleTemplateAttributeResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The status code 200 indicates that the call is successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -20,7 +20,7 @@ class DescribeMetricRuleTemplateAttributeResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
+     * @description The error message returned.
      *
      * @example The specified resource is not found.
      *
@@ -29,7 +29,7 @@ class DescribeMetricRuleTemplateAttributeResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8F3A82AD-DA92-52B0-8EC6-C059D1C3839F
      *
@@ -45,10 +45,10 @@ class DescribeMetricRuleTemplateAttributeResponseBody extends Model
     public $resource;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call is successful.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *

@@ -19,6 +19,11 @@ class siteMonitor extends Model
     public $address;
 
     /**
+     * @description The detection point type. Valid values:
+     *
+     *   PC
+     *   MOBILE
+     *
      * @example PC
      *
      * @var string
@@ -67,7 +72,7 @@ class siteMonitor extends Model
     public $taskName;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The task status. Valid values:
      *
      *   1: The task is enabled.
      *   2: The task is disabled.

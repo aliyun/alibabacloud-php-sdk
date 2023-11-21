@@ -1135,6 +1135,12 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
         }
+        if (!Utils::isUnset($request->namespaceRegion)) {
+            $query['NamespaceRegion'] = $request->namespaceRegion;
+        }
+        if (!Utils::isUnset($request->namespaceType)) {
+            $query['NamespaceType'] = $request->namespaceType;
+        }
         if (!Utils::isUnset($request->spec)) {
             $query['Spec'] = $request->spec;
         }
@@ -5289,7 +5295,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query the details of an alert template whose ID is `70****`.
+     * This topic provides an example on how to query the details of an alert template whose ID is `70****`.
      *   *
      * @param DescribeMetricRuleTemplateAttributeRequest $request DescribeMetricRuleTemplateAttributeRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -5325,7 +5331,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query the details of an alert template whose ID is `70****`.
+     * This topic provides an example on how to query the details of an alert template whose ID is `70****`.
      *   *
      * @param DescribeMetricRuleTemplateAttributeRequest $request DescribeMetricRuleTemplateAttributeRequest
      *

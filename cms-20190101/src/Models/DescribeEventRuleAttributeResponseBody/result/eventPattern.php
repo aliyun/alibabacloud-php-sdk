@@ -21,6 +21,8 @@ class eventPattern extends Model
     public $eventTypeList;
 
     /**
+     * @description 过滤关键词。
+     *
      * @var keywordFilterObj
      */
     public $keywordFilterObj;
@@ -45,6 +47,10 @@ class eventPattern extends Model
     public $product;
 
     /**
+     * @description 按照SQL过滤日志。如果符合条件，则触发报警。
+     *
+     * @example ycccluster1 and (i-23ij0o82612 or Executed1) or Asimulated not 222
+     *
      * @var string
      */
     public $SQLFilter;

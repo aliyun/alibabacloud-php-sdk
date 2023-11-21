@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
-     * @description 报警模板的标签键。
+     * @description The tag key of the alert template.
      *
      * @example label1
      *
@@ -18,7 +18,7 @@ class labels extends Model
     public $key;
 
     /**
-     * @description 报警模板的标签值。
+     * @description The tag value of the alert template.
      *
      * @example value1
      *

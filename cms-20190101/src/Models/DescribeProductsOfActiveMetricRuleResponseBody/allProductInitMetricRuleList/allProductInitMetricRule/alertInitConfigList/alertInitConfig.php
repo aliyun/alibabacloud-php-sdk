@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class alertInitConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $comparisonOperator;
+
+    /**
      * @description The consecutive number of times for which the metric value is measured before an alert is triggered.
      *
      * @example 3
@@ -16,6 +21,11 @@ class alertInitConfig extends Model
      * @var string
      */
     public $evaluationCount;
+
+    /**
+     * @var string
+     */
+    public $level;
 
     /**
      * @description The name of the metric. For more information, see [Appendix 1: Metrics](~~163515~~).
@@ -62,12 +72,14 @@ class alertInitConfig extends Model
      */
     public $threshold;
     protected $_name = [
-        'evaluationCount' => 'EvaluationCount',
-        'metricName'      => 'MetricName',
-        'namespace'       => 'Namespace',
-        'period'          => 'Period',
-        'statistics'      => 'Statistics',
-        'threshold'       => 'Threshold',
+        'comparisonOperator' => 'ComparisonOperator',
+        'evaluationCount'    => 'EvaluationCount',
+        'level'              => 'Level',
+        'metricName'         => 'MetricName',
+        'namespace'          => 'Namespace',
+        'period'             => 'Period',
+        'statistics'         => 'Statistics',
+        'threshold'          => 'Threshold',
     ];
 
     public function validate()
@@ -77,8 +89,14 @@ class alertInitConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->comparisonOperator) {
+            $res['ComparisonOperator'] = $this->comparisonOperator;
+        }
         if (null !== $this->evaluationCount) {
             $res['EvaluationCount'] = $this->evaluationCount;
+        }
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
@@ -107,8 +125,14 @@ class alertInitConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComparisonOperator'])) {
+            $model->comparisonOperator = $map['ComparisonOperator'];
+        }
         if (isset($map['EvaluationCount'])) {
             $model->evaluationCount = $map['EvaluationCount'];
+        }
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];

@@ -12,7 +12,7 @@ class DescribeEventRuleListResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -20,14 +20,14 @@ class DescribeEventRuleListResponseBody extends Model
     public $code;
 
     /**
-     * @description The event-triggered alert rules.
+     * @description The event-triggered alert rule.
      *
      * @var eventRules
      */
     public $eventRules;
 
     /**
-     * @description The error message.
+     * @description The error message returned.
      *
      * @example User not authorized to operate on the specified resource.
      *
@@ -36,7 +36,7 @@ class DescribeEventRuleListResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D0E6D82B-16B5-422A-8136-EE5BDC01E415
      *
@@ -45,10 +45,10 @@ class DescribeEventRuleListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -57,7 +57,7 @@ class DescribeEventRuleListResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 21
      *

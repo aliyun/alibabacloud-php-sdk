@@ -12,7 +12,7 @@ class DescribeMonitoringAgentStatusesResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The status code 200 indicates that the request was successful.
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -29,7 +29,7 @@ class DescribeMonitoringAgentStatusesResponseBody extends Model
     public $message;
 
     /**
-     * @description The host status information.
+     * @description The status information.
      *
      * @var nodeStatusList
      */

@@ -48,7 +48,7 @@ class assertions extends Model
     public $target;
 
     /**
-     * @description The type of the assertion. Valid values:
+     * @description The assertion type. Valid values:
      *
      *   response_time: checks whether the response time meets expectations.
      *   status_code: checks whether the HTTP status code meets expectations.

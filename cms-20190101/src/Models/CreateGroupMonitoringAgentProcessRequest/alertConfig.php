@@ -44,9 +44,9 @@ class alertConfig extends Model
     /**
      * @description The alert level. Valid values:
      *
-     *   critical (default)
-     *   warn
-     *   info
+     *   critical (default): critical
+     *   warn: warning
+     *   info: information
      *
      * Valid values of N: 1 to 3.
      * @example warn
@@ -66,7 +66,7 @@ class alertConfig extends Model
     public $noEffectiveInterval;
 
     /**
-     * @description The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Minimum value: 3600, which is equivalent to 1 hour. Default value: 86400, which is equivalent to one day.
+     * @description The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Minimum value: 3600, which is equivalent to one hour. Default value: 86400, which is equivalent to one day.
      *
      * >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
      * @example 86400

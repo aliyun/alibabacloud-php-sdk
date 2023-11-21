@@ -83,6 +83,11 @@ class describeHybridMonitorNamespace extends Model
     public $namespace;
 
     /**
+     * @var string
+     */
+    public $namespaceType;
+
+    /**
      * @description The number of metric import tasks for third-party services.
      *
      * @example 0
@@ -99,6 +104,7 @@ class describeHybridMonitorNamespace extends Model
         'isDelete'                => 'IsDelete',
         'modifyTime'              => 'ModifyTime',
         'namespace'               => 'Namespace',
+        'namespaceType'           => 'NamespaceType',
         'notAliyunTaskNumber'     => 'NotAliyunTaskNumber',
     ];
 
@@ -138,6 +144,9 @@ class describeHybridMonitorNamespace extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->namespaceType) {
+            $res['NamespaceType'] = $this->namespaceType;
         }
         if (null !== $this->notAliyunTaskNumber) {
             $res['NotAliyunTaskNumber'] = $this->notAliyunTaskNumber;
@@ -183,6 +192,9 @@ class describeHybridMonitorNamespace extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['NamespaceType'])) {
+            $model->namespaceType = $map['NamespaceType'];
         }
         if (isset($map['NotAliyunTaskNumber'])) {
             $model->notAliyunTaskNumber = $map['NotAliyunTaskNumber'];

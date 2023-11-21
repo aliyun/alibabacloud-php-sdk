@@ -30,11 +30,9 @@ class nodeStatus extends Model
     public $instanceId;
 
     /**
-     * @description Indicates whether the SysAK monitoring feature is enabled.`` Valid values:
+     * @description SysOM插件的配置信息`sysak`是否开启监控。取值：
      *
-     *   `true`: The SysAK monitoring feature is enabled.
-     *   `false`: the SysAK monitoring feature is disabled.
-     *
+     * - false：`sysak`未开启监控。
      * @example {"sysak":true}
      *
      * @var string
@@ -87,7 +85,7 @@ class nodeStatus extends Model
     public $osMonitorStatus;
 
     /**
-     * @description The SysOM version.
+     * @description SysOM监控的插件版本。
      *
      * @example 1.3.0-12
      *

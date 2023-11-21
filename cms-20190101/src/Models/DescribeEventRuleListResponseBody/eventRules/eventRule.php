@@ -26,9 +26,11 @@ class eventRule extends Model
     public $eventPattern;
 
     /**
-     * @description The type of the event. Valid values:
+     * @description The type of the event-triggered alert rule. Valid values:
      *
-     * - CUSTOM: custom event
+     *   SYSTEM: system event-triggered alert rule
+     *   CUSTOM: custom event-triggered alert rule
+     *
      * @example SYSTEM
      *
      * @var string
@@ -54,7 +56,7 @@ class eventRule extends Model
     public $name;
 
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met.
+     * @description The mute period during which new alert notifications are not sent even if the trigger conditions are met.
      *
      * @example 86400
      *
@@ -65,8 +67,8 @@ class eventRule extends Model
     /**
      * @description The status of the event-triggered alert rule. Valid values:
      *
-     *   ENABLED: enabled
-     *   DISABLED: disabled
+     *   ENABLED
+     *   DISABLED
      *
      * @example ENABLED
      *

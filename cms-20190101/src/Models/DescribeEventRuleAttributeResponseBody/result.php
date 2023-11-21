@@ -19,14 +19,14 @@ class result extends Model
     public $description;
 
     /**
-     * @description The event pattern. This parameter specifies the trigger conditions of an event.
+     * @description The event pattern. This parameter describes the trigger conditions of an event.
      *
      * @var eventPattern
      */
     public $eventPattern;
 
     /**
-     * @description The type of the event. Valid values: Valid values:
+     * @description The event type. Valid values:
      *
      *   SYSTEM: system event
      *   CUSTOM: custom event

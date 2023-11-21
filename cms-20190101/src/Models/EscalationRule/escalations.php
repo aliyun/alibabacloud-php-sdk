@@ -12,6 +12,11 @@ class escalations extends Model
     /**
      * @var string[]
      */
+    public $backupContactGroups;
+
+    /**
+     * @var string[]
+     */
     public $contactGroups;
 
     /**
@@ -24,6 +29,7 @@ class escalations extends Model
      */
     public $escalateMin;
     protected $_name = [
+        'backupContactGroups'  => 'BackupContactGroups',
         'contactGroups'        => 'ContactGroups',
         'contactGroupsByLevel' => 'ContactGroupsByLevel',
         'escalateMin'          => 'EscalateMin',
@@ -36,6 +42,9 @@ class escalations extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupContactGroups) {
+            $res['BackupContactGroups'] = $this->backupContactGroups;
+        }
         if (null !== $this->contactGroups) {
             $res['ContactGroups'] = $this->contactGroups;
         }
@@ -57,6 +66,11 @@ class escalations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupContactGroups'])) {
+            if (!empty($map['BackupContactGroups'])) {
+                $model->backupContactGroups = $map['BackupContactGroups'];
+            }
+        }
         if (isset($map['ContactGroups'])) {
             if (!empty($map['ContactGroups'])) {
                 $model->contactGroups = $map['ContactGroups'];

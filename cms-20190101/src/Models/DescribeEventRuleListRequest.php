@@ -18,6 +18,9 @@ class DescribeEventRuleListRequest extends Model
     public $groupId;
 
     /**
+     * @description Specifies whether to enable the event-triggered alert rule. Valid values:
+     *
+     * false
      * @example true
      *
      * @var bool
@@ -34,7 +37,7 @@ class DescribeEventRuleListRequest extends Model
     public $namePrefix;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Pages start from page 1. Default value: 1.
      * @example 1
@@ -44,9 +47,9 @@ class DescribeEventRuleListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     * A minimum of one entry can be returned on each page. Default value: 10.
+     * Pages start from page 1. Default value: 10.
      * @example 10
      *
      * @var string

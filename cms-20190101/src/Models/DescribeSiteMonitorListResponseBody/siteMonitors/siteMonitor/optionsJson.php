@@ -50,7 +50,7 @@ class optionsJson extends Model
     /**
      * @description Indicates whether the certificate is verified. Valid values:
      *
-     *   false (default value): The certificate is not verified.
+     *   false (default): The certificate is not verified.
      *   true: The certificate is verified.
      *
      * @example false
@@ -71,7 +71,7 @@ class optionsJson extends Model
     /**
      * @description Indicates whether MTR is automatically used to diagnose network issues if a task fails. Valid values:
      *
-     *   false (default value): MTR is not automatically used to diagnose network issues if a task fails.
+     *   false (default): MTR is not automatically used to diagnose network issues if a task fails.
      *   true: MTR is automatically used to diagnose network issues if a task fails.
      *
      * @example false
@@ -83,7 +83,7 @@ class optionsJson extends Model
     /**
      * @description Indicates whether ping requests are automatically sent to detect network latency if a detection task fails. Valid values:
      *
-     *   false (default value): Ping requests are not automatically sent to detect network latency if a detection task fails.
+     *   false (default): Ping requests are not automatically sent to detect network latency if a detection task fails.
      *   true: Ping requests are automatically sent to detect network latency if a detection task fails.
      *
      * @example false
@@ -118,7 +118,7 @@ class optionsJson extends Model
     /**
      * @description The type of the DNS record. This parameter is returned only if the TaskType parameter is set to DNS. Valid values:
      *
-     *   A (default value): a record that specifies an IP address related to the specified host name or domain name.
+     *   A (default): a record that specifies an IP address related to the specified host name or domain name.
      *   CNAME: a record that maps multiple domain names to a domain name.
      *   NS: a record that specifies a DNS server used to parse domain names.
      *   MX: a record that links domain names to the address of a mail server.
@@ -134,7 +134,7 @@ class optionsJson extends Model
     /**
      * @description Indicates whether the DNS server of the carrier is used.
      *
-     *   true (default value): The DNS server of the carrier is used.
+     *   true (default): The DNS server of the carrier is used.
      *   false: The DNS server of the carrier is not used. The default DNS server or the specified DNS server is used.
      *
      * @example true
@@ -179,7 +179,7 @@ class optionsJson extends Model
      * @description Indicates whether the password is decoded by using the Base64 algorithm. Valid values:
      *
      *   true: The password is decoded by using the Base64 algorithm.
-     *   false (default value): The password is not decoded by using the Base64 algorithm.
+     *   false (default): The password is not decoded by using the Base64 algorithm.
      *
      * @example false
      *
@@ -229,7 +229,7 @@ class optionsJson extends Model
     /**
      * @description The protocol type of DNS detection. Valid values:
      *
-     *   udp (default value)
+     *   udp (default)
      *   tcp
      *   tcp-tls
      *
@@ -242,7 +242,7 @@ class optionsJson extends Model
     /**
      * @description Indicates whether the PROXY protocol is enabled. Valid values:
      *
-     *   false (default value): The PROXY protocol is disabled.
+     *   false (default): The PROXY protocol is disabled.
      *   true: The PROXY protocol is enabled.
      *
      * @example false
@@ -318,7 +318,7 @@ class optionsJson extends Model
      * @description Indicates whether redirects are followed if the status code 301 or 302 is returned. Valid values:
      *
      *   true: Redirects are not followed.
-     *   false (default value): Redirects are followed.
+     *   false (default): Redirects are followed.
      *
      * @example false
      *

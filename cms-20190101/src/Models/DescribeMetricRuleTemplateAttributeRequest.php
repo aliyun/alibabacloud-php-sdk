@@ -11,7 +11,7 @@ class DescribeMetricRuleTemplateAttributeRequest extends Model
     /**
      * @description The name of the alert template. You must specify at least one of the `Name` and `TemplateId` parameters.
      *
-     * For more information about how to query the names of alert templates, see [DescribeMetricRuleTemplateList](~~114982~~).
+     * For information about how to obtain the name of an alert template, see [DescribeMetricRuleTemplateList](~~114982~~).
      * @example ECS_Template1
      *
      * @var string
@@ -26,7 +26,7 @@ class DescribeMetricRuleTemplateAttributeRequest extends Model
     /**
      * @description The ID of the alert template. You must specify at least one of the `Name` and `TemplateId` parameters.
      *
-     * For more information about how to query the IDs of alert templates, see [DescribeMetricRuleTemplateList](~~114982~~).
+     * For information about how to obtain the ID of an alert template, see [DescribeMetricRuleTemplateList](~~114982~~).
      * @example 70****
      *
      * @var string

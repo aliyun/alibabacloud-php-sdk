@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @var string
+     */
+    public $namespaceRegion;
+
+    /**
+     * @var string
+     */
+    public $SLSProject;
+
+    /**
      * @description The data retention period. Valid values:
      *
      *   cms.s1.large: Data is stored for 15 days.
@@ -24,7 +34,9 @@ class detail extends Model
      */
     public $spec;
     protected $_name = [
-        'spec' => 'Spec',
+        'namespaceRegion' => 'NamespaceRegion',
+        'SLSProject'      => 'SLSProject',
+        'spec'            => 'Spec',
     ];
 
     public function validate()
@@ -34,6 +46,12 @@ class detail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->namespaceRegion) {
+            $res['NamespaceRegion'] = $this->namespaceRegion;
+        }
+        if (null !== $this->SLSProject) {
+            $res['SLSProject'] = $this->SLSProject;
+        }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
@@ -49,6 +67,12 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NamespaceRegion'])) {
+            $model->namespaceRegion = $map['NamespaceRegion'];
+        }
+        if (isset($map['SLSProject'])) {
+            $model->SLSProject = $map['SLSProject'];
+        }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }

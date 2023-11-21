@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class keywordFilterObj extends Model
 {
     /**
+     * @description 事件匹配的关键字列表。
+     *
      * @var keywords
      */
     public $keywords;
 
     /**
+     * @description 多个关键字的条件。取值：
+     *
+     * - NOT：不包含关键字。表示匹配非关键字列表中的所有事件。
+     * @example OR
+     *
      * @var string
      */
     public $relation;

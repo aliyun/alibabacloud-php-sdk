@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorListResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The status code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -29,7 +29,7 @@ class DescribeSiteMonitorListResponseBody extends Model
     public $message;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -38,7 +38,7 @@ class DescribeSiteMonitorListResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -47,7 +47,7 @@ class DescribeSiteMonitorListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A80DB41C-AF6C-50E1-ADB5-66DCBA3D266B
      *
@@ -63,10 +63,10 @@ class DescribeSiteMonitorListResponseBody extends Model
     public $siteMonitors;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -75,7 +75,7 @@ class DescribeSiteMonitorListResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

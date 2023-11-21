@@ -19,7 +19,7 @@ class DescribeSiteMonitorListRequest extends Model
     public $keyword;
 
     /**
-     * @description The number of the page to return. Default value: 1.
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeSiteMonitorListRequest extends Model
     public $page;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10.
+     * @description The number of entries per page. Default value: 10.
      *
      * @example 10
      *
@@ -51,7 +51,7 @@ class DescribeSiteMonitorListRequest extends Model
     public $taskId;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The task status. Valid values:
      *
      *   1: The task is enabled.
      *   2: The task is disabled.

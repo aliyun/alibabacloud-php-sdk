@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class eventPattern extends Model
 {
     /**
-     * @description The custom filter condition. If an event contains a specified keyword, the event triggers an alert.
+     * @description The custom filter conditions.
      *
      * @example ECS123
      *
@@ -22,40 +22,35 @@ class eventPattern extends Model
     public $customFilters;
 
     /**
-     * @description The type of the event-triggered alert rule.
+     * @description The types of the event-triggered alert rules.
      *
-     * `*` indicates all types of alert rules.
      * @var eventTypeList
      */
     public $eventTypeList;
 
     /**
-     * @description The filter keyword.
+     * @description The keyword for filtering.
      *
      * @var keywordFilter
      */
     public $keywordFilter;
 
     /**
-     * @description The level of the event. Valid values:
-     *
-     *   CRITICAL: critical
-     *   WARN: warning
-     *   INFO: information
+     * @description The levels of the event-triggered alerts.
      *
      * @var levelList
      */
     public $levelList;
 
     /**
-     * @description The list of event names.
+     * @description The event names.
      *
      * @var nameList
      */
     public $nameList;
 
     /**
-     * @description The abbreviation of the service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
      * @example CloudMonitor
      *

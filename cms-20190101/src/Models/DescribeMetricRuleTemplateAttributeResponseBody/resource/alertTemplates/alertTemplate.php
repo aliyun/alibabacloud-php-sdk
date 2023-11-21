@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class alertTemplate extends Model
 {
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
      * @example ecs
      *
@@ -27,13 +27,15 @@ class alertTemplate extends Model
     public $escalations;
 
     /**
-     * @description 报警模板标签。
+     * @description The tags of the alert template.
      *
      * @var labels
      */
     public $labels;
 
     /**
+     * @description The metric name.
+     *
      * @example cpu_total
      *
      * @var string
@@ -41,7 +43,7 @@ class alertTemplate extends Model
     public $metricName;
 
     /**
-     * @description The namespace of the cloud service.
+     * @description The namespace of the Alibaba Cloud service.
      *
      * @example acs_ecs_dashboard
      *
@@ -50,11 +52,11 @@ class alertTemplate extends Model
     public $namespace;
 
     /**
-     * @description The processing method of alerts when no monitoring data is found. Valid values:
+     * @description The method that is used to handle alerts when no monitoring data is found. Valid values:
      *
-     *   KEEP_LAST_STATE (default value): No operation is performed.
+     *   KEEP_LAST_STATE (default): No operation is performed.
      *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
-     *   OK: The alert rule has no active alerts.
+     *   OK: The status is considered normal.
      *
      * @example KEEP_LAST_STATE
      *

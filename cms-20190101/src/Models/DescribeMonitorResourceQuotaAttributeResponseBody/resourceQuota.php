@@ -88,6 +88,8 @@ class resourceQuota extends Model
     public $SMS;
 
     /**
+     * @description The quota of browser detection tasks.
+     *
      * @var siteMonitorBrowser
      */
     public $siteMonitorBrowser;
@@ -100,6 +102,8 @@ class resourceQuota extends Model
     public $siteMonitorEcsProbe;
 
     /**
+     * @description The quota of mobile detection tasks.
+     *
      * @var siteMonitorMobile
      */
     public $siteMonitorMobile;

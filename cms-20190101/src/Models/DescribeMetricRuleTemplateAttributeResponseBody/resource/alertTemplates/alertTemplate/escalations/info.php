@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class info extends Model
 {
     /**
-     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values:
+     * @description The comparison operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
      *
      *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
      *   GreaterThanThreshold: greater than the threshold

@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description The list of alert templates.
+     * @description The queried alert templates.
      *
      * @var alertTemplates
      */
     public $alertTemplates;
 
     /**
+     * @description The description of the alert template.
+     *
      * @var string
      */
     public $description;
