@@ -18,8 +18,9 @@ class DescribePriceRequest extends Model
     public $businessInfo;
 
     /**
-     * @description The storage capacity of the instance. Unit: MB. You must specify one of the **InstanceClass** and **Capacity** parameters to specify the instance type. We recommend that you use **InstanceClass** to specify the instance type.
+     * @description The storage capacity of the instance. Unit: MB. This parameter is used only to query ApsaraDB for Redis Community Edition instances that are deployed in classic mode. We recommend that you use the **InstanceClass** parameter to specify an exact instance type.
      *
+     * >  If you specify the **InstanceClass** parameter, you do not need to specify the Capacity parameter.
      * @example 1024
      *
      * @var int
@@ -29,10 +30,9 @@ class DescribePriceRequest extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   **PostPaid**: pay-as-you-go
-     *   **PrePaid**: subscription.
+     *   **PostPaid** (default): pay-as-you-go
+     *   **PrePaid**: subscription
      *
-     * > The default value is **PostPaid**.
      * @example PostPaid
      *
      * @var string
@@ -52,9 +52,8 @@ class DescribePriceRequest extends Model
      * @description Specifies whether to forcefully change the configurations of the instance. Valid values:
      *
      *   **false**: forcefully changes the configurations.
-     *   **true**: does not forcefully change the configurations.
+     *   **true** (default): does not forcefully change the configurations.
      *
-     * > The default value is **true**.
      * @example true
      *
      * @var bool
@@ -62,12 +61,19 @@ class DescribePriceRequest extends Model
     public $forceUpgrade;
 
     /**
-     * @description The instance type of the instance. You must specify one of the InstanceClass and Capacity parameters to specify the instance type. We recommend that you use InstanceClass to specify the instance type.
+     * @description The instance type.****
      *
-     * To query the instance type, perform the following steps:
+     **To view the instance type, perform the following steps:**
      *
      * 1.  In the [Overview](~~26350~~) topic, click the link in the **Reference** column corresponding to the instance type that you want to view.
      * 2.  In the instance type table of the page that appears, find the instance type in the **InstanceClass** column.
+     *
+     * When you query cloud-native cluster instances, you must set this parameter to one of the following values and use the Instances parameter to specify the instance type that you want to query.
+     *
+     *   ApsaraDB for Redis cluster instances: redis.cluster.sharding.common.ce
+     *   Tair DRAM-based cluster instances: tair.rdb.cluster.sharding.common
+     *   Tair persistent memory-based cluster instances: tair.scm.cluster.sharding.common.ce
+     *
      * @example redis.master.small.default
      *
      * @var string
@@ -75,8 +81,9 @@ class DescribePriceRequest extends Model
     public $instanceClass;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
+     * >  This parameter is required when the **OrderType** parameter is set to **UPGRADE** or **RENEW**.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -84,7 +91,7 @@ class DescribePriceRequest extends Model
     public $instanceId;
 
     /**
-     * @description A JSON string that contains multiple instances. For more information, see [Description of the Instances parameter in the DescribePrice API operation](~~161811~~).
+     * @description A JSON string that contains information about one or more cloud-native cluster instances. For more information, see the "Additional description of the Instances parameter" section of this topic.
      *
      * @example Instances=[{"RegionId": "cn-hangzhou","ZoneId": "cn-hangzhou-b","InstanceClass": "redis.master.small.default","Period": "1","Quantity": "1","Capacity": "4096"}]
      *
@@ -93,7 +100,10 @@ class DescribePriceRequest extends Model
     public $instances;
 
     /**
-     * @description The node type. Set the value to MASTER_SLAVE. This value indicates that the node type is master-replica.
+     * @description The node type. Valid values:
+     *
+     *   **STAND_ALONE**: standalone
+     *   **MASTER_SLAVE** (default): high availability (master-replica)
      *
      * @example MASTER_SLAVE
      *
@@ -104,10 +114,9 @@ class DescribePriceRequest extends Model
     /**
      * @description Specifies whether to return parameters related to the order. Valid values:
      *
-     *   **false**: does not return parameters related to the order.
-     *   **true**: returns parameters related to the order.
+     *   **false** (default)
+     *   **true**
      *
-     * > The default value is **false**.
      * @example true
      *
      * @var string
@@ -148,9 +157,8 @@ class DescribePriceRequest extends Model
     public $period;
 
     /**
-     * @description The number of instances that you want to purchase. Valid values: **1** to **30**.
+     * @description The number of instances that you want to purchase. Valid values: **1** to **30**. Default value: **1**.
      *
-     * > The default value is **1**.
      * @example 1
      *
      * @var int

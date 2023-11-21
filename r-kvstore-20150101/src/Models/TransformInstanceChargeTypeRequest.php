@@ -18,6 +18,16 @@ class TransformInstanceChargeTypeRequest extends Model
     public $autoPay;
 
     /**
+     * @var string
+     */
+    public $autoRenew;
+
+    /**
+     * @var int
+     */
+    public $autoRenewPeriod;
+
+    /**
      * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
      *
      *   **true**: Automatic payment is enabled.
@@ -74,6 +84,8 @@ class TransformInstanceChargeTypeRequest extends Model
     public $securityToken;
     protected $_name = [
         'autoPay'              => 'AutoPay',
+        'autoRenew'            => 'AutoRenew',
+        'autoRenewPeriod'      => 'AutoRenewPeriod',
         'chargeType'           => 'ChargeType',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
@@ -93,6 +105,12 @@ class TransformInstanceChargeTypeRequest extends Model
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -132,6 +150,12 @@ class TransformInstanceChargeTypeRequest extends Model
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['AutoRenewPeriod'])) {
+            $model->autoRenewPeriod = $map['AutoRenewPeriod'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];

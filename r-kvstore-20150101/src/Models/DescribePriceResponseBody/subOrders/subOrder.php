@@ -19,7 +19,7 @@ class subOrder extends Model
     public $discountAmount;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example r-bp1xxxxxxxxxxxxx
      *
@@ -28,7 +28,7 @@ class subOrder extends Model
     public $instanceId;
 
     /**
-     * @description The original price of the order.
+     * @description The list price of the order.
      *
      * @example 0.21
      *
@@ -37,14 +37,14 @@ class subOrder extends Model
     public $originalAmount;
 
     /**
-     * @description Details about promotion rule IDs.
+     * @description The ID of the promotion rule.
      *
      * @var ruleIds
      */
     public $ruleIds;
 
     /**
-     * @description The transaction price of the order.
+     * @description The final price of the order.
      *
      * @example 10
      *

@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
-     * @description The order information.
+     * @description The information about the order.
      *
      * @var order
      */

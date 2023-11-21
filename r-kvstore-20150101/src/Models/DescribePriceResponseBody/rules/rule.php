@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
-     * @description The name of the rule.
+     * @description The name of the promotion rule.
      *
      * @example test
      *

@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteGlobalSecurityIPGroupRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeRequest;
@@ -70,6 +72,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalDistributeCacheRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalDistributeCacheResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalSecurityIPGroupRelationRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalSecurityIPGroupRelationResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryMonitorValuesRequest;
@@ -150,6 +154,12 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceConnectionStringRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceConnectionStringResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupNameRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupNameResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupRelationRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupRelationResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceAutoRenewalAttributeRequest;
@@ -960,9 +970,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * You can call this operation to create an ApsaraDB for Redis instance that uses local or cloud disks or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance that uses local disks. To create a Tair instance that uses cloud disks, call the [CreateTairInstance](~~208271~~) operation.
-     *   * > You can also create an instance in the ApsaraDB for Redis console. For more information, see [Create an instance](~~26351~~).
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+     *   * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](~~208271~~) operation.
+     *   * **
+     *   * **Description** For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
      *   *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1121,9 +1132,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * You can call this operation to create an ApsaraDB for Redis instance that uses local or cloud disks or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance that uses local disks. To create a Tair instance that uses cloud disks, call the [CreateTairInstance](~~208271~~) operation.
-     *   * > You can also create an instance in the ApsaraDB for Redis console. For more information, see [Create an instance](~~26351~~).
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+     *   * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](~~208271~~) operation.
+     *   * **
+     *   * **Description** For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
      *   *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      *
@@ -1458,6 +1470,73 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGlobalSecurityIPGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteGlobalSecurityIPGroupResponse
+     */
+    public function deleteGlobalSecurityIPGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
+        }
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGlobalSecurityIPGroup',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGlobalSecurityIPGroupRequest $request
+     *
+     * @return DeleteGlobalSecurityIPGroupResponse
+     */
+    public function deleteGlobalSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGlobalSecurityIPGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2890,6 +2969,46 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeGlobalSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     */
+    public function describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGlobalSecurityIPGroupRelation',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
+     *
+     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     */
+    public function describeGlobalSecurityIPGroupRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -4929,9 +5048,6 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5718,6 +5834,210 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceConnectionStringWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyGlobalSecurityIPGroupResponse
+     */
+    public function modifyGlobalSecurityIPGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->GIpList)) {
+            $query['GIpList'] = $request->GIpList;
+        }
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
+        }
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyGlobalSecurityIPGroup',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupRequest $request
+     *
+     * @return ModifyGlobalSecurityIPGroupResponse
+     */
+    public function modifyGlobalSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGlobalSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyGlobalSecurityIPGroupNameResponse
+     */
+    public function modifyGlobalSecurityIPGroupNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
+        }
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyGlobalSecurityIPGroupName',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyGlobalSecurityIPGroupNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request
+     *
+     * @return ModifyGlobalSecurityIPGroupNameResponse
+     */
+    public function modifyGlobalSecurityIPGroupName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGlobalSecurityIPGroupNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     */
+    public function modifyGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyGlobalSecurityIPGroupRelation',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
+     *
+     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     */
+    public function modifyGlobalSecurityIPGroupRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGlobalSecurityIPGroupRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -7804,6 +8124,12 @@ class Rkvstore extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;

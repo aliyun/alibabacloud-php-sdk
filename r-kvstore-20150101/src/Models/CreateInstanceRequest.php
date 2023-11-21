@@ -10,9 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
-     * @description 指定新创建实例的 aof 参数配置。
+     * @description Specifies whether to enable append-only file (AOF) persistence for the instance. Valid values:
      *
-     * > 改参数适用于创建本地盘实例，云盘实例暂不支持指定 aof 参数。
+     *   **yes** (default): enables AOF persistence.
+     *   **no**: disables AOF persistence.
+     *
+     **
+     *
+     **Description** This parameter is applicable to classic instances, and is unavailable for cloud-native instances.
+     *
      * @example yes
      *
      * @var string
@@ -95,6 +101,10 @@ class CreateInstanceRequest extends Model
     public $chargeType;
 
     /**
+     * @description The operation that you want to perform. Set the value to **AllocateInstancePublicConnection**.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $connectionStringPrefix;
@@ -144,9 +154,6 @@ class CreateInstanceRequest extends Model
      *
      *   **true**: uses the new instance as the first child instance.
      *   **false**: does not use the new instance as the first child instance.
-     *
-     * >
-     *
      *   If you want to create an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance that runs Redis 5.0, you must set this parameter to **true**.
      *
      *   This parameter is available only on the China site (aliyun.com).
@@ -176,9 +183,12 @@ class CreateInstanceRequest extends Model
     public $globalSecurityGroupIds;
 
     /**
-     * @description The instance type of the instance. Example: redis.master.small.default. A redis.master.small.default instance is a 1 GB standard master-replica instance of the Community Edition that uses local disks. For more information, see [Overview](~~26350~~).
+     * @description The instance type. For example, redis.master.small.default indicates a Community Edition standard master-replica instance that has 1 GB of memory. For more information, see [Overview](~~26350~~).
      *
-     * > You must specify at least one of the **Capacity** and **InstanceClass** parameters when you call this operation.
+     **
+     *
+     **Description** You must specify at least one of the **Capacity** and **InstanceClass** parameters when you call the CreateInstance operation.
+     *
      * @example redis.master.small.default
      *
      * @var string
@@ -218,6 +228,13 @@ class CreateInstanceRequest extends Model
     public $networkType;
 
     /**
+     * @description The node type. Valid values:
+     *
+     *   **STAND_ALONE**: standalone
+     *   **MASTER_SLAVE** (default): high availability (master-replica)
+     *
+     * @example STAND_ALONE
+     *
      * @var string
      */
     public $nodeType;
@@ -233,6 +250,8 @@ class CreateInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example rpg-test**
+     *
      * @var string
      */
     public $paramGroupId;
@@ -323,7 +342,7 @@ class CreateInstanceRequest extends Model
     public $restoreTime;
 
     /**
-     * @description The secondary zone ID of the instance. You can call the [DescribeZones](~~94527~~) operation to query the most recent zone list.
+     * @description The secondary zone ID of the instance. You can call the [DescribeZones](~~472448~~) operation to query the most recent zone list.
      *
      * > If you specify this parameter, the master node and replica node of the instance can be deployed in different zones and disaster recovery is implemented across zones. The instance can withstand failures in data centers.
      * @example cn-hangzhou-h
@@ -338,7 +357,7 @@ class CreateInstanceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The number of data shards. This parameter is available only if you create a cluster instance that uses cloud disks. You can use this parameter to specify a custom number of data shards.
+     * @description The number of data shards. This parameter is available only if you create a cluster instance that uses cloud disks.
      *
      * @example 4
      *
