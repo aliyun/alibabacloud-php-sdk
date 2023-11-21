@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostPasswordRequest extends Model
 {
     /**
+     * @description The host ID. You can call the [DescribeDedicatedHosts](~~200944~~) operation to query the host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -16,6 +18,13 @@ class ModifyDedicatedHostPasswordRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @description The new password.
+     *
+     *   The password must be 8 to 32 characters in length.
+     *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     *   The password can contain the following special characters: `! @ # $ % ^ & * ( ) _ + - =`
+     *
+     * >  If your dedicated cluster runs SQL Server, the password cannot contain the account name (case-insensitive).
      * @example test*****
      *
      * @var string
@@ -28,6 +37,8 @@ class ModifyDedicatedHostPasswordRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the host. You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

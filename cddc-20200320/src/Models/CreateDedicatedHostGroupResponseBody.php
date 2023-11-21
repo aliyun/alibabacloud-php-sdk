@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostGroupResponseBody extends Model
 {
     /**
+     * @description The dedicated cluster ID.
+     *
      * @example dhg-7a9********
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDedicatedHostGroupResponseBody extends Model
     public $dedicatedHostGroupId;
 
     /**
+     * @description The request ID.
+     *
      * @example C6592723-09E1-4248-A78E-12AB00D7A79D
      *
      * @var string

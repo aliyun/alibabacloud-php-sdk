@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsResponseBody extends Model
 {
     /**
+     * @description The dedicated cluster ID.
+     *
      * @example dhg-6w7q18iwt5jo****
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $dedicatedHostGroupId;
 
     /**
+     * @description The queried hosts.
+     *
      * @var dedicatedHosts
      */
     public $dedicatedHosts;
 
     /**
+     * @description The maximum storage of local SSDs for auto scaling. Unit: GB.
+     *
      * @example 3661824
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $maxAutoScaleHostStorage;
 
     /**
+     * @description The page number.
+     *
      * @example 2
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $pageNumbers;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -43,6 +53,8 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example D6E068C3-25BC-455A-85FE-45F0B22EASER
      *
      * @var string
@@ -50,6 +62,8 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 40
      *
      * @var int

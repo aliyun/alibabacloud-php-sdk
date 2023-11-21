@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hostInstanceConsoleInfos extends Model
 {
     /**
+     * @description The instance type of the instance.
+     *
      * @example rds.ebmr6.26xlarge
      *
      * @var string
@@ -16,6 +18,8 @@ class hostInstanceConsoleInfos extends Model
     public $clusterName;
 
     /**
+     * @description The database engine of the instance.
+     *
      * @example mysql
      *
      * @var string
@@ -23,6 +27,8 @@ class hostInstanceConsoleInfos extends Model
     public $engine;
 
     /**
+     * @description The version of the database engine.
+     *
      * @example 5.7
      *
      * @var string
@@ -30,6 +36,8 @@ class hostInstanceConsoleInfos extends Model
     public $engineVersion;
 
     /**
+     * @description The expiration time of the instance.
+     *
      * @example 2021.07.20
      *
      * @var string
@@ -37,6 +45,8 @@ class hostInstanceConsoleInfos extends Model
     public $expiredTime;
 
     /**
+     * @description The name of the host on which the instance is deployed.
+     *
      * @example ch-bp1fgj3kt7fsb****
      *
      * @var string
@@ -44,6 +54,8 @@ class hostInstanceConsoleInfos extends Model
     public $hostName;
 
     /**
+     * @description The IP address of the host on which the instance is deployed.
+     *
      * @example 172.22.0.***
      *
      * @var string
@@ -51,6 +63,8 @@ class hostInstanceConsoleInfos extends Model
     public $ip;
 
     /**
+     * @description The port number of the host on which the instance is deployed.
+     *
      * @example 3443
      *
      * @var string
@@ -58,6 +72,8 @@ class hostInstanceConsoleInfos extends Model
     public $port;
 
     /**
+     * @description The role of the instance.
+     *
      * @example master
      *
      * @var string
@@ -65,6 +81,8 @@ class hostInstanceConsoleInfos extends Model
     public $role;
 
     /**
+     * @description The state of the instance.
+     *
      * @example RUNNING
      *
      * @var string
@@ -72,6 +90,8 @@ class hostInstanceConsoleInfos extends Model
     public $status;
 
     /**
+     * @description The virtual private cloud (VPC) ID of the host on which the instance is deployed.
+     *
      * @example vpc-bp1ov7as4yvz4kxei****
      *
      * @var string

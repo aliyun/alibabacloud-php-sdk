@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description The ID of the asset owner.
+     *
+     * @example 1972189080966387
+     *
      * @var int
      */
     public $resourceOwnerId;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostEcsLevelInfoRequest extends Model
 {
     /**
+     * @description The database engine. Valid values:
+     *
+     *   **mysql**
+     *   **mssql**
+     *   **pgsql**
+     *   **redis**
+     *
      * @example mysql
      *
      * @var string
@@ -16,6 +23,14 @@ class DescribeHostEcsLevelInfoRequest extends Model
     public $dbType;
 
     /**
+     * @description The image of the host. Valid values:
+     *
+     *   **WindowsWithMssqlEntAlwaysonLicense**: SQL Server Cluster Edition.
+     *   **WindowsWithMssqlStdLicense**: SQL Server Standard Edition.
+     *   **WindowsWithMssqlEntLicense**: SQL Server Enterprise Edition.
+     *   **WindowsWithMssqlWebLicense**: SQL Server Web Edition.
+     *   **AliLinux**: other images.
+     *
      * @example AliLinux
      *
      * @var string
@@ -28,6 +43,8 @@ class DescribeHostEcsLevelInfoRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. For more information, see [Region IDs](~~198326~~).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -45,6 +62,13 @@ class DescribeHostEcsLevelInfoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The storage type. Valid values:
+     *
+     *   **local_ssd**: standard SSD.
+     *   **cloud_essd**: PL1 enhanced SSD (ESSD).
+     *   **cloud_essd2**: PL2 ESSD.
+     *   **cloud_essd3**: PL3 ESSD.
+     *
      * @example local_ssd
      *
      * @var string
@@ -52,6 +76,8 @@ class DescribeHostEcsLevelInfoRequest extends Model
     public $storageType;
 
     /**
+     * @description The zone ID.
+     *
      * @example ap-southeast-1a
      *
      * @var string

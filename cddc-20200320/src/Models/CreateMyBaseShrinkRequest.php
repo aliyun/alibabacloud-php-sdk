@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateMyBaseShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @example false
      *
      * @var string
@@ -76,6 +81,18 @@ class CreateMyBaseShrinkRequest extends Model
     public $imageId;
 
     /**
+     * @example PayByBandwidth
+     *
+     * @var string
+     */
+    public $internetChargeType;
+
+    /**
+     * @var int
+     */
+    public $internetMaxBandwidthOut;
+
+    /**
      * @var string
      */
     public $keyPairName;
@@ -128,6 +145,11 @@ class CreateMyBaseShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -141,6 +163,21 @@ class CreateMyBaseShrinkRequest extends Model
      * @var string
      */
     public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $tagsShrink;
+
+    /**
+     * @var string
+     */
+    public $userData;
+
+    /**
+     * @var bool
+     */
+    public $userDataInBase64;
 
     /**
      * @example vsw-t4ni3mzqqw98vt317****
@@ -163,6 +200,7 @@ class CreateMyBaseShrinkRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'autoPay'                       => 'AutoPay',
         'autoRenew'                     => 'AutoRenew',
         'clientToken'                   => 'ClientToken',
         'dedicatedHostGroupDescription' => 'DedicatedHostGroupDescription',
@@ -174,6 +212,8 @@ class CreateMyBaseShrinkRequest extends Model
         'ecsUniqueSuffix'               => 'EcsUniqueSuffix',
         'engine'                        => 'Engine',
         'imageId'                       => 'ImageId',
+        'internetChargeType'            => 'InternetChargeType',
+        'internetMaxBandwidthOut'       => 'InternetMaxBandwidthOut',
         'keyPairName'                   => 'KeyPairName',
         'osPassword'                    => 'OsPassword',
         'ownerId'                       => 'OwnerId',
@@ -182,9 +222,13 @@ class CreateMyBaseShrinkRequest extends Model
         'period'                        => 'Period',
         'periodType'                    => 'PeriodType',
         'regionId'                      => 'RegionId',
+        'resourceGroupId'               => 'ResourceGroupId',
         'resourceOwnerAccount'          => 'ResourceOwnerAccount',
         'resourceOwnerId'               => 'ResourceOwnerId',
         'securityGroupId'               => 'SecurityGroupId',
+        'tagsShrink'                    => 'Tags',
+        'userData'                      => 'UserData',
+        'userDataInBase64'              => 'UserDataInBase64',
         'vSwitchId'                     => 'VSwitchId',
         'vpcId'                         => 'VpcId',
         'zoneId'                        => 'ZoneId',
@@ -197,6 +241,9 @@ class CreateMyBaseShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -230,6 +277,12 @@ class CreateMyBaseShrinkRequest extends Model
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
+        }
+        if (null !== $this->internetMaxBandwidthOut) {
+            $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
+        }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
@@ -254,6 +307,9 @@ class CreateMyBaseShrinkRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -262,6 +318,15 @@ class CreateMyBaseShrinkRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->userDataInBase64) {
+            $res['UserDataInBase64'] = $this->userDataInBase64;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -284,6 +349,9 @@ class CreateMyBaseShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
@@ -317,6 +385,12 @@ class CreateMyBaseShrinkRequest extends Model
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
+        }
+        if (isset($map['InternetMaxBandwidthOut'])) {
+            $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
+        }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
@@ -341,6 +415,9 @@ class CreateMyBaseShrinkRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -349,6 +426,15 @@ class CreateMyBaseShrinkRequest extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tagsShrink = $map['Tags'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
+        }
+        if (isset($map['UserDataInBase64'])) {
+            $model->userDataInBase64 = $map['UserDataInBase64'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

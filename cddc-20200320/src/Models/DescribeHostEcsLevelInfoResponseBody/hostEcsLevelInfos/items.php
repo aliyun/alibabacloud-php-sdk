@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The disk bandwidth. Unit: Gbit/s.
+     *
      * @example 4
      *
      * @var float
@@ -16,6 +18,8 @@ class items extends Model
     public $cloudStorageBandwidth;
 
     /**
+     * @description The number of CPU cores of the host.
+     *
      * @example 24
      *
      * @var int
@@ -23,6 +27,8 @@ class items extends Model
     public $cpu;
 
     /**
+     * @description The processor frequency. Unit: GHz.
+     *
      * @example 2.5 GHz/3.2 GHz
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $cpuFrequency;
 
     /**
+     * @description The CPU model of the host.
+     *
      * @example Intel Xeon(Cascade Lake) Platinum 8269CY
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $cpuVersion;
 
     /**
+     * @description The name of the host.
+     *
      * @example testxxx
      *
      * @var string
@@ -44,11 +54,15 @@ class items extends Model
     public $description;
 
     /**
+     * @description The instance family of the host.
+     *
      * @var string
      */
     public $ecsClass;
 
     /**
+     * @description The instance type of the host.
+     *
      * @example ecs.g6.2xlarge
      *
      * @var string
@@ -56,6 +70,8 @@ class items extends Model
     public $ecsClassCode;
 
     /**
+     * @description Indicates whether the host uses cloud disks.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +79,8 @@ class items extends Model
     public $isCloudDisk;
 
     /**
+     * @description The local storage.
+     *
      * @example 7
      *
      * @var string
@@ -70,6 +88,8 @@ class items extends Model
     public $localStorage;
 
     /**
+     * @description The memory size of the host. Unit: GB.
+     *
      * @example 192
      *
      * @var int
@@ -77,6 +97,8 @@ class items extends Model
     public $memory;
 
     /**
+     * @description The internal bandwidth of the host. Unit: Gbit/s.
+     *
      * @example 10
      *
      * @var float
@@ -84,6 +106,8 @@ class items extends Model
     public $netBandWidth;
 
     /**
+     * @description The packet forwarding rate over the internal network, which is displayed after being divided by 10,000. Unit: packets per second (PPS).
+     *
      * @example 150
      *
      * @var int
@@ -91,6 +115,8 @@ class items extends Model
     public $netPackage;
 
     /**
+     * @description The instance type of the instance.
+     *
      * @example mssql.cluster.host.g2xlarge
      *
      * @var string
@@ -98,6 +124,8 @@ class items extends Model
     public $rdsClassCode;
 
     /**
+     * @description The storage IOPS of the host, which is displayed after being divided by 10,000.
+     *
      * @example 5
      *
      * @var int

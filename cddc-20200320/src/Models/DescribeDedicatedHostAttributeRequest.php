@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostAttributeRequest extends Model
 {
     /**
+     * @description The ID of the dedicated cluster in which the host is created. You can log on to the ApsaraDB for MyBase console and go to the **Dedicated Clusters** page to view the dedicated cluster ID.
+     *
      * @example dhg-34639v1jt4y4****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDedicatedHostAttributeRequest extends Model
     public $dedicatedHostGroupId;
 
     /**
+     * @description The host ID. You can log on to the ApsaraDB for MyBase console and go to the **Hosts** page to view the host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -28,6 +32,8 @@ class DescribeDedicatedHostAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description [The region ID](~~198326~~).
+     *
      * @example cn-hangzhou
      *
      * @var string

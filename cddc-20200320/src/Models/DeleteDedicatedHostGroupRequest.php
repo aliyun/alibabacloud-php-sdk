@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDedicatedHostGroupRequest extends Model
 {
     /**
+     * @description The dedicated cluster ID. You can log on to the ApsaraDB for MyBase console and go to the Dedicated Clusters page to view the dedicated cluster ID.
+     *
      * @example dhg-h5i4p331f509****
      *
      * @var string
@@ -16,11 +18,17 @@ class DeleteDedicatedHostGroupRequest extends Model
     public $dedicatedHostGroupId;
 
     /**
+     * @description 账号ID。
+     *
+     * @example 1691073318730531
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the dedicated cluster. For more information, see [Region IDs](~~198326~~).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -28,11 +36,19 @@ class DeleteDedicatedHostGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description 资源主账号的账号名称。
+     *
+     * @example aliyun0855265004
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the asset owner.
+     *
+     * @example 1511928242963727
+     *
      * @var int
      */
     public $resourceOwnerId;

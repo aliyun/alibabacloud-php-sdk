@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the auto-renewal feature. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >  If you do not specify this parameter, the default value **false** is used.
      * @example false
      *
      * @var string
@@ -16,6 +22,8 @@ class CreateDedicatedHostRequest extends Model
     public $autoRenew;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCzSBZH8****
      *
      * @var string
@@ -23,6 +31,9 @@ class CreateDedicatedHostRequest extends Model
     public $clientToken;
 
     /**
+     * @description The dedicated cluster ID. You can log on to the ApsaraDB for MyBase console and go to the **Dedicated Clusters** page to view the dedicated cluster ID.
+     *
+     * >  The database engine of the host is the same as the database engine of the cluster.
      * @example dhg-6w7q18iwt5jo****
      *
      * @var string
@@ -30,6 +41,8 @@ class CreateDedicatedHostRequest extends Model
     public $dedicatedHostGroupId;
 
     /**
+     * @description The instance type of the host. For information about the host instance types supported by different database engines, see [Instance types of hosts](~~206343~~).
+     *
      * @example rds.g6.4xlarge
      *
      * @var string
@@ -37,6 +50,17 @@ class CreateDedicatedHostRequest extends Model
     public $hostClass;
 
     /**
+     * @description The disk storage of the host. This parameter takes effect only for dedicated clusters that run Tair. Unit: GB. Valid values:
+     *
+     *   512
+     *   1024
+     *   1536
+     *   2048
+     *   2560
+     *   3072
+     *   3584
+     *   4096
+     *
      * @example 512
      *
      * @var string
@@ -44,6 +68,11 @@ class CreateDedicatedHostRequest extends Model
     public $hostStorage;
 
     /**
+     * @description The disk type of the host. This parameter takes effect only for dedicated clusters that run Tair. Valid values:
+     *
+     *   **cloud_essd**: PL1 enhanced SSD (ESSD).
+     *   **cloud_essd0**: PL0 ESSD.
+     *
      * @example cloud_essd0
      *
      * @var string
@@ -51,6 +80,15 @@ class CreateDedicatedHostRequest extends Model
     public $hostStorageType;
 
     /**
+     * @description The image of the host. Valid values:
+     *
+     *   **WindowsWithMssqlEntAlwaysonLicense**: SQL Server Cluster Edition.
+     *   **WindowsWithMssqlStdLicense**: SQL Server Standard Edition.
+     *   **WindowsWithMssqlEntLicense**: SQL Server Enterprise Edition.
+     *   **WindowsWithMssqlWebLicense**: SQL Server Web Edition.
+     *   **AliLinux**: other images.
+     *
+     * >  When you create a host that runs SQL Server, you must specify a host image.
      * @example AliLinux
      *
      * @var string
@@ -58,6 +96,12 @@ class CreateDedicatedHostRequest extends Model
     public $imageCategory;
 
     /**
+     * @description The password of the host. You can specify a password only when you create a host in a **Proprietary MyBase** dedicated cluster.
+     *
+     *   The password must be 8 to 30 characters in length.
+     *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     *   The password can contain the following special characters: () \ \` ~ ! @ # $ % ^ & \* - \_ + = | { } \[ ] : ; \" < > , . ? /
+     *
      * @example Test123456
      *
      * @var string
@@ -70,6 +114,8 @@ class CreateDedicatedHostRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the host. Set the value to **prepaid**.
+     *
      * @example prepaid
      *
      * @var string
@@ -77,6 +123,11 @@ class CreateDedicatedHostRequest extends Model
     public $payType;
 
     /**
+     * @description The unit of the subscription duration. Valid values:
+     *
+     *   **Year**
+     *   **Month**
+     *
      * @example Month
      *
      * @var string
@@ -84,6 +135,8 @@ class CreateDedicatedHostRequest extends Model
     public $period;
 
     /**
+     * @description The [region ID](~~198326~~) of the dedicated cluster.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -101,6 +154,11 @@ class CreateDedicatedHostRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The subscription duration of the host.
+     *
+     *   Valid values when **Period** is set to **Year**: **1** to **5**.****
+     *   Valid values when **Period** is set to **Month**: **1** to **9**.
+     *
      * @example 1
      *
      * @var string
@@ -108,6 +166,8 @@ class CreateDedicatedHostRequest extends Model
     public $usedTime;
 
     /**
+     * @description The vSwitch ID. You can log on to the Virtual Private Cloud (VPC) console to view the vSwitch ID.
+     *
      * @example vsw-bp133c8ifzxd3iv6q****
      *
      * @var string
@@ -115,6 +175,8 @@ class CreateDedicatedHostRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The zone ID. You can call the [DescribeRegions](~~214103~~) operation to query the most recent zone list.
+     *
      * @example cn-hangzhou-i
      *
      * @var string

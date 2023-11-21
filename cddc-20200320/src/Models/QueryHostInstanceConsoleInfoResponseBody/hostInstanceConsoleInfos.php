@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class hostInstanceConsoleInfos extends Model
 {
     /**
+     * @description The number of CPU cores of the instance.
+     *
      * @example 8
      *
      * @var int
@@ -17,6 +19,8 @@ class hostInstanceConsoleInfos extends Model
     public $cpuCores;
 
     /**
+     * @description The maximum number of CPU cores of the instance.
+     *
      * @example 16
      *
      * @var int
@@ -24,6 +28,8 @@ class hostInstanceConsoleInfos extends Model
     public $cpuIncreaseRatioValue;
 
     /**
+     * @description The description of the instance.
+     *
      * @example rm-bp1m5z8002gyj****
      *
      * @var string
@@ -31,6 +37,8 @@ class hostInstanceConsoleInfos extends Model
     public $DBInstanceDescription;
 
     /**
+     * @description The instance ID.
+     *
      * @example rm-bp1m5z8002gyj****
      *
      * @var string
@@ -38,6 +46,8 @@ class hostInstanceConsoleInfos extends Model
     public $DBInstanceId;
 
     /**
+     * @description The storage capacity of the instance. Unit: GB.
+     *
      * @example 500
      *
      * @var int
@@ -45,6 +55,8 @@ class hostInstanceConsoleInfos extends Model
     public $diskSize;
 
     /**
+     * @description The database engine of the instance.
+     *
      * @example mysql
      *
      * @var string
@@ -52,6 +64,8 @@ class hostInstanceConsoleInfos extends Model
     public $engine;
 
     /**
+     * @description The version of the database engine.
+     *
      * @example 5.8
      *
      * @var string
@@ -59,6 +73,8 @@ class hostInstanceConsoleInfos extends Model
     public $engineVersion;
 
     /**
+     * @description The IP address of the host on which the instance is deployed.
+     *
      * @example 172.22.XX.XX
      *
      * @var string
@@ -66,6 +82,8 @@ class hostInstanceConsoleInfos extends Model
     public $ip;
 
     /**
+     * @description The instance type of the instance.
+     *
      * @example mysql.z2.medium.2
      *
      * @var string
@@ -73,6 +91,8 @@ class hostInstanceConsoleInfos extends Model
     public $levelName;
 
     /**
+     * @description The maximum number of connections to the instance.
+     *
      * @example 1300
      *
      * @var int
@@ -80,6 +100,8 @@ class hostInstanceConsoleInfos extends Model
     public $maxConnIncreaseRatioValue;
 
     /**
+     * @description The memory size of the instance. Unit: GB.
+     *
      * @example 16
      *
      * @var int
@@ -87,6 +109,8 @@ class hostInstanceConsoleInfos extends Model
     public $memSize;
 
     /**
+     * @description The maximum memory size of the instance.
+     *
      * @example 64
      *
      * @var int
@@ -94,11 +118,15 @@ class hostInstanceConsoleInfos extends Model
     public $memoryIncreaseRatioValue;
 
     /**
+     * @description The performance information of the host on which the instance is deployed.
+     *
      * @var perfInfo
      */
     public $perfInfo;
 
     /**
+     * @description The port number of the host.
+     *
      * @example 3443
      *
      * @var string
@@ -106,6 +134,8 @@ class hostInstanceConsoleInfos extends Model
     public $port;
 
     /**
+     * @description The role of the instance.
+     *
      * @example master
      *
      * @var string
@@ -113,6 +143,8 @@ class hostInstanceConsoleInfos extends Model
     public $role;
 
     /**
+     * @description The state of the instance.
+     *
      * @example RUNNING
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostResponseBody extends Model
 {
     /**
+     * @description The created hosts.
+     *
      * @var dedicateHostList
      */
     public $dedicateHostList;
 
     /**
+     * @description The order ID.
+     *
      * @example 102565235
      *
      * @var int
@@ -22,6 +26,8 @@ class CreateDedicatedHostResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example C860658E-68A6-46C1-AF6E-3AE7C4D32375
      *
      * @var string

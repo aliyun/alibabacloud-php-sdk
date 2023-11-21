@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartDedicatedHostRequest extends Model
 {
     /**
+     * @description The host ID. You can log on to the ApsaraDB for MyBase console and go to the **Hosts** page to view the host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -16,6 +18,11 @@ class RestartDedicatedHostRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @description The switchover method of the primary instance. Valid values:
+     *
+     *   **MaintainTime** (default): The system performs a switchover within a maintenance window. The system switches workloads from the primary instance on the host to the secondary instance on another host, and then restarts the current host. This prevents service interruptions.
+     *   **Immediate**: The system immediately restarts the host.
+     *
      * @example MaintainTime
      *
      * @var string
@@ -23,6 +30,12 @@ class RestartDedicatedHostRequest extends Model
     public $failoverMode;
 
     /**
+     * @description Specifies whether to forcefully restart the host. Valid values:
+     *
+     *   true: The system forcefully restarts the host. If this value is used, the system powers off the host. This results in the loss of cached data that is not written to storage. Exercise caution when you select this value.
+     *   false (default): The system restarts the host normally.
+     *
+     * >  This parameter takes effect only for hosts that are created in ApsaraDB MyBase for Redis dedicated clusters of the Enhanced Edition (Tair). Hosts that are created in ApsaraDB MyBase dedicated clusters that run other database engines can be restarted normally.
      * @example false
      *
      * @var bool
@@ -35,6 +48,8 @@ class RestartDedicatedHostRequest extends Model
     public $ownerId;
 
     /**
+     * @description [The region ID](~~198326~~) of the host.
+     *
      * @example cn-hangzhou
      *
      * @var string

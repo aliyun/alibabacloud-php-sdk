@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostAttributeRequest extends Model
 {
     /**
+     * @description Indicates whether instances can be deployed on the host. Valid values:
+     *
+     *   **1**: yes.
+     *   **0**: no.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +21,8 @@ class ModifyDedicatedHostAttributeRequest extends Model
     public $allocationStatus;
 
     /**
+     * @description The host ID. You can log on to the ApsaraDB for MyBase console and go to the **Hosts** page to view the host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -23,6 +30,8 @@ class ModifyDedicatedHostAttributeRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @description The name of the host.
+     *
      * @example mysql-host
      *
      * @var string
@@ -35,6 +44,8 @@ class ModifyDedicatedHostAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The [region ID](~~198326~~) of the host.
+     *
      * @example cn-hangzhou
      *
      * @var string

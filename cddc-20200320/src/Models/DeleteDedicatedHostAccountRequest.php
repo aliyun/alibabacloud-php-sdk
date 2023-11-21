@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteDedicatedHostAccountRequest extends Model
 {
     /**
+     * @description The name of the host account.
+     *
+     *   The name can contain lowercase letters, digits, and underscores (\_).
+     *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
+     *   The name must be 2 to 16 characters in length.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +22,8 @@ class DeleteDedicatedHostAccountRequest extends Model
     public $accountName;
 
     /**
+     * @description The host ID. You can call the [DescribeDedicatedHosts](~~200944~~) operation to query the host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -23,11 +31,17 @@ class DeleteDedicatedHostAccountRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @description The ID of the account to which the AccessKey pair belongs.
+     *
+     * @example 1429883662605203
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the host. You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -35,11 +49,19 @@ class DeleteDedicatedHostAccountRequest extends Model
     public $regionId;
 
     /**
+     * @description ResourceOwnerAccount
+     *
+     * @example hnkuaisheng@163.com
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the asset owner.
+     *
+     * @example 5550332682781338
+     *
      * @var int
      */
     public $resourceOwnerId;

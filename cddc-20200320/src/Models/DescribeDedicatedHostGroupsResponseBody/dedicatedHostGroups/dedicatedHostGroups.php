@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostGroups extends Model
 {
     /**
+     * @description The policy that is used to allocate host resources. Valid values:
+     *
+     *   **Evenly**: The system preferentially deploys database instances on the hosts where no resources or fewer resources are allocated. This maximizes system stability.
+     *   **Intensively**: The system preferentially deploys database instances on the hosts that are created earlier and have more allocated resources. This maximizes resource utilization.
+     *
      * @example Evenly
      *
      * @var string
@@ -17,6 +22,8 @@ class dedicatedHostGroups extends Model
     public $allocationPolicy;
 
     /**
+     * @description The ID of the primary instance deployed on the host. If no primary instance is deployed on the host, an empty string is returned.
+     *
      * @example rm-bp15rszyxs4t3****
      *
      * @var string
@@ -29,6 +36,8 @@ class dedicatedHostGroups extends Model
     public $category;
 
     /**
+     * @description The CPU allocation ratio of the host.
+     *
      * @example 9.38
      *
      * @var float
@@ -36,6 +45,8 @@ class dedicatedHostGroups extends Model
     public $cpuAllocateRation;
 
     /**
+     * @description The number of CPU cores allocated to the host.
+     *
      * @example 3
      *
      * @var float
@@ -43,6 +54,8 @@ class dedicatedHostGroups extends Model
     public $cpuAllocatedAmount;
 
     /**
+     * @description The CPU overcommit ratio of the host.
+     *
      * @example 200
      *
      * @var int
@@ -50,6 +63,8 @@ class dedicatedHostGroups extends Model
     public $cpuAllocationRatio;
 
     /**
+     * @description The time when the host was created.
+     *
      * @example 2021-05-07T02:00Z
      *
      * @var string
@@ -57,6 +72,8 @@ class dedicatedHostGroups extends Model
     public $createTime;
 
     /**
+     * @description The number of hosts by storage type.
+     *
      * @example 2
      *
      * @var mixed[]
@@ -64,6 +81,8 @@ class dedicatedHostGroups extends Model
     public $dedicatedHostCountGroupByHostType;
 
     /**
+     * @description The name of the dedicated cluster in which the host is created.
+     *
      * @example dhg-34639v1jt4y4****
      *
      * @var string
@@ -71,6 +90,8 @@ class dedicatedHostGroups extends Model
     public $dedicatedHostGroupDesc;
 
     /**
+     * @description The ID of the dedicated cluster in which the host is created.
+     *
      * @example dhg-34639v1jt4y4****
      *
      * @var string
@@ -78,6 +99,8 @@ class dedicatedHostGroups extends Model
     public $dedicatedHostGroupId;
 
     /**
+     * @description The instance deployment mode of the host.
+     *
      * @example origin
      *
      * @var string
@@ -85,6 +108,8 @@ class dedicatedHostGroups extends Model
     public $deployType;
 
     /**
+     * @description The disk allocation rate of the host.
+     *
      * @example 100
      *
      * @var float
@@ -92,6 +117,8 @@ class dedicatedHostGroups extends Model
     public $diskAllocateRation;
 
     /**
+     * @description The disk storage allocated to the host.
+     *
      * @example 1024
      *
      * @var float
@@ -99,6 +126,8 @@ class dedicatedHostGroups extends Model
     public $diskAllocatedAmount;
 
     /**
+     * @description The storage overcommit ratio of the host.
+     *
      * @example 200
      *
      * @var int
@@ -106,6 +135,8 @@ class dedicatedHostGroups extends Model
     public $diskAllocationRatio;
 
     /**
+     * @description The disk storage used by the host.
+     *
      * @example 1024
      *
      * @var float
@@ -113,6 +144,8 @@ class dedicatedHostGroups extends Model
     public $diskUsedAmount;
 
     /**
+     * @description The disk usage of the host.
+     *
      * @example 0
      *
      * @var float
@@ -120,6 +153,8 @@ class dedicatedHostGroups extends Model
     public $diskUtility;
 
     /**
+     * @description The database engine of the host.
+     *
      * @example MySQL
      *
      * @var string
@@ -127,6 +162,8 @@ class dedicatedHostGroups extends Model
     public $engine;
 
     /**
+     * @description The number of hosts.
+     *
      * @example 2
      *
      * @var int
@@ -134,6 +171,11 @@ class dedicatedHostGroups extends Model
     public $hostNumber;
 
     /**
+     * @description The policy that is used for host troubleshooting. Valid values:
+     *
+     *   Auto (default): The system automatically replaces faulty hosts.
+     *   Manual: You must manually replace faulty hosts.
+     *
      * @example Auto
      *
      * @var string
@@ -141,6 +183,8 @@ class dedicatedHostGroups extends Model
     public $hostReplacePolicy;
 
     /**
+     * @description The number of instances deployed on the host.
+     *
      * @example 2
      *
      * @var int
@@ -148,6 +192,8 @@ class dedicatedHostGroups extends Model
     public $instanceNumber;
 
     /**
+     * @description The memory allocation ratio of the host.
+     *
      * @example 9.38
      *
      * @var float
@@ -155,6 +201,8 @@ class dedicatedHostGroups extends Model
     public $memAllocateRation;
 
     /**
+     * @description The amount of memory allocated to the host.
+     *
      * @example 0
      *
      * @var float
@@ -162,6 +210,8 @@ class dedicatedHostGroups extends Model
     public $memAllocatedAmount;
 
     /**
+     * @description The memory overcommit ratio of the host.
+     *
      * @example 100
      *
      * @var int
@@ -169,6 +219,8 @@ class dedicatedHostGroups extends Model
     public $memAllocationRatio;
 
     /**
+     * @description The amount of used memory.
+     *
      * @example 0
      *
      * @var float
@@ -176,6 +228,8 @@ class dedicatedHostGroups extends Model
     public $memUsedAmount;
 
     /**
+     * @description The memory usage.
+     *
      * @example 0
      *
      * @var float
@@ -183,6 +237,12 @@ class dedicatedHostGroups extends Model
     public $memUtility;
 
     /**
+     * @description Indicates whether the host OS permissions are granted. Valid values:
+     *
+     *   **0 or 1**: no.
+     *   **2 or 3** (default): yes.
+     *
+     * >  When you create a dedicated cluster that runs **MySQL**, **SQL Server**, or **PostgreSQL**, you can grant the host OS permissions based on your business requirements.
      * @example 1
      *
      * @var string
@@ -190,6 +250,8 @@ class dedicatedHostGroups extends Model
     public $openPermission;
 
     /**
+     * @description The description of the host.
+     *
      * @example mysql-host
      *
      * @var string
@@ -197,6 +259,8 @@ class dedicatedHostGroups extends Model
     public $text;
 
     /**
+     * @description The virtual private cloud (VPC) ID of the dedicated cluster in which the host is created.
+     *
      * @example vpc-bp1ov7as4yvz4kxei****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @description The host ID.
+     *
      * @example ch-t4n4dcdvu6840****
      *
      * @var string
@@ -16,6 +18,9 @@ class tagResources extends Model
     public $resourceId;
 
     /**
+     * @description The resource type.
+     *
+     * ALIYUN::CDDC::DEDICATEDHOST is returned, which indicates an ApsaraDB for MyBase host.
      * @example ALIYUN::CDDC::DEDICATEDHOST
      *
      * @var string
@@ -23,6 +28,8 @@ class tagResources extends Model
     public $resourceType;
 
     /**
+     * @description The key of tag N.
+     *
      * @example demokey
      *
      * @var string
@@ -30,6 +37,8 @@ class tagResources extends Model
     public $tagKey;
 
     /**
+     * @description The tag value.
+     *
      * @example demovalue
      *
      * @var string

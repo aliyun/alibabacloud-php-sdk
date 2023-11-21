@@ -15,6 +15,8 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the host.
+     *
      * @example ap-southeast-1
      *
      * @var string
@@ -22,6 +24,8 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of host N. You can specify multiple host IDs.
+     *
      * @example ch-t4n4dcdvu6840****
      *
      * @var string[]
@@ -39,6 +43,8 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Set the value to DEDICATEDHOST.
+     *
      * @example DEDICATEDHOST
      *
      * @var string
@@ -46,6 +52,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

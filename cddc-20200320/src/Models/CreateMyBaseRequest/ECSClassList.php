@@ -11,6 +11,21 @@ class ECSClassList extends Model
     /**
      * @var string
      */
+    public $dataDiskAutoSnapshotPolicyId;
+
+    /**
+     * @var bool
+     */
+    public $dataDiskEncrypted;
+
+    /**
+     * @var string
+     */
+    public $dataDiskKMSKeyId;
+
+    /**
+     * @var string
+     */
     public $dataDiskPerformanceLevel;
 
     /**
@@ -39,9 +54,24 @@ class ECSClassList extends Model
     public $nodeCount;
 
     /**
+     * @var string
+     */
+    public $sysDiskAutoSnapshotPolicyId;
+
+    /**
      * @var int
      */
     public $sysDiskCapacity;
+
+    /**
+     * @var bool
+     */
+    public $sysDiskEncrypted;
+
+    /**
+     * @var string
+     */
+    public $sysDiskKMSKeyId;
 
     /**
      * @var string
@@ -53,15 +83,21 @@ class ECSClassList extends Model
      */
     public $systemDiskPerformanceLevel;
     protected $_name = [
-        'dataDiskPerformanceLevel'   => 'dataDiskPerformanceLevel',
-        'diskCapacity'               => 'diskCapacity',
-        'diskCount'                  => 'diskCount',
-        'diskType'                   => 'diskType',
-        'instanceType'               => 'instanceType',
-        'nodeCount'                  => 'nodeCount',
-        'sysDiskCapacity'            => 'sysDiskCapacity',
-        'sysDiskType'                => 'sysDiskType',
-        'systemDiskPerformanceLevel' => 'systemDiskPerformanceLevel',
+        'dataDiskAutoSnapshotPolicyId' => 'dataDiskAutoSnapshotPolicyId',
+        'dataDiskEncrypted'            => 'dataDiskEncrypted',
+        'dataDiskKMSKeyId'             => 'dataDiskKMSKeyId',
+        'dataDiskPerformanceLevel'     => 'dataDiskPerformanceLevel',
+        'diskCapacity'                 => 'diskCapacity',
+        'diskCount'                    => 'diskCount',
+        'diskType'                     => 'diskType',
+        'instanceType'                 => 'instanceType',
+        'nodeCount'                    => 'nodeCount',
+        'sysDiskAutoSnapshotPolicyId'  => 'sysDiskAutoSnapshotPolicyId',
+        'sysDiskCapacity'              => 'sysDiskCapacity',
+        'sysDiskEncrypted'             => 'sysDiskEncrypted',
+        'sysDiskKMSKeyId'              => 'sysDiskKMSKeyId',
+        'sysDiskType'                  => 'sysDiskType',
+        'systemDiskPerformanceLevel'   => 'systemDiskPerformanceLevel',
     ];
 
     public function validate()
@@ -71,6 +107,15 @@ class ECSClassList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataDiskAutoSnapshotPolicyId) {
+            $res['dataDiskAutoSnapshotPolicyId'] = $this->dataDiskAutoSnapshotPolicyId;
+        }
+        if (null !== $this->dataDiskEncrypted) {
+            $res['dataDiskEncrypted'] = $this->dataDiskEncrypted;
+        }
+        if (null !== $this->dataDiskKMSKeyId) {
+            $res['dataDiskKMSKeyId'] = $this->dataDiskKMSKeyId;
+        }
         if (null !== $this->dataDiskPerformanceLevel) {
             $res['dataDiskPerformanceLevel'] = $this->dataDiskPerformanceLevel;
         }
@@ -89,8 +134,17 @@ class ECSClassList extends Model
         if (null !== $this->nodeCount) {
             $res['nodeCount'] = $this->nodeCount;
         }
+        if (null !== $this->sysDiskAutoSnapshotPolicyId) {
+            $res['sysDiskAutoSnapshotPolicyId'] = $this->sysDiskAutoSnapshotPolicyId;
+        }
         if (null !== $this->sysDiskCapacity) {
             $res['sysDiskCapacity'] = $this->sysDiskCapacity;
+        }
+        if (null !== $this->sysDiskEncrypted) {
+            $res['sysDiskEncrypted'] = $this->sysDiskEncrypted;
+        }
+        if (null !== $this->sysDiskKMSKeyId) {
+            $res['sysDiskKMSKeyId'] = $this->sysDiskKMSKeyId;
         }
         if (null !== $this->sysDiskType) {
             $res['sysDiskType'] = $this->sysDiskType;
@@ -110,6 +164,15 @@ class ECSClassList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['dataDiskAutoSnapshotPolicyId'])) {
+            $model->dataDiskAutoSnapshotPolicyId = $map['dataDiskAutoSnapshotPolicyId'];
+        }
+        if (isset($map['dataDiskEncrypted'])) {
+            $model->dataDiskEncrypted = $map['dataDiskEncrypted'];
+        }
+        if (isset($map['dataDiskKMSKeyId'])) {
+            $model->dataDiskKMSKeyId = $map['dataDiskKMSKeyId'];
+        }
         if (isset($map['dataDiskPerformanceLevel'])) {
             $model->dataDiskPerformanceLevel = $map['dataDiskPerformanceLevel'];
         }
@@ -128,8 +191,17 @@ class ECSClassList extends Model
         if (isset($map['nodeCount'])) {
             $model->nodeCount = $map['nodeCount'];
         }
+        if (isset($map['sysDiskAutoSnapshotPolicyId'])) {
+            $model->sysDiskAutoSnapshotPolicyId = $map['sysDiskAutoSnapshotPolicyId'];
+        }
         if (isset($map['sysDiskCapacity'])) {
             $model->sysDiskCapacity = $map['sysDiskCapacity'];
+        }
+        if (isset($map['sysDiskEncrypted'])) {
+            $model->sysDiskEncrypted = $map['sysDiskEncrypted'];
+        }
+        if (isset($map['sysDiskKMSKeyId'])) {
+            $model->sysDiskKMSKeyId = $map['sysDiskKMSKeyId'];
         }
         if (isset($map['sysDiskType'])) {
             $model->sysDiskType = $map['sysDiskType'];

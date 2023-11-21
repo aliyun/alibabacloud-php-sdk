@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostGroupsRequest extends Model
 {
     /**
+     * @description The dedicated cluster ID. You can log on to the ApsaraDB for MyBase console and go to the Dedicated Clusters page to view the dedicated cluster ID.
+     *
+     *   If you leave this parameter empty, the information about all hosts within the region is returned.
+     *   If you specify a dedicated cluster ID, the information about all hosts in the dedicated cluster within the region is returned.
+     *
      * @example dhg-872yt76ann7e****
      *
      * @var string
@@ -16,6 +21,14 @@ class DescribeDedicatedHostGroupsRequest extends Model
     public $dedicatedHostGroupId;
 
     /**
+     * @description The database engine used to filter hosts. Valid values:
+     *
+     *   MySQL
+     *   SQL Server
+     *   PosgreSQL
+     *
+     *   Redis
+     *
      * @example MySQL
      *
      * @var string
@@ -23,6 +36,26 @@ class DescribeDedicatedHostGroupsRequest extends Model
     public $engine;
 
     /**
+     * @description The image of the host. Valid values:
+     *
+     *   **WindowsWithMssqlEntAlwaysonLicense**: SQL
+     *
+     * Server Cluster Edition.
+     *
+     *   **WindowsWithMssqlStdLicense**: SQL
+     *
+     * Server Standard Edition.
+     *
+     *   **WindowsWithMssqlEntLicense**: SQL
+     *
+     * Server Enterprise Edition.
+     *
+     *   **WindowsWithMssqlWebLicense**: SQL
+     *
+     * Server Web Edition.
+     *
+     *   **AliLinux**: other images.
+     *
      * @example AliLinux
      *
      * @var string
@@ -35,6 +68,8 @@ class DescribeDedicatedHostGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. For more information, see [Region IDs](~~198326~~).
+     *
      * @example cn-hangzhou
      *
      * @var string

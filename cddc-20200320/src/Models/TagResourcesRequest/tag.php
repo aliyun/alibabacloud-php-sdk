@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of tag N.
+     *
+     *   **N** specifies the serial number of the tag. Examples:
+     *
+     *   **Tag.1.Key** specifies the key of the first tag.
+     *   **Tag.2.Key** specifies the key of the second tag.
+     *
+     *   If no tag key exists, a key is automatically created.
+     *
      * @example demokey
      *
      * @var string
@@ -16,6 +25,15 @@ class tag extends Model
     public $key;
 
     /**
+     * @description The value of tag N.
+     *
+     *   **N** specifies the serial number of the tag. Examples:
+     *
+     *   **Tag.1.Value** specifies the value of the first tag.
+     *   **Tag.2.Value** specifies the value of the second tag.
+     *
+     *   If no tag value exists, a value is automatically created.
+     *
      * @example demovalue
      *
      * @var string

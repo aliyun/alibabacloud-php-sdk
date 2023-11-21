@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartDedicatedHostResponseBody extends Model
 {
     /**
+     * @description The host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -16,6 +18,8 @@ class RestartDedicatedHostResponseBody extends Model
     public $dedicatedHostId;
 
     /**
+     * @description The request ID.
+     *
      * @example D6E068C3-25BC-455A-85FE-45F0B22EDSH
      *
      * @var string
@@ -23,6 +27,8 @@ class RestartDedicatedHostResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example 10254125
      *
      * @var int

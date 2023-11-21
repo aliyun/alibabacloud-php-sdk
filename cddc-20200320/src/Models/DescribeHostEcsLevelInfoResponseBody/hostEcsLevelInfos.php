@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class hostEcsLevelInfos extends Model
 {
     /**
+     * @description The category of the host. Valid values:
+     *
+     *   **general**: general-purpose.
+     *   **compute**: compute-optimized.
+     *   **ram**: memory-optimized.
+     *   **dragon**: ECS Bare Metal Instance.
+     *
      * @example ram
      *
      * @var string
@@ -17,6 +24,8 @@ class hostEcsLevelInfos extends Model
     public $cddcHostType;
 
     /**
+     * @description The queried host specifications.
+     *
      * @var items[]
      */
     public $items;

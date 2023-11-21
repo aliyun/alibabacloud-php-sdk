@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the host. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >  If you specify both this parameter and the TagKey.N parameter, this parameter does not take effect.
      * @example false
      *
      * @var bool
@@ -21,6 +27,8 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the host.
+     *
      * @example ap-southeast-1
      *
      * @var string
@@ -28,6 +36,8 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of host N. You can specify multiple host IDs.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -43,6 +53,8 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Set the value to DEDICATEDHOST.
+     *
      * @example DEDICATEDHOST
      *
      * @var string
@@ -50,6 +62,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The key of tag N.
+     *
      * @var string[]
      */
     public $tagKey;

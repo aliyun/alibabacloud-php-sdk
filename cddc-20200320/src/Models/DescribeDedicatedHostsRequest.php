@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsRequest extends Model
 {
     /**
+     * @description Specifies whether instances can be deployed on the host. Valid values:
+     *
+     *   **Allocatable**: Instances can be deployed on the host.
+     *   **Suspended**: Instances cannot be deployed on the host.
+     *
      * @example Allocatable
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeDedicatedHostsRequest extends Model
     public $allocationStatus;
 
     /**
+     * @description The dedicated cluster ID. You can log on to the ApsaraDB for MyBase console and go to the **Dedicated Clusters** page to view the dedicated cluster ID.
+     *
      * @example dhg-h5i4p331f509****
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostGroupId;
 
     /**
+     * @description The ID of the host in the dedicated cluster. You can log on to the ApsaraDB for MyBase console and go to the **Hosts** page to view the host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -30,6 +39,18 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @description The state of the host. Valid values:
+     *
+     *   **0**: The host is being created.
+     *   **1**: The host is running.
+     *   **2**: The host is faulty.
+     *   **3**: The host is ready for disabling.
+     *   **4**: The host is being maintained.
+     *   **5**: The host is disabled.
+     *   **6**: The host is restarting.
+     *   **7**: The host is locked.
+     *
+     * >  When a host fails, the host is disabled. Before the host is disabled, the data of the instances that run on the host is migrated to another host.
      * @example 1
      *
      * @var string
@@ -37,6 +58,11 @@ class DescribeDedicatedHostsRequest extends Model
     public $hostStatus;
 
     /**
+     * @description The storage type of the host. Valid values:
+     *
+     *   **dhg_local_ssd**: local SSD.
+     *   **dhg_cloud_ssd** or **dhg_cloud_essd**: enhanced SSD (ESSD).
+     *
      * @example dhg_cloud_ssd
      *
      * @var string
@@ -44,6 +70,8 @@ class DescribeDedicatedHostsRequest extends Model
     public $hostType;
 
     /**
+     * @description The order ID. You can log on to the Billing Management console and go to the **Orders** page to view the order ID.
+     *
      * @example 123456789
      *
      * @var int
@@ -56,6 +84,8 @@ class DescribeDedicatedHostsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
      * @example 50
      *
      * @var int
@@ -63,6 +93,8 @@ class DescribeDedicatedHostsRequest extends Model
     public $pageNumbers;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -70,6 +102,8 @@ class DescribeDedicatedHostsRequest extends Model
     public $pageSize;
 
     /**
+     * @description [The region ID](~~198326~~).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -87,6 +121,9 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags that are added to the host. Each tag is a key-value pair that consists of TagKey and TagValue. You can specify a maximum of five tags in the following format for each request: {"key1":"value1","key2":"value2"...}.
+     *
+     * >  If you want to filter hosts based on tags, do not specify the **DedicatedHostId** parameter. Otherwise, the **DedicatedHostId** parameter is used to filter hosts.
      * @example {"key1":"value1"}
      *
      * @var string
@@ -94,6 +131,8 @@ class DescribeDedicatedHostsRequest extends Model
     public $tags;
 
     /**
+     * @description The zone ID. You can call the [DescribeRegions](~~214103~~) operation to query the most recent zone list.
+     *
      * @example ap-southeast-1a
      *
      * @var string

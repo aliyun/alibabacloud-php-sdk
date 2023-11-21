@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostWebShellRequest extends Model
 {
     /**
+     * @description The host ID. You can call the [DescribeDedicatedHosts](~~200944~~) operation to query the host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -16,11 +18,17 @@ class DescribeHostWebShellRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
+     *
+     * @example 1657331444936463
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the host. You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -28,16 +36,26 @@ class DescribeHostWebShellRequest extends Model
     public $regionId;
 
     /**
+     * @description ResourceOwnerAccount
+     *
+     * @example 15011575211
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the asset owner.
+     *
+     * @example 1336501338520301
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @description The zone ID of the host. You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the zone ID.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

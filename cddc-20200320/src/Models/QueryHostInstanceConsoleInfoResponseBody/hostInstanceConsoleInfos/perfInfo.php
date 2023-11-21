@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class perfInfo extends Model
 {
     /**
+     * @description The number of CPU cores of the host.
+     *
      * @example 16
      *
      * @var float
@@ -16,6 +18,8 @@ class perfInfo extends Model
     public $cpuRatio;
 
     /**
+     * @description The disk storage of the host. Unit: GB.
+     *
      * @example 1000
      *
      * @var float
@@ -23,6 +27,8 @@ class perfInfo extends Model
     public $diskCurr;
 
     /**
+     * @description The memory size of the host. Unit: GB.
+     *
      * @example 64
      *
      * @var float
@@ -30,6 +36,8 @@ class perfInfo extends Model
     public $memRatio;
 
     /**
+     * @description The number of physical I/O operations performed on the host.
+     *
      * @example 30
      *
      * @var float

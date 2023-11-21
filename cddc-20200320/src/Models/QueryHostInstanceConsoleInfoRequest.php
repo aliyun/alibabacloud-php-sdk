@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryHostInstanceConsoleInfoRequest extends Model
 {
     /**
+     * @description The host ID. You can log on to the ApsaraDB for MyBase console and go to the **Hosts** page to view the host ID.
+     *
      * @example ch-bp1fgj3kt7fsb****
      *
      * @var string
@@ -21,6 +23,8 @@ class QueryHostInstanceConsoleInfoRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the host. You can log on to the ApsaraDB for MyBase console to view the [region ID](~~198326~~).
+     *
      * @example cn-qingdao
      *
      * @var string

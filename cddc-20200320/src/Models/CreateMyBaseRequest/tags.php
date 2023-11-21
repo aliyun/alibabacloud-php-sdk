@@ -2,40 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cddc\V20200320\Models\ListTagResourcesRequest;
+namespace AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class tag extends Model
+class tags extends Model
 {
     /**
-     * @description The key of tag N.
-     *
-     *   **N** specifies the serial number of the tag. Examples:
-     *
-     *   **Tag.1.Key** specifies the key of the first tag.
-     *   **Tag.2.Key** specifies the key of the second tag.
-     *
-     *   You must specify one of this parameter and **ResourceId.N**.
-     *
-     * @example demokey
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of tag N.
-     *
-     *   **N** specifies the serial number of the tag. Examples:
-     *
-     *   **Tag.1.Value** specifies the value of the first tag.
-     *   **Tag.2.Value** specifies the value of the second tag.
-     *
-     *   If no tag value exists, a value is automatically created.
-     *
-     * @example demovalue
-     *
      * @var string
      */
     public $value;
@@ -64,7 +42,7 @@ class tag extends Model
     /**
      * @param array $map
      *
-     * @return tag
+     * @return tags
      */
     public static function fromMap($map = [])
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReplaceDedicatedHostRequest extends Model
 {
     /**
+     * @description The host ID. You can call the [DescribeDedicatedHosts](~~200944~~) operation to query the host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -16,6 +18,11 @@ class ReplaceDedicatedHostRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @description The switchover method of the primary instance. Valid values:
+     *
+     *   **MaintainTime** (default): The system performs a switchover within a maintenance window. The system switches workloads from the primary instance on the host to the secondary instance on another host, and then restarts the current host. This prevents service interruptions.
+     *   **Immediate**: The system immediately restarts the host.
+     *
      * @example MaintainTime
      *
      * @var string
@@ -28,6 +35,8 @@ class ReplaceDedicatedHostRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the host. You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

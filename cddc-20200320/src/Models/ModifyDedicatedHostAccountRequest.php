@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostAccountRequest extends Model
 {
     /**
+     * @description The account name of the host.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDedicatedHostAccountRequest extends Model
     public $accountName;
 
     /**
+     * @description The new account password of the host.
+     *
      * @example test*****
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyDedicatedHostAccountRequest extends Model
     public $accountPassword;
 
     /**
+     * @description The host ID. You can call the [DescribeDedicatedHosts](~~200944~~) operation to query the host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -30,11 +36,17 @@ class ModifyDedicatedHostAccountRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @description 账号ID。
+     *
+     * @example 1500111740532860
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region ID of the host. You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,11 +54,19 @@ class ModifyDedicatedHostAccountRequest extends Model
     public $regionId;
 
     /**
+     * @description 资源主账号的账号名称。
+     *
+     * @example LTAI5tPjcHxyLkwggcN5ayrQ
+     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
+     * @description ResourceOwnerId
+     *
+     * @example 1922417304399089
+     *
      * @var int
      */
     public $resourceOwnerId;

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostAttributeResponseBody extends Model
 {
     /**
+     * @description The account name of the host.
+     *
+     *   The name can contain lowercase letters, digits, and underscores (\_).
+     *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
+     *   The name must be 2 to 16 characters in length.
+     *
      * @example cdp_system
      *
      * @var string
@@ -16,6 +22,11 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $accountName;
 
     /**
+     * @description The account type of the host. Valid values:
+     *
+     *   **Normal**: standard account.
+     *   **Admin**: administrator account.
+     *
      * @example Admin
      *
      * @var string
@@ -23,6 +34,11 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $accountType;
 
     /**
+     * @description Indicates whether instances can be deployed on the host. Valid values:
+     *
+     *   **Allocatable**: yes.
+     *   **Suspended**: no.
+     *
      * @example Suspended
      *
      * @var string
@@ -30,6 +46,11 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $allocationStatus;
 
     /**
+     * @description Indicates whether auto-renewal is enabled on the host. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example false
      *
      * @var string
@@ -37,6 +58,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $autoRenew;
 
     /**
+     * @description The CPU overcommit ratio of the dedicated cluster. Unit: %. The value is accurate to the tens digit.
+     *
      * @example 200
      *
      * @var string
@@ -44,6 +67,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $CPUAllocationRatio;
 
     /**
+     * @description The number of CPU cores used by the host.
+     *
      * @example 36
      *
      * @var string
@@ -51,6 +76,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $cpuUsed;
 
     /**
+     * @description The time when the host was created. The time follows the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time is displayed in UTC.
+     *
      * @example 2021-11-13T07:14:22Z
      *
      * @var string
@@ -58,6 +85,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $createdTime;
 
     /**
+     * @description The ID of the dedicated cluster in which the host is created.
+     *
      * @example dhg-34639v1jt4y4****
      *
      * @var string
@@ -65,6 +94,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $dedicatedHostGroupId;
 
     /**
+     * @description The host ID.
+     *
      * @example ch-bp10a5id3boqi****
      *
      * @var string
@@ -72,6 +103,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $dedicatedHostId;
 
     /**
+     * @description The storage overcommit ratio of the dedicated cluster.
+     *
      * @example 200
      *
      * @var string
@@ -79,6 +112,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $diskAllocationRatio;
 
     /**
+     * @description The distribution tag of the host.
+     *
      * @example tag
      *
      * @var string
@@ -86,6 +121,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $distributionTag;
 
     /**
+     * @description The instance type of the Elastic Compute Service (ECS) instance.
+     *
      * @example ecs.r5.16xlarge
      *
      * @var string
@@ -93,6 +130,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $ecsClassCode;
 
     /**
+     * @description The expiration time of the host. The time follows the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time is displayed in UTC.
+     *
      * @example 2022-03-16T16:00:00Z
      *
      * @var string
@@ -100,6 +139,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $expiredTime;
 
     /**
+     * @description The number of CPU cores of the host.
+     *
      * @example 16
      *
      * @var int
@@ -107,6 +148,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $hostCPU;
 
     /**
+     * @description The instance type of the host.
+     *
      * @example mssql.host.c2xlarge
      *
      * @var string
@@ -114,6 +157,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $hostClass;
 
     /**
+     * @description The memory size of the host. Unit: MB.
+     *
      * @example 2048
      *
      * @var int
@@ -121,6 +166,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $hostMem;
 
     /**
+     * @description The name of the host.
+     *
      * @example ch-8vbj9x74z874o****
      *
      * @var string
@@ -128,6 +175,18 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $hostName;
 
     /**
+     * @description The state of the host. Valid values:
+     *
+     *   **0**: The host is being created.
+     *   **1**: The host is running.
+     *   **2**: The host is faulty.
+     *   **3**: The host is ready for disabling.
+     *   **4**: The host is being maintained.
+     *   **5**: The host is disabled.
+     *   **6**: The host is restarting.
+     *   **7**: The host is locked.
+     *
+     * >  When a host fails, the host is disabled. Before the host is disabled, the data of the instances that run on the host is migrated to another host. This ensures data integrity.
      * @example 1
      *
      * @var string
@@ -135,6 +194,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $hostStatus;
 
     /**
+     * @description The total storage of the host. Unit: GB.
+     *
      * @example 100
      *
      * @var int
@@ -142,6 +203,11 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $hostStorage;
 
     /**
+     * @description The storage type of the host. Valid values:
+     *
+     *   **dhg_cloud_ssd** or **dhg_cloud_essd**: enhanced SSD (ESSD).
+     *   **dhg_local_ssd**: local SSD.
+     *
      * @example dhg_cloud_ssd
      *
      * @var string
@@ -149,6 +215,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $hostType;
 
     /**
+     * @description The IP address of the host.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -156,6 +224,13 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $IPAddress;
 
     /**
+     * @description The image of the host. This parameter is returned only when the database engine is **SQL Server**. Valid values:
+     *
+     *   **WindowsWithMssqlEntAlwaysonLicense**: SQL Server Cluster Edition (AlwaysOn).
+     *   **WindowsWithMssqlStdLicense**: SQL Server Standard Edition.
+     *   **WindowsWithMssqlEntLicense**: SQL Server Enterprise Edition.
+     *   **WindowsWithMssqlWebLicense**: SQL Server Web Edition.
+     *
      * @example WindowsWithMssqlStdLicense
      *
      * @var string
@@ -163,6 +238,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $imageCategory;
 
     /**
+     * @description The number of instances deployed on the host.
+     *
      * @example 3
      *
      * @var int
@@ -170,6 +247,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $instanceNumber;
 
     /**
+     * @description The number of primary instances deployed on the host.
+     *
      * @example 4
      *
      * @var int
@@ -177,6 +256,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $instanceNumberMaster;
 
     /**
+     * @description The number of primary instances of the read-only instance deployed on the host.
+     *
      * @example 1
      *
      * @var int
@@ -184,6 +265,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $instanceNumberROMaster;
 
     /**
+     * @description The number of secondary instances of the read-only instance deployed on the host.
+     *
      * @example 1
      *
      * @var int
@@ -191,6 +274,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $instanceNumberROSlave;
 
     /**
+     * @description The number of secondary instances deployed on the host.
+     *
      * @example 1
      *
      * @var int
@@ -198,6 +283,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $instanceNumberSlave;
 
     /**
+     * @description The memory usage of the host. Unit: %.
+     *
      * @example 90
      *
      * @var string
@@ -205,6 +292,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $memAllocationRatio;
 
     /**
+     * @description The amount of memory used by the host. Unit: GB.
+     *
      * @example 24576
      *
      * @var string
@@ -212,6 +301,11 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $memoryUsed;
 
     /**
+     * @description Indicates whether the host OS permissions are grated. Valid values:
+     *
+     *   **0**: no.
+     *   **1**: yes.
+     *
      * @example 1
      *
      * @var string
@@ -219,6 +313,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $openPermission;
 
     /**
+     * @description [The region ID](~~198326~~).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -226,6 +322,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example 00A001D6-2630-5CBD-A23C-80BC1BAFDC31
      *
      * @var string
@@ -233,6 +331,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The storage usage of the host. Unit: GB.
+     *
      * @example 588800
      *
      * @var string
@@ -240,6 +340,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $storageUsed;
 
     /**
+     * @description The virtual private cloud (VPC) ID.
+     *
      * @example vpc-wz9vu1jb32wn3sdd6****
      *
      * @var string
@@ -247,7 +349,7 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $VPCId;
 
     /**
-     * @description VSwitch ID。
+     * @description The vSwitch ID.
      *
      * @example vsw-bp1kaugqyrzb58oc1****
      *
@@ -256,6 +358,8 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     public $vSwitchId;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-h
      *
      * @var string

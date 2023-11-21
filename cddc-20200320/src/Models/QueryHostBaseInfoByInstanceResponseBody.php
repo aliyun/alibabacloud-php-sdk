@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryHostBaseInfoByInstanceResponseBody extends Model
 {
     /**
+     * @description The queried host and instance information.
+     *
      * @var hostInstanceConsoleInfos[]
      */
     public $hostInstanceConsoleInfos;
 
     /**
+     * @description The request ID.
+     *
      * @example D6E068C3-25BC-455A-85FE-45F0B22E12CV
      *
      * @var string

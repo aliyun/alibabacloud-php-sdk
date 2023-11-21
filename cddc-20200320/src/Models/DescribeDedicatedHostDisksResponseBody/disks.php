@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class disks extends Model
 {
     /**
+     * @description The storage type of the host. Valid values:
+     *
+     *   **cloud_ssd**: local SSD.
+     *   **cloud_essd**: ESSD.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -16,6 +21,8 @@ class disks extends Model
     public $category;
 
     /**
+     * @description The ID of the instance that uses the disk.
+     *
      * @example rm-bp121zcqr5h8m****
      *
      * @var string
@@ -23,6 +30,8 @@ class disks extends Model
     public $DBInstanceId;
 
     /**
+     * @description The device name of the instance to which the ESSD or local SSD is attached.
+     *
      * @example /dev/xvdb
      *
      * @var string
@@ -30,6 +39,8 @@ class disks extends Model
     public $device;
 
     /**
+     * @description The ID of the ESSD or local SSD.
+     *
      * @example d-bp1dffpog8r2eowd****
      *
      * @var string
@@ -37,6 +48,11 @@ class disks extends Model
     public $diskId;
 
     /**
+     * @description Indicates whether the disk is attached to instances. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +60,8 @@ class disks extends Model
     public $hasDBInstance;
 
     /**
+     * @description The maximum IOPS of the disk, which is displayed after being divided by 10,000.
+     *
      * @example 18250
      *
      * @var int
@@ -51,6 +69,8 @@ class disks extends Model
     public $maxIOPS;
 
     /**
+     * @description The maximum throughput of the disk. Unit: MB/s.
+     *
      * @example 284
      *
      * @var int
@@ -58,6 +78,9 @@ class disks extends Model
     public $maxThroughput;
 
     /**
+     * @description The performance level of the ESSD.
+     *
+     * >  ApsaraDB for MyBase provides the following types of ESSDs: **ESSD**, **PL2 ESSD**, and **PL3 ESSD**. The higher performance level delivers better ESSD performance.
      * @example PL1
      *
      * @var string
@@ -65,6 +88,8 @@ class disks extends Model
     public $performanceLevel;
 
     /**
+     * @description The size of the ESSD or local SSD. Unit: GB.
+     *
      * @example 329
      *
      * @var int
@@ -72,6 +97,15 @@ class disks extends Model
     public $size;
 
     /**
+     * @description The state of the ESSD. Valid values:
+     *
+     *   **In_use**
+     *   **Available**
+     *   **Attaching**
+     *   **Detaching**
+     *   **Creating**
+     *   **ReIniting**
+     *
      * @example In_use
      *
      * @var string
@@ -79,6 +113,11 @@ class disks extends Model
     public $status;
 
     /**
+     * @description The disk type of the enhanced SSD (ESSD) or local SSD. Valid values:
+     *
+     *   **system**: system disk.
+     *   **data**: data disk.
+     *
      * @example data
      *
      * @var string
@@ -86,6 +125,8 @@ class disks extends Model
     public $type;
 
     /**
+     * @description The zone ID of the ESSD or local SSD.
+     *
      * @example cn-hangzhou-h
      *
      * @var string

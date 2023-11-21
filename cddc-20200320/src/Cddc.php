@@ -188,10 +188,12 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param CreateDedicatedHostAccountRequest $request
-     * @param RuntimeOptions                    $runtime
+     * Each host can have only one account. Before you create an account for a host, make sure that the existing account of the host is deleted. For more information, see [Create an account for a host](~~211413~~).
+     *   *
+     * @param CreateDedicatedHostAccountRequest $request CreateDedicatedHostAccountRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDedicatedHostAccountResponse
+     * @return CreateDedicatedHostAccountResponse CreateDedicatedHostAccountResponse
      */
     public function createDedicatedHostAccountWithOptions($request, $runtime)
     {
@@ -246,9 +248,11 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param CreateDedicatedHostAccountRequest $request
+     * Each host can have only one account. Before you create an account for a host, make sure that the existing account of the host is deleted. For more information, see [Create an account for a host](~~211413~~).
+     *   *
+     * @param CreateDedicatedHostAccountRequest $request CreateDedicatedHostAccountRequest
      *
-     * @return CreateDedicatedHostAccountResponse
+     * @return CreateDedicatedHostAccountResponse CreateDedicatedHostAccountResponse
      */
     public function createDedicatedHostAccount($request)
     {
@@ -353,7 +357,13 @@ class Cddc extends OpenApiClient
         if (!Utils::isUnset($tmpReq->ECSClassList)) {
             $request->ECSClassListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ECSClassList, 'ECSClassList', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
         if (!Utils::isUnset($request->autoRenew)) {
             $query['AutoRenew'] = $request->autoRenew;
         }
@@ -387,6 +397,12 @@ class Cddc extends OpenApiClient
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
         }
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->internetMaxBandwidthOut)) {
+            $query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
+        }
         if (!Utils::isUnset($request->keyPairName)) {
             $query['KeyPairName'] = $request->keyPairName;
         }
@@ -411,6 +427,9 @@ class Cddc extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -419,6 +438,15 @@ class Cddc extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->userDataInBase64)) {
+            $query['UserDataInBase64'] = $request->userDataInBase64;
         }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
@@ -518,10 +546,12 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DeleteDedicatedHostGroupRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation to delete a dedicated cluster only after all the instances and hosts in the dedicated cluster are deleted.
+     *   *
+     * @param DeleteDedicatedHostGroupRequest $request DeleteDedicatedHostGroupRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDedicatedHostGroupResponse
+     * @return DeleteDedicatedHostGroupResponse DeleteDedicatedHostGroupResponse
      */
     public function deleteDedicatedHostGroupWithOptions($request, $runtime)
     {
@@ -561,9 +591,11 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DeleteDedicatedHostGroupRequest $request
+     * You can call this operation to delete a dedicated cluster only after all the instances and hosts in the dedicated cluster are deleted.
+     *   *
+     * @param DeleteDedicatedHostGroupRequest $request DeleteDedicatedHostGroupRequest
      *
-     * @return DeleteDedicatedHostGroupResponse
+     * @return DeleteDedicatedHostGroupResponse DeleteDedicatedHostGroupResponse
      */
     public function deleteDedicatedHostGroup($request)
     {
@@ -747,10 +779,12 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DescribeDedicatedHostsRequest $request
-     * @param RuntimeOptions                $runtime
+     * After hosts are created in a dedicated cluster, you can query the information about the hosts such as performance metrics, total number of CPU cores, total memory size, and total storage.
+     *   *
+     * @param DescribeDedicatedHostsRequest $request DescribeDedicatedHostsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDedicatedHostsResponse
+     * @return DescribeDedicatedHostsResponse DescribeDedicatedHostsResponse
      */
     public function describeDedicatedHostsWithOptions($request, $runtime)
     {
@@ -817,9 +851,11 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DescribeDedicatedHostsRequest $request
+     * After hosts are created in a dedicated cluster, you can query the information about the hosts such as performance metrics, total number of CPU cores, total memory size, and total storage.
+     *   *
+     * @param DescribeDedicatedHostsRequest $request DescribeDedicatedHostsRequest
      *
-     * @return DescribeDedicatedHostsResponse
+     * @return DescribeDedicatedHostsResponse DescribeDedicatedHostsResponse
      */
     public function describeDedicatedHosts($request)
     {
@@ -829,10 +865,12 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DescribeHostEcsLevelInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * After a host is created, you can call this operation to query the information about the host specifications, such as the CPU resources, memory resources, CPU model, host category, and storage type.
+     *   *
+     * @param DescribeHostEcsLevelInfoRequest $request DescribeHostEcsLevelInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHostEcsLevelInfoResponse
+     * @return DescribeHostEcsLevelInfoResponse DescribeHostEcsLevelInfoResponse
      */
     public function describeHostEcsLevelInfoWithOptions($request, $runtime)
     {
@@ -881,9 +919,11 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DescribeHostEcsLevelInfoRequest $request
+     * After a host is created, you can call this operation to query the information about the host specifications, such as the CPU resources, memory resources, CPU model, host category, and storage type.
+     *   *
+     * @param DescribeHostEcsLevelInfoRequest $request DescribeHostEcsLevelInfoRequest
      *
-     * @return DescribeHostEcsLevelInfoResponse
+     * @return DescribeHostEcsLevelInfoResponse DescribeHostEcsLevelInfoResponse
      */
     public function describeHostEcsLevelInfo($request)
     {
@@ -893,10 +933,12 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DescribeHostWebShellRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can use a webshell to access a host in an ApsaraDB MyBase for MySQL or ApsaraDB MyBase for PostgreSQL dedicated cluster. For more information, see [Use a webshell to access a host](~~205456~~).
+     *   *
+     * @param DescribeHostWebShellRequest $request DescribeHostWebShellRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHostWebShellResponse
+     * @return DescribeHostWebShellResponse DescribeHostWebShellResponse
      */
     public function describeHostWebShellWithOptions($request, $runtime)
     {
@@ -939,9 +981,11 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DescribeHostWebShellRequest $request
+     * You can use a webshell to access a host in an ApsaraDB MyBase for MySQL or ApsaraDB MyBase for PostgreSQL dedicated cluster. For more information, see [Use a webshell to access a host](~~205456~~).
+     *   *
+     * @param DescribeHostWebShellRequest $request DescribeHostWebShellRequest
      *
-     * @return DescribeHostWebShellResponse
+     * @return DescribeHostWebShellResponse DescribeHostWebShellResponse
      */
     public function describeHostWebShell($request)
     {
@@ -951,10 +995,12 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * For more information about region IDs, see [Region IDs](~~198326~~).
+     *   *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -982,9 +1028,11 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * For more information about region IDs, see [Region IDs](~~198326~~).
+     *   *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1177,10 +1225,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param ModifyDedicatedHostClassRequest $request
-     * @param RuntimeOptions                  $runtime
+     * After a host is created in a dedicated cluster, you can modify the specifications of the host based on your business requirements. The host specifications include the CPU and memory resources. For more information, see [Upgrade host specifications](~~262822~~).
+     *   * >  When you upgrade the specifications of a host, the host restarts. The database instances that are running on the host also restart. For information about the impacts of a host restart, see [Restart a host](~~141772~~).
+     *   *
+     * @param ModifyDedicatedHostClassRequest $request ModifyDedicatedHostClassRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDedicatedHostClassResponse
+     * @return ModifyDedicatedHostClassResponse ModifyDedicatedHostClassResponse
      */
     public function modifyDedicatedHostClassWithOptions($request, $runtime)
     {
@@ -1229,9 +1280,12 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param ModifyDedicatedHostClassRequest $request
+     * After a host is created in a dedicated cluster, you can modify the specifications of the host based on your business requirements. The host specifications include the CPU and memory resources. For more information, see [Upgrade host specifications](~~262822~~).
+     *   * >  When you upgrade the specifications of a host, the host restarts. The database instances that are running on the host also restart. For information about the impacts of a host restart, see [Restart a host](~~141772~~).
+     *   *
+     * @param ModifyDedicatedHostClassRequest $request ModifyDedicatedHostClassRequest
      *
-     * @return ModifyDedicatedHostClassResponse
+     * @return ModifyDedicatedHostClassResponse ModifyDedicatedHostClassResponse
      */
     public function modifyDedicatedHostClass($request)
     {
@@ -1241,10 +1295,12 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param ModifyDedicatedHostGroupAttributeRequest $request
-     * @param RuntimeOptions                           $runtime
+     * For more information, see [Manage dedicated clusters](~~182328~~).
+     *   *
+     * @param ModifyDedicatedHostGroupAttributeRequest $request ModifyDedicatedHostGroupAttributeRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDedicatedHostGroupAttributeResponse
+     * @return ModifyDedicatedHostGroupAttributeResponse ModifyDedicatedHostGroupAttributeResponse
      */
     public function modifyDedicatedHostGroupAttributeWithOptions($request, $runtime)
     {
@@ -1305,9 +1361,11 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param ModifyDedicatedHostGroupAttributeRequest $request
+     * For more information, see [Manage dedicated clusters](~~182328~~).
+     *   *
+     * @param ModifyDedicatedHostGroupAttributeRequest $request ModifyDedicatedHostGroupAttributeRequest
      *
-     * @return ModifyDedicatedHostGroupAttributeResponse
+     * @return ModifyDedicatedHostGroupAttributeResponse ModifyDedicatedHostGroupAttributeResponse
      */
     public function modifyDedicatedHostGroupAttribute($request)
     {
@@ -1317,10 +1375,12 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param ModifyDedicatedHostPasswordRequest $request
-     * @param RuntimeOptions                     $runtime
+     * This operation is supported only for ApsaraDB MyBase for Redis Enhanced Edition (Tair) dedicated clusters.
+     *   *
+     * @param ModifyDedicatedHostPasswordRequest $request ModifyDedicatedHostPasswordRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDedicatedHostPasswordResponse
+     * @return ModifyDedicatedHostPasswordResponse ModifyDedicatedHostPasswordResponse
      */
     public function modifyDedicatedHostPasswordWithOptions($request, $runtime)
     {
@@ -1363,9 +1423,11 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param ModifyDedicatedHostPasswordRequest $request
+     * This operation is supported only for ApsaraDB MyBase for Redis Enhanced Edition (Tair) dedicated clusters.
+     *   *
+     * @param ModifyDedicatedHostPasswordRequest $request ModifyDedicatedHostPasswordRequest
      *
-     * @return ModifyDedicatedHostPasswordResponse
+     * @return ModifyDedicatedHostPasswordResponse ModifyDedicatedHostPasswordResponse
      */
     public function modifyDedicatedHostPassword($request)
     {
@@ -1485,10 +1547,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param ReplaceDedicatedHostRequest $request
-     * @param RuntimeOptions              $runtime
+     * If you specify the manual host replacement policy when you create an ApsaraDB MyBase for MySQL dedicated cluster, you can call this operation to replace a **faulty** host in the dedicated cluster.
+     *   * >  You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the value of the **HostStatus** parameter.
+     *   *
+     * @param ReplaceDedicatedHostRequest $request ReplaceDedicatedHostRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReplaceDedicatedHostResponse
+     * @return ReplaceDedicatedHostResponse ReplaceDedicatedHostResponse
      */
     public function replaceDedicatedHostWithOptions($request, $runtime)
     {
@@ -1531,9 +1596,12 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param ReplaceDedicatedHostRequest $request
+     * If you specify the manual host replacement policy when you create an ApsaraDB MyBase for MySQL dedicated cluster, you can call this operation to replace a **faulty** host in the dedicated cluster.
+     *   * >  You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the value of the **HostStatus** parameter.
+     *   *
+     * @param ReplaceDedicatedHostRequest $request ReplaceDedicatedHostRequest
      *
-     * @return ReplaceDedicatedHostResponse
+     * @return ReplaceDedicatedHostResponse ReplaceDedicatedHostResponse
      */
     public function replaceDedicatedHost($request)
     {

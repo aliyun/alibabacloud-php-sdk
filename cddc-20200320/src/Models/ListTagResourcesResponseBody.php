@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 2853CAA0-D7A2-5CAB-B3A8-BDE2994F320C
      *
      * @var string
@@ -17,6 +19,8 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The queried tags.
+     *
      * @var tagResources[]
      */
     public $tagResources;
