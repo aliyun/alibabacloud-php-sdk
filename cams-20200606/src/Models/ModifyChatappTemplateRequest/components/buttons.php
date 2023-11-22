@@ -48,6 +48,13 @@ class buttons extends Model
     public $isOptOut;
 
     /**
+     * @example SIGN_UP
+     *
+     * @var string
+     */
+    public $navigateScreen;
+
+    /**
      * @description The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
      *
      * @example com.demo
@@ -128,19 +135,13 @@ class buttons extends Model
      * @var string
      */
     public $urlType;
-
-    /**
-     * @example SIGN_UP
-     *
-     * @var string
-     */
-    public $navigateScreen;
     protected $_name = [
         'autofillText'   => 'AutofillText',
         'couponCode'     => 'CouponCode',
         'flowAction'     => 'FlowAction',
         'flowId'         => 'FlowId',
         'isOptOut'       => 'IsOptOut',
+        'navigateScreen' => 'NavigateScreen',
         'packageName'    => 'PackageName',
         'phoneNumber'    => 'PhoneNumber',
         'signatureHash'  => 'SignatureHash',
@@ -148,7 +149,6 @@ class buttons extends Model
         'type'           => 'Type',
         'url'            => 'Url',
         'urlType'        => 'UrlType',
-        'navigateScreen' => 'navigateScreen',
     ];
 
     public function validate()
@@ -173,6 +173,9 @@ class buttons extends Model
         if (null !== $this->isOptOut) {
             $res['IsOptOut'] = $this->isOptOut;
         }
+        if (null !== $this->navigateScreen) {
+            $res['NavigateScreen'] = $this->navigateScreen;
+        }
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
         }
@@ -193,9 +196,6 @@ class buttons extends Model
         }
         if (null !== $this->urlType) {
             $res['UrlType'] = $this->urlType;
-        }
-        if (null !== $this->navigateScreen) {
-            $res['navigateScreen'] = $this->navigateScreen;
         }
 
         return $res;
@@ -224,6 +224,9 @@ class buttons extends Model
         if (isset($map['IsOptOut'])) {
             $model->isOptOut = $map['IsOptOut'];
         }
+        if (isset($map['NavigateScreen'])) {
+            $model->navigateScreen = $map['NavigateScreen'];
+        }
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];
         }
@@ -244,9 +247,6 @@ class buttons extends Model
         }
         if (isset($map['UrlType'])) {
             $model->urlType = $map['UrlType'];
-        }
-        if (isset($map['navigateScreen'])) {
-            $model->navigateScreen = $map['navigateScreen'];
         }
 
         return $model;

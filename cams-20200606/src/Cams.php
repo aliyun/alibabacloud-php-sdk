@@ -35,8 +35,19 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappMigrationInitiateRespons
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateFlowShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreatePhoneMessageQrdlRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreatePhoneMessageQrdlResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeletePhoneMessageQrdlRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeletePhoneMessageQrdlResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeprecateFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\DeprecateFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\EnableWhatsappROIMetricRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\EnableWhatsappROIMetricResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappPhoneNumberMetricRequest;
@@ -51,8 +62,19 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetCommerceSettingRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetCommerceSettingResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowJSONAssestRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowJSONAssestResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowPreviewUrlRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowPreviewUrlResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetPermissionByCodeRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetPermissionByCodeResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetPermissionByCodeShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneEncryptionPublicKeyRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneEncryptionPublicKeyResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPreValidatePhoneIdRequest;
@@ -64,6 +86,11 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListPhoneMessageQrdlRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListPhoneMessageQrdlResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductRequest;
@@ -71,9 +98,14 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyFlowShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyPhoneBusinessProfileRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyPhoneBusinessProfileResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyPhoneBusinessProfileShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\PublishFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\PublishFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappBindWabaRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappBindWabaResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappPhoneNumbersRequest;
@@ -94,6 +126,12 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateCommerceSettingRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateCommerceSettingResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateFlowJSONAssetRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateFlowJSONAssetResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneEncryptionPublicKeyRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneEncryptionPublicKeyResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneMessageQrdlRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneMessageQrdlResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -877,6 +915,112 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @param CreateFlowRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateFlowResponse
+     */
+    public function createFlowWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateFlowShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->categories)) {
+            $request->categoriesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->categoriesShrink)) {
+            $body['Categories'] = $request->categoriesShrink;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlow',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFlowRequest $request
+     *
+     * @return CreateFlowResponse
+     */
+    public function createFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePhoneMessageQrdlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePhoneMessageQrdlResponse
+     */
+    public function createPhoneMessageQrdlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->generateQrImage)) {
+            $body['GenerateQrImage'] = $request->generateQrImage;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->prefilledMessage)) {
+            $body['PrefilledMessage'] = $request->prefilledMessage;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePhoneMessageQrdl',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePhoneMessageQrdlRequest $request
+     *
+     * @return CreatePhoneMessageQrdlResponse
+     */
+    public function createPhoneMessageQrdl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPhoneMessageQrdlWithOptions($request, $runtime);
+    }
+
+    /**
      * ### QPS limit
      *   * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -932,6 +1076,147 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteChatappTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteFlowRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteFlowResponse
+     */
+    public function deleteFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFlow',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteFlowRequest $request
+     *
+     * @return DeleteFlowResponse
+     */
+    public function deleteFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePhoneMessageQrdlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeletePhoneMessageQrdlResponse
+     */
+    public function deletePhoneMessageQrdlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->qrdlCode)) {
+            $body['QrdlCode'] = $request->qrdlCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePhoneMessageQrdl',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePhoneMessageQrdlRequest $request
+     *
+     * @return DeletePhoneMessageQrdlResponse
+     */
+    public function deletePhoneMessageQrdl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePhoneMessageQrdlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeprecateFlowRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeprecateFlowResponse
+     */
+    public function deprecateFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeprecateFlow',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeprecateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeprecateFlowRequest $request
+     *
+     * @return DeprecateFlowResponse
+     */
+    public function deprecateFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deprecateFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -1316,6 +1601,144 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @param GetFlowRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetFlowResponse
+     */
+    public function getFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFlow',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetFlowRequest $request
+     *
+     * @return GetFlowResponse
+     */
+    public function getFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetFlowJSONAssestRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetFlowJSONAssestResponse
+     */
+    public function getFlowJSONAssestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFlowJSONAssest',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFlowJSONAssestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetFlowJSONAssestRequest $request
+     *
+     * @return GetFlowJSONAssestResponse
+     */
+    public function getFlowJSONAssest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFlowJSONAssestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetFlowPreviewUrlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetFlowPreviewUrlResponse
+     */
+    public function getFlowPreviewUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFlowPreviewUrl',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFlowPreviewUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetFlowPreviewUrlRequest $request
+     *
+     * @return GetFlowPreviewUrlResponse
+     */
+    public function getFlowPreviewUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFlowPreviewUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * The ID of the phone number.
      *   *
      * @param GetMigrationVerifyCodeRequest $request GetMigrationVerifyCodeRequest
@@ -1369,6 +1792,106 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMigrationVerifyCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPermissionByCodeRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetPermissionByCodeResponse
+     */
+    public function getPermissionByCodeWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetPermissionByCodeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->permissions)) {
+            $request->permissionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->permissions, 'Permissions', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->code)) {
+            $body['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->permissionsShrink)) {
+            $body['Permissions'] = $request->permissionsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPermissionByCode',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPermissionByCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPermissionByCodeRequest $request
+     *
+     * @return GetPermissionByCodeResponse
+     */
+    public function getPermissionByCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPermissionByCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPhoneEncryptionPublicKeyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetPhoneEncryptionPublicKeyResponse
+     */
+    public function getPhoneEncryptionPublicKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPhoneEncryptionPublicKey',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPhoneEncryptionPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPhoneEncryptionPublicKeyRequest $request
+     *
+     * @return GetPhoneEncryptionPublicKeyResponse
+     */
+    public function getPhoneEncryptionPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPhoneEncryptionPublicKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -1652,6 +2175,106 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @param ListFlowRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListFlowResponse
+     */
+    public function listFlowWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListFlowShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->page)) {
+            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->pageShrink)) {
+            $body['Page'] = $request->pageShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlow',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListFlowRequest $request
+     *
+     * @return ListFlowResponse
+     */
+    public function listFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPhoneMessageQrdlRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPhoneMessageQrdlResponse
+     */
+    public function listPhoneMessageQrdlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPhoneMessageQrdl',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPhoneMessageQrdlRequest $request
+     *
+     * @return ListPhoneMessageQrdlResponse
+     */
+    public function listPhoneMessageQrdl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPhoneMessageQrdlWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ListProductRequest $request ListProductRequest
@@ -1879,6 +2502,63 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @param ModifyFlowRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ModifyFlowResponse
+     */
+    public function modifyFlowWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyFlowShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->categories)) {
+            $request->categoriesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->categoriesShrink)) {
+            $body['Categories'] = $request->categoriesShrink;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFlow',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyFlowRequest $request
+     *
+     * @return ModifyFlowResponse
+     */
+    public function modifyFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyFlowWithOptions($request, $runtime);
+    }
+
+    /**
      * ModifyPhoneBusinessProfile.
      *   *
      * @param ModifyPhoneBusinessProfileRequest $tmpReq  ModifyPhoneBusinessProfileRequest
@@ -1949,6 +2629,52 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPhoneBusinessProfileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishFlowRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return PublishFlowResponse
+     */
+    public function publishFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishFlow',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PublishFlowRequest $request
+     *
+     * @return PublishFlowResponse
+     */
+    public function publishFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -2556,6 +3282,159 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCommerceSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateFlowJSONAssetRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateFlowJSONAssetResponse
+     */
+    public function updateFlowJSONAssetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            $body['FilePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFlowJSONAsset',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateFlowJSONAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateFlowJSONAssetRequest $request
+     *
+     * @return UpdateFlowJSONAssetResponse
+     */
+    public function updateFlowJSONAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFlowJSONAssetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePhoneEncryptionPublicKeyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdatePhoneEncryptionPublicKeyResponse
+     */
+    public function updatePhoneEncryptionPublicKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->encryptionPublicKey)) {
+            $body['EncryptionPublicKey'] = $request->encryptionPublicKey;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePhoneEncryptionPublicKey',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePhoneEncryptionPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePhoneEncryptionPublicKeyRequest $request
+     *
+     * @return UpdatePhoneEncryptionPublicKeyResponse
+     */
+    public function updatePhoneEncryptionPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePhoneEncryptionPublicKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePhoneMessageQrdlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdatePhoneMessageQrdlResponse
+     */
+    public function updatePhoneMessageQrdlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->generateQrImage)) {
+            $body['GenerateQrImage'] = $request->generateQrImage;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->prefilledMessage)) {
+            $body['PrefilledMessage'] = $request->prefilledMessage;
+        }
+        if (!Utils::isUnset($request->qrdlCode)) {
+            $body['QrdlCode'] = $request->qrdlCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePhoneMessageQrdl',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePhoneMessageQrdlRequest $request
+     *
+     * @return UpdatePhoneMessageQrdlResponse
+     */
+    public function updatePhoneMessageQrdl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePhoneMessageQrdlWithOptions($request, $runtime);
     }
 
     /**
