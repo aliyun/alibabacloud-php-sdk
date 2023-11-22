@@ -39,6 +39,13 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public $funcId;
 
     /**
+     * @description The type of the search. Default value: exact_match. Valid values:
+     *
+     *   fuzzy_match: fuzzy search.
+     *   exact_match: exact search.
+     *
+     * @example exact_match
+     *
      * @var string
      */
     public $matchType;

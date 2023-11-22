@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class logicalSymbol extends Model
 {
     /**
+     * @var int
+     */
+    public $attributes;
+
+    /**
      * @description The logical symbol that is displayed in the Dynamic Content Delivery Network (DCDN) console.
      *
      * @example Equal to one of multiple values.
@@ -69,6 +74,7 @@ class logicalSymbol extends Model
      */
     public $type;
     protected $_name = [
+        'attributes'  => 'Attributes',
         'description' => 'Description',
         'maxLength'   => 'MaxLength',
         'regexp'      => 'Regexp',
@@ -84,6 +90,9 @@ class logicalSymbol extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attributes) {
+            $res['Attributes'] = $this->attributes;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -114,6 +123,9 @@ class logicalSymbol extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Attributes'])) {
+            $model->attributes = $map['Attributes'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

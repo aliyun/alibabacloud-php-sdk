@@ -20,12 +20,8 @@ class BatchSetDcdnDomainConfigsRequest extends Model
     /**
      * @description The features that you want to configure. Format:
      *
-     * >
-     *
      *   **functionName**: The name of the feature. Separate multiple values with commas (,). For more information, see [A list of features](~~410622~~).
-     *
      *   **argName**: The feature parameters for **functionName**.
-     *
      *   **argValue**: The parameter values set for **functionName**.
      *
      * ]

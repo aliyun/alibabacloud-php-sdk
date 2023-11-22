@@ -16,6 +16,13 @@ class DescribeDdosAllEventListRequest extends Model
     public $endTime;
 
     /**
+     * @description The type of the DDoS attack event that was queried. Valid values:
+     *
+     *   *   **web-cc**: web resource exhaustion attacks
+     *   *   **cc**: connection flood attacks
+     *   *   **traffic**: volumetric attacks
+     *
+     * If you do not configure this parameter, DDoS attack events of all types are queried.
      * @example web-cc
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeDdosAllEventListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**. Valid values: 5, 10, and 20.
+     *
      * @example 10
      *
      * @var int

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainQpsDataByLayerResponseBody extends Model
 {
     /**
-     * @description The end of the time range during which data was queried.
+     * @description The time interval between the data entries returned. Unit: seconds.
      *
      * @example 300
      *
@@ -19,7 +19,7 @@ class DescribeDcdnDomainQpsDataByLayerResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The name of the ISP. You can call the DescribeDcdnRegionAndIsp operation to query the ISP name. If you do not specify a value for this parameter, all ISPs are queried.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -28,9 +28,8 @@ class DescribeDcdnDomainQpsDataByLayerResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The layers at which you want to query the QPS. The network layer supports IPv4 and IPv6. The application layer supports http, https, and quic. You can also set the value to all.
+     * @description The end of the time range during which data was queried.
      *
-     * Default value: all.
      * @example 2015-12-10T21:00:00Z
      *
      * @var string
@@ -38,7 +37,7 @@ class DescribeDcdnDomainQpsDataByLayerResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeDcdnDomainQpsDataByLayer**.
+     * @description The layer at which the data was collected.
      *
      * @example all
      *
@@ -47,14 +46,14 @@ class DescribeDcdnDomainQpsDataByLayerResponseBody extends Model
     public $layer;
 
     /**
-     * @description The name of the region. You can call the DescribeDcdnRegionAndIsp operation to query the region name. If you do not specify a value for this parameter, all regions are queried.
+     * @description The QPS returned at each time interval.
      *
      * @var qpsDataInterval
      */
     public $qpsDataInterval;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The ID of the request.
      *
      * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
      *
@@ -63,7 +62,7 @@ class DescribeDcdnDomainQpsDataByLayerResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of requests.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2015-12-10T20:00:00Z
      *
