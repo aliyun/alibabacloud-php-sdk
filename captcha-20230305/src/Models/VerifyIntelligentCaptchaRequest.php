@@ -14,8 +14,14 @@ class VerifyIntelligentCaptchaRequest extends Model
      * @var string
      */
     public $captchaVerifyParam;
+
+    /**
+     * @var string
+     */
+    public $sceneId;
     protected $_name = [
         'captchaVerifyParam' => 'CaptchaVerifyParam',
+        'sceneId'            => 'SceneId',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class VerifyIntelligentCaptchaRequest extends Model
         $res = [];
         if (null !== $this->captchaVerifyParam) {
             $res['CaptchaVerifyParam'] = $this->captchaVerifyParam;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class VerifyIntelligentCaptchaRequest extends Model
         $model = new self();
         if (isset($map['CaptchaVerifyParam'])) {
             $model->captchaVerifyParam = $map['CaptchaVerifyParam'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;

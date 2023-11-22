@@ -105,6 +105,9 @@ class Captcha extends OpenApiClient
         if (!Utils::isUnset($request->captchaVerifyParam)) {
             $body['CaptchaVerifyParam'] = $request->captchaVerifyParam;
         }
+        if (!Utils::isUnset($request->sceneId)) {
+            $body['SceneId'] = $request->sceneId;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
