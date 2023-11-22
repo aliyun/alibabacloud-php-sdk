@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class securityScoreRuleList extends Model
 {
     /**
-     * @description The deducted module that is supported by the security score feature. Valid values:
+     * @description The deduction module that is supported by the security score feature. Valid values:
      *
      *   SS_REINFORCE: issue in key feature configuration
      *   SS_ALARM: unhandled alert

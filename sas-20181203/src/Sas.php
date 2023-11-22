@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\BatchOperateCommonOverallConfigRequest
 use AlibabaCloud\SDK\Sas\V20181203\Models\BatchOperateCommonOverallConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\BindAuthToMachineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\BindAuthToMachineResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\BindHybridProxyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\BindHybridProxyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CancelOnceTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CancelOnceTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeAssetRefreshTaskConfigRequest;
@@ -2375,6 +2377,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->bindAuthToMachineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BindHybridProxyRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return BindHybridProxyResponse
+     */
+    public function bindHybridProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->yundunUuids)) {
+            $query['YundunUuids'] = $request->yundunUuids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindHybridProxy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindHybridProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindHybridProxyRequest $request
+     *
+     * @return BindHybridProxyResponse
+     */
+    public function bindHybridProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindHybridProxyWithOptions($request, $runtime);
     }
 
     /**

@@ -19,11 +19,21 @@ class subTypes extends Model
     public $alias;
 
     /**
+     * @var bool
+     */
+    public $authFlag;
+
+    /**
      * @description An array that consists of the check details about the baseline subtype.
      *
      * @var checkDetails[]
      */
     public $checkDetails;
+
+    /**
+     * @var string
+     */
+    public $supportedOs;
 
     /**
      * @description The name of the baseline subtype.
@@ -35,7 +45,9 @@ class subTypes extends Model
     public $typeName;
     protected $_name = [
         'alias'        => 'Alias',
+        'authFlag'     => 'AuthFlag',
         'checkDetails' => 'CheckDetails',
+        'supportedOs'  => 'SupportedOs',
         'typeName'     => 'TypeName',
     ];
 
@@ -49,6 +61,9 @@ class subTypes extends Model
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
+        if (null !== $this->authFlag) {
+            $res['AuthFlag'] = $this->authFlag;
+        }
         if (null !== $this->checkDetails) {
             $res['CheckDetails'] = [];
             if (null !== $this->checkDetails && \is_array($this->checkDetails)) {
@@ -57,6 +72,9 @@ class subTypes extends Model
                     $res['CheckDetails'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->supportedOs) {
+            $res['SupportedOs'] = $this->supportedOs;
         }
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
@@ -76,6 +94,9 @@ class subTypes extends Model
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
+        if (isset($map['AuthFlag'])) {
+            $model->authFlag = $map['AuthFlag'];
+        }
         if (isset($map['CheckDetails'])) {
             if (!empty($map['CheckDetails'])) {
                 $model->checkDetails = [];
@@ -84,6 +105,9 @@ class subTypes extends Model
                     $model->checkDetails[$n++] = null !== $item ? checkDetails::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SupportedOs'])) {
+            $model->supportedOs = $map['SupportedOs'];
         }
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];

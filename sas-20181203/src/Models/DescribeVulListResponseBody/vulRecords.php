@@ -108,6 +108,31 @@ class vulRecords extends Model
     public $intranetIp;
 
     /**
+     * @var string
+     */
+    public $k8sClusterId;
+
+    /**
+     * @var string
+     */
+    public $k8sNamespace;
+
+    /**
+     * @var string
+     */
+    public $k8sNodeId;
+
+    /**
+     * @var string
+     */
+    public $k8sNodeName;
+
+    /**
+     * @var string
+     */
+    public $k8sPodName;
+
+    /**
      * @description The timestamp that was generated when the vulnerability was last detected. Unit: milliseconds.
      *
      * @example 1620404763000
@@ -326,6 +351,11 @@ class vulRecords extends Model
         'instanceName'      => 'InstanceName',
         'internetIp'        => 'InternetIp',
         'intranetIp'        => 'IntranetIp',
+        'k8sClusterId'      => 'K8sClusterId',
+        'k8sNamespace'      => 'K8sNamespace',
+        'k8sNodeId'         => 'K8sNodeId',
+        'k8sNodeName'       => 'K8sNodeName',
+        'k8sPodName'        => 'K8sPodName',
         'lastTs'            => 'LastTs',
         'modifyTs'          => 'ModifyTs',
         'name'              => 'Name',
@@ -383,6 +413,21 @@ class vulRecords extends Model
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->k8sClusterId) {
+            $res['K8sClusterId'] = $this->k8sClusterId;
+        }
+        if (null !== $this->k8sNamespace) {
+            $res['K8sNamespace'] = $this->k8sNamespace;
+        }
+        if (null !== $this->k8sNodeId) {
+            $res['K8sNodeId'] = $this->k8sNodeId;
+        }
+        if (null !== $this->k8sNodeName) {
+            $res['K8sNodeName'] = $this->k8sNodeName;
+        }
+        if (null !== $this->k8sPodName) {
+            $res['K8sPodName'] = $this->k8sPodName;
         }
         if (null !== $this->lastTs) {
             $res['LastTs'] = $this->lastTs;
@@ -482,6 +527,21 @@ class vulRecords extends Model
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['K8sClusterId'])) {
+            $model->k8sClusterId = $map['K8sClusterId'];
+        }
+        if (isset($map['K8sNamespace'])) {
+            $model->k8sNamespace = $map['K8sNamespace'];
+        }
+        if (isset($map['K8sNodeId'])) {
+            $model->k8sNodeId = $map['K8sNodeId'];
+        }
+        if (isset($map['K8sNodeName'])) {
+            $model->k8sNodeName = $map['K8sNodeName'];
+        }
+        if (isset($map['K8sPodName'])) {
+            $model->k8sPodName = $map['K8sPodName'];
         }
         if (isset($map['LastTs'])) {
             $model->lastTs = $map['LastTs'];

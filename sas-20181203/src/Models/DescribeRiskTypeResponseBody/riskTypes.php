@@ -19,6 +19,11 @@ class riskTypes extends Model
     public $alias;
 
     /**
+     * @var bool
+     */
+    public $authFlag;
+
+    /**
      * @description An array that consists of the information about baseline subtypes.
      *
      * @var subTypes[]
@@ -35,6 +40,7 @@ class riskTypes extends Model
     public $typeName;
     protected $_name = [
         'alias'    => 'Alias',
+        'authFlag' => 'AuthFlag',
         'subTypes' => 'SubTypes',
         'typeName' => 'TypeName',
     ];
@@ -48,6 +54,9 @@ class riskTypes extends Model
         $res = [];
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
+        }
+        if (null !== $this->authFlag) {
+            $res['AuthFlag'] = $this->authFlag;
         }
         if (null !== $this->subTypes) {
             $res['SubTypes'] = [];
@@ -75,6 +84,9 @@ class riskTypes extends Model
         $model = new self();
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
+        }
+        if (isset($map['AuthFlag'])) {
+            $model->authFlag = $map['AuthFlag'];
         }
         if (isset($map['SubTypes'])) {
             if (!empty($map['SubTypes'])) {

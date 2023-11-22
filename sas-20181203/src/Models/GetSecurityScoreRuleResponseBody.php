@@ -31,7 +31,7 @@ class GetSecurityScoreRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of deducted modules that are supported by the security score feature.
+     * @description The list of deduction modules that are supported by the security score feature.
      *
      * @var securityScoreRuleList[]
      */
