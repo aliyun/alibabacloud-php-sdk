@@ -42,12 +42,18 @@ class SearchMediaClipByFaceRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $searchLibName;
     protected $_name = [
         'entityId'        => 'EntityId',
         'faceSearchToken' => 'FaceSearchToken',
         'mediaId'         => 'MediaId',
         'pageNo'          => 'PageNo',
         'pageSize'        => 'PageSize',
+        'searchLibName'   => 'SearchLibName',
     ];
 
     public function validate()
@@ -71,6 +77,9 @@ class SearchMediaClipByFaceRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->searchLibName) {
+            $res['SearchLibName'] = $this->searchLibName;
         }
 
         return $res;
@@ -98,6 +107,9 @@ class SearchMediaClipByFaceRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SearchLibName'])) {
+            $model->searchLibName = $map['SearchLibName'];
         }
 
         return $model;

@@ -16,6 +16,13 @@ class SubmitAudioProduceJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @example ****2bcbfcfa30fccb36f72dca22****
+     *
+     * @var string
+     */
+    public $mediaId;
+
+    /**
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -30,6 +37,7 @@ class SubmitAudioProduceJobResponseBody extends Model
     public $state;
     protected $_name = [
         'jobId'     => 'JobId',
+        'mediaId'   => 'MediaId',
         'requestId' => 'RequestId',
         'state'     => 'State',
     ];
@@ -43,6 +51,9 @@ class SubmitAudioProduceJobResponseBody extends Model
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -64,6 +75,9 @@ class SubmitAudioProduceJobResponseBody extends Model
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

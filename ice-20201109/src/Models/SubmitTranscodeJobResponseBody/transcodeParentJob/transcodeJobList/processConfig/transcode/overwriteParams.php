@@ -29,11 +29,6 @@ class overwriteParams extends Model
     public $muxConfig;
 
     /**
-     * @var mixed[]
-     */
-    public $tags;
-
-    /**
      * @var transConfig
      */
     public $transConfig;
@@ -46,7 +41,6 @@ class overwriteParams extends Model
         'audio'       => 'Audio',
         'container'   => 'Container',
         'muxConfig'   => 'MuxConfig',
-        'tags'        => 'Tags',
         'transConfig' => 'TransConfig',
         'video'       => 'Video',
     ];
@@ -66,9 +60,6 @@ class overwriteParams extends Model
         }
         if (null !== $this->muxConfig) {
             $res['MuxConfig'] = null !== $this->muxConfig ? $this->muxConfig->toMap() : null;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->transConfig) {
             $res['TransConfig'] = null !== $this->transConfig ? $this->transConfig->toMap() : null;
@@ -96,9 +87,6 @@ class overwriteParams extends Model
         }
         if (isset($map['MuxConfig'])) {
             $model->muxConfig = muxConfig::fromMap($map['MuxConfig']);
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['TransConfig'])) {
             $model->transConfig = transConfig::fromMap($map['TransConfig']);

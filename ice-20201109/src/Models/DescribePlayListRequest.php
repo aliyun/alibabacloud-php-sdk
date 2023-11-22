@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayListRequest extends Model
 {
     /**
+     * @example 1676170500011
+     *
      * @var string
      */
     public $beginTs;
 
     /**
+     * @example 1682474405173
+     *
      * @var string
      */
     public $endTs;
 
     /**
+     * @example FirstFrameDuration
+     *
      * @var string
      */
     public $orderName;
 
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example vod
+     *
      * @var string
      */
     public $playType;
 
     /**
+     * @example complete
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 0bc5e70516766285805381012d271e
+     *
      * @var string
      */
     public $traceId;

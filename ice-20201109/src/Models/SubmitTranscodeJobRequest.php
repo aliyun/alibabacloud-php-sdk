@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitTranscodeJobRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var inputGroup[]
      */
     public $inputGroup;
@@ -42,6 +47,7 @@ class SubmitTranscodeJobRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'clientToken'    => 'ClientToken',
         'inputGroup'     => 'InputGroup',
         'name'           => 'Name',
         'outputGroup'    => 'OutputGroup',
@@ -56,6 +62,9 @@ class SubmitTranscodeJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->inputGroup) {
             $res['InputGroup'] = [];
             if (null !== $this->inputGroup && \is_array($this->inputGroup)) {
@@ -95,6 +104,9 @@ class SubmitTranscodeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['InputGroup'])) {
             if (!empty($map['InputGroup'])) {
                 $model->inputGroup = [];

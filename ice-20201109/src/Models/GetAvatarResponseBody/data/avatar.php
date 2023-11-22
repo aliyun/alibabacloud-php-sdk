@@ -33,6 +33,11 @@ class avatar extends Model
     public $avatarType;
 
     /**
+     * @var int
+     */
+    public $height;
+
+    /**
      * @example ****571c704445f9a0ee011406c2****
      *
      * @var string
@@ -52,14 +57,21 @@ class avatar extends Model
      * @var bool
      */
     public $transparent;
+
+    /**
+     * @var int
+     */
+    public $width;
     protected $_name = [
         'avatarDescription' => 'AvatarDescription',
         'avatarId'          => 'AvatarId',
         'avatarName'        => 'AvatarName',
         'avatarType'        => 'AvatarType',
+        'height'            => 'Height',
         'portrait'          => 'Portrait',
         'thumbnail'         => 'Thumbnail',
         'transparent'       => 'Transparent',
+        'width'             => 'Width',
     ];
 
     public function validate()
@@ -81,6 +93,9 @@ class avatar extends Model
         if (null !== $this->avatarType) {
             $res['AvatarType'] = $this->avatarType;
         }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
         if (null !== $this->portrait) {
             $res['Portrait'] = $this->portrait;
         }
@@ -89,6 +104,9 @@ class avatar extends Model
         }
         if (null !== $this->transparent) {
             $res['Transparent'] = $this->transparent;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -114,6 +132,9 @@ class avatar extends Model
         if (isset($map['AvatarType'])) {
             $model->avatarType = $map['AvatarType'];
         }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
         if (isset($map['Portrait'])) {
             $model->portrait = $map['Portrait'];
         }
@@ -122,6 +143,9 @@ class avatar extends Model
         }
         if (isset($map['Transparent'])) {
             $model->transparent = $map['Transparent'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

@@ -23,6 +23,11 @@ class SearchMediaByFaceRequest extends Model
     public $faceSearchToken;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example 1
      *
      * @var int
@@ -42,12 +47,19 @@ class SearchMediaByFaceRequest extends Model
      * @var string
      */
     public $personImageUrl;
+
+    /**
+     * @var string
+     */
+    public $searchLibName;
     protected $_name = [
         'entityId'        => 'EntityId',
         'faceSearchToken' => 'FaceSearchToken',
+        'mediaType'       => 'MediaType',
         'pageNo'          => 'PageNo',
         'pageSize'        => 'PageSize',
         'personImageUrl'  => 'PersonImageUrl',
+        'searchLibName'   => 'SearchLibName',
     ];
 
     public function validate()
@@ -63,6 +75,9 @@ class SearchMediaByFaceRequest extends Model
         if (null !== $this->faceSearchToken) {
             $res['FaceSearchToken'] = $this->faceSearchToken;
         }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
+        }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
@@ -71,6 +86,9 @@ class SearchMediaByFaceRequest extends Model
         }
         if (null !== $this->personImageUrl) {
             $res['PersonImageUrl'] = $this->personImageUrl;
+        }
+        if (null !== $this->searchLibName) {
+            $res['SearchLibName'] = $this->searchLibName;
         }
 
         return $res;
@@ -90,6 +108,9 @@ class SearchMediaByFaceRequest extends Model
         if (isset($map['FaceSearchToken'])) {
             $model->faceSearchToken = $map['FaceSearchToken'];
         }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
+        }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
@@ -98,6 +119,9 @@ class SearchMediaByFaceRequest extends Model
         }
         if (isset($map['PersonImageUrl'])) {
             $model->personImageUrl = $map['PersonImageUrl'];
+        }
+        if (isset($map['SearchLibName'])) {
+            $model->searchLibName = $map['SearchLibName'];
         }
 
         return $model;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -25,11 +29,17 @@ class DescribePlayListResponseBody extends Model
     public $playList;
 
     /**
+     * @description Id
+     *
+     * @example B960580D-26FA-5547-8AFC-3CDC812DBF27
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 49
+     *
      * @var int
      */
     public $totalNum;

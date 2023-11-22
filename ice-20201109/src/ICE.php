@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaMarksRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaMarksResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchIndexRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchIndexResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelDNAJobRequest;
@@ -44,6 +46,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveTranscodeTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveTranscodeTemplateShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreatePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreatePipelineResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchIndexRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchIndexResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadStreamRequest;
@@ -79,6 +85,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaFromSearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaFromSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaInfosResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaMarksRequest;
@@ -91,28 +99,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeFilterConfigsRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeFilterConfigsResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceEditUsageRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceEditUsageResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceLiveMediaConvertUsageRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceLiveMediaConvertUsageResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceMediaConvertUHDUsageRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceMediaConvertUHDUsageResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceMediaConvertUsageRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceMediaConvertUsageResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceMpsAiUsageRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceMpsAiUsageResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsEditUsageRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsEditUsageResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsLiveEditUsageRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsLiveEditUsageResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsLiveMediaConvertUsageRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsLiveMediaConvertUsageResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsLiveRecordUsageRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsLiveRecordUsageResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsLiveSnapshotUsageRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsLiveSnapshotUsageResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsMediaConvertUHDUsageRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsMediaConvertUHDUsageResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsMediaConvertUsageRequest;
@@ -121,26 +109,14 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsMpsAiUsageRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsMpsAiUsageResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsSummaryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsSummaryResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayDetailRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayDetailResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayEventListRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayEventListResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayFirstFrameDurationMetricDataRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayFirstFrameDurationMetricDataResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayListResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayMetricDataRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayMetricDataResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQoeListRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQoeListResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQoeListShrinkRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQosListRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQosListResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQosListShrinkRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeQueryConfigsRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeQueryConfigsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DetectAudioForCustomizedVoiceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DetectAudioForCustomizedVoiceJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchIndexRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchIndexResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateKMSDataKeyResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarResponse;
@@ -215,8 +191,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetUrlUploadInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetUrlUploadInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetVideoListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetVideoListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarsRequest;
@@ -267,6 +247,7 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartSysAvatarModelsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartSysAvatarModelsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartVoiceGroupsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSnapshotJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSnapshotJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSystemTemplatesRequest;
@@ -283,6 +264,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchIndexRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchIndexResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySmarttagJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySmarttagJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RefreshUploadMediaRequest;
@@ -293,8 +278,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaStreamRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaStreamResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByAILabelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByAILabelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByFaceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByFaceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByMultimodalRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByMultimodalResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaClipByFaceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaClipByFaceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaRequest;
@@ -397,10 +386,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaMarksRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaMarksResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaToSearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdatePipelineResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateSmartJobRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateSmartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UploadMediaByURLRequest;
@@ -754,6 +743,55 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param AlterSearchIndexRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AlterSearchIndexResponse
+     */
+    public function alterSearchIndexWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->indexConfig)) {
+            $query['IndexConfig'] = $request->indexConfig;
+        }
+        if (!Utils::isUnset($request->indexType)) {
+            $query['IndexType'] = $request->indexType;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AlterSearchIndex',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AlterSearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AlterSearchIndexRequest $request
+     *
+     * @return AlterSearchIndexResponse
+     */
+    public function alterSearchIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->alterSearchIndexWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BatchGetMediaInfosRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -907,9 +945,6 @@ class ICE extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
         if (!Utils::isUnset($request->auditContent)) {
             $query['AuditContent'] = $request->auditContent;
         }
@@ -1446,6 +1481,98 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPipelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSearchIndexRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSearchIndexResponse
+     */
+    public function createSearchIndexWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->indexConfig)) {
+            $query['IndexConfig'] = $request->indexConfig;
+        }
+        if (!Utils::isUnset($request->indexType)) {
+            $query['IndexType'] = $request->indexType;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSearchIndex',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSearchIndexRequest $request
+     *
+     * @return CreateSearchIndexResponse
+     */
+    public function createSearchIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSearchIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSearchLibRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateSearchLibResponse
+     */
+    public function createSearchLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSearchLib',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSearchLibRequest $request
+     *
+     * @return CreateSearchLibResponse
+     */
+    public function createSearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSearchLibWithOptions($request, $runtime);
     }
 
     /**
@@ -2257,6 +2384,55 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param DeleteMediaFromSearchLibRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteMediaFromSearchLibResponse
+     */
+    public function deleteMediaFromSearchLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->msgBody)) {
+            $query['MsgBody'] = $request->msgBody;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaFromSearchLib',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMediaFromSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMediaFromSearchLibRequest $request
+     *
+     * @return DeleteMediaFromSearchLibResponse
+     */
+    public function deleteMediaFromSearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMediaFromSearchLibWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteMediaInfosRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2527,309 +2703,6 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeFilterConfigsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeFilterConfigsResponse
-     */
-    public function describeFilterConfigsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeFilterConfigs',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeFilterConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeFilterConfigsRequest $request
-     *
-     * @return DescribeFilterConfigsResponse
-     */
-    public function describeFilterConfigs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeFilterConfigsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMeterIceEditUsageRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeMeterIceEditUsageResponse
-     */
-    public function describeMeterIceEditUsageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMeterIceEditUsage',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMeterIceEditUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMeterIceEditUsageRequest $request
-     *
-     * @return DescribeMeterIceEditUsageResponse
-     */
-    public function describeMeterIceEditUsage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMeterIceEditUsageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMeterIceLiveMediaConvertUsageRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeMeterIceLiveMediaConvertUsageResponse
-     */
-    public function describeMeterIceLiveMediaConvertUsageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMeterIceLiveMediaConvertUsage',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMeterIceLiveMediaConvertUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMeterIceLiveMediaConvertUsageRequest $request
-     *
-     * @return DescribeMeterIceLiveMediaConvertUsageResponse
-     */
-    public function describeMeterIceLiveMediaConvertUsage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMeterIceLiveMediaConvertUsageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMeterIceMediaConvertUHDUsageRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeMeterIceMediaConvertUHDUsageResponse
-     */
-    public function describeMeterIceMediaConvertUHDUsageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMeterIceMediaConvertUHDUsage',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMeterIceMediaConvertUHDUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMeterIceMediaConvertUHDUsageRequest $request
-     *
-     * @return DescribeMeterIceMediaConvertUHDUsageResponse
-     */
-    public function describeMeterIceMediaConvertUHDUsage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMeterIceMediaConvertUHDUsageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMeterIceMediaConvertUsageRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeMeterIceMediaConvertUsageResponse
-     */
-    public function describeMeterIceMediaConvertUsageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMeterIceMediaConvertUsage',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMeterIceMediaConvertUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMeterIceMediaConvertUsageRequest $request
-     *
-     * @return DescribeMeterIceMediaConvertUsageResponse
-     */
-    public function describeMeterIceMediaConvertUsage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMeterIceMediaConvertUsageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMeterIceMpsAiUsageRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeMeterIceMpsAiUsageResponse
-     */
-    public function describeMeterIceMpsAiUsageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMeterIceMpsAiUsage',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMeterIceMpsAiUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMeterIceMpsAiUsageRequest $request
-     *
-     * @return DescribeMeterIceMpsAiUsageResponse
-     */
-    public function describeMeterIceMpsAiUsage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMeterIceMpsAiUsageWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeMeterImsEditUsageRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2879,214 +2752,6 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeMeterImsEditUsageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMeterImsLiveEditUsageRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeMeterImsLiveEditUsageResponse
-     */
-    public function describeMeterImsLiveEditUsageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMeterImsLiveEditUsage',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMeterImsLiveEditUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMeterImsLiveEditUsageRequest $request
-     *
-     * @return DescribeMeterImsLiveEditUsageResponse
-     */
-    public function describeMeterImsLiveEditUsage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMeterImsLiveEditUsageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMeterImsLiveMediaConvertUsageRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeMeterImsLiveMediaConvertUsageResponse
-     */
-    public function describeMeterImsLiveMediaConvertUsageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMeterImsLiveMediaConvertUsage',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMeterImsLiveMediaConvertUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMeterImsLiveMediaConvertUsageRequest $request
-     *
-     * @return DescribeMeterImsLiveMediaConvertUsageResponse
-     */
-    public function describeMeterImsLiveMediaConvertUsage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMeterImsLiveMediaConvertUsageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMeterImsLiveRecordUsageRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeMeterImsLiveRecordUsageResponse
-     */
-    public function describeMeterImsLiveRecordUsageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMeterImsLiveRecordUsage',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMeterImsLiveRecordUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMeterImsLiveRecordUsageRequest $request
-     *
-     * @return DescribeMeterImsLiveRecordUsageResponse
-     */
-    public function describeMeterImsLiveRecordUsage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMeterImsLiveRecordUsageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMeterImsLiveSnapshotUsageRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeMeterImsLiveSnapshotUsageResponse
-     */
-    public function describeMeterImsLiveSnapshotUsageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMeterImsLiveSnapshotUsage',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMeterImsLiveSnapshotUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMeterImsLiveSnapshotUsageRequest $request
-     *
-     * @return DescribeMeterImsLiveSnapshotUsageResponse
-     */
-    public function describeMeterImsLiveSnapshotUsage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMeterImsLiveSnapshotUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -3295,153 +2960,6 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayDetailRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribePlayDetailResponse
-     */
-    public function describePlayDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->playTs)) {
-            $query['PlayTs'] = $request->playTs;
-        }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePlayDetail',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePlayDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePlayDetailRequest $request
-     *
-     * @return DescribePlayDetailResponse
-     */
-    public function describePlayDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePlayDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribePlayEventListRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribePlayEventListResponse
-     */
-    public function describePlayEventListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->playTs)) {
-            $query['PlayTs'] = $request->playTs;
-        }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePlayEventList',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePlayEventListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePlayEventListRequest $request
-     *
-     * @return DescribePlayEventListResponse
-     */
-    public function describePlayEventList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePlayEventListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribePlayFirstFrameDurationMetricDataRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return DescribePlayFirstFrameDurationMetricDataResponse
-     */
-    public function describePlayFirstFrameDurationMetricDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->beginTs)) {
-            $query['BeginTs'] = $request->beginTs;
-        }
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->traceId)) {
-            $query['TraceId'] = $request->traceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePlayFirstFrameDurationMetricData',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePlayFirstFrameDurationMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePlayFirstFrameDurationMetricDataRequest $request
-     *
-     * @return DescribePlayFirstFrameDurationMetricDataResponse
-     */
-    public function describePlayFirstFrameDurationMetricData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePlayFirstFrameDurationMetricDataWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribePlayListRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3509,290 +3027,6 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayMetricDataRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribePlayMetricDataResponse
-     */
-    public function describePlayMetricDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->beginTs)) {
-            $query['BeginTs'] = $request->beginTs;
-        }
-        if (!Utils::isUnset($request->definition)) {
-            $query['Definition'] = $request->definition;
-        }
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->experienceLevel)) {
-            $query['ExperienceLevel'] = $request->experienceLevel;
-        }
-        if (!Utils::isUnset($request->itemConfigs)) {
-            $query['ItemConfigs'] = $request->itemConfigs;
-        }
-        if (!Utils::isUnset($request->metricType)) {
-            $query['MetricType'] = $request->metricType;
-        }
-        if (!Utils::isUnset($request->network)) {
-            $query['Network'] = $request->network;
-        }
-        if (!Utils::isUnset($request->os)) {
-            $query['Os'] = $request->os;
-        }
-        if (!Utils::isUnset($request->sdkVersion)) {
-            $query['SdkVersion'] = $request->sdkVersion;
-        }
-        if (!Utils::isUnset($request->terminalType)) {
-            $query['TerminalType'] = $request->terminalType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePlayMetricData',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePlayMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePlayMetricDataRequest $request
-     *
-     * @return DescribePlayMetricDataResponse
-     */
-    public function describePlayMetricData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePlayMetricDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribePlayQoeListRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribePlayQoeListResponse
-     */
-    public function describePlayQoeListWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new DescribePlayQoeListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->metricTypes)) {
-            $request->metricTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metricTypes, 'MetricTypes', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->beginTs)) {
-            $query['BeginTs'] = $request->beginTs;
-        }
-        if (!Utils::isUnset($request->definition)) {
-            $query['Definition'] = $request->definition;
-        }
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->itemConfigs)) {
-            $query['ItemConfigs'] = $request->itemConfigs;
-        }
-        if (!Utils::isUnset($request->metricTypesShrink)) {
-            $query['MetricTypes'] = $request->metricTypesShrink;
-        }
-        if (!Utils::isUnset($request->network)) {
-            $query['Network'] = $request->network;
-        }
-        if (!Utils::isUnset($request->orderName)) {
-            $query['OrderName'] = $request->orderName;
-        }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
-        }
-        if (!Utils::isUnset($request->os)) {
-            $query['Os'] = $request->os;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->terminalType)) {
-            $query['TerminalType'] = $request->terminalType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePlayQoeList',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePlayQoeListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePlayQoeListRequest $request
-     *
-     * @return DescribePlayQoeListResponse
-     */
-    public function describePlayQoeList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePlayQoeListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribePlayQosListRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribePlayQosListResponse
-     */
-    public function describePlayQosListWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new DescribePlayQosListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->metricTypes)) {
-            $request->metricTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metricTypes, 'MetricTypes', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->beginTs)) {
-            $query['BeginTs'] = $request->beginTs;
-        }
-        if (!Utils::isUnset($request->definition)) {
-            $query['Definition'] = $request->definition;
-        }
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
-        }
-        if (!Utils::isUnset($request->itemConfigs)) {
-            $query['ItemConfigs'] = $request->itemConfigs;
-        }
-        if (!Utils::isUnset($request->metricTypesShrink)) {
-            $query['MetricTypes'] = $request->metricTypesShrink;
-        }
-        if (!Utils::isUnset($request->network)) {
-            $query['Network'] = $request->network;
-        }
-        if (!Utils::isUnset($request->orderName)) {
-            $query['OrderName'] = $request->orderName;
-        }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
-        }
-        if (!Utils::isUnset($request->os)) {
-            $query['Os'] = $request->os;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->terminalType)) {
-            $query['TerminalType'] = $request->terminalType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribePlayQosList',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribePlayQosListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribePlayQosListRequest $request
-     *
-     * @return DescribePlayQosListResponse
-     */
-    public function describePlayQosList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePlayQosListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeQueryConfigsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeQueryConfigsResponse
-     */
-    public function describeQueryConfigsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeQueryConfigs',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeQueryConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeQueryConfigsRequest $request
-     *
-     * @return DescribeQueryConfigsResponse
-     */
-    public function describeQueryConfigs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeQueryConfigsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DetectAudioForCustomizedVoiceJobRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -3839,6 +3073,95 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectAudioForCustomizedVoiceJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DropSearchIndexRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DropSearchIndexResponse
+     */
+    public function dropSearchIndexWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->indexType)) {
+            $query['IndexType'] = $request->indexType;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DropSearchIndex',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DropSearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DropSearchIndexRequest $request
+     *
+     * @return DropSearchIndexResponse
+     */
+    public function dropSearchIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dropSearchIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DropSearchLibRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DropSearchLibResponse
+     */
+    public function dropSearchLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DropSearchLib',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DropSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DropSearchLibRequest $request
+     *
+     * @return DropSearchLibResponse
+     */
+    public function dropSearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dropSearchLibWithOptions($request, $runtime);
     }
 
     /**
@@ -5127,8 +4450,11 @@ class ICE extends OpenApiClient
     public function getSmartHandleJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5136,7 +4462,7 @@ class ICE extends OpenApiClient
             'version'     => '2020-11-09',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -5521,6 +4847,67 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetVideoListRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetVideoListResponse
+     */
+    public function getVideoListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cateId)) {
+            $query['CateId'] = $request->cateId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoList',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVideoListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVideoListRequest $request
+     *
+     * @return GetVideoListResponse
+     */
+    public function getVideoList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetWorkflowTaskRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -5561,6 +4948,61 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWorkflowTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InsertMediaToSearchLibRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return InsertMediaToSearchLibResponse
+     */
+    public function insertMediaToSearchLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->input)) {
+            $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->msgBody)) {
+            $query['MsgBody'] = $request->msgBody;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InsertMediaToSearchLib',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsertMediaToSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InsertMediaToSearchLibRequest $request
+     *
+     * @return InsertMediaToSearchLibResponse
+     */
+    public function insertMediaToSearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->insertMediaToSearchLibWithOptions($request, $runtime);
     }
 
     /**
@@ -6822,6 +6264,39 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListSmartVoiceGroupsResponse
+     */
+    public function listSmartVoiceGroupsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListSmartVoiceGroups',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSmartVoiceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListSmartVoiceGroupsResponse
+     */
+    public function listSmartVoiceGroups()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSmartVoiceGroupsWithOptions($runtime);
+    }
+
+    /**
      * @param ListSnapshotJobsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -7301,6 +6776,95 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param QuerySearchIndexRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QuerySearchIndexResponse
+     */
+    public function querySearchIndexWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->indexType)) {
+            $query['IndexType'] = $request->indexType;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySearchIndex',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySearchIndexRequest $request
+     *
+     * @return QuerySearchIndexResponse
+     */
+    public function querySearchIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySearchIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySearchLibRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QuerySearchLibResponse
+     */
+    public function querySearchLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySearchLib',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySearchLibRequest $request
+     *
+     * @return QuerySearchLibResponse
+     */
+    public function querySearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySearchLibWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QuerySmarttagJobRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -7612,6 +7176,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->scrollToken)) {
             $query['ScrollToken'] = $request->scrollToken;
         }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
         }
@@ -7646,6 +7213,73 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param SearchMediaByAILabelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchMediaByAILabelResponse
+     */
+    public function searchMediaByAILabelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->multimodalSearchType)) {
+            $query['MultimodalSearchType'] = $request->multimodalSearchType;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->specificSearch)) {
+            $query['SpecificSearch'] = $request->specificSearch;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $query['Text'] = $request->text;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchMediaByAILabel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchMediaByAILabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchMediaByAILabelRequest $request
+     *
+     * @return SearchMediaByAILabelResponse
+     */
+    public function searchMediaByAILabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchMediaByAILabelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SearchMediaByFaceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -7661,6 +7295,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->faceSearchToken)) {
             $query['FaceSearchToken'] = $request->faceSearchToken;
         }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
         if (!Utils::isUnset($request->pageNo)) {
             $query['PageNo'] = $request->pageNo;
         }
@@ -7669,6 +7306,9 @@ class ICE extends OpenApiClient
         }
         if (!Utils::isUnset($request->personImageUrl)) {
             $query['PersonImageUrl'] = $request->personImageUrl;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7701,6 +7341,61 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param SearchMediaByMultimodalRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SearchMediaByMultimodalResponse
+     */
+    public function searchMediaByMultimodalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $query['Text'] = $request->text;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchMediaByMultimodal',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchMediaByMultimodalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchMediaByMultimodalRequest $request
+     *
+     * @return SearchMediaByMultimodalResponse
+     */
+    public function searchMediaByMultimodal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchMediaByMultimodalWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SearchMediaClipByFaceRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -7724,6 +7419,9 @@ class ICE extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -9568,6 +9266,9 @@ class ICE extends OpenApiClient
             $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->inputGroupShrink)) {
             $query['InputGroup'] = $request->inputGroupShrink;
         }
@@ -10231,6 +9932,55 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param UpdateMediaToSearchLibRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateMediaToSearchLibResponse
+     */
+    public function updateMediaToSearchLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->msgBody)) {
+            $query['MsgBody'] = $request->msgBody;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaToSearchLib',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMediaToSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMediaToSearchLibRequest $request
+     *
+     * @return UpdateMediaToSearchLibResponse
+     */
+    public function updateMediaToSearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMediaToSearchLibWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdatePipelineRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -10280,60 +10030,6 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePipelineWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param UpdateSmartJobRequest $request UpdateSmartJobRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UpdateSmartJobResponse UpdateSmartJobResponse
-     */
-    public function updateSmartJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->FEExtend)) {
-            $query['FEExtend'] = $request->FEExtend;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateSmartJob',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateSmartJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param UpdateSmartJobRequest $request UpdateSmartJobRequest
-     *
-     * @return UpdateSmartJobResponse UpdateSmartJobResponse
-     */
-    public function updateSmartJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateSmartJobWithOptions($request, $runtime);
     }
 
     /**

@@ -11,6 +11,11 @@ class SubmitTranscodeJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $inputGroupShrink;
 
     /**
@@ -39,6 +44,7 @@ class SubmitTranscodeJobShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
         'inputGroupShrink'     => 'InputGroup',
         'name'                 => 'Name',
         'outputGroupShrink'    => 'OutputGroup',
@@ -53,6 +59,9 @@ class SubmitTranscodeJobShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->inputGroupShrink) {
             $res['InputGroup'] = $this->inputGroupShrink;
         }
@@ -80,6 +89,9 @@ class SubmitTranscodeJobShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['InputGroup'])) {
             $model->inputGroupShrink = $map['InputGroup'];
         }
