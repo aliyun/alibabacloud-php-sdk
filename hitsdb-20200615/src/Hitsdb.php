@@ -1182,6 +1182,9 @@ class Hitsdb extends OpenApiClient
         if (!Utils::isUnset($request->delete)) {
             $query['Delete'] = $request->delete;
         }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }

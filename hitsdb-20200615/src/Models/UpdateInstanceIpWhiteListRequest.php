@@ -14,6 +14,15 @@ class UpdateInstanceIpWhiteListRequest extends Model
     public $delete;
 
     /**
+     * @description The name of the group to which the instance belongs. The group name can contain only letters, digits, and underscores (\_).
+     *
+     * @example test_group
+     *
+     * @var string
+     */
+    public $groupName;
+
+    /**
      * @description The ID of the instance for which you want to configure a whitelist. You can call the [GetLindormInstanceList](~~426069~~) operation to obtain the ID.
      *
      * @example ld-bp1z3506imz2f****
@@ -58,6 +67,7 @@ class UpdateInstanceIpWhiteListRequest extends Model
     public $securityToken;
     protected $_name = [
         'delete'               => 'Delete',
+        'groupName'            => 'GroupName',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -76,6 +86,9 @@ class UpdateInstanceIpWhiteListRequest extends Model
         $res = [];
         if (null !== $this->delete) {
             $res['Delete'] = $this->delete;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -112,6 +125,9 @@ class UpdateInstanceIpWhiteListRequest extends Model
         $model = new self();
         if (isset($map['Delete'])) {
             $model->delete = $map['Delete'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
