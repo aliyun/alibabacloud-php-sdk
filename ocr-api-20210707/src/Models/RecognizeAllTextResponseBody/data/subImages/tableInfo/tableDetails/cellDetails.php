@@ -16,6 +16,8 @@ class cellDetails extends Model
     public $blockList;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cellAngle;
@@ -26,6 +28,8 @@ class cellDetails extends Model
     public $cellContent;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cellId;
@@ -41,21 +45,29 @@ class cellDetails extends Model
     public $cellRect;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $columnEnd;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $columnStart;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $rowEnd;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $rowStart;

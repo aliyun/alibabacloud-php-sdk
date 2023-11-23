@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class charPoints extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $y;

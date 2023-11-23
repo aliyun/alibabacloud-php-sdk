@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class blockInfo extends Model
 {
     /**
+     * @example 12
+     *
      * @var int
      */
     public $blockCount;

@@ -34,11 +34,15 @@ class RecognizeAllTextRequest extends Model
     public $multiLanConfig;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputBarCode;
 
     /**
+     * @example false
+     *
      * @var int[]
      */
     public $outputCoordinate;
@@ -51,37 +55,49 @@ class RecognizeAllTextRequest extends Model
     public $outputFigure;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputKVExcel;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputOricoord;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputQrcode;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputStamp;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example Advanced
+     *
      * @var string
      */
     public $type;
 
     /**
-     * @example https://img.alicdn.com/tfs/TB1Wo7eXAvoK1RjSZFDXXXY3pXa-2512-3509.jpg
+     * @example https://example.png
      *
      * @var string
      */

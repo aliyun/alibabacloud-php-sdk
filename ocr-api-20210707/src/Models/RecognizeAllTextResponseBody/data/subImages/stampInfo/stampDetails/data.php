@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example "3205823XXXXXX"
+     *
      * @var string
      */
     public $antiFakeCode;
 
     /**
+     * @example "XXX"
+     *
      * @var string
      */
     public $companyId;
@@ -24,16 +28,22 @@ class data extends Model
     public $organizationName;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $organizationNameEng;
 
     /**
+     * @example "3205823XXXXXX"
+     *
      * @var string
      */
     public $otherText;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $taxpayerId;

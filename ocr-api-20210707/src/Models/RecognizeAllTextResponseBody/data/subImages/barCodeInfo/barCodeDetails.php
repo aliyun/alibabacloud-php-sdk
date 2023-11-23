@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class barCodeDetails extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $barCodeAngle;
@@ -26,11 +28,15 @@ class barCodeDetails extends Model
     public $barCodeRect;
 
     /**
+     * @example "1100011XXXXXX"
+     *
      * @var mixed
      */
     public $data;
 
     /**
+     * @example Code128
+     *
      * @var string
      */
     public $type;

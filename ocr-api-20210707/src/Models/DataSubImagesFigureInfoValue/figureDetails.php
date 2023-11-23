@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class figureDetails extends Model
 {
     /**
+     * @example face
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example “”
+     *
      * @var mixed
      */
     public $data;
@@ -31,6 +35,8 @@ class figureDetails extends Model
     public $figureRect;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $figureAngle;

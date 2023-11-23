@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class stampInfo extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $stampCount;

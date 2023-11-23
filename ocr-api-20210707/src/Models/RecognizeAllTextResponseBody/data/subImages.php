@@ -21,6 +21,8 @@ use AlibabaCloud\Tea\Model;
 class subImages extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $angle;
@@ -71,6 +73,8 @@ class subImages extends Model
     public $stampInfo;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $subImageId;

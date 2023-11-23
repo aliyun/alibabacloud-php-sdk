@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class multiLanConfig extends Model
 {
     /**
+     * @example eng,chn
+     *
      * @var string
      */
     public $languages;

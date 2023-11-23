@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class charInfos extends Model
 {
     /**
+     * @example 95
+     *
      * @var int
      */
     public $charConfidence;
@@ -21,6 +23,8 @@ class charInfos extends Model
     public $charContent;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $charId;

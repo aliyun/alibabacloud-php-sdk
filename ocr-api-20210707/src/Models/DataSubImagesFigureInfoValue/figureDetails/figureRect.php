@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class figureRect extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $centerX;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $centerY;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $width;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $height;

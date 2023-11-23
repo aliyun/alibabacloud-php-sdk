@@ -17,6 +17,8 @@ class stampDetails extends Model
     public $data;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $stampAngle;

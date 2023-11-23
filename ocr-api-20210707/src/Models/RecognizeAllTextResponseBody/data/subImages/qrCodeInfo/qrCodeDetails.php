@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class qrCodeDetails extends Model
 {
     /**
+     * @example “http://www.gsxt.gov.cn/indeXXX”
+     *
      * @var mixed
      */
     public $data;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $qrCodeAngle;

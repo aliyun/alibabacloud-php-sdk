@@ -15,6 +15,8 @@ class kvInfo extends Model
     public $data;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $kvCount;

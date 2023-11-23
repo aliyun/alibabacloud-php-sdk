@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class tableDetails extends Model
 {
     /**
+     * @example 29
+     *
      * @var int
      */
     public $cellCount;
@@ -24,6 +26,8 @@ class tableDetails extends Model
     public $cellDetails;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $columnCount;
@@ -39,11 +43,15 @@ class tableDetails extends Model
     public $header;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $rowCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $tableId;

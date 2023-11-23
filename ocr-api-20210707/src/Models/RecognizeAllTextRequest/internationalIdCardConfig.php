@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class internationalIdCardConfig extends Model
 {
     /**
+     * @example India
+     *
      * @var string
      */
     public $country;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class paragraphInfo extends Model
 {
     /**
+     * @example 11
+     *
      * @var int
      */
     public $paragraphCount;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class blockRect extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $centerX;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $centerY;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $width;

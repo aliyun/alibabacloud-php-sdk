@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DataSubImagesKvInfoKvDetailsValue extends Model
 {
     /**
+     * @example "address"
+     *
      * @var string
      */
     public $keyName;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $keyConfidence;
@@ -26,6 +30,8 @@ class DataSubImagesKvInfoKvDetailsValue extends Model
     public $value;
 
     /**
+     * @example 98
+     *
      * @var int
      */
     public $valueConfidence;
@@ -41,6 +47,8 @@ class DataSubImagesKvInfoKvDetailsValue extends Model
     public $valueRect;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $valueAngle;

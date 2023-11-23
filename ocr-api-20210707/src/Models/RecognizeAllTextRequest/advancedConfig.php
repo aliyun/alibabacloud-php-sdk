@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class advancedConfig extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isHandWritingTable;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isLineLessTable;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputCharInfo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputParagraph;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputRow;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputTable;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputTableExcel;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputTableHtml;

@@ -19,6 +19,8 @@ class paragraphDetails extends Model
     public $paragraphContent;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $paragraphId;

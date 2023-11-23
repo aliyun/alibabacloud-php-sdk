@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class rowInfo extends Model
 {
     /**
+     * @example 9
+     *
      * @var int
      */
     public $rowCount;

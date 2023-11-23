@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class qualityInfo extends Model
 {
     /**
+     * @example 90.5
+     *
      * @var float
      */
     public $completenessScore;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isCopy;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isReshoot;
 
     /**
+     * @example 80.5
+     *
      * @var float
      */
     public $qualityScore;
 
     /**
+     * @example 10.5
+     *
      * @var float
      */
     public $tamperScore;

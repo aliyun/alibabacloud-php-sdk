@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class tableInfo extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $tableCount;
@@ -20,11 +22,15 @@ class tableInfo extends Model
     public $tableDetails;
 
     /**
+     * @example https://example.xlsx
+     *
      * @var string
      */
     public $tableExcel;
 
     /**
+     * @example https://example.html
+     *
      * @var string
      */
     public $tableHtml;

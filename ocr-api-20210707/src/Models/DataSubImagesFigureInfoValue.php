@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DataSubImagesFigureInfoValue extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $figureCount;

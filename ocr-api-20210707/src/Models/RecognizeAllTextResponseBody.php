@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeAllTextResponseBody extends Model
 {
     /**
+     * @example 400
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class RecognizeAllTextResponseBody extends Model
     public $data;
 
     /**
+     * @example illegalImageUrl
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E2A98925-DC2C-18FB-995F-BAF507XXXXXX
+     *
      * @var string
      */
     public $requestId;

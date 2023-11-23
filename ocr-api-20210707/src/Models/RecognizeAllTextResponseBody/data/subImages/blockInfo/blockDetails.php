@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class blockDetails extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $blockAngle;
 
     /**
+     * @example 98
+     *
      * @var int
      */
     public $blockConfidence;
@@ -27,6 +31,8 @@ class blockDetails extends Model
     public $blockContent;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $blockId;

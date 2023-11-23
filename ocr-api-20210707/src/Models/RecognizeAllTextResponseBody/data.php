@@ -15,6 +15,8 @@ class data extends Model
     public $algoServer;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $algoVersion;
@@ -25,31 +27,43 @@ class data extends Model
     public $content;
 
     /**
+     * @example ""
+     *
      * @var mixed
      */
     public $debugInfo;
 
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isMixedMode;
 
     /**
+     * @example https://example.xlsx
+     *
      * @var string
      */
     public $kvExcelUrl;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $subImageCount;
@@ -60,11 +74,15 @@ class data extends Model
     public $subImages;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $width;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $xmlResult;

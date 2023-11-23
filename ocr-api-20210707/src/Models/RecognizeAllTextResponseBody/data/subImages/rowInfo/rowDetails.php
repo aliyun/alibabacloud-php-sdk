@@ -19,6 +19,8 @@ class rowDetails extends Model
     public $rowContent;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $rowId;
