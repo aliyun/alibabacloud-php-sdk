@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenewLindormInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example ld-bp1z3506imz2f****
      *
      * @var string
@@ -16,6 +18,8 @@ class RenewLindormInstanceResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the order. You can obtain an order ID on the Orders page in Alibaba Cloud User Center.
+     *
      * @example 213465921640411
      *
      * @var int
@@ -23,6 +27,8 @@ class RenewLindormInstanceResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1556DCB0-043A-4444-8BD9-CF4A68E7EE64
      *
      * @var string

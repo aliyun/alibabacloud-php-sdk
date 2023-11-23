@@ -6,27 +6,13 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpgradeLindormInstanceResponseBody extends Model
+class CreateLdpsNamespaceResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
-     *
-     * @example 111111111111111
-     *
-     * @var int
-     */
-    public $orderId;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example 2A7D4F9D-AA26-4E15-A2B1-3E4792C6****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orderId'   => 'OrderId',
         'requestId' => 'RequestId',
     ];
 
@@ -37,9 +23,6 @@ class UpgradeLindormInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,14 +33,11 @@ class UpgradeLindormInstanceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpgradeLindormInstanceResponseBody
+     * @return CreateLdpsNamespaceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

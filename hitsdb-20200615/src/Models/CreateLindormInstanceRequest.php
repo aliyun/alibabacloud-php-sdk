@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLindormInstanceRequest extends Model
 {
     /**
+     * @description The ID of the vSwitch that is specified for the zone for the coordinate node of the instance. The vSwitch must be deployed in the zone specified by the ArbiterZoneId parameter. **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example vsw-uf6664pqjawb87k36****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateLindormInstanceRequest extends Model
     public $arbiterVSwitchId;
 
     /**
+     * @description The ID of the zone for the coordinate node of the instance. **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example cn-shanghai-g
      *
      * @var string
@@ -23,6 +27,12 @@ class CreateLindormInstanceRequest extends Model
     public $arbiterZoneId;
 
     /**
+     * @description The architecture of the instance. Valid values:
+     *
+     *   **1.0**: The instance that you want to create is a single-zone instance.
+     *   **2.0**: The instance that you want to create is a multi-zone instance.
+     *
+     * By default, the value of this parameter is 1.0. To create a multi-zone instance, set this parameter to 2.0. **This parameter is required if you want to create a multi-zone instance**.
      * @example 2.0
      *
      * @var string
@@ -30,6 +40,8 @@ class CreateLindormInstanceRequest extends Model
     public $archVersion;
 
     /**
+     * @description The cold storage capacity of the instance. By default, if you leave this parameter unspecified, cold storage is not enabled for the instance. Unit: GB. Valid values: **800** to **1000000**.
+     *
      * @example 800
      *
      * @var int
@@ -37,6 +49,8 @@ class CreateLindormInstanceRequest extends Model
     public $coldStorage;
 
     /**
+     * @description The storage capacity of the disk of a single core node. Valid values: 400 to 64000. Unit: GB. **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example 400
      *
      * @var int
@@ -44,6 +58,21 @@ class CreateLindormInstanceRequest extends Model
     public $coreSingleStorage;
 
     /**
+     * @description The specification of the nodes in the instance if you set DiskCategory to local_ssd_pro or local_hdd_pro.
+     *
+     * When DiskCategory is set to local_ssd_pro, you can set this parameter to the following values:
+     *
+     *   **lindorm.i2.xlarge**: Each node has 4 dedicated CPU cores and 32 GB of dedicated memory.
+     *   **lindorm.i2.2xlarge**: Each node has 8 dedicated CPU cores and 64 GB of dedicated memory.
+     *   **lindorm.i2.4xlarge**: Each node has 16 dedicated CPU cores and 128 GB of dedicated memory.
+     *   **lindorm.i2.8xlarge**: Each node has 32 dedicated CPU cores and 256 GB of dedicated memory.
+     *
+     * When DiskCategory is set to local_hdd_pro, you can set this parameter to the following values:
+     *
+     *   **lindorm.d1.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
+     *   **lindorm.d1.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
+     *   **lindorm.d1.6xlarge**: Each node has 24 dedicated CPU cores and 96 GB of dedicated memory.
+     *
      * @example lindorm.i2.xlarge
      *
      * @var string
@@ -51,6 +80,14 @@ class CreateLindormInstanceRequest extends Model
     public $coreSpec;
 
     /**
+     * @description The storage type of the instance. Valid values:
+     *
+     *   **cloud_efficiency**: This instance uses the Standard type of storage.
+     *   **cloud_ssd**: This instance uses the Performance type of storage.
+     *   **capacity_cloud_storage**: This instance uses the Capacity type of storage.
+     *   **local_ssd_pro**: This instance uses local SSDs.
+     *   **local_hdd_pro**: This instance uses local HDDs.
+     *
      * @example cloud_efficiency
      *
      * @var string
@@ -58,6 +95,12 @@ class CreateLindormInstanceRequest extends Model
     public $diskCategory;
 
     /**
+     * @description The subscription period of the instance. The valid values of this parameter depend on the value of the PricingCycle parameter.
+     *
+     *   If PricingCycle is set to **Month**, set this parameter to an integer that ranges from **1** to **9**.
+     *   If PricingCycle is set to **Year**, set this parameter to an integer that ranges from **1** to **3**.
+     *
+     * > This parameter is available and required when the PayType parameter is set to **PREPAY**.
      * @example 1
      *
      * @var string
@@ -65,6 +108,11 @@ class CreateLindormInstanceRequest extends Model
     public $duration;
 
     /**
+     * @description The number of LindormDFS nodes in the instance. The valid values of this parameter depend on the value of the PayType parameter.
+     *
+     *   If the PayType parameter is set to **PREPAY**, set this parameter to an integer that ranges from **0** to **60**.
+     *   If the PayType parameter is set to **POSTPAY**, set this parameter to an integer that ranges from **0** to **8**.
+     *
      * @example 2
      *
      * @var int
@@ -72,6 +120,8 @@ class CreateLindormInstanceRequest extends Model
     public $filestoreNum;
 
     /**
+     * @description The specification of LindormDFS nodes in the instance. Set the value of this parameter to **lindorm.c.xlarge**, which indicates that each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
+     *
      * @example lindorm.c.xlarge
      *
      * @var string
@@ -79,6 +129,8 @@ class CreateLindormInstanceRequest extends Model
     public $filestoreSpec;
 
     /**
+     * @description The name of the instance that you want to create.
+     *
      * @example lindorm_test
      *
      * @var string
@@ -86,6 +138,8 @@ class CreateLindormInstanceRequest extends Model
     public $instanceAlias;
 
     /**
+     * @description The storage capacity of the instance you want to create. Unit: GB.
+     *
      * @example 480
      *
      * @var string
@@ -93,6 +147,13 @@ class CreateLindormInstanceRequest extends Model
     public $instanceStorage;
 
     /**
+     * @description The number of LindormTable nodes in the instance. The valid values of this parameter depend on the value of the PayType parameter.
+     *
+     *   If the PayType parameter is set to **PREPAY**, set this parameter to an integer that ranges from **0** to **90**.
+     *   If the PayType parameter is set to **POSTPAY**, set this parameter to an integer that ranges from **0** to **400**.
+     *
+     **This parameter is required if you want to create a multi-zone instance**.  The valid values of this parameter range from 4 to 400 if you want to create a multi-zone instance.
+     *
      * @example 2
      *
      * @var int
@@ -100,6 +161,13 @@ class CreateLindormInstanceRequest extends Model
     public $lindormNum;
 
     /**
+     * @description The specification of LindormTable nodes in the instance. Valid values:
+     *
+     *   **lindorm.c.xlarge**: Each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
+     *   **lindorm.c.2xlarge**: Each node has 8 dedicated CPU cores and 16 GB of dedicated memory.
+     *   **lindorm.c.4xlarge**: Each node has 16 dedicated CPU cores and 32 GB of dedicated memory.
+     *   **lindorm.c.8xlarge**: Each node has 32 dedicated CPU cores and 64 GB of dedicated memory.
+     *
      * @example lindorm.c.xlarge
      *
      * @var string
@@ -107,6 +175,13 @@ class CreateLindormInstanceRequest extends Model
     public $lindormSpec;
 
     /**
+     * @description The disk type of the log nodes. Valid values:
+     *
+     *   **cloud_efficiency**: This instance uses the Standard type of storage.
+     *   **cloud_ssd**: This instance uses the Performance type of storage.
+     *
+     **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -114,6 +189,8 @@ class CreateLindormInstanceRequest extends Model
     public $logDiskCategory;
 
     /**
+     * @description The number of the log nodes. Valid values: 4 to 400. **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example 4
      *
      * @var int
@@ -121,6 +198,8 @@ class CreateLindormInstanceRequest extends Model
     public $logNum;
 
     /**
+     * @description The storage capacity of the disk of a single log node. Valid values: 400 to 64000. Unit: GB. **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example 400
      *
      * @var int
@@ -128,6 +207,13 @@ class CreateLindormInstanceRequest extends Model
     public $logSingleStorage;
 
     /**
+     * @description The type of the log nodes. Valid values:
+     *
+     *   **lindorm.sn1.xlarge**: Each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
+     *   **lindorm.sn1.2xlarge**: Each node has 8 dedicated CPU cores and 16 GB of dedicated memory.
+     *
+     **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example lindorm.sn1.large
      *
      * @var string
@@ -135,6 +221,22 @@ class CreateLindormInstanceRequest extends Model
     public $logSpec;
 
     /**
+     * @description The combinations of zones that are available for the multi-zone instance. You can go to the purchase page of Lindorm to view the supported zone combinations.
+     *
+     *   **ap-southeast-5abc-aliyun**: Zone A+B+C in the Indonesia (Jakarta) region.
+     *   **cn-hangzhou-ehi-aliyun**: Zone E+H+I in the China (Hangzhou) region.
+     *   **cn-beijing-acd-aliyun**: Zone A+C+D in the China (Beijing) region.
+     *   **ap-southeast-1-abc-aliyun**: Zone A+B+C in the Singapore region.
+     *   **cn-zhangjiakou-abc-aliyun**: Zone A+B+C in the China (Zhangjiakou) region.
+     *   **cn-shanghai-efg-aliyun**: Zone E+F+G in the China (Shanghai) region.
+     *   **cn-shanghai-abd-aliyun**: Zone A+B+D in the China (Shanghai) region.
+     *   **cn-hangzhou-bef-aliyun**: Zone B+E+F in the China (Hangzhou) region.
+     *   **cn-hangzhou-bce-aliyun**: Zone B+C+E in the China (Hangzhou) region.
+     *   **cn-beijing-fgh-aliyun**: Zone F+G+H in the China (Beijing) region.
+     *   **cn-shenzhen-abc-aliyun**: Zone A+B+C in the China (Shenzhen) region.
+     *
+     **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example cn-shanghai-efg-aliyun
      *
      * @var string
@@ -152,6 +254,11 @@ class CreateLindormInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the instance you want to create. Valid values:
+     *
+     *   **PREPAY**: subscription.
+     *   **POSTPAY**: pay-as-you-go.
+     *
      * @example POSTPAY
      *
      * @var string
@@ -159,6 +266,12 @@ class CreateLindormInstanceRequest extends Model
     public $payType;
 
     /**
+     * @description The period based on which you are charged for the instance. Valid values:
+     *
+     *   **Month**: You are charged for the instance on a monthly basis.
+     *   **Year**: You are charged for the instance on a yearly basis.
+     *
+     * > This parameter is available and required when the PayType parameter is set to **PREPAY**.
      * @example Month
      *
      * @var string
@@ -166,6 +279,8 @@ class CreateLindormInstanceRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description The ID of the vSwitch that is specified for the secondary zone of the instance. The vSwitch must be deployed in the zone specified by the StandbyZoneId parameter. **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example vsw-uf6fdqa7c0pipnqzq****
      *
      * @var string
@@ -173,6 +288,8 @@ class CreateLindormInstanceRequest extends Model
     public $primaryVSwitchId;
 
     /**
+     * @description 多可用区实例，主可用区的可用区ID。**如果需要创建多可用区实例，该参数必填。**
+     *
      * @example cn-shanghai-e
      *
      * @var string
@@ -180,6 +297,8 @@ class CreateLindormInstanceRequest extends Model
     public $primaryZoneId;
 
     /**
+     * @description The ID of the region in which you want to create the instance. You can call the [DescribeRegions](~~426062~~) operation to query the region in which you can create the instance.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -187,6 +306,8 @@ class CreateLindormInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the Lindorm instance belongs.
+     *
      * @example rg-aek2i6weeb4nfii
      *
      * @var string
@@ -209,6 +330,8 @@ class CreateLindormInstanceRequest extends Model
     public $securityToken;
 
     /**
+     * @description The number of LindormSearch nodes in the instance. Valid values: integers from **0** to **60**.
+     *
      * @example 2
      *
      * @var int
@@ -216,6 +339,13 @@ class CreateLindormInstanceRequest extends Model
     public $solrNum;
 
     /**
+     * @description The specification of the LindormSearch nodes in the instance. Valid values:
+     *
+     *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
+     *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
+     *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
+     *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+     *
      * @example lindorm.g.xlarge
      *
      * @var string
@@ -223,6 +353,8 @@ class CreateLindormInstanceRequest extends Model
     public $solrSpec;
 
     /**
+     * @description The ID of the vSwitch that is specified for the secondary zone of the instance. The vSwitch must be deployed in the zone specified by the StandbyZoneId parameter. **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example vsw-2zec0kcn08cgdtr6****
      *
      * @var string
@@ -230,6 +362,8 @@ class CreateLindormInstanceRequest extends Model
     public $standbyVSwitchId;
 
     /**
+     * @description The ID of the secondary zone of the instance. **This parameter is required if you want to create a multi-zone instance**.
+     *
      * @example cn-shanghai-f
      *
      * @var string
@@ -237,7 +371,7 @@ class CreateLindormInstanceRequest extends Model
     public $standbyZoneId;
 
     /**
-     * @description 实例的流引擎节点数量，取值：**0**~**60**。
+     * @description The number of LindormStream nodes in the instance. Valid values: integers from **0** to **60**.
      *
      * @example 2
      *
@@ -246,15 +380,13 @@ class CreateLindormInstanceRequest extends Model
     public $streamNum;
 
     /**
-     * @description 实例的流引擎节点规格，取值：
+     * @description The specification of the LindormStream nodes in the instance. Valid values:
      *
-     * - **lindorm.g.xlarge**：表示4核16GB（独享规格）。
-     * - **lindorm.c.2xlarge**：表示8核16GB（独享规格）。
-     * - **lindorm.g.2xlarge**：表示8核32GB（独享规格）。
-     * - **lindorm.c.4xlarge**：表示16核32GB（独享规格）。
-     * - **lindorm.g.4xlarge**：表示16核64GB（独享规格）。
-     * - **lindorm.c.8xlarge**：表示32核64GB（独享规格）。
-     * - **lindorm.g.8xlarge**：表示32核128GB（独享规格）。
+     *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
+     *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
+     *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
+     *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+     *
      * @example lindorm.g.xlarge
      *
      * @var string
@@ -262,6 +394,11 @@ class CreateLindormInstanceRequest extends Model
     public $streamSpec;
 
     /**
+     * @description The number of the LindormTSDB nodes in the instance. The valid values of this parameter depend on the value of the PayType parameter.
+     *
+     *   If the PayType parameter is set to **PREPAY**, set this parameter to an integer that ranges from **0** to **24**.
+     *   If the PayType parameter is set to **POSTPAY**, set this parameter to an integer that ranges from **0** to **32**.
+     *
      * @example 2
      *
      * @var int
@@ -269,6 +406,13 @@ class CreateLindormInstanceRequest extends Model
     public $tsdbNum;
 
     /**
+     * @description The specification of the LindormTSDB nodes in the instance. Valid values:
+     *
+     *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
+     *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
+     *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
+     *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+     *
      * @example lindorm.g.xlarge
      *
      * @var string
@@ -276,6 +420,8 @@ class CreateLindormInstanceRequest extends Model
     public $tsdbSpec;
 
     /**
+     * @description The ID of the VPC in which you want to create the instance.
+     *
      * @example vpc-bp1nme44gek34slfc****
      *
      * @var string
@@ -283,6 +429,8 @@ class CreateLindormInstanceRequest extends Model
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch to which you want the instance to connect.
+     *
      * @example vsw-bp1e7clcw529l773d****
      *
      * @var string
@@ -290,6 +438,8 @@ class CreateLindormInstanceRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the zone in which you want to create the instance.
+     *
      * @example cn-shanghai-f
      *
      * @var string

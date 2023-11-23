@@ -9,13 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceIpWhiteListRequest extends Model
 {
     /**
-     * @description The name of the group to which the instance belongs. The group name can contain only letters, digits, and underscores (\_).
-     *
-     * @example test_group
-     *
-     * @var string
+     * @var bool
      */
-    public $groupName;
+    public $delete;
 
     /**
      * @description The ID of the instance for which you want to configure a whitelist. You can call the [GetLindormInstanceList](~~426069~~) operation to obtain the ID.
@@ -61,7 +57,7 @@ class UpdateInstanceIpWhiteListRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'groupName'            => 'GroupName',
+        'delete'               => 'Delete',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -78,8 +74,8 @@ class UpdateInstanceIpWhiteListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->delete) {
+            $res['Delete'] = $this->delete;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -114,8 +110,8 @@ class UpdateInstanceIpWhiteListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['Delete'])) {
+            $model->delete = $map['Delete'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

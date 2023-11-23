@@ -6,12 +6,16 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLdpsNamespaceRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLdpsNamespaceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsNamespacedQuotaRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsNamespacedQuotaResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsResourceCostRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsResourceCostResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceEngineListRequest;
@@ -76,10 +80,76 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param CreateLindormInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param CreateLdpsNamespaceRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return CreateLindormInstanceResponse
+     * @return CreateLdpsNamespaceResponse
+     */
+    public function createLdpsNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLdpsNamespace',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateLdpsNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateLdpsNamespaceRequest $request
+     *
+     * @return CreateLdpsNamespaceResponse
+     */
+    public function createLdpsNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLdpsNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
+     *   *
+     * @param CreateLindormInstanceRequest $request CreateLindormInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateLindormInstanceResponse CreateLindormInstanceResponse
      */
     public function createLindormInstanceWithOptions($request, $runtime)
     {
@@ -227,9 +297,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param CreateLindormInstanceRequest $request
+     * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
+     *   *
+     * @param CreateLindormInstanceRequest $request CreateLindormInstanceRequest
      *
-     * @return CreateLindormInstanceResponse
+     * @return CreateLindormInstanceResponse CreateLindormInstanceResponse
      */
     public function createLindormInstance($request)
     {
@@ -306,9 +378,6 @@ class Hitsdb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
-        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -355,6 +424,70 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceIpWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLdpsNamespacedQuotaRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetLdpsNamespacedQuotaResponse
+     */
+    public function getLdpsNamespacedQuotaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLdpsNamespacedQuota',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLdpsNamespacedQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLdpsNamespacedQuotaRequest $request
+     *
+     * @return GetLdpsNamespacedQuotaResponse
+     */
+    public function getLdpsNamespacedQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLdpsNamespacedQuotaWithOptions($request, $runtime);
     }
 
     /**
@@ -830,7 +963,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * The ID of the order. You can obtain an order ID on the Orders page in Alibaba Cloud User Center.
+     * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+     *   * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
      *   *
      * @param RenewLindormInstanceRequest $request RenewLindormInstanceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -887,7 +1021,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * The ID of the order. You can obtain an order ID on the Orders page in Alibaba Cloud User Center.
+     * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+     *   * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
      *   *
      * @param RenewLindormInstanceRequest $request RenewLindormInstanceRequest
      *
@@ -1035,19 +1170,17 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * ***
-     *   *
-     * @param UpdateInstanceIpWhiteListRequest $request UpdateInstanceIpWhiteListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param UpdateInstanceIpWhiteListRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return UpdateInstanceIpWhiteListResponse UpdateInstanceIpWhiteListResponse
+     * @return UpdateInstanceIpWhiteListResponse
      */
     public function updateInstanceIpWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->delete)) {
+            $query['Delete'] = $request->delete;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -1089,11 +1222,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * ***
-     *   *
-     * @param UpdateInstanceIpWhiteListRequest $request UpdateInstanceIpWhiteListRequest
+     * @param UpdateInstanceIpWhiteListRequest $request
      *
-     * @return UpdateInstanceIpWhiteListResponse UpdateInstanceIpWhiteListResponse
+     * @return UpdateInstanceIpWhiteListResponse
      */
     public function updateInstanceIpWhiteList($request)
     {
@@ -1103,7 +1234,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+     * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](~~181971~~) and [Select storage types](~~174643~~).
      *   *
      * @param UpgradeLindormInstanceRequest $request UpgradeLindormInstanceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1158,12 +1289,6 @@ class Hitsdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->phoenixCoreNum)) {
-            $query['PhoenixCoreNum'] = $request->phoenixCoreNum;
-        }
-        if (!Utils::isUnset($request->phoenixCoreSpec)) {
-            $query['PhoenixCoreSpec'] = $request->phoenixCoreSpec;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1220,7 +1345,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+     * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](~~181971~~) and [Select storage types](~~174643~~).
      *   *
      * @param UpgradeLindormInstanceRequest $request UpgradeLindormInstanceRequest
      *

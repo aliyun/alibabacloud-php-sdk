@@ -151,6 +151,11 @@ class GetLindormInstanceResponseBody extends Model
     /**
      * @var bool
      */
+    public $enableLsqlVersionV3;
+
+    /**
+     * @var bool
+     */
     public $enableMLCtrl;
 
     /**
@@ -391,6 +396,7 @@ class GetLindormInstanceResponseBody extends Model
         'enableCompute'        => 'EnableCompute',
         'enableKms'            => 'EnableKms',
         'enableLTS'            => 'EnableLTS',
+        'enableLsqlVersionV3'  => 'EnableLsqlVersionV3',
         'enableMLCtrl'         => 'EnableMLCtrl',
         'enableSSL'            => 'EnableSSL',
         'enableShs'            => 'EnableShs',
@@ -494,6 +500,9 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (null !== $this->enableLTS) {
             $res['EnableLTS'] = $this->enableLTS;
+        }
+        if (null !== $this->enableLsqlVersionV3) {
+            $res['EnableLsqlVersionV3'] = $this->enableLsqlVersionV3;
         }
         if (null !== $this->enableMLCtrl) {
             $res['EnableMLCtrl'] = $this->enableMLCtrl;
@@ -671,6 +680,9 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (isset($map['EnableLTS'])) {
             $model->enableLTS = $map['EnableLTS'];
+        }
+        if (isset($map['EnableLsqlVersionV3'])) {
+            $model->enableLsqlVersionV3 = $map['EnableLsqlVersionV3'];
         }
         if (isset($map['EnableMLCtrl'])) {
             $model->enableMLCtrl = $map['EnableMLCtrl'];

@@ -6,28 +6,17 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RenewLindormInstanceRequest extends Model
+class GetLdpsNamespacedQuotaRequest extends Model
 {
     /**
-     * @description The subscription duration of the instance. The valid values of this parameter depend on the value of the PricingCycle parameter.
-     *
-     *   If PricingCycle is set to **Month**, set this parameter to an integer that ranges from **1** to **9**.
-     *   If PricingCycle is set to **Year**, set this parameter to an integer that ranges from **1** to **3**.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $duration;
-
-    /**
-     * @description The ID of the instance that you want to renew. You can call the [GetLindormInstanceList](~~426069~~) operation to obtain the instance ID.
-     *
-     * @example ld-bp1z3506imz2f****
-     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $namespace;
 
     /**
      * @var string
@@ -40,22 +29,6 @@ class RenewLindormInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The period based on which you are charged for the instance. Valid values:
-     *
-     *   **Month**: You are charged for the instance based on months.
-     *   **Year**: You are charged for the instance based on years.
-     *
-     * @example Month
-     *
-     * @var string
-     */
-    public $pricingCycle;
-
-    /**
-     * @description The ID of the region in which the instance that you want to renew is located. You can call the [DescribeRegions](~~426062~~) operation to query the region ID.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
@@ -75,11 +48,10 @@ class RenewLindormInstanceRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'duration'             => 'Duration',
         'instanceId'           => 'InstanceId',
+        'namespace'            => 'Namespace',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'pricingCycle'         => 'PricingCycle',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -93,20 +65,17 @@ class RenewLindormInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->pricingCycle) {
-            $res['PricingCycle'] = $this->pricingCycle;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -127,25 +96,22 @@ class RenewLindormInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return RenewLindormInstanceRequest
+     * @return GetLdpsNamespacedQuotaRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['PricingCycle'])) {
-            $model->pricingCycle = $map['PricingCycle'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

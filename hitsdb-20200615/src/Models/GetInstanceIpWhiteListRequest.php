@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceIpWhiteListRequest extends Model
 {
     /**
-     * @description The name of the group to which the instance belongs. The group name can contain only letters, digits, and underscores (\_).
-     *
-     * @example test_group
-     *
-     * @var string
-     */
-    public $groupName;
-
-    /**
      * @description The ID of the instance whose whitelist you want to query. You can call the [GetLindormInstanceList](~~426068~~) operation to query the instance ID.
      *
      * @example ld-bp1z3506imz2f****
@@ -51,7 +42,6 @@ class GetInstanceIpWhiteListRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'groupName'            => 'GroupName',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -67,9 +57,6 @@ class GetInstanceIpWhiteListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -100,9 +87,6 @@ class GetInstanceIpWhiteListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

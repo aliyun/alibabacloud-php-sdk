@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListResponseBody\groupList;
 use AlibabaCloud\Tea\Model;
 
 class GetInstanceIpWhiteListResponseBody extends Model
 {
+    /**
+     * @var groupList[]
+     */
+    public $groupList;
+
     /**
      * @description The ID of the Lindorm instance.
      *
@@ -31,6 +37,7 @@ class GetInstanceIpWhiteListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'groupList'  => 'GroupList',
         'instanceId' => 'InstanceId',
         'ipList'     => 'IpList',
         'requestId'  => 'RequestId',
@@ -43,6 +50,15 @@ class GetInstanceIpWhiteListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupList) {
+            $res['GroupList'] = [];
+            if (null !== $this->groupList && \is_array($this->groupList)) {
+                $n = 0;
+                foreach ($this->groupList as $item) {
+                    $res['GroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -64,6 +80,15 @@ class GetInstanceIpWhiteListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupList'])) {
+            if (!empty($map['GroupList'])) {
+                $model->groupList = [];
+                $n                = 0;
+                foreach ($map['GroupList'] as $item) {
+                    $model->groupList[$n++] = null !== $item ? groupList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
