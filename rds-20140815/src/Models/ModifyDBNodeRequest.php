@@ -85,6 +85,11 @@ class ModifyDBNodeRequest extends Model
     /**
      * @var string
      */
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -122,6 +127,7 @@ class ModifyDBNodeRequest extends Model
         'DBInstanceStorageType' => 'DBInstanceStorageType',
         'DBNode'                => 'DBNode',
         'dryRun'                => 'DryRun',
+        'effectiveTime'         => 'EffectiveTime',
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
         'produceAsync'          => 'ProduceAsync',
@@ -162,6 +168,9 @@ class ModifyDBNodeRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -216,6 +225,9 @@ class ModifyDBNodeRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

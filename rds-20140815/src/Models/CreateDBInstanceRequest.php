@@ -16,7 +16,7 @@ class CreateDBInstanceRequest extends Model
      * Valid values: **1** to **20**. Default value: **1**.
      *
      * > *   If you want to create multiple ApsaraDB RDS for MySQL instances at a time by using a single request, you can add tags to all the instances by using the **Tag.Key** parameter and the **Tag.Value** parameter. After the instances are created, you can manage the instances based on the tags.
-     * > *   After you submit a request to create multiple ApsaraDB RDS for MySQL instances, this operation returns **TaskId**, **RequestId**, and **Message**. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the details of an instance.
+     * > *   After you submit a request to create multiple ApsaraDB RDS for MySQL instances, this operation returns **TaskId**, **RequestId**, and **Message**. You can call the DescribeDBInstanceAttribute operation to query the details of an instance.
      * > *   If the value of the **Engine** parameter is not **MySQL** and the value of the Amount parameter is greater than **1**, this operation fails and returns an error code `InvalidParam.Engine`.
      * @example 2
      *
@@ -244,9 +244,9 @@ class CreateDBInstanceRequest extends Model
     public $DBIsIgnoreCase;
 
     /**
-     * @description The ID of the parameter template. You can call the [DescribeParameterGroups](~~610588~~) operation to query the ID of the parameter template.
+     * @description The ID of the parameter template. You can call the DescribeParameterGroups operation to query the ID of the parameter template.
      *
-     * > : This parameter is available if you want to create an instance that runs MySQL or PostgreSQL . If you do not configure this parameter, the default parameter template is used. If you want to use a custom parameter template, you can customize a parameter template and set this parameter to the ID of the custom template. For more information, see [Create a parameter template](~~610585~~).
+     * > : This parameter is available if you want to create an instance that runs MySQL or PostgreSQL . If you do not configure this parameter, the default parameter template is used. If you want to use a custom parameter template, you can customize a parameter template and set this parameter to the ID of the custom template.
      * @example rpg-sys-*****
      *
      * @var string
@@ -279,8 +279,8 @@ class CreateDBInstanceRequest extends Model
      *
      * If you create the instance in a dedicated cluster, you must specify this parameter.
      *
-     *   You can call the [DescribeDedicatedHostGroups](~~610640~~) operation to query the details of a dedicated cluster.
-     *   If no dedicated clusters are created, you can call the [CreateDedicatedHostGroup](~~209828~~) operation to create a dedicated cluster.
+     *   You can call the DescribeDedicatedHostGroups operation to query the details of a dedicated cluster.
+     *   If no dedicated clusters are created, you can call the CreateDedicatedHostGroup operation to create a dedicated cluster.
      *
      * @example dhg-4n*****
      *
@@ -442,7 +442,7 @@ class CreateDBInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -465,7 +465,7 @@ class CreateDBInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) that is provided by your Alibaba Cloud account for RAM users. RAM users can use the ARN to connect ApsaraDB RDS to KMS. You can call the [CheckCloudResourceAuthorized](~~610408~~) operation to query the ARN.
+     * @description The Alibaba Cloud Resource Name (ARN) that is provided by your Alibaba Cloud account for RAM users. RAM users can use the ARN to connect ApsaraDB RDS to KMS. You can call the CheckCloudResourceAuthorized operation to query the ARN.
      *
      * @example acs:ram::1406xxxxxx:role/aliyunrdsinstanceencryptiondefaultrole
      *
@@ -499,7 +499,7 @@ class CreateDBInstanceRequest extends Model
      *   **Enable**
      *   **Disable** (default)
      *
-     * >  After the instance is created, you can call the [ModifyDasInstanceConfig](~~610391~~) operation to adjust the settings of automatic storage expansion for the instance. For more information, see [Configure automatic storage expansion for an ApsaraDB RDS for MySQL instance](~~173826~~).
+     * >  After the instance is created, you can call the ModifyDasInstanceConfig operation to adjust the settings of automatic storage expansion for the instance. For more information, see [Configure automatic storage expansion for an ApsaraDB RDS for MySQL instance](~~173826~~).
      * @example Disable
      *
      * @var string
@@ -554,8 +554,8 @@ class CreateDBInstanceRequest extends Model
      *
      * If you want to create an instance that runs RDS Enterprise Edition in a dedicated cluster, you must specify this parameter. If you do not specify this parameter, the system automatically assigns a host.
      *
-     *   You can call the [DescribeDedicatedHosts](~~610641~~) operation to query the details of the hosts in a dedicated cluster.
-     *   If no hosts are created, you can call the [CreateDedicatedHost](~~210864~~) operation to create a host.
+     *   You can call the DescribeDedicatedHosts operation to query the details of the hosts in a dedicated cluster.
+     *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
      *
      * @example i-bp*****3
      *
@@ -568,8 +568,8 @@ class CreateDBInstanceRequest extends Model
      *
      * If you create the instance in a dedicated cluster, you must specify this parameter. If you do not specify this parameter, the system automatically assigns a host.
      *
-     *   You can call the [DescribeDedicatedHost](~~610641~~) operation to query the details about the hosts in a dedicated cluster.
-     *   If no hosts are created, you can call the [CreateDedicatedHost](~~210864~~) operation to create a host.
+     *   You can call the DescribeDedicatedHost operation to query the details about the hosts in a dedicated cluster.
+     *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
      *
      * @example i-bp*****1
      *
@@ -582,8 +582,8 @@ class CreateDBInstanceRequest extends Model
      *
      * If you want to create an instance that runs RDS High-availability Edition or RDS Enterprise Edition in a dedicated cluster, you must specify this parameter. If you do not specify this parameter, the system automatically assigns a host.
      *
-     *   You can call the [DescribeDedicatedHosts](~~610641~~) operation to query the details of the hosts in a dedicated cluster.
-     *   If no hosts are created, you can call the [CreateDedicatedHost](~~210864~~) operation to create a host.
+     *   You can call the DescribeDedicatedHosts operation to query the details of the hosts in a dedicated cluster.
+     *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
      *
      * @example i-bp*****2
      *
@@ -602,12 +602,12 @@ class CreateDBInstanceRequest extends Model
      *
      **
      *
-     **Note** You can call the [DescribeDBMiniEngineVersions](~~610643~~) operation to query the minor engine version. For more information about minor engine versions, see [Release notes of minor AliSQL versions](~~96060~~).
+     **Note** You can call the DescribeDBMiniEngineVersions operation to query the minor engine version. For more information about minor engine versions, see [Release notes of minor AliSQL versions](~~96060~~).
      *
      *   If you create an instance that runs PostgreSQL, the value is in the following format: `rds_postgres_<Major engine version>00_<Minor engine version>`. Example: `rds_postgres_1400_20220830`. The following list describes the fields in the example values:
      *
      *   1400: The major engine version is PostgreSQL 14.
-     *   20220830: the AliPG version. You can call the [DescribeDBMiniEngineVersions](~~610643~~) operation to query the AliPG version. For more information about minor engine versions, see [Release notes for AliPG](~~126002~~).
+     *   20220830: the AliPG version. You can call the DescribeDBMiniEngineVersions operation to query the AliPG version. For more information about minor engine versions, see [Release notes for AliPG](~~126002~~).
      *
      **
      *
@@ -633,7 +633,7 @@ class CreateDBInstanceRequest extends Model
     public $usedTime;
 
     /**
-     * @description The ID of the backup file. You can call the [ListUserBackupFiles](~~610600~~) operation to query backup files. If you want to create an instance by using the data of a backup file, you must specify this parameter.
+     * @description The ID of the backup file. You can call the ListUserBackupFiles operation to query backup files. If you want to create an instance by using the data of a backup file, you must specify this parameter.
      *
      * This parameter is supported only when the following requirements are met:
      *

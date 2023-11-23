@@ -18,7 +18,7 @@ class DeleteSecretRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the **DescribeDBInstances** operation to query the ID of the instance.
      *
      * > If you specify this parameter, you must also specify **SecretName**.
      * @example rm-sfjdlsjxxxxx
@@ -43,7 +43,7 @@ class DeleteSecretRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~446624~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the **DescribeRegions** operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -52,7 +52,7 @@ class DeleteSecretRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
+     * @description The ID of the resource group. You can call the **DescribeDBInstanceAttribute** operation to obtain the ID of the resource group.
      *
      * @example rg-acfmy****
      *
@@ -71,7 +71,7 @@ class DeleteSecretRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the credential for the created Data API account. You can call the [CreateSecret](~~446607~~) operation to obtain the value of this parameter.
+     * @description The Alibaba Cloud Resource Name (ARN) of the credential for the created Data API account. You can call the **CreateSecret** operation to obtain the value of this parameter.
      *
      * > You must specify one of **SecretName** and SecretArn.
      * @example acs:rds:cn-hangzhou:1335786***:dbInstance/rm-bp1m7l3j63****
@@ -83,12 +83,8 @@ class DeleteSecretRequest extends Model
     /**
      * @description The name of the credential.
      *
-     * >
-     *
-     *   You must specify one of **SecretArn** and SecretName.
-     *
-     *   If you specify this parameter, you must also specify **DbInstanceId**.
-     *
+     * > *   You must specify one of **SecretArn** and SecretName.
+     * > *   If you specify this parameter, you must also specify **DbInstanceId**.
      * @example Foo
      *
      * @var string
