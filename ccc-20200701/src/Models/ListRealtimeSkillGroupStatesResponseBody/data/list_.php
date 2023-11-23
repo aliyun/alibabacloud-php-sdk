@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListRealtimeSkillGroupStatesResponseBody\data;
 
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListRealtimeSkillGroupStatesResponseBody\data\list_\breakCodeDetailList;
 use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
+    /**
+     * @var breakCodeDetailList[]
+     */
+    public $breakCodeDetailList;
+
     /**
      * @example 0
      *
@@ -72,6 +78,11 @@ class list_ extends Model
     public $talkingAgents;
 
     /**
+     * @var int
+     */
+    public $totalAgents;
+
+    /**
      * @example 0
      *
      * @var int
@@ -85,6 +96,7 @@ class list_ extends Model
      */
     public $workingAgents;
     protected $_name = [
+        'breakCodeDetailList'         => 'BreakCodeDetailList',
         'breakingAgents'              => 'BreakingAgents',
         'instanceId'                  => 'InstanceId',
         'loggedInAgents'              => 'LoggedInAgents',
@@ -94,6 +106,7 @@ class list_ extends Model
         'skillGroupId'                => 'SkillGroupId',
         'skillGroupName'              => 'SkillGroupName',
         'talkingAgents'               => 'TalkingAgents',
+        'totalAgents'                 => 'TotalAgents',
         'waitingCalls'                => 'WaitingCalls',
         'workingAgents'               => 'WorkingAgents',
     ];
@@ -105,6 +118,15 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->breakCodeDetailList) {
+            $res['BreakCodeDetailList'] = [];
+            if (null !== $this->breakCodeDetailList && \is_array($this->breakCodeDetailList)) {
+                $n = 0;
+                foreach ($this->breakCodeDetailList as $item) {
+                    $res['BreakCodeDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->breakingAgents) {
             $res['BreakingAgents'] = $this->breakingAgents;
         }
@@ -132,6 +154,9 @@ class list_ extends Model
         if (null !== $this->talkingAgents) {
             $res['TalkingAgents'] = $this->talkingAgents;
         }
+        if (null !== $this->totalAgents) {
+            $res['TotalAgents'] = $this->totalAgents;
+        }
         if (null !== $this->waitingCalls) {
             $res['WaitingCalls'] = $this->waitingCalls;
         }
@@ -150,6 +175,15 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BreakCodeDetailList'])) {
+            if (!empty($map['BreakCodeDetailList'])) {
+                $model->breakCodeDetailList = [];
+                $n                          = 0;
+                foreach ($map['BreakCodeDetailList'] as $item) {
+                    $model->breakCodeDetailList[$n++] = null !== $item ? breakCodeDetailList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['BreakingAgents'])) {
             $model->breakingAgents = $map['BreakingAgents'];
         }
@@ -176,6 +210,9 @@ class list_ extends Model
         }
         if (isset($map['TalkingAgents'])) {
             $model->talkingAgents = $map['TalkingAgents'];
+        }
+        if (isset($map['TotalAgents'])) {
+            $model->totalAgents = $map['TotalAgents'];
         }
         if (isset($map['WaitingCalls'])) {
             $model->waitingCalls = $map['WaitingCalls'];

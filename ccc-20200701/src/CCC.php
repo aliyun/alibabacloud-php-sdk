@@ -1498,6 +1498,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->ossFileKey)) {
             $query['OssFileKey'] = $request->ossFileKey;
         }
+        if (!Utils::isUnset($request->usage)) {
+            $query['Usage'] = $request->usage;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3041,6 +3044,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -5123,11 +5129,17 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->skillGroupId)) {
+            $query['SkillGroupId'] = $request->skillGroupId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -5185,6 +5197,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -5248,6 +5263,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -5407,6 +5425,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -5550,6 +5571,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
         if (!Utils::isUnset($request->skillGroupId)) {
             $query['SkillGroupId'] = $request->skillGroupId;
@@ -6840,6 +6864,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->searchPattern)) {
             $query['SearchPattern'] = $request->searchPattern;
+        }
+        if (!Utils::isUnset($request->skillGroupId)) {
+            $query['SkillGroupId'] = $request->skillGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

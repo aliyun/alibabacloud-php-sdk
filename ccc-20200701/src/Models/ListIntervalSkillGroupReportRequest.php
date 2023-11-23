@@ -30,6 +30,11 @@ class ListIntervalSkillGroupReportRequest extends Model
     public $interval;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example skg-default@ccc-test
      *
      * @var string
@@ -46,6 +51,7 @@ class ListIntervalSkillGroupReportRequest extends Model
         'endTime'      => 'EndTime',
         'instanceId'   => 'InstanceId',
         'interval'     => 'Interval',
+        'mediaType'    => 'MediaType',
         'skillGroupId' => 'SkillGroupId',
         'startTime'    => 'StartTime',
     ];
@@ -65,6 +71,9 @@ class ListIntervalSkillGroupReportRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
@@ -92,6 +101,9 @@ class ListIntervalSkillGroupReportRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];

@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var float
+     */
+    public $abandonRate;
+
+    /**
      * @example 0.10
      *
      * @var float
      */
     public $abandonedRate;
+
+    /**
+     * @var float
+     */
+    public $answerRate;
 
     /**
      * @example 5
@@ -50,7 +60,9 @@ class data extends Model
      */
     public $occupancyRate;
     protected $_name = [
+        'abandonRate'    => 'AbandonRate',
         'abandonedRate'  => 'AbandonedRate',
+        'answerRate'     => 'AnswerRate',
         'callsAbandoned' => 'CallsAbandoned',
         'callsConnected' => 'CallsConnected',
         'callsDialed'    => 'CallsDialed',
@@ -65,8 +77,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->abandonRate) {
+            $res['AbandonRate'] = $this->abandonRate;
+        }
         if (null !== $this->abandonedRate) {
             $res['AbandonedRate'] = $this->abandonedRate;
+        }
+        if (null !== $this->answerRate) {
+            $res['AnswerRate'] = $this->answerRate;
         }
         if (null !== $this->callsAbandoned) {
             $res['CallsAbandoned'] = $this->callsAbandoned;
@@ -95,8 +113,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AbandonRate'])) {
+            $model->abandonRate = $map['AbandonRate'];
+        }
         if (isset($map['AbandonedRate'])) {
             $model->abandonedRate = $map['AbandonedRate'];
+        }
+        if (isset($map['AnswerRate'])) {
+            $model->answerRate = $map['AnswerRate'];
         }
         if (isset($map['CallsAbandoned'])) {
             $model->callsAbandoned = $map['CallsAbandoned'];

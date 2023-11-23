@@ -51,6 +51,11 @@ class internal extends Model
     public $callsTalk;
 
     /**
+     * @var int
+     */
+    public $callsTalked;
+
+    /**
      * @example 100
      *
      * @var int
@@ -70,6 +75,7 @@ class internal extends Model
         'callsHandled'    => 'CallsHandled',
         'callsOffered'    => 'CallsOffered',
         'callsTalk'       => 'CallsTalk',
+        'callsTalked'     => 'CallsTalked',
         'maxTalkTime'     => 'MaxTalkTime',
         'totalTalkTime'   => 'TotalTalkTime',
     ];
@@ -98,6 +104,9 @@ class internal extends Model
         }
         if (null !== $this->callsTalk) {
             $res['CallsTalk'] = $this->callsTalk;
+        }
+        if (null !== $this->callsTalked) {
+            $res['CallsTalked'] = $this->callsTalked;
         }
         if (null !== $this->maxTalkTime) {
             $res['MaxTalkTime'] = $this->maxTalkTime;
@@ -134,6 +143,9 @@ class internal extends Model
         }
         if (isset($map['CallsTalk'])) {
             $model->callsTalk = $map['CallsTalk'];
+        }
+        if (isset($map['CallsTalked'])) {
+            $model->callsTalked = $map['CallsTalked'];
         }
         if (isset($map['MaxTalkTime'])) {
             $model->maxTalkTime = $map['MaxTalkTime'];

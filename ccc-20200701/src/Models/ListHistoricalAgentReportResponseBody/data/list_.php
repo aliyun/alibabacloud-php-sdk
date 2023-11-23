@@ -4,7 +4,9 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data;
 
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data\list_\back2Back;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data\list_\inbound;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data\list_\internal;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data\list_\outbound;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data\list_\overall;
 use AlibabaCloud\Tea\Model;
@@ -24,6 +26,11 @@ class list_ extends Model
     public $agentName;
 
     /**
+     * @var back2Back
+     */
+    public $back2Back;
+
+    /**
      * @example 001
      *
      * @var string
@@ -34,6 +41,11 @@ class list_ extends Model
      * @var inbound
      */
     public $inbound;
+
+    /**
+     * @var internal
+     */
+    public $internal;
 
     /**
      * @var outbound
@@ -59,8 +71,10 @@ class list_ extends Model
     protected $_name = [
         'agentId'         => 'AgentId',
         'agentName'       => 'AgentName',
+        'back2Back'       => 'Back2Back',
         'displayId'       => 'DisplayId',
         'inbound'         => 'Inbound',
+        'internal'        => 'Internal',
         'outbound'        => 'Outbound',
         'overall'         => 'Overall',
         'skillGroupIds'   => 'SkillGroupIds',
@@ -80,11 +94,17 @@ class list_ extends Model
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
+        if (null !== $this->back2Back) {
+            $res['Back2Back'] = null !== $this->back2Back ? $this->back2Back->toMap() : null;
+        }
         if (null !== $this->displayId) {
             $res['DisplayId'] = $this->displayId;
         }
         if (null !== $this->inbound) {
             $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
+        }
+        if (null !== $this->internal) {
+            $res['Internal'] = null !== $this->internal ? $this->internal->toMap() : null;
         }
         if (null !== $this->outbound) {
             $res['Outbound'] = null !== $this->outbound ? $this->outbound->toMap() : null;
@@ -116,11 +136,17 @@ class list_ extends Model
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
+        if (isset($map['Back2Back'])) {
+            $model->back2Back = back2Back::fromMap($map['Back2Back']);
+        }
         if (isset($map['DisplayId'])) {
             $model->displayId = $map['DisplayId'];
         }
         if (isset($map['Inbound'])) {
             $model->inbound = inbound::fromMap($map['Inbound']);
+        }
+        if (isset($map['Internal'])) {
+            $model->internal = internal::fromMap($map['Internal']);
         }
         if (isset($map['Outbound'])) {
             $model->outbound = outbound::fromMap($map['Outbound']);

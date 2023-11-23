@@ -2,82 +2,48 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentSkillGroupReportResponseBody\data\list_;
+namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentReportResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
 class internal extends Model
 {
     /**
-     * @example 100
-     *
-     * @var int
+     * @var float
      */
     public $averageTalkTime;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $callsAnswered;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $callsDialed;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $callsHandled;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $callsOffered;
 
     /**
-     * @example 100
-     *
-     * @var int
-     */
-    public $callsTalk;
-
-    /**
      * @var int
      */
     public $callsTalked;
-
-    /**
-     * @example 100
-     *
-     * @var int
-     */
-    public $maxTalkTime;
-
-    /**
-     * @example 100
-     *
-     * @var int
-     */
-    public $totalTalkTime;
     protected $_name = [
         'averageTalkTime' => 'AverageTalkTime',
         'callsAnswered'   => 'CallsAnswered',
         'callsDialed'     => 'CallsDialed',
         'callsHandled'    => 'CallsHandled',
         'callsOffered'    => 'CallsOffered',
-        'callsTalk'       => 'CallsTalk',
         'callsTalked'     => 'CallsTalked',
-        'maxTalkTime'     => 'MaxTalkTime',
-        'totalTalkTime'   => 'TotalTalkTime',
     ];
 
     public function validate()
@@ -102,17 +68,8 @@ class internal extends Model
         if (null !== $this->callsOffered) {
             $res['CallsOffered'] = $this->callsOffered;
         }
-        if (null !== $this->callsTalk) {
-            $res['CallsTalk'] = $this->callsTalk;
-        }
         if (null !== $this->callsTalked) {
             $res['CallsTalked'] = $this->callsTalked;
-        }
-        if (null !== $this->maxTalkTime) {
-            $res['MaxTalkTime'] = $this->maxTalkTime;
-        }
-        if (null !== $this->totalTalkTime) {
-            $res['TotalTalkTime'] = $this->totalTalkTime;
         }
 
         return $res;
@@ -141,17 +98,8 @@ class internal extends Model
         if (isset($map['CallsOffered'])) {
             $model->callsOffered = $map['CallsOffered'];
         }
-        if (isset($map['CallsTalk'])) {
-            $model->callsTalk = $map['CallsTalk'];
-        }
         if (isset($map['CallsTalked'])) {
             $model->callsTalked = $map['CallsTalked'];
-        }
-        if (isset($map['MaxTalkTime'])) {
-            $model->maxTalkTime = $map['MaxTalkTime'];
-        }
-        if (isset($map['TotalTalkTime'])) {
-            $model->totalTalkTime = $map['TotalTalkTime'];
         }
 
         return $model;

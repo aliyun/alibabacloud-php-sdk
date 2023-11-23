@@ -23,6 +23,11 @@ class ListHistoricalAgentReportRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example 1
      *
      * @var int
@@ -35,6 +40,11 @@ class ListHistoricalAgentReportRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
 
     /**
      * @example 1532448000000
@@ -50,12 +60,14 @@ class ListHistoricalAgentReportRequest extends Model
      */
     public $stopTime;
     protected $_name = [
-        'agentIdList' => 'AgentIdList',
-        'instanceId'  => 'InstanceId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'startTime'   => 'StartTime',
-        'stopTime'    => 'StopTime',
+        'agentIdList'  => 'AgentIdList',
+        'instanceId'   => 'InstanceId',
+        'mediaType'    => 'MediaType',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
+        'skillGroupId' => 'SkillGroupId',
+        'startTime'    => 'StartTime',
+        'stopTime'     => 'StopTime',
     ];
 
     public function validate()
@@ -71,11 +83,17 @@ class ListHistoricalAgentReportRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -101,11 +119,17 @@ class ListHistoricalAgentReportRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

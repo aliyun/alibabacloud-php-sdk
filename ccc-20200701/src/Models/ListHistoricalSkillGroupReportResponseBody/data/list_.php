@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalSkillGroupReportResponseBody\data;
 
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalSkillGroupReportResponseBody\data\list_\back2Back;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalSkillGroupReportResponseBody\data\list_\inbound;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalSkillGroupReportResponseBody\data\list_\outbound;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalSkillGroupReportResponseBody\data\list_\overall;
@@ -11,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
+    /**
+     * @var back2Back
+     */
+    public $back2Back;
+
     /**
      * @var inbound
      */
@@ -40,6 +46,7 @@ class list_ extends Model
      */
     public $skillGroupName;
     protected $_name = [
+        'back2Back'      => 'Back2Back',
         'inbound'        => 'Inbound',
         'outbound'       => 'Outbound',
         'overall'        => 'Overall',
@@ -54,6 +61,9 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->back2Back) {
+            $res['Back2Back'] = null !== $this->back2Back ? $this->back2Back->toMap() : null;
+        }
         if (null !== $this->inbound) {
             $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
         }
@@ -81,6 +91,9 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Back2Back'])) {
+            $model->back2Back = back2Back::fromMap($map['Back2Back']);
+        }
         if (isset($map['Inbound'])) {
             $model->inbound = inbound::fromMap($map['Inbound']);
         }

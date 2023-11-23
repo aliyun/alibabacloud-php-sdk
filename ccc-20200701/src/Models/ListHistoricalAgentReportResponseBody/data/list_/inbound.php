@@ -4,16 +4,32 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data\list_;
 
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data\list_\inbound\accessChannelTypeDetails;
 use AlibabaCloud\Tea\Model;
 
 class inbound extends Model
 {
+    /**
+     * @var accessChannelTypeDetails[]
+     */
+    public $accessChannelTypeDetails;
+
+    /**
+     * @var float
+     */
+    public $averageFirstResponseTime;
+
     /**
      * @example 0
      *
      * @var float
      */
     public $averageHoldTime;
+
+    /**
+     * @var float
+     */
+    public $averageResponseTime;
 
     /**
      * @example 0
@@ -156,11 +172,31 @@ class inbound extends Model
     public $satisfactionSurveysResponded;
 
     /**
+     * @var float
+     */
+    public $serviceLevel15;
+
+    /**
      * @example 0
      *
      * @var int
      */
     public $totalHoldTime;
+
+    /**
+     * @var int
+     */
+    public $totalMessagesSent;
+
+    /**
+     * @var int
+     */
+    public $totalMessagesSentByAgent;
+
+    /**
+     * @var string
+     */
+    public $totalMessagesSentByCustomer;
 
     /**
      * @example 0
@@ -183,7 +219,10 @@ class inbound extends Model
      */
     public $totalWorkTime;
     protected $_name = [
+        'accessChannelTypeDetails'     => 'AccessChannelTypeDetails',
+        'averageFirstResponseTime'     => 'AverageFirstResponseTime',
         'averageHoldTime'              => 'AverageHoldTime',
+        'averageResponseTime'          => 'AverageResponseTime',
         'averageRingTime'              => 'AverageRingTime',
         'averageTalkTime'              => 'AverageTalkTime',
         'averageWorkTime'              => 'AverageWorkTime',
@@ -204,7 +243,11 @@ class inbound extends Model
         'satisfactionRate'             => 'SatisfactionRate',
         'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
+        'serviceLevel15'               => 'ServiceLevel15',
         'totalHoldTime'                => 'TotalHoldTime',
+        'totalMessagesSent'            => 'TotalMessagesSent',
+        'totalMessagesSentByAgent'     => 'TotalMessagesSentByAgent',
+        'totalMessagesSentByCustomer'  => 'TotalMessagesSentByCustomer',
         'totalRingTime'                => 'TotalRingTime',
         'totalTalkTime'                => 'TotalTalkTime',
         'totalWorkTime'                => 'TotalWorkTime',
@@ -217,8 +260,23 @@ class inbound extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessChannelTypeDetails) {
+            $res['AccessChannelTypeDetails'] = [];
+            if (null !== $this->accessChannelTypeDetails && \is_array($this->accessChannelTypeDetails)) {
+                $n = 0;
+                foreach ($this->accessChannelTypeDetails as $item) {
+                    $res['AccessChannelTypeDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->averageFirstResponseTime) {
+            $res['AverageFirstResponseTime'] = $this->averageFirstResponseTime;
+        }
         if (null !== $this->averageHoldTime) {
             $res['AverageHoldTime'] = $this->averageHoldTime;
+        }
+        if (null !== $this->averageResponseTime) {
+            $res['AverageResponseTime'] = $this->averageResponseTime;
         }
         if (null !== $this->averageRingTime) {
             $res['AverageRingTime'] = $this->averageRingTime;
@@ -280,8 +338,20 @@ class inbound extends Model
         if (null !== $this->satisfactionSurveysResponded) {
             $res['SatisfactionSurveysResponded'] = $this->satisfactionSurveysResponded;
         }
+        if (null !== $this->serviceLevel15) {
+            $res['ServiceLevel15'] = $this->serviceLevel15;
+        }
         if (null !== $this->totalHoldTime) {
             $res['TotalHoldTime'] = $this->totalHoldTime;
+        }
+        if (null !== $this->totalMessagesSent) {
+            $res['TotalMessagesSent'] = $this->totalMessagesSent;
+        }
+        if (null !== $this->totalMessagesSentByAgent) {
+            $res['TotalMessagesSentByAgent'] = $this->totalMessagesSentByAgent;
+        }
+        if (null !== $this->totalMessagesSentByCustomer) {
+            $res['TotalMessagesSentByCustomer'] = $this->totalMessagesSentByCustomer;
         }
         if (null !== $this->totalRingTime) {
             $res['TotalRingTime'] = $this->totalRingTime;
@@ -304,8 +374,23 @@ class inbound extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessChannelTypeDetails'])) {
+            if (!empty($map['AccessChannelTypeDetails'])) {
+                $model->accessChannelTypeDetails = [];
+                $n                               = 0;
+                foreach ($map['AccessChannelTypeDetails'] as $item) {
+                    $model->accessChannelTypeDetails[$n++] = null !== $item ? accessChannelTypeDetails::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['AverageFirstResponseTime'])) {
+            $model->averageFirstResponseTime = $map['AverageFirstResponseTime'];
+        }
         if (isset($map['AverageHoldTime'])) {
             $model->averageHoldTime = $map['AverageHoldTime'];
+        }
+        if (isset($map['AverageResponseTime'])) {
+            $model->averageResponseTime = $map['AverageResponseTime'];
         }
         if (isset($map['AverageRingTime'])) {
             $model->averageRingTime = $map['AverageRingTime'];
@@ -367,8 +452,20 @@ class inbound extends Model
         if (isset($map['SatisfactionSurveysResponded'])) {
             $model->satisfactionSurveysResponded = $map['SatisfactionSurveysResponded'];
         }
+        if (isset($map['ServiceLevel15'])) {
+            $model->serviceLevel15 = $map['ServiceLevel15'];
+        }
         if (isset($map['TotalHoldTime'])) {
             $model->totalHoldTime = $map['TotalHoldTime'];
+        }
+        if (isset($map['TotalMessagesSent'])) {
+            $model->totalMessagesSent = $map['TotalMessagesSent'];
+        }
+        if (isset($map['TotalMessagesSentByAgent'])) {
+            $model->totalMessagesSentByAgent = $map['TotalMessagesSentByAgent'];
+        }
+        if (isset($map['TotalMessagesSentByCustomer'])) {
+            $model->totalMessagesSentByCustomer = $map['TotalMessagesSentByCustomer'];
         }
         if (isset($map['TotalRingTime'])) {
             $model->totalRingTime = $map['TotalRingTime'];

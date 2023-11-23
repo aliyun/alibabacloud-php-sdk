@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @var string
+     */
+    public $abandonPhase;
+
+    /**
      * @example NA
      *
      * @var string
@@ -53,6 +58,7 @@ class list_ extends Model
      */
     public $state;
     protected $_name = [
+        'abandonPhase'    => 'AbandonPhase',
         'abandonType'     => 'AbandonType',
         'attemptCount'    => 'AttemptCount',
         'caseId'          => 'CaseId',
@@ -69,6 +75,9 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->abandonPhase) {
+            $res['AbandonPhase'] = $this->abandonPhase;
+        }
         if (null !== $this->abandonType) {
             $res['AbandonType'] = $this->abandonType;
         }
@@ -102,6 +111,9 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AbandonPhase'])) {
+            $model->abandonPhase = $map['AbandonPhase'];
+        }
         if (isset($map['AbandonType'])) {
             $model->abandonType = $map['AbandonType'];
         }

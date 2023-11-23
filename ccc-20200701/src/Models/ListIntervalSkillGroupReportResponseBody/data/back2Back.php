@@ -2,49 +2,34 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalAgentSkillGroupReportResponseBody\data;
+namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalSkillGroupReportResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
 class back2Back extends Model
 {
     /**
-     * @example 100
-     *
-     * @var float
-     */
-    public $agentAnswerRate;
-
-    /**
      * @var float
      */
     public $agentHandleRate;
 
     /**
-     * @example 0.5
-     *
-     * @var float
+     * @var string
      */
     public $answerRate;
 
     /**
-     * @example 100
-     *
      * @var float
      */
     public $averageCustomerRingTime;
 
     /**
-     * @example 100
-     *
      * @var float
      */
     public $averageRingTime;
 
     /**
-     * @example 100
-     *
-     * @var int
+     * @var string
      */
     public $averageTalkTime;
 
@@ -54,8 +39,6 @@ class back2Back extends Model
     public $callsAgentHandled;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $callsAnswered;
@@ -66,15 +49,6 @@ class back2Back extends Model
     public $callsCustomerAnswered;
 
     /**
-     * @example 100
-     *
-     * @var int
-     */
-    public $callsCustomerHandled;
-
-    /**
-     * @example 100
-     *
      * @var int
      */
     public $callsDialed;
@@ -85,55 +59,35 @@ class back2Back extends Model
     public $customerAnswerRate;
 
     /**
-     * @example 100
-     *
-     * @var float
-     */
-    public $customerHandleRate;
-
-    /**
-     * @example 100
-     *
      * @var int
      */
     public $maxCustomerRingTime;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $maxRingTime;
 
     /**
-     * @example 100
-     *
-     * @var int
+     * @var string
      */
     public $maxTalkTime;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalCustomerRingTime;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalRingTime;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalTalkTime;
     protected $_name = [
-        'agentAnswerRate'         => 'AgentAnswerRate',
         'agentHandleRate'         => 'AgentHandleRate',
         'answerRate'              => 'AnswerRate',
         'averageCustomerRingTime' => 'AverageCustomerRingTime',
@@ -142,10 +96,8 @@ class back2Back extends Model
         'callsAgentHandled'       => 'CallsAgentHandled',
         'callsAnswered'           => 'CallsAnswered',
         'callsCustomerAnswered'   => 'CallsCustomerAnswered',
-        'callsCustomerHandled'    => 'CallsCustomerHandled',
         'callsDialed'             => 'CallsDialed',
         'customerAnswerRate'      => 'CustomerAnswerRate',
-        'customerHandleRate'      => 'CustomerHandleRate',
         'maxCustomerRingTime'     => 'MaxCustomerRingTime',
         'maxRingTime'             => 'MaxRingTime',
         'maxTalkTime'             => 'MaxTalkTime',
@@ -161,9 +113,6 @@ class back2Back extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->agentAnswerRate) {
-            $res['AgentAnswerRate'] = $this->agentAnswerRate;
-        }
         if (null !== $this->agentHandleRate) {
             $res['AgentHandleRate'] = $this->agentHandleRate;
         }
@@ -188,17 +137,11 @@ class back2Back extends Model
         if (null !== $this->callsCustomerAnswered) {
             $res['CallsCustomerAnswered'] = $this->callsCustomerAnswered;
         }
-        if (null !== $this->callsCustomerHandled) {
-            $res['CallsCustomerHandled'] = $this->callsCustomerHandled;
-        }
         if (null !== $this->callsDialed) {
             $res['CallsDialed'] = $this->callsDialed;
         }
         if (null !== $this->customerAnswerRate) {
             $res['CustomerAnswerRate'] = $this->customerAnswerRate;
-        }
-        if (null !== $this->customerHandleRate) {
-            $res['CustomerHandleRate'] = $this->customerHandleRate;
         }
         if (null !== $this->maxCustomerRingTime) {
             $res['MaxCustomerRingTime'] = $this->maxCustomerRingTime;
@@ -230,9 +173,6 @@ class back2Back extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AgentAnswerRate'])) {
-            $model->agentAnswerRate = $map['AgentAnswerRate'];
-        }
         if (isset($map['AgentHandleRate'])) {
             $model->agentHandleRate = $map['AgentHandleRate'];
         }
@@ -257,17 +197,11 @@ class back2Back extends Model
         if (isset($map['CallsCustomerAnswered'])) {
             $model->callsCustomerAnswered = $map['CallsCustomerAnswered'];
         }
-        if (isset($map['CallsCustomerHandled'])) {
-            $model->callsCustomerHandled = $map['CallsCustomerHandled'];
-        }
         if (isset($map['CallsDialed'])) {
             $model->callsDialed = $map['CallsDialed'];
         }
         if (isset($map['CustomerAnswerRate'])) {
             $model->customerAnswerRate = $map['CustomerAnswerRate'];
-        }
-        if (isset($map['CustomerHandleRate'])) {
-            $model->customerHandleRate = $map['CustomerHandleRate'];
         }
         if (isset($map['MaxCustomerRingTime'])) {
             $model->maxCustomerRingTime = $map['MaxCustomerRingTime'];

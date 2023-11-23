@@ -51,11 +51,21 @@ class data extends Model
     public $casesUncompleted;
 
     /**
+     * @var string
+     */
+    public $casesUncompletedAfterAttempt;
+
+    /**
      * @example 1
      *
      * @var int
      */
     public $casesUncompletedAfterAttempted;
+
+    /**
+     * @var float
+     */
+    public $completionRate;
 
     /**
      * @example 1
@@ -150,7 +160,9 @@ class data extends Model
         'casesAborted'                   => 'CasesAborted',
         'casesConnected'                 => 'CasesConnected',
         'casesUncompleted'               => 'CasesUncompleted',
+        'casesUncompletedAfterAttempt'   => 'CasesUncompletedAfterAttempt',
         'casesUncompletedAfterAttempted' => 'CasesUncompletedAfterAttempted',
+        'completionRate'                 => 'CompletionRate',
         'maxAttemptCount'                => 'MaxAttemptCount',
         'minAttemptInterval'             => 'MinAttemptInterval',
         'name'                           => 'Name',
@@ -191,8 +203,14 @@ class data extends Model
         if (null !== $this->casesUncompleted) {
             $res['CasesUncompleted'] = $this->casesUncompleted;
         }
+        if (null !== $this->casesUncompletedAfterAttempt) {
+            $res['CasesUncompletedAfterAttempt'] = $this->casesUncompletedAfterAttempt;
+        }
         if (null !== $this->casesUncompletedAfterAttempted) {
             $res['CasesUncompletedAfterAttempted'] = $this->casesUncompletedAfterAttempted;
+        }
+        if (null !== $this->completionRate) {
+            $res['CompletionRate'] = $this->completionRate;
         }
         if (null !== $this->maxAttemptCount) {
             $res['MaxAttemptCount'] = $this->maxAttemptCount;
@@ -263,8 +281,14 @@ class data extends Model
         if (isset($map['CasesUncompleted'])) {
             $model->casesUncompleted = $map['CasesUncompleted'];
         }
+        if (isset($map['CasesUncompletedAfterAttempt'])) {
+            $model->casesUncompletedAfterAttempt = $map['CasesUncompletedAfterAttempt'];
+        }
         if (isset($map['CasesUncompletedAfterAttempted'])) {
             $model->casesUncompletedAfterAttempted = $map['CasesUncompletedAfterAttempted'];
+        }
+        if (isset($map['CompletionRate'])) {
+            $model->completionRate = $map['CompletionRate'];
         }
         if (isset($map['MaxAttemptCount'])) {
             $model->maxAttemptCount = $map['MaxAttemptCount'];

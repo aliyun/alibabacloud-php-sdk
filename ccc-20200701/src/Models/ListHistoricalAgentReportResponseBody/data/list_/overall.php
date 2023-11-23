@@ -160,9 +160,23 @@ class overall extends Model
     /**
      * @var int
      */
+    public $totalOffSiteLoggedInTime;
+
+    /**
+     * @example 已弃用，请使用TotalOffSiteLoggedInTime代替此参数
+     *
+     * @var int
+     */
     public $totalOffSiteOnlineTime;
 
     /**
+     * @var int
+     */
+    public $totalOfficePhoneLoggedInTime;
+
+    /**
+     * @example 已弃用，请使用TotalOfficePhoneLoggedInTime代替此参数
+     *
      * @var int
      */
     public $totalOfficePhoneOnlineTime;
@@ -170,7 +184,19 @@ class overall extends Model
     /**
      * @var int
      */
+    public $totalOnSiteLoggedInTime;
+
+    /**
+     * @example 已弃用，请使用TotalOnSiteLoggedInTime代替此参数
+     *
+     * @var int
+     */
     public $totalOnSiteOnlineTime;
+
+    /**
+     * @var int
+     */
+    public $totalOutboundScenarioLoggedInTime;
 
     /**
      * @var int
@@ -178,6 +204,8 @@ class overall extends Model
     public $totalOutboundScenarioReadyTime;
 
     /**
+     * @example 已弃用，请使用TotalOutboundScenarioLoggedInTime代替此参数
+     *
      * @var int
      */
     public $totalOutboundScenarioTime;
@@ -203,36 +231,40 @@ class overall extends Model
      */
     public $totalWorkTime;
     protected $_name = [
-        'averageBreakTime'               => 'AverageBreakTime',
-        'averageHoldTime'                => 'AverageHoldTime',
-        'averageReadyTime'               => 'AverageReadyTime',
-        'averageTalkTime'                => 'AverageTalkTime',
-        'averageWorkTime'                => 'AverageWorkTime',
-        'breakCodeDetailList'            => 'BreakCodeDetailList',
-        'firstCheckInTime'               => 'FirstCheckInTime',
-        'lastCheckOutTime'               => 'LastCheckOutTime',
-        'maxBreakTime'                   => 'MaxBreakTime',
-        'maxHoldTime'                    => 'MaxHoldTime',
-        'maxReadyTime'                   => 'MaxReadyTime',
-        'maxTalkTime'                    => 'MaxTalkTime',
-        'maxWorkTime'                    => 'MaxWorkTime',
-        'occupancyRate'                  => 'OccupancyRate',
-        'satisfactionIndex'              => 'SatisfactionIndex',
-        'satisfactionRate'               => 'SatisfactionRate',
-        'satisfactionSurveysOffered'     => 'SatisfactionSurveysOffered',
-        'satisfactionSurveysResponded'   => 'SatisfactionSurveysResponded',
-        'totalBreakTime'                 => 'TotalBreakTime',
-        'totalCalls'                     => 'TotalCalls',
-        'totalHoldTime'                  => 'TotalHoldTime',
-        'totalLoggedInTime'              => 'TotalLoggedInTime',
-        'totalOffSiteOnlineTime'         => 'TotalOffSiteOnlineTime',
-        'totalOfficePhoneOnlineTime'     => 'TotalOfficePhoneOnlineTime',
-        'totalOnSiteOnlineTime'          => 'TotalOnSiteOnlineTime',
-        'totalOutboundScenarioReadyTime' => 'TotalOutboundScenarioReadyTime',
-        'totalOutboundScenarioTime'      => 'TotalOutboundScenarioTime',
-        'totalReadyTime'                 => 'TotalReadyTime',
-        'totalTalkTime'                  => 'TotalTalkTime',
-        'totalWorkTime'                  => 'TotalWorkTime',
+        'averageBreakTime'                  => 'AverageBreakTime',
+        'averageHoldTime'                   => 'AverageHoldTime',
+        'averageReadyTime'                  => 'AverageReadyTime',
+        'averageTalkTime'                   => 'AverageTalkTime',
+        'averageWorkTime'                   => 'AverageWorkTime',
+        'breakCodeDetailList'               => 'BreakCodeDetailList',
+        'firstCheckInTime'                  => 'FirstCheckInTime',
+        'lastCheckOutTime'                  => 'LastCheckOutTime',
+        'maxBreakTime'                      => 'MaxBreakTime',
+        'maxHoldTime'                       => 'MaxHoldTime',
+        'maxReadyTime'                      => 'MaxReadyTime',
+        'maxTalkTime'                       => 'MaxTalkTime',
+        'maxWorkTime'                       => 'MaxWorkTime',
+        'occupancyRate'                     => 'OccupancyRate',
+        'satisfactionIndex'                 => 'SatisfactionIndex',
+        'satisfactionRate'                  => 'SatisfactionRate',
+        'satisfactionSurveysOffered'        => 'SatisfactionSurveysOffered',
+        'satisfactionSurveysResponded'      => 'SatisfactionSurveysResponded',
+        'totalBreakTime'                    => 'TotalBreakTime',
+        'totalCalls'                        => 'TotalCalls',
+        'totalHoldTime'                     => 'TotalHoldTime',
+        'totalLoggedInTime'                 => 'TotalLoggedInTime',
+        'totalOffSiteLoggedInTime'          => 'TotalOffSiteLoggedInTime',
+        'totalOffSiteOnlineTime'            => 'TotalOffSiteOnlineTime',
+        'totalOfficePhoneLoggedInTime'      => 'TotalOfficePhoneLoggedInTime',
+        'totalOfficePhoneOnlineTime'        => 'TotalOfficePhoneOnlineTime',
+        'totalOnSiteLoggedInTime'           => 'TotalOnSiteLoggedInTime',
+        'totalOnSiteOnlineTime'             => 'TotalOnSiteOnlineTime',
+        'totalOutboundScenarioLoggedInTime' => 'TotalOutboundScenarioLoggedInTime',
+        'totalOutboundScenarioReadyTime'    => 'TotalOutboundScenarioReadyTime',
+        'totalOutboundScenarioTime'         => 'TotalOutboundScenarioTime',
+        'totalReadyTime'                    => 'TotalReadyTime',
+        'totalTalkTime'                     => 'TotalTalkTime',
+        'totalWorkTime'                     => 'TotalWorkTime',
     ];
 
     public function validate()
@@ -314,14 +346,26 @@ class overall extends Model
         if (null !== $this->totalLoggedInTime) {
             $res['TotalLoggedInTime'] = $this->totalLoggedInTime;
         }
+        if (null !== $this->totalOffSiteLoggedInTime) {
+            $res['TotalOffSiteLoggedInTime'] = $this->totalOffSiteLoggedInTime;
+        }
         if (null !== $this->totalOffSiteOnlineTime) {
             $res['TotalOffSiteOnlineTime'] = $this->totalOffSiteOnlineTime;
+        }
+        if (null !== $this->totalOfficePhoneLoggedInTime) {
+            $res['TotalOfficePhoneLoggedInTime'] = $this->totalOfficePhoneLoggedInTime;
         }
         if (null !== $this->totalOfficePhoneOnlineTime) {
             $res['TotalOfficePhoneOnlineTime'] = $this->totalOfficePhoneOnlineTime;
         }
+        if (null !== $this->totalOnSiteLoggedInTime) {
+            $res['TotalOnSiteLoggedInTime'] = $this->totalOnSiteLoggedInTime;
+        }
         if (null !== $this->totalOnSiteOnlineTime) {
             $res['TotalOnSiteOnlineTime'] = $this->totalOnSiteOnlineTime;
+        }
+        if (null !== $this->totalOutboundScenarioLoggedInTime) {
+            $res['TotalOutboundScenarioLoggedInTime'] = $this->totalOutboundScenarioLoggedInTime;
         }
         if (null !== $this->totalOutboundScenarioReadyTime) {
             $res['TotalOutboundScenarioReadyTime'] = $this->totalOutboundScenarioReadyTime;
@@ -422,14 +466,26 @@ class overall extends Model
         if (isset($map['TotalLoggedInTime'])) {
             $model->totalLoggedInTime = $map['TotalLoggedInTime'];
         }
+        if (isset($map['TotalOffSiteLoggedInTime'])) {
+            $model->totalOffSiteLoggedInTime = $map['TotalOffSiteLoggedInTime'];
+        }
         if (isset($map['TotalOffSiteOnlineTime'])) {
             $model->totalOffSiteOnlineTime = $map['TotalOffSiteOnlineTime'];
+        }
+        if (isset($map['TotalOfficePhoneLoggedInTime'])) {
+            $model->totalOfficePhoneLoggedInTime = $map['TotalOfficePhoneLoggedInTime'];
         }
         if (isset($map['TotalOfficePhoneOnlineTime'])) {
             $model->totalOfficePhoneOnlineTime = $map['TotalOfficePhoneOnlineTime'];
         }
+        if (isset($map['TotalOnSiteLoggedInTime'])) {
+            $model->totalOnSiteLoggedInTime = $map['TotalOnSiteLoggedInTime'];
+        }
         if (isset($map['TotalOnSiteOnlineTime'])) {
             $model->totalOnSiteOnlineTime = $map['TotalOnSiteOnlineTime'];
+        }
+        if (isset($map['TotalOutboundScenarioLoggedInTime'])) {
+            $model->totalOutboundScenarioLoggedInTime = $map['TotalOutboundScenarioLoggedInTime'];
         }
         if (isset($map['TotalOutboundScenarioReadyTime'])) {
             $model->totalOutboundScenarioReadyTime = $map['TotalOutboundScenarioReadyTime'];

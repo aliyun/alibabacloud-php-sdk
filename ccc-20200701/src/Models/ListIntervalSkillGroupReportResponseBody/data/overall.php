@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalSkillGroupReportResponseBody\data;
 
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalSkillGroupReportResponseBody\data\overall\breakCodeDetailList;
 use AlibabaCloud\Tea\Model;
 
 class overall extends Model
@@ -42,6 +43,11 @@ class overall extends Model
      * @var float
      */
     public $averageWorkTime;
+
+    /**
+     * @var breakCodeDetailList[]
+     */
+    public $breakCodeDetailList;
 
     /**
      * @example 1
@@ -167,6 +173,7 @@ class overall extends Model
         'averageReadyTime'             => 'AverageReadyTime',
         'averageTalkTime'              => 'AverageTalkTime',
         'averageWorkTime'              => 'AverageWorkTime',
+        'breakCodeDetailList'          => 'BreakCodeDetailList',
         'maxBreakTime'                 => 'MaxBreakTime',
         'maxHoldTime'                  => 'MaxHoldTime',
         'maxReadyTime'                 => 'MaxReadyTime',
@@ -207,6 +214,15 @@ class overall extends Model
         }
         if (null !== $this->averageWorkTime) {
             $res['AverageWorkTime'] = $this->averageWorkTime;
+        }
+        if (null !== $this->breakCodeDetailList) {
+            $res['BreakCodeDetailList'] = [];
+            if (null !== $this->breakCodeDetailList && \is_array($this->breakCodeDetailList)) {
+                $n = 0;
+                foreach ($this->breakCodeDetailList as $item) {
+                    $res['BreakCodeDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->maxBreakTime) {
             $res['MaxBreakTime'] = $this->maxBreakTime;
@@ -285,6 +301,15 @@ class overall extends Model
         }
         if (isset($map['AverageWorkTime'])) {
             $model->averageWorkTime = $map['AverageWorkTime'];
+        }
+        if (isset($map['BreakCodeDetailList'])) {
+            if (!empty($map['BreakCodeDetailList'])) {
+                $model->breakCodeDetailList = [];
+                $n                          = 0;
+                foreach ($map['BreakCodeDetailList'] as $item) {
+                    $model->breakCodeDetailList[$n++] = null !== $item ? breakCodeDetailList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['MaxBreakTime'])) {
             $model->maxBreakTime = $map['MaxBreakTime'];

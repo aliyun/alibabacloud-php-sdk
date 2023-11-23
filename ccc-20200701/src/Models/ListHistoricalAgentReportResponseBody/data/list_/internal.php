@@ -2,53 +2,36 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentSkillGroupReportResponseBody\data\list_;
+namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportResponseBody\data\list_;
 
 use AlibabaCloud\Tea\Model;
 
 class internal extends Model
 {
     /**
-     * @example 100
-     *
-     * @var int
+     * @var float
      */
     public $averageTalkTime;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $callsAnswered;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $callsDialed;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $callsHandled;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $callsOffered;
-
-    /**
-     * @example 100
-     *
-     * @var int
-     */
-    public $callsTalk;
 
     /**
      * @var int
@@ -56,15 +39,11 @@ class internal extends Model
     public $callsTalked;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $maxTalkTime;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalTalkTime;
@@ -74,7 +53,6 @@ class internal extends Model
         'callsDialed'     => 'CallsDialed',
         'callsHandled'    => 'CallsHandled',
         'callsOffered'    => 'CallsOffered',
-        'callsTalk'       => 'CallsTalk',
         'callsTalked'     => 'CallsTalked',
         'maxTalkTime'     => 'MaxTalkTime',
         'totalTalkTime'   => 'TotalTalkTime',
@@ -101,9 +79,6 @@ class internal extends Model
         }
         if (null !== $this->callsOffered) {
             $res['CallsOffered'] = $this->callsOffered;
-        }
-        if (null !== $this->callsTalk) {
-            $res['CallsTalk'] = $this->callsTalk;
         }
         if (null !== $this->callsTalked) {
             $res['CallsTalked'] = $this->callsTalked;
@@ -140,9 +115,6 @@ class internal extends Model
         }
         if (isset($map['CallsOffered'])) {
             $model->callsOffered = $map['CallsOffered'];
-        }
-        if (isset($map['CallsTalk'])) {
-            $model->callsTalk = $map['CallsTalk'];
         }
         if (isset($map['CallsTalked'])) {
             $model->callsTalked = $map['CallsTalked'];

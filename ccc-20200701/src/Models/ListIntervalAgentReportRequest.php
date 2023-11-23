@@ -37,6 +37,11 @@ class ListIntervalAgentReportRequest extends Model
     public $interval;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example 1532448000000
      *
      * @var int
@@ -47,6 +52,7 @@ class ListIntervalAgentReportRequest extends Model
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
         'interval'   => 'Interval',
+        'mediaType'  => 'MediaType',
         'startTime'  => 'StartTime',
     ];
 
@@ -68,6 +74,9 @@ class ListIntervalAgentReportRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -95,6 +104,9 @@ class ListIntervalAgentReportRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

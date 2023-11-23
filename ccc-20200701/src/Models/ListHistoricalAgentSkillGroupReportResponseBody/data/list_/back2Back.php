@@ -16,6 +16,11 @@ class back2Back extends Model
     public $agentAnswerRate;
 
     /**
+     * @var float
+     */
+    public $agentHandleRate;
+
+    /**
      * @example 0.6
      *
      * @var float
@@ -44,11 +49,21 @@ class back2Back extends Model
     public $averageTalkTime;
 
     /**
+     * @var int
+     */
+    public $callsAgentHandled;
+
+    /**
      * @example 100
      *
      * @var int
      */
     public $callsAnswered;
+
+    /**
+     * @var int
+     */
+    public $callsCustomerAnswered;
 
     /**
      * @example 100
@@ -63,6 +78,11 @@ class back2Back extends Model
      * @var int
      */
     public $callsDialed;
+
+    /**
+     * @var float
+     */
+    public $customerAnswerRate;
 
     /**
      * @example 0.5
@@ -114,13 +134,17 @@ class back2Back extends Model
     public $totalTalkTime;
     protected $_name = [
         'agentAnswerRate'         => 'AgentAnswerRate',
+        'agentHandleRate'         => 'AgentHandleRate',
         'answerRate'              => 'AnswerRate',
         'averageCustomerRingTime' => 'AverageCustomerRingTime',
         'averageRingTime'         => 'AverageRingTime',
         'averageTalkTime'         => 'AverageTalkTime',
+        'callsAgentHandled'       => 'CallsAgentHandled',
         'callsAnswered'           => 'CallsAnswered',
+        'callsCustomerAnswered'   => 'CallsCustomerAnswered',
         'callsCustomerHandled'    => 'CallsCustomerHandled',
         'callsDialed'             => 'CallsDialed',
+        'customerAnswerRate'      => 'CustomerAnswerRate',
         'customerHandleRate'      => 'CustomerHandleRate',
         'maxCustomerRingTime'     => 'MaxCustomerRingTime',
         'maxRingTime'             => 'MaxRingTime',
@@ -140,6 +164,9 @@ class back2Back extends Model
         if (null !== $this->agentAnswerRate) {
             $res['AgentAnswerRate'] = $this->agentAnswerRate;
         }
+        if (null !== $this->agentHandleRate) {
+            $res['AgentHandleRate'] = $this->agentHandleRate;
+        }
         if (null !== $this->answerRate) {
             $res['AnswerRate'] = $this->answerRate;
         }
@@ -152,14 +179,23 @@ class back2Back extends Model
         if (null !== $this->averageTalkTime) {
             $res['AverageTalkTime'] = $this->averageTalkTime;
         }
+        if (null !== $this->callsAgentHandled) {
+            $res['CallsAgentHandled'] = $this->callsAgentHandled;
+        }
         if (null !== $this->callsAnswered) {
             $res['CallsAnswered'] = $this->callsAnswered;
+        }
+        if (null !== $this->callsCustomerAnswered) {
+            $res['CallsCustomerAnswered'] = $this->callsCustomerAnswered;
         }
         if (null !== $this->callsCustomerHandled) {
             $res['CallsCustomerHandled'] = $this->callsCustomerHandled;
         }
         if (null !== $this->callsDialed) {
             $res['CallsDialed'] = $this->callsDialed;
+        }
+        if (null !== $this->customerAnswerRate) {
+            $res['CustomerAnswerRate'] = $this->customerAnswerRate;
         }
         if (null !== $this->customerHandleRate) {
             $res['CustomerHandleRate'] = $this->customerHandleRate;
@@ -197,6 +233,9 @@ class back2Back extends Model
         if (isset($map['AgentAnswerRate'])) {
             $model->agentAnswerRate = $map['AgentAnswerRate'];
         }
+        if (isset($map['AgentHandleRate'])) {
+            $model->agentHandleRate = $map['AgentHandleRate'];
+        }
         if (isset($map['AnswerRate'])) {
             $model->answerRate = $map['AnswerRate'];
         }
@@ -209,14 +248,23 @@ class back2Back extends Model
         if (isset($map['AverageTalkTime'])) {
             $model->averageTalkTime = $map['AverageTalkTime'];
         }
+        if (isset($map['CallsAgentHandled'])) {
+            $model->callsAgentHandled = $map['CallsAgentHandled'];
+        }
         if (isset($map['CallsAnswered'])) {
             $model->callsAnswered = $map['CallsAnswered'];
+        }
+        if (isset($map['CallsCustomerAnswered'])) {
+            $model->callsCustomerAnswered = $map['CallsCustomerAnswered'];
         }
         if (isset($map['CallsCustomerHandled'])) {
             $model->callsCustomerHandled = $map['CallsCustomerHandled'];
         }
         if (isset($map['CallsDialed'])) {
             $model->callsDialed = $map['CallsDialed'];
+        }
+        if (isset($map['CustomerAnswerRate'])) {
+            $model->customerAnswerRate = $map['CustomerAnswerRate'];
         }
         if (isset($map['CustomerHandleRate'])) {
             $model->customerHandleRate = $map['CustomerHandleRate'];

@@ -77,6 +77,11 @@ class list_ extends Model
     public $personalOutboundNumberList;
 
     /**
+     * @var bool
+     */
+    public $primary;
+
+    /**
      * @example false
      *
      * @var bool
@@ -133,6 +138,7 @@ class list_ extends Model
         'loginName'                  => 'LoginName',
         'mobile'                     => 'Mobile',
         'personalOutboundNumberList' => 'PersonalOutboundNumberList',
+        'primary'                    => 'Primary',
         'primaryAccount'             => 'PrimaryAccount',
         'ramId'                      => 'RamId',
         'roleId'                     => 'RoleId',
@@ -184,6 +190,9 @@ class list_ extends Model
                     $res['PersonalOutboundNumberList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->primary) {
+            $res['Primary'] = $this->primary;
         }
         if (null !== $this->primaryAccount) {
             $res['PrimaryAccount'] = $this->primaryAccount;
@@ -259,6 +268,9 @@ class list_ extends Model
                     $model->personalOutboundNumberList[$n++] = null !== $item ? personalOutboundNumberList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Primary'])) {
+            $model->primary = $map['Primary'];
         }
         if (isset($map['PrimaryAccount'])) {
             $model->primaryAccount = $map['PrimaryAccount'];

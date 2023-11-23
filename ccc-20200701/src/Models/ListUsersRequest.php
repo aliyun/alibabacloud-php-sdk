@@ -35,11 +35,17 @@ class ListUsersRequest extends Model
      * @var string
      */
     public $searchPattern;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
     protected $_name = [
         'instanceId'    => 'InstanceId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'searchPattern' => 'SearchPattern',
+        'skillGroupId'  => 'SkillGroupId',
     ];
 
     public function validate()
@@ -60,6 +66,9 @@ class ListUsersRequest extends Model
         }
         if (null !== $this->searchPattern) {
             $res['SearchPattern'] = $this->searchPattern;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -84,6 +93,9 @@ class ListUsersRequest extends Model
         }
         if (isset($map['SearchPattern'])) {
             $model->searchPattern = $map['SearchPattern'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

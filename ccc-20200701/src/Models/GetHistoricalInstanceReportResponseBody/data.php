@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalInstanceReportResponseBody;
 
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalInstanceReportResponseBody\data\inbound;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalInstanceReportResponseBody\data\internal;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalInstanceReportResponseBody\data\outbound;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalInstanceReportResponseBody\data\overall;
 use AlibabaCloud\Tea\Model;
@@ -17,6 +18,11 @@ class data extends Model
     public $inbound;
 
     /**
+     * @var internal
+     */
+    public $internal;
+
+    /**
      * @var outbound
      */
     public $outbound;
@@ -27,6 +33,7 @@ class data extends Model
     public $overall;
     protected $_name = [
         'inbound'  => 'Inbound',
+        'internal' => 'Internal',
         'outbound' => 'Outbound',
         'overall'  => 'Overall',
     ];
@@ -40,6 +47,9 @@ class data extends Model
         $res = [];
         if (null !== $this->inbound) {
             $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
+        }
+        if (null !== $this->internal) {
+            $res['Internal'] = null !== $this->internal ? $this->internal->toMap() : null;
         }
         if (null !== $this->outbound) {
             $res['Outbound'] = null !== $this->outbound ? $this->outbound->toMap() : null;
@@ -61,6 +71,9 @@ class data extends Model
         $model = new self();
         if (isset($map['Inbound'])) {
             $model->inbound = inbound::fromMap($map['Inbound']);
+        }
+        if (isset($map['Internal'])) {
+            $model->internal = internal::fromMap($map['Internal']);
         }
         if (isset($map['Outbound'])) {
             $model->outbound = outbound::fromMap($map['Outbound']);

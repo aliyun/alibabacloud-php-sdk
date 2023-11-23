@@ -58,6 +58,11 @@ class overall extends Model
     public $maxHoldTime;
 
     /**
+     * @var int
+     */
+    public $maxLoggedInAgents;
+
+    /**
      * @example 0
      *
      * @var int
@@ -169,6 +174,7 @@ class overall extends Model
         'averageWorkTime'              => 'AverageWorkTime',
         'maxBreakTime'                 => 'MaxBreakTime',
         'maxHoldTime'                  => 'MaxHoldTime',
+        'maxLoggedInAgents'            => 'MaxLoggedInAgents',
         'maxReadyTime'                 => 'MaxReadyTime',
         'maxTalkTime'                  => 'MaxTalkTime',
         'maxWorkTime'                  => 'MaxWorkTime',
@@ -213,6 +219,9 @@ class overall extends Model
         }
         if (null !== $this->maxHoldTime) {
             $res['MaxHoldTime'] = $this->maxHoldTime;
+        }
+        if (null !== $this->maxLoggedInAgents) {
+            $res['MaxLoggedInAgents'] = $this->maxLoggedInAgents;
         }
         if (null !== $this->maxReadyTime) {
             $res['MaxReadyTime'] = $this->maxReadyTime;
@@ -291,6 +300,9 @@ class overall extends Model
         }
         if (isset($map['MaxHoldTime'])) {
             $model->maxHoldTime = $map['MaxHoldTime'];
+        }
+        if (isset($map['MaxLoggedInAgents'])) {
+            $model->maxLoggedInAgents = $map['MaxLoggedInAgents'];
         }
         if (isset($map['MaxReadyTime'])) {
             $model->maxReadyTime = $map['MaxReadyTime'];
