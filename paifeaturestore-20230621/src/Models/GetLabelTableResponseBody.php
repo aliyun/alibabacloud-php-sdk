@@ -71,22 +71,28 @@ class GetLabelTableResponseBody extends Model
     public $projectName;
 
     /**
+     * @var string[]
+     */
+    public $relatedModelFeatures;
+
+    /**
      * @example 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'datasourceId'    => 'DatasourceId',
-        'datasourceName'  => 'DatasourceName',
-        'fields'          => 'Fields',
-        'gmtCreateTime'   => 'GmtCreateTime',
-        'gmtModifiedTime' => 'GmtModifiedTime',
-        'name'            => 'Name',
-        'owner'           => 'Owner',
-        'projectId'       => 'ProjectId',
-        'projectName'     => 'ProjectName',
-        'requestId'       => 'RequestId',
+        'datasourceId'         => 'DatasourceId',
+        'datasourceName'       => 'DatasourceName',
+        'fields'               => 'Fields',
+        'gmtCreateTime'        => 'GmtCreateTime',
+        'gmtModifiedTime'      => 'GmtModifiedTime',
+        'name'                 => 'Name',
+        'owner'                => 'Owner',
+        'projectId'            => 'ProjectId',
+        'projectName'          => 'ProjectName',
+        'relatedModelFeatures' => 'RelatedModelFeatures',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -128,6 +134,9 @@ class GetLabelTableResponseBody extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->relatedModelFeatures) {
+            $res['RelatedModelFeatures'] = $this->relatedModelFeatures;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -176,6 +185,11 @@ class GetLabelTableResponseBody extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['RelatedModelFeatures'])) {
+            if (!empty($map['RelatedModelFeatures'])) {
+                $model->relatedModelFeatures = $map['RelatedModelFeatures'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
