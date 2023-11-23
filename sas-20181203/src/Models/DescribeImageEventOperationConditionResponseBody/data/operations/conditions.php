@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
+     * @description The keyword of the condition. Valid values:
+     *
+     *   **MD5**
+     *   **PATH**
+     *
      * @example MD5
      *
      * @var string
@@ -16,6 +21,8 @@ class conditions extends Model
     public $conditionKey;
 
     /**
+     * @description The name of the condition.
+     *
      * @example MD5
      *
      * @var string
@@ -23,6 +30,8 @@ class conditions extends Model
     public $conditionName;
 
     /**
+     * @description The matching types.
+     *
      * @var string[]
      */
     public $supportedMisType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageEventOperationPageRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeImageEventOperationPageRequest extends Model
     public $currentPage;
 
     /**
+     * @description The keyword of the alert item.
+     *
      * @example PEM
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeImageEventOperationPageRequest extends Model
     public $eventKey;
 
     /**
+     * @description The name of the alert item.
+     *
      * @example PEM
      *
      * @var string
@@ -30,6 +36,10 @@ class DescribeImageEventOperationPageRequest extends Model
     public $eventName;
 
     /**
+     * @description The alert type.
+     *
+     *   Set the value to **sensitiveFile**.
+     *
      * @example sensitiveFile
      *
      * @var string
@@ -37,6 +47,8 @@ class DescribeImageEventOperationPageRequest extends Model
     public $eventType;
 
     /**
+     * @description The ID of the alert handling rule.
+     *
      * @example 49616
      *
      * @var int
@@ -44,6 +56,11 @@ class DescribeImageEventOperationPageRequest extends Model
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
      * @example zh
      *
      * @var string
@@ -51,6 +68,8 @@ class DescribeImageEventOperationPageRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int

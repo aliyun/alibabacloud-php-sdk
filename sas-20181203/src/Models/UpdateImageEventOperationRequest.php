@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageEventOperationRequest extends Model
 {
     /**
+     * @description The ID of the alert handling rule.
+     *
      * @example 814163
      *
      * @var int
@@ -16,6 +18,11 @@ class UpdateImageEventOperationRequest extends Model
     public $id;
 
     /**
+     * @description The application scope of the rule. The value is in the JSON format. Valid values:
+     *
+     *   **type**
+     *   **value**
+     *
      * @example {\"type\": \"repo\", \"value\": \"test-aaa/shenzhen-repo-01\"}
      *
      * @var string

@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The alert type.
+     *
+     *   Only **sensitiveFile** may be returned.
+     *
      * @example sensitiveFile
      *
      * @var string
@@ -17,11 +21,15 @@ class data extends Model
     public $eventType;
 
     /**
+     * @description The operations.
+     *
      * @var operations[]
      */
     public $operations;
 
     /**
+     * @description The application scopes of the rules.
+     *
      * @var string[]
      */
     public $scenarios;

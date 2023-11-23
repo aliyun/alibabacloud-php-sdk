@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteImageEventOperationRequest extends Model
 {
     /**
+     * @description The primary key of the alert handling rule.
+     *
      * @example 1404656
      *
      * @var int

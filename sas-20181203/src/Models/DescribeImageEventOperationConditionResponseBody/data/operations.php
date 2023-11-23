@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class operations extends Model
 {
     /**
+     * @description The rule conditions.
+     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
+     * @description The operation code.
+     *
+     *   Only **whitelist** may be returned, which indicates that the alert event is added to the whitelist.
+     *
      * @example whitelist
      *
      * @var string
@@ -22,6 +28,8 @@ class operations extends Model
     public $operationCode;
 
     /**
+     * @description The name of the operation.
+     *
      * @example whitelist
      *
      * @var string

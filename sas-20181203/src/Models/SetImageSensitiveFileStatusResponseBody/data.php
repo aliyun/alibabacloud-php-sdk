@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The primary key ID of the database.
+     *
      * @example 18551
      *
      * @var int

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageEventOperationConditionRequest extends Model
 {
     /**
+     * @description The alert type.
+     *
+     *   Set the value to **sensitiveFile**.
+     *
      * @example sensitiveFile
      *
      * @var string
@@ -16,6 +20,11 @@ class DescribeImageEventOperationConditionRequest extends Model
     public $eventType;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
      * @example zh
      *
      * @var string

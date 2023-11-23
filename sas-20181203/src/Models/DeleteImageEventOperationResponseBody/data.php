@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The primary key of the alert handling rule.
+     *
      * @example 443496
      *
      * @var int

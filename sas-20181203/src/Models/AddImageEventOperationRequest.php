@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class AddImageEventOperationRequest extends Model
 {
     /**
+     * @description The rule conditions. The value is in the JSON format. Valid values of keys:
+     *
+     *   **condition**: the matching condition.
+     *   **type**: the matching type.
+     *   **value**: the matching value.
+     *
      * @example [{\"condition\": \"MD5\", \"type\": \"equals\", \"value\": \"0083a31cc0083a31ccf7c10367a6e783e\"}]
      *
      * @var string
@@ -16,6 +22,8 @@ class AddImageEventOperationRequest extends Model
     public $conditions;
 
     /**
+     * @description The keyword of the alert item.
+     *
      * @example PEM
      *
      * @var string
@@ -23,6 +31,8 @@ class AddImageEventOperationRequest extends Model
     public $eventKey;
 
     /**
+     * @description The name of the alert item.
+     *
      * @example PEM
      *
      * @var string
@@ -30,6 +40,10 @@ class AddImageEventOperationRequest extends Model
     public $eventName;
 
     /**
+     * @description The alert type.
+     *
+     *   Set the value to **sensitiveFile**.
+     *
      * @example sensitiveFile
      *
      * @var string
@@ -37,6 +51,10 @@ class AddImageEventOperationRequest extends Model
     public $eventType;
 
     /**
+     * @description The operation code.
+     *
+     *   Set the value to **whitelist** to add the alert item to the whitelist.
+     *
      * @example whitelist
      *
      * @var string
@@ -44,6 +62,11 @@ class AddImageEventOperationRequest extends Model
     public $operationCode;
 
     /**
+     * @description The application scope of the rule. The value is in the JSON format. Valid values of keys:
+     *
+     *   **type**
+     *   **value**
+     *
      * @example {\"type\": \"repo\", \"value\": \"test-aaa/shenzhen-repo-01\"}
      *
      * @var string

@@ -94,7 +94,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public $lang;
 
     /**
-     * @description The severity. Separate multiple severities with commas (,). Valid values:
+     * @description The severity level of the malicious image sample. Separate multiple severity levels with commas (,). Valid values:
      *
      *   **serious**
      *   **suspicious**
@@ -214,11 +214,13 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public $scanRange;
 
     /**
-     * @description 镜像恶意样本处理状态。取值：
-     * - **0**：未处理
-     * - **1**：已处理
-     * - **2**：验证中
-     * - **3**：已加白
+     * @description The status of the malicious image sample. Valid values:
+     *
+     *   **0**: The malicious image sample is not handled.
+     *   **1**: The malicious image sample is handled.
+     *   **2**: The malicious image sample is being verified.
+     *   **3**: The malicious image sample is added to the whitelist.
+     *
      * @example 0
      *
      * @var string

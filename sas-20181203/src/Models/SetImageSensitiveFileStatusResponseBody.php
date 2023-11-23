@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SetImageSensitiveFileStatusResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class SetImageSensitiveFileStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class SetImageSensitiveFileStatusResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 20456DD5-5CBF-5015-9173-12CA4246****
      *
      * @var string
@@ -36,6 +44,11 @@ class SetImageSensitiveFileStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

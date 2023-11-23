@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageEventOperationConditionResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeImageEventOperationConditionResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeImageEventOperationConditionResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ADE57832-9666-511C-9A80-B87DE2E8****
      *
      * @var string
@@ -36,6 +44,11 @@ class DescribeImageEventOperationConditionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

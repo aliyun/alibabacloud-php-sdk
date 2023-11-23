@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The custom primary key.
+     *
      * @example 44616
      *
      * @var int

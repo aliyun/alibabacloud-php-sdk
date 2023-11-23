@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteImageEventOperationResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class DeleteImageEventOperationResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class DeleteImageEventOperationResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example A3D7C47D-3F11-57BB-90E8-E5C20C61****
      *
      * @var string
@@ -36,6 +44,11 @@ class DeleteImageEventOperationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

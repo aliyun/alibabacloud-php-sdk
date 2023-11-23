@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ruleTree extends Model
 {
     /**
+     * @description The category keyword of the check rule.
+     *
      * @example password
      *
      * @var string
@@ -17,6 +19,8 @@ class ruleTree extends Model
     public $classKey;
 
     /**
+     * @description The category name of the check rule.
+     *
      * @example password
      *
      * @var string
@@ -24,6 +28,8 @@ class ruleTree extends Model
     public $className;
 
     /**
+     * @description The list of check rules.
+     *
      * @var ruleList[]
      */
     public $ruleList;

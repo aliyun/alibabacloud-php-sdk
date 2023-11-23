@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetSensitiveDefineRuleConfigRequest extends Model
 {
     /**
+     * @description The configurations of the custom check rule. The value is in the JSON format. Valid values of keys:
+     *
+     *   **classKey**: the category keyword of the check rule.
+     *   **ruleList**: the keyword of the check rule.
+     *
      * @example [{\"classKey\": \"password\", \"ruleList\": [\"huaweicloud_ak\", \"ak_leak\"]}]
      *
      * @var string

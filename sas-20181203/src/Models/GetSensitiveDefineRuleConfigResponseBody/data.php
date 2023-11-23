@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The custom configuration ID.
+     *
      * @example 44616
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The total number of check rules.
+     *
      * @example 100
      *
      * @var int
@@ -24,11 +28,15 @@ class data extends Model
     public $ruleCount;
 
     /**
+     * @description The tree of the check rules.
+     *
      * @var ruleTree[]
      */
     public $ruleTree;
 
     /**
+     * @description The number of selected check rules.
+     *
      * @example 99
      *
      * @var int

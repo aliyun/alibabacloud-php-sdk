@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetImageEventOperationRequest extends Model
 {
     /**
+     * @description The primary key of the alert handling rule.
+     *
      * @example 814163
      *
      * @var int
@@ -16,6 +18,11 @@ class GetImageEventOperationRequest extends Model
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
