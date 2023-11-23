@@ -18015,6 +18015,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBProxyInstanceNum)) {
             $query['DBProxyInstanceNum'] = $request->DBProxyInstanceNum;
         }
+        if (!Utils::isUnset($request->DBProxyInstanceType)) {
+            $query['DBProxyInstanceType'] = $request->DBProxyInstanceType;
+        }
         if (!Utils::isUnset($request->instanceNetworkType)) {
             $query['InstanceNetworkType'] = $request->instanceNetworkType;
         }

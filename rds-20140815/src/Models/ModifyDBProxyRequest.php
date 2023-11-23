@@ -49,6 +49,13 @@ class ModifyDBProxyRequest extends Model
     public $DBProxyInstanceNum;
 
     /**
+     * @example common
+     *
+     * @var string
+     */
+    public $DBProxyInstanceType;
+
+    /**
      * @description The network type of the instance. Set the value to **VPC**.
      *
      * > This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
@@ -115,6 +122,7 @@ class ModifyDBProxyRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'DBProxyEngineType'    => 'DBProxyEngineType',
         'DBProxyInstanceNum'   => 'DBProxyInstanceNum',
+        'DBProxyInstanceType'  => 'DBProxyInstanceType',
         'instanceNetworkType'  => 'InstanceNetworkType',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -143,6 +151,9 @@ class ModifyDBProxyRequest extends Model
         }
         if (null !== $this->DBProxyInstanceNum) {
             $res['DBProxyInstanceNum'] = $this->DBProxyInstanceNum;
+        }
+        if (null !== $this->DBProxyInstanceType) {
+            $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
         }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
@@ -191,6 +202,9 @@ class ModifyDBProxyRequest extends Model
         }
         if (isset($map['DBProxyInstanceNum'])) {
             $model->DBProxyInstanceNum = $map['DBProxyInstanceNum'];
+        }
+        if (isset($map['DBProxyInstanceType'])) {
+            $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
         }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];

@@ -1,3 +1,6 @@
+2023-11-23 Version: 2.6.7
+- Generated php 2014-08-15 for Rds.
+
 2023-11-23 Version: 2.6.6
 - Generated php 2014-08-15 for Rds.
 

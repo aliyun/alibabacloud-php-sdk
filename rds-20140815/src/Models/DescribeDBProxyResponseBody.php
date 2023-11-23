@@ -108,6 +108,11 @@ class DescribeDBProxyResponseBody extends Model
     public $DBProxyInstanceType;
 
     /**
+     * @var string
+     */
+    public $DBProxyPersistentConnectionSupport;
+
+    /**
      * @description The status of the database proxy.
      *
      *   Shutdown: disabled
@@ -154,6 +159,7 @@ class DescribeDBProxyResponseBody extends Model
         'DBProxyInstanceSize'                => 'DBProxyInstanceSize',
         'DBProxyInstanceStatus'              => 'DBProxyInstanceStatus',
         'DBProxyInstanceType'                => 'DBProxyInstanceType',
+        'DBProxyPersistentConnectionSupport' => 'DBProxyPersistentConnectionSupport',
         'DBProxyServiceStatus'               => 'DBProxyServiceStatus',
         'dbProxyEndpointItems'               => 'DbProxyEndpointItems',
         'requestId'                          => 'RequestId',
@@ -196,6 +202,9 @@ class DescribeDBProxyResponseBody extends Model
         }
         if (null !== $this->DBProxyInstanceType) {
             $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
+        }
+        if (null !== $this->DBProxyPersistentConnectionSupport) {
+            $res['DBProxyPersistentConnectionSupport'] = $this->DBProxyPersistentConnectionSupport;
         }
         if (null !== $this->DBProxyServiceStatus) {
             $res['DBProxyServiceStatus'] = $this->DBProxyServiceStatus;
@@ -250,6 +259,9 @@ class DescribeDBProxyResponseBody extends Model
         }
         if (isset($map['DBProxyInstanceType'])) {
             $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
+        }
+        if (isset($map['DBProxyPersistentConnectionSupport'])) {
+            $model->DBProxyPersistentConnectionSupport = $map['DBProxyPersistentConnectionSupport'];
         }
         if (isset($map['DBProxyServiceStatus'])) {
             $model->DBProxyServiceStatus = $map['DBProxyServiceStatus'];
