@@ -52,8 +52,9 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
     /**
      * @description The type of the service resource. Valid values:
      *
-     *   **slb**: a Classic Load Balancer (CLB) instance that supports PrivateLink. In addition, the CLB instance is deployed in a virtual private cloud (VPC).
-     *   **alb**: an Application Load Balancer (ALB) instance that supports PrivateLink. In addition, the ALB instance is deployed in a VPC.
+     *   **slb**: a Classic Load Balancer (CLB) instance
+     *   **alb**: an Application Load Balancer (ALB) instance
+     *   **nlb**: a Network Load Balancer (NLB) instance
      *
      * @example slb
      *
@@ -71,6 +72,8 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
     public $serviceId;
 
     /**
+     * @description The zone ID of the service resource.
+     *
      * @example cn-hangzhou-j
      *
      * @var string

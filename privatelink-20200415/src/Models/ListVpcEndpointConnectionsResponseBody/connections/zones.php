@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
-     * @description The endpoint ENI ID.
+     * @description The ID of the endpoint elastic network interface (ENI).
      *
      * @example eni-hp32lk0pyv6o94hs****
      *
@@ -18,7 +18,7 @@ class zones extends Model
     public $eniId;
 
     /**
-     * @description The ID of the replaced endpoint ENI in smooth migration scenarios.
+     * @description The ID of the endpoint ENI replaced in smooth migration scenarios.
      *
      * @example eni-hp32lk0pyv6o94hs****
      *
@@ -27,7 +27,7 @@ class zones extends Model
     public $replacedEniId;
 
     /**
-     * @description The ID of the replaced service resource in smooth migration scenarios.
+     * @description The ID of the service resource replaced in smooth migration scenarios.
      *
      * @example lb-hp32z1wp5peaoox2q****
      *
