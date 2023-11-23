@@ -73,8 +73,6 @@ class SubmitMediaProducingJobRequest extends Model
     public $templateId;
 
     /**
-     * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
-     *
      * @var string
      */
     public $timeline;

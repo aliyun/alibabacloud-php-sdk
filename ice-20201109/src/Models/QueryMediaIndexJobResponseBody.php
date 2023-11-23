@@ -4,21 +4,22 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaIndexJobResponseBody\indexJobInfoList;
 use AlibabaCloud\Tea\Model;
 
-class UpdateMediaToSearchLibResponseBody extends Model
+class QueryMediaIndexJobResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @example ******b48fb04483915d4f2cd8******
-     *
-     * @var string
+     * @var indexJobInfoList[]
      */
-    public $mediaId;
+    public $indexJobInfoList;
 
     /**
      * @example 4E84BE44-58A7-****-****-FBEBEA16EF94
@@ -28,14 +29,16 @@ class UpdateMediaToSearchLibResponseBody extends Model
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'mediaId'   => 'MediaId',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'code'             => 'Code',
+        'indexJobInfoList' => 'IndexJobInfoList',
+        'requestId'        => 'RequestId',
+        'success'          => 'Success',
     ];
 
     public function validate()
@@ -48,8 +51,14 @@ class UpdateMediaToSearchLibResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
+        if (null !== $this->indexJobInfoList) {
+            $res['IndexJobInfoList'] = [];
+            if (null !== $this->indexJobInfoList && \is_array($this->indexJobInfoList)) {
+                $n = 0;
+                foreach ($this->indexJobInfoList as $item) {
+                    $res['IndexJobInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -64,7 +73,7 @@ class UpdateMediaToSearchLibResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateMediaToSearchLibResponseBody
+     * @return QueryMediaIndexJobResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -72,8 +81,14 @@ class UpdateMediaToSearchLibResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
+        if (isset($map['IndexJobInfoList'])) {
+            if (!empty($map['IndexJobInfoList'])) {
+                $model->indexJobInfoList = [];
+                $n                       = 0;
+                foreach ($map['IndexJobInfoList'] as $item) {
+                    $model->indexJobInfoList[$n++] = null !== $item ? indexJobInfoList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

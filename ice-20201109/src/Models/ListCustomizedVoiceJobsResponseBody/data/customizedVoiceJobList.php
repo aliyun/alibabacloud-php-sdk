@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class customizedVoiceJobList extends Model
 {
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @example female
      *
      * @var string
@@ -51,6 +56,11 @@ class customizedVoiceJobList extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $voiceDesc;
 
     /**
@@ -65,15 +75,17 @@ class customizedVoiceJobList extends Model
      */
     public $voiceName;
     protected $_name = [
-        'gender'    => 'Gender',
-        'gmtCreate' => 'GmtCreate',
-        'jobId'     => 'JobId',
-        'message'   => 'Message',
-        'scenario'  => 'Scenario',
-        'status'    => 'Status',
-        'voiceDesc' => 'VoiceDesc',
-        'voiceId'   => 'VoiceId',
-        'voiceName' => 'VoiceName',
+        'createTime' => 'CreateTime',
+        'gender'     => 'Gender',
+        'gmtCreate'  => 'GmtCreate',
+        'jobId'      => 'JobId',
+        'message'    => 'Message',
+        'scenario'   => 'Scenario',
+        'status'     => 'Status',
+        'type'       => 'Type',
+        'voiceDesc'  => 'VoiceDesc',
+        'voiceId'    => 'VoiceId',
+        'voiceName'  => 'VoiceName',
     ];
 
     public function validate()
@@ -83,6 +95,9 @@ class customizedVoiceJobList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->gender) {
             $res['Gender'] = $this->gender;
         }
@@ -100,6 +115,9 @@ class customizedVoiceJobList extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->voiceDesc) {
             $res['VoiceDesc'] = $this->voiceDesc;
@@ -122,6 +140,9 @@ class customizedVoiceJobList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['Gender'])) {
             $model->gender = $map['Gender'];
         }
@@ -139,6 +160,9 @@ class customizedVoiceJobList extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['VoiceDesc'])) {
             $model->voiceDesc = $map['VoiceDesc'];

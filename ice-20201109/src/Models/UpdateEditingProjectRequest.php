@@ -49,8 +49,6 @@ class UpdateEditingProjectRequest extends Model
     public $templateId;
 
     /**
-     * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****cc3308ac500ca54328bc3443****"},{"MediaId":"****da87a9cff64*d88bc6d8326e4****"}]}]}
-     *
      * @var string
      */
     public $timeline;

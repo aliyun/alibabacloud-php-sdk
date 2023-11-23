@@ -21,9 +21,15 @@ class ListCustomizedVoiceJobsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'pageNo'   => 'PageNo',
         'pageSize' => 'PageSize',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class ListCustomizedVoiceJobsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class ListCustomizedVoiceJobsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

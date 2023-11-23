@@ -32,6 +32,11 @@ class customizedVoiceList extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $voiceDesc;
 
     /**
@@ -49,6 +54,7 @@ class customizedVoiceList extends Model
         'demoAudioMediaId' => 'DemoAudioMediaId',
         'gender'           => 'Gender',
         'scenario'         => 'Scenario',
+        'type'             => 'Type',
         'voiceDesc'        => 'VoiceDesc',
         'voiceId'          => 'VoiceId',
         'voiceName'        => 'VoiceName',
@@ -69,6 +75,9 @@ class customizedVoiceList extends Model
         }
         if (null !== $this->scenario) {
             $res['Scenario'] = $this->scenario;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->voiceDesc) {
             $res['VoiceDesc'] = $this->voiceDesc;
@@ -99,6 +108,9 @@ class customizedVoiceList extends Model
         }
         if (isset($map['Scenario'])) {
             $model->scenario = $map['Scenario'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['VoiceDesc'])) {
             $model->voiceDesc = $map['VoiceDesc'];

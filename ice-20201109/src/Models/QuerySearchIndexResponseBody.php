@@ -9,11 +9,14 @@ use AlibabaCloud\Tea\Model;
 class QuerySearchIndexResponseBody extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
-    public $indexConfig;
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $indexStatus;
 
     /**
      * @example mm
@@ -21,6 +24,11 @@ class QuerySearchIndexResponseBody extends Model
      * @var string
      */
     public $indexType;
+
+    /**
+     * @var string
+     */
+    public $mediaTotal;
 
     /**
      * @description Id of the request
@@ -37,11 +45,19 @@ class QuerySearchIndexResponseBody extends Model
      * @var string
      */
     public $searchLibName;
+
+    /**
+     * @var string
+     */
+    public $success;
     protected $_name = [
-        'indexConfig'   => 'IndexConfig',
+        'code'          => 'Code',
+        'indexStatus'   => 'IndexStatus',
         'indexType'     => 'IndexType',
+        'mediaTotal'    => 'MediaTotal',
         'requestId'     => 'RequestId',
         'searchLibName' => 'SearchLibName',
+        'success'       => 'Success',
     ];
 
     public function validate()
@@ -51,17 +67,26 @@ class QuerySearchIndexResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->indexConfig) {
-            $res['IndexConfig'] = $this->indexConfig;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->indexStatus) {
+            $res['IndexStatus'] = $this->indexStatus;
         }
         if (null !== $this->indexType) {
             $res['IndexType'] = $this->indexType;
+        }
+        if (null !== $this->mediaTotal) {
+            $res['MediaTotal'] = $this->mediaTotal;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->searchLibName) {
             $res['SearchLibName'] = $this->searchLibName;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -75,17 +100,26 @@ class QuerySearchIndexResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IndexConfig'])) {
-            $model->indexConfig = $map['IndexConfig'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['IndexStatus'])) {
+            $model->indexStatus = $map['IndexStatus'];
         }
         if (isset($map['IndexType'])) {
             $model->indexType = $map['IndexType'];
+        }
+        if (isset($map['MediaTotal'])) {
+            $model->mediaTotal = $map['MediaTotal'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SearchLibName'])) {
             $model->searchLibName = $map['SearchLibName'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

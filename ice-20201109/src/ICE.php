@@ -264,6 +264,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaIndexJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaIndexJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchIndexRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchIndexResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchLibRequest;
@@ -353,6 +355,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmarttagJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitStandardCustomizedVoiceJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitStandardCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSubtitleProduceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSubtitleProduceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobRequest;
@@ -688,9 +692,6 @@ class ICE extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
-        }
         if (!Utils::isUnset($request->coverUrl)) {
             $query['CoverUrl'] = $request->coverUrl;
         }
@@ -712,8 +713,13 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
+        $body = [];
+        if (!Utils::isUnset($request->config)) {
+            $body['Config'] = $request->config;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddTemplate',
@@ -754,6 +760,9 @@ class ICE extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->indexConfig)) {
             $query['IndexConfig'] = $request->indexConfig;
+        }
+        if (!Utils::isUnset($request->indexStatus)) {
+            $query['IndexStatus'] = $request->indexStatus;
         }
         if (!Utils::isUnset($request->indexType)) {
             $query['IndexType'] = $request->indexType;
@@ -1241,14 +1250,16 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->templateType)) {
             $query['TemplateType'] = $request->templateType;
         }
-        if (!Utils::isUnset($request->timeline)) {
-            $query['Timeline'] = $request->timeline;
-        }
         if (!Utils::isUnset($request->title)) {
             $query['Title'] = $request->title;
         }
+        $body = [];
+        if (!Utils::isUnset($request->timeline)) {
+            $body['Timeline'] = $request->timeline;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateEditingProject',
@@ -1495,6 +1506,9 @@ class ICE extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->indexConfig)) {
             $query['IndexConfig'] = $request->indexConfig;
+        }
+        if (!Utils::isUnset($request->indexStatus)) {
+            $query['IndexStatus'] = $request->indexStatus;
         }
         if (!Utils::isUnset($request->indexType)) {
             $query['IndexType'] = $request->indexType;
@@ -5226,6 +5240,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5271,6 +5288,9 @@ class ICE extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6773,6 +6793,52 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryMediaCensorJobListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryMediaIndexJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryMediaIndexJobResponse
+     */
+    public function queryMediaIndexJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaIndexJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryMediaIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryMediaIndexJobRequest $request
+     *
+     * @return QueryMediaIndexJobResponse
+     */
+    public function queryMediaIndexJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMediaIndexJobWithOptions($request, $runtime);
     }
 
     /**
@@ -8861,14 +8927,16 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->timeline)) {
-            $query['Timeline'] = $request->timeline;
-        }
         if (!Utils::isUnset($request->userData)) {
             $query['UserData'] = $request->userData;
         }
+        $body = [];
+        if (!Utils::isUnset($request->timeline)) {
+            $body['Timeline'] = $request->timeline;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaProducingJob',
@@ -9111,6 +9179,61 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitSnapshotJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitStandardCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SubmitStandardCustomizedVoiceJobResponse
+     */
+    public function submitStandardCustomizedVoiceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->audios)) {
+            $query['Audios'] = $request->audios;
+        }
+        if (!Utils::isUnset($request->authentication)) {
+            $query['Authentication'] = $request->authentication;
+        }
+        if (!Utils::isUnset($request->demoAudioMediaURL)) {
+            $query['DemoAudioMediaURL'] = $request->demoAudioMediaURL;
+        }
+        if (!Utils::isUnset($request->gender)) {
+            $query['Gender'] = $request->gender;
+        }
+        if (!Utils::isUnset($request->voiceName)) {
+            $query['VoiceName'] = $request->voiceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitStandardCustomizedVoiceJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitStandardCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitStandardCustomizedVoiceJobRequest $request
+     *
+     * @return SubmitStandardCustomizedVoiceJobResponse
+     */
+    public function submitStandardCustomizedVoiceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitStandardCustomizedVoiceJobWithOptions($request, $runtime);
     }
 
     /**
@@ -9544,14 +9667,16 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->timeline)) {
-            $query['Timeline'] = $request->timeline;
-        }
         if (!Utils::isUnset($request->title)) {
             $query['Title'] = $request->title;
         }
+        $body = [];
+        if (!Utils::isUnset($request->timeline)) {
+            $body['Timeline'] = $request->timeline;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateEditingProject',
@@ -10042,9 +10167,6 @@ class ICE extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
-        }
         if (!Utils::isUnset($request->coverUrl)) {
             $query['CoverUrl'] = $request->coverUrl;
         }
@@ -10066,8 +10188,13 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->config)) {
+            $body['Config'] = $request->config;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplate',

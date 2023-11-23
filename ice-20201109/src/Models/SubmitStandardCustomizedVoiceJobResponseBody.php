@@ -4,40 +4,33 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitStandardCustomizedVoiceJobResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateSearchLibResponseBody extends Model
+class SubmitStandardCustomizedVoiceJobResponseBody extends Model
 {
     /**
-     * @var string
+     * @var data
      */
-    public $code;
+    public $data;
 
     /**
-     * @description Id of the request
-     *
-     * @example ******3B-0E1A-586A-AC29-742247******
+     * @example ****63E8B7C7-4812-46AD-0FA56029AC86****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example test1
+     * @example true
      *
-     * @var string
-     */
-    public $searchLibName;
-
-    /**
-     * @var string
+     * @var bool
      */
     public $success;
     protected $_name = [
-        'code'          => 'Code',
-        'requestId'     => 'RequestId',
-        'searchLibName' => 'SearchLibName',
-        'success'       => 'Success',
+        'data'      => 'Data',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -47,14 +40,11 @@ class CreateSearchLibResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->searchLibName) {
-            $res['SearchLibName'] = $this->searchLibName;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -66,19 +56,16 @@ class CreateSearchLibResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateSearchLibResponseBody
+     * @return SubmitStandardCustomizedVoiceJobResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SearchLibName'])) {
-            $model->searchLibName = $map['SearchLibName'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
