@@ -22,10 +22,16 @@ class UpdateProduceRequest extends Model
      * @var string
      */
     public $extMap;
+
+    /**
+     * @var string
+     */
+    public $operateType;
     protected $_name = [
-        'bizId'   => 'BizId',
-        'bizType' => 'BizType',
-        'extMap'  => 'ExtMap',
+        'bizId'       => 'BizId',
+        'bizType'     => 'BizType',
+        'extMap'      => 'ExtMap',
+        'operateType' => 'OperateType',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class UpdateProduceRequest extends Model
         }
         if (null !== $this->extMap) {
             $res['ExtMap'] = $this->extMap;
+        }
+        if (null !== $this->operateType) {
+            $res['OperateType'] = $this->operateType;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class UpdateProduceRequest extends Model
         }
         if (isset($map['ExtMap'])) {
             $model->extMap = $map['ExtMap'];
+        }
+        if (isset($map['OperateType'])) {
+            $model->operateType = $map['OperateType'];
         }
 
         return $model;

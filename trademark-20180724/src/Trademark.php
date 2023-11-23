@@ -162,6 +162,7 @@ use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkModelEspDetailRequ
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkModelEspDetailResponse;
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkModelEspListRequest;
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkModelEspListResponse;
+use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkModelEspListShrinkRequest;
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkModelListRequest;
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkModelListResponse;
 use AlibabaCloud\SDK\Trademark\V20180724\Models\QueryTrademarkMonitorResultsRequest;
@@ -4647,15 +4648,26 @@ class Trademark extends OpenApiClient
     }
 
     /**
-     * @param QueryTrademarkModelEspListRequest $request
+     * @param QueryTrademarkModelEspListRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
      * @return QueryTrademarkModelEspListResponse
      */
-    public function queryTrademarkModelEspListWithOptions($request, $runtime)
+    public function queryTrademarkModelEspListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new QueryTrademarkModelEspListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->existStatus)) {
+            $request->existStatusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->existStatus, 'ExistStatus', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->additionalSubmitStatus)) {
+            $query['AdditionalSubmitStatus'] = $request->additionalSubmitStatus;
+        }
+        if (!Utils::isUnset($request->additionalSubmitTime)) {
+            $query['AdditionalSubmitTime'] = $request->additionalSubmitTime;
+        }
         if (!Utils::isUnset($request->bizId)) {
             $query['BizId'] = $request->bizId;
         }
@@ -4664,6 +4676,9 @@ class Trademark extends OpenApiClient
         }
         if (!Utils::isUnset($request->env)) {
             $query['Env'] = $request->env;
+        }
+        if (!Utils::isUnset($request->existStatusShrink)) {
+            $query['ExistStatus'] = $request->existStatusShrink;
         }
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
@@ -6670,6 +6685,9 @@ class Trademark extends OpenApiClient
         }
         if (!Utils::isUnset($request->extMap)) {
             $query['ExtMap'] = $request->extMap;
+        }
+        if (!Utils::isUnset($request->operateType)) {
+            $query['OperateType'] = $request->operateType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

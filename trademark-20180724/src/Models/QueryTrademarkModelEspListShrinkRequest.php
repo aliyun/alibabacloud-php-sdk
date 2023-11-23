@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Trademark\V20180724\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryTrademarkModelEspListRequest extends Model
+class QueryTrademarkModelEspListShrinkRequest extends Model
 {
     /**
      * @var string
@@ -34,9 +34,9 @@ class QueryTrademarkModelEspListRequest extends Model
     public $env;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $existStatus;
+    public $existStatusShrink;
 
     /**
      * @var string
@@ -93,7 +93,7 @@ class QueryTrademarkModelEspListRequest extends Model
         'bizId'                  => 'BizId',
         'bizType'                => 'BizType',
         'env'                    => 'Env',
-        'existStatus'            => 'ExistStatus',
+        'existStatusShrink'      => 'ExistStatus',
         'orderId'                => 'OrderId',
         'orderIdsStr'            => 'OrderIdsStr',
         'orderInstanceId'        => 'OrderInstanceId',
@@ -128,8 +128,8 @@ class QueryTrademarkModelEspListRequest extends Model
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
-        if (null !== $this->existStatus) {
-            $res['ExistStatus'] = $this->existStatus;
+        if (null !== $this->existStatusShrink) {
+            $res['ExistStatus'] = $this->existStatusShrink;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
@@ -168,7 +168,7 @@ class QueryTrademarkModelEspListRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryTrademarkModelEspListRequest
+     * @return QueryTrademarkModelEspListShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -189,9 +189,7 @@ class QueryTrademarkModelEspListRequest extends Model
             $model->env = $map['Env'];
         }
         if (isset($map['ExistStatus'])) {
-            if (!empty($map['ExistStatus'])) {
-                $model->existStatus = $map['ExistStatus'];
-            }
+            $model->existStatusShrink = $map['ExistStatus'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
