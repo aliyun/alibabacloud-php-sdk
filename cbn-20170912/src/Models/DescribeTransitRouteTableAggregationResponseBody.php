@@ -26,10 +26,10 @@ class DescribeTransitRouteTableAggregationResponseBody extends Model
     public $data;
 
     /**
-     * @description The token that determines the start point of the next query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If **NextToken** is not returned, it indicates that no additional results exist.
-     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *

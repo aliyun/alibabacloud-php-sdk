@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class grantRules extends Model
 {
     /**
+     * @description The CEN instance ID.
+     *
      * @example cen-44m0p68spvlrqq****
      *
      * @var string
@@ -16,6 +18,8 @@ class grantRules extends Model
     public $cenId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
+     *
      * @example 1250123456123456
      *
      * @var int
@@ -23,6 +27,11 @@ class grantRules extends Model
     public $cenOwnerId;
 
     /**
+     * @description The entity that pays the fees of the network instance. Valid values: Valid values:
+     *
+     *   **PayByCenOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the CEN instance belongs.
+     *   **PayByResourceOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the network instance belongs.
+     *
      * @example PayByCenOwner
      *
      * @var string

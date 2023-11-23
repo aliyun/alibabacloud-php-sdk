@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyCenAttributeRequest extends Model
 {
     /**
-     * @description Modifies the name and description of a Cloud Enterprise Network (CEN) instance.
+     * @description The ID of the CEN instance.
      *
      * @example cen-7qthudw0ll6jmc****
      *
@@ -18,8 +18,9 @@ class ModifyCenAttributeRequest extends Model
     public $cenId;
 
     /**
-     * @description WB656982
+     * @description The description of the CEN instance.
      *
+     * The description must be 2 to 256 characters in length. It must start with a letter or Chinese character and cannot start with `http://` or `https://`.
      * @example cen
      *
      * @var string
@@ -27,8 +28,9 @@ class ModifyCenAttributeRequest extends Model
     public $description;
 
     /**
-     * @description ModifyCenAttribute
+     * @description The name of the CEN instance.
      *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -46,6 +48,9 @@ class ModifyCenAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The level of CIDR block overlapping.
+     *
+     * Set the value to **REDUCED** (default). This value specifies that CIDR blocks can overlap but cannot be the same.
      * @example REDUCED
      *
      * @var string

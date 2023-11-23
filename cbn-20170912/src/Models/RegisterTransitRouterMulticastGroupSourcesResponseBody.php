@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterTransitRouterMulticastGroupSourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 9C5D5D70-0AFF-5E5C-8D8A-E92C90C8FB08
      *
      * @var string

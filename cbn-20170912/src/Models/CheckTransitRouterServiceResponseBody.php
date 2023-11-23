@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckTransitRouterServiceResponseBody extends Model
 {
     /**
+     * @description Indicates whether the transit router feature is activated.
+     *
+     *   **true**: activated
+     *   If this value is not returned, the system prompts that the current account does not have the transit router feature activated.
+     *
      * @example true
      *
      * @var string
@@ -16,6 +21,8 @@ class CheckTransitRouterServiceResponseBody extends Model
     public $enabled;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5D93C8B9-C354-5C3E-BEFB-BA8A2C314D68
      *
      * @var string

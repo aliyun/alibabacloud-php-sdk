@@ -10,17 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeGrantRulesToResourceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The permissions that are granted to the CEN instance.
      *
      * @var grantRules[]
      */
     public $grantRules;
 
     /**
-     * @description The entity that pays the fees of the network instance. Valid values:
-     *
-     *   **PayByCenOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the CEN instance belongs.
-     *   **PayByResourceOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the network instance belongs.
+     * @description *   If no value is specified for **MaxResults**, query results are returned in one batch. The value of **MaxResults** indicates the total number of entries.
+     *   If a value is specified for **MaxResults**, query results are returned in batches. The value of **MaxResults** in the response indicates the number of entries in the current batch.
      *
      * @example 1
      *
@@ -29,7 +27,10 @@ class DescribeGrantRulesToResourceResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If the **NextToken** parameter is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -38,9 +39,8 @@ class DescribeGrantRulesToResourceResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region where the network instance is deployed.
+     * @description The request ID.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example C6E5992C-A57B-5A6C-9B26-568074DC68BA
      *
      * @var string
@@ -48,8 +48,7 @@ class DescribeGrantRulesToResourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description *   If you do not set **MaxResults**, it indicates that you do not need to query results in batches. The value of **MaxResults** indicates the total number of entries.
-     *   If you specify a value for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** indicates the number of entries to return in each batch. Valid values: **1** to **100**. The value of **MaxResults** in the response indicates the number of entries in the current batch. We recommend that you set **MaxResults** to **20**.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

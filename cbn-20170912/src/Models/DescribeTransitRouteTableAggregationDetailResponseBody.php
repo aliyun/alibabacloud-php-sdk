@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTransitRouteTableAggregationDetailResponseBody extends Model
 {
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *

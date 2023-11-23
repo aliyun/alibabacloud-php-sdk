@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GrantInstanceToTransitRouterRequest extends Model
 {
     /**
-     * @description The ID of the region where the network instance is deployed.
+     * @description Enter the ID of the Cloud Enterprise Network (CEN) instance to which the transit router belongs.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cen-44m0p68spvlrqq****
      *
      * @var string
@@ -19,6 +18,8 @@ class GrantInstanceToTransitRouterRequest extends Model
     public $cenId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
+     *
      * @example 1250123456123456
      *
      * @var int
@@ -26,7 +27,7 @@ class GrantInstanceToTransitRouterRequest extends Model
     public $cenOwnerId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the network instance.
      *
      * @example vpc-bp1h8vbrbcgohcju5****
      *
@@ -35,7 +36,11 @@ class GrantInstanceToTransitRouterRequest extends Model
     public $instanceId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GrantInstanceToTransitRouter**.
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**: VPC
+     *   **ExpressConnect**: VBR
+     *   **VPN**: IPsec connection
      *
      * @example VPC
      *
@@ -44,6 +49,11 @@ class GrantInstanceToTransitRouterRequest extends Model
     public $instanceType;
 
     /**
+     * @description The entity that pays the fees of the network instance. Valid values:
+     *
+     *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
+     *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+     *
      * @example PayByCenOwner
      *
      * @var string
@@ -61,8 +71,9 @@ class GrantInstanceToTransitRouterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
+     * @description The ID of the region where the network instance is deployed.
      *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

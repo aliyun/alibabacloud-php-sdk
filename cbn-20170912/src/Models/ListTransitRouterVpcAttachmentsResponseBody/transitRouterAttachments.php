@@ -11,10 +11,11 @@ use AlibabaCloud\Tea\Model;
 class transitRouterAttachments extends Model
 {
     /**
-     * @description 企业版转发路由器是否自动发布路由到VPC实例。
+     * @description Indicates whether the Enterprise Edition transit router automatically advertises routes to VPCs. Valid values:
      *
-     * - **false**（默认值）：否。
-     * - **true**：是。
+     *   **false:** (default)
+     *   **true**
+     *
      * @example true
      *
      * @var bool
@@ -22,7 +23,7 @@ class transitRouterAttachments extends Model
     public $autoPublishRouteEnabled;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The CEN instance ID.
      *
      * @example cen-j3jzhw1zpau2km****
      *
@@ -33,7 +34,7 @@ class transitRouterAttachments extends Model
     /**
      * @description The billing method of the VPC connection.
      *
-     * The value is **POSTPAY**, which is the default value and specifies the pay-as-you-go billing method.
+     * Only **POSTPAY** may be returned, which is the default value and specifies the pay-as-you-go billing method.
      * @example POSTPAY
      *
      * @var string
@@ -41,7 +42,7 @@ class transitRouterAttachments extends Model
     public $chargeType;
 
     /**
-     * @description The time when the VPC connection is created.
+     * @description The time when the VPC connection was created.
      *
      * The time follows the ISO8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
      * @example 2021-06-15T02:14Z
@@ -65,7 +66,7 @@ class transitRouterAttachments extends Model
     /**
      * @description The type of resource to which the transit router is connected.
      *
-     * The value is set to **VPC**.
+     * Only **VPC** may be returned, which indicates VPCs.
      * @example VPC
      *
      * @var string
@@ -75,10 +76,10 @@ class transitRouterAttachments extends Model
     /**
      * @description The status of the VPC connection. Valid values:
      *
-     *   **Attached**: The VPC connection is created on the transit router.
-     *   **Attaching**: The VPC connection is being created on the transit router.
-     *   **Detaching**: The VPC connection is being deleted from the transit router.
-     *   **Detached**: The VPC connection is deleted from the transit router.
+     *   **Attached**
+     *   **Attaching**
+     *   **Detaching**
+     *   **Detached**
      *
      * @example Attached
      *
@@ -130,7 +131,7 @@ class transitRouterAttachments extends Model
     public $transitRouterId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-bp1h8vbrbcgohcju5****
      *
@@ -148,7 +149,7 @@ class transitRouterAttachments extends Model
     public $vpcOwnerId;
 
     /**
-     * @description The ID of the region where the VPC is deployed.
+     * @description The region ID of the VPC.
      *
      * @example cn-hangzhou
      *

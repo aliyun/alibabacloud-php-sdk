@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteCenRequest extends Model
 {
     /**
-     * @description The ID of the CEN instance.
+     * @description The CEN instance ID.
      *
      * @example cen-7qthudw0ll6jmc****
      *

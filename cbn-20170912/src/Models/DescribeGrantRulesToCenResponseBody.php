@@ -17,7 +17,8 @@ class DescribeGrantRulesToCenResponseBody extends Model
     public $grantRules;
 
     /**
-     * @description The number of entries returned per page.
+     * @description *   If no value is specified for **MaxResults**, query results are returned in one batch. The value of **MaxResults** indicates the total number of entries.
+     *   If a value is specified for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** in the response indicates the number of entries in the current batch.
      *
      * @example 20
      *

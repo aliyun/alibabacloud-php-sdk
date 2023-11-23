@@ -9,7 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGrantRulesToResourceRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeGrantRulesToResource**.
+     * @description *   If you do not set **MaxResults**, it indicates that you do not need to query results in batches. The value of **MaxResults** indicates the total number of entries.
+     *   If you specify a value for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** indicates the number of entries to return in each batch. Valid values: **1** to **100**. The value of **MaxResults** in the response indicates the number of entries in the current batch. We recommend that you set **MaxResults** to **20**.
      *
      * @example 20
      *
@@ -18,10 +19,10 @@ class DescribeGrantRulesToResourceRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query or no next query is to be sent, ignore this parameter.
-     *   If a subsequent query is to be sent, set the value to the value of **NextToken** that was returned from the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of the **NextToken** parameter.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -40,7 +41,11 @@ class DescribeGrantRulesToResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**: virtual private cloud (VPC)
+     *   **ExpressConnect**: virtual border router (VBR)
+     *   **VPN**: IPsec-VPN connection
      *
      * @example VPC
      *
@@ -49,8 +54,9 @@ class DescribeGrantRulesToResourceRequest extends Model
     public $productType;
 
     /**
-     * @description The ID of the network instance.
+     * @description The region ID of the network instance.
      *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,11 +64,7 @@ class DescribeGrantRulesToResourceRequest extends Model
     public $regionId;
 
     /**
-     * @description The type of the network instance. Valid values:
-     *
-     *   **VPC**: virtual private cloud (VPC)
-     *   **ExpressConnect**: virtual border router (VBR)
-     *   **VPN**: IPsec-VPN connection
+     * @description The network instance ID.
      *
      * @example vpc-p0wfut1iqauelpdpb****
      *

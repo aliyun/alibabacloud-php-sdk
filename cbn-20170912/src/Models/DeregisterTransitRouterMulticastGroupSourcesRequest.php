@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeregisterTransitRouterMulticastGroupSourcesRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
      * @example 123e4567-e89b-12d3-a456-4266****
      *
      * @var string
@@ -18,6 +19,11 @@ class DeregisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request.
+     *
      * @example false
      *
      * @var bool
@@ -25,10 +31,7 @@ class DeregisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether only to check the request. Valid values:
-     *
-     *   **true**: only prechecks the API request. The multicast source is not deleted. The system checks the required parameters, the request format, and the service limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. After the request passes the precheck, the multicast source is deleted.
+     * @description The IP address of the multicast group to which the multicast source belongs.
      *
      * @example 239.XX.XX.2
      *
@@ -37,7 +40,7 @@ class DeregisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $groupIpAddress;
 
     /**
-     * @description Deletes a multicast source.
+     * @description The IDs of the multicast sources that you want to delete.
      *
      * @var string[]
      */
@@ -64,7 +67,7 @@ class DeregisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DeregisterTransitRouterMulticastGroupSources**.
+     * @description The ID of the multicast domain to which the multicast source belongs.
      *
      * @example tr-mcast-domain-91wpg6wbhchjeq****
      *

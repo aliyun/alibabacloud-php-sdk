@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DetachCenChildInstanceRequest extends Model
 {
     /**
-     * @description InvalidParameter
+     * @description The ID of the CEN instance.
      *
      * @example cen-7qthudw0ll6jmx****
      *
@@ -18,7 +18,7 @@ class DetachCenChildInstanceRequest extends Model
     public $cenId;
 
     /**
-     * @description Unauthorized
+     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
      *
      * @example 1688000000000000
      *
@@ -27,7 +27,7 @@ class DetachCenChildInstanceRequest extends Model
     public $cenOwnerId;
 
     /**
-     * @description InvalidParameter
+     * @description The ID of the network instance that you want to detach from the CEN instance.
      *
      * @example vpc-bp18sth14qii3pnvx****
      *
@@ -36,7 +36,7 @@ class DetachCenChildInstanceRequest extends Model
     public $childInstanceId;
 
     /**
-     * @description Unauthorized
+     * @description The ID of the Alibaba Cloud account to which the network instance belongs.
      *
      * @example 1699000000000000
      *
@@ -45,8 +45,9 @@ class DetachCenChildInstanceRequest extends Model
     public $childInstanceOwnerId;
 
     /**
-     * @description 参数不合法。
+     * @description The ID of the region where the network instance is deployed.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -54,7 +55,11 @@ class DetachCenChildInstanceRequest extends Model
     public $childInstanceRegionId;
 
     /**
-     * @description Invalid parameter.
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**: virtual private cloud (VPC)
+     *   **VBR**: virtual border router (VBR)
+     *   **CCN**: Cloud Connect Network (CCN) instance
      *
      * @example VPC
      *

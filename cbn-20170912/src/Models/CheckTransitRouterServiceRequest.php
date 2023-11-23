@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CheckTransitRouterServiceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate a token, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string

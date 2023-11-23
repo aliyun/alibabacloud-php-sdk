@@ -70,8 +70,8 @@ class grantRule extends Model
     /**
      * @description The entity that pays the fees of the network instance. Valid values:
      *
-     *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
-     *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+     *   **PayByCenOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the CEN instance belongs.
+     *   **PayByResourceOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the network instance belongs.
      *
      * @example PayByCenOwner
      *

@@ -19,21 +19,29 @@ class pathAttributes extends Model
     public $communities;
 
     /**
+     * @example vbr-m5ent6du8deaq5*****
+     *
      * @var string
      */
     public $originInstanceId;
 
     /**
+     * @example VBR
+     *
      * @var string
      */
     public $originInstanceType;
 
     /**
+     * @example BGP
+     *
      * @var string
      */
     public $originRouteType;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $preference;

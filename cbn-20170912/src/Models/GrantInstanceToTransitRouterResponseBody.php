@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GrantInstanceToTransitRouterResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example C6E5992C-A57B-5A6C-9B26-568074DC68BA
      *
      * @var string

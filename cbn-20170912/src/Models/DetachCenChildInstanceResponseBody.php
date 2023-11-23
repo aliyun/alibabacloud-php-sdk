@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DetachCenChildInstanceResponseBody extends Model
 {
     /**
-     * @description The AccessKeyId is unauthorized.
+     * @description The ID of the request.
      *
      * @example 0C2EE7A8-74D4-4081-8236-CEBDE3BBCF50
      *

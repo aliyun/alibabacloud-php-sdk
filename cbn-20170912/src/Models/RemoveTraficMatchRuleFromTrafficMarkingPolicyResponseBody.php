@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveTraficMatchRuleFromTrafficMarkingPolicyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 6DF9A765-BCD2-5C7E-8C32-C35C8A361A39
      *
      * @var string

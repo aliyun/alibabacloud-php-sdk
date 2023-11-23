@@ -18,7 +18,7 @@ class DescribeGrantRulesToCenRequest extends Model
     public $cenId;
 
     /**
-     * @description 要查询的网络实例ID。
+     * @description The ID of the network instance that you want to query.
      *
      * @example vpc-rj9gt5nll27onu7****
      *
@@ -27,7 +27,7 @@ class DescribeGrantRulesToCenRequest extends Model
     public $childInstanceId;
 
     /**
-     * @description 网络实例所属阿里云账号（主账号）ID。
+     * @description The ID of the Alibaba Cloud account to which the network instance belongs.
      *
      * @example 125012345612****
      *
@@ -36,10 +36,8 @@ class DescribeGrantRulesToCenRequest extends Model
     public $childInstanceOwnerId;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **100**.
-     *
-     *   If you do not set **MaxResults**, it indicates that you do not need to query results in batches. The value of **MaxResults** in the response indicates the total number of entries.
-     *   If a value is specified for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** in the response indicates the number of entries in the current batch. We recommend that you set **MaxResults** to **20**.
+     * @description *   If you do not set **MaxResults**, it indicates that you do not need to query results in batches. The value of **MaxResults** in the response indicates the total number of entries returned.
+     *   If you specify a value for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** indicates the number of entries to return in each batch. Valid values: **1** to **100**. The value of **MaxResults** in the response indicates the number of entries in the current batch. We recommend that you set **MaxResults** to **20**.
      *
      * @example 20
      *

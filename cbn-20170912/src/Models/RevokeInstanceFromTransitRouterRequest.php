@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RevokeInstanceFromTransitRouterRequest extends Model
 {
     /**
-     * @description Enter the ID of the Cloud Enterprise Network (CEN) instance to which the transit router belongs.
+     * @description The ID of the Cloud Enterprise Network (CEN) instance to which the transit router belongs.
      *
      * @example cen-44m0p68spvlrqq****
      *
@@ -27,7 +27,7 @@ class RevokeInstanceFromTransitRouterRequest extends Model
     public $cenOwnerId;
 
     /**
-     * @description The ID of the network instance.
+     * @description The network instance ID.
      *
      * @example vpc-bp1h8vbrbcgohcju5****
      *
@@ -36,11 +36,11 @@ class RevokeInstanceFromTransitRouterRequest extends Model
     public $instanceId;
 
     /**
-     * @description The type of the network instance. Valid values:
+     * @description The type of the network instance. Default values:
      *
      *   **VPC**: VPC
      *   **ExpressConnect**: VBR
-     *   **VPN**: IPsec-VPN connection
+     *   **VPN**: IPsec connection
      *
      * @example VPC
      *
@@ -59,7 +59,7 @@ class RevokeInstanceFromTransitRouterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the network instance is deployed.
+     * @description The region ID of the network instance.
      *
      * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou

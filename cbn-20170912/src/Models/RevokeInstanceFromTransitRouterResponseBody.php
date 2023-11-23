@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RevokeInstanceFromTransitRouterResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example AA4BFFD1-5090-5896-935F-4B353557F1A8
      *

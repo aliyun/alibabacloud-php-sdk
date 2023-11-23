@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RoutePrivateZoneInCenToVpcRequest extends Model
 {
     /**
+     * @description The ID of the region where PrivateZone is accessed.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +19,8 @@ class RoutePrivateZoneInCenToVpcRequest extends Model
     public $accessRegionId;
 
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -23,6 +28,8 @@ class RoutePrivateZoneInCenToVpcRequest extends Model
     public $cenId;
 
     /**
+     * @description The ID of the region where PrivateZone is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +37,8 @@ class RoutePrivateZoneInCenToVpcRequest extends Model
     public $hostRegionId;
 
     /**
+     * @description The ID of the VPC that is associated with PrivateZone.
+     *
      * @example vpc-bp1h8vbrbcgohcju5****
      *
      * @var string

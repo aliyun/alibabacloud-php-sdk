@@ -18,7 +18,7 @@ class zoneMappings extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The vSwitch ID of the node.
+     * @description The vSwitch ID.
      *
      * @example vsw-bp1a214sbus8z3b54****
      *
@@ -27,7 +27,7 @@ class zoneMappings extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-h
      *

@@ -20,6 +20,8 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -27,7 +29,7 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description Creates tags and adds them to a resource.
+     * @description The IDs of the resources. You can enter most at 20 resource IDs.
      *
      * @example cen-7qthudw0ll6jmc****
      *
@@ -46,7 +48,7 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description $.parameters[2].schema.example
+     * @description The type of the resource. Set the value to **cen**, which specifies a CEN instance.
      *
      * @example cen
      *
@@ -55,7 +57,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description 79517
+     * @description The list of tags that you want to associate with the resources.
      *
      * @var tag[]
      */

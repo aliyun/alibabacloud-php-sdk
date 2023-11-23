@@ -130,7 +130,7 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
     public $transitRouterId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-bp1kbjcre9vtsebo1****
      *

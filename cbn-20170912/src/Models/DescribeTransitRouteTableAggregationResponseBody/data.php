@@ -37,7 +37,7 @@ class data extends Model
     public $routeType;
 
     /**
-     * @description The cope of networks to which the aggregate route is advertised.
+     * @description The scope of networks that you want to advertise the aggregate route.
      *
      * The valid value is **VPC**, which indicates that the aggregate route is advertised to all virtual private clouds (VPCs) that are in associated forwarding correlation with the Enterprise Edition transit router and have route synchronization enabled.
      * @example VPC

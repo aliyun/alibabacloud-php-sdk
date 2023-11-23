@@ -49,7 +49,7 @@ class ListTransitRouterVpcAttachmentsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The queried VPC connections.
+     * @description The information about the VPC connection.
      *
      * @var transitRouterAttachments[]
      */

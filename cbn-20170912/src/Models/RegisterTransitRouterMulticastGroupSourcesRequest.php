@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
 {
     /**
-     * @description Specifies whether only to check the request. Valid values:
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     *   **true**: prechecks the request but does not create the multicast source. The system checks the required parameters, the request format, and the service limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. After the request passes the precheck, the multicast source is created.
-     *
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-4266****
      *
      * @var string
@@ -21,6 +19,11 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether only to check the request. Valid values:
+     *
+     *   **true**: prechecks the request but does not create the multicast source. The system checks the required parameters, the request format, and the service limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. After the request passes the precheck, the multicast source is created.
+     *
      * @example false
      *
      * @var bool
@@ -28,6 +31,9 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $dryRun;
 
     /**
+     * @description The IP address of the multicast group to which the multicast source belongs. Valid values: **224.0.0.1** to **239.255.255.254**.
+     *
+     * If the multicast group does not exist in the multicast domain, the system automatically creates the multicast group in the multicast domain.
      * @example 239.XX.XX.2
      *
      * @var string
@@ -35,6 +41,9 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $groupIpAddress;
 
     /**
+     * @description The IDs of the ENIs.
+     *
+     * >  This parameter is required.
      * @var string[]
      */
     public $networkInterfaceIds;
@@ -60,7 +69,7 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Creates a multicast source.
+     * @description The ID of the multicast domain to which the multicast source belongs.
      *
      * @example tr-mcast-domain-5mjb5gjb6dgu98****
      *
@@ -69,6 +78,11 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $transitRouterMulticastDomainId;
 
     /**
+     * @description The ID of the VPC to which the ENI belongs.
+     *
+     *   If the ENI belongs to the current Alibaba Cloud account, ignore this parameter.
+     *   If the ENI belongs to a different Alibaba Cloud account, you must set this parameter.
+     *
      * @example vpc-wz9fusm6zq8uy7cfa****
      *
      * @var string

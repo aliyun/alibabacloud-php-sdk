@@ -28,7 +28,7 @@ class ListCenChildInstanceRouteEntriesToAttachmentRequest extends Model
     public $childInstanceRouteTableId;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
+     * @description The number of entries returned per page. Default value: **20**.
      *
      * @example 20
      *
