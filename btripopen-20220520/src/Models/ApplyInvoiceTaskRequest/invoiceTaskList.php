@@ -66,6 +66,11 @@ class invoiceTaskList extends Model
     public $invoiceThirdPartId;
 
     /**
+     * @var int
+     */
+    public $invoiceType;
+
+    /**
      * @var string
      */
     public $mailAddress;
@@ -134,6 +139,7 @@ class invoiceTaskList extends Model
         'internationalFlightInvoiceFee' => 'international_flight_invoice_fee',
         'internationalHotelInvoiceFee'  => 'international_hotel_invoice_fee',
         'invoiceThirdPartId'            => 'invoice_third_part_id',
+        'invoiceType'                   => 'invoice_type',
         'mailAddress'                   => 'mail_address',
         'mailCity'                      => 'mail_city',
         'mailFullAddress'               => 'mail_full_address',
@@ -179,6 +185,9 @@ class invoiceTaskList extends Model
         }
         if (null !== $this->invoiceThirdPartId) {
             $res['invoice_third_part_id'] = $this->invoiceThirdPartId;
+        }
+        if (null !== $this->invoiceType) {
+            $res['invoice_type'] = $this->invoiceType;
         }
         if (null !== $this->mailAddress) {
             $res['mail_address'] = $this->mailAddress;
@@ -248,6 +257,9 @@ class invoiceTaskList extends Model
         }
         if (isset($map['invoice_third_part_id'])) {
             $model->invoiceThirdPartId = $map['invoice_third_part_id'];
+        }
+        if (isset($map['invoice_type'])) {
+            $model->invoiceType = $map['invoice_type'];
         }
         if (isset($map['mail_address'])) {
             $model->mailAddress = $map['mail_address'];
