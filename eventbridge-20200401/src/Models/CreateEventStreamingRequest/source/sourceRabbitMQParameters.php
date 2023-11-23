@@ -18,7 +18,7 @@ class sourceRabbitMQParameters extends Model
     public $instanceId;
 
     /**
-     * @description The name of the queue in the Message Queue for RabbitMQ instance.
+     * @description The name of the queue on the Message Queue for RabbitMQ instance.
      *
      * @example demo
      *
@@ -36,7 +36,7 @@ class sourceRabbitMQParameters extends Model
     public $regionId;
 
     /**
-     * @description The vhost name of the Message Queue for RabbitMQ instance.
+     * @description The name of the vhost of the Message Queue for RabbitMQ instance.
      *
      * @example eb-connect
      *

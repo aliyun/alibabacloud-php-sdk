@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class sourceRocketMQParameters extends Model
 {
     /**
+     * @var string
+     */
+    public $authType;
+
+    /**
      * @example GID_group1
      *
      * @var string
@@ -16,11 +21,51 @@ class sourceRocketMQParameters extends Model
     public $groupID;
 
     /**
+     * @var string
+     */
+    public $instanceEndpoint;
+
+    /**
      * @example i-f8zbher64dlm58plyfte
      *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceNetwork;
+
+    /**
+     * @var string
+     */
+    public $instancePassword;
+
+    /**
+     * @var string
+     */
+    public $instanceSecurityGroupId;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $instanceUsername;
+
+    /**
+     * @var string
+     */
+    public $instanceVSwitchIds;
+
+    /**
+     * @var string
+     */
+    public $instanceVpcId;
 
     /**
      * @example CONSUMEFROMTIMESTAMP
@@ -57,13 +102,22 @@ class sourceRocketMQParameters extends Model
      */
     public $topic;
     protected $_name = [
-        'groupID'    => 'GroupID',
-        'instanceId' => 'InstanceId',
-        'offset'     => 'Offset',
-        'regionId'   => 'RegionId',
-        'tag'        => 'Tag',
-        'timestamp'  => 'Timestamp',
-        'topic'      => 'Topic',
+        'authType'                => 'AuthType',
+        'groupID'                 => 'GroupID',
+        'instanceEndpoint'        => 'InstanceEndpoint',
+        'instanceId'              => 'InstanceId',
+        'instanceNetwork'         => 'InstanceNetwork',
+        'instancePassword'        => 'InstancePassword',
+        'instanceSecurityGroupId' => 'InstanceSecurityGroupId',
+        'instanceType'            => 'InstanceType',
+        'instanceUsername'        => 'InstanceUsername',
+        'instanceVSwitchIds'      => 'InstanceVSwitchIds',
+        'instanceVpcId'           => 'InstanceVpcId',
+        'offset'                  => 'Offset',
+        'regionId'                => 'RegionId',
+        'tag'                     => 'Tag',
+        'timestamp'               => 'Timestamp',
+        'topic'                   => 'Topic',
     ];
 
     public function validate()
@@ -73,11 +127,38 @@ class sourceRocketMQParameters extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
+        }
         if (null !== $this->groupID) {
             $res['GroupID'] = $this->groupID;
         }
+        if (null !== $this->instanceEndpoint) {
+            $res['InstanceEndpoint'] = $this->instanceEndpoint;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceNetwork) {
+            $res['InstanceNetwork'] = $this->instanceNetwork;
+        }
+        if (null !== $this->instancePassword) {
+            $res['InstancePassword'] = $this->instancePassword;
+        }
+        if (null !== $this->instanceSecurityGroupId) {
+            $res['InstanceSecurityGroupId'] = $this->instanceSecurityGroupId;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->instanceUsername) {
+            $res['InstanceUsername'] = $this->instanceUsername;
+        }
+        if (null !== $this->instanceVSwitchIds) {
+            $res['InstanceVSwitchIds'] = $this->instanceVSwitchIds;
+        }
+        if (null !== $this->instanceVpcId) {
+            $res['InstanceVpcId'] = $this->instanceVpcId;
         }
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
@@ -106,11 +187,38 @@ class sourceRocketMQParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
+        }
         if (isset($map['GroupID'])) {
             $model->groupID = $map['GroupID'];
         }
+        if (isset($map['InstanceEndpoint'])) {
+            $model->instanceEndpoint = $map['InstanceEndpoint'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceNetwork'])) {
+            $model->instanceNetwork = $map['InstanceNetwork'];
+        }
+        if (isset($map['InstancePassword'])) {
+            $model->instancePassword = $map['InstancePassword'];
+        }
+        if (isset($map['InstanceSecurityGroupId'])) {
+            $model->instanceSecurityGroupId = $map['InstanceSecurityGroupId'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['InstanceUsername'])) {
+            $model->instanceUsername = $map['InstanceUsername'];
+        }
+        if (isset($map['InstanceVSwitchIds'])) {
+            $model->instanceVSwitchIds = $map['InstanceVSwitchIds'];
+        }
+        if (isset($map['InstanceVpcId'])) {
+            $model->instanceVpcId = $map['InstanceVpcId'];
         }
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];

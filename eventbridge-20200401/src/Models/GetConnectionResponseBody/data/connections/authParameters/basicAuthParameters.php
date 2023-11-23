@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class basicAuthParameters extends Model
 {
     /**
-     * @description The password for basic authentication.
+     * @description The password of basic authentication.
      *
      * @example ********
      *
@@ -18,7 +18,7 @@ class basicAuthParameters extends Model
     public $password;
 
     /**
-     * @description The username for basic authentication.
+     * @description The username of basic authentication.
      *
      * @example admin
      *

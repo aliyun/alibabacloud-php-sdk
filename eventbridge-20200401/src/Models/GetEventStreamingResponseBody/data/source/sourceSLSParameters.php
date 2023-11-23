@@ -18,7 +18,7 @@ class sourceSLSParameters extends Model
     public $consumePosition;
 
     /**
-     * @description None
+     * @description The consumer group.
      *
      * @var string
      */

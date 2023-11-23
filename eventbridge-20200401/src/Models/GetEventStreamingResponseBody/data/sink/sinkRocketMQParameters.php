@@ -22,7 +22,7 @@ class sinkRocketMQParameters extends Model
     public $body;
 
     /**
-     * @description The parameters that are configured if the event target is Message Queue for Apache RocketMQ.
+     * @description The target service type is Message Queue for Apache RocketMQ.
      *
      * @var instanceId
      */

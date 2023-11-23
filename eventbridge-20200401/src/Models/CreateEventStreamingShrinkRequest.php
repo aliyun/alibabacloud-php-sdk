@@ -53,6 +53,11 @@ class CreateEventStreamingShrinkRequest extends Model
      * @var string
      */
     public $sourceShrink;
+
+    /**
+     * @var string
+     */
+    public $transformsShrink;
     protected $_name = [
         'description'        => 'Description',
         'eventStreamingName' => 'EventStreamingName',
@@ -60,6 +65,7 @@ class CreateEventStreamingShrinkRequest extends Model
         'runOptionsShrink'   => 'RunOptions',
         'sinkShrink'         => 'Sink',
         'sourceShrink'       => 'Source',
+        'transformsShrink'   => 'Transforms',
     ];
 
     public function validate()
@@ -86,6 +92,9 @@ class CreateEventStreamingShrinkRequest extends Model
         }
         if (null !== $this->sourceShrink) {
             $res['Source'] = $this->sourceShrink;
+        }
+        if (null !== $this->transformsShrink) {
+            $res['Transforms'] = $this->transformsShrink;
         }
 
         return $res;
@@ -116,6 +125,9 @@ class CreateEventStreamingShrinkRequest extends Model
         }
         if (isset($map['Source'])) {
             $model->sourceShrink = $map['Source'];
+        }
+        if (isset($map['Transforms'])) {
+            $model->transformsShrink = $map['Transforms'];
         }
 
         return $model;

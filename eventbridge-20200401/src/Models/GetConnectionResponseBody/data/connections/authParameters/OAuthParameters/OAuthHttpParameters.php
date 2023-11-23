@@ -12,21 +12,21 @@ use AlibabaCloud\Tea\Model;
 class OAuthHttpParameters extends Model
 {
     /**
-     * @description The parameters that are returned for the request body.
+     * @description The information about the request body.
      *
      * @var bodyParameters[]
      */
     public $bodyParameters;
 
     /**
-     * @description The parameters that are returned for the request header.
+     * @description The information about the request header.
      *
      * @var headerParameters[]
      */
     public $headerParameters;
 
     /**
-     * @description The parameters that are returned for the request path.
+     * @description The information about the request path.
      *
      * @var queryStringParameters[]
      */

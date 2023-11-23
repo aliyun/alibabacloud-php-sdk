@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class concurrency extends Model
 {
     /**
-     * @description The method that is used to transform events. Default value: CONSTANT.
+     * @description The format into which you want to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -18,7 +18,7 @@ class concurrency extends Model
     public $form;
 
     /**
-     * @description None.
+     * @description The template based on which you want to transform events.
      *
      * @example None
      *

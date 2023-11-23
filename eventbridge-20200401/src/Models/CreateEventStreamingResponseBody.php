@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class CreateEventStreamingResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The HTTP status code 200 indicates that the request is successful. Other HTTP codes indicate that the request failed. For more information about error codes, see Error codes.
+     * @description The response code. Valid values:
+     *
+     *   Success: The request is successful.
+     *   Other codes: The request failed. For more information about error codes, see Error codes.
      *
      * @example 200
      *
@@ -44,7 +47,7 @@ class CreateEventStreamingResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values: true and false.
+     * @description Indicates whether the operation is successful. The value true indicates that the operation is successful.
      *
      * @example true
      *

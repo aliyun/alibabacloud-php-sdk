@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ListUserDefinedEventSourcesResponseBody extends Model
 {
     /**
-     * @description The returned response code. The value Success indicates that the request is successful.
+     * @description The returned response code. Valid values:
+     *
+     *   Success: The request is successful.
+     *   Other codes: The request failed. For more information about error codes, see Error codes.
      *
      * @example Success
      *
@@ -44,7 +47,7 @@ class ListUserDefinedEventSourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the operation is successful. Valid values: true and false.
+     * @description Indicates whether the operation is successful. The value true indicates that the operation is successful.
      *
      * @example true
      *

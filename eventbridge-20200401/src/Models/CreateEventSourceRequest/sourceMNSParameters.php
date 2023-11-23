@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceMNSParameters extends Model
 {
     /**
-     * @description Specifies whether to enable Base64 decoding. Default value: true.
+     * @description Specifies whether to enable Base64 decoding. Valid values: true and false.
      *
      * @example true
      *
@@ -27,7 +27,7 @@ class sourceMNSParameters extends Model
     public $queueName;
 
     /**
-     * @description The region where the MNS queue resides.
+     * @description The region where the MNS queue resides. Valid values: cn-qingdao, cn-beijing, cn-zhangjiakou, cn-huhehaote, cn-wulanchabu, cn-hangzhou, cn-shanghai, cn-shenzhen, cn-guangzhou, cn-chengdu, cn-hongkong, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-5, ap-northeast-1, eu-central-1, us-west-1, us-east-1, ap-south-1, me-east-1, and cn-north-2-gov-1.
      *
      * @example cn-hangzhou
      *

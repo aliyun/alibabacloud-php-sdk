@@ -16,7 +16,7 @@ class sourceDTSParameters extends Model
     public $brokerUrl;
 
     /**
-     * @description The consumer offset. A consumer offset is a timestamp that indicates when the SDK client consumes the first data record. The value is a UNIX timestamp.
+     * @description The consumer offset. It is the timestamp that indicates when the SDK client consumes the first data record.
      *
      * @example 1620962769
      *
@@ -25,7 +25,7 @@ class sourceDTSParameters extends Model
     public $initCheckPoint;
 
     /**
-     * @description The password of the consumer group.
+     * @description The consumer group password.
      *
      * @example admin
      *
@@ -34,7 +34,7 @@ class sourceDTSParameters extends Model
     public $password;
 
     /**
-     * @description The ID of the consumer group.
+     * @description The consumer group ID.
      *
      * @example HD3
      *
@@ -61,7 +61,7 @@ class sourceDTSParameters extends Model
     public $topic;
 
     /**
-     * @description The username of the consumer group.
+     * @description The consumer group username.
      *
      * @example admin
      *

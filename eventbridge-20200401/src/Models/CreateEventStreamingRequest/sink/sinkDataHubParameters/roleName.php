@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class roleName extends Model
 {
     /**
-     * @description The method that is used to transform events. Default value: CONSTANT.
+     * @description The format into which you want to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *

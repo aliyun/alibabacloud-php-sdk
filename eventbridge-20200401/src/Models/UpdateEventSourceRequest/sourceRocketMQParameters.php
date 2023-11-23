@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class sourceRocketMQParameters extends Model
 {
     /**
+     * @description The authentication type. You can set this parameter to ACL or leave this parameter empty.
+     *
+     * @example ACL
+     *
      * @var string
      */
     public $authType;
 
     /**
-     * @description The ID of the consumer group in the Message Queue for Apache RocketMQ instance.
+     * @description The ID of the consumer group on the Message Queue for Apache RocketMQ instance.
      *
      * @example GID-test
      *
@@ -23,12 +27,16 @@ class sourceRocketMQParameters extends Model
     public $groupID;
 
     /**
+     * @description The endpoint that is used to access the Message Queue for Apache RocketMQ instance.
+     *
+     * @example registry-vpc****.aliyuncs.com
+     *
      * @var string
      */
     public $instanceEndpoint;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance. For more information, see Limits.
+     * @description The ID of the Message Queue for Apache RocketMQ instance. For more information, see [Limits](~~163289~~).
      *
      * @example dbaudit-cn-i7m2nx2or01
      *
@@ -37,7 +45,7 @@ class sourceRocketMQParameters extends Model
     public $instanceId;
 
     /**
-     * @description None
+     * @description None.
      *
      * @example None
      *
@@ -46,6 +54,10 @@ class sourceRocketMQParameters extends Model
     public $instanceNetwork;
 
     /**
+     * @description The password that is used to access the Message Queue for Apache RocketMQ instance.
+     *
+     * @example ******
+     *
      * @var string
      */
     public $instancePassword;
@@ -62,7 +74,9 @@ class sourceRocketMQParameters extends Model
     /**
      * @description The type of the Message Queue for Apache RocketMQ instance. Valid values:
      *
-     * - Cloud\_5: Message Queue for Apache RocketMQ 5.0 instances.
+     *   Cloud\_4: Message Queue for Apache RocketMQ 4.0 instance.
+     *   Cloud\_5: Message Queue for Apache RocketMQ 5.0 instance.
+     *
      * @example Cloud_4
      *
      * @var string
@@ -70,6 +84,10 @@ class sourceRocketMQParameters extends Model
     public $instanceType;
 
     /**
+     * @description The username that is used to access the Message Queue for Apache RocketMQ instance.
+     *
+     * @example root
+     *
      * @var string
      */
     public $instanceUsername;
@@ -93,8 +111,13 @@ class sourceRocketMQParameters extends Model
     public $instanceVpcId;
 
     /**
-     * @description The consumer offset of the message. Valid values: CONSUME_FROM_LAST_OFFSET: Start consumption from the latest offset. CONSUME_FROM_FIRST_OFFSET: Start consumption from the earliest offset. CONSUME_FROM_TIMESTAMP: Start consumption from the offset at the specified point in time. Default value: CONSUME_FROM_LAST_OFFSET.
+     * @description The offset from which message consumption starts. Valid values:
      *
+     *   CONSUME_FROM_LAST_OFFSET: Start message consumption from the latest offset.
+     *   CONSUME_FROM_FIRST_OFFSET: Start message consumption from the earliest offset.
+     *   CONSUME_FROM_TIMESTAMP: Start message consumption from the offset at the specified point in time.
+     *
+     * Default value: CONSUME_FROM_LAST_OFFSET.
      * @example CONSUMEFROMLASTOFFSET
      *
      * @var string
@@ -102,7 +125,7 @@ class sourceRocketMQParameters extends Model
     public $offset;
 
     /**
-     * @description The region in which the Message Queue for Apache RocketMQ instance resides.
+     * @description The region where the Message Queue for Apache RocketMQ instance resides.
      *
      * @example cn-zhangjiakou
      *
@@ -111,7 +134,7 @@ class sourceRocketMQParameters extends Model
     public $regionId;
 
     /**
-     * @description The tags that are used to filter messages.
+     * @description The tag that is used to filter messages.
      *
      * @example KEY2
      *
@@ -120,7 +143,7 @@ class sourceRocketMQParameters extends Model
     public $tag;
 
     /**
-     * @description The timestamp of the offset from which consumption starts. This parameter is valid only if you set the Offset parameter to CONSUME_FROM_TIMESTAMP.
+     * @description The timestamp that specifies the time from which messages are consumed. This parameter is valid only if you set Offset to CONSUME_FROM_TIMESTAMP.
      *
      * @example 1663555399032
      *
@@ -129,7 +152,7 @@ class sourceRocketMQParameters extends Model
     public $timestamp;
 
     /**
-     * @description The name of the topic in the Message Queue for Apache RocketMQ instance. For more information, see Limits.
+     * @description The name of the topic on the Message Queue for Apache RocketMQ instance. For more information, see [Limits](~~163289~~).
      *
      * @example topic_default_195820716552192
      *

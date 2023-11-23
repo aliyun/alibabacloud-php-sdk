@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class sinkFnfParameters extends Model
 {
     /**
+     * @description The execution name.
+     *
      * @var executionName
      */
     public $executionName;
 
     /**
+     * @description The flow name.
+     *
      * @var flowName
      */
     public $flowName;
 
     /**
+     * @description The execution input information.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The role name.
+     *
      * @var roleName
      */
     public $roleName;

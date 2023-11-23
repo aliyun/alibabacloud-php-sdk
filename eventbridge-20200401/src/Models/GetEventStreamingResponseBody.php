@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetEventStreamingResponseBody extends Model
 {
     /**
-     * @description The error code. The value Success indicates that the request is successful.
+     * @description The response code. The value Success indicates that the request is successful. Other values indicate that the request failed. For a list of error codes, see Error codes.
      *
      * @example Success
      *
@@ -19,7 +19,7 @@ class GetEventStreamingResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The response parameters.
      *
      * @var data
      */
@@ -44,7 +44,7 @@ class GetEventStreamingResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values: true and false.
+     * @description Indicates whether the operation is successful. The value true indicates that the operation is successful.
      *
      * @example true
      *

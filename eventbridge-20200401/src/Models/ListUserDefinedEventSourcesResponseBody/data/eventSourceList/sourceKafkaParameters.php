@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class sourceKafkaParameters extends Model
 {
     /**
+     * @description The ID of the consumer group that subscribes to the topic.
+     *
+     * @example test-gid
+     *
      * @var string
      */
     public $consumerGroup;
 
     /**
+     * @description The ID of the Message Queue for Apache Kafka instance.
+     *
+     * @example i-2ze6kiwzkebf04s5h8ds
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The maximum number of consumers.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $maximumTasks;
 
     /**
+     * @description The network. Valid values: Default and PublicNetwork. Default value: Default. The value PublicNetwork indicates a self-managed network.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $network;
 
     /**
+     * @description The consumer offset.
+     *
+     * @example earliest
+     *
      * @var string
      */
     public $offsetReset;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The security group ID.
+     *
+     * @example sg-f8zatts5g97x0j***
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The topic name.
+     *
+     * @example topic_api_1674441611897
+     *
      * @var string
      */
     public $topic;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-bp1hcrxq3mkcik***e
+     *
      * @var string
      */
     public $vSwitchIds;
 
     /**
+     * @description The VPC ID.
+     *
+     * @example vpc-bp1kz3ohhzgrau2***
+     *
      * @var string
      */
     public $vpcId;

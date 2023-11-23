@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class sourceRocketMQParameters extends Model
 {
     /**
+     * @description The authentication type. This parameter can be set to ACL or left empty.
+     *
+     * @example ACL
+     *
      * @var string
      */
     public $authType;
 
     /**
-     * @description The ID of the consumer group in the Message Queue for Apache RocketMQ instance.
+     * @description The ID of the consumer group on the Message Queue for Apache RocketMQ instance.
      *
      * @example GID-test
      *
@@ -23,12 +27,16 @@ class sourceRocketMQParameters extends Model
     public $groupId;
 
     /**
+     * @description The instance endpoint.
+     *
+     * @example registry-vpc.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $instanceEndpoint;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance. For more information, see Limits.
+     * @description The ID of the Message Queue for Apache RocketMQ instance. For more information, see [Limits](~~163289~~).
      *
      * @example bastionhost-cn-7mz293s9d1p
      *
@@ -37,42 +45,74 @@ class sourceRocketMQParameters extends Model
     public $instanceId;
 
     /**
+     * @description The network that is used by the Message Queue for Apache RocketMQ instance.
+     *
+     * @example PublicNetwork
+     *
      * @var string
      */
     public $instanceNetwork;
 
     /**
+     * @description The instance password.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $instancePassword;
 
     /**
+     * @description The security group ID.
+     *
+     * @example eb-167adad548***
+     *
      * @var string
      */
     public $instanceSecurityGroupId;
 
     /**
+     * @description The instance type. Valid values: CLOUD\_4, CLOUD\_5, and SELF_BUILT. The value CLOUD\_4 indicates that the instance is a Message Queue for Apache RocketMQ 4.0 instance. The value CLOUD\_5 indicates that the instance is a Message Queue for Apache RocketMQ 5.0 instance. The value SELF_BUILT indicates that the instance is a self-managed RocketMQ instance.
+     *
+     * @example CLOUD_5
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The instance username.
+     *
+     * @example root
+     *
      * @var string
      */
     public $instanceUsername;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-bp1iu***
+     *
      * @var string
      */
     public $instanceVSwitchIds;
 
     /**
+     * @description The virtual private cloud (VPC) ID.
+     *
+     * @example vpc-***
+     *
      * @var string
      */
     public $instanceVpcId;
 
     /**
      * @description The offset from which messages are consumed. Valid values:
+     *
+     *   CONSUME_FROM_LAST_OFFSET: Messages are consumed from the latest offset.
+     *   CONSUME_FROM_FIRST_OFFSET: Messages are consumed from the earliest offset.
+     *   CONSUME_FROM_TIMESTAMP: Messages are consumed from the offset at the specified point in time.
      *
      * Default value: CONSUME_FROM_LAST_OFFSET.
      * @example CONSUMEFROMLASTOFFSET
@@ -109,7 +149,7 @@ class sourceRocketMQParameters extends Model
     public $timestamp;
 
     /**
-     * @description The name of the topic in Message Queue for Apache RocketMQ instance. For more information, see Limits.
+     * @description The name of the topic on the Message Queue for Apache RocketMQ instance. For more information, see [Limits](~~163289~~).
      *
      * @example migration_instance
      *

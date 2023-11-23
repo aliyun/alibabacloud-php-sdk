@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceRabbitMQParameters extends Model
 {
     /**
-     * @description The ID of the Message Queue for RabbitMQ instance. For more information, see Limits.
+     * @description The ID of the Message Queue for RabbitMQ instance. For more information, see [Limits](~~163289~~).
      *
      * @example bastionhost-cn-0ju2x28fj07
      *
@@ -18,7 +18,7 @@ class sourceRabbitMQParameters extends Model
     public $instanceId;
 
     /**
-     * @description The name of the queue in the Message Queue for RabbitMQ instance. For more information, see Limits.
+     * @description The name of the queue on the Message Queue for RabbitMQ instance. For more information, see [Limits](~~163289~~).
      *
      * @example file-upload-queue
      *
@@ -36,7 +36,7 @@ class sourceRabbitMQParameters extends Model
     public $regionId;
 
     /**
-     * @description The vhost name of the Message Queue for RabbitMQ instance. For more information, see Limits.
+     * @description The name of the vhost of the Message Queue for RabbitMQ instance. For more information, see [Limits](~~163289~~).
      *
      * @example eb-connect
      *

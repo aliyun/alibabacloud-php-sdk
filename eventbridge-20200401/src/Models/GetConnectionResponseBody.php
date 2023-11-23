@@ -26,6 +26,10 @@ class GetConnectionResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;

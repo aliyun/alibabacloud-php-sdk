@@ -18,7 +18,7 @@ class sourceMNSParameters extends Model
     public $isBase64Decode;
 
     /**
-     * @description The name of the queue in MNS.
+     * @description The name of the MNS queue.
      *
      * @example queue.openapi-sign-callback
      *

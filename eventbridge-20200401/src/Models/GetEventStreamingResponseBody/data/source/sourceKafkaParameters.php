@@ -81,7 +81,7 @@ class sourceKafkaParameters extends Model
     public $vSwitchIds;
 
     /**
-     * @description The VPC ID.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-2zehizpoendb3nwwu9w5o
      *

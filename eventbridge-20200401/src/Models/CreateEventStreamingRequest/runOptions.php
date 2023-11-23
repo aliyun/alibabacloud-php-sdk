@@ -12,21 +12,24 @@ use AlibabaCloud\Tea\Model;
 class runOptions extends Model
 {
     /**
-     * @description The information about the batch window.
+     * @description The batch window.
      *
      * @var batchWindow
      */
     public $batchWindow;
 
     /**
-     * @description Specifies whether to enable dead-letter queues. By default, dead-letter queues are disabled. Messages that fail to be pushed are discarded after the maximum number of retries specified by the retry policy is reached.
+     * @description Specifies whether to enable dead-letter queues. By default, dead-letter queues are disabled. Messages that fail to be pushed are discarded after the maximum number of retries that is specified by the retry policy is reached.
      *
      * @var deadLetterQueue
      */
     public $deadLetterQueue;
 
     /**
-     * @description The fault tolerance policy. The value NONE specifies that faults are not tolerated, and the value All specifies that all faults are tolerated.
+     * @description The exception tolerance policy. Valid values:
+     *
+     *   NONE: does not tolerate exceptions.
+     *   ALL: tolerates all exceptions.
      *
      * @example ALL
      *
@@ -35,7 +38,7 @@ class runOptions extends Model
     public $errorsTolerance;
 
     /**
-     * @description The concurrency level.
+     * @description The maximum number of concurrent threads.
      *
      * @example 2
      *
@@ -44,7 +47,7 @@ class runOptions extends Model
     public $maximumTasks;
 
     /**
-     * @description The information about the retry policy that is used if events fail to be pushed.
+     * @description The retry policy that you want to use if events fail to be pushed.
      *
      * @var retryStrategy
      */

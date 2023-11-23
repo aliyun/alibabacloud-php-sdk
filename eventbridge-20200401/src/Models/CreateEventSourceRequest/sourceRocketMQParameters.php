@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class sourceRocketMQParameters extends Model
 {
     /**
+     * @description The authentication type. You can set this parameter to ACL or leave this parameter empty.
+     *
+     * @example ACL
+     *
      * @var string
      */
     public $authType;
 
     /**
-     * @description The ID of the consumer group in the Message Queue for Apache RocketMQ instance.
+     * @description The ID of the consumer group on the Message Queue for Apache RocketMQ instance.
      *
      * @example GID-test
      *
@@ -23,12 +27,16 @@ class sourceRocketMQParameters extends Model
     public $groupID;
 
     /**
+     * @description The endpoint that is used to access the Message Queue for Apache RocketMQ instance.
+     *
+     * @example registry-vpc****.aliyuncs.com
+     *
      * @var string
      */
     public $instanceEndpoint;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance. For more information, see Limits.
+     * @description The ID of the Message Queue for Apache RocketMQ instance. For more information, see [Limits](~~163289~~).
      *
      * @example MQ_INST_164901546557****_BAAN****
      *
@@ -46,6 +54,10 @@ class sourceRocketMQParameters extends Model
     public $instanceNetwork;
 
     /**
+     * @description The password that is used to access the Message Queue for Apache RocketMQ instance.
+     *
+     * @example ******
+     *
      * @var string
      */
     public $instancePassword;
@@ -62,8 +74,9 @@ class sourceRocketMQParameters extends Model
     /**
      * @description The type of the Message Queue for Apache RocketMQ instance. Valid values:
      *
+     *   Cloud\_4: Message Queue for Apache RocketMQ 4.0 instance.
+     *   Cloud\_5: Message Queue for Apache RocketMQ 5.0 instance.
      *
-     * - Cloud\_5: Message Queue for Apache RocketMQ 5.0 instances.
      * @example Cloud_4
      *
      * @var string
@@ -71,6 +84,10 @@ class sourceRocketMQParameters extends Model
     public $instanceType;
 
     /**
+     * @description The username that is used to access the Message Queue for Apache RocketMQ instance.
+     *
+     * @example root
+     *
      * @var string
      */
     public $instanceUsername;
@@ -94,7 +111,7 @@ class sourceRocketMQParameters extends Model
     public $instanceVpcId;
 
     /**
-     * @description The offset from which messages are consumed. Valid values: CONSUME_FROM_LAST_OFFSET: Messages are consumed from the latest offset. CONSUME_FROM_FIRST_OFFSET: Messages are consumed from the earliest offset. CONSUME_FROM_TIMESTAMP: Messages are consumed from the offset at the specified point in time. Default value: CONSUME_FROM_LAST_OFFSET.
+     * @description The offset from which message consumption starts. Valid values: CONSUME_FROM_LAST_OFFSET: Start message consumption from the latest offset. CONSUME_FROM_FIRST_OFFSET: Start message consumption from the earliest offset. CONSUME_FROM_TIMESTAMP: Start message consumption from the offset at the specified point in time. Default value: CONSUME_FROM_LAST_OFFSET.
      *
      * @example CONSUME_FROM_LAST_OFFSET
      *
@@ -103,7 +120,7 @@ class sourceRocketMQParameters extends Model
     public $offset;
 
     /**
-     * @description The region in which the Message Queue for Apache RocketMQ instance resides.
+     * @description The region where the Message Queue for Apache RocketMQ instance resides.
      *
      * @example cn-hangzhou
      *
@@ -112,7 +129,7 @@ class sourceRocketMQParameters extends Model
     public $regionId;
 
     /**
-     * @description The tags that are used to filter messages.
+     * @description The tag that is used to filter messages.
      *
      * @example test
      *
@@ -130,7 +147,7 @@ class sourceRocketMQParameters extends Model
     public $timestamp;
 
     /**
-     * @description The name of the topic in the Message Queue for Apache RocketMQ instance. For more information, see Limits.
+     * @description The name of the topic on the Message Queue for Apache RocketMQ instance. For more information, see [Limits](~~163289~~).
      *
      * @example mytopic
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class batchWindow extends Model
 {
     /**
-     * @description The maximum number of events that is allowed in the batch window. If the value specified by this parameter is reached, the data in the batch window is pushed to the downstream application. If multiple batch windows exist, data is pushed if triggering conditions are met in one of the windows.
+     * @description The maximum number of events that is allowed in the batch window. When this threshold is reached, data in the window is pushed to the downstream service. If multiple batch windows exist, data is pushed if triggering conditions are met in one of the windows.
      *
      * @example 100
      *
@@ -18,7 +18,7 @@ class batchWindow extends Model
     public $countBasedWindow;
 
     /**
-     * @description The maximum period of time during which events are allowed in the batch window. Unit: seconds. If the value specified by this parameter is reached, the data in the batch window is pushed to the downstream application. If multiple batch windows exist, data is pushed if triggering conditions are met in one of the windows.
+     * @description The maximum period of time during which events are allowed in the batch window. Unit: seconds. When this threshold is reached, data in the window is pushed to the downstream service. If multiple batch windows exist, data is pushed if triggering conditions are met in one of the windows.
      *
      * @example 10
      *

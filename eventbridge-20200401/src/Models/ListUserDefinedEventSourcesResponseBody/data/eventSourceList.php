@@ -43,7 +43,7 @@ class eventSourceList extends Model
     public $eventBusName;
 
     /**
-     * @description The type of the event resource.
+     * @description The type of the event source.
      *
      * @example RabbitMQ
      *
@@ -61,52 +61,56 @@ class eventSourceList extends Model
     public $name;
 
     /**
-     * @description The parameters that are returned if the event source is HTTP events.
+     * @description The parameters that are returned if HTTP events are specified as the event source.
      *
      * @var sourceHttpEventParameters
      */
     public $sourceHttpEventParameters;
 
     /**
+     * @description The parameters that are returned if Message Queue for Apache Kafka is specified as the event source.
+     *
      * @var sourceKafkaParameters
      */
     public $sourceKafkaParameters;
 
     /**
-     * @description The parameters that are returned if the event source is Message Service (MNS).
+     * @description The parameters that are returned if Message Service (MNS) is specified as the event source.
      *
      * @var sourceMNSParameters
      */
     public $sourceMNSParameters;
 
     /**
-     * @description The parameters that are returned if the event source is Message Queue for RabbitMQ.
+     * @description The parameters that are returned if Message Queue for RabbitMQ is specified as the event source.
      *
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
 
     /**
-     * @description The parameters that are returned if the event source is Message Queue for Apache RocketMQ.
+     * @description The parameters that are returned if Message Queue for Apache RocketMQ is specified as the event source.
      *
      * @var sourceRocketMQParameters
      */
     public $sourceRocketMQParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Log Service.
+     * @description The parameters that are returned if Simple Log Service is specified as the event source.
      *
      * @var sourceSLSParameters
      */
     public $sourceSLSParameters;
 
     /**
+     * @description The parameters that are returned if scheduled events are specified as the event source.
+     *
      * @var sourceScheduledEventParameters
      */
     public $sourceScheduledEventParameters;
 
     /**
-     * @description The status of the queried event source. Valid value: Activated.
+     * @description The status of the queried event source. The returned value Activated indicates that the event source is activated.
      *
      * @example Activated
      *
@@ -115,7 +119,7 @@ class eventSourceList extends Model
     public $status;
 
     /**
-     * @description The type of the queried event source. Valid value: UserDefined: custom event source.
+     * @description The type of the queried event source. The returned value UserDefined indicates that the event source is a custom event source.
      *
      * @example UserDefined
      *

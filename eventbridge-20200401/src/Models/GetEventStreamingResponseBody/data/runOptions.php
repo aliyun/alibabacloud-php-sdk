@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class runOptions extends Model
 {
     /**
-     * @description The information about the batch window.
+     * @description The batch window.
      *
      * @var batchWindow
      */
     public $batchWindow;
 
     /**
-     * @description Specifies whether to enable dead-letter queues. By default, dead-letter queues are disabled. Messages that fail to be pushed after allowed retries as specified by the retry policy are discarded.
+     * @description Indicates whether dead-letter queues are enabled. By default, dead-letter queues are disabled. Messages that fail to be pushed after allowed retries as specified by the retry policy are discarded.
      *
      * @var deadLetterQueue
      */

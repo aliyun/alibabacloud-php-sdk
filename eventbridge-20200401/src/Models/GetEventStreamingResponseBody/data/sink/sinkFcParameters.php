@@ -29,14 +29,14 @@ class sinkFcParameters extends Model
     public $concurrency;
 
     /**
-     * @description The name of the Function Compute function.
+     * @description The function name.
      *
      * @var functionName
      */
     public $functionName;
 
     /**
-     * @description The invocation type. Valid values: Sync Async
+     * @description The invocation type. Valid values: Sync: synchronous Async: asynchronous
      *
      * @var invocationType
      */
@@ -50,7 +50,7 @@ class sinkFcParameters extends Model
     public $qualifier;
 
     /**
-     * @description The name of the service.
+     * @description The service name.
      *
      * @var serviceName
      */

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListUserDefinedEventSourcesRequest extends Model
 {
     /**
+     * @description The name of the event bus.
+     *
+     * @example testBus
+     *
      * @var string
      */
     public $eventBusName;
 
     /**
+     * @description The maximum number of entries to be returned in a call. You can use this parameter and NextToken to implement paging. Note: Up to 100 entries can be returned in a call.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The name of the event source.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $namePrefix;
 
     /**
+     * @description If you configure Limit and excess return values exist, this parameter is returned.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $nextToken;

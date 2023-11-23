@@ -19,14 +19,14 @@ class sinkMNSParameters extends Model
     public $body;
 
     /**
-     * @description Specifies whether to enable Base64 encoding.
+     * @description Indicates whether Base64 encoding is enabled.
      *
      * @var isBase64Encode
      */
     public $isBase64Encode;
 
     /**
-     * @description The information about the MNS queue.
+     * @description The target service type is MNS.
      *
      * @var queueName
      */

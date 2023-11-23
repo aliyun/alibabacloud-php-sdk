@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsRespo
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\source;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\transforms;
 use AlibabaCloud\Tea\Model;
 
 class eventStreamings extends Model
@@ -51,6 +52,11 @@ class eventStreamings extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var transforms[]
+     */
+    public $transforms;
     protected $_name = [
         'description'        => 'Description',
         'eventStreamingName' => 'EventStreamingName',
@@ -59,6 +65,7 @@ class eventStreamings extends Model
         'sink'               => 'Sink',
         'source'             => 'Source',
         'status'             => 'Status',
+        'transforms'         => 'Transforms',
     ];
 
     public function validate()
@@ -88,6 +95,15 @@ class eventStreamings extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->transforms) {
+            $res['Transforms'] = [];
+            if (null !== $this->transforms && \is_array($this->transforms)) {
+                $n = 0;
+                foreach ($this->transforms as $item) {
+                    $res['Transforms'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -121,6 +137,15 @@ class eventStreamings extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Transforms'])) {
+            if (!empty($map['Transforms'])) {
+                $model->transforms = [];
+                $n                 = 0;
+                foreach ($map['Transforms'] as $item) {
+                    $model->transforms[$n++] = null !== $item ? transforms::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

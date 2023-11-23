@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class executionName extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description The template style.
+     *
+     * @example None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The execution name.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $value;

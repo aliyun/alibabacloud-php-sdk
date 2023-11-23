@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class topicSchema extends Model
 {
     /**
-     * @description The method that is used to transform events.
+     * @description The format into which you want to transform events.
      *
      * @example TEMPLATE
      *
@@ -18,7 +18,7 @@ class topicSchema extends Model
     public $form;
 
     /**
-     * @description The template based on which events are transformed.
+     * @description The template based on which you want to transform events.
      *
      * @example {"k1":"${k1}","k2":"${k2}"}
      *
@@ -27,7 +27,7 @@ class topicSchema extends Model
     public $template;
 
     /**
-     * @description The value of the TUPLE topic.
+     * @description The TUBLE topic.
      *
      * @example {"k1":"value1","k2":"value2"}
      *

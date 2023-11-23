@@ -15,42 +15,45 @@ use AlibabaCloud\Tea\Model;
 class sinkDataHubParameters extends Model
 {
     /**
-     * @description The information about the BLOB topic.
+     * @description The BLOB topic.
      *
      * @var body
      */
     public $body;
 
     /**
-     * @description The information about the DataHub project.
+     * @description The name of the DataHub project.
      *
      * @var project
      */
     public $project;
 
     /**
-     * @description The information about the role.
+     * @description The role name.
      *
      * @var roleName
      */
     public $roleName;
 
     /**
-     * @description The information about the DataHub topic.
+     * @description The name of the DataHub topic.
      *
      * @var topic
      */
     public $topic;
 
     /**
-     * @description The information about the TUPLE topic.
+     * @description The TUBLE topic.
      *
      * @var topicSchema
      */
     public $topicSchema;
 
     /**
-     * @description The information about the topic.
+     * @description The topic type. Valid values:
+     *
+     *   TUPLE
+     *   BLOB
      *
      * @var topicType
      */

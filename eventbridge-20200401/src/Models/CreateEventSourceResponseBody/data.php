@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ARN of the event source.
+     * @description The Alibaba Cloud Resource Name (ARN) of the resource.
      *
      * @example acs:eventbridge:cn-hangzhou:164901546557****:eventbus/my-event-bus/eventsource/mymns.source
      *

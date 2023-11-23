@@ -16,7 +16,7 @@ class UpdateEventSourceShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The associated event bus.
+     * @description The event bus with which the event source is associated.
      *
      * @example my-event-bus
      *
@@ -76,7 +76,7 @@ class UpdateEventSourceShrinkRequest extends Model
     public $sourceSLSParametersShrink;
 
     /**
-     * @description The parameters that are configured if the event source is scheduled events.
+     * @description The parameters that are configured if you specify scheduled events as the event source.
      *
      * @var string
      */

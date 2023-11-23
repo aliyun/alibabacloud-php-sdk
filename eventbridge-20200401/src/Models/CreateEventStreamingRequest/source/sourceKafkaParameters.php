@@ -18,7 +18,7 @@ class sourceKafkaParameters extends Model
     public $consumerGroup;
 
     /**
-     * @description The ID of the Message Queue for Apache Kafka instance.
+     * @description The instance ID.
      *
      * @example r-8vb64581862cd814
      *
@@ -27,7 +27,7 @@ class sourceKafkaParameters extends Model
     public $instanceId;
 
     /**
-     * @description The network. Default value: Default. The value PublicNetwork specifies a virtual private cloud (VPC).
+     * @description The network type. Default value: Default. The value PublicNetwork specifies virtual private clouds (VPCs).
      *
      * @example Default
      *
@@ -54,7 +54,7 @@ class sourceKafkaParameters extends Model
     public $regionId;
 
     /**
-     * @description The ID of the security group to which the instance belongs.
+     * @description The security group ID.
      *
      * @example sg-bp1iv19sp1msc7zot4wr
      *
@@ -63,7 +63,7 @@ class sourceKafkaParameters extends Model
     public $securityGroupId;
 
     /**
-     * @description The name of the topic in the Message Queue for Apache Kafka instance.
+     * @description The topic name.
      *
      * @example popvip_center_robot_order
      *
@@ -72,7 +72,7 @@ class sourceKafkaParameters extends Model
     public $topic;
 
     /**
-     * @description The ID of the vSwitch with which the instance is associated.
+     * @description The vSwitch ID.
      *
      * @example vsw-bp179l3llg3jjxwrq72hh
      *
@@ -81,7 +81,7 @@ class sourceKafkaParameters extends Model
     public $vSwitchIds;
 
     /**
-     * @description The ID of the VPC to which the instance belongs.
+     * @description The VPC ID.
      *
      * @example vpc-8vblalsi0vbhizr77cbhu
      *

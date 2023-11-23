@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class networkParameters extends Model
 {
     /**
-     * @description * **PublicNetwork**: the Internet.
-     *
-     * **PrivateNetwork**: virtual private cloud (VPC).
+     * @description *   PublicNetwork: the Internet.
+     *   PrivateNetwork: virtual private cloud (VPC).
      *
      * @example PublicNetwork
      *

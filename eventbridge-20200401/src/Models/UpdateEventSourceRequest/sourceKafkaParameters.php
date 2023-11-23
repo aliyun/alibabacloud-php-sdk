@@ -18,7 +18,7 @@ class sourceKafkaParameters extends Model
     public $consumerGroup;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the Message Queue for Apache Kafka instance.
      *
      * @example cbwp-bp1o3m66wcjgbkssm3k5m
      *
@@ -27,7 +27,7 @@ class sourceKafkaParameters extends Model
     public $instanceId;
 
     /**
-     * @description The concurrency quota, which is the number of consumers.
+     * @description The maximum number of consumers.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class sourceKafkaParameters extends Model
     public $maximumTasks;
 
     /**
-     * @description The network. Valid values: Default and PublicNetwork.
+     * @description The network. Valid values: Default and PublicNetwork. Default value: Default. The value PublicNetwork indicates a self-managed network.
      *
      * @example Default
      *
@@ -54,7 +54,7 @@ class sourceKafkaParameters extends Model
     public $offsetReset;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region where the Message Queue for Apache Kafka instance resides.
      *
      * @example cn-shanghai
      *
@@ -63,7 +63,7 @@ class sourceKafkaParameters extends Model
     public $regionId;
 
     /**
-     * @description The ID of the security group to which the Message Queue for Apache Kafka instance belongs. This parameter is required if you set Network to PublicNetwork.
+     * @description The ID of the security group to which the Message Queue for Apache Kafka instance belongs. This parameter is required only if you set Network to PublicNetwork.
      *
      * @example sg-5wz3mjgo9wpvdnwpwnhkjdjwn
      *
@@ -72,7 +72,7 @@ class sourceKafkaParameters extends Model
     public $securityGroupId;
 
     /**
-     * @description The topic name.
+     * @description The name of the topic on the Message Queue for Apache Kafka instance.
      *
      * @example billing_notify
      *
@@ -81,7 +81,7 @@ class sourceKafkaParameters extends Model
     public $topic;
 
     /**
-     * @description The ID of the vSwitch with which the Message Queue for Apache Kafka instance is associated. This parameter is required if you set Network to PublicNetwork.
+     * @description The ID of the vSwitch with which the Message Queue for Apache Kafka instance is associated. This parameter is required only if you set Network to PublicNetwork.
      *
      * @example vsw-bp1xyntcxiwplhqxjybuk
      *
@@ -90,7 +90,7 @@ class sourceKafkaParameters extends Model
     public $vSwitchIds;
 
     /**
-     * @description The ID of the VPC in which the Message Queue for Apache Kafka instance resides. This parameter is required if you set Network to PublicNetwork.
+     * @description The ID of the VPC in which the Message Queue for Apache Kafka instance resides. This parameter is required only if you set Network to PublicNetwork.
      *
      * @example vpc-2zefu4vfmx6siogujmo0b
      *

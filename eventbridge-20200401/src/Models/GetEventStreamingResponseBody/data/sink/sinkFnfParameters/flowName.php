@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class flowName extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description The template style.
+     *
+     * @example None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The flow name.
+     *
+     * @example test-streaming-fnf
+     *
      * @var string
      */
     public $value;

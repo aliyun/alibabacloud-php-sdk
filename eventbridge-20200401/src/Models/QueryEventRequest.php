@@ -25,9 +25,15 @@ class QueryEventRequest extends Model
      * @var string
      */
     public $eventId;
+
+    /**
+     * @var string
+     */
+    public $eventSource;
     protected $_name = [
         'eventBusName' => 'EventBusName',
         'eventId'      => 'EventId',
+        'eventSource'  => 'EventSource',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class QueryEventRequest extends Model
         }
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
+        }
+        if (null !== $this->eventSource) {
+            $res['EventSource'] = $this->eventSource;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class QueryEventRequest extends Model
         }
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
+        }
+        if (isset($map['EventSource'])) {
+            $model->eventSource = $map['EventSource'];
         }
 
         return $model;

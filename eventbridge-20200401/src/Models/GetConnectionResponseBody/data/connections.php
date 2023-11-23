@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class connections extends Model
 {
     /**
-     * @description The parameters that are returned for authentication.
+     * @description The authentication methods.
      *
      * @var authParameters
      */
     public $authParameters;
 
     /**
-     * @description The name of the queried connection.
+     * @description The connection name.
      *
      * @example demo
      *
@@ -54,7 +54,7 @@ class connections extends Model
     public $id;
 
     /**
-     * @description The parameters that are returned for the network.
+     * @description The information about the network.
      *
      * @var networkParameters
      */

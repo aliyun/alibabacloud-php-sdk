@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class sinkMNSParameters extends Model
 {
     /**
-     * @description The message content.
+     * @description The message body.
      *
      * @var body
      */
@@ -26,7 +26,7 @@ class sinkMNSParameters extends Model
     public $isBase64Encode;
 
     /**
-     * @description The information about the MNS queue.
+     * @description The name of the MNS queue.
      *
      * @var queueName
      */

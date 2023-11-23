@@ -12,20 +12,18 @@ use AlibabaCloud\Tea\Model;
 class authParameters extends Model
 {
     /**
-     * @description The parameters that are returned for API key authentication.
+     * @description The information about API key authentication.
      *
      * @var apiKeyAuthParameters
      */
     public $apiKeyAuthParameters;
 
     /**
-     * @description The authentication type. Valid values:
+     * @description The authentication method. Valid values:
      *
-     * **BASIC_AUTH**: basic authentication.
-     *
-     * **API_KEY_AUTH**: API key authentication.
-     *
-     * **OAUTH_AUTH**: OAuth authentication.
+     *   BASIC_AUTH: basic authentication.
+     *   API_KEY_AUTH: API key authentication.
+     *   OAUTH_AUTH: OAuth authentication.
      *
      * @example BASIC_AUTH
      *
@@ -34,14 +32,14 @@ class authParameters extends Model
     public $authorizationType;
 
     /**
-     * @description The parameters that are returned for basic authentication.
+     * @description The information about basic authentication.
      *
      * @var basicAuthParameters
      */
     public $basicAuthParameters;
 
     /**
-     * @description The parameters that are returned for OAuth authentication.
+     * @description The information about OAuth authentication.
      *
      * @var OAuthParameters
      */

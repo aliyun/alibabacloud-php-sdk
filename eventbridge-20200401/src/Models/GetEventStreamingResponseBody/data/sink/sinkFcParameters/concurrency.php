@@ -18,7 +18,7 @@ class concurrency extends Model
     public $form;
 
     /**
-     * @description None
+     * @description The template style.
      *
      * @example None
      *

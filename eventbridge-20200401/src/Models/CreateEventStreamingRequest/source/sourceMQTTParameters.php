@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceMQTTParameters extends Model
 {
     /**
-     * @description The ID of the Message Queue for MQTT instance.
+     * @description The instance ID.
      *
      * @example r-bp1b5ncun5lqerzg4r
      *
@@ -18,7 +18,7 @@ class sourceMQTTParameters extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the region in which the Message Queue for MQTT resides.
+     * @description The region ID.
      *
      * @example cn-shenzhen
      *
@@ -27,7 +27,7 @@ class sourceMQTTParameters extends Model
     public $regionId;
 
     /**
-     * @description The name of the topic in the Message Queue for MQTT instance.
+     * @description The topic in which messages are stored.
      *
      * @example CANAL_VICUTU_UAT
      *

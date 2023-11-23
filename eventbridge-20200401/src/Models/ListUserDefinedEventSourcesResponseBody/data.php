@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The security domain names. This parameter is required only if SecurityConfig is set to referer. You can enter domain names.
+     * @description The event sources.
      *
      * @var eventSourceList[]
      */

@@ -25,14 +25,14 @@ class sinkRabbitMQParameters extends Model
     public $body;
 
     /**
-     * @description The exchange mode. This parameter is available only if you set TargetType to Exchange.
+     * @description The exchange mode. This parameter is available only if TargetType is set to Exchange.
      *
      * @var exchange
      */
     public $exchange;
 
     /**
-     * @description The information about the Message Queue for RabbitMQ instance.
+     * @description The target service type is Message Queue for RabbitMQ instance.
      *
      * @var instanceId
      */
@@ -53,28 +53,28 @@ class sinkRabbitMQParameters extends Model
     public $properties;
 
     /**
-     * @description The queue mode. This parameter is available only if you set TargetType to Queue.
+     * @description The queue mode. This parameter is available only if TargetType is set to Queue.
      *
      * @var queueName
      */
     public $queueName;
 
     /**
-     * @description The routing rule for the message. This parameter is available only if you set TargetType to Exchange.
+     * @description The routing rule for the message. This parameter is available only if TargetType is set to Exchange.
      *
      * @var routingKey
      */
     public $routingKey;
 
     /**
-     * @description The type of the resource to which the event is delivered.
+     * @description The target type.
      *
      * @var targetType
      */
     public $targetType;
 
     /**
-     * @description The vhost name of the Message Queue for RabbitMQ instance.
+     * @description The name of the vhost of the Message Queue for RabbitMQ instance.
      *
      * @var virtualHostName
      */

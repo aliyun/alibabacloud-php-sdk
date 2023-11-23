@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceScheduledEventParameters extends Model
 {
     /**
-     * @description The Cron expression.
+     * @description The cron expression.
      *
      * @example 10 * * * * *
      *
@@ -18,7 +18,7 @@ class sourceScheduledEventParameters extends Model
     public $schedule;
 
     /**
-     * @description The time zone in which the Cron expression is executed.
+     * @description The time zone in which the cron expression is executed.
      *
      * @example GMT+0:00
      *
@@ -27,7 +27,7 @@ class sourceScheduledEventParameters extends Model
     public $timeZone;
 
     /**
-     * @var mixed[]
+     * @var string
      */
     public $userData;
     protected $_name = [

@@ -18,7 +18,7 @@ class invocationType extends Model
     public $form;
 
     /**
-     * @description None
+     * @description The template style.
      *
      * @var string
      */

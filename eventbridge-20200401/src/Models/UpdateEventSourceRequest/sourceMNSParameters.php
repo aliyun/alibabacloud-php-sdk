@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceMNSParameters extends Model
 {
     /**
-     * @description Specifies whether to enable Base64 decoding. Default value: true.
+     * @description Indicates whether Base64 decoding is enabled. By default, Base64 decoding is enabled.
      *
      * @example true
      *

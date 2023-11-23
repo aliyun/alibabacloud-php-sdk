@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description The method that is used to transform events.
+     * @description The format into which you want to transform events.
      *
      * @example ORIGINAL
      *
@@ -25,7 +25,7 @@ class body extends Model
     public $template;
 
     /**
-     * @description The value of the BLOB topic.
+     * @description The BLOB topic.
      *
      * @var string
      */

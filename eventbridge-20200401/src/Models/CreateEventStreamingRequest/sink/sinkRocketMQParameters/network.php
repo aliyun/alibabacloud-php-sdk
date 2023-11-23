@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
-     * @description The method that is used to transform events. Default value: CONSTANT.
+     * @description The format into which you want to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,10 @@ class network extends Model
     public $template;
 
     /**
-     * @description The network type. Valid values: PublicNetwork and PrivateNetwork.
+     * @description The network type. Valid values:
+     *
+     *   PublicNetwork
+     *   PrivateNetwork
      *
      * @example PublicNetwork
      *

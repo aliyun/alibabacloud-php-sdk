@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class topicType extends Model
 {
     /**
-     * @description The method that is used to transform events. Default value: CONSTANT.
+     * @description The format into which you want to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,10 @@ class topicType extends Model
     public $template;
 
     /**
-     * @description The topic type. Valid values: TUPLE and BLOB.
+     * @description The topic type. Valid values:
+     *
+     *   TUPLE
+     *   BLOB
      *
      * @example TUPLE
      *

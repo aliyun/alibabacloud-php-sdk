@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class retryStrategy extends Model
 {
     /**
-     * @description The maximum period of time during which retries are performed.
+     * @description The maximum timeout period for a retry.
      *
      * @example 512
      *
@@ -27,7 +27,10 @@ class retryStrategy extends Model
     public $maximumRetryAttempts;
 
     /**
-     * @description The retry policy that is used if events fail to be pushed. Valid values: BACKOFF_RETRY and EXPONENTIAL_DECAY_RETRY.
+     * @description The retry policy. Valid values:
+     *
+     *   BACKOFF_RETRY
+     *   EXPONENTIAL_DECAY_RETRY
      *
      * @example BACKOFFRETRY
      *

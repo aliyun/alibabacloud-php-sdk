@@ -17,54 +17,56 @@ use AlibabaCloud\Tea\Model;
 class sink extends Model
 {
     /**
-     * @description The parameters that are configured if the event target is DataHub.
+     * @description The parameters that are configured if you specify the event target as DataHub.
      *
      * @var sinkDataHubParameters
      */
     public $sinkDataHubParameters;
 
     /**
-     * @description The parameters that are configured if the event target is Function Compute.
+     * @description The parameters that are configured if you specify the event target as Function Compute.
      *
      * @var sinkFcParameters
      */
     public $sinkFcParameters;
 
     /**
+     * @description The parameters that are configured if you specify the event target as Serverless Workflow.
+     *
      * @var sinkFnfParameters
      */
     public $sinkFnfParameters;
 
     /**
-     * @description The parameters that are configured if the event target is Message Queue for Apache Kafka.
+     * @description The parameters that are configured if you specify the event target as Message Queue for Apache Kafka.
      *
      * @var sinkKafkaParameters
      */
     public $sinkKafkaParameters;
 
     /**
-     * @description The parameters that are configured if the event target is MNS.
+     * @description The parameters that are configured if you specify the event target as MNS.
      *
      * @var sinkMNSParameters
      */
     public $sinkMNSParameters;
 
     /**
-     * @description The parameters that are configured if the event target is Message Queue for RabbitMQ.
+     * @description The parameters that are configured if you specify the event target as Message Queue for RabbitMQ.
      *
      * @var sinkRabbitMQParameters
      */
     public $sinkRabbitMQParameters;
 
     /**
-     * @description Sink RocketMQ Parameters
+     * @description The parameters that are configured if you specify the event target as Message Queue for Apache RocketMQ.
      *
      * @var sinkRocketMQParameters
      */
     public $sinkRocketMQParameters;
 
     /**
-     * @description Sink SLS Parameters
+     * @description The parameters that are configured if you specify the event target as Simple Log Service.
      *
      * @var sinkSLSParameters
      */

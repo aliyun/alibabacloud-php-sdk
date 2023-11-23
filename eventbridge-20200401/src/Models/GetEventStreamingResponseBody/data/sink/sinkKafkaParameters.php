@@ -21,7 +21,7 @@ class sinkKafkaParameters extends Model
     public $acks;
 
     /**
-     * @description The information about the Message Queue for Apache Kafka instance.
+     * @description The target service type is Message Queue for Apache Kafka.
      *
      * @var instanceId
      */

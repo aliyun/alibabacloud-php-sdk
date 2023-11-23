@@ -20,7 +20,7 @@ class OAuthParameters extends Model
     public $authorizationEndpoint;
 
     /**
-     * @description The parameters that are returned for the client.
+     * @description The information about the client.
      *
      * @var clientParameters
      */
@@ -29,9 +29,9 @@ class OAuthParameters extends Model
     /**
      * @description The HTTP request method. Valid values:
      *
-     * **GET**
-     * **POST**
-     * **HEAD**
+     *   GET
+     *   POST
+     *   HEAD
      *
      * @example POST
      *
@@ -40,7 +40,7 @@ class OAuthParameters extends Model
     public $httpMethod;
 
     /**
-     * @description The request parameters that are returned for OAuth authentication.
+     * @description The request parameters of OAuth authentication.
      *
      * @var OAuthHttpParameters
      */

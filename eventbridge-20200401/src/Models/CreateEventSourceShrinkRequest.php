@@ -25,7 +25,7 @@ class CreateEventSourceShrinkRequest extends Model
     public $eventBusName;
 
     /**
-     * @description Then name of the event source.
+     * @description The name of the event source.
      *
      * @example myrabbitmq.sourc
      *
@@ -48,7 +48,7 @@ class CreateEventSourceShrinkRequest extends Model
     public $sourceKafkaParametersShrink;
 
     /**
-     * @description The parameters that are configured if the event source is Message Service (MNS).
+     * @description The parameters that are configured if the event source is Message Service (MNS). If you specify MNS as the event source, you must configure RegionId, IsBase64Decode, and QueueName.
      *
      * @var string
      */

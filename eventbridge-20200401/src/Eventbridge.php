@@ -435,6 +435,9 @@ class Eventbridge extends OpenApiClient
         if (!Utils::isUnset($tmpReq->source)) {
             $request->sourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->source, 'Source', 'json');
         }
+        if (!Utils::isUnset($tmpReq->transforms)) {
+            $request->transformsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transforms, 'Transforms', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
@@ -453,6 +456,9 @@ class Eventbridge extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceShrink)) {
             $body['Source'] = $request->sourceShrink;
+        }
+        if (!Utils::isUnset($request->transformsShrink)) {
+            $body['Transforms'] = $request->transformsShrink;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1829,6 +1835,9 @@ class Eventbridge extends OpenApiClient
         if (!Utils::isUnset($request->eventId)) {
             $query['EventId'] = $request->eventId;
         }
+        if (!Utils::isUnset($request->eventSource)) {
+            $query['EventSource'] = $request->eventSource;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2423,6 +2432,9 @@ class Eventbridge extends OpenApiClient
         if (!Utils::isUnset($tmpReq->source)) {
             $request->sourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->source, 'Source', 'json');
         }
+        if (!Utils::isUnset($tmpReq->transforms)) {
+            $request->transformsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transforms, 'Transforms', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
@@ -2441,6 +2453,9 @@ class Eventbridge extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceShrink)) {
             $body['Source'] = $request->sourceShrink;
+        }
+        if (!Utils::isUnset($request->transformsShrink)) {
+            $body['Transforms'] = $request->transformsShrink;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),

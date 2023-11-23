@@ -9,28 +9,42 @@ use AlibabaCloud\Tea\Model;
 class sourceHttpEventParameters extends Model
 {
     /**
-     * @description The CIDR blocks that are used for security settings. This parameter is required only if you set SecurityConfig to ip. You can enter CIDR blocks or IP addresses.
+     * @description The CIDR block that is used for security settings. This parameter is required only if you set SecurityConfig to ip. You can enter a CIDR block or an IP address.
      *
      * @var string[]
      */
     public $ip;
 
     /**
-     * @description The HTTP request method that is supported by the generated webhook URL. You can select multiple values. Valid values: GET GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS, TRACE, and CONNECT.
+     * @description The HTTP request method supported by the generated webhook URL. You can select multiple values. Valid values:
+     *
+     *   GET
+     *   POST
+     *   PUT
+     *   PATCH
+     *   DELETE
+     *   HEAD
+     *   OPTIONS
+     *   TRACE
+     *   CONNECT
      *
      * @var string[]
      */
     public $method;
 
     /**
-     * @description The security domain names. This parameter is required only if you set SecurityConfig to referer. You can enter domain names.
+     * @description The security domain name. This parameter is required only if you set SecurityConfig to referer. You can enter a domain name.
      *
      * @var string[]
      */
     public $referer;
 
     /**
-     * @description The security settings. Valid values: none: No configuration is required. ip: CIDR blocks. referer: security domain names.
+     * @description The type of security settings. Valid values:
+     *
+     *   none: No configuration is required.
+     *   ip: CIDR block.
+     *   referer: security domain name.
      *
      * @example none
      *
@@ -39,7 +53,11 @@ class sourceHttpEventParameters extends Model
     public $securityConfig;
 
     /**
-     * @description The protocol type that is supported by the generated webhook URL. Valid values: HTTP, HTTPS, and HTTP\&HTTPS.
+     * @description The protocol type that is supported by the generated webhook URL. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *   HTTP\&HTTPS
      *
      * @example HTTPS
      *

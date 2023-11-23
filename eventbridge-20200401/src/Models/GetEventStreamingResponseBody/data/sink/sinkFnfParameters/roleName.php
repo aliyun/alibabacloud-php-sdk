@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class roleName extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description The template style.
+     *
+     * @example None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The role configuration.
+     *
+     * @example Al****FNF-x****
+     *
      * @var string
      */
     public $value;

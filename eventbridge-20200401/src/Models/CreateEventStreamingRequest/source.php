@@ -16,49 +16,49 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
-     * @description The parameters that are configured if the event source is Data Transmission Service (DTS).
+     * @description The parameters that are configured if you specify the event source as Data Transmission Service (DTS).
      *
      * @var sourceDTSParameters
      */
     public $sourceDTSParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Message Queue for Apache Kafka.
+     * @description The parameters that are configured if you specify the event source as Message Queue for Apache Kafka.
      *
      * @var sourceKafkaParameters
      */
     public $sourceKafkaParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Message Service (MNS).
+     * @description The parameters that are configured if you specify the event source as Message Service (MNS).
      *
      * @var sourceMNSParameters
      */
     public $sourceMNSParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Message Queue for MQTT.
+     * @description The parameters that are configured if you specify the event source as Message Queue for MQTT.
      *
      * @var sourceMQTTParameters
      */
     public $sourceMQTTParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Message Queue for RabbitMQ.
+     * @description The parameters that are configured if you specify the event source as Message Queue for RabbitMQ.
      *
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Message Queue for Apache RocketMQ.
+     * @description The parameters that are configured if you specify the event source as Message Queue for Apache RocketMQ.
      *
      * @var sourceRocketMQParameters
      */
     public $sourceRocketMQParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Log Service.
+     * @description The parameters that are configured if you specify the event source as Simple Log Service.
      *
      * @var sourceSLSParameters
      */

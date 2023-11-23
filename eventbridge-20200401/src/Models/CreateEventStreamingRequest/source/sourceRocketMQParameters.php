@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceRocketMQParameters extends Model
 {
     /**
-     * @description The authentication type.
+     * @description The authentication method.
      *
      * @example ACL
      *
@@ -27,7 +27,7 @@ class sourceRocketMQParameters extends Model
     public $filterSql;
 
     /**
-     * @description The type of message filtering.
+     * @description The message filter type.
      *
      * @example Tag
      *
@@ -36,7 +36,7 @@ class sourceRocketMQParameters extends Model
     public $filterType;
 
     /**
-     * @description The ID of the consumer group in the Message Queue for Apache RocketMQ instance.
+     * @description The ID of the consumer group on the Message Queue for Apache RocketMQ instance.
      *
      * @example GID_group1
      *
@@ -45,7 +45,7 @@ class sourceRocketMQParameters extends Model
     public $groupID;
 
     /**
-     * @description The endpoint that is used to access the instance.
+     * @description The instance endpoint.
      *
      * @example registry-vpc.cn-zhangjiakou.aliyuncs.com
      *
@@ -54,7 +54,7 @@ class sourceRocketMQParameters extends Model
     public $instanceEndpoint;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance.
+     * @description The region where the Message Queue for Apache RocketMQ instance resides.
      *
      * @example default_C56C360261515
      *
@@ -63,7 +63,10 @@ class sourceRocketMQParameters extends Model
     public $instanceId;
 
     /**
-     * @description The instance network. Valid values: PublicNetwork and PrivateNetwork.
+     * @description The network type of the instance. Valid values:
+     *
+     *   PublicNetwork
+     *   PrivateNetwork
      *
      * @example PublicNetwork
      *
@@ -81,7 +84,7 @@ class sourceRocketMQParameters extends Model
     public $instancePassword;
 
     /**
-     * @description The ID of the security group to which the Message Queue for Apache RocketMQ instance belongs.
+     * @description The security group ID of the instance.
      *
      * @example sg-m5edtu24f123456789
      *
@@ -108,7 +111,7 @@ class sourceRocketMQParameters extends Model
     public $instanceUsername;
 
     /**
-     * @description The ID of the vSwitch with which the Message Queue for Apache RocketMQ instance is associated.
+     * @description The vSwitch ID of the instance.
      *
      * @example vsw-m5ev8asdc6h123456789
      *
@@ -117,7 +120,7 @@ class sourceRocketMQParameters extends Model
     public $instanceVSwitchIds;
 
     /**
-     * @description The ID of the VPC to which the Message Queue for Apache RocketMQ instance belongs.
+     * @description The VPC ID of the instance.
      *
      * @example vpc-m5e3sv4b123456789
      *
@@ -135,8 +138,13 @@ class sourceRocketMQParameters extends Model
     public $network;
 
     /**
-     * @description The offset from which messages are consumed. Valid values: CONSUME_FROM_LAST_OFFSET: Messages are consumed from the latest offset. CONSUME_FROM_FIRST_OFFSET: Messages are consumed from the earliest offset. CONSUME_FROM_TIMESTAMP: Messages are consumed from the offset at the specified point in time. Default value: CONSUME_FROM_LAST_OFFSET.
+     * @description The offset from which message consumption starts. Valid values:
      *
+     *   CONSUME_FROM_LAST_OFFSET: Start message consumption from the latest offset.
+     *   CONSUME_FROM_FIRST_OFFSET: Start message consumption from the earliest offset.
+     *   CONSUME_FROM_TIMESTAMP: Start message consumption from the offset at the specified point in time.
+     *
+     * Default value: CONSUME_FROM_LAST_OFFSET.
      * @example CONSUMEFROMLAST_OFFSET
      *
      * @var string
@@ -144,7 +152,7 @@ class sourceRocketMQParameters extends Model
     public $offset;
 
     /**
-     * @description The ID of the region in which the Message Queue for Apache RocketMQ instance resides.
+     * @description The region ID.
      *
      * @example cn-qingdao
      *
@@ -153,7 +161,7 @@ class sourceRocketMQParameters extends Model
     public $regionId;
 
     /**
-     * @description The ID of the security group to which the cross-border task belongs.
+     * @description The security group of the cross-border task.
      *
      * @example sg-m5edtu24f123456789
      *
@@ -162,7 +170,7 @@ class sourceRocketMQParameters extends Model
     public $securityGroupId;
 
     /**
-     * @description The tags that are used to filter messages.
+     * @description The tag that is used to filter messages.
      *
      * @example test
      *
@@ -171,7 +179,7 @@ class sourceRocketMQParameters extends Model
     public $tag;
 
     /**
-     * @description The timestamp that indicates the time from which messages are consumed. This parameter is valid only if you set Offset to CONSUME_FROM_TIMESTAMP.
+     * @description The timestamp that specifies the time from which messages are consumed. This parameter is valid only if you set Offset to CONSUME_FROM_TIMESTAMP.
      *
      * @example 1670656652009
      *
@@ -180,7 +188,7 @@ class sourceRocketMQParameters extends Model
     public $timestamp;
 
     /**
-     * @description The name of the topic in the Message Queue for Apache RocketMQ instance.
+     * @description The name of the topic on the Message Queue for Apache RocketMQ instance.
      *
      * @example Topic_publicRule_api_1667273421288
      *
@@ -189,7 +197,7 @@ class sourceRocketMQParameters extends Model
     public $topic;
 
     /**
-     * @description The ID of the vSwitch with which the cross-border task is associated.
+     * @description The vSwitch ID of the cross-border task.
      *
      * @example vsw-m5ev8asdc6h123456789
      *
@@ -198,7 +206,7 @@ class sourceRocketMQParameters extends Model
     public $vSwitchIds;
 
     /**
-     * @description The ID of the VPC to which the cross-border task belongs.
+     * @description The VPC ID of the cross-border task.
      *
      * @example vpc-m5e3sv4b123456789
      *

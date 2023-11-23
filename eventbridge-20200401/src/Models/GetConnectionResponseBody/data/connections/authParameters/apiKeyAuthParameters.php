@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class apiKeyAuthParameters extends Model
 {
     /**
-     * @description The API key.
+     * @description The key of the API key.
      *
      * @example key
      *

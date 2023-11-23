@@ -16,33 +16,35 @@ use AlibabaCloud\Tea\Model;
 class sink extends Model
 {
     /**
-     * @description The parameters that are configured if the event target is Function Compute.
+     * @description The parameters that are returned if the event target is Function Compute.
      *
      * @var sinkFcParameters
      */
     public $sinkFcParameters;
 
     /**
+     * @description The Sink Fnf parameters.
+     *
      * @var sinkFnfParameters
      */
     public $sinkFnfParameters;
 
     /**
-     * @description The parameters that are configured if the event target is Message Queue for Apache Kafka.
+     * @description The parameters that are returned if the event target is Message Queue for Apache Kafka.
      *
      * @var sinkKafkaParameters
      */
     public $sinkKafkaParameters;
 
     /**
-     * @description The parameters that are configured if the event target is MNS.
+     * @description The parameters that are returned if the event target is Message Service (MNS).
      *
      * @var sinkMNSParameters
      */
     public $sinkMNSParameters;
 
     /**
-     * @description The parameters that are configured if the event target is Message Queue for RabbitMQ.
+     * @description The parameters that are returned if the event target is Message Queue for RabbitMQ.
      *
      * @var sinkRabbitMQParameters
      */

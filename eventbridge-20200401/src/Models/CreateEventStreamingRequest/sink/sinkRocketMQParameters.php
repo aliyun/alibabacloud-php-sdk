@@ -23,98 +23,101 @@ use AlibabaCloud\Tea\Model;
 class sinkRocketMQParameters extends Model
 {
     /**
-     * @description The message content.
+     * @description The message body.
      *
      * @var body
      */
     public $body;
 
     /**
-     * @description The information about the instance endpoint.
+     * @description The instance endpoint.
      *
      * @var instanceEndpoint
      */
     public $instanceEndpoint;
 
     /**
-     * @description The parameters that are configured if the event target is Message Queue for Apache RocketMQ.
+     * @description The parameters that are configured if you specify the event target as Message Queue for Apache RocketMQ.
      *
      * @var instanceId
      */
     public $instanceId;
 
     /**
-     * @description The information about the instance password.
+     * @description The instance password.
      *
      * @var instancePassword
      */
     public $instancePassword;
 
     /**
-     * @description The information about the instance type.
+     * @description The instance type.
      *
      * @var instanceType
      */
     public $instanceType;
 
     /**
-     * @description The information about the instance username.
+     * @description The instance username.
      *
      * @var instanceUsername
      */
     public $instanceUsername;
 
     /**
-     * @description The properties that are used to filter messages.
+     * @description The keys that you want to use to filter messages.
      *
      * @var keys
      */
     public $keys;
 
     /**
-     * @description The information about the network. Valid values: PublicNetwork and PrivateNetwork.
+     * @description The network type. Valid values:
+     *
+     *   PublicNetwork
+     *   PrivateNetwork
      *
      * @var network
      */
     public $network;
 
     /**
-     * @description The properties that are used to filter messages.
+     * @description The properties that you want to use to filter messages.
      *
      * @var properties
      */
     public $properties;
 
     /**
-     * @description The information about the security group.
+     * @description The security group ID.
      *
      * @var securityGroupId
      */
     public $securityGroupId;
 
     /**
-     * @description The properties that are used to filter messages.
+     * @description The tags that you want to use to filter messages.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The information about the topic in the Message Queue for Apache RocketMQ instance.
+     * @description The topic on the Message Queue for Apache RocketMQ instance.
      *
      * @var topic
      */
     public $topic;
 
     /**
-     * @description The information about the vSwitch.
+     * @description The vSwitch ID.
      *
      * @var vSwitchIds
      */
     public $vSwitchIds;
 
     /**
-     * @description The information about the VPC.
+     * @description The VPC ID.
      *
      * @var vpcId
      */
