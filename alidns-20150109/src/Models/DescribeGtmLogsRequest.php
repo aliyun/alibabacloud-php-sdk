@@ -52,7 +52,7 @@ class DescribeGtmLogsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on per page. Maximum value: **100**. Default value: **20**.
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
      *
      * @example 20
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class defaultAddrPool extends Model
 {
     /**
-     * @description The weight of the address pool in the secondary address pool group.
+     * @description The ID of the address pool in the primary address pool group.
      *
      * @example pool1
      *
@@ -18,7 +18,7 @@ class defaultAddrPool extends Model
     public $id;
 
     /**
-     * @description The ID of the address pool in the primary address pool group.
+     * @description The weight of the address pool in the primary address pool group.
      *
      * @example 1
      *

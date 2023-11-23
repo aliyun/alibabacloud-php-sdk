@@ -16,10 +16,11 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultAddrPool;
 
     /**
-     * @description The load balancing policy of the primary address pool group. Valid values:
+     * @description The type of the primary address pool. Valid values:
      *
-     *   ALL_RR: returns all addresses.
-     *   RATIO: returns addresses by weight.
+     *   IPV4
+     *   IPV6
+     *   DOMAIN
      *
      * @example ipv4
      *
@@ -28,11 +29,10 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultAddrPoolType;
 
     /**
-     * @description The type of the secondary address pool. Valid values:
+     * @description Specifies whether to enable scheduling optimization for latency resolution for the primary address pool group. Valid values:
      *
-     *   IPV4
-     *   IPV6
-     *   DOMAIN
+     *   OPEN: enable
+     *   CLOSE: disable
      *
      * @example open
      *
@@ -41,7 +41,10 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultLatencyOptimization;
 
     /**
-     * @description The minimum number of available addresses in the primary address pool group.
+     * @description The load balancing policy of the primary address pool group. Valid values:
+     *
+     *   ALL_RR: returns all addresses.
+     *   RATIO: returns addresses by weight.
      *
      * @example all_rr
      *
@@ -50,10 +53,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultLbaStrategy;
 
     /**
-     * @description Specifies whether to enable scheduling optimization for latency resolution for the primary address pool group. Valid values:
-     *
-     *   OPEN: enable
-     *   CLOSE: disable
+     * @description The maximum number of addresses returned from the primary address pool group.
      *
      * @example 3
      *
@@ -62,7 +62,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultMaxReturnAddrNum;
 
     /**
-     * @description The maximum number of addresses returned from the primary address pool group.
+     * @description The minimum number of available addresses in the primary address pool group.
      *
      * @example 1
      *
@@ -76,10 +76,11 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverAddrPool;
 
     /**
-     * @description The load balancing policy of the secondary address pool group. Valid values:
+     * @description The type of the secondary address pool. Valid values:
      *
-     *   ALL_RR: returns all addresses.
-     *   RATIO: returns addresses by weight.
+     *   IPV4
+     *   IPV6
+     *   DOMAIN
      *
      * @example ipv4
      *
@@ -88,10 +89,10 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverAddrPoolType;
 
     /**
-     * @description The type of the access policy. Valid values:
+     * @description Specifies whether to enable scheduling optimization for latency resolution for the secondary address pool group. Valid values:
      *
-     *   GEO: geographical location-based
-     *   LATENCY: latency-based
+     *   OPEN: enable
+     *   CLOSE: disable
      *
      * @example open
      *
@@ -100,7 +101,10 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverLatencyOptimization;
 
     /**
-     * @description The minimum number of available addresses in the secondary address pool group.
+     * @description The load balancing policy of the secondary address pool group. Valid values:
+     *
+     *   ALL_RR: returns all addresses.
+     *   RATIO: returns addresses by weight.
      *
      * @example all_rr
      *
@@ -109,10 +113,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverLbaStrategy;
 
     /**
-     * @description Specifies whether to enable scheduling optimization for latency resolution for the secondary address pool group. Valid values:
-     *
-     *   OPEN: enable
-     *   CLOSE: disable
+     * @description The maximum number of addresses returned from the secondary address pool group.
      *
      * @example 1
      *
@@ -121,7 +122,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverMaxReturnAddrNum;
 
     /**
-     * @description The maximum number of addresses returned from the secondary address pool group.
+     * @description The minimum number of available addresses in the secondary address pool group.
      *
      * @example 1
      *
@@ -130,7 +131,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverMinAvailableAddrNum;
 
     /**
-     * @description The name of the access policy.
+     * @description The ID of the instance.
      *
      * @example instance1
      *
@@ -139,7 +140,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the instance.
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
      *
      * @example en
      *
@@ -148,11 +149,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $lang;
 
     /**
-     * @description The type of the primary address pool. Valid values:
-     *
-     *   IPV4
-     *   IPV6
-     *   DOMAIN
+     * @description The line codes of source regions. For example: `["default", "drpeng"]` indicates Global and Dr. Peng Telecom & Media Group.
      *
      * @example ["default", "drpeng"]
      *
@@ -161,7 +158,10 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $lines;
 
     /**
-     * @description The weight of the address pool in the primary address pool group.
+     * @description The type of the access policy. Valid values:
+     *
+     *   GEO: geographical location-based
+     *   LATENCY: latency-based
      *
      * @example geo
      *
@@ -170,7 +170,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $strategyMode;
 
     /**
-     * @description The line codes of source regions. For example: `["default", "drpeng"]` indicates Global and Dr. Peng Telecom & Media Group.
+     * @description The name of the access policy.
      *
      * @example testStrategyName
      *

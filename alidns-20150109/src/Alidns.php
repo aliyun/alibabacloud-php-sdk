@@ -3782,10 +3782,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainRecordInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09).
+     *   *
+     * @param DescribeDomainRecordInfoRequest $request DescribeDomainRecordInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainRecordInfoResponse
+     * @return DescribeDomainRecordInfoResponse DescribeDomainRecordInfoResponse
      */
     public function describeDomainRecordInfoWithOptions($request, $runtime)
     {
@@ -3819,9 +3822,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainRecordInfoRequest $request
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09).
+     *   *
+     * @param DescribeDomainRecordInfoRequest $request DescribeDomainRecordInfoRequest
      *
-     * @return DescribeDomainRecordInfoResponse
+     * @return DescribeDomainRecordInfoResponse DescribeDomainRecordInfoResponse
      */
     public function describeDomainRecordInfo($request)
     {

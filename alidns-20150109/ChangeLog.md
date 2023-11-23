@@ -1,3 +1,6 @@
+2023-11-23 Version: 3.0.10
+- Generated php 2015-01-09 for Alidns.
+
 2023-10-12 Version: 3.0.9
 - Generated php 2015-01-09 for Alidns.
 

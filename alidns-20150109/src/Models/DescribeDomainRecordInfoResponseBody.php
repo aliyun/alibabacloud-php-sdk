@@ -20,7 +20,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     /**
      * @description The domain name.
      *
-     * @example example.com
+     * @example dns-example.top
      *
      * @var string
      */
@@ -99,6 +99,10 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $recordId;
 
     /**
+     * @description The remark of the DNS record.
+     *
+     * @example test
+     *
      * @var string
      */
     public $remark;
@@ -142,7 +146,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     /**
      * @description The value of the DNS record.
      *
-     * @example 192.0.2.254
+     * @example 1.1.XX.XX
      *
      * @var string
      */
