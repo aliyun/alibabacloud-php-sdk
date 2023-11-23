@@ -18,7 +18,7 @@ class alarmHistories extends Model
     public $alarmName;
 
     /**
-     * @description The time when the quota alert was created.
+     * @description The time when the quota alert rule was created.
      *
      * @example 2021-01-24T09:20:09Z
      *
@@ -27,12 +27,14 @@ class alarmHistories extends Model
     public $createTime;
 
     /**
+     * @description The notification methods of the quota alert.
+     *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
-     * @description The alert contact.
+     * @description The quota alert contact.
      *
      * @example accountContact
      *
@@ -50,7 +52,7 @@ class alarmHistories extends Model
     public $productCode;
 
     /**
-     * @description The ID of the quota.
+     * @description The quota ID.
      *
      * @example q_security-groups
      *
@@ -68,7 +70,7 @@ class alarmHistories extends Model
     public $quotaUsage;
 
     /**
-     * @description The numeric value of the alert threshold.
+     * @description The threshold to trigger quota alerts.
      *
      * @example 29
      *
@@ -77,7 +79,7 @@ class alarmHistories extends Model
     public $threshold;
 
     /**
-     * @description The percentage of the alert threshold.
+     * @description The percentage of the quota alert threshold.
      *
      * @example 80
      *

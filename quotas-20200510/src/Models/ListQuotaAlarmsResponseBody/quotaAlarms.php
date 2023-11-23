@@ -48,6 +48,8 @@ class quotaAlarms extends Model
     public $exceedThreshold;
 
     /**
+     * @description The alert notification methods.
+     *
      * @var string[]
      */
     public $notifyChannels;

@@ -29,7 +29,7 @@ class ListQuotaApplicationTemplatesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The returned quota templates.
+     * @description The queried quota templates.
      *
      * @var quotaApplicationTemplates[]
      */

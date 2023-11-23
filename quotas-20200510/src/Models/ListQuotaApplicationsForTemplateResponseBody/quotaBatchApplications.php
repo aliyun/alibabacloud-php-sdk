@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class quotaBatchApplications extends Model
 {
     /**
+     * @description The time when the quota increase application was submitted. The value is displayed in UTC.
+     *
      * @example 2022-09-23T02:38:18Z
      *
      * @var string
@@ -17,11 +19,15 @@ class quotaBatchApplications extends Model
     public $applyTime;
 
     /**
+     * @description The number of applications in different approval states.
+     *
      * @var auditStatusVos[]
      */
     public $auditStatusVos;
 
     /**
+     * @description The ID of the quota application batch.
+     *
      * @example d314d6ae-867d-484c-9009-3d421a80****
      *
      * @var string
@@ -29,6 +35,8 @@ class quotaBatchApplications extends Model
     public $batchQuotaApplicationId;
 
     /**
+     * @description The requested value of the quota.
+     *
      * @example 105
      *
      * @var float
@@ -36,6 +44,9 @@ class quotaBatchApplications extends Model
     public $desireValue;
 
     /**
+     * @description The quota dimensions.
+     *
+     * Format: {"regionId":"cn-hangzhou"}.
      * @example {"regionId":"cn-hangzhou"}
      *
      * @var mixed[]
@@ -43,6 +54,8 @@ class quotaBatchApplications extends Model
     public $dimensions;
 
     /**
+     * @description The start time of the validity period of the quota. The value is displayed in UTC.
+     *
      * @example 2023-05-22T16:00:00Z
      *
      * @var string
@@ -50,6 +63,8 @@ class quotaBatchApplications extends Model
     public $effectiveTime;
 
     /**
+     * @description The end time of the validity period of the quota. The value is displayed in UTC.
+     *
      * @example 2024-05-14T02:08:56Z
      *
      * @var string
@@ -57,6 +72,8 @@ class quotaBatchApplications extends Model
     public $expireTime;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
      * @example vpc
      *
      * @var string
@@ -64,6 +81,8 @@ class quotaBatchApplications extends Model
     public $productCode;
 
     /**
+     * @description The quota ID.
+     *
      * @example q_fhoz4k
      *
      * @var string
@@ -71,6 +90,12 @@ class quotaBatchApplications extends Model
     public $quotaActionCode;
 
     /**
+     * @description The quota type. Valid values:
+     *
+     *   CommonQuota: general quota
+     *   FlowControl: API rate limit
+     *   WhiteListLabel: privilege
+     *
      * @example CommonQuota
      *
      * @var string

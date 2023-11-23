@@ -28,7 +28,7 @@ class ListProductQuotasResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The details of the quotas.
+     * @description The queried quotas.
      *
      * @var quotas[]
      */

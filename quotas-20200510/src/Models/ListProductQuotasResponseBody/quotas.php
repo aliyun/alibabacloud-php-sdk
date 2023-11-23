@@ -23,7 +23,7 @@ class quotas extends Model
     public $adjustable;
 
     /**
-     * @description None
+     * @description None.
      *
      * @var float[]
      */
@@ -42,6 +42,10 @@ class quotas extends Model
     public $applicableType;
 
     /**
+     * @description The reason for submitting a quota increase request.
+     *
+     * @example The business xxx is expected to grow by 50%.
+     *
      * @var string
      */
     public $applyReasonTips;
@@ -59,7 +63,7 @@ class quotas extends Model
     public $consumable;
 
     /**
-     * @description The quota dimension. Format: `{"regionId":"Region"}`.
+     * @description The quota dimensions. Format: `{"regionId":"Region"}`.
      *
      * @example {"regionId":"cn-hangzhou"}
      *
@@ -68,7 +72,7 @@ class quotas extends Model
     public $dimensions;
 
     /**
-     * @description The start time of the validity period of the quota. Specify the value in UTC.
+     * @description The start time of the validity period of the quota. The value is displayed in UTC.
      *
      * @example 2022-09-28T06:07:00Z
      *
@@ -77,13 +81,20 @@ class quotas extends Model
     public $effectiveTime;
 
     /**
-     * @description The end time of the validity period of the quota. Specify the value in UTC.
+     * @description The end time of the validity period of the quota. The value is displayed in UTC.
      *
      * @example 2022-09-29T06:07:00Z
      *
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $globalQuota;
 
     /**
      * @description The calculation cycle of the quota.
@@ -102,7 +113,7 @@ class quotas extends Model
     public $productCode;
 
     /**
-     * @description The ID of the quota.
+     * @description The quota ID.
      *
      * @example ecs.g5.2xlarge
      *
@@ -120,11 +131,11 @@ class quotas extends Model
     public $quotaArn;
 
     /**
-     * @description The type of the quota.
+     * @description The type of the quota. Valid values:
      *
      *   CommonQuota: general quota
      *   FlowControl: API rate limit
-     *   WhiteListLabel: whitelist quota
+     *   WhiteListLabel: privilege
      *
      * @example CommonQuota
      *
@@ -142,14 +153,14 @@ class quotas extends Model
     public $quotaDescription;
 
     /**
-     * @description The details of the quotas.
+     * @description The details of the quota.
      *
      * @var quotaItems[]
      */
     public $quotaItems;
 
     /**
-     * @description The name of the quota.
+     * @description The quota name.
      *
      * @example ecs.g5.2xlarge
      *
@@ -170,12 +181,9 @@ class quotas extends Model
     public $quotaType;
 
     /**
-     * @description The unit of the new quota value.
+     * @description The unit of the quota.
      *
-     **
-     *
-     **The unit of each quota is unique.** For example, the quota whose ID is `q_cbdch3` represents the maximum number of Container Service for Kubernetes (ACK) clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
-     *
+     * >  The unit of each quota is unique. For example, the quota whose ID is `q_cbdch3` represents the maximum number of Container Service for Kubernetes (ACK) clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
      * @example AMOUNT
      *
      * @var string
@@ -183,14 +191,14 @@ class quotas extends Model
     public $quotaUnit;
 
     /**
-     * @description None
+     * @description None.
      *
      * @var float[]
      */
     public $supportedRange;
 
     /**
-     * @description The value of the quota.
+     * @description The quota value.
      *
      * @example 200
      *
@@ -199,7 +207,7 @@ class quotas extends Model
     public $totalQuota;
 
     /**
-     * @description The used quota.
+     * @description The quota usage.
      *
      * @example 1
      *
@@ -228,6 +236,7 @@ class quotas extends Model
         'dimensions'         => 'Dimensions',
         'effectiveTime'      => 'EffectiveTime',
         'expireTime'         => 'ExpireTime',
+        'globalQuota'        => 'GlobalQuota',
         'period'             => 'Period',
         'productCode'        => 'ProductCode',
         'quotaActionCode'    => 'QuotaActionCode',
@@ -274,6 +283,9 @@ class quotas extends Model
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->globalQuota) {
+            $res['GlobalQuota'] = $this->globalQuota;
         }
         if (null !== $this->period) {
             $res['Period'] = null !== $this->period ? $this->period->toMap() : null;
@@ -360,6 +372,9 @@ class quotas extends Model
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['GlobalQuota'])) {
+            $model->globalQuota = $map['GlobalQuota'];
         }
         if (isset($map['Period'])) {
             $model->period = period::fromMap($map['Period']);

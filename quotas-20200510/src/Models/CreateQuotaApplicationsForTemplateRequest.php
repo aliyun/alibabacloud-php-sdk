@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateQuotaApplicationsForTemplateRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud accounts for which the quotas are applied.
+     *
+     * >  For more information about the members of a resource directory, see [Query all the members in a resource directory](~~604207~~).
      * @var string[]
      */
     public $aliyunUids;
 
     /**
+     * @description The requested value of the quota.
+     *
+     * >  Applications are reviewed by the technical support team of each Alibaba Cloud service. To increase the success rate of your application, you must specify a reasonable quota value and detailed reasons when you submit the application.
      * @example 12
      *
      * @var float
@@ -22,11 +28,16 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     public $desireValue;
 
     /**
+     * @description The quota dimensions.
+     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
+     * @description The start time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
+     *
+     * >  If you do not specify a start time, the value is the time when the quota application is submitted.
      * @example 2021-01-19T09:25:56Z
      *
      * @var string
@@ -34,6 +45,11 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     public $effectiveTime;
 
     /**
+     * @description The language of the notification about the application result. Valid values:
+     *
+     *   zh (default): Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -41,6 +57,9 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     public $envLanguage;
 
     /**
+     * @description The end time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
+     *
+     * >  If you do not specify an end time, the value is 99 years after the start time of the validity period.
      * @example 2021-01-20T09:25:56Z
      *
      * @var string
@@ -48,6 +67,11 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     public $expireTime;
 
     /**
+     * @description Specifies whether to send a notification about the application result. Valid values:
+     *
+     *   0 (default): no
+     *   3: yes
+     *
      * @example 0
      *
      * @var int
@@ -55,6 +79,9 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     public $noticeType;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
+     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example ecs-spec
      *
      * @var string
@@ -62,6 +89,8 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     public $productCode;
 
     /**
+     * @description The quota ID.
+     *
      * @example ecs.g5.2xlarge
      *
      * @var string
@@ -69,6 +98,12 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     public $quotaActionCode;
 
     /**
+     * @description The quota type. Valid values:
+     *
+     *   CommonQuota (default): general quota
+     *   FlowControl: API rate limit
+     *   WhiteListLabel: privilege
+     *
      * @example CommonQuota
      *
      * @var string
@@ -76,6 +111,11 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     public $quotaCategory;
 
     /**
+     * @description The reason for the quota application.
+     *
+     * >  Applications are reviewed by the technical support team of each Alibaba Cloud service. To increase the success rate of your application, you must specify a reasonable quota value and detailed reasons when you submit the application.
+     * @example Scale Out
+     *
      * @var string
      */
     public $reason;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAlarmHistoriesResponseBody extends Model
 {
     /**
-     * @description The details of the alert records.
+     * @description The details of the quota alert records.
      *
      * @var alarmHistories[]
      */

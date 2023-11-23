@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dimensionValueDetail extends Model
 {
     /**
-     * @description The name of the quota dimension value.
+     * @description The name of the quota dimension.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class dimensionValueDetail extends Model
     public $name;
 
     /**
-     * @description The quota dimension value.
+     * @description The value of the quota dimension.
      *
      * @example cn-hangzhou
      *

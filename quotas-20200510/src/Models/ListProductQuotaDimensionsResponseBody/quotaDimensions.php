@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class quotaDimensions extends Model
 {
     /**
+     * @description The quota dimensions on which the quota dimension that you want to query is dependent.
+     *
      * @var string[]
      */
     public $dependentDimensions;
@@ -29,13 +31,15 @@ class quotaDimensions extends Model
     public $dimensionKey;
 
     /**
-     * @description The details of the quota dimension value.
+     * @description The details about the dimension value.
      *
      * @var dimensionValueDetail[]
      */
     public $dimensionValueDetail;
 
     /**
+     * @description The dimension values.
+     *
      * @var string[]
      */
     public $dimensionValues;

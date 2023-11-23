@@ -18,12 +18,9 @@ class quotaItems extends Model
     public $quota;
 
     /**
-     * @description The unit of the new quota value.
+     * @description The unit of the quota.
      *
-     **
-     *
-     **The unit of each quota is unique.** For example, the quota whose ID is `q_cbdch3` represents the maximum number of ACK clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
-     *
+     * >  The unit of each quota is unique. For example, the quota whose ID is `q_cbdch3` represents the maximum number of ACK clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
      * @example Count
      *
      * @var string
@@ -33,8 +30,8 @@ class quotaItems extends Model
     /**
      * @description The category of the quota. Valid values:
      *
-     *   BaseQuota: base quota
-     *   ReservedQuota: reserved quota
+     *   BaseQuota: base quota.
+     *   ReservedQuota: reserved quota.
      *
      * @example BaseQuota
      *

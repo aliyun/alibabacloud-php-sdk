@@ -19,7 +19,7 @@ class ListQuotaAlarmsRequest extends Model
     public $alarmName;
 
     /**
-     * @description The maximum number of records that can be returned for the query.
+     * @description The maximum number of records that you want to return for the query.
      *
      * Valid values: 1 to 200. Default value: 30.
      * @example 20

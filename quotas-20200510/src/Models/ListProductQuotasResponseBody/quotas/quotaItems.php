@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class quotaItems extends Model
 {
     /**
-     * @description The value of the quota.
+     * @description The quota value.
      *
      * @example 10
      *
@@ -18,12 +18,9 @@ class quotaItems extends Model
     public $quota;
 
     /**
-     * @description The unit of the new quota value.
+     * @description The unit of the quota.
      *
-     **
-     *
-     **The unit of each quota is unique.** For example, the quota whose ID is `q_cbdch3` represents the maximum number of ACK clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
-     *
+     * >  The unit of each quota is unique. For example, the quota whose ID is `q_cbdch3` represents the maximum number of Container Service for Kubernetes (ACK) clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
      * @example AMOUNT
      *
      * @var string
@@ -43,7 +40,7 @@ class quotaItems extends Model
     public $type;
 
     /**
-     * @description The used quota.
+     * @description The quota usage.
      *
      * @example 1
      *

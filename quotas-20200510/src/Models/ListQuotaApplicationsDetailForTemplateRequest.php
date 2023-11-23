@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaApplicationsDetailForTemplateRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud account that is used to submit the quota increase application.
+     *
      * @example 135048337611****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListQuotaApplicationsDetailForTemplateRequest extends Model
     public $aliyunUid;
 
     /**
+     * @description The ID of the quota application batch.
+     *
      * @example d314d6ae-867d-484c-9009-3d421a80****
      *
      * @var string
@@ -23,6 +27,9 @@ class ListQuotaApplicationsDetailForTemplateRequest extends Model
     public $batchQuotaApplicationId;
 
     /**
+     * @description The maximum number of records that can be returned for the query.
+     *
+     * Valid values: 1 to 100. Default value: 30.
      * @example 30
      *
      * @var int
@@ -30,6 +37,9 @@ class ListQuotaApplicationsDetailForTemplateRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that marks the position from which you want to start the query.
+     *
+     * >  An empty value indicates that the query starts from the beginning.
      * @example 4
      *
      * @var string
@@ -37,6 +47,9 @@ class ListQuotaApplicationsDetailForTemplateRequest extends Model
     public $nextToken;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
+     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example ecs
      *
      * @var string
@@ -44,6 +57,8 @@ class ListQuotaApplicationsDetailForTemplateRequest extends Model
     public $productCode;
 
     /**
+     * @description The quota ID.
+     *
      * @example ecs.c5.large
      *
      * @var string
@@ -51,6 +66,12 @@ class ListQuotaApplicationsDetailForTemplateRequest extends Model
     public $quotaActionCode;
 
     /**
+     * @description The quota type. Valid values:
+     *
+     *   CommonQuota: general quota
+     *   FlowControl: API rate limit
+     *   WhiteListLabel: privilege
+     *
      * @example CommonQuota
      *
      * @var string
@@ -58,6 +79,13 @@ class ListQuotaApplicationsDetailForTemplateRequest extends Model
     public $quotaCategory;
 
     /**
+     * @description The approval status of the quota increase application. Valid values:
+     *
+     *   Disagree: The application is rejected.
+     *   Agree: The application is approved.
+     *   Process: The application is pending approval.
+     *   Cancel: The application is canceled.
+     *
      * @example Agree
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dimensions extends Model
 {
     /**
+     * @description The key of the quota dimension.
+     *
+     * >  This parameter is required if you set the ProductCode parameter to ecs, ecs-spec, actiontrail, or ess.
      * @example regionId
      *
      * @var string
@@ -16,6 +19,9 @@ class dimensions extends Model
     public $key;
 
     /**
+     * @description The value of the quota dimension.
+     *
+     * >  The value range of N varies based on the number of dimensions that are supported by the Alibaba Cloud service.
      * @example cn-hangzhou
      *
      * @var string

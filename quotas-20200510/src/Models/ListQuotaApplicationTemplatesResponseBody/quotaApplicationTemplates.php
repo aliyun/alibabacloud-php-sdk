@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class quotaApplicationTemplates extends Model
 {
     /**
-     * @description N/A
+     * @description None
      *
      * @var float[]
      */
@@ -124,9 +124,10 @@ class quotaApplicationTemplates extends Model
     public $quotaActionCode;
 
     /**
-     * @description The type of the quota.
+     * @description The type of the quota. Valid values:
      *
      *   CommonQuota: general quota
+     *   FlowControl: API rate limit
      *   WhiteListLabel: privilege
      *
      * @example CommonQuota

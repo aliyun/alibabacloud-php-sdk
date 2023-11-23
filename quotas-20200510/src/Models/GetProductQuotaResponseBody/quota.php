@@ -42,6 +42,10 @@ class quota extends Model
     public $applicableType;
 
     /**
+     * @description The reason for submitting a quota increase request.
+     *
+     * @example The business xxx is expected to grow by 50%.
+     *
      * @var string
      */
     public $applyReasonTips;
@@ -84,6 +88,18 @@ class quota extends Model
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @description Indicates whether the quota is a global quota. Valid values:
+     *
+     *   true: The quota is shared in all regions.
+     *   false: The quota is independently used in a region.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $globalQuota;
 
     /**
      * @description The calculation cycle of the quota.
@@ -172,10 +188,7 @@ class quota extends Model
     /**
      * @description The unit of the new quota value.
      *
-     **
-     *
-     **The unit of each quota is unique.** For example, the quota whose ID is `q_cbdch3` represents the maximum number of Container Service for Kubernetes (ACK) clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
-     *
+     * > The unit of each quota is unique.** For example, the quota whose ID is `q_cbdch3` represents the maximum number of Container Service for Kubernetes (ACK) clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
      * @example Count
      *
      * @var string
@@ -229,6 +242,7 @@ class quota extends Model
         'dimensions'         => 'Dimensions',
         'effectiveTime'      => 'EffectiveTime',
         'expireTime'         => 'ExpireTime',
+        'globalQuota'        => 'GlobalQuota',
         'period'             => 'Period',
         'productCode'        => 'ProductCode',
         'quotaActionCode'    => 'QuotaActionCode',
@@ -275,6 +289,9 @@ class quota extends Model
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->globalQuota) {
+            $res['GlobalQuota'] = $this->globalQuota;
         }
         if (null !== $this->period) {
             $res['Period'] = null !== $this->period ? $this->period->toMap() : null;
@@ -361,6 +378,9 @@ class quota extends Model
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['GlobalQuota'])) {
+            $model->globalQuota = $map['GlobalQuota'];
         }
         if (isset($map['Period'])) {
             $model->period = period::fromMap($map['Period']);

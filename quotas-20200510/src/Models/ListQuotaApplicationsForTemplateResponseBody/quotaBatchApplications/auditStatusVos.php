@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class auditStatusVos extends Model
 {
     /**
+     * @description The number of approval documents.
+     *
      * @example 4
      *
      * @var int
@@ -16,6 +18,13 @@ class auditStatusVos extends Model
     public $count;
 
     /**
+     * @description The approval status of the quota increase application. Valid values:
+     *
+     *   Disagree: The application is rejected.
+     *   Agree: The application is approved.
+     *   Process: The application is pending approval.
+     *   Cancel: The application is canceled.
+     *
      * @example Agree
      *
      * @var string

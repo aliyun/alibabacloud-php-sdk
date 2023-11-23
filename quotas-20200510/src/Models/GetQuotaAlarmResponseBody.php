@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaAlarmResponseBody extends Model
 {
     /**
-     * @description The percentage of the alert threshold.
+     * @description The details of the quota alert rule.
      *
      * @var quotaAlarm
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class quotaApplications extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 175376458581****
      *
      * @var string
@@ -17,6 +19,8 @@ class quotaApplications extends Model
     public $aliyunUid;
 
     /**
+     * @description The ID of the quota increase application.
+     *
      * @example b926571d-cc09-4711-b547-58a615f0****
      *
      * @var string
@@ -24,6 +28,8 @@ class quotaApplications extends Model
     public $applicationId;
 
     /**
+     * @description The time when the quota increase application was submitted. The value is displayed in UTC.
+     *
      * @example 2021-01-15T09:13:53Z
      *
      * @var string
@@ -31,6 +37,8 @@ class quotaApplications extends Model
     public $applyTime;
 
     /**
+     * @description The quota value that is approved.
+     *
      * @example 101
      *
      * @var float
@@ -38,11 +46,17 @@ class quotaApplications extends Model
     public $approveValue;
 
     /**
+     * @description The approval result of the quota increase application.
+     *
+     * @example Agree
+     *
      * @var string
      */
     public $auditReason;
 
     /**
+     * @description The ID of the quota application batch.
+     *
      * @example d314d6ae-867d-484c-9009-3d421a80****
      *
      * @var string
@@ -50,6 +64,8 @@ class quotaApplications extends Model
     public $batchQuotaApplicationId;
 
     /**
+     * @description The requested value of the quota.
+     *
      * @example 60
      *
      * @var float
@@ -57,6 +73,8 @@ class quotaApplications extends Model
     public $desireValue;
 
     /**
+     * @description The start time of the validity period of the quota. The value is displayed in UTC.
+     *
      * @example 2021-01-15T11:46:25Z
      *
      * @var string
@@ -64,6 +82,11 @@ class quotaApplications extends Model
     public $effectiveTime;
 
     /**
+     * @description The language of the quota alert notification. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -71,6 +94,8 @@ class quotaApplications extends Model
     public $envLanguage;
 
     /**
+     * @description The end time of the validity period of the quota. The value is displayed in UTC.
+     *
      * @example 2021-01-17T11:46:25Z
      *
      * @var string
@@ -78,6 +103,11 @@ class quotaApplications extends Model
     public $expireTime;
 
     /**
+     * @description Indicates whether Quota Center sends a notification about the application result. Valid values:
+     *
+     *   0: no
+     *   3: yes
+     *
      * @example 3
      *
      * @var int
@@ -85,11 +115,15 @@ class quotaApplications extends Model
     public $noticeType;
 
     /**
+     * @description The calculation cycle of the quota.
+     *
      * @var period
      */
     public $period;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
      * @example ecs
      *
      * @var string
@@ -97,6 +131,8 @@ class quotaApplications extends Model
     public $productCode;
 
     /**
+     * @description The quota ID.
+     *
      * @example ecs.n1.large
      *
      * @var string
@@ -104,6 +140,8 @@ class quotaApplications extends Model
     public $quotaActionCode;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the quota.
+     *
      * @example acs:quotas:*:120886317861****:quota/csk/q_i5uzm3
      *
      * @var string
@@ -111,6 +149,12 @@ class quotaApplications extends Model
     public $quotaArn;
 
     /**
+     * @description The quota type. Valid values:
+     *
+     *   CommonQuota (default): general quota
+     *   WhiteListLabel: privilege
+     *   FlowControl: API rate limit
+     *
      * @example CommonQuota
      *
      * @var string
@@ -118,21 +162,33 @@ class quotaApplications extends Model
     public $quotaCategory;
 
     /**
+     * @description The description of the quota.
+     *
+     * @example The maximum number of nodes in a cluster
+     *
      * @var string
      */
     public $quotaDescription;
 
     /**
+     * @description The quota dimensions.
+     *
      * @var string[]
      */
     public $quotaDimension;
 
     /**
+     * @description The quota name.
+     *
+     * @example Maximum Number of Nodes
+     *
      * @var string
      */
     public $quotaName;
 
     /**
+     * @description The unit of the quota.
+     *
      * @example GiB
      *
      * @var string
@@ -140,11 +196,22 @@ class quotaApplications extends Model
     public $quotaUnit;
 
     /**
+     * @description The reason for the quota increase application.
+     *
+     * @example Business expansion
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description The approval status of the quota increase application. Valid values:
+     *
+     *   Disagree: The application is rejected.
+     *   Agree: The application is approved.
+     *   Process: The application is pending approval.
+     *   Cancel: The application is canceled.
+     *
      * @example Agree
      *
      * @var string

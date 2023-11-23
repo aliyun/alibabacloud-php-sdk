@@ -28,7 +28,7 @@ class ListProductQuotaDimensionsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The information about quota dimensions.
+     * @description The quota dimensions.
      *
      * @var quotaDimensions[]
      */

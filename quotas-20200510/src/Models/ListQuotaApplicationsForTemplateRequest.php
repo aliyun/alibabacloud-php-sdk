@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaApplicationsForTemplateRequest extends Model
 {
     /**
+     * @description The UTC time when the quota application ends.
+     *
      * @example 2023-05-22T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class ListQuotaApplicationsForTemplateRequest extends Model
     public $applyEndTime;
 
     /**
+     * @description The UTC time when the quota application starts.
+     *
      * @example 2023-05-22T16:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class ListQuotaApplicationsForTemplateRequest extends Model
     public $applyStartTime;
 
     /**
+     * @description The ID of the quota application batch.
+     *
      * @example d314d6ae-867d-484c-9009-3d421a80****
      *
      * @var string
@@ -30,6 +36,9 @@ class ListQuotaApplicationsForTemplateRequest extends Model
     public $batchQuotaApplicationId;
 
     /**
+     * @description The maximum number of entries to return for a single request.
+     *
+     * Valid values: 1 to 100. Default value: 30.
      * @example 30
      *
      * @var int
@@ -37,6 +46,9 @@ class ListQuotaApplicationsForTemplateRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that marks the position from which you want to start the query.
+     *
+     * >  An empty value indicates that the query starts from the beginning.
      * @example 4
      *
      * @var string
@@ -44,6 +56,9 @@ class ListQuotaApplicationsForTemplateRequest extends Model
     public $nextToken;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
+     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example ecs-spec
      *
      * @var string
@@ -51,6 +66,8 @@ class ListQuotaApplicationsForTemplateRequest extends Model
     public $productCode;
 
     /**
+     * @description The quota ID.
+     *
      * @example ecs.g5.2xlarge
      *
      * @var string
@@ -58,6 +75,12 @@ class ListQuotaApplicationsForTemplateRequest extends Model
     public $quotaActionCode;
 
     /**
+     * @description The quota type. Valid values:
+     *
+     *   CommonQuota: general quota
+     *   FlowControl: API rate limit
+     *   WhiteListLabel: privilege
+     *
      * @example CommonQuota
      *
      * @var string

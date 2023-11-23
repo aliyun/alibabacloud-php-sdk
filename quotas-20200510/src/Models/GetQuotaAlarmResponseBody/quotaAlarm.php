@@ -36,6 +36,8 @@ class quotaAlarm extends Model
     public $createTime;
 
     /**
+     * @description The alert notification methods.
+     *
      * @var string[]
      */
     public $notifyChannels;
@@ -50,6 +52,8 @@ class quotaAlarm extends Model
     public $notifyTarget;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
      * @example ecs
      *
      * @var string
@@ -123,6 +127,8 @@ class quotaAlarm extends Model
     public $thresholdType;
 
     /**
+     * @description The webhook URL. Quota Center sends alert notifications to the specified URL by using HTTP POST requests.
+     *
      * @example https://alert.aliyun.com/callback
      *
      * @var string
