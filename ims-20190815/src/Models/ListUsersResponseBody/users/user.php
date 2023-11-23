@@ -19,7 +19,7 @@ class user extends Model
     public $comments;
 
     /**
-     * @description The time when the RAM user was created.
+     * @description The point in time when the RAM user was created. The time is displayed in UTC.
      *
      * @example 2020-10-12T09:12:00Z
      *
@@ -39,7 +39,7 @@ class user extends Model
     /**
      * @description The email address of the RAM user.
      *
-     * >  This parameter is valid only on the China site (aliyun.com).
+     * >  This parameter applies only to the Alibaba Cloud China site (aliyun.com).
      * @example alice@example.com
      *
      * @var string
@@ -47,7 +47,7 @@ class user extends Model
     public $email;
 
     /**
-     * @description The last time when the RAM user logged on to the Alibaba Cloud Management Console.
+     * @description The timestamp when the RAM user last logged on to the console.
      *
      * @example 2020-10-12T09:12:00Z
      *
@@ -58,7 +58,7 @@ class user extends Model
     /**
      * @description The mobile phone number of the RAM user.
      *
-     * >  This parameter is valid only on the China site (aliyun.com).
+     * >  This parameter applies only to the Alibaba Cloud China site (aliyun.com).
      * @example 86-1868888****
      *
      * @var string
@@ -79,14 +79,14 @@ class user extends Model
     public $provisionType;
 
     /**
-     * @description An array that consists of tags.
+     * @description The tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The time when the information about the RAM user was updated.
+     * @description The point in time when the information about the RAM user was last modified. The time is displayed in UTC.
      *
      * @example 2020-10-13T09:19:49Z
      *

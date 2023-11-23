@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GetCredentialReportRequest extends Model
 {
     /**
+     * @description The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be true.
+     *
+     * Valid values: 1 to 3501. Default value: 3501.
+     * @example 1000
+     *
      * @var string
      */
     public $maxItems;
 
     /**
+     * @description The token that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.``
+     *
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $nextToken;

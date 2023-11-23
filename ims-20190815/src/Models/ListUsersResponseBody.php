@@ -31,7 +31,7 @@ class ListUsersResponseBody extends Model
     public $marker;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
      *
@@ -40,7 +40,7 @@ class ListUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the information about the RAM user.
+     * @description The details of the RAM user.
      *
      * @var users
      */

@@ -19,7 +19,7 @@ class ListUsersRequest extends Model
     public $marker;
 
     /**
-     * @description The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be true.
+     * @description The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be true.
      *
      * Valid values: 1 to 1000. Default value: 1000.
      * @example 1000
@@ -29,7 +29,7 @@ class ListUsersRequest extends Model
     public $maxItems;
 
     /**
-     * @description The tag value.
+     * @description The tags. A maximum number of 20 tags are supported.
      *
      * @var tag[]
      */

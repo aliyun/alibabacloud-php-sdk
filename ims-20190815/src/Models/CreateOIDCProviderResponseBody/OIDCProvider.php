@@ -81,7 +81,7 @@ class OIDCProvider extends Model
     public $issuanceLimitTime;
 
     /**
-     * @description The URL of the issuer,
+     * @description The URL of the issuer.
      *
      * @example https://dev-xxxxxx.okta.com
      *

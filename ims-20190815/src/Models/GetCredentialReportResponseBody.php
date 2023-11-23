@@ -28,11 +28,22 @@ class GetCredentialReportResponseBody extends Model
     public $generatedTime;
 
     /**
+     * @description Indicates whether the response is truncated. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $isTruncated;
 
     /**
+     * @description The parameter that is used to obtain the truncated part. This parameter takes effect only when `IsTruncated` is set to true.
+     *
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $nextToken;

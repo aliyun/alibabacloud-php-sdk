@@ -98,6 +98,11 @@ class CreateApplicationRequest extends Model
     public $refreshTokenValidity;
 
     /**
+     * @var string
+     */
+    public $requiredScopes;
+
+    /**
      * @description Indicates whether a secret is required. Valid values:
      *
      *   true
@@ -122,6 +127,7 @@ class CreateApplicationRequest extends Model
         'predefinedScopes'     => 'PredefinedScopes',
         'redirectUris'         => 'RedirectUris',
         'refreshTokenValidity' => 'RefreshTokenValidity',
+        'requiredScopes'       => 'RequiredScopes',
         'secretRequired'       => 'SecretRequired',
     ];
 
@@ -155,6 +161,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->refreshTokenValidity) {
             $res['RefreshTokenValidity'] = $this->refreshTokenValidity;
+        }
+        if (null !== $this->requiredScopes) {
+            $res['RequiredScopes'] = $this->requiredScopes;
         }
         if (null !== $this->secretRequired) {
             $res['SecretRequired'] = $this->secretRequired;
@@ -194,6 +203,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['RefreshTokenValidity'])) {
             $model->refreshTokenValidity = $map['RefreshTokenValidity'];
+        }
+        if (isset($map['RequiredScopes'])) {
+            $model->requiredScopes = $map['RequiredScopes'];
         }
         if (isset($map['SecretRequired'])) {
             $model->secretRequired = $map['SecretRequired'];

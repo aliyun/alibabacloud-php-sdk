@@ -25,9 +25,15 @@ class predefinedScope extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var bool
+     */
+    public $required;
     protected $_name = [
         'description' => 'Description',
         'name'        => 'Name',
+        'required'    => 'Required',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class predefinedScope extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->required) {
+            $res['Required'] = $this->required;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class predefinedScope extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Required'])) {
+            $model->required = $map['Required'];
         }
 
         return $model;
