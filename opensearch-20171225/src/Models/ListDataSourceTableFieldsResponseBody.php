@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourceTableFieldsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
      *
@@ -18,7 +18,7 @@ class ListDataSourceTableFieldsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The return result.
+     * @description The returned result.
      *
      * @example {}
      *

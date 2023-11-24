@@ -9,39 +9,41 @@ use AlibabaCloud\Tea\Model;
 class CreateUserAnalyzerRequest extends Model
 {
     /**
-     * @description 基础分词器
-     *
      * @var string
      */
     public $business;
 
     /**
+     * @example 110123123
+     *
      * @var string
      */
     public $businessAppGroupId;
 
     /**
-     * @description 基础分词器类型 (AUTO, MODEL, SYSTEM, USER)
+     * @example AUTO
      *
      * @var string
      */
     public $businessType;
 
     /**
-     * @description 名称
+     * @example jmbon_analyzer
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 引擎类型 (HA3, ES)
+     * @example HA3
      *
      * @var string
      */
     public $type;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;

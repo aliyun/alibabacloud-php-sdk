@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PreviewModelRequest extends Model
+class GetFunctionResourceRequest extends Model
 {
     /**
-     * @description query
-     *
-     * @example query
+     * @example detail
      *
      * @var string
      */
-    public $query;
+    public $output;
     protected $_name = [
-        'query' => 'query',
+        'output' => 'output',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class PreviewModelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->query) {
-            $res['query'] = $this->query;
+        if (null !== $this->output) {
+            $res['output'] = $this->output;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class PreviewModelRequest extends Model
     /**
      * @param array $map
      *
-     * @return PreviewModelRequest
+     * @return GetFunctionResourceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['query'])) {
-            $model->query = $map['query'];
+        if (isset($map['output'])) {
+            $model->output = $map['output'];
         }
 
         return $model;

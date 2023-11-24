@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateFirstRankRequest extends Model
 {
     /**
+     * @description The request body that contains the parameters of the rough sort expression.
+     *
      * @var FirstRank
      */
     public $body;
 
     /**
-     * @description true
+     * @description Specifies whether to perform a dry run.
      *
      * @example true
      *

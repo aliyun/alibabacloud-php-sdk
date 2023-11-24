@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppGroupRequest extends Model
 {
     /**
-     * @description currentVersion
+     * @description The online version of the application.
      *
      * @example 1223232
      *
@@ -18,7 +18,7 @@ class ModifyAppGroupRequest extends Model
     public $currentVersion;
 
     /**
-     * @description The description of the instance.
+     * @description The description of the application.
      *
      * @example "test"
      *
@@ -29,9 +29,11 @@ class ModifyAppGroupRequest extends Model
     /**
      * @description The type of the industry. Valid values:
      *
-     *   GENERAL
-     *   ECOMMERCE
-     *   IT_CONTENT
+     *   general: general.
+     *   ecommerce: e-commerce.
+     *   education: education.
+     *   esports: electronic sports.
+     *   community: content community.
      *
      * @example "ecommerce"
      *
@@ -40,7 +42,7 @@ class ModifyAppGroupRequest extends Model
     public $domain;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the instance belongs.
      *
      * @example rg-****
      *
@@ -49,7 +51,7 @@ class ModifyAppGroupRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description true
+     * @description Specifies whether to verify the application before modification. Valid values: true and false.
      *
      * @example true
      *

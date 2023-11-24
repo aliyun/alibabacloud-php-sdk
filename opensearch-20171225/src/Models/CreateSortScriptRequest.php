@@ -6,37 +6,37 @@ namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListModelsRequest extends Model
+class CreateSortScriptRequest extends Model
 {
     /**
-     * @description 1
+     * @description 脚本的作用范围
      *
-     * @example 1
+     * @example second_rank
      *
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $scope;
 
     /**
-     * @description 10
+     * @description 脚本名称
      *
-     * @example 10
+     * @example rank_cava_20230606_v7
      *
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $scriptName;
 
     /**
-     * @description pop
+     * @description 脚本的类型，目前只支持cava_script
      *
-     * @example pop
+     * @example cava_script
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
+        'scope'      => 'scope',
+        'scriptName' => 'scriptName',
         'type'       => 'type',
     ];
 
@@ -47,11 +47,11 @@ class ListModelsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNumber) {
-            $res['pageNumber'] = $this->pageNumber;
+        if (null !== $this->scope) {
+            $res['scope'] = $this->scope;
         }
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
+        if (null !== $this->scriptName) {
+            $res['scriptName'] = $this->scriptName;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -63,16 +63,16 @@ class ListModelsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListModelsRequest
+     * @return CreateSortScriptRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['pageNumber'])) {
-            $model->pageNumber = $map['pageNumber'];
+        if (isset($map['scope'])) {
+            $model->scope = $map['scope'];
         }
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
+        if (isset($map['scriptName'])) {
+            $model->scriptName = $map['scriptName'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

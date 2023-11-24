@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateQueryProcessorResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
      *

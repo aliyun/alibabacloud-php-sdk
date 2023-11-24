@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PushUserAnalyzerEntriesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D77D0DAF-790D-F5F5-A9C0-133738165014
      *
@@ -18,7 +18,7 @@ class PushUserAnalyzerEntriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description N/A
+     * @description The result returned.
      *
      * @example {}
      *

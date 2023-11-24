@@ -27,11 +27,11 @@ class result extends Model
     public $created;
 
     /**
-     * @description The type of the industry. Valid values:
+     * @description The type of the industry to which the query analysis rule was applied. Valid values:
      *
-     *   GENERAL
-     *   ECOMMERCE
-     *   IT_CONTENT
+     *   GENERAL: general.
+     *   ECOMMERCE: e-commerce.
+     *   IT_CONTENT: IT content.
      *
      * @example GENERAL
      *
@@ -40,7 +40,7 @@ class result extends Model
     public $domain;
 
     /**
-     * @description The indexes to which the query analysis rule applies.
+     * @description The indexes to which the query analysis rule was applied.
      *
      * @var string[]
      */
@@ -58,12 +58,13 @@ class result extends Model
     /**
      * @description The features that are used in the query analysis rule.
      *
+     * For more information, see [QueryProcessor](~~170014~~).
      * @var mixed[][]
      */
     public $processors;
 
     /**
-     * @description The time when the query analysis rule was last updated.
+     * @description The time when the query analysis rule was last modified.
      *
      * @example 1587398402
      *

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PreviewModelResponse extends Model
+class UpdateFunctionResourceResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class PreviewModelResponse extends Model
     public $statusCode;
 
     /**
-     * @var PreviewModelResponseBody
+     * @var UpdateFunctionResourceResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class PreviewModelResponse extends Model
     /**
      * @param array $map
      *
-     * @return PreviewModelResponse
+     * @return UpdateFunctionResourceResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class PreviewModelResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = PreviewModelResponseBody::fromMap($map['body']);
+            $model->body = UpdateFunctionResourceResponseBody::fromMap($map['body']);
         }
 
         return $model;

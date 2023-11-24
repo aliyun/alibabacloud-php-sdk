@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RenewAppGroupRequest extends Model
 {
     /**
+     * @description The renewal request body.
+     *
      * @var PrepayOrderInfo
      */
     public $body;
 
     /**
-     * @description Guaranteed request idempotence
+     * @description The client token that is used to ensure the idempotence of the request.
      *
      * @example 74db41d8cd3c784209093aa76afbe89e
      *

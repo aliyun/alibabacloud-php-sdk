@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListUserAnalyzerEntriesRequest extends Model
 {
     /**
-     * @description 1
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListUserAnalyzerEntriesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description 10
+     * @description The number of entries per page. Default value: 10.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class ListUserAnalyzerEntriesRequest extends Model
     public $pageSize;
 
     /**
-     * @description kevintest
+     * @description The key to be used to query entries.
      *
      * @example kevintest
      *

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class PushUserAnalyzerEntriesRequest extends Model
 {
     /**
+     * @description The entries of the custom analyzer.
+     *
      * @var entries[]
      */
     public $entries;
 
     /**
+     * @description Specifies whether to perform a dry run. This parameter is only used to check whether the data source is valid. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateABTestExperimentRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var ABTestExperiment
      */
     public $body;
 
     /**
+     * @description Specifies whether to perform a dry run. This parameter is only used to check whether the data source is valid. Valid values: true and false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;

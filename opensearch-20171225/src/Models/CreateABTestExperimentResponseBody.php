@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateABTestExperimentResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D77D0DAF-790D-F5F5-A9C0-133738165014
      *
@@ -19,7 +19,7 @@ class CreateABTestExperimentResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the test.
+     * @description The experiment details.
      *
      * @var result
      */

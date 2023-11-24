@@ -18,7 +18,7 @@ class meta extends Model
     public $arg;
 
     /**
-     * @description The attribute, feature function, or field to be searched for.
+     * @description The attribute, feature functions, or field to be searched for.
      *
      * @example static_bm25()
      *
@@ -27,9 +27,8 @@ class meta extends Model
     public $attribute;
 
     /**
-     * @description The weight.
+     * @description The weight. Valid values: \[-100000,100000]. The value cannot be 0.
      *
-     * Valid values: \[-100000,100000] (excluding 0).
      * @example 10
      *
      * @var float

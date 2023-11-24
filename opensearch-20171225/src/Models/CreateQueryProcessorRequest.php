@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateQueryProcessorRequest extends Model
 {
     /**
+     * @description The request body.
+     *
+     * @example {}
+     *
      * @var mixed
      */
     public $body;
 
     /**
-     * @description true
+     * @description Specifies whether to perform a dry run.
      *
      * @example true
      *

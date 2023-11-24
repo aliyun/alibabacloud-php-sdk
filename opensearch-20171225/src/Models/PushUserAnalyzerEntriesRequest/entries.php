@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class entries extends Model
 {
     /**
+     * @description The operation to be performed on the entries.
+     *
+     * Valid values:
+     *
+     *   add
+     *   delete
+     *
+     * @example "add"
+     *
      * @var string
      */
     public $cmd;
 
     /**
+     * @description The key to be used to query entries.
+     *
+     * @example "testvalue"
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description Specifies whether to further analyze the terms that are generated after the search query is analyzed.
+     *
+     * Default value: true.
+     * @example true
+     *
      * @var bool
      */
     public $splitEnabled;
 
     /**
+     * @description The analysis result.
+     *
+     * @example "test value"
+     *
      * @var string
      */
     public $value;

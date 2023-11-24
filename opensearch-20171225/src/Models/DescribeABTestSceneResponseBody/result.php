@@ -38,8 +38,8 @@ class result extends Model
     /**
      * @description The status of the test scenario. Valid values:
      *
-     *   0: not in effect
-     *   1: in effect
+     *   0: The test is stopped.
+     *   1: The test is started.
      *
      * @example 0
      *
@@ -48,7 +48,7 @@ class result extends Model
     public $status;
 
     /**
-     * @description The time when the test scenario was last modified.
+     * @description The time when the test was last modified.
      *
      * @example 1596527691
      *
@@ -57,7 +57,7 @@ class result extends Model
     public $updated;
 
     /**
-     * @description The tag of the test scenario.
+     * @description The indicators of the test scenarios.
      *
      * @var string[]
      */

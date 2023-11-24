@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListAppsResponse extends Model
+class ListFunctionResourcesResponse extends Model
 {
     /**
      * @var string[]
@@ -17,15 +17,22 @@ class ListAppsResponse extends Model
      * @var int
      */
     public $statusCode;
+
+    /**
+     * @var ListFunctionResourcesResponseBody
+     */
+    public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
         Model::validateRequired('headers', $this->headers, true);
         Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -37,6 +44,9 @@ class ListAppsResponse extends Model
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
         }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
 
         return $res;
     }
@@ -44,7 +54,7 @@ class ListAppsResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListAppsResponse
+     * @return ListFunctionResourcesResponse
      */
     public static function fromMap($map = [])
     {
@@ -54,6 +64,9 @@ class ListAppsResponse extends Model
         }
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = ListFunctionResourcesResponseBody::fromMap($map['body']);
         }
 
         return $model;

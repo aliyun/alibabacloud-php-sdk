@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveAppResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 33477D76-C380-2D84-A4AD-043F52876CB1
      *

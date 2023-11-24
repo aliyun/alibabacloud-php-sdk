@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateAppRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var App
      */
     public $body;
 
     /**
-     * @description true
+     * @description Specifies whether to perform a dry run. This parameter is only used to check whether the data source is valid. Valid values: true and false.
      *
      * @example true
      *

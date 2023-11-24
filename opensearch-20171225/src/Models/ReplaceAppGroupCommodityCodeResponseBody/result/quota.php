@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class quota extends Model
 {
     /**
-     * @description The computing resources. Unit: logical computing units (LCUs).
+     * @description The number of computing resources configured.
      *
      * @example 20
      *
@@ -18,7 +18,7 @@ class quota extends Model
     public $computeResource;
 
     /**
-     * @description The storage capacity. Unit: GB.
+     * @description The storage capacity.
      *
      * @example 1
      *
@@ -27,15 +27,7 @@ class quota extends Model
     public $docSize;
 
     /**
-     * @description The specifications of the application. Valid values:
-     *
-     *   opensearch.share.junior: basic
-     *   opensearch.share.common: shared general-purpose
-     *   opensearch.share.compute: shared computing
-     *   opensearch.share.storage: shared storage
-     *   opensearch.private.common: exclusive general-purpose
-     *   opensearch.private.compute: exclusive computing
-     *   opensearch.private.storage: exclusive storage
+     * @description The specifications configured.
      *
      * @example -
      *

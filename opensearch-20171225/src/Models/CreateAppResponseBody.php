@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAppResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example ABCDEFG
      *
@@ -18,7 +18,7 @@ class CreateAppResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result that was returned.
+     * @description The returned results.
      *
      * @example {}
      *

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateABTestSceneRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var ABTestScene
      */
     public $body;
 
     /**
+     * @description Specifies whether to perform a dry run. This parameter is only used to check whether the data source is valid. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;

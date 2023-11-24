@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateScheduledTaskRequest extends Model
 {
     /**
+     * @description 请求体
+     *
      * @var ScheduledTask
      */
     public $body;

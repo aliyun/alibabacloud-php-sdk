@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateSortScriptResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
 class CreateSortScriptResponseBody extends Model
@@ -16,8 +17,16 @@ class CreateSortScriptResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description 返回结果
+     *
+     * @var result
+     */
+    public $result;
     protected $_name = [
         'requestId' => 'requestId',
+        'result'    => 'result',
     ];
 
     public function validate()
@@ -29,6 +38,9 @@ class CreateSortScriptResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->result) {
+            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -44,6 +56,9 @@ class CreateSortScriptResponseBody extends Model
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['result'])) {
+            $model->result = result::fromMap($map['result']);
         }
 
         return $model;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListUserAnalyzerEntriesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 516A02B7-2167-8D92-12D0-B639A2A0F3C5
      *
@@ -18,9 +18,8 @@ class ListUserAnalyzerEntriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The entries of the custom analyzer.
+     * @description The entries of the custom analyzer. For more information, see UserAnalyzerEntry.
      *
-     * For more information, see [UserAnalyzerEntry](~~178932~~).
      * @example []
      *
      * @var mixed[]

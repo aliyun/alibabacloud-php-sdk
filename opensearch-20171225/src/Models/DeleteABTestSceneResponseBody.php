@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteABTestSceneResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example ABCDEFGH
      *
@@ -18,7 +18,7 @@ class DeleteABTestSceneResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The return result.
+     * @description The returned results.
      *
      * @example {}
      *

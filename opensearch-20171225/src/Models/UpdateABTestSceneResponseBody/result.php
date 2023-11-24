@@ -37,7 +37,10 @@ class result extends Model
 
     /**
      * @description The status of the test. Valid values:
-     * - false: stopped
+     *
+     *   true: The test is started.
+     *   false: The test is stopped.
+     *
      * @example true
      *
      * @var bool
@@ -54,7 +57,7 @@ class result extends Model
     public $params;
 
     /**
-     * @description The percentage of traffic that is allocated to the A/B test. Valid values: [0,100].
+     * @description The percentage of traffic that is allocated to the A/B test. Valid values: 0 to 100.
      *
      * @example 111
      *

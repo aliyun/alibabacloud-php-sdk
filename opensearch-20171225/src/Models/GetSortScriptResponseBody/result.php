@@ -36,6 +36,11 @@ class result extends Model
     public $scope;
 
     /**
+     * @var string
+     */
+    public $scriptName;
+
+    /**
      * @description The status of the script. For more information, see the Script status table.
      *
      * @example released
@@ -56,6 +61,7 @@ class result extends Model
         'createTime' => 'createTime',
         'modifyTime' => 'modifyTime',
         'scope'      => 'scope',
+        'scriptName' => 'scriptName',
         'status'     => 'status',
         'type'       => 'type',
     ];
@@ -75,6 +81,9 @@ class result extends Model
         }
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
+        }
+        if (null !== $this->scriptName) {
+            $res['scriptName'] = $this->scriptName;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -102,6 +111,9 @@ class result extends Model
         }
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
+        }
+        if (isset($map['scriptName'])) {
+            $model->scriptName = $map['scriptName'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

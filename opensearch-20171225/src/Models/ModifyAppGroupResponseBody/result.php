@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The billing method of the application. Valid values:
+     * @description The billing method. Valid values:
      *
-     *   POSTPAY: pay-as-you-go
-     *   PREPAY: subscription
+     *   POSTPAY: pay-as-you-go.
+     *   PREPAY: subscription.
      *
      * @example POSTPAY
      *
@@ -22,10 +22,10 @@ class result extends Model
     public $chargeType;
 
     /**
-     * @description The billing model. Valid values:
+     * @description The billable item. Valid values:
      *
-     *   1: computing resources
-     *   2: queries per second (QPS)
+     *   1: computing resources.
+     *   2: QPS.
      *
      * @example 1
      *
@@ -72,9 +72,9 @@ class result extends Model
     /**
      * @description The type of the industry. Valid values:
      *
-     *   GENERAL
-     *   ECOMMERCE
-     *   IT_CONTENT
+     *   GENERAL: general.
+     *   ECOMMERCE: e-commerce.
+     *   IT_CONTENT: IT content.
      *
      * @example GENERAL
      *
@@ -83,7 +83,7 @@ class result extends Model
     public $domain;
 
     /**
-     * @description The expiration time.
+     * @description The time when the application expired.
      *
      * @example 1
      *
@@ -92,7 +92,7 @@ class result extends Model
     public $expireOn;
 
     /**
-     * @description The ID of the created rough sort expression.
+     * @description The ID of the rough sort expression.
      *
      * @example 0
      *
@@ -103,8 +103,8 @@ class result extends Model
     /**
      * @description The approval status of the quotas. Valid values:
      *
-     *   0: The quotas are approved.
-     *   1: The quotas are being approved.
+     *   0: normal.
+     *   1: being approved.
      *
      * @example 0
      *
@@ -113,7 +113,7 @@ class result extends Model
     public $hasPendingQuotaReviewTask;
 
     /**
-     * @description The ID of the application.
+     * @description The application ID.
      *
      * @example 100302881
      *
@@ -122,7 +122,7 @@ class result extends Model
     public $id;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example 10030288
      *
@@ -131,9 +131,9 @@ class result extends Model
     public $instanceId;
 
     /**
-     * @description The lock mode of the instance. Valid values:
+     * @description The lock status. Valid values:
      *
-     *   Unlock: The instance is not locked.
+     *   Unlock: The instance is unlocked.
      *   LockByExpiration: The instance is automatically locked after it expires.
      *   ManualLock: The instance is manually locked.
      *
@@ -144,7 +144,10 @@ class result extends Model
     public $lockMode;
 
     /**
-     * @description Indicates whether the instance is automatically locked after it expires.
+     * @description Indicates whether the instance expires and is automatically locked. Valid values:
+     *
+     *   0: no.
+     *   1: yes.
      *
      * @example 0
      *
@@ -171,7 +174,7 @@ class result extends Model
     public $pendingSecondRankAlgoDeploymentId;
 
     /**
-     * @description The ID of the order that is not complete for the instance. For example, an order is one that is initiated to create the instance or change the quotas or billing method.
+     * @description The ID of the order that is not complete for the instance.
      *
      * @example 1000345
      *
@@ -210,7 +213,7 @@ class result extends Model
     public $quota;
 
     /**
-     * @description The ID of the created fine sort expression.
+     * @description The ID of the fine sort expression.
      *
      * @example 0
      *
@@ -219,13 +222,13 @@ class result extends Model
     public $secondRankAlgoDeploymentId;
 
     /**
-     * @description The status of the application. Valid values:
+     * @description The state of the application. Valid values:
      *
-     *   producing
-     *   review_pending
-     *   config_pending
-     *   normal
-     *   frozen
+     *   producing: being produced.
+     *   review_pending: being approved.
+     *   config_pending: to be configured.
+     *   normal: normal.
+     *   frozen: frozen.
      *
      * @example normal
      *
@@ -245,9 +248,9 @@ class result extends Model
     /**
      * @description The type of the application. Valid values:
      *
-     *   standard: a standard application.
-     *   advance: an advanced application which is of an old application type. New applications cannot be of this type.
-     *   enhanced: an advanced application which is of a new application type.
+     *   standard: a standard edition application.
+     *   advance: an advanced edition application of an old version. New versions are not supported for this edition.
+     *   enhanced: an advanced edition application of a new version.
      *
      * @example enhanced
      *
@@ -256,7 +259,7 @@ class result extends Model
     public $type;
 
     /**
-     * @description The timestamp when the application was last updated.
+     * @description The timestamp when the application was last modified.
      *
      * @example 1590978265
      *

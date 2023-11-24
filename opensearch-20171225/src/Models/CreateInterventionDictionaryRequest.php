@@ -9,21 +9,59 @@ use AlibabaCloud\Tea\Model;
 class CreateInterventionDictionaryRequest extends Model
 {
     /**
+     * @description The type of the analyzer. Valid values:
+     *
+     *   MODEL: model-based custom analyzer.
+     *   SYSTEM: system analyzer.
+     *   USER: custom analyzer.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $analyzerType;
 
     /**
+     * @description The name of the intervention dictionary.
+     *
+     * @example ner_dict_ec
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the intervention dictionary. Valid values:
+     *
+     *   stopword: an intervention dictionary for stop word filtering.
+     *   synonym: an intervention dictionary for synonym configuration.
+     *   correction: an intervention dictionary for spelling correction.
+     *   category_prediction: an intervention dictionary for category prediction.
+     *   ner: an intervention dictionary for named entity recognition (NER).
+     *   term_weighting: an intervention dictionary for term weight analysis.
+     *   suggest_allowlist: a drop-down suggestion whitelist.
+     *   suggest_denylist: a drop-down suggestion blacklist.
+     *   hot_allowlist: a top search whitelist.
+     *   hot_denylist: a top search blacklist.
+     *   hint_allowlist: a hint whitelist.
+     *   hint_denylist: a hint blacklist.
+     *
+     * @example ner
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Default value: false.
+     *
+     * Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
