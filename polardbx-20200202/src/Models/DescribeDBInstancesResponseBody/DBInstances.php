@@ -32,6 +32,16 @@ class DBInstances extends Model
     public $cnNodeCount;
 
     /**
+     * @var string
+     */
+    public $columnarInstanceName;
+
+    /**
+     * @var string[]
+     */
+    public $columnarReadDBInstances;
+
+    /**
      * @example drds_polarxpre_public_cn
      *
      * @var string
@@ -173,6 +183,13 @@ class DBInstances extends Model
     public $payType;
 
     /**
+     * @description 主可用区。
+     *
+     * @var string
+     */
+    public $primaryZone;
+
+    /**
      * @var string[]
      */
     public $readDBInstances;
@@ -190,6 +207,13 @@ class DBInstances extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @description 次可用区。
+     *
+     * @var string
+     */
+    public $secondaryZone;
 
     /**
      * @example enterprise
@@ -225,6 +249,22 @@ class DBInstances extends Model
     public $tagSet;
 
     /**
+     * @description 第三可用区。
+     *
+     * @var string
+     */
+    public $tertiaryZone;
+
+    /**
+     * @description 拓扑类型：
+     *
+     * - **3azones**：三可用区；
+     * - **1azone**：单可用区。
+     * @var string
+     */
+    public $topologyType;
+
+    /**
      * @example ReadWrite
      *
      * @var string
@@ -247,41 +287,47 @@ class DBInstances extends Model
      */
     public $zoneId;
     protected $_name = [
-        'cdcInstanceName' => 'CdcInstanceName',
-        'cnNodeClassCode' => 'CnNodeClassCode',
-        'cnNodeCount'     => 'CnNodeCount',
-        'commodityCode'   => 'CommodityCode',
-        'containBinlogX'  => 'ContainBinlogX',
-        'createTime'      => 'CreateTime',
-        'DBInstanceName'  => 'DBInstanceName',
-        'DBType'          => 'DBType',
-        'DBVersion'       => 'DBVersion',
-        'description'     => 'Description',
-        'dnNodeClassCode' => 'DnNodeClassCode',
-        'dnNodeCount'     => 'DnNodeCount',
-        'engine'          => 'Engine',
-        'expireTime'      => 'ExpireTime',
-        'expired'         => 'Expired',
-        'id'              => 'Id',
-        'lockMode'        => 'LockMode',
-        'lockReason'      => 'LockReason',
-        'minorVersion'    => 'MinorVersion',
-        'network'         => 'Network',
-        'nodeClass'       => 'NodeClass',
-        'nodeCount'       => 'NodeCount',
-        'nodes'           => 'Nodes',
-        'payType'         => 'PayType',
-        'readDBInstances' => 'ReadDBInstances',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'series'          => 'Series',
-        'status'          => 'Status',
-        'storageUsed'     => 'StorageUsed',
-        'supportBinlogX'  => 'SupportBinlogX',
-        'tagSet'          => 'TagSet',
-        'type'            => 'Type',
-        'VPCId'           => 'VPCId',
-        'zoneId'          => 'ZoneId',
+        'cdcInstanceName'         => 'CdcInstanceName',
+        'cnNodeClassCode'         => 'CnNodeClassCode',
+        'cnNodeCount'             => 'CnNodeCount',
+        'columnarInstanceName'    => 'ColumnarInstanceName',
+        'columnarReadDBInstances' => 'ColumnarReadDBInstances',
+        'commodityCode'           => 'CommodityCode',
+        'containBinlogX'          => 'ContainBinlogX',
+        'createTime'              => 'CreateTime',
+        'DBInstanceName'          => 'DBInstanceName',
+        'DBType'                  => 'DBType',
+        'DBVersion'               => 'DBVersion',
+        'description'             => 'Description',
+        'dnNodeClassCode'         => 'DnNodeClassCode',
+        'dnNodeCount'             => 'DnNodeCount',
+        'engine'                  => 'Engine',
+        'expireTime'              => 'ExpireTime',
+        'expired'                 => 'Expired',
+        'id'                      => 'Id',
+        'lockMode'                => 'LockMode',
+        'lockReason'              => 'LockReason',
+        'minorVersion'            => 'MinorVersion',
+        'network'                 => 'Network',
+        'nodeClass'               => 'NodeClass',
+        'nodeCount'               => 'NodeCount',
+        'nodes'                   => 'Nodes',
+        'payType'                 => 'PayType',
+        'primaryZone'             => 'PrimaryZone',
+        'readDBInstances'         => 'ReadDBInstances',
+        'regionId'                => 'RegionId',
+        'resourceGroupId'         => 'ResourceGroupId',
+        'secondaryZone'           => 'SecondaryZone',
+        'series'                  => 'Series',
+        'status'                  => 'Status',
+        'storageUsed'             => 'StorageUsed',
+        'supportBinlogX'          => 'SupportBinlogX',
+        'tagSet'                  => 'TagSet',
+        'tertiaryZone'            => 'TertiaryZone',
+        'topologyType'            => 'TopologyType',
+        'type'                    => 'Type',
+        'VPCId'                   => 'VPCId',
+        'zoneId'                  => 'ZoneId',
     ];
 
     public function validate()
@@ -299,6 +345,12 @@ class DBInstances extends Model
         }
         if (null !== $this->cnNodeCount) {
             $res['CnNodeCount'] = $this->cnNodeCount;
+        }
+        if (null !== $this->columnarInstanceName) {
+            $res['ColumnarInstanceName'] = $this->columnarInstanceName;
+        }
+        if (null !== $this->columnarReadDBInstances) {
+            $res['ColumnarReadDBInstances'] = $this->columnarReadDBInstances;
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
@@ -369,6 +421,9 @@ class DBInstances extends Model
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
+        if (null !== $this->primaryZone) {
+            $res['PrimaryZone'] = $this->primaryZone;
+        }
         if (null !== $this->readDBInstances) {
             $res['ReadDBInstances'] = $this->readDBInstances;
         }
@@ -377,6 +432,9 @@ class DBInstances extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->secondaryZone) {
+            $res['SecondaryZone'] = $this->secondaryZone;
         }
         if (null !== $this->series) {
             $res['Series'] = $this->series;
@@ -398,6 +456,12 @@ class DBInstances extends Model
                     $res['TagSet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->tertiaryZone) {
+            $res['TertiaryZone'] = $this->tertiaryZone;
+        }
+        if (null !== $this->topologyType) {
+            $res['TopologyType'] = $this->topologyType;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -428,6 +492,14 @@ class DBInstances extends Model
         }
         if (isset($map['CnNodeCount'])) {
             $model->cnNodeCount = $map['CnNodeCount'];
+        }
+        if (isset($map['ColumnarInstanceName'])) {
+            $model->columnarInstanceName = $map['ColumnarInstanceName'];
+        }
+        if (isset($map['ColumnarReadDBInstances'])) {
+            if (!empty($map['ColumnarReadDBInstances'])) {
+                $model->columnarReadDBInstances = $map['ColumnarReadDBInstances'];
+            }
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
@@ -498,6 +570,9 @@ class DBInstances extends Model
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
+        if (isset($map['PrimaryZone'])) {
+            $model->primaryZone = $map['PrimaryZone'];
+        }
         if (isset($map['ReadDBInstances'])) {
             if (!empty($map['ReadDBInstances'])) {
                 $model->readDBInstances = $map['ReadDBInstances'];
@@ -508,6 +583,9 @@ class DBInstances extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SecondaryZone'])) {
+            $model->secondaryZone = $map['SecondaryZone'];
         }
         if (isset($map['Series'])) {
             $model->series = $map['Series'];
@@ -529,6 +607,12 @@ class DBInstances extends Model
                     $model->tagSet[$n++] = null !== $item ? tagSet::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TertiaryZone'])) {
+            $model->tertiaryZone = $map['TertiaryZone'];
+        }
+        if (isset($map['TopologyType'])) {
+            $model->topologyType = $map['TopologyType'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

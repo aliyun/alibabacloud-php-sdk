@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @var bool
+     */
+    public $canNotCreateColumnar;
+
+    /**
      * @example polarx.x4.xlarge.2e
      *
      * @var string
@@ -24,6 +29,16 @@ class DBInstance extends Model
      * @var int
      */
     public $cnNodeCount;
+
+    /**
+     * @var string
+     */
+    public $columnarInstanceName;
+
+    /**
+     * @var string[]
+     */
+    public $columnarReadDBInstances;
 
     /**
      * @example drds_polarxpost_public_cn
@@ -95,6 +110,11 @@ class DBInstance extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $differentDNSpec;
 
     /**
      * @example mysql.x8.large.25
@@ -207,6 +227,13 @@ class DBInstance extends Model
     public $port;
 
     /**
+     * @description 主可用区。
+     *
+     * @var string
+     */
+    public $primaryZone;
+
+    /**
      * @var string[]
      */
     public $readDBInstances;
@@ -240,6 +267,13 @@ class DBInstance extends Model
     public $rightsSeparationStatus;
 
     /**
+     * @description 次可用区。
+     *
+     * @var string
+     */
+    public $secondaryZone;
+
+    /**
      * @example enterprise
      *
      * @var string
@@ -264,6 +298,22 @@ class DBInstance extends Model
      * @var tagSet[]
      */
     public $tagSet;
+
+    /**
+     * @description 第三可用区。
+     *
+     * @var string
+     */
+    public $tertiaryZone;
+
+    /**
+     * @description 拓扑类型：
+     *
+     * - **3azones**：三可用区；
+     * - **1azone**：单可用区。
+     * @var string
+     */
+    public $topologyType;
 
     /**
      * @example ReadWrite
@@ -293,8 +343,11 @@ class DBInstance extends Model
      */
     public $zoneId;
     protected $_name = [
+        'canNotCreateColumnar'    => 'CanNotCreateColumnar',
         'cnNodeClassCode'         => 'CnNodeClassCode',
         'cnNodeCount'             => 'CnNodeCount',
+        'columnarInstanceName'    => 'ColumnarInstanceName',
+        'columnarReadDBInstances' => 'ColumnarReadDBInstances',
         'commodityCode'           => 'CommodityCode',
         'connAddrs'               => 'ConnAddrs',
         'connectionString'        => 'ConnectionString',
@@ -306,6 +359,7 @@ class DBInstance extends Model
         'DBType'                  => 'DBType',
         'DBVersion'               => 'DBVersion',
         'description'             => 'Description',
+        'differentDNSpec'         => 'DifferentDNSpec',
         'dnNodeClassCode'         => 'DnNodeClassCode',
         'dnNodeCount'             => 'DnNodeCount',
         'engine'                  => 'Engine',
@@ -322,15 +376,19 @@ class DBInstance extends Model
         'network'                 => 'Network',
         'payType'                 => 'PayType',
         'port'                    => 'Port',
+        'primaryZone'             => 'PrimaryZone',
         'readDBInstances'         => 'ReadDBInstances',
         'regionId'                => 'RegionId',
         'resourceGroupId'         => 'ResourceGroupId',
         'rightsSeparationEnabled' => 'RightsSeparationEnabled',
         'rightsSeparationStatus'  => 'RightsSeparationStatus',
+        'secondaryZone'           => 'SecondaryZone',
         'series'                  => 'Series',
         'status'                  => 'Status',
         'storageUsed'             => 'StorageUsed',
         'tagSet'                  => 'TagSet',
+        'tertiaryZone'            => 'TertiaryZone',
+        'topologyType'            => 'TopologyType',
         'type'                    => 'Type',
         'VPCId'                   => 'VPCId',
         'vSwitchId'               => 'VSwitchId',
@@ -344,11 +402,20 @@ class DBInstance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->canNotCreateColumnar) {
+            $res['CanNotCreateColumnar'] = $this->canNotCreateColumnar;
+        }
         if (null !== $this->cnNodeClassCode) {
             $res['CnNodeClassCode'] = $this->cnNodeClassCode;
         }
         if (null !== $this->cnNodeCount) {
             $res['CnNodeCount'] = $this->cnNodeCount;
+        }
+        if (null !== $this->columnarInstanceName) {
+            $res['ColumnarInstanceName'] = $this->columnarInstanceName;
+        }
+        if (null !== $this->columnarReadDBInstances) {
+            $res['ColumnarReadDBInstances'] = $this->columnarReadDBInstances;
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
@@ -394,6 +461,9 @@ class DBInstance extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->differentDNSpec) {
+            $res['DifferentDNSpec'] = $this->differentDNSpec;
         }
         if (null !== $this->dnNodeClassCode) {
             $res['DnNodeClassCode'] = $this->dnNodeClassCode;
@@ -443,6 +513,9 @@ class DBInstance extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+        if (null !== $this->primaryZone) {
+            $res['PrimaryZone'] = $this->primaryZone;
+        }
         if (null !== $this->readDBInstances) {
             $res['ReadDBInstances'] = $this->readDBInstances;
         }
@@ -457,6 +530,9 @@ class DBInstance extends Model
         }
         if (null !== $this->rightsSeparationStatus) {
             $res['RightsSeparationStatus'] = $this->rightsSeparationStatus;
+        }
+        if (null !== $this->secondaryZone) {
+            $res['SecondaryZone'] = $this->secondaryZone;
         }
         if (null !== $this->series) {
             $res['Series'] = $this->series;
@@ -475,6 +551,12 @@ class DBInstance extends Model
                     $res['TagSet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->tertiaryZone) {
+            $res['TertiaryZone'] = $this->tertiaryZone;
+        }
+        if (null !== $this->topologyType) {
+            $res['TopologyType'] = $this->topologyType;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -500,11 +582,22 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CanNotCreateColumnar'])) {
+            $model->canNotCreateColumnar = $map['CanNotCreateColumnar'];
+        }
         if (isset($map['CnNodeClassCode'])) {
             $model->cnNodeClassCode = $map['CnNodeClassCode'];
         }
         if (isset($map['CnNodeCount'])) {
             $model->cnNodeCount = $map['CnNodeCount'];
+        }
+        if (isset($map['ColumnarInstanceName'])) {
+            $model->columnarInstanceName = $map['ColumnarInstanceName'];
+        }
+        if (isset($map['ColumnarReadDBInstances'])) {
+            if (!empty($map['ColumnarReadDBInstances'])) {
+                $model->columnarReadDBInstances = $map['ColumnarReadDBInstances'];
+            }
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
@@ -550,6 +643,9 @@ class DBInstance extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DifferentDNSpec'])) {
+            $model->differentDNSpec = $map['DifferentDNSpec'];
         }
         if (isset($map['DnNodeClassCode'])) {
             $model->dnNodeClassCode = $map['DnNodeClassCode'];
@@ -601,6 +697,9 @@ class DBInstance extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+        if (isset($map['PrimaryZone'])) {
+            $model->primaryZone = $map['PrimaryZone'];
+        }
         if (isset($map['ReadDBInstances'])) {
             if (!empty($map['ReadDBInstances'])) {
                 $model->readDBInstances = $map['ReadDBInstances'];
@@ -617,6 +716,9 @@ class DBInstance extends Model
         }
         if (isset($map['RightsSeparationStatus'])) {
             $model->rightsSeparationStatus = $map['RightsSeparationStatus'];
+        }
+        if (isset($map['SecondaryZone'])) {
+            $model->secondaryZone = $map['SecondaryZone'];
         }
         if (isset($map['Series'])) {
             $model->series = $map['Series'];
@@ -635,6 +737,12 @@ class DBInstance extends Model
                     $model->tagSet[$n++] = null !== $item ? tagSet::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TertiaryZone'])) {
+            $model->tertiaryZone = $map['TertiaryZone'];
+        }
+        if (isset($map['TopologyType'])) {
+            $model->topologyType = $map['TopologyType'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
