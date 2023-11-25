@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetTableColumnsResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The queried data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The page number of the returned page. The value is an integer that is greater than 0. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -26,9 +26,9 @@ class GetTableColumnsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 30. Valid values:
+     * @description The number of entries per page. Valid values:
      *
-     *   **30**
+     *   **30** (default)
      *   **50**
      *   **100**
      *
@@ -39,7 +39,7 @@ class GetTableColumnsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *

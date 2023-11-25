@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The page number of the returned page. The value is an integer that is greater than 0. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -19,9 +19,9 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 30. Valid values:
+     * @description The number of entries per page. Valid values:
      *
-     *   **30**
+     *   **30** (default)
      *   **50**
      *   **100**
      *
@@ -32,7 +32,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description Details of the table.
+     * @description The information about the table.
      *
      * @var TableDetailModel
      */

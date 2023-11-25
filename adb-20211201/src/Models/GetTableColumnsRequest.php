@@ -18,7 +18,7 @@ class GetTableColumnsRequest extends Model
     public $columnName;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example amv-bp11q28kvl688****
      *
@@ -27,7 +27,7 @@ class GetTableColumnsRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The number of the page to return. The value is an integer that is greater than 0. Default value: **1**.
+     * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
      *
@@ -36,9 +36,9 @@ class GetTableColumnsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 30. Valid values:
+     * @description The number of entries per page. Valid values:
      *
-     *   **30**
+     *   **30** (default)
      *   **50**
      *   **100**
      *
@@ -49,7 +49,7 @@ class GetTableColumnsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the cluster resides.
+     * @description The region ID of the cluster.
      *
      * @example cn-hangzhou
      *

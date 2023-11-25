@@ -19,6 +19,11 @@ class ListSparkAppAttemptsRequest extends Model
     public $appId;
 
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
      * @description The page number. The value must be an integer that is greater than 0. Default value: **1**.
      *
      * @example 1
@@ -40,9 +45,10 @@ class ListSparkAppAttemptsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'appId'      => 'AppId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'appId'       => 'AppId',
+        'DBClusterId' => 'DBClusterId',
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class ListSparkAppAttemptsRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -75,6 +84,9 @@ class ListSparkAppAttemptsRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

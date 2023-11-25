@@ -17,8 +17,14 @@ class GetSparkAppInfoRequest extends Model
      * @var string
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
     protected $_name = [
-        'appId' => 'AppId',
+        'appId'       => 'AppId',
+        'DBClusterId' => 'DBClusterId',
     ];
 
     public function validate()
@@ -30,6 +36,9 @@ class GetSparkAppInfoRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
 
         return $res;
@@ -45,6 +54,9 @@ class GetSparkAppInfoRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
 
         return $model;

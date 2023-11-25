@@ -3883,12 +3883,17 @@ class Adb extends OpenApiClient
     public function getSparkAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
         $body = [];
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSparkAppInfo',
@@ -3926,6 +3931,10 @@ class Adb extends OpenApiClient
     public function getSparkAppLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
         $body = [];
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
@@ -3934,7 +3943,8 @@ class Adb extends OpenApiClient
             $body['LogLength'] = $request->logLength;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSparkAppLog',
@@ -3972,12 +3982,17 @@ class Adb extends OpenApiClient
     public function getSparkAppMetricsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
         $body = [];
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSparkAppMetrics',
@@ -4015,12 +4030,17 @@ class Adb extends OpenApiClient
     public function getSparkAppStateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
         $body = [];
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSparkAppState',
@@ -4058,12 +4078,17 @@ class Adb extends OpenApiClient
     public function getSparkAppWebUiAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
         $body = [];
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSparkAppWebUiAddress',
@@ -4774,12 +4799,17 @@ class Adb extends OpenApiClient
     public function killSparkAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
         $body = [];
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'KillSparkApp',
@@ -4909,6 +4939,9 @@ class Adb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -5668,12 +5701,17 @@ class Adb extends OpenApiClient
     public function preloadSparkAppMetricsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
         $body = [];
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PreloadSparkAppMetrics',

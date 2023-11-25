@@ -19,6 +19,11 @@ class GetSparkAppLogRequest extends Model
     public $appId;
 
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
      * @description The number of log entries to return. Valid values: 1 to 500. Default value: 300.
      *
      * @example 20
@@ -27,8 +32,9 @@ class GetSparkAppLogRequest extends Model
      */
     public $logLength;
     protected $_name = [
-        'appId'     => 'AppId',
-        'logLength' => 'LogLength',
+        'appId'       => 'AppId',
+        'DBClusterId' => 'DBClusterId',
+        'logLength'   => 'LogLength',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class GetSparkAppLogRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
         if (null !== $this->logLength) {
             $res['LogLength'] = $this->logLength;
@@ -58,6 +67,9 @@ class GetSparkAppLogRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
         if (isset($map['LogLength'])) {
             $model->logLength = $map['LogLength'];
