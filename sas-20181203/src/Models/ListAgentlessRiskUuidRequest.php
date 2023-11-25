@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListAgentlessRiskUuidRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class ListAgentlessRiskUuidRequest extends Model
     public $machineName;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 10
      *

@@ -39,8 +39,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AdvanceSecurityEventOperationsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AdvanceSecurityEventOperationsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\BatchDeleteMaliciousFileWhitelistConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\BatchDeleteMaliciousFileWhitelistConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\BatchOperateCommonOverallConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\BatchOperateCommonOverallConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\BatchUpdateMaliciousFileWhitelistConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\BatchUpdateMaliciousFileWhitelistConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\BindAuthToMachineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\BindAuthToMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\BindHybridProxyRequest;
@@ -108,6 +112,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateInterceptionTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateInterceptionTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageRegistryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageRegistryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMaliciousFileWhitelistConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMaliciousFileWhitelistConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMaliciousNoteRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateMaliciousNoteResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaClusterPluginRequest;
@@ -188,6 +194,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteK8sAccessInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteK8sAccessInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteLoginBaseConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteLoginBaseConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousFileWhitelistConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousFileWhitelistConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousNoteRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousNoteResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteOpaStrategyNewRequest;
@@ -772,6 +780,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetLastOnceTaskInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetLastOnceTaskInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetLogMetaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetLogMetaResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetMaliciousFileWhitelistConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetMaliciousFileWhitelistConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetModuleTrialAuthInfoRequest;
@@ -943,6 +953,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionTargetPageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionTargetPageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListK8sAccessInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListK8sAccessInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListMaliciousFileWhitelistConfigsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListMaliciousFileWhitelistConfigsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListObjectScanEventRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListObjectScanEventResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOpaClusterStrategyNewRequest;
@@ -1274,6 +1286,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryNameResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryPersistenceDayRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryPersistenceDayResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateMaliciousFileWhitelistConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateMaliciousFileWhitelistConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewShrinkRequest;
@@ -2273,6 +2287,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param BatchDeleteMaliciousFileWhitelistConfigRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return BatchDeleteMaliciousFileWhitelistConfigResponse
+     */
+    public function batchDeleteMaliciousFileWhitelistConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configIdList)) {
+            $query['ConfigIdList'] = $request->configIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteMaliciousFileWhitelistConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchDeleteMaliciousFileWhitelistConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchDeleteMaliciousFileWhitelistConfigRequest $request
+     *
+     * @return BatchDeleteMaliciousFileWhitelistConfigResponse
+     */
+    public function batchDeleteMaliciousFileWhitelistConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteMaliciousFileWhitelistConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BatchOperateCommonOverallConfigRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -2316,6 +2373,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchOperateCommonOverallConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchUpdateMaliciousFileWhitelistConfigRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return BatchUpdateMaliciousFileWhitelistConfigResponse
+     */
+    public function batchUpdateMaliciousFileWhitelistConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configList)) {
+            $query['ConfigList'] = $request->configList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUpdateMaliciousFileWhitelistConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchUpdateMaliciousFileWhitelistConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchUpdateMaliciousFileWhitelistConfigRequest $request
+     *
+     * @return BatchUpdateMaliciousFileWhitelistConfigResponse
+     */
+    public function batchUpdateMaliciousFileWhitelistConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchUpdateMaliciousFileWhitelistConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -4119,6 +4219,67 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createJenkinsImageRegistryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateMaliciousFileWhitelistConfigRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateMaliciousFileWhitelistConfigResponse
+     */
+    public function createMaliciousFileWhitelistConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->field)) {
+            $query['Field'] = $request->field;
+        }
+        if (!Utils::isUnset($request->fieldValue)) {
+            $query['FieldValue'] = $request->fieldValue;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $query['Operator'] = $request->operator;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMaliciousFileWhitelistConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMaliciousFileWhitelistConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateMaliciousFileWhitelistConfigRequest $request
+     *
+     * @return CreateMaliciousFileWhitelistConfigResponse
+     */
+    public function createMaliciousFileWhitelistConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMaliciousFileWhitelistConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -6073,6 +6234,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteLoginBaseConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteMaliciousFileWhitelistConfigRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DeleteMaliciousFileWhitelistConfigResponse
+     */
+    public function deleteMaliciousFileWhitelistConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMaliciousFileWhitelistConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMaliciousFileWhitelistConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMaliciousFileWhitelistConfigRequest $request
+     *
+     * @return DeleteMaliciousFileWhitelistConfigResponse
+     */
+    public function deleteMaliciousFileWhitelistConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMaliciousFileWhitelistConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -22006,6 +22210,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param GetMaliciousFileWhitelistConfigRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetMaliciousFileWhitelistConfigResponse
+     */
+    public function getMaliciousFileWhitelistConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMaliciousFileWhitelistConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMaliciousFileWhitelistConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMaliciousFileWhitelistConfigRequest $request
+     *
+     * @return GetMaliciousFileWhitelistConfigResponse
+     */
+    public function getMaliciousFileWhitelistConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMaliciousFileWhitelistConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetModuleConfigRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -26548,6 +26795,61 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listK8sAccessInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMaliciousFileWhitelistConfigsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListMaliciousFileWhitelistConfigsResponse
+     */
+    public function listMaliciousFileWhitelistConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMaliciousFileWhitelistConfigs',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMaliciousFileWhitelistConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMaliciousFileWhitelistConfigsRequest $request
+     *
+     * @return ListMaliciousFileWhitelistConfigsResponse
+     */
+    public function listMaliciousFileWhitelistConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMaliciousFileWhitelistConfigsWithOptions($request, $runtime);
     }
 
     /**
@@ -35071,6 +35373,70 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateJenkinsImageRegistryPersistenceDayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMaliciousFileWhitelistConfigRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateMaliciousFileWhitelistConfigResponse
+     */
+    public function updateMaliciousFileWhitelistConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->field)) {
+            $query['Field'] = $request->field;
+        }
+        if (!Utils::isUnset($request->fieldValue)) {
+            $query['FieldValue'] = $request->fieldValue;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $query['Operator'] = $request->operator;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMaliciousFileWhitelistConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMaliciousFileWhitelistConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMaliciousFileWhitelistConfigRequest $request
+     *
+     * @return UpdateMaliciousFileWhitelistConfigResponse
+     */
+    public function updateMaliciousFileWhitelistConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMaliciousFileWhitelistConfigWithOptions($request, $runtime);
     }
 
     /**

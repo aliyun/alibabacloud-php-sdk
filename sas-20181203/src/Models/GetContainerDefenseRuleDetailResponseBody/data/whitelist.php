@@ -17,6 +17,8 @@ class whitelist extends Model
     public $hash;
 
     /**
+     * @description An array consisting of images that are added to the whitelist.
+     *
      * @var string[]
      */
     public $image;

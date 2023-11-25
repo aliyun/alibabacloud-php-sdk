@@ -30,7 +30,7 @@ class scope extends Model
     public $clusterId;
 
     /**
-     * @description The namespaces.
+     * @description An array that consists of queried namespaces.
      *
      * @var string[]
      */

@@ -6,19 +6,16 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetContainerDefenseRuleDetailRequest extends Model
+class GetMaliciousFileWhitelistConfigRequest extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * >  You can call the [ListContainerDefenseRule](~~2590599~~) operation to query the rule ID.
-     * @example 156
+     * @example 1
      *
      * @var int
      */
-    public $ruleId;
+    public $configId;
     protected $_name = [
-        'ruleId' => 'RuleId',
+        'configId' => 'ConfigId',
     ];
 
     public function validate()
@@ -28,8 +25,8 @@ class GetContainerDefenseRuleDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
         }
 
         return $res;
@@ -38,13 +35,13 @@ class GetContainerDefenseRuleDetailRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetContainerDefenseRuleDetailRequest
+     * @return GetMaliciousFileWhitelistConfigRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
         }
 
         return $model;

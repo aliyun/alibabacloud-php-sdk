@@ -27,6 +27,16 @@ class checkWarnings extends Model
     public $checkWarningId;
 
     /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
+     * @var string
+     */
+    public $containerName;
+
+    /**
      * @description The error message in the check result.
      *
      * @example ScriptKilledOfCpuHigh
@@ -113,6 +123,8 @@ class checkWarnings extends Model
     protected $_name = [
         'checkId'          => 'CheckId',
         'checkWarningId'   => 'CheckWarningId',
+        'containerId'      => 'ContainerId',
+        'containerName'    => 'ContainerName',
         'execErrorMessage' => 'ExecErrorMessage',
         'fixStatus'        => 'FixStatus',
         'item'             => 'Item',
@@ -135,6 +147,12 @@ class checkWarnings extends Model
         }
         if (null !== $this->checkWarningId) {
             $res['CheckWarningId'] = $this->checkWarningId;
+        }
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
         }
         if (null !== $this->execErrorMessage) {
             $res['ExecErrorMessage'] = $this->execErrorMessage;
@@ -177,6 +195,12 @@ class checkWarnings extends Model
         }
         if (isset($map['CheckWarningId'])) {
             $model->checkWarningId = $map['CheckWarningId'];
+        }
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
         }
         if (isset($map['ExecErrorMessage'])) {
             $model->execErrorMessage = $map['ExecErrorMessage'];
