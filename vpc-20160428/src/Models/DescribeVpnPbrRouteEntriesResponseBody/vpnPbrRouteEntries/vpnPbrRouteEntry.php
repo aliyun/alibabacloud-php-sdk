@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class vpnPbrRouteEntry extends Model
 {
     /**
-     * @description The timestamp generated when the policy-based route was created. Unit: milliseconds.
+     * @description The time when the policy-based route was created. Unit: milliseconds.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1492747187000
      *
      * @var int
@@ -78,7 +78,7 @@ class vpnPbrRouteEntry extends Model
     public $state;
 
     /**
-     * @description The ID of the VPN gateway.
+     * @description The VPN gateway ID.
      *
      * @example vpn-bp1a3kqjiiq9legfx****
      *
@@ -89,10 +89,13 @@ class vpnPbrRouteEntry extends Model
     /**
      * @description The weight of the policy-based route. Valid values:
      *
-     * - For a VPN gateway that supports the dual-tunnel mode, the default weight is **100**.
-     * - For a VPN gateway that supports the single-tunnel mode, the weight specifies the priority of the policy-based route.
-     * - **100**: a high priority. If multiple policy-based routes with the same source CIDR block and destination CIDR block exist, the IPsec-VPN connection associated with the policy-based route is the active connection.
-     * - **0**: a low priority. If multiple policy-based routes with the same source CIDR block and destination CIDR block exist, the IPsec-VPN connection associated with the policy-based route is the standby connection.
+     *   For a VPN gateway that supports the dual-tunnel mode, the default value is **100**.
+     *
+     *   For a VPN gateway that supports the single-tunnel mode, the weight specifies the priority of the policy-based route.
+     *
+     *   **100**: a high priority If multiple policy-based routes with the same source CIDR block and destination CIDR block exist, the IPsec-VPN connection associated with the policy-based route is the active connection.
+     *   **0**: a low priority If multiple policy-based routes with the same source CIDR block and destination CIDR block exist, the IPsec-VPN connection associated with the policy-based route is the standby connection.
+     *
      * @example 0
      *
      * @var int

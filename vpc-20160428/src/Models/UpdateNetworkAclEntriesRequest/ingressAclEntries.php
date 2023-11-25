@@ -28,6 +28,11 @@ class ingressAclEntries extends Model
     public $entryType;
 
     /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
      * @description The ID of the inbound rule.
      *
      * Valid values of **N**: **0** to **99**. You can specify at most 100 inbound rules.
@@ -97,6 +102,7 @@ class ingressAclEntries extends Model
     protected $_name = [
         'description'         => 'Description',
         'entryType'           => 'EntryType',
+        'ipVersion'           => 'IpVersion',
         'networkAclEntryId'   => 'NetworkAclEntryId',
         'networkAclEntryName' => 'NetworkAclEntryName',
         'policy'              => 'Policy',
@@ -117,6 +123,9 @@ class ingressAclEntries extends Model
         }
         if (null !== $this->entryType) {
             $res['EntryType'] = $this->entryType;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
         if (null !== $this->networkAclEntryId) {
             $res['NetworkAclEntryId'] = $this->networkAclEntryId;
@@ -153,6 +162,9 @@ class ingressAclEntries extends Model
         }
         if (isset($map['EntryType'])) {
             $model->entryType = $map['EntryType'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
         if (isset($map['NetworkAclEntryId'])) {
             $model->networkAclEntryId = $map['NetworkAclEntryId'];

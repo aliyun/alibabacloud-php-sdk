@@ -23,6 +23,11 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The information about the outbound rules.
      *
      * @var egressAclEntries[]
@@ -44,6 +49,11 @@ class UpdateNetworkAclEntriesRequest extends Model
      * @var string
      */
     public $networkAclId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -97,9 +107,11 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $updateIngressAclEntries;
     protected $_name = [
         'clientToken'             => 'ClientToken',
+        'dryRun'                  => 'DryRun',
         'egressAclEntries'        => 'EgressAclEntries',
         'ingressAclEntries'       => 'IngressAclEntries',
         'networkAclId'            => 'NetworkAclId',
+        'ownerAccount'            => 'OwnerAccount',
         'ownerId'                 => 'OwnerId',
         'regionId'                => 'RegionId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
@@ -117,6 +129,9 @@ class UpdateNetworkAclEntriesRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->egressAclEntries) {
             $res['EgressAclEntries'] = [];
@@ -138,6 +153,9 @@ class UpdateNetworkAclEntriesRequest extends Model
         }
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -172,6 +190,9 @@ class UpdateNetworkAclEntriesRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['EgressAclEntries'])) {
             if (!empty($map['EgressAclEntries'])) {
                 $model->egressAclEntries = [];
@@ -192,6 +213,9 @@ class UpdateNetworkAclEntriesRequest extends Model
         }
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

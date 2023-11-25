@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListIpsecServersResponseBody extends Model
 {
     /**
-     * @description The Diffie-Hellman key exchange algorithm.
+     * @description The list of IPsec servers.
      *
      * @var ipsecServers[]
      */

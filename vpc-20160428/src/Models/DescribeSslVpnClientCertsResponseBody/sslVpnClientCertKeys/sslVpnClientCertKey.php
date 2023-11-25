@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sslVpnClientCertKey extends Model
 {
     /**
-     * @description The timestamp that indicates when the SSL client certificate was created. Unit: milliseconds.
+     * @description The timestamp that indicates when the SSL client certificate was created. Unit: millisecond.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492747187000
@@ -19,7 +19,7 @@ class sslVpnClientCertKey extends Model
     public $createTime;
 
     /**
-     * @description The timestamp that indicates when the SSL client certificate expires. Unit: milliseconds.
+     * @description The timestamp that indicates when the SSL client certificate expires. Unit: millisecond.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1494966335000
@@ -47,6 +47,8 @@ class sslVpnClientCertKey extends Model
     public $regionId;
 
     /**
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -72,9 +74,9 @@ class sslVpnClientCertKey extends Model
     /**
      * @description The status of the SSL client certificate. Valid values:
      *
-     *   **expiring-soon**: The certificate expires in one week.
-     *   **normal**: The certificate is active.
-     *   **expired**: The certificate has expired.
+     *   **expiring-soon**
+     *   **normal**
+     *   **expired**
      *
      * @example normal
      *

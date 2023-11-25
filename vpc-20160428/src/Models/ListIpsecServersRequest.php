@@ -59,6 +59,8 @@ class ListIpsecServersRequest extends Model
     public $regionId;
 
     /**
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;

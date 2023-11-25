@@ -32,6 +32,11 @@ class CreateNetworkAclRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The name of the network ACL.
      *
      * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
@@ -40,6 +45,11 @@ class CreateNetworkAclRequest extends Model
      * @var string
      */
     public $networkAclName;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -88,7 +98,9 @@ class CreateNetworkAclRequest extends Model
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
+        'dryRun'               => 'DryRun',
         'networkAclName'       => 'NetworkAclName',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -110,8 +122,14 @@ class CreateNetworkAclRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->networkAclName) {
             $res['NetworkAclName'] = $this->networkAclName;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -155,8 +173,14 @@ class CreateNetworkAclRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['NetworkAclName'])) {
             $model->networkAclName = $map['NetworkAclName'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

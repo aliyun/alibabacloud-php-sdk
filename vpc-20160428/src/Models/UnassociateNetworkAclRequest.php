@@ -22,6 +22,11 @@ class UnassociateNetworkAclRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The ID of the network ACL that you want to disassociate from a resource.
      *
      * @example nacl-a2do9e413e0sp****
@@ -29,6 +34,11 @@ class UnassociateNetworkAclRequest extends Model
      * @var string
      */
     public $networkAclId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -63,7 +73,9 @@ class UnassociateNetworkAclRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'dryRun'               => 'DryRun',
         'networkAclId'         => 'NetworkAclId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resource'             => 'Resource',
@@ -81,8 +93,14 @@ class UnassociateNetworkAclRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -120,8 +138,14 @@ class UnassociateNetworkAclRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

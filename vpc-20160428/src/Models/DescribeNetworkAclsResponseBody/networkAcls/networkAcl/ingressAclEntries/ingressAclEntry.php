@@ -18,6 +18,16 @@ class ingressAclEntry extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $entryType;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
      * @description The ID of the inbound rule.
      *
      * @example nae-a2dk86arlydmezasw****
@@ -84,6 +94,8 @@ class ingressAclEntry extends Model
     public $sourceCidrIp;
     protected $_name = [
         'description'         => 'Description',
+        'entryType'           => 'EntryType',
+        'ipVersion'           => 'IpVersion',
         'networkAclEntryId'   => 'NetworkAclEntryId',
         'networkAclEntryName' => 'NetworkAclEntryName',
         'policy'              => 'Policy',
@@ -101,6 +113,12 @@ class ingressAclEntry extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->entryType) {
+            $res['EntryType'] = $this->entryType;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
         if (null !== $this->networkAclEntryId) {
             $res['NetworkAclEntryId'] = $this->networkAclEntryId;
@@ -134,6 +152,12 @@ class ingressAclEntry extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EntryType'])) {
+            $model->entryType = $map['EntryType'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
         if (isset($map['NetworkAclEntryId'])) {
             $model->networkAclEntryId = $map['NetworkAclEntryId'];

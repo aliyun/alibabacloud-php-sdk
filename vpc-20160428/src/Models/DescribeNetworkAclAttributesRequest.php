@@ -30,6 +30,11 @@ class DescribeNetworkAclAttributesRequest extends Model
     public $networkAclId;
 
     /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -56,6 +61,7 @@ class DescribeNetworkAclAttributesRequest extends Model
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'networkAclId'         => 'NetworkAclId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -74,6 +80,9 @@ class DescribeNetworkAclAttributesRequest extends Model
         }
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -104,6 +113,9 @@ class DescribeNetworkAclAttributesRequest extends Model
         }
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

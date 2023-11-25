@@ -27,6 +27,16 @@ class egressAclEntry extends Model
     public $destinationCidrIp;
 
     /**
+     * @var string
+     */
+    public $entryType;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
      * @description The ID of the outbound rule.
      *
      * @example nae-a2d447uw4tillxdcv****
@@ -82,6 +92,8 @@ class egressAclEntry extends Model
     protected $_name = [
         'description'         => 'Description',
         'destinationCidrIp'   => 'DestinationCidrIp',
+        'entryType'           => 'EntryType',
+        'ipVersion'           => 'IpVersion',
         'networkAclEntryId'   => 'NetworkAclEntryId',
         'networkAclEntryName' => 'NetworkAclEntryName',
         'policy'              => 'Policy',
@@ -101,6 +113,12 @@ class egressAclEntry extends Model
         }
         if (null !== $this->destinationCidrIp) {
             $res['DestinationCidrIp'] = $this->destinationCidrIp;
+        }
+        if (null !== $this->entryType) {
+            $res['EntryType'] = $this->entryType;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
         if (null !== $this->networkAclEntryId) {
             $res['NetworkAclEntryId'] = $this->networkAclEntryId;
@@ -134,6 +152,12 @@ class egressAclEntry extends Model
         }
         if (isset($map['DestinationCidrIp'])) {
             $model->destinationCidrIp = $map['DestinationCidrIp'];
+        }
+        if (isset($map['EntryType'])) {
+            $model->entryType = $map['EntryType'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
         if (isset($map['NetworkAclEntryId'])) {
             $model->networkAclEntryId = $map['NetworkAclEntryId'];

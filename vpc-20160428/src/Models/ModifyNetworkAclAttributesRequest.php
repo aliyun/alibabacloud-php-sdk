@@ -31,6 +31,11 @@ class ModifyNetworkAclAttributesRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The ID of the network ACL.
      *
      * @example acl-bp1lhl0taikrxxxxxxxx
@@ -48,6 +53,11 @@ class ModifyNetworkAclAttributesRequest extends Model
      * @var string
      */
     public $networkAclName;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -76,8 +86,10 @@ class ModifyNetworkAclAttributesRequest extends Model
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
+        'dryRun'               => 'DryRun',
         'networkAclId'         => 'NetworkAclId',
         'networkAclName'       => 'NetworkAclName',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -97,11 +109,17 @@ class ModifyNetworkAclAttributesRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
         }
         if (null !== $this->networkAclName) {
             $res['NetworkAclName'] = $this->networkAclName;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -133,11 +151,17 @@ class ModifyNetworkAclAttributesRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
         }
         if (isset($map['NetworkAclName'])) {
             $model->networkAclName = $map['NetworkAclName'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

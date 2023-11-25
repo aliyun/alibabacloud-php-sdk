@@ -28,7 +28,7 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     * @description The number of entries per page. Default value: **10**. Valid values: **1** to **50**.
      *
      * @example 10
      *
@@ -46,7 +46,7 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the SSL client certificates to be queried.
+     * @description The region ID of the SSL client certificate.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -56,6 +56,8 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $regionId;
 
     /**
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -42,7 +42,7 @@ class ipsecServers extends Model
     public $effectImmediately;
 
     /**
-     * @description The ID of the Identity as a Service (IDaaS) instance.
+     * @description The ID of the IDaaS instance.
      *
      * @example idaas-cn-hangzhou-****
      *
@@ -51,7 +51,7 @@ class ipsecServers extends Model
     public $IDaaSInstanceId;
 
     /**
-     * @description The configurations of phase 1 negotiations.
+     * @description The configurations of Phase 1 negotiations.
      *
      * @var ikeConfig
      */
@@ -67,14 +67,14 @@ class ipsecServers extends Model
     public $internetIp;
 
     /**
-     * @description The configuration of phase 2 negotiations.
+     * @description The configurations of Phase 2 negotiations.
      *
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
-     * @description The ID of the IPsec server.
+     * @description The IPsec server ID.
      *
      * @example iss-bp1bo3xuvcxo7ixll****
      *
@@ -103,7 +103,7 @@ class ipsecServers extends Model
     /**
      * @description The number of SSL-VPN connections supported by the VPN gateway.
      *
-     * >  The number of SSL-VPN connections specified in this parameter includes both SSL-VPN and IPsec-VPN connections. For example, if a VPN gateway supports up to five SSL-VPN connections, and three SSL-VPN connections are already established to SSL clients. In this case, you can establish at most two connections to IPsec servers.
+     * >  The number of SSL-VPN connections specified in this parameter includes both SSL-VPN and IPsec-VPN connections. For example, you have five SSL-VPN connections and three SSL clients occupy three SSL-VPN connections. In this case, two clients can connect to the IPsec server.
      * @example 5
      *
      * @var int
@@ -113,8 +113,8 @@ class ipsecServers extends Model
     /**
      * @description Indicates whether two-factor authentication is enabled. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**: The feature is disabled.
      *
      * @example true
      *
@@ -141,7 +141,7 @@ class ipsecServers extends Model
     public $psk;
 
     /**
-     * @description Indicates whether pre-shared key authentication is enabled. Pre-shared key authentication is enabled only when the value is set to **true**.
+     * @description Indicates whether pre-shared key authentication is enabled. Only **true** may be returned, which indicates that pre-shared key authentication is enabled.
      *
      * @example true
      *
@@ -159,6 +159,8 @@ class ipsecServers extends Model
     public $regionId;
 
     /**
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;
