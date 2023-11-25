@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersV1Request extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @description The cluster type, which is available only when the cluster type is set to `ManagedKubernetes`. Valid values:
      *
      *   `ack.pro.small`: ACK Pro cluster
@@ -87,6 +92,7 @@ class DescribeClustersV1Request extends Model
      */
     public $regionId;
     protected $_name = [
+        'clusterId'   => 'cluster_id',
         'clusterSpec' => 'cluster_spec',
         'clusterType' => 'cluster_type',
         'name'        => 'name',
@@ -103,6 +109,9 @@ class DescribeClustersV1Request extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['cluster_id'] = $this->clusterId;
+        }
         if (null !== $this->clusterSpec) {
             $res['cluster_spec'] = $this->clusterSpec;
         }
@@ -136,6 +145,9 @@ class DescribeClustersV1Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cluster_id'])) {
+            $model->clusterId = $map['cluster_id'];
+        }
         if (isset($map['cluster_spec'])) {
             $model->clusterSpec = $map['cluster_spec'];
         }

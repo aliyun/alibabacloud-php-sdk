@@ -73,6 +73,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1Request;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1Response;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterTasksRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterTasksResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigResponse;
@@ -2542,16 +2543,26 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $clusterId
+     * @param DescribeClusterTasksRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return DescribeClusterTasksResponse
      */
-    public function describeClusterTasksWithOptions($clusterId, $headers, $runtime)
+    public function describeClusterTasksWithOptions($clusterId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterTasks',
@@ -2569,16 +2580,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterId
+     * @param string                      $clusterId
+     * @param DescribeClusterTasksRequest $request
      *
      * @return DescribeClusterTasksResponse
      */
-    public function describeClusterTasks($clusterId)
+    public function describeClusterTasks($clusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterTasksWithOptions($clusterId, $headers, $runtime);
+        return $this->describeClusterTasksWithOptions($clusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -2796,6 +2808,9 @@ class CS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
+        }
         if (!Utils::isUnset($request->clusterSpec)) {
             $query['cluster_spec'] = $request->clusterSpec;
         }
