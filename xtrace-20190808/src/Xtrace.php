@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Xtrace\V20190808;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Xtrace\V20190808\Models\CheckCommercialStatusRequest;
+use AlibabaCloud\SDK\Xtrace\V20190808\Models\CheckCommercialStatusResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagKeyRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagKeyResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagValRequest;
@@ -61,6 +63,52 @@ class Xtrace extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CheckCommercialStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckCommercialStatusResponse
+     */
+    public function checkCommercialStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->service)) {
+            $query['Service'] = $request->service;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckCommercialStatus',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckCommercialStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckCommercialStatusRequest $request
+     *
+     * @return CheckCommercialStatusResponse
+     */
+    public function checkCommercialStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkCommercialStatusWithOptions($request, $runtime);
     }
 
     /**
