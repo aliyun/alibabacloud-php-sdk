@@ -357,6 +357,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\OpenXtraceDefaultSLRRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\OpenXtraceDefaultSLRResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryAppMetadataRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryAppMetadataResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryCommercialUsageRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryCommercialUsageResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryMetricByPageRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryMetricByPageResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryPromInstallStatusRequest;
@@ -9530,6 +9532,76 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryAppMetadataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCommercialUsageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryCommercialUsageResponse
+     */
+    public function queryCommercialUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->advancedFilters)) {
+            $query['AdvancedFilters'] = $request->advancedFilters;
+        }
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->intervalInSec)) {
+            $query['IntervalInSec'] = $request->intervalInSec;
+        }
+        if (!Utils::isUnset($request->measures)) {
+            $query['Measures'] = $request->measures;
+        }
+        if (!Utils::isUnset($request->metric)) {
+            $query['Metric'] = $request->metric;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCommercialUsage',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCommercialUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCommercialUsageRequest $request
+     *
+     * @return QueryCommercialUsageResponse
+     */
+    public function queryCommercialUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCommercialUsageWithOptions($request, $runtime);
     }
 
     /**
