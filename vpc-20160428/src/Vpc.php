@@ -15320,6 +15320,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->routeTableName)) {
             $query['RouteTableName'] = $request->routeTableName;
         }
+        if (!Utils::isUnset($request->routeTableType)) {
+            $query['RouteTableType'] = $request->routeTableType;
+        }
         if (!Utils::isUnset($request->routerId)) {
             $query['RouterId'] = $request->routerId;
         }

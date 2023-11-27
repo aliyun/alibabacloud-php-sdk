@@ -85,6 +85,11 @@ class DescribeRouteTableListRequest extends Model
     public $routeTableName;
 
     /**
+     * @var string
+     */
+    public $routeTableType;
+
+    /**
      * @description The ID of the router to which the route table belongs.
      *
      * @example vrt-bp1lhl0taikrteen8****
@@ -132,6 +137,7 @@ class DescribeRouteTableListRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'routeTableId'         => 'RouteTableId',
         'routeTableName'       => 'RouteTableName',
+        'routeTableType'       => 'RouteTableType',
         'routerId'             => 'RouterId',
         'routerType'           => 'RouterType',
         'tag'                  => 'Tag',
@@ -174,6 +180,9 @@ class DescribeRouteTableListRequest extends Model
         }
         if (null !== $this->routeTableName) {
             $res['RouteTableName'] = $this->routeTableName;
+        }
+        if (null !== $this->routeTableType) {
+            $res['RouteTableType'] = $this->routeTableType;
         }
         if (null !== $this->routerId) {
             $res['RouterId'] = $this->routerId;
@@ -234,6 +243,9 @@ class DescribeRouteTableListRequest extends Model
         }
         if (isset($map['RouteTableName'])) {
             $model->routeTableName = $map['RouteTableName'];
+        }
+        if (isset($map['RouteTableType'])) {
+            $model->routeTableType = $map['RouteTableType'];
         }
         if (isset($map['RouterId'])) {
             $model->routerId = $map['RouterId'];
