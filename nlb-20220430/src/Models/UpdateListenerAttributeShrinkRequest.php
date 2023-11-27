@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Nlb\V20220430\Models;
 
-use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateListenerAttributeRequest\proxyProtocolV2Config;
 use AlibabaCloud\Tea\Model;
 
-class UpdateListenerAttributeRequest extends Model
+class UpdateListenerAttributeShrinkRequest extends Model
 {
     /**
      * @description Specifies whether to enable Application-Layer Protocol Negotiation (ALPN). Valid values:
@@ -146,9 +145,9 @@ class UpdateListenerAttributeRequest extends Model
     public $proxyProtocolEnabled;
 
     /**
-     * @var proxyProtocolV2Config
+     * @var string
      */
-    public $proxyProtocolV2Config;
+    public $proxyProtocolV2ConfigShrink;
 
     /**
      * @description The ID of the region where the NLB instance is deployed.
@@ -191,24 +190,24 @@ class UpdateListenerAttributeRequest extends Model
      */
     public $serverGroupId;
     protected $_name = [
-        'alpnEnabled'           => 'AlpnEnabled',
-        'alpnPolicy'            => 'AlpnPolicy',
-        'caCertificateIds'      => 'CaCertificateIds',
-        'caEnabled'             => 'CaEnabled',
-        'certificateIds'        => 'CertificateIds',
-        'clientToken'           => 'ClientToken',
-        'cps'                   => 'Cps',
-        'dryRun'                => 'DryRun',
-        'idleTimeout'           => 'IdleTimeout',
-        'listenerDescription'   => 'ListenerDescription',
-        'listenerId'            => 'ListenerId',
-        'mss'                   => 'Mss',
-        'proxyProtocolEnabled'  => 'ProxyProtocolEnabled',
-        'proxyProtocolV2Config' => 'ProxyProtocolV2Config',
-        'regionId'              => 'RegionId',
-        'secSensorEnabled'      => 'SecSensorEnabled',
-        'securityPolicyId'      => 'SecurityPolicyId',
-        'serverGroupId'         => 'ServerGroupId',
+        'alpnEnabled'                 => 'AlpnEnabled',
+        'alpnPolicy'                  => 'AlpnPolicy',
+        'caCertificateIds'            => 'CaCertificateIds',
+        'caEnabled'                   => 'CaEnabled',
+        'certificateIds'              => 'CertificateIds',
+        'clientToken'                 => 'ClientToken',
+        'cps'                         => 'Cps',
+        'dryRun'                      => 'DryRun',
+        'idleTimeout'                 => 'IdleTimeout',
+        'listenerDescription'         => 'ListenerDescription',
+        'listenerId'                  => 'ListenerId',
+        'mss'                         => 'Mss',
+        'proxyProtocolEnabled'        => 'ProxyProtocolEnabled',
+        'proxyProtocolV2ConfigShrink' => 'ProxyProtocolV2Config',
+        'regionId'                    => 'RegionId',
+        'secSensorEnabled'            => 'SecSensorEnabled',
+        'securityPolicyId'            => 'SecurityPolicyId',
+        'serverGroupId'               => 'ServerGroupId',
     ];
 
     public function validate()
@@ -257,8 +256,8 @@ class UpdateListenerAttributeRequest extends Model
         if (null !== $this->proxyProtocolEnabled) {
             $res['ProxyProtocolEnabled'] = $this->proxyProtocolEnabled;
         }
-        if (null !== $this->proxyProtocolV2Config) {
-            $res['ProxyProtocolV2Config'] = null !== $this->proxyProtocolV2Config ? $this->proxyProtocolV2Config->toMap() : null;
+        if (null !== $this->proxyProtocolV2ConfigShrink) {
+            $res['ProxyProtocolV2Config'] = $this->proxyProtocolV2ConfigShrink;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -279,7 +278,7 @@ class UpdateListenerAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateListenerAttributeRequest
+     * @return UpdateListenerAttributeShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -328,7 +327,7 @@ class UpdateListenerAttributeRequest extends Model
             $model->proxyProtocolEnabled = $map['ProxyProtocolEnabled'];
         }
         if (isset($map['ProxyProtocolV2Config'])) {
-            $model->proxyProtocolV2Config = proxyProtocolV2Config::fromMap($map['ProxyProtocolV2Config']);
+            $model->proxyProtocolV2ConfigShrink = $map['ProxyProtocolV2Config'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

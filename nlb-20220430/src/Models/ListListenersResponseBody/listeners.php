@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Nlb\V20220430\Models\ListListenersResponseBody;
 
+use AlibabaCloud\SDK\Nlb\V20220430\Models\ListListenersResponseBody\listeners\proxyProtocolV2Config;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\ListListenersResponseBody\listeners\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -177,6 +178,11 @@ class listeners extends Model
     public $proxyProtocolEnabled;
 
     /**
+     * @var proxyProtocolV2Config
+     */
+    public $proxyProtocolV2Config;
+
+    /**
      * @description The ID of the region where the NLB instance is deployed.
      *
      * @example cn-hangzhou
@@ -232,28 +238,29 @@ class listeners extends Model
      */
     public $tags;
     protected $_name = [
-        'alpnEnabled'          => 'AlpnEnabled',
-        'alpnPolicy'           => 'AlpnPolicy',
-        'caCertificateIds'     => 'CaCertificateIds',
-        'caEnabled'            => 'CaEnabled',
-        'certificateIds'       => 'CertificateIds',
-        'cps'                  => 'Cps',
-        'endPort'              => 'EndPort',
-        'idleTimeout'          => 'IdleTimeout',
-        'listenerDescription'  => 'ListenerDescription',
-        'listenerId'           => 'ListenerId',
-        'listenerPort'         => 'ListenerPort',
-        'listenerProtocol'     => 'ListenerProtocol',
-        'listenerStatus'       => 'ListenerStatus',
-        'loadBalancerId'       => 'LoadBalancerId',
-        'mss'                  => 'Mss',
-        'proxyProtocolEnabled' => 'ProxyProtocolEnabled',
-        'regionId'             => 'RegionId',
-        'secSensorEnabled'     => 'SecSensorEnabled',
-        'securityPolicyId'     => 'SecurityPolicyId',
-        'serverGroupId'        => 'ServerGroupId',
-        'startPort'            => 'StartPort',
-        'tags'                 => 'Tags',
+        'alpnEnabled'           => 'AlpnEnabled',
+        'alpnPolicy'            => 'AlpnPolicy',
+        'caCertificateIds'      => 'CaCertificateIds',
+        'caEnabled'             => 'CaEnabled',
+        'certificateIds'        => 'CertificateIds',
+        'cps'                   => 'Cps',
+        'endPort'               => 'EndPort',
+        'idleTimeout'           => 'IdleTimeout',
+        'listenerDescription'   => 'ListenerDescription',
+        'listenerId'            => 'ListenerId',
+        'listenerPort'          => 'ListenerPort',
+        'listenerProtocol'      => 'ListenerProtocol',
+        'listenerStatus'        => 'ListenerStatus',
+        'loadBalancerId'        => 'LoadBalancerId',
+        'mss'                   => 'Mss',
+        'proxyProtocolEnabled'  => 'ProxyProtocolEnabled',
+        'proxyProtocolV2Config' => 'ProxyProtocolV2Config',
+        'regionId'              => 'RegionId',
+        'secSensorEnabled'      => 'SecSensorEnabled',
+        'securityPolicyId'      => 'SecurityPolicyId',
+        'serverGroupId'         => 'ServerGroupId',
+        'startPort'             => 'StartPort',
+        'tags'                  => 'Tags',
     ];
 
     public function validate()
@@ -310,6 +317,9 @@ class listeners extends Model
         }
         if (null !== $this->proxyProtocolEnabled) {
             $res['ProxyProtocolEnabled'] = $this->proxyProtocolEnabled;
+        }
+        if (null !== $this->proxyProtocolV2Config) {
+            $res['ProxyProtocolV2Config'] = null !== $this->proxyProtocolV2Config ? $this->proxyProtocolV2Config->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -398,6 +408,9 @@ class listeners extends Model
         }
         if (isset($map['ProxyProtocolEnabled'])) {
             $model->proxyProtocolEnabled = $map['ProxyProtocolEnabled'];
+        }
+        if (isset($map['ProxyProtocolV2Config'])) {
+            $model->proxyProtocolV2Config = proxyProtocolV2Config::fromMap($map['ProxyProtocolV2Config']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

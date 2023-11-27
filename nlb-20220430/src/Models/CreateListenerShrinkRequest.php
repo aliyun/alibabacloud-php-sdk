@@ -4,17 +4,16 @@
 
 namespace AlibabaCloud\SDK\Nlb\V20220430\Models;
 
-use AlibabaCloud\SDK\Nlb\V20220430\Models\GetListenerAttributeResponseBody\proxyProtocolV2Config;
-use AlibabaCloud\SDK\Nlb\V20220430\Models\GetListenerAttributeResponseBody\tags;
+use AlibabaCloud\SDK\Nlb\V20220430\Models\CreateListenerShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class GetListenerAttributeResponseBody extends Model
+class CreateListenerShrinkRequest extends Model
 {
     /**
-     * @description Indicates whether Application-Layer Protocol Negotiation (ALPN) is enabled. Valid values:
+     * @description Specifies whether to enable Application-Layer Protocol Negotiation (ALPN). Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -23,32 +22,34 @@ class GetListenerAttributeResponseBody extends Model
     public $alpnEnabled;
 
     /**
-     * @description The ALPN policy. Valid values:
+     * @description The ALPN policy.
      *
-     *   **HTTP1Only**
-     *   **HTTP2Only**
-     *   **HTTP2Preferred**
-     *   **HTTP2Optional**
+     * Valid values:
      *
-     * @example HTTP1Only
+     *   HTTP1Only
+     *   HTTP2Only
+     *   HTTP2Preferred
+     *   HTTP2Optional
+     *
+     * @example ALPN
      *
      * @var string
      */
     public $alpnPolicy;
 
     /**
-     * @description The CA certificates. Only one CA certificate is supported.
+     * @description The certificate authority (CA) certificates. This parameter takes effect only for listeners that use SSL over TCP.
      *
-     * >  This parameter takes effect only for listeners that use SSL over TCP.
+     * > You can specify only one CA certificate.
      * @var string[]
      */
     public $caCertificateIds;
 
     /**
-     * @description Indicates whether mutual authentication is enabled. Valid values:
+     * @description Specifies whether to enable mutual authentication. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -57,33 +58,58 @@ class GetListenerAttributeResponseBody extends Model
     public $caEnabled;
 
     /**
-     * @description The server certificates. Only one server certificate is supported.
+     * @description The server certificates. This parameter takes effect only for listeners that use SSL over TCP.
      *
-     * >  This parameter takes effect only for listeners that use SSL over TCP.
+     * > You can specify only one server certificate.
      * @var string[]
      */
     public $certificateIds;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The maximum number of connections that can be created per second on the NLB instance. Valid values: **0** to **1000000**. **0** specifies that the number of connections is unlimited.
      *
-     * @example 1000
+     * @example 100
      *
      * @var int
      */
     public $cps;
 
     /**
-     * @description The last port in the listening port range. Valid values: **0** to **65535**. The number of the last port must be smaller than that of the first port.
+     * @description Specifies whether to perform only a dry run without performing the actual request. Valid values:
      *
-     * @example 455
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
-     * @var string
+     * @example false
+     *
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @description The last port in the listener port range. Valid values: **0** to **65535**. The number of the last port must be greater than the number of the first port.
+     *
+     * > This parameter is required when **ListenerPort** is set to **0**.
+     * @example 566
+     *
+     * @var int
      */
     public $endPort;
 
     /**
-     * @description The timeout period of an idle connection. Unit: seconds. Valid values: **1** to **900**.
+     * @description The timeout period of idle connections. Unit: seconds. Valid values: **1** to **900**. Default value: **900**.
      *
      * @example 900
      *
@@ -95,59 +121,33 @@ class GetListenerAttributeResponseBody extends Model
      * @description The name of the listener.
      *
      * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (\_), and hyphens (-).
-     * @example tcpssl_443
+     * @example tcp_80
      *
      * @var string
      */
     public $listenerDescription;
 
     /**
-     * @description The ID of the listener.
+     * @description The listener port. Valid values: **0** to **65535**.
      *
-     * @example lsn-ga6sjjcll6ou34l1et****
-     *
-     * @var string
-     */
-    public $listenerId;
-
-    /**
-     * @description The listening port. Valid values: **0** to **65535**. A value of **0** specifies all ports. If you set the value to **0**, you must also set the **StartPort** and **EndPort** parameters.
-     *
-     * @example 233
+     * If you set the value to **0**, the listener listens by port range. If you set the value to **0**, you must specify **StartPort** and **EndPort**.
+     * @example 80
      *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description The listening protocol. Valid values: **TCP**, **UDP**, and **TCPSSL**.
+     * @description The listener protocol. Valid values: **TCP**, **UDP**, and **TCPSSL**.
      *
-     * @example TCPSSL
+     * @example TCP
      *
      * @var string
      */
     public $listenerProtocol;
 
     /**
-     * @description The status of the listener. Valid values:
-     *
-     *   **Provisioning**: The listener is being created.
-     *   **Running**: The listener is running.
-     *   **Configuring**: The listener is being configured.
-     *   **Stopping**: The listener is being stopped.
-     *   **Stopped**: The listener is stopped.
-     *   **Starting**: The listener is being started.
-     *   **Deleting**: The listener is being deleted.
-     *   **Deleted**: The listener is deleted.
-     *
-     * @example Running
-     *
-     * @var string
-     */
-    public $listenerStatus;
-
-    /**
-     * @description The ID of the NLB instance.
+     * @description The ID of the Network Load Balancer (NLB) instance.
      *
      * @example nlb-83ckzc8d4xlp8o****
      *
@@ -156,20 +156,20 @@ class GetListenerAttributeResponseBody extends Model
     public $loadBalancerId;
 
     /**
-     * @description The size of the largest TCP segment. Unit: bytes. Valid values: **0** to **1500**. **0** specifies that the maximum segment size remains unchanged.
+     * @description The maximum size of a TCP segment. Unit: bytes. Valid values: **0** to **1500**. **0** specifies that the maximum segment size remains unchanged.
      *
-     * >  This parameter is supported only by listeners that use SSL over TCP.
-     * @example 166
+     * > This parameter is supported only by TCP listeners and listeners that use SSL over TCP.
+     * @example 43
      *
      * @var int
      */
     public $mss;
 
     /**
-     * @description Indicates whether the Proxy protocol is used to pass client IP addresses to backend servers. Valid values:
+     * @description Specifies whether to use the Proxy protocol to pass client IP addresses to backend servers. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -178,13 +178,14 @@ class GetListenerAttributeResponseBody extends Model
     public $proxyProtocolEnabled;
 
     /**
-     * @var proxyProtocolV2Config
+     * @var string
      */
-    public $proxyProtocolV2Config;
+    public $proxyProtocolV2ConfigShrink;
 
     /**
-     * @description The ID of the region where the NLB instance is deployed.
+     * @description The region ID of the NLB instance.
      *
+     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -192,19 +193,10 @@ class GetListenerAttributeResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to enable fine-grained monitoring. Valid values:
      *
-     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description Indicates whether fine-grained monitoring is enabled. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -213,11 +205,11 @@ class GetListenerAttributeResponseBody extends Model
     public $secSensorEnabled;
 
     /**
-     * @description The ID of the security policy. System security policies and custom security policies are supported.
+     * @description The security policy ID. System security policies and custom security policies are supported.
      *
-     * Valid values: **tls_cipher_policy\_1\_0**, **tls_cipher_policy\_1\_1**, **tls_cipher_policy\_1\_2**, **tls_cipher_policy\_1\_2\_strict**, and **tls_cipher_policy\_1\_2\_strict_with\_1\_3**.
+     * Valid values: **tls_cipher_policy\_1\_0** (default), **tls_cipher_policy\_1\_1**, **tls_cipher_policy\_1\_2**, **tls_cipher_policy\_1\_2\_strict**, and **tls_cipher_policy\_1\_2\_strict_with\_1\_3**.
      *
-     * >  This parameter takes effect only for listeners that use SSL over TCP.
+     * > This parameter takes effect only for listeners that use SSL over TCP.
      * @example tls_cipher_policy_1_0
      *
      * @var string
@@ -225,7 +217,7 @@ class GetListenerAttributeResponseBody extends Model
     public $securityPolicyId;
 
     /**
-     * @description The ID of the server group.
+     * @description The server group ID.
      *
      * @example sgp-ppdpc14gdm3x4o****
      *
@@ -234,45 +226,45 @@ class GetListenerAttributeResponseBody extends Model
     public $serverGroupId;
 
     /**
-     * @description The first port in the listening port range. Valid values: **0** to **65535**.
+     * @description The first port in the listener port range. Valid values: **0** to **65535**.
      *
-     * @example 233
+     * > This parameter is required when **ListenerPort** is set to **0**.
+     * @example 244
      *
-     * @var string
+     * @var int
      */
     public $startPort;
 
     /**
      * @description The tags.
      *
-     * @var tags[]
+     * @var tag[]
      */
-    public $tags;
+    public $tag;
     protected $_name = [
-        'alpnEnabled'           => 'AlpnEnabled',
-        'alpnPolicy'            => 'AlpnPolicy',
-        'caCertificateIds'      => 'CaCertificateIds',
-        'caEnabled'             => 'CaEnabled',
-        'certificateIds'        => 'CertificateIds',
-        'cps'                   => 'Cps',
-        'endPort'               => 'EndPort',
-        'idleTimeout'           => 'IdleTimeout',
-        'listenerDescription'   => 'ListenerDescription',
-        'listenerId'            => 'ListenerId',
-        'listenerPort'          => 'ListenerPort',
-        'listenerProtocol'      => 'ListenerProtocol',
-        'listenerStatus'        => 'ListenerStatus',
-        'loadBalancerId'        => 'LoadBalancerId',
-        'mss'                   => 'Mss',
-        'proxyProtocolEnabled'  => 'ProxyProtocolEnabled',
-        'proxyProtocolV2Config' => 'ProxyProtocolV2Config',
-        'regionId'              => 'RegionId',
-        'requestId'             => 'RequestId',
-        'secSensorEnabled'      => 'SecSensorEnabled',
-        'securityPolicyId'      => 'SecurityPolicyId',
-        'serverGroupId'         => 'ServerGroupId',
-        'startPort'             => 'StartPort',
-        'tags'                  => 'Tags',
+        'alpnEnabled'                 => 'AlpnEnabled',
+        'alpnPolicy'                  => 'AlpnPolicy',
+        'caCertificateIds'            => 'CaCertificateIds',
+        'caEnabled'                   => 'CaEnabled',
+        'certificateIds'              => 'CertificateIds',
+        'clientToken'                 => 'ClientToken',
+        'cps'                         => 'Cps',
+        'dryRun'                      => 'DryRun',
+        'endPort'                     => 'EndPort',
+        'idleTimeout'                 => 'IdleTimeout',
+        'listenerDescription'         => 'ListenerDescription',
+        'listenerPort'                => 'ListenerPort',
+        'listenerProtocol'            => 'ListenerProtocol',
+        'loadBalancerId'              => 'LoadBalancerId',
+        'mss'                         => 'Mss',
+        'proxyProtocolEnabled'        => 'ProxyProtocolEnabled',
+        'proxyProtocolV2ConfigShrink' => 'ProxyProtocolV2Config',
+        'regionId'                    => 'RegionId',
+        'secSensorEnabled'            => 'SecSensorEnabled',
+        'securityPolicyId'            => 'SecurityPolicyId',
+        'serverGroupId'               => 'ServerGroupId',
+        'startPort'                   => 'StartPort',
+        'tag'                         => 'Tag',
     ];
 
     public function validate()
@@ -297,8 +289,14 @@ class GetListenerAttributeResponseBody extends Model
         if (null !== $this->certificateIds) {
             $res['CertificateIds'] = $this->certificateIds;
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->cps) {
             $res['Cps'] = $this->cps;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->endPort) {
             $res['EndPort'] = $this->endPort;
@@ -309,17 +307,11 @@ class GetListenerAttributeResponseBody extends Model
         if (null !== $this->listenerDescription) {
             $res['ListenerDescription'] = $this->listenerDescription;
         }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
-        }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
         if (null !== $this->listenerProtocol) {
             $res['ListenerProtocol'] = $this->listenerProtocol;
-        }
-        if (null !== $this->listenerStatus) {
-            $res['ListenerStatus'] = $this->listenerStatus;
         }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
@@ -330,14 +322,11 @@ class GetListenerAttributeResponseBody extends Model
         if (null !== $this->proxyProtocolEnabled) {
             $res['ProxyProtocolEnabled'] = $this->proxyProtocolEnabled;
         }
-        if (null !== $this->proxyProtocolV2Config) {
-            $res['ProxyProtocolV2Config'] = null !== $this->proxyProtocolV2Config ? $this->proxyProtocolV2Config->toMap() : null;
+        if (null !== $this->proxyProtocolV2ConfigShrink) {
+            $res['ProxyProtocolV2Config'] = $this->proxyProtocolV2ConfigShrink;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->secSensorEnabled) {
             $res['SecSensorEnabled'] = $this->secSensorEnabled;
@@ -351,12 +340,12 @@ class GetListenerAttributeResponseBody extends Model
         if (null !== $this->startPort) {
             $res['StartPort'] = $this->startPort;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
                 $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -367,7 +356,7 @@ class GetListenerAttributeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetListenerAttributeResponseBody
+     * @return CreateListenerShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -391,8 +380,14 @@ class GetListenerAttributeResponseBody extends Model
                 $model->certificateIds = $map['CertificateIds'];
             }
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Cps'])) {
             $model->cps = $map['Cps'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['EndPort'])) {
             $model->endPort = $map['EndPort'];
@@ -403,17 +398,11 @@ class GetListenerAttributeResponseBody extends Model
         if (isset($map['ListenerDescription'])) {
             $model->listenerDescription = $map['ListenerDescription'];
         }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
-        }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }
         if (isset($map['ListenerProtocol'])) {
             $model->listenerProtocol = $map['ListenerProtocol'];
-        }
-        if (isset($map['ListenerStatus'])) {
-            $model->listenerStatus = $map['ListenerStatus'];
         }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
@@ -425,13 +414,10 @@ class GetListenerAttributeResponseBody extends Model
             $model->proxyProtocolEnabled = $map['ProxyProtocolEnabled'];
         }
         if (isset($map['ProxyProtocolV2Config'])) {
-            $model->proxyProtocolV2Config = proxyProtocolV2Config::fromMap($map['ProxyProtocolV2Config']);
+            $model->proxyProtocolV2ConfigShrink = $map['ProxyProtocolV2Config'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SecSensorEnabled'])) {
             $model->secSensorEnabled = $map['SecSensorEnabled'];
@@ -445,12 +431,12 @@ class GetListenerAttributeResponseBody extends Model
         if (isset($map['StartPort'])) {
             $model->startPort = $map['StartPort'];
         }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }

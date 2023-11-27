@@ -16,6 +16,7 @@ use AlibabaCloud\SDK\Nlb\V20220430\Models\CancelShiftLoadBalancerZonesRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\CancelShiftLoadBalancerZonesResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\CreateListenerRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\CreateListenerResponse;
+use AlibabaCloud\SDK\Nlb\V20220430\Models\CreateListenerShrinkRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\CreateLoadBalancerRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\CreateLoadBalancerResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\CreateSecurityPolicyRequest;
@@ -86,6 +87,7 @@ use AlibabaCloud\SDK\Nlb\V20220430\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateListenerAttributeRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateListenerAttributeResponse;
+use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateListenerAttributeShrinkRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateLoadBalancerAddressTypeConfigRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateLoadBalancerAddressTypeConfigResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateLoadBalancerAttributeRequest;
@@ -375,14 +377,19 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param CreateListenerRequest $request
+     * @param CreateListenerRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return CreateListenerResponse
      */
-    public function createListenerWithOptions($request, $runtime)
+    public function createListenerWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateListenerShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->proxyProtocolV2Config)) {
+            $request->proxyProtocolV2ConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->proxyProtocolV2Config, 'ProxyProtocolV2Config', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->alpnEnabled)) {
             $body['AlpnEnabled'] = $request->alpnEnabled;
@@ -431,6 +438,9 @@ class Nlb extends OpenApiClient
         }
         if (!Utils::isUnset($request->proxyProtocolEnabled)) {
             $body['ProxyProtocolEnabled'] = $request->proxyProtocolEnabled;
+        }
+        if (!Utils::isUnset($request->proxyProtocolV2ConfigShrink)) {
+            $body['ProxyProtocolV2Config'] = $request->proxyProtocolV2ConfigShrink;
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
@@ -2505,14 +2515,19 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UpdateListenerAttributeRequest $request
+     * @param UpdateListenerAttributeRequest $tmpReq
      * @param RuntimeOptions                 $runtime
      *
      * @return UpdateListenerAttributeResponse
      */
-    public function updateListenerAttributeWithOptions($request, $runtime)
+    public function updateListenerAttributeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateListenerAttributeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->proxyProtocolV2Config)) {
+            $request->proxyProtocolV2ConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->proxyProtocolV2Config, 'ProxyProtocolV2Config', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->alpnEnabled)) {
             $body['AlpnEnabled'] = $request->alpnEnabled;
@@ -2552,6 +2567,9 @@ class Nlb extends OpenApiClient
         }
         if (!Utils::isUnset($request->proxyProtocolEnabled)) {
             $body['ProxyProtocolEnabled'] = $request->proxyProtocolEnabled;
+        }
+        if (!Utils::isUnset($request->proxyProtocolV2ConfigShrink)) {
+            $body['ProxyProtocolV2Config'] = $request->proxyProtocolV2ConfigShrink;
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
