@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListResourcesResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class ListResourcesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class ListResourcesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -37,7 +37,7 @@ class ListResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the resources.
+     * @description The information about the resources.
      *
      * @var resources
      */

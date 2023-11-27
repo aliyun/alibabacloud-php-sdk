@@ -21,6 +21,8 @@ class UpdateRoleRequest extends Model
      * @description The description of the RAM role.
      *
      * The description must be 1 to 1,024 characters in length.
+     * @example ECS administrator
+     *
      * @var string
      */
     public $newDescription;

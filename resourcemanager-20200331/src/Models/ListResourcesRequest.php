@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListResourcesRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Pages start from page 1. Default value: 1.
      * @example 1
@@ -20,7 +20,7 @@ class ListResourcesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Valid values: 1 to 100. Default value: 10.
      * @example 10
@@ -59,7 +59,7 @@ class ListResourcesRequest extends Model
     /**
      * @description The resource type.
      *
-     * For more information about the supported resource types, see the **Resource type** column in [Alibaba Cloud services that support resource groups](~~94479~~).
+     * For more information about the supported resource types, see the **Resource type** column in [Services that work with Resource Group](~~94479~~).
      * @example instance
      *
      * @var string
@@ -67,6 +67,9 @@ class ListResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The resource types. A maximum of 50 resource types are supported.
+     *
+     * >  If you configure `ResourceTypes`, you must configure both `Service` and `ResourceType`. Otherwise, the configured Service or ResourceType does not take effect.
      * @var resourceTypes[]
      */
     public $resourceTypes;
@@ -74,7 +77,7 @@ class ListResourcesRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud service.
      *
-     * You can obtain the ID from the **Service code** column in [Alibaba Cloud services that support resource groups](~~94479~~).
+     * You can obtain the ID from the **Service code** column in [Services that work with Resource Group](~~94479~~).
      * @example ecs
      *
      * @var string

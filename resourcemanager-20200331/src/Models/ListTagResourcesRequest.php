@@ -29,6 +29,8 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The resource ID.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -46,6 +48,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag key and value.
+     *
      * @var tag[]
      */
     public $tag;

@@ -65,6 +65,8 @@ class CreateResourceAccountRequest extends Model
     public $resellAccountType;
 
     /**
+     * @description The tag key and value.
+     *
      * @var tag[]
      */
     public $tag;

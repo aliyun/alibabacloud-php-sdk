@@ -59,6 +59,8 @@ class ListAccountsForParentRequest extends Model
     public $queryKeyword;
 
     /**
+     * @description The tag key and value.
+     *
      * @var tag[]
      */
     public $tag;

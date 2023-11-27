@@ -13,11 +13,15 @@ class InviteAccountToResourceDirectoryRequest extends Model
      * @description The comment on the invitation.
      *
      * The comment can be up to 1,024 characters in length.
+     * @example Welcome
+     *
      * @var string
      */
     public $note;
 
     /**
+     * @description The tag key and value.
+     *
      * @var tag[]
      */
     public $tag;

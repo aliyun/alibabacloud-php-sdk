@@ -21,6 +21,9 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
+     * @description The ID of a resource group or member.
+     *
+     * You can specify a maximum of 50 IDs.
      * @var string[]
      */
     public $resourceId;
@@ -39,6 +42,9 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description A tag key.
+     *
+     * >  If you set the `All` parameter to `true`, you do not need to configure this parameter.
      * @var string[]
      */
     public $tagKey;

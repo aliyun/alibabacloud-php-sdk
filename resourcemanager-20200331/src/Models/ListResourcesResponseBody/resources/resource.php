@@ -45,7 +45,7 @@ class resource extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
      * @example instance
      *

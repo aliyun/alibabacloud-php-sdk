@@ -34,6 +34,8 @@ class resourceDirectory extends Model
     /**
      * @description The real-name verification information.
      *
+     * @example \*\*\* Co., Ltd.
+     *
      * @var string
      */
     public $identityInformation;

@@ -9,11 +9,29 @@ use AlibabaCloud\Tea\Model;
 class resourceTypes extends Model
 {
     /**
+     * @description The resource type.
+     *
+     * Valid values of N: 1 to 50.
+     *
+     * For more information about the supported resource types, see the **Resource type** column in [Services that work with Resource Group](~~94479~~).
+     *
+     * >  You must configure both `Service` and `ResourceType` in `ResourceTypes`. Otherwise, the two parameters do not take effect.
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The ID of the Alibaba Cloud service.
+     *
+     * Valid values of N: 1 to 50.
+     *
+     * You can obtain the ID from the **Service code** column in [Services that work with Resource Group](~~94479~~).
+     *
+     * >  You must configure both `Service` and `ResourceType` in `ResourceTypes`. Otherwise, the two parameters do not take effect.
+     * @example ecs
+     *
      * @var string
      */
     public $service;

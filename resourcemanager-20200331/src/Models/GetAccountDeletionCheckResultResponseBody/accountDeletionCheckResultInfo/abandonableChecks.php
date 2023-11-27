@@ -20,12 +20,16 @@ class abandonableChecks extends Model
     /**
      * @description The name of the cloud service to which the check item belongs.
      *
+     * @example Container Service for Kubernetes
+     *
      * @var string
      */
     public $checkName;
 
     /**
      * @description The description of the check item.
+     *
+     * @example An instance of a cloud service is running within the member. Submit a ticket to contact Alibaba Cloud technical support.
      *
      * @var string
      */

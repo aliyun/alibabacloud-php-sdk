@@ -22,6 +22,8 @@ class responses extends Model
      * @description The error message returned.
      *
      * >  This parameter is returned if the resource failed to be moved.
+     * @example No permissions
+     *
      * @var string
      */
     public $errorMsg;

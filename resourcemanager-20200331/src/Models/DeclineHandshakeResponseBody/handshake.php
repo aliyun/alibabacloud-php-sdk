@@ -65,6 +65,8 @@ class handshake extends Model
     /**
      * @description The invitation note.
      *
+     * @example Welcome
+     *
      * @var string
      */
     public $note;

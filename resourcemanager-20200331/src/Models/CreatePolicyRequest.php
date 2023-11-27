@@ -12,6 +12,8 @@ class CreatePolicyRequest extends Model
      * @description The description of the policy.
      *
      * The description must be 1 to 1,024 characters in length.
+     * @example OSS administrator
+     *
      * @var string
      */
     public $description;

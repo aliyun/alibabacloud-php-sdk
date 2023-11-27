@@ -70,7 +70,9 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachControlPolicyRequest
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachPolicyResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableAssociatedTransferResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableControlPolicyResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableAssociatedTransferResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryResponse;
@@ -1832,6 +1834,39 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableAssociatedTransferResponse
+     */
+    public function disableAssociatedTransferWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DisableAssociatedTransfer',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableAssociatedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DisableAssociatedTransferResponse
+     */
+    public function disableAssociatedTransfer()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableAssociatedTransferWithOptions($runtime);
+    }
+
+    /**
      * After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
      *   * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
      *   *
@@ -1868,6 +1903,39 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableControlPolicyWithOptions($runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableAssociatedTransferResponse
+     */
+    public function enableAssociatedTransferWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'EnableAssociatedTransfer',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableAssociatedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return EnableAssociatedTransferResponse
+     */
+    public function enableAssociatedTransfer()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableAssociatedTransferWithOptions($runtime);
     }
 
     /**
@@ -2065,10 +2133,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetAccountDeletionStatusRequest $request
-     * @param RuntimeOptions                  $runtime
+     * This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
+     *   *
+     * @param GetAccountDeletionStatusRequest $request GetAccountDeletionStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountDeletionStatusResponse
+     * @return GetAccountDeletionStatusResponse GetAccountDeletionStatusResponse
      */
     public function getAccountDeletionStatusWithOptions($request, $runtime)
     {
@@ -2096,9 +2166,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetAccountDeletionStatusRequest $request
+     * This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
+     *   *
+     * @param GetAccountDeletionStatusRequest $request GetAccountDeletionStatusRequest
      *
-     * @return GetAccountDeletionStatusResponse
+     * @return GetAccountDeletionStatusResponse GetAccountDeletionStatusResponse
      */
     public function getAccountDeletionStatus($request)
     {
@@ -3460,7 +3532,7 @@ class ResourceManager extends OpenApiClient
 
     /**
      * >  You can use a RAM role that is not associated with a session policy to call this API operation.
-     *   * This topic provides an example on how to call the API operation to query the resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
+     *   * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
      *   *
      * @param ListResourcesRequest $request ListResourcesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3515,7 +3587,7 @@ class ResourceManager extends OpenApiClient
 
     /**
      * >  You can use a RAM role that is not associated with a session policy to call this API operation.
-     *   * This topic provides an example on how to call the API operation to query the resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
+     *   * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
      *   *
      * @param ListResourcesRequest $request ListResourcesRequest
      *

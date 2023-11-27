@@ -42,6 +42,8 @@ class ListAccountsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The tag key and value.
+     *
      * @var tag[]
      */
     public $tag;

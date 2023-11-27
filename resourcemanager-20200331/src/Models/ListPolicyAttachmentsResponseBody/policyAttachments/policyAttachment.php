@@ -20,6 +20,8 @@ class policyAttachment extends Model
     /**
      * @description The description of the policy.
      *
+     * @example The description of the policy.
+     *
      * @var string
      */
     public $description;

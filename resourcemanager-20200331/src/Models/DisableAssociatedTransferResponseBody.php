@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAccountDeletionStatusRequest extends Model
+class DisableAssociatedTransferResponseBody extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the member.
-     *
-     * @example 169946124551****
+     * @example 7CE0AE54-6F27-5522-A429-4C5EE8FD40C8
      *
      * @var string
      */
-    public $accountId;
+    public $requestId;
     protected $_name = [
-        'accountId' => 'AccountId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class GetAccountDeletionStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class GetAccountDeletionStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetAccountDeletionStatusRequest
+     * @return DisableAssociatedTransferResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

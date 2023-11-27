@@ -29,6 +29,8 @@ class policy extends Model
     /**
      * @description The description of the policy.
      *
+     * @example OSS administrator
+     *
      * @var string
      */
     public $description;
