@@ -18,6 +18,16 @@ class SAMLServiceProvider extends Model
     public $acsUrl;
 
     /**
+     * @var string
+     */
+    public $authnSignAlgo;
+
+    /**
+     * @var string
+     */
+    public $certificateType;
+
+    /**
      * @description The ID of the directory.
      *
      * @example d-00fc2p61****
@@ -43,11 +53,19 @@ class SAMLServiceProvider extends Model
      * @var string
      */
     public $entityId;
+
+    /**
+     * @var bool
+     */
+    public $supportEncryptedAssertion;
     protected $_name = [
-        'acsUrl'                  => 'AcsUrl',
-        'directoryId'             => 'DirectoryId',
-        'encodedMetadataDocument' => 'EncodedMetadataDocument',
-        'entityId'                => 'EntityId',
+        'acsUrl'                    => 'AcsUrl',
+        'authnSignAlgo'             => 'AuthnSignAlgo',
+        'certificateType'           => 'CertificateType',
+        'directoryId'               => 'DirectoryId',
+        'encodedMetadataDocument'   => 'EncodedMetadataDocument',
+        'entityId'                  => 'EntityId',
+        'supportEncryptedAssertion' => 'SupportEncryptedAssertion',
     ];
 
     public function validate()
@@ -60,6 +78,12 @@ class SAMLServiceProvider extends Model
         if (null !== $this->acsUrl) {
             $res['AcsUrl'] = $this->acsUrl;
         }
+        if (null !== $this->authnSignAlgo) {
+            $res['AuthnSignAlgo'] = $this->authnSignAlgo;
+        }
+        if (null !== $this->certificateType) {
+            $res['CertificateType'] = $this->certificateType;
+        }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
@@ -68,6 +92,9 @@ class SAMLServiceProvider extends Model
         }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
+        }
+        if (null !== $this->supportEncryptedAssertion) {
+            $res['SupportEncryptedAssertion'] = $this->supportEncryptedAssertion;
         }
 
         return $res;
@@ -84,6 +111,12 @@ class SAMLServiceProvider extends Model
         if (isset($map['AcsUrl'])) {
             $model->acsUrl = $map['AcsUrl'];
         }
+        if (isset($map['AuthnSignAlgo'])) {
+            $model->authnSignAlgo = $map['AuthnSignAlgo'];
+        }
+        if (isset($map['CertificateType'])) {
+            $model->certificateType = $map['CertificateType'];
+        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
@@ -92,6 +125,9 @@ class SAMLServiceProvider extends Model
         }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
+        }
+        if (isset($map['SupportEncryptedAssertion'])) {
+            $model->supportEncryptedAssertion = $map['SupportEncryptedAssertion'];
         }
 
         return $model;

@@ -76,7 +76,7 @@ class tasks extends Model
     public $targetPathName;
 
     /**
-     * @description The type of the task object. The value is fixed as RD-Account, which indicates an accounts in your resource directory.
+     * @description The type of the task object. The value is fixed as RD-Account, which indicates an account in your resource directory.
      *
      * @example RD-Account
      *

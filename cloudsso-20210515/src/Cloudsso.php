@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteMFADeviceForUserRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteMFADeviceForUserResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteSCIMServerCredentialRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteSCIMServerCredentialResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteUserProvisioningEventRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteUserProvisioningEventResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteUserProvisioningRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteUserProvisioningResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteUserRequest;
@@ -75,8 +77,16 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskStatusResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserMFAAuthenticationSettingsRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserMFAAuthenticationSettingsResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningConfigurationRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningConfigurationResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningEventRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningEventResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningRdAccountStatisticsRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningRdAccountStatisticsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningStatisticsRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningStatisticsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListAccessAssignmentsRequest;
@@ -102,6 +112,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListSCIMServerCredentialsRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListSCIMServerCredentialsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListTasksResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListUserProvisioningEventsRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListUserProvisioningEventsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListUserProvisioningsRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListUserProvisioningsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListUsersRequest;
@@ -116,6 +128,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\RemoveUserFromGroupRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\RemoveUserFromGroupResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ResetUserPasswordRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ResetUserPasswordResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\RetryUserProvisioningEventRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\RetryUserProvisioningEventResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetExternalSAMLIdentityProviderRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetExternalSAMLIdentityProviderResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetMFAAuthenticationStatusRequest;
@@ -136,6 +150,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateSCIMServerCredentialStatusR
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateSCIMServerCredentialStatusResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserMFAAuthenticationSettingsRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserMFAAuthenticationSettingsResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserProvisioningConfigurationRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserProvisioningConfigurationResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserProvisioningRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserProvisioningResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserRequest;
@@ -1274,6 +1290,55 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
+     * @param DeleteUserProvisioningEventRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteUserProvisioningEventResponse
+     */
+    public function deleteUserProvisioningEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->userProvisioningId)) {
+            $query['UserProvisioningId'] = $request->userProvisioningId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUserProvisioningEvent',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteUserProvisioningEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteUserProvisioningEventRequest $request
+     *
+     * @return DeleteUserProvisioningEventResponse
+     */
+    public function deleteUserProvisioningEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserProvisioningEventWithOptions($request, $runtime);
+    }
+
+    /**
      * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
      *   * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
      *   *
@@ -2177,7 +2242,188 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+     * @param GetUserProvisioningConfigurationRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetUserProvisioningConfigurationResponse
+     */
+    public function getUserProvisioningConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserProvisioningConfiguration',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserProvisioningConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserProvisioningConfigurationRequest $request
+     *
+     * @return GetUserProvisioningConfigurationResponse
+     */
+    public function getUserProvisioningConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserProvisioningConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserProvisioningEventRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetUserProvisioningEventResponse
+     */
+    public function getUserProvisioningEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserProvisioningEvent',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserProvisioningEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserProvisioningEventRequest $request
+     *
+     * @return GetUserProvisioningEventResponse
+     */
+    public function getUserProvisioningEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserProvisioningEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserProvisioningRdAccountStatisticsRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetUserProvisioningRdAccountStatisticsResponse
+     */
+    public function getUserProvisioningRdAccountStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->rdMemberId)) {
+            $query['RdMemberId'] = $request->rdMemberId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserProvisioningRdAccountStatistics',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserProvisioningRdAccountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserProvisioningRdAccountStatisticsRequest $request
+     *
+     * @return GetUserProvisioningRdAccountStatisticsResponse
+     */
+    public function getUserProvisioningRdAccountStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserProvisioningRdAccountStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserProvisioningStatisticsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetUserProvisioningStatisticsResponse
+     */
+    public function getUserProvisioningStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->userProvisioningId)) {
+            $query['UserProvisioningId'] = $request->userProvisioningId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserProvisioningStatistics',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserProvisioningStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserProvisioningStatisticsRequest $request
+     *
+     * @return GetUserProvisioningStatisticsResponse
+     */
+    public function getUserProvisioningStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserProvisioningStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory are assigned to one user.
      *   *
      * @param ListAccessAssignmentsRequest $request ListAccessAssignmentsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2231,7 +2477,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory are assigned to one user.
      *   *
      * @param ListAccessAssignmentsRequest $request ListAccessAssignmentsRequest
      *
@@ -2853,6 +3099,58 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
+     * @param ListUserProvisioningEventsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListUserProvisioningEventsResponse
+     */
+    public function listUserProvisioningEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->userProvisioningId)) {
+            $query['UserProvisioningId'] = $request->userProvisioningId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserProvisioningEvents',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserProvisioningEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserProvisioningEventsRequest $request
+     *
+     * @return ListUserProvisioningEventsResponse
+     */
+    public function listUserProvisioningEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserProvisioningEventsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListUserProvisioningsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3257,6 +3555,55 @@ class Cloudsso extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetUserPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RetryUserProvisioningEventRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RetryUserProvisioningEventResponse
+     */
+    public function retryUserProvisioningEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->duplicationStrategy)) {
+            $query['DuplicationStrategy'] = $request->duplicationStrategy;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RetryUserProvisioningEvent',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RetryUserProvisioningEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RetryUserProvisioningEventRequest $request
+     *
+     * @return RetryUserProvisioningEventResponse
+     */
+    public function retryUserProvisioningEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryUserProvisioningEventWithOptions($request, $runtime);
     }
 
     /**
@@ -3964,6 +4311,55 @@ class Cloudsso extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUserProvisioningWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateUserProvisioningConfigurationRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateUserProvisioningConfigurationResponse
+     */
+    public function updateUserProvisioningConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->newDefaultLandingPage)) {
+            $query['NewDefaultLandingPage'] = $request->newDefaultLandingPage;
+        }
+        if (!Utils::isUnset($request->newSessionDuration)) {
+            $query['NewSessionDuration'] = $request->newSessionDuration;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUserProvisioningConfiguration',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateUserProvisioningConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateUserProvisioningConfigurationRequest $request
+     *
+     * @return UpdateUserProvisioningConfigurationResponse
+     */
+    public function updateUserProvisioningConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserProvisioningConfigurationWithOptions($request, $runtime);
     }
 
     /**
