@@ -66,6 +66,11 @@ class ModifyHostRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $networkDomainId;
+
+    /**
      * @description The ID of the host.
      *
      * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
@@ -93,6 +98,7 @@ class ModifyHostRequest extends Model
         'hostPrivateAddress' => 'HostPrivateAddress',
         'hostPublicAddress'  => 'HostPublicAddress',
         'instanceId'         => 'InstanceId',
+        'networkDomainId'    => 'NetworkDomainId',
         'OSType'             => 'OSType',
         'regionId'           => 'RegionId',
     ];
@@ -121,6 +127,9 @@ class ModifyHostRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->networkDomainId) {
+            $res['NetworkDomainId'] = $this->networkDomainId;
         }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
@@ -157,6 +166,9 @@ class ModifyHostRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NetworkDomainId'])) {
+            $model->networkDomainId = $map['NetworkDomainId'];
         }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];

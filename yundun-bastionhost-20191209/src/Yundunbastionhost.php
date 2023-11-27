@@ -848,6 +848,9 @@ class Yundunbastionhost extends OpenApiClient
         if (!Utils::isUnset($request->instanceRegionId)) {
             $query['InstanceRegionId'] = $request->instanceRegionId;
         }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
         if (!Utils::isUnset($request->OSType)) {
             $query['OSType'] = $request->OSType;
         }
@@ -3862,6 +3865,9 @@ class Yundunbastionhost extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
         }
         if (!Utils::isUnset($request->OSType)) {
             $query['OSType'] = $request->OSType;

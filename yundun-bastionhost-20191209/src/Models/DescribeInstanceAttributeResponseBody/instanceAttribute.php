@@ -15,11 +15,19 @@ class instanceAttribute extends Model
     public $authorizedSecurityGroups;
 
     /**
+     * @description The total bandwidth of the bastion host.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @description The extra bandwidth plan of the bastion host.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $bandwidthPackage;

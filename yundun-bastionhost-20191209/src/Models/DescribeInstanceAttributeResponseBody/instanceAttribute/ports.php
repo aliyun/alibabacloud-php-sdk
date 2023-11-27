@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ports extends Model
 {
     /**
+     * @description The custom port.
+     *
+     * >  You can change only the SSH and RDP ports. If O\&M ports are not specified, the value of the StandardPort parameter is returned.
      * @example 600xx
      *
      * @var int
@@ -16,6 +19,12 @@ class ports extends Model
     public $customPort;
 
     /**
+     * @description The standard port of the bastion host. Valid values:
+     *
+     *   **SSH**: 60022
+     *   **RDP**: 63389
+     *   **HTTPS**: 443
+     *
      * @example 60022
      *
      * @var int

@@ -69,6 +69,11 @@ class host extends Model
     public $hostPublicAddress;
 
     /**
+     * @var string
+     */
+    public $networkDomainId;
+
+    /**
      * @description The operating system of the host. Valid values:
      *
      *   **Linux**
@@ -121,6 +126,7 @@ class host extends Model
         'hostName'            => 'HostName',
         'hostPrivateAddress'  => 'HostPrivateAddress',
         'hostPublicAddress'   => 'HostPublicAddress',
+        'networkDomainId'     => 'NetworkDomainId',
         'OSType'              => 'OSType',
         'protocols'           => 'Protocols',
         'source'              => 'Source',
@@ -152,6 +158,9 @@ class host extends Model
         }
         if (null !== $this->hostPublicAddress) {
             $res['HostPublicAddress'] = $this->hostPublicAddress;
+        }
+        if (null !== $this->networkDomainId) {
+            $res['NetworkDomainId'] = $this->networkDomainId;
         }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
@@ -203,6 +212,9 @@ class host extends Model
         }
         if (isset($map['HostPublicAddress'])) {
             $model->hostPublicAddress = $map['HostPublicAddress'];
+        }
+        if (isset($map['NetworkDomainId'])) {
+            $model->networkDomainId = $map['NetworkDomainId'];
         }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];

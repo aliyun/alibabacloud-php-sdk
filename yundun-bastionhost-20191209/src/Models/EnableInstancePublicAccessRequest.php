@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EnableInstancePublicAccessRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **EnableInstancePublicAccess**.
+     * @description The ID of the bastion host.
      *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-78v1gh****
      *
      * @var string
@@ -18,7 +19,7 @@ class EnableInstancePublicAccessRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the bastion host whose Internet access is enabled.
+     * @description The region ID of the bastion host.
      *
      * @example cn-hangzhou
      *

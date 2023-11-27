@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyHostsActiveAddressTypeRequest extends Model
 {
     /**
+     * @description The new portal type of the host. Valid values:
+     *
+     *   **Public**: public portal
+     *   **Private**: internal portal
+     *
      * @example Private
      *
      * @var string
@@ -16,9 +21,9 @@ class ModifyHostsActiveAddressTypeRequest extends Model
     public $activeAddressType;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~148139~~).
+     * @description The ID of the host for which you want to change the portal type. The value is a JSON string. You can add up to 100 host IDs.
      *
-     * For more information about sample requests, see the "Examples" section of this topic.
+     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
      * @example ["1","2"]
      *
      * @var string
@@ -26,8 +31,9 @@ class ModifyHostsActiveAddressTypeRequest extends Model
     public $hostIds;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The ID of the bastion host for which you want to change the portal type of the host.
      *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw***
      *
      * @var string
@@ -35,9 +41,9 @@ class ModifyHostsActiveAddressTypeRequest extends Model
     public $instanceId;
 
     /**
-     * @description The operation that you want to perform.
+     * @description The region ID of the bastion host for which you want to change the portal type of the host.
      *
-     * Set the value to **ModifyHostsActiveAddressType**.
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

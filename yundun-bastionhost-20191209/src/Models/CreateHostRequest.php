@@ -79,6 +79,11 @@ class CreateHostRequest extends Model
     public $instanceRegionId;
 
     /**
+     * @var string
+     */
+    public $networkDomainId;
+
+    /**
      * @description The operating system of the host that you want to create. Valid values:
      *
      *   **Linux**
@@ -130,6 +135,7 @@ class CreateHostRequest extends Model
         'hostPublicAddress'  => 'HostPublicAddress',
         'instanceId'         => 'InstanceId',
         'instanceRegionId'   => 'InstanceRegionId',
+        'networkDomainId'    => 'NetworkDomainId',
         'OSType'             => 'OSType',
         'regionId'           => 'RegionId',
         'source'             => 'Source',
@@ -163,6 +169,9 @@ class CreateHostRequest extends Model
         }
         if (null !== $this->instanceRegionId) {
             $res['InstanceRegionId'] = $this->instanceRegionId;
+        }
+        if (null !== $this->networkDomainId) {
+            $res['NetworkDomainId'] = $this->networkDomainId;
         }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
@@ -208,6 +217,9 @@ class CreateHostRequest extends Model
         }
         if (isset($map['InstanceRegionId'])) {
             $model->instanceRegionId = $map['InstanceRegionId'];
+        }
+        if (isset($map['NetworkDomainId'])) {
+            $model->networkDomainId = $map['NetworkDomainId'];
         }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];

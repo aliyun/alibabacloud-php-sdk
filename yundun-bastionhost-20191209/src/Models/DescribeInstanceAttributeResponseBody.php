@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAttributeResponseBody extends Model
 {
     /**
+     * @description The attribute information about the bastion host.
+     *
      * @var instanceAttribute
      */
     public $instanceAttribute;

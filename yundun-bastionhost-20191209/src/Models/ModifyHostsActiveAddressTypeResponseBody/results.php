@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The return code that indicates whether the call was successful. Valid values:
+     *
+     *   **OK**: The call was successful.
+     *   **UNEXPECTED**: An unknown error occurred.
+     *   **INVALID_ARGUMENT**: A request parameter is invalid.
+     *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+     *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +24,8 @@ class results extends Model
     public $code;
 
     /**
+     * @description The ID of the host.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +33,8 @@ class results extends Model
     public $hostId;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @var string
      */
     public $message;

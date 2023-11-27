@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableInstancePublicAccessResponseBody extends Model
 {
     /**
+     * @description The ID of the bastion host whose Internet access is enabled.
+     *
      * @example bastionhost-cn-78v1gh****
      *
      * @var string
@@ -16,6 +18,8 @@ class EnableInstancePublicAccessResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example D47B5043-FDD6-4FBE-976E-5FC67A23578F
      *
      * @var string
