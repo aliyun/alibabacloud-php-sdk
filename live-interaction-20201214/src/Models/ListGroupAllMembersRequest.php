@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class ListGroupAllMembersRequest extends Model
 {
     /**
-     * @description App ID, IMPaaS租户的ID
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 拉取群成员列表的请求体
-     *
      * @var requestParams
      */
     public $requestParams;

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class request extends Model
 {
     /**
-     * @description 应用的appKey。
+     * @example 7m***q
      *
      * @var string
      */
     public $domain;
 
     /**
-     * @description 房间ID，由调用CreateRoom时返回。
+     * @example 9645**c180a1
      *
      * @var string
      */

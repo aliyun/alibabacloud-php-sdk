@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class SendMessageRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 消息发送请求体
-     *
      * @var requestParams
      */
     public $requestParams;

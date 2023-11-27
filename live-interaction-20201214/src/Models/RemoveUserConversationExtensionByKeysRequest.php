@@ -10,13 +10,13 @@ use AlibabaCloud\Tea\Model;
 class RemoveUserConversationExtensionByKeysRequest extends Model
 {
     /**
+     * @example apitest
+     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 移除用户拓展字段请求实体
-     *
      * @var requestParams
      */
     public $requestParams;

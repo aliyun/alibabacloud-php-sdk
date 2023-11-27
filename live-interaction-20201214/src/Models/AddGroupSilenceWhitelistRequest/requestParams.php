@@ -9,29 +9,27 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 操作者
-     *
-     * @var string
-     */
-    public $operatorAppUid;
-
-    /**
-     * @description 群会话id
+     * @example $2$111000
      *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 禁言用户列表
-     *
      * @var string[]
      */
     public $members;
+
+    /**
+     * @example 123
+     *
+     * @var string
+     */
+    public $operatorAppUid;
     protected $_name = [
-        'operatorAppUid' => 'OperatorAppUid',
         'appCid'         => 'AppCid',
         'members'        => 'Members',
+        'operatorAppUid' => 'OperatorAppUid',
     ];
 
     public function validate()
@@ -41,14 +39,14 @@ class requestParams extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operatorAppUid) {
-            $res['OperatorAppUid'] = $this->operatorAppUid;
-        }
         if (null !== $this->appCid) {
             $res['AppCid'] = $this->appCid;
         }
         if (null !== $this->members) {
             $res['Members'] = $this->members;
+        }
+        if (null !== $this->operatorAppUid) {
+            $res['OperatorAppUid'] = $this->operatorAppUid;
         }
 
         return $res;
@@ -62,9 +60,6 @@ class requestParams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OperatorAppUid'])) {
-            $model->operatorAppUid = $map['OperatorAppUid'];
-        }
         if (isset($map['AppCid'])) {
             $model->appCid = $map['AppCid'];
         }
@@ -72,6 +67,9 @@ class requestParams extends Model
             if (!empty($map['Members'])) {
                 $model->members = $map['Members'];
             }
+        }
+        if (isset($map['OperatorAppUid'])) {
+            $model->operatorAppUid = $map['OperatorAppUid'];
         }
 
         return $model;

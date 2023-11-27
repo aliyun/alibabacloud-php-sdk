@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class RemoveGroupMembersShrinkRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 群踢人请求实体
-     *
      * @var string
      */
     public $requestParamsShrink;

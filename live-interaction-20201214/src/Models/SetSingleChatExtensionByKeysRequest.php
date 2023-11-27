@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class SetSingleChatExtensionByKeysRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 创建群聊请求实体
-     *
      * @var requestParams
      */
     public $requestParams;

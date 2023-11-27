@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class KickOffShrinkRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */

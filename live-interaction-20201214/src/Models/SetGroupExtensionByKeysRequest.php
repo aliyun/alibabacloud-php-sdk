@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class SetGroupExtensionByKeysRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 群聊设置扩展字段请求实体
-     *
      * @var requestParams
      */
     public $requestParams;

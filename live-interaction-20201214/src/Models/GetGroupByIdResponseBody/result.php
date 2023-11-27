@@ -9,69 +9,65 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 群会话ID
+     * @example $2$111000
      *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 群主ID
+     * @example 1599999999
      *
-     * @var string
+     * @var int
      */
-    public $ownerAppUid;
+    public $ceateTime;
 
     /**
-     * @description 群图像
+     * @var string[]
+     */
+    public $extensions;
+
+    /**
+     * @example @$111444
      *
      * @var string
      */
     public $iconMediaId;
 
     /**
-     * @description 群名称
-     *
-     * @var string
-     */
-    public $title;
-
-    /**
-     * @description 当前群人数
+     * @example 7
      *
      * @var int
      */
     public $memberCount;
 
     /**
-     * @description 群人数上限
+     * @example 100
      *
      * @var int
      */
     public $memberLimit;
 
     /**
-     * @description 群扩展信息
+     * @example 123
      *
-     * @var string[]
+     * @var string
      */
-    public $extensions;
+    public $ownerAppUid;
 
     /**
-     * @description 群创建时间
-     *
-     * @var int
+     * @var string
      */
-    public $ceateTime;
+    public $title;
     protected $_name = [
         'appCid'      => 'AppCid',
-        'ownerAppUid' => 'OwnerAppUid',
+        'ceateTime'   => 'CeateTime',
+        'extensions'  => 'Extensions',
         'iconMediaId' => 'IconMediaId',
-        'title'       => 'Title',
         'memberCount' => 'MemberCount',
         'memberLimit' => 'MemberLimit',
-        'extensions'  => 'Extensions',
-        'ceateTime'   => 'CeateTime',
+        'ownerAppUid' => 'OwnerAppUid',
+        'title'       => 'Title',
     ];
 
     public function validate()
@@ -84,14 +80,14 @@ class result extends Model
         if (null !== $this->appCid) {
             $res['AppCid'] = $this->appCid;
         }
-        if (null !== $this->ownerAppUid) {
-            $res['OwnerAppUid'] = $this->ownerAppUid;
+        if (null !== $this->ceateTime) {
+            $res['CeateTime'] = $this->ceateTime;
+        }
+        if (null !== $this->extensions) {
+            $res['Extensions'] = $this->extensions;
         }
         if (null !== $this->iconMediaId) {
             $res['IconMediaId'] = $this->iconMediaId;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
         }
         if (null !== $this->memberCount) {
             $res['MemberCount'] = $this->memberCount;
@@ -99,11 +95,11 @@ class result extends Model
         if (null !== $this->memberLimit) {
             $res['MemberLimit'] = $this->memberLimit;
         }
-        if (null !== $this->extensions) {
-            $res['Extensions'] = $this->extensions;
+        if (null !== $this->ownerAppUid) {
+            $res['OwnerAppUid'] = $this->ownerAppUid;
         }
-        if (null !== $this->ceateTime) {
-            $res['CeateTime'] = $this->ceateTime;
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -120,14 +116,14 @@ class result extends Model
         if (isset($map['AppCid'])) {
             $model->appCid = $map['AppCid'];
         }
-        if (isset($map['OwnerAppUid'])) {
-            $model->ownerAppUid = $map['OwnerAppUid'];
+        if (isset($map['CeateTime'])) {
+            $model->ceateTime = $map['CeateTime'];
+        }
+        if (isset($map['Extensions'])) {
+            $model->extensions = $map['Extensions'];
         }
         if (isset($map['IconMediaId'])) {
             $model->iconMediaId = $map['IconMediaId'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
         }
         if (isset($map['MemberCount'])) {
             $model->memberCount = $map['MemberCount'];
@@ -135,11 +131,11 @@ class result extends Model
         if (isset($map['MemberLimit'])) {
             $model->memberLimit = $map['MemberLimit'];
         }
-        if (isset($map['Extensions'])) {
-            $model->extensions = $map['Extensions'];
+        if (isset($map['OwnerAppUid'])) {
+            $model->ownerAppUid = $map['OwnerAppUid'];
         }
-        if (isset($map['CeateTime'])) {
-            $model->ceateTime = $map['CeateTime'];
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

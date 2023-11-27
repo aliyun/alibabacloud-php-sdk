@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class SetUserConversationExtensionByKeysShrinkRequest extends Model
 {
     /**
+     * @example apitest
+     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 设置用户拓展字段请求实体
-     *
      * @var string
      */
     public $requestParamsShrink;

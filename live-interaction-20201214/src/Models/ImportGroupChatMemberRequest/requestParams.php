@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 群ID
+     * @example $2$123456
      *
      * @var string
      */

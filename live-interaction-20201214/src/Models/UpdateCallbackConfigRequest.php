@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateCallbackConfigRequest extends Model
 {
     /**
-     * @description 应用Id
+     * @example aaa111
      *
      * @var string
      */

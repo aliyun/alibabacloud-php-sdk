@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupIconRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */

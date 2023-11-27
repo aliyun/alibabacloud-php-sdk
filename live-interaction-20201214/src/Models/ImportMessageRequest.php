@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ImportMessageRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */

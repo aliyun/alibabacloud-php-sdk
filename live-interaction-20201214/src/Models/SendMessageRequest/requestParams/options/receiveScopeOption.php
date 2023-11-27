@@ -9,29 +9,25 @@ use AlibabaCloud\Tea\Model;
 class receiveScopeOption extends Model
 {
     /**
-     * @description 接受者列表
-     *
-     * @var string[]
-     */
-    public $receiverIds;
-
-    /**
-     * @description 不接收者列表
-     *
      * @var string[]
      */
     public $excludeReceiverIds;
 
     /**
-     * @description 消息获取控制。0: 会话内除指定ExcludeReceivers均可获取；1: 会话内仅指定ReceiverIds可获取
+     * @example 0
      *
      * @var int
      */
     public $receiveScope;
+
+    /**
+     * @var string[]
+     */
+    public $receiverIds;
     protected $_name = [
-        'receiverIds'        => 'ReceiverIds',
         'excludeReceiverIds' => 'ExcludeReceiverIds',
         'receiveScope'       => 'ReceiveScope',
+        'receiverIds'        => 'ReceiverIds',
     ];
 
     public function validate()
@@ -41,14 +37,14 @@ class receiveScopeOption extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->receiverIds) {
-            $res['ReceiverIds'] = $this->receiverIds;
-        }
         if (null !== $this->excludeReceiverIds) {
             $res['ExcludeReceiverIds'] = $this->excludeReceiverIds;
         }
         if (null !== $this->receiveScope) {
             $res['ReceiveScope'] = $this->receiveScope;
+        }
+        if (null !== $this->receiverIds) {
+            $res['ReceiverIds'] = $this->receiverIds;
         }
 
         return $res;
@@ -62,11 +58,6 @@ class receiveScopeOption extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReceiverIds'])) {
-            if (!empty($map['ReceiverIds'])) {
-                $model->receiverIds = $map['ReceiverIds'];
-            }
-        }
         if (isset($map['ExcludeReceiverIds'])) {
             if (!empty($map['ExcludeReceiverIds'])) {
                 $model->excludeReceiverIds = $map['ExcludeReceiverIds'];
@@ -74,6 +65,11 @@ class receiveScopeOption extends Model
         }
         if (isset($map['ReceiveScope'])) {
             $model->receiveScope = $map['ReceiveScope'];
+        }
+        if (isset($map['ReceiverIds'])) {
+            if (!empty($map['ReceiverIds'])) {
+                $model->receiverIds = $map['ReceiverIds'];
+            }
         }
 
         return $model;

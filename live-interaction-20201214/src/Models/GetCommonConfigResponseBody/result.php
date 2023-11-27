@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 通用配置
-     *
      * @var commonConfig
      */
     public $commonConfig;

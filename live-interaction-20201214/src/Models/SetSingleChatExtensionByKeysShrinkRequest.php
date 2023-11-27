@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class SetSingleChatExtensionByKeysShrinkRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 创建群聊请求实体
-     *
      * @var string
      */
     public $requestParamsShrink;

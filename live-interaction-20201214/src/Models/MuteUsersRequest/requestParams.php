@@ -9,29 +9,27 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 需要禁言的用户
-     *
      * @var string[]
      */
     public $appUids;
 
     /**
-     * @description 单位秒
-     *
-     * @var int
-     */
-    public $muteDuration;
-
-    /**
-     * @description true: 禁言, false: 解除禁言
+     * @example true
      *
      * @var bool
      */
     public $mute;
+
+    /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $muteDuration;
     protected $_name = [
         'appUids'      => 'AppUids',
-        'muteDuration' => 'MuteDuration',
         'mute'         => 'Mute',
+        'muteDuration' => 'MuteDuration',
     ];
 
     public function validate()
@@ -44,11 +42,11 @@ class requestParams extends Model
         if (null !== $this->appUids) {
             $res['AppUids'] = $this->appUids;
         }
-        if (null !== $this->muteDuration) {
-            $res['MuteDuration'] = $this->muteDuration;
-        }
         if (null !== $this->mute) {
             $res['Mute'] = $this->mute;
+        }
+        if (null !== $this->muteDuration) {
+            $res['MuteDuration'] = $this->muteDuration;
         }
 
         return $res;
@@ -67,11 +65,11 @@ class requestParams extends Model
                 $model->appUids = $map['AppUids'];
             }
         }
-        if (isset($map['MuteDuration'])) {
-            $model->muteDuration = $map['MuteDuration'];
-        }
         if (isset($map['Mute'])) {
             $model->mute = $map['Mute'];
+        }
+        if (isset($map['MuteDuration'])) {
+            $model->muteDuration = $map['MuteDuration'];
         }
 
         return $model;

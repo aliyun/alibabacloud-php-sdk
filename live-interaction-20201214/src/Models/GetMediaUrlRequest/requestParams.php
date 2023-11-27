@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 多媒体资源ID
+     * @example $iQEMAqNqcGcDAQTNAyAFzQJYBtoAIYQBpAuf1dQCqrY4aIGemoBLONIDzwAAAXazCVSoBM0NyAcACA****
      *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description URL过期时间(秒，最大86400)
+     * @example 300
      *
      * @var int
      */

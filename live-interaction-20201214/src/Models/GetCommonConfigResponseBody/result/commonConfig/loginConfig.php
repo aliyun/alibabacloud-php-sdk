@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class loginConfig extends Model
 {
     /**
-     * @description 登录类型
+     * @example 1
      *
      * @var int
      */

@@ -11,13 +11,13 @@ class UnbindInterconnectionUidShrinkRequest extends Model
     /**
      * @description AppId
      *
+     * @example apitest
+     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 解绑用户请求体
-     *
      * @var string
      */
     public $requestParamsShrink;

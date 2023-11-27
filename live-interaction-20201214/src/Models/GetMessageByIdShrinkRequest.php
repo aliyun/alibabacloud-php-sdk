@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetMessageByIdShrinkRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 请求实体
-     *
      * @var string
      */
     public $requestParamsShrink;

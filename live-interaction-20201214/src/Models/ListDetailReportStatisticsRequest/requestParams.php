@@ -9,29 +9,29 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 开始时间，utc
-     *
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @description 结束时间，utc
+     * @example 2020-01-12
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 报表类型  user、groupChat、message
+     * @example user
      *
      * @var string
      */
     public $reportStatisticsType;
+
+    /**
+     * @example 2020-01-01
+     *
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'startTime'            => 'StartTime',
         'endTime'              => 'EndTime',
         'reportStatisticsType' => 'ReportStatisticsType',
+        'startTime'            => 'StartTime',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class requestParams extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->reportStatisticsType) {
             $res['ReportStatisticsType'] = $this->reportStatisticsType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class requestParams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['ReportStatisticsType'])) {
             $model->reportStatisticsType = $map['ReportStatisticsType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

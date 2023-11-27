@@ -10,29 +10,23 @@ use AlibabaCloud\Tea\Model;
 class singleChatCreateRequest extends Model
 {
     /**
-     * @description 单聊会话ID
+     * @example $3$123:567
      *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 用户ID列表
-     *
      * @var string[]
      */
     public $appUids;
 
     /**
-     * @description 扩展信息
-     *
      * @var string[]
      */
     public $extensions;
 
     /**
-     * @description 用户会话视图信息
-     *
      * @var RequestParamsOptionsSingleChatCreateRequestUserConversationValue[]
      */
     public $userConversation;

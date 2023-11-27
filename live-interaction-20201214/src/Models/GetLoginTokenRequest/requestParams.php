@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 用户ID
-     *
-     * @var string
-     */
-    public $appUid;
-
-    /**
-     * @description AppKey
+     * @example 649b79ab544d737fe9e0bc6c67cf****
      *
      * @var string
      */
     public $appKey;
 
     /**
-     * @description 设备ID
+     * @example 95000****
+     *
+     * @var string
+     */
+    public $appUid;
+
+    /**
+     * @example iOS_Device_F8594F51-FA81-470F-AAD9-6E254B77****
      *
      * @var string
      */
     public $deviceId;
     protected $_name = [
-        'appUid'   => 'AppUid',
         'appKey'   => 'AppKey',
+        'appUid'   => 'AppUid',
         'deviceId' => 'DeviceId',
     ];
 
@@ -41,11 +41,11 @@ class requestParams extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appUid) {
-            $res['AppUid'] = $this->appUid;
-        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+        if (null !== $this->appUid) {
+            $res['AppUid'] = $this->appUid;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
@@ -62,11 +62,11 @@ class requestParams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppUid'])) {
-            $model->appUid = $map['AppUid'];
-        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+        if (isset($map['AppUid'])) {
+            $model->appUid = $map['AppUid'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];

@@ -9,11 +9,8 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @var string
-     */
-    public $operatorAppUid;
-
-    /**
+     * @example $2$111000
+     *
      * @var string
      */
     public $appCid;
@@ -22,10 +19,17 @@ class requestParams extends Model
      * @var string[]
      */
     public $appUidsRemoved;
+
+    /**
+     * @example 888666
+     *
+     * @var string
+     */
+    public $operatorAppUid;
     protected $_name = [
-        'operatorAppUid' => 'OperatorAppUid',
         'appCid'         => 'AppCid',
         'appUidsRemoved' => 'AppUidsRemoved',
+        'operatorAppUid' => 'OperatorAppUid',
     ];
 
     public function validate()
@@ -35,14 +39,14 @@ class requestParams extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operatorAppUid) {
-            $res['OperatorAppUid'] = $this->operatorAppUid;
-        }
         if (null !== $this->appCid) {
             $res['AppCid'] = $this->appCid;
         }
         if (null !== $this->appUidsRemoved) {
             $res['AppUidsRemoved'] = $this->appUidsRemoved;
+        }
+        if (null !== $this->operatorAppUid) {
+            $res['OperatorAppUid'] = $this->operatorAppUid;
         }
 
         return $res;
@@ -56,9 +60,6 @@ class requestParams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OperatorAppUid'])) {
-            $model->operatorAppUid = $map['OperatorAppUid'];
-        }
         if (isset($map['AppCid'])) {
             $model->appCid = $map['AppCid'];
         }
@@ -66,6 +67,9 @@ class requestParams extends Model
             if (!empty($map['AppUidsRemoved'])) {
                 $model->appUidsRemoved = $map['AppUidsRemoved'];
             }
+        }
+        if (isset($map['OperatorAppUid'])) {
+            $model->operatorAppUid = $map['OperatorAppUid'];
         }
 
         return $model;

@@ -9,77 +9,75 @@ use AlibabaCloud\Tea\Model;
 class messages extends Model
 {
     /**
-     * @description 唯一标识，用于重入
-     *
-     * @var string
-     */
-    public $uuid;
-
-    /**
-     * @description 会话ID
+     * @example $1$123:124
      *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 会话类型1 单聊 2 群聊
-     *
-     * @var int
-     */
-    public $conversationType;
-
-    /**
-     * @description 发送者ID
-     *
-     * @var string
-     */
-    public $senderId;
-
-    /**
-     * @description 接受者列表, 群聊如果列表为空者全员接收
-     *
-     * @var string[]
-     */
-    public $receiverIds;
-
-    /**
-     * @description 消息类型
-     *
-     * @var int
-     */
-    public $contentType;
-
-    /**
-     * @description 消息内容
+     * @example {"text": "hello"}
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 消息发送时间戳
+     * @example 1
+     *
+     * @var int
+     */
+    public $contentType;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $conversationType;
+
+    /**
+     * @example 1613700223555
      *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 自定义信息
-     *
      * @var string[]
      */
     public $extensions;
+
+    /**
+     * @example 1
+     *
+     * @var string[]
+     */
+    public $receiverIds;
+
+    /**
+     * @example 123
+     *
+     * @var string
+     */
+    public $senderId;
+
+    /**
+     * @example 123999992222
+     *
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'uuid'             => 'Uuid',
         'appCid'           => 'AppCid',
-        'conversationType' => 'ConversationType',
-        'senderId'         => 'SenderId',
-        'receiverIds'      => 'ReceiverIds',
-        'contentType'      => 'ContentType',
         'content'          => 'Content',
+        'contentType'      => 'ContentType',
+        'conversationType' => 'ConversationType',
         'createTime'       => 'CreateTime',
         'extensions'       => 'Extensions',
+        'receiverIds'      => 'ReceiverIds',
+        'senderId'         => 'SenderId',
+        'uuid'             => 'Uuid',
     ];
 
     public function validate()
@@ -89,32 +87,32 @@ class messages extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
-        }
         if (null !== $this->appCid) {
             $res['AppCid'] = $this->appCid;
         }
-        if (null !== $this->conversationType) {
-            $res['ConversationType'] = $this->conversationType;
-        }
-        if (null !== $this->senderId) {
-            $res['SenderId'] = $this->senderId;
-        }
-        if (null !== $this->receiverIds) {
-            $res['ReceiverIds'] = $this->receiverIds;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->conversationType) {
+            $res['ConversationType'] = $this->conversationType;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->extensions) {
             $res['Extensions'] = $this->extensions;
+        }
+        if (null !== $this->receiverIds) {
+            $res['ReceiverIds'] = $this->receiverIds;
+        }
+        if (null !== $this->senderId) {
+            $res['SenderId'] = $this->senderId;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -128,34 +126,34 @@ class messages extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
-        }
         if (isset($map['AppCid'])) {
             $model->appCid = $map['AppCid'];
         }
-        if (isset($map['ConversationType'])) {
-            $model->conversationType = $map['ConversationType'];
-        }
-        if (isset($map['SenderId'])) {
-            $model->senderId = $map['SenderId'];
-        }
-        if (isset($map['ReceiverIds'])) {
-            if (!empty($map['ReceiverIds'])) {
-                $model->receiverIds = $map['ReceiverIds'];
-            }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['ConversationType'])) {
+            $model->conversationType = $map['ConversationType'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Extensions'])) {
             $model->extensions = $map['Extensions'];
+        }
+        if (isset($map['ReceiverIds'])) {
+            if (!empty($map['ReceiverIds'])) {
+                $model->receiverIds = $map['ReceiverIds'];
+            }
+        }
+        if (isset($map['SenderId'])) {
+            $model->senderId = $map['SenderId'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

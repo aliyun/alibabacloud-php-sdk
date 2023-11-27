@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetIMConfigRequest extends Model
 {
     /**
-     * @description 应用名
+     * @example aaa111
      *
      * @var string
      */

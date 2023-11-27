@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class request extends Model
 {
     /**
-     * @description 应用appKey
+     * @example testAppKey
      *
      * @var string
      */

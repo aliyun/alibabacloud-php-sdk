@@ -9,37 +9,37 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 关键字类型，包含appName、appId两类
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @description 关键字
+     * @example test
      *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description 分页大小，大于0的任意数
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 页码，从1开始
+     * @example appName
      *
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $type;
     protected $_name = [
-        'type'       => 'Type',
         'keyword'    => 'Keyword',
-        'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -49,17 +49,17 @@ class requestParams extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -73,17 +73,17 @@ class requestParams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

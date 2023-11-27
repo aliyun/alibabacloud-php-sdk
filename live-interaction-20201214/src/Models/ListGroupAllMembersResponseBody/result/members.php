@@ -9,45 +9,43 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
-     * @description 群成员ID
+     * @example 123333
      *
      * @var string
      */
     public $appUid;
 
     /**
-     * @description 群成员角色
-     *
-     * @var int
+     * @var string[]
      */
-    public $role;
+    public $extensions;
 
     /**
-     * @description 群成员昵称
-     *
-     * @var string
-     */
-    public $nick;
-
-    /**
-     * @description 群成员入群时间
+     * @example 1233333332
      *
      * @var int
      */
     public $joinTime;
 
     /**
-     * @description 群成员扩展信息
+     * @example testNick
      *
-     * @var string[]
+     * @var string
      */
-    public $extensions;
+    public $nick;
+
+    /**
+     * @example 1-群主；2-管理员；3-普通
+     *
+     * @var int
+     */
+    public $role;
     protected $_name = [
         'appUid'     => 'AppUid',
-        'role'       => 'Role',
-        'nick'       => 'Nick',
-        'joinTime'   => 'JoinTime',
         'extensions' => 'Extensions',
+        'joinTime'   => 'JoinTime',
+        'nick'       => 'Nick',
+        'role'       => 'Role',
     ];
 
     public function validate()
@@ -60,17 +58,17 @@ class members extends Model
         if (null !== $this->appUid) {
             $res['AppUid'] = $this->appUid;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
-        if (null !== $this->nick) {
-            $res['Nick'] = $this->nick;
+        if (null !== $this->extensions) {
+            $res['Extensions'] = $this->extensions;
         }
         if (null !== $this->joinTime) {
             $res['JoinTime'] = $this->joinTime;
         }
-        if (null !== $this->extensions) {
-            $res['Extensions'] = $this->extensions;
+        if (null !== $this->nick) {
+            $res['Nick'] = $this->nick;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
 
         return $res;
@@ -87,17 +85,17 @@ class members extends Model
         if (isset($map['AppUid'])) {
             $model->appUid = $map['AppUid'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
-        if (isset($map['Nick'])) {
-            $model->nick = $map['Nick'];
+        if (isset($map['Extensions'])) {
+            $model->extensions = $map['Extensions'];
         }
         if (isset($map['JoinTime'])) {
             $model->joinTime = $map['JoinTime'];
         }
-        if (isset($map['Extensions'])) {
-            $model->extensions = $map['Extensions'];
+        if (isset($map['Nick'])) {
+            $model->nick = $map['Nick'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
 
         return $model;

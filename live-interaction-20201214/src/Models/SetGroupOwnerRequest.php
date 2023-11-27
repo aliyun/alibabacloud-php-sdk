@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class SetGroupOwnerRequest extends Model
 {
     /**
-     * @description App ID，IMPaaS租户的ID
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 群主转让的请求体
-     *
      * @var requestParams
      */
     public $requestParams;

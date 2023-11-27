@@ -9,35 +9,33 @@ use AlibabaCloud\Tea\Model;
 class conversation extends Model
 {
     /**
-     * @description 会话ID
+     * @example $1$123:123
      *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 用户ID列表
-     *
      * @var string[]
      */
     public $appUids;
 
     /**
-     * @description 扩展字段
+     * @example 1613700223555
      *
-     * @var string[]
-     */
-    public $extensions;
-
-    /**
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var string[]
+     */
+    public $extensions;
     protected $_name = [
         'appCid'     => 'AppCid',
         'appUids'    => 'AppUids',
-        'extensions' => 'Extensions',
         'createTime' => 'CreateTime',
+        'extensions' => 'Extensions',
     ];
 
     public function validate()
@@ -53,11 +51,11 @@ class conversation extends Model
         if (null !== $this->appUids) {
             $res['AppUids'] = $this->appUids;
         }
-        if (null !== $this->extensions) {
-            $res['Extensions'] = $this->extensions;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->extensions) {
+            $res['Extensions'] = $this->extensions;
         }
 
         return $res;
@@ -79,11 +77,11 @@ class conversation extends Model
                 $model->appUids = $map['AppUids'];
             }
         }
-        if (isset($map['Extensions'])) {
-            $model->extensions = $map['Extensions'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Extensions'])) {
+            $model->extensions = $map['Extensions'];
         }
 
         return $model;

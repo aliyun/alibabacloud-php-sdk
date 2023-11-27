@@ -9,85 +9,83 @@ use AlibabaCloud\Tea\Model;
 class groupChatMembers extends Model
 {
     /**
-     * @description 用户ID
+     * @example 123
      *
      * @var string
      */
     public $appUid;
 
     /**
-     * @description 成员权限
-     *
-     * @var int
+     * @var string[]
      */
-    public $role;
+    public $extensions;
 
     /**
-     * @description 昵称
-     *
-     * @var string
-     */
-    public $nick;
-
-    /**
-     * @description 是否置顶
-     *
-     * @var bool
-     */
-    public $top;
-
-    /**
-     * @description 未读数
-     *
-     * @var int
-     */
-    public $redPoint;
-
-    /**
-     * @description 是否免打扰
-     *
-     * @var bool
-     */
-    public $mute;
-
-    /**
-     * @description 是否可见
-     *
-     * @var bool
-     */
-    public $visible;
-
-    /**
-     * @description 入群时间戳
+     * @example 1613700223555
      *
      * @var int
      */
     public $joinTime;
 
     /**
-     * @description 最后修改时间
+     * @example 1613700223555
      *
      * @var int
      */
     public $modifyTime;
 
     /**
-     * @description 自定义信息
+     * @example false
      *
-     * @var string[]
+     * @var bool
      */
-    public $extensions;
+    public $mute;
+
+    /**
+     * @example bob
+     *
+     * @var string
+     */
+    public $nick;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $redPoint;
+
+    /**
+     * @example 3
+     *
+     * @var int
+     */
+    public $role;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $top;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $visible;
     protected $_name = [
         'appUid'     => 'AppUid',
-        'role'       => 'Role',
-        'nick'       => 'Nick',
-        'top'        => 'Top',
-        'redPoint'   => 'RedPoint',
-        'mute'       => 'Mute',
-        'visible'    => 'Visible',
+        'extensions' => 'Extensions',
         'joinTime'   => 'JoinTime',
         'modifyTime' => 'ModifyTime',
-        'extensions' => 'Extensions',
+        'mute'       => 'Mute',
+        'nick'       => 'Nick',
+        'redPoint'   => 'RedPoint',
+        'role'       => 'Role',
+        'top'        => 'Top',
+        'visible'    => 'Visible',
     ];
 
     public function validate()
@@ -100,23 +98,8 @@ class groupChatMembers extends Model
         if (null !== $this->appUid) {
             $res['AppUid'] = $this->appUid;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
-        if (null !== $this->nick) {
-            $res['Nick'] = $this->nick;
-        }
-        if (null !== $this->top) {
-            $res['Top'] = $this->top;
-        }
-        if (null !== $this->redPoint) {
-            $res['RedPoint'] = $this->redPoint;
-        }
-        if (null !== $this->mute) {
-            $res['Mute'] = $this->mute;
-        }
-        if (null !== $this->visible) {
-            $res['Visible'] = $this->visible;
+        if (null !== $this->extensions) {
+            $res['Extensions'] = $this->extensions;
         }
         if (null !== $this->joinTime) {
             $res['JoinTime'] = $this->joinTime;
@@ -124,8 +107,23 @@ class groupChatMembers extends Model
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
-        if (null !== $this->extensions) {
-            $res['Extensions'] = $this->extensions;
+        if (null !== $this->mute) {
+            $res['Mute'] = $this->mute;
+        }
+        if (null !== $this->nick) {
+            $res['Nick'] = $this->nick;
+        }
+        if (null !== $this->redPoint) {
+            $res['RedPoint'] = $this->redPoint;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+        if (null !== $this->top) {
+            $res['Top'] = $this->top;
+        }
+        if (null !== $this->visible) {
+            $res['Visible'] = $this->visible;
         }
 
         return $res;
@@ -142,23 +140,8 @@ class groupChatMembers extends Model
         if (isset($map['AppUid'])) {
             $model->appUid = $map['AppUid'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
-        if (isset($map['Nick'])) {
-            $model->nick = $map['Nick'];
-        }
-        if (isset($map['Top'])) {
-            $model->top = $map['Top'];
-        }
-        if (isset($map['RedPoint'])) {
-            $model->redPoint = $map['RedPoint'];
-        }
-        if (isset($map['Mute'])) {
-            $model->mute = $map['Mute'];
-        }
-        if (isset($map['Visible'])) {
-            $model->visible = $map['Visible'];
+        if (isset($map['Extensions'])) {
+            $model->extensions = $map['Extensions'];
         }
         if (isset($map['JoinTime'])) {
             $model->joinTime = $map['JoinTime'];
@@ -166,8 +149,23 @@ class groupChatMembers extends Model
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
-        if (isset($map['Extensions'])) {
-            $model->extensions = $map['Extensions'];
+        if (isset($map['Mute'])) {
+            $model->mute = $map['Mute'];
+        }
+        if (isset($map['Nick'])) {
+            $model->nick = $map['Nick'];
+        }
+        if (isset($map['RedPoint'])) {
+            $model->redPoint = $map['RedPoint'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+        if (isset($map['Top'])) {
+            $model->top = $map['Top'];
+        }
+        if (isset($map['Visible'])) {
+            $model->visible = $map['Visible'];
         }
 
         return $model;

@@ -9,45 +9,45 @@ use AlibabaCloud\Tea\Model;
 class request extends Model
 {
     /**
-     * @description 应用的appKey。
+     * @example 7m***q
      *
      * @var string
      */
     public $domain;
 
     /**
-     * @description 房间ID，由调用CreateRoom时返回。
-     *
-     * @var string
-     */
-    public $roomId;
-
-    /**
-     * @description 要查询的消息的类型,请传递100000以上的整数，如果不传，则默认拉取全部类型的消息。
-     *
-     * @var int
-     */
-    public $subType;
-
-    /**
-     * @description 分页查询时的页数，从1开始，每次分页查询时加1。
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页查询时的请求大小，要求大于0，且最大不得超过100。
+     * @example 100
      *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @example 9645**c180a1
+     *
+     * @var string
+     */
+    public $roomId;
+
+    /**
+     * @example 100001
+     *
+     * @var int
+     */
+    public $subType;
     protected $_name = [
         'domain'     => 'Domain',
-        'roomId'     => 'RoomId',
-        'subType'    => 'SubType',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'roomId'     => 'RoomId',
+        'subType'    => 'SubType',
     ];
 
     public function validate()
@@ -60,17 +60,17 @@ class request extends Model
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
-        }
-        if (null !== $this->subType) {
-            $res['SubType'] = $this->subType;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
+        }
+        if (null !== $this->subType) {
+            $res['SubType'] = $this->subType;
         }
 
         return $res;
@@ -87,17 +87,17 @@ class request extends Model
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
-        }
-        if (isset($map['SubType'])) {
-            $model->subType = $map['SubType'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
+        }
+        if (isset($map['SubType'])) {
+            $model->subType = $map['SubType'];
         }
 
         return $model;

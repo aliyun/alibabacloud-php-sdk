@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class MuteUsersRequest extends Model
 {
     /**
-     * @description AppId
-     *
      * @var string
      */
     public $appId;

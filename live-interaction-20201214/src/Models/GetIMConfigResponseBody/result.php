@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description im相关配置
-     *
      * @var imConfig
      */
     public $imConfig;

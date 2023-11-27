@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetUserMuteSettingRequest extends Model
 {
     /**
-     * @description AppId
-     *
      * @var string
      */
     public $appId;

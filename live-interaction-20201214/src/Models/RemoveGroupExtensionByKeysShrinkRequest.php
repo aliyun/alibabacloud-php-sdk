@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class RemoveGroupExtensionByKeysShrinkRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 移除群聊拓展字段请求实体
-     *
      * @var string
      */
     public $requestParamsShrink;

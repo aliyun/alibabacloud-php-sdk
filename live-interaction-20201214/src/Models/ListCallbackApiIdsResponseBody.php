@@ -10,53 +10,53 @@ use AlibabaCloud\Tea\Model;
 class ListCallbackApiIdsResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description 业务是否成功
-     *
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @description 业务错误码
+     * @example Portal.ParameterError
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description 网络错误码
+     * @example 500
      *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description 错误信息
+     * @example error
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description 返回结果
+     * @description Id of the request
      *
+     * @example 1113344
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var result
      */
     public $result;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
         'code'           => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
+        'requestId'      => 'RequestId',
         'result'         => 'Result',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -66,12 +66,6 @@ class ListCallbackApiIdsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -81,8 +75,14 @@ class ListCallbackApiIdsResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->result) {
             $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -96,12 +96,6 @@ class ListCallbackApiIdsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -111,8 +105,14 @@ class ListCallbackApiIdsResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

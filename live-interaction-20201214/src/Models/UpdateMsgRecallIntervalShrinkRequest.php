@@ -9,21 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateMsgRecallIntervalShrinkRequest extends Model
 {
     /**
-     * @description 请求
-     *
-     * @var string
-     */
-    public $requestParamsShrink;
-
-    /**
-     * @description 应用Id
+     * @example aaa111
      *
      * @var string
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $requestParamsShrink;
     protected $_name = [
-        'requestParamsShrink' => 'RequestParams',
         'appId'               => 'AppId',
+        'requestParamsShrink' => 'RequestParams',
     ];
 
     public function validate()
@@ -33,11 +31,11 @@ class UpdateMsgRecallIntervalShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestParamsShrink) {
-            $res['RequestParams'] = $this->requestParamsShrink;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->requestParamsShrink) {
+            $res['RequestParams'] = $this->requestParamsShrink;
         }
 
         return $res;
@@ -51,11 +49,11 @@ class UpdateMsgRecallIntervalShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestParams'])) {
-            $model->requestParamsShrink = $map['RequestParams'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['RequestParams'])) {
+            $model->requestParamsShrink = $map['RequestParams'];
         }
 
         return $model;

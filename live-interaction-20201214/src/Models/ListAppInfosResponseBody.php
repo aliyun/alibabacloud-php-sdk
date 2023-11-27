@@ -10,7 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListAppInfosResponseBody extends Model
 {
     /**
+     * @description code
+     *
+     * @example 502
+     *
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @description httpStatusCode
+     *
+     * @example 200
+     *
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @description desc
+     *
+     * @example Success
      *
      * @var string
      */
@@ -19,30 +39,11 @@ class ListAppInfosResponseBody extends Model
     /**
      * @description requestId
      *
+     * @example 11134455
+     *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description httpStatusCode
-     *
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
-     * @description code
-     *
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @description success
-     *
-     * @var bool
-     */
-    public $success;
 
     /**
      * @description result
@@ -50,13 +51,22 @@ class ListAppInfosResponseBody extends Model
      * @var result
      */
     public $result;
+
+    /**
+     * @description success
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
+        'code'           => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
-        'code'           => 'Code',
-        'success'        => 'Success',
         'result'         => 'Result',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -66,23 +76,23 @@ class ListAppInfosResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -96,23 +106,23 @@ class ListAppInfosResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Result'])) {
+            $model->result = result::fromMap($map['Result']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Result'])) {
-            $model->result = result::fromMap($map['Result']);
         }
 
         return $model;

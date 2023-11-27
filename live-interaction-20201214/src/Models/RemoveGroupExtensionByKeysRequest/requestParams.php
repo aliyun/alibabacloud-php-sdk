@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 会话id
+     * @example $2$111000
      *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 拓展字段的key
-     *
      * @var string[]
      */
     public $keys;

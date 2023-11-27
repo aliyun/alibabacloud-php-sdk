@@ -9,29 +9,29 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 会话ID
+     * @example $2$111000
      *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 操作者用户ID
-     *
-     * @var string
-     */
-    public $operatorAppUid;
-
-    /**
-     * @description 群聊头像文件MediaID
+     * @example $iQEMAqNqcGcDAQTNAyAFzQJYBtoAIYQBpAuf1dQCqrY4aIGemoBLONIDzwAAAXazCVSoBM0NyAcACA****
      *
      * @var string
      */
     public $iconMediaId;
+
+    /**
+     * @example 80000010
+     *
+     * @var string
+     */
+    public $operatorAppUid;
     protected $_name = [
         'appCid'         => 'AppCid',
-        'operatorAppUid' => 'OperatorAppUid',
         'iconMediaId'    => 'IconMediaId',
+        'operatorAppUid' => 'OperatorAppUid',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class requestParams extends Model
         if (null !== $this->appCid) {
             $res['AppCid'] = $this->appCid;
         }
-        if (null !== $this->operatorAppUid) {
-            $res['OperatorAppUid'] = $this->operatorAppUid;
-        }
         if (null !== $this->iconMediaId) {
             $res['IconMediaId'] = $this->iconMediaId;
+        }
+        if (null !== $this->operatorAppUid) {
+            $res['OperatorAppUid'] = $this->operatorAppUid;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class requestParams extends Model
         if (isset($map['AppCid'])) {
             $model->appCid = $map['AppCid'];
         }
-        if (isset($map['OperatorAppUid'])) {
-            $model->operatorAppUid = $map['OperatorAppUid'];
-        }
         if (isset($map['IconMediaId'])) {
             $model->iconMediaId = $map['IconMediaId'];
+        }
+        if (isset($map['OperatorAppUid'])) {
+            $model->operatorAppUid = $map['OperatorAppUid'];
         }
 
         return $model;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RequestParamsOptionsSingleChatCreateRequestUserConversationValue extends Model
 {
     /**
-     * @description 扩展信息
-     *
      * @var string[]
      */
     public $userExtensions;

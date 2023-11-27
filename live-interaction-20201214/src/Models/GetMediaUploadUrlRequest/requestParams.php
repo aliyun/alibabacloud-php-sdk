@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 多媒体资源类型(文件后缀名)
+     * @example jpg
      *
      * @var string
      */

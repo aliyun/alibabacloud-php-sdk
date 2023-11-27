@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class RemoveSingleChatExtensionByKeysShrinkRequest extends Model
 {
     /**
+     * @example apitest
+     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 单聊移除拓展字段请求实体
-     *
      * @var string
      */
     public $requestParamsShrink;

@@ -9,41 +9,45 @@ use AlibabaCloud\Tea\Model;
 class DestroyRoomResponseBody extends Model
 {
     /**
-     * @description 错误码
+     * @example C02635EE-C867-4CC0-9DE0-E4497378****
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $responseSuccess;
+
+    /**
+     * @example 1001
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
+     * @example 参数错误
      *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description 是否销毁成功
+     * @example true
      *
      * @var bool
      */
     public $result;
-
-    /**
-     * @var bool
-     */
-    public $responseSuccess;
     protected $_name = [
+        'requestId'       => 'RequestId',
+        'responseSuccess' => 'ResponseSuccess',
         'errorCode'       => 'errorCode',
         'errorMsg'        => 'errorMsg',
-        'requestId'       => 'RequestId',
         'result'          => 'result',
-        'responseSuccess' => 'ResponseSuccess',
     ];
 
     public function validate()
@@ -53,20 +57,20 @@ class DestroyRoomResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->responseSuccess) {
+            $res['ResponseSuccess'] = $this->responseSuccess;
+        }
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->result) {
             $res['result'] = $this->result;
-        }
-        if (null !== $this->responseSuccess) {
-            $res['ResponseSuccess'] = $this->responseSuccess;
         }
 
         return $res;
@@ -80,20 +84,20 @@ class DestroyRoomResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResponseSuccess'])) {
+            $model->responseSuccess = $map['ResponseSuccess'];
+        }
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['result'])) {
             $model->result = $map['result'];
-        }
-        if (isset($map['ResponseSuccess'])) {
-            $model->responseSuccess = $map['ResponseSuccess'];
         }
 
         return $model;

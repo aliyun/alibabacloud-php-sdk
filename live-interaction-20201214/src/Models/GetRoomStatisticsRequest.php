@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetRoomStatisticsRequest extends Model
 {
     /**
-     * @description 请求参数的结构体。
-     *
      * @var request
      */
     public $request;

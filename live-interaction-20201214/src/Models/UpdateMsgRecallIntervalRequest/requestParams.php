@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 消息撤回时间间隔
+     * @example 12000
      *
      * @var int
      */

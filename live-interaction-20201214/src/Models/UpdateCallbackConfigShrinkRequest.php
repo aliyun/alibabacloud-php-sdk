@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateCallbackConfigShrinkRequest extends Model
 {
     /**
-     * @description 应用Id
+     * @example aaa111
      *
      * @var string
      */

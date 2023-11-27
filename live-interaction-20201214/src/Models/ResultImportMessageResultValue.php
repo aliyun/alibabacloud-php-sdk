@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ResultImportMessageResultValue extends Model
 {
     /**
-     * @description 0 成功
+     * @example 0
      *
      * @var int
      */
     public $result;
 
     /**
-     * @description 消息ID
+     * @example 111111$NT
      *
      * @var string
      */

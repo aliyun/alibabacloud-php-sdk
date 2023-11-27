@@ -9,53 +9,53 @@ use AlibabaCloud\Tea\Model;
 class appInfos extends Model
 {
     /**
-     * @description 应用Id
+     * @example aaa111
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 应用名
+     * @example test name
      *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 创建时间
-     *
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @description 应用状态
+     * @example 1
      *
      * @var int
      */
     public $appStatus;
 
     /**
-     * @description 产品版本
+     * @example 2020-10-10 22:24:09
      *
      * @var string
      */
-    public $prodVersion;
+    public $createTime;
 
     /**
-     * @description 实例Id
+     * @example live-producer-public-cn_23343
      *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @example BasicVersion
+     *
+     * @var string
+     */
+    public $prodVersion;
     protected $_name = [
         'appId'       => 'AppId',
         'appName'     => 'AppName',
-        'createTime'  => 'CreateTime',
         'appStatus'   => 'AppStatus',
-        'prodVersion' => 'ProdVersion',
+        'createTime'  => 'CreateTime',
         'instanceId'  => 'InstanceId',
+        'prodVersion' => 'ProdVersion',
     ];
 
     public function validate()
@@ -71,17 +71,17 @@ class appInfos extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->appStatus) {
             $res['AppStatus'] = $this->appStatus;
         }
-        if (null !== $this->prodVersion) {
-            $res['ProdVersion'] = $this->prodVersion;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->prodVersion) {
+            $res['ProdVersion'] = $this->prodVersion;
         }
 
         return $res;
@@ -101,17 +101,17 @@ class appInfos extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['AppStatus'])) {
             $model->appStatus = $map['AppStatus'];
         }
-        if (isset($map['ProdVersion'])) {
-            $model->prodVersion = $map['ProdVersion'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ProdVersion'])) {
+            $model->prodVersion = $map['ProdVersion'];
         }
 
         return $model;

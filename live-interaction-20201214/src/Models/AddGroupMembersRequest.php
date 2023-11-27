@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class AddGroupMembersRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 群加人请求实体
-     *
      * @var requestParams
      */
     public $requestParams;

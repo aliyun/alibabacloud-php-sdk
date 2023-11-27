@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 消息的唯一ID标识。由数字、大小写字母组成，长度不超过20。
+     * @example 0io**Fs6Q384
      *
      * @var string
      */

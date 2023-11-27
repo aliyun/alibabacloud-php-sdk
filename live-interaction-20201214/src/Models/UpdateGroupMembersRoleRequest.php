@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupMembersRoleRequest extends Model
 {
     /**
-     * @description App ID。IMPaaS租户的ID。
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 更新群成员角色请求体。
+     * @example apitest
      *
      * @var requestParams
      */

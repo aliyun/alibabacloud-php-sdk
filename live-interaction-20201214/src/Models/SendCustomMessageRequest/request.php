@@ -9,45 +9,45 @@ use AlibabaCloud\Tea\Model;
 class request extends Model
 {
     /**
-     * @description 应用的appKey。
+     * @example Hello,World
+     *
+     * @var string
+     */
+    public $body;
+
+    /**
+     * @example 7m***q
      *
      * @var string
      */
     public $domain;
 
     /**
-     * @description 房间ID，由调用CreateRoom时返回。
+     * @example 9645**c180a1
      *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 消息的发送者ID。
+     * @example 62**59
      *
      * @var string
      */
     public $senderId;
 
     /**
-     * @description 消息的类型，由业务自定义，请传递100000以上。
+     * @example 100001
      *
      * @var int
      */
     public $subType;
-
-    /**
-     * @description 消息体。
-     *
-     * @var string
-     */
-    public $body;
     protected $_name = [
+        'body'     => 'Body',
         'domain'   => 'Domain',
         'roomId'   => 'RoomId',
         'senderId' => 'SenderId',
         'subType'  => 'SubType',
-        'body'     => 'Body',
     ];
 
     public function validate()
@@ -57,6 +57,9 @@ class request extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['Body'] = $this->body;
+        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -68,9 +71,6 @@ class request extends Model
         }
         if (null !== $this->subType) {
             $res['SubType'] = $this->subType;
-        }
-        if (null !== $this->body) {
-            $res['Body'] = $this->body;
         }
 
         return $res;
@@ -84,6 +84,9 @@ class request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Body'])) {
+            $model->body = $map['Body'];
+        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
@@ -95,9 +98,6 @@ class request extends Model
         }
         if (isset($map['SubType'])) {
             $model->subType = $map['SubType'];
-        }
-        if (isset($map['Body'])) {
-            $model->body = $map['Body'];
         }
 
         return $model;

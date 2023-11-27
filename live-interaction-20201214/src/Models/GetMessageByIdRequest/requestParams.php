@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 消息Id
+     * @example 123.EAUNIT
      *
      * @var string
      */

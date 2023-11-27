@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRoomRequest extends Model
 {
     /**
+     * @example CreateRoom
+     *
      * @var request
      */
     public $request;

@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 会话基础信息
-     *
      * @var conversation
      */
     public $conversation;
 
     /**
-     * @description 用户会话视图
-     *
      * @var RequestParamsUserConversationsValue[]
      */
     public $userConversations;

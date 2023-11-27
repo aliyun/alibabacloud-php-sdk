@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DestroyRoomRequest extends Model
 {
     /**
+     * @example DestroyRoom
+     *
      * @var request
      */
     public $request;

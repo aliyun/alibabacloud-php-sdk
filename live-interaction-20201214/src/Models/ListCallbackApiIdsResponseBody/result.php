@@ -9,21 +9,17 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 回调列表
-     *
-     * @var bool[]
-     */
-    public $spis;
-
-    /**
-     * @description 事件输出列表
-     *
      * @var bool[]
      */
     public $events;
+
+    /**
+     * @var bool[]
+     */
+    public $spis;
     protected $_name = [
-        'spis'   => 'Spis',
         'events' => 'Events',
+        'spis'   => 'Spis',
     ];
 
     public function validate()
@@ -33,11 +29,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spis) {
-            $res['Spis'] = $this->spis;
-        }
         if (null !== $this->events) {
             $res['Events'] = $this->events;
+        }
+        if (null !== $this->spis) {
+            $res['Spis'] = $this->spis;
         }
 
         return $res;
@@ -51,11 +47,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Spis'])) {
-            $model->spis = $map['Spis'];
-        }
         if (isset($map['Events'])) {
             $model->events = $map['Events'];
+        }
+        if (isset($map['Spis'])) {
+            $model->spis = $map['Spis'];
         }
 
         return $model;

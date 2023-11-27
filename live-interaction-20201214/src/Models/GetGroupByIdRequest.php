@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class GetGroupByIdRequest extends Model
 {
     /**
-     * @description APP ID, IMPaaS租户的ID
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 群会话信息获取的请求体
-     *
      * @var requestParams
      */
     public $requestParams;

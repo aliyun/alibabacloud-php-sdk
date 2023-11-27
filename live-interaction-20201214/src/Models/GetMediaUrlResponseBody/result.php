@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 文件Url
+     * @example http://wu****-file-test.aliyuncs.com/ddmedia/mediaId.type?OSSAccessKeyId=ossak&Signature=sign%3D&Expires=160983****
      *
      * @var string
      */

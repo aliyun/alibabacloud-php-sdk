@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class msgConfig extends Model
 {
     /**
-     * @description 消息撤回时间间隔，毫秒
+     * @example 12000
      *
      * @var int
      */

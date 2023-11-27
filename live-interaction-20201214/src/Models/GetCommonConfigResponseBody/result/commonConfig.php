@@ -11,21 +11,17 @@ use AlibabaCloud\Tea\Model;
 class commonConfig extends Model
 {
     /**
-     * @description 登录配置
-     *
-     * @var loginConfig
-     */
-    public $loginConfig;
-
-    /**
-     * @description app配置
-     *
      * @var appConfigs[]
      */
     public $appConfigs;
+
+    /**
+     * @var loginConfig
+     */
+    public $loginConfig;
     protected $_name = [
-        'loginConfig' => 'LoginConfig',
         'appConfigs'  => 'AppConfigs',
+        'loginConfig' => 'LoginConfig',
     ];
 
     public function validate()
@@ -35,9 +31,6 @@ class commonConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->loginConfig) {
-            $res['LoginConfig'] = null !== $this->loginConfig ? $this->loginConfig->toMap() : null;
-        }
         if (null !== $this->appConfigs) {
             $res['AppConfigs'] = [];
             if (null !== $this->appConfigs && \is_array($this->appConfigs)) {
@@ -46,6 +39,9 @@ class commonConfig extends Model
                     $res['AppConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->loginConfig) {
+            $res['LoginConfig'] = null !== $this->loginConfig ? $this->loginConfig->toMap() : null;
         }
 
         return $res;
@@ -59,9 +55,6 @@ class commonConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LoginConfig'])) {
-            $model->loginConfig = loginConfig::fromMap($map['LoginConfig']);
-        }
         if (isset($map['AppConfigs'])) {
             if (!empty($map['AppConfigs'])) {
                 $model->appConfigs = [];
@@ -70,6 +63,9 @@ class commonConfig extends Model
                     $model->appConfigs[$n++] = null !== $item ? appConfigs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LoginConfig'])) {
+            $model->loginConfig = loginConfig::fromMap($map['LoginConfig']);
         }
 
         return $model;

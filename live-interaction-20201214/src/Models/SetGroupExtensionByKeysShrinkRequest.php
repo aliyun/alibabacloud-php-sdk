@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class SetGroupExtensionByKeysShrinkRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 群聊设置扩展字段请求实体
-     *
      * @var string
      */
     public $requestParamsShrink;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetUserMuteSettingShrinkRequest extends Model
 {
     /**
-     * @description AppId
-     *
      * @var string
      */
     public $appId;

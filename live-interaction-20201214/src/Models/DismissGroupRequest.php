@@ -15,8 +15,6 @@ class DismissGroupRequest extends Model
     public $appId;
 
     /**
-     * @description 解散群聊请求实体
-     *
      * @var requestParams
      */
     public $requestParams;

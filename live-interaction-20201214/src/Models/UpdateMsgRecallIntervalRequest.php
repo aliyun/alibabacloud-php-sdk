@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateMsgRecallIntervalRequest extends Model
 {
     /**
-     * @description 请求
-     *
-     * @var requestParams
-     */
-    public $requestParams;
-
-    /**
-     * @description 应用Id
+     * @example aaa111
      *
      * @var string
      */
     public $appId;
+
+    /**
+     * @var requestParams
+     */
+    public $requestParams;
     protected $_name = [
-        'requestParams' => 'RequestParams',
         'appId'         => 'AppId',
+        'requestParams' => 'RequestParams',
     ];
 
     public function validate()
@@ -34,11 +32,11 @@ class UpdateMsgRecallIntervalRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestParams) {
-            $res['RequestParams'] = null !== $this->requestParams ? $this->requestParams->toMap() : null;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->requestParams) {
+            $res['RequestParams'] = null !== $this->requestParams ? $this->requestParams->toMap() : null;
         }
 
         return $res;
@@ -52,11 +50,11 @@ class UpdateMsgRecallIntervalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestParams'])) {
-            $model->requestParams = requestParams::fromMap($map['RequestParams']);
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['RequestParams'])) {
+            $model->requestParams = requestParams::fromMap($map['RequestParams']);
         }
 
         return $model;

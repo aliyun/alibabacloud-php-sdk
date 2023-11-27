@@ -9,29 +9,29 @@ use AlibabaCloud\Tea\Model;
 class roomUserVOList extends Model
 {
     /**
-     * @description 房间ID。
+     * @example Tom
+     *
+     * @var string
+     */
+    public $nick;
+
+    /**
+     * @example 9645**c180a1
      *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 用户ID。
+     * @example 62**59
      *
      * @var string
      */
     public $userId;
-
-    /**
-     * @description 用户的昵称。
-     *
-     * @var string
-     */
-    public $nick;
     protected $_name = [
+        'nick'   => 'Nick',
         'roomId' => 'RoomId',
         'userId' => 'UserId',
-        'nick'   => 'Nick',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class roomUserVOList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nick) {
+            $res['Nick'] = $this->nick;
+        }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->nick) {
-            $res['Nick'] = $this->nick;
         }
 
         return $res;
@@ -62,14 +62,14 @@ class roomUserVOList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Nick'])) {
+            $model->nick = $map['Nick'];
+        }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['Nick'])) {
-            $model->nick = $map['Nick'];
         }
 
         return $model;

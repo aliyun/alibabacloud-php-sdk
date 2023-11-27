@@ -9,29 +9,23 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 群会话id
-     *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 禁言白名单
-     *
-     * @var string[]
-     */
-    public $whitelist;
-
-    /**
-     * @description 禁言黑名单用户及对应禁言时长
-     *
      * @var int[]
      */
     public $blacklist;
+
+    /**
+     * @var string[]
+     */
+    public $whitelist;
     protected $_name = [
         'appCid'    => 'AppCid',
-        'whitelist' => 'Whitelist',
         'blacklist' => 'Blacklist',
+        'whitelist' => 'Whitelist',
     ];
 
     public function validate()
@@ -44,11 +38,11 @@ class result extends Model
         if (null !== $this->appCid) {
             $res['AppCid'] = $this->appCid;
         }
-        if (null !== $this->whitelist) {
-            $res['Whitelist'] = $this->whitelist;
-        }
         if (null !== $this->blacklist) {
             $res['Blacklist'] = $this->blacklist;
+        }
+        if (null !== $this->whitelist) {
+            $res['Whitelist'] = $this->whitelist;
         }
 
         return $res;
@@ -65,13 +59,13 @@ class result extends Model
         if (isset($map['AppCid'])) {
             $model->appCid = $map['AppCid'];
         }
+        if (isset($map['Blacklist'])) {
+            $model->blacklist = $map['Blacklist'];
+        }
         if (isset($map['Whitelist'])) {
             if (!empty($map['Whitelist'])) {
                 $model->whitelist = $map['Whitelist'];
             }
-        }
-        if (isset($map['Blacklist'])) {
-            $model->blacklist = $map['Blacklist'];
         }
 
         return $model;

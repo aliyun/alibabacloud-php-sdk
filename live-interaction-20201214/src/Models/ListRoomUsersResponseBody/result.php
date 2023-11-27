@@ -10,29 +10,27 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 房间的历史观看成员总数。
+     * @example true
      *
-     * @var int
+     * @var bool
      */
-    public $totalCount;
+    public $hasMore;
 
     /**
-     * @description 返回的观众列表。
-     *
      * @var roomUserVOList[]
      */
     public $roomUserVOList;
 
     /**
-     * @description 是否还有下一页查询的数据。
+     * @example 100
      *
-     * @var bool
+     * @var int
      */
-    public $hasMore;
+    public $totalCount;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
-        'roomUserVOList' => 'RoomUserVOList',
         'hasMore'        => 'HasMore',
+        'roomUserVOList' => 'RoomUserVOList',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -42,8 +40,8 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->hasMore) {
+            $res['HasMore'] = $this->hasMore;
         }
         if (null !== $this->roomUserVOList) {
             $res['RoomUserVOList'] = [];
@@ -54,8 +52,8 @@ class result extends Model
                 }
             }
         }
-        if (null !== $this->hasMore) {
-            $res['HasMore'] = $this->hasMore;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -69,8 +67,8 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['HasMore'])) {
+            $model->hasMore = $map['HasMore'];
         }
         if (isset($map['RoomUserVOList'])) {
             if (!empty($map['RoomUserVOList'])) {
@@ -81,8 +79,8 @@ class result extends Model
                 }
             }
         }
-        if (isset($map['HasMore'])) {
-            $model->hasMore = $map['HasMore'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

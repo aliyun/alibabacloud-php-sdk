@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 群成员
-     *
      * @var members[]
      */
     public $members;

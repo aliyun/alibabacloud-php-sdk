@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListGroupSilenceMembersShrinkRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 群禁言添加白名单请求体
-     *
      * @var string
      */
     public $requestParamsShrink;

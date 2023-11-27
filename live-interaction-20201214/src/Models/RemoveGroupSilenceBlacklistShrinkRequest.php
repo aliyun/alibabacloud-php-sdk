@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RemoveGroupSilenceBlacklistShrinkRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 群禁言删除黑名单请求体
+     * @example apitest
      *
      * @var string
      */

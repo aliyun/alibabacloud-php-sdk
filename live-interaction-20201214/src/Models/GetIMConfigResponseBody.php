@@ -10,51 +10,49 @@ use AlibabaCloud\Tea\Model;
 class GetIMConfigResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @description 错误码
+     * @example 0
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description 网络错误码
+     * @example 200
      *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description 错误信息
+     * @example error
      *
      * @var string
      */
     public $messaage;
 
     /**
-     * @description 返回结果
-     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var result
      */
     public $result;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
         'code'           => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
         'messaage'       => 'Messaage',
+        'requestId'      => 'RequestId',
         'result'         => 'Result',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -64,12 +62,6 @@ class GetIMConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -79,8 +71,14 @@ class GetIMConfigResponseBody extends Model
         if (null !== $this->messaage) {
             $res['Messaage'] = $this->messaage;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->result) {
             $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -94,12 +92,6 @@ class GetIMConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -109,8 +101,14 @@ class GetIMConfigResponseBody extends Model
         if (isset($map['Messaage'])) {
             $model->messaage = $map['Messaage'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

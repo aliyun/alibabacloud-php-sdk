@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description AIM 用户ID
+     * @example 12345
      *
      * @var string
      */
     public $appUid;
 
     /**
-     * @description 钉钉 用户ID
+     * @example staff#coprId
      *
      * @var string
      */

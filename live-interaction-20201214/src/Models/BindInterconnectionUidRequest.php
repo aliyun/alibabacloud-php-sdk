@@ -12,13 +12,13 @@ class BindInterconnectionUidRequest extends Model
     /**
      * @description AppId
      *
+     * @example apitest
+     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 绑定用户请求体
-     *
      * @var requestParams
      */
     public $requestParams;

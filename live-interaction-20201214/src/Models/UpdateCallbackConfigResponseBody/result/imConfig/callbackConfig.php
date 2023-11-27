@@ -9,37 +9,35 @@ use AlibabaCloud\Tea\Model;
 class callbackConfig extends Model
 {
     /**
-     * @description 回调url
+     * @var string[]
+     */
+    public $apiIds;
+
+    /**
+     * @example http://test.com
      *
      * @var string
      */
     public $backendUrl;
 
     /**
-     * @description 加签密钥-key
+     * @example aaa111_0
      *
      * @var string
      */
     public $signatureKey;
 
     /**
-     * @description 加签密钥-value
+     * @example 3324ewfcsf34r
      *
      * @var string
      */
     public $signatureValue;
-
-    /**
-     * @description 回调方法列表
-     *
-     * @var string[]
-     */
-    public $apiIds;
     protected $_name = [
+        'apiIds'         => 'ApiIds',
         'backendUrl'     => 'BackendUrl',
         'signatureKey'   => 'SignatureKey',
         'signatureValue' => 'SignatureValue',
-        'apiIds'         => 'ApiIds',
     ];
 
     public function validate()
@@ -49,6 +47,9 @@ class callbackConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiIds) {
+            $res['ApiIds'] = $this->apiIds;
+        }
         if (null !== $this->backendUrl) {
             $res['BackendUrl'] = $this->backendUrl;
         }
@@ -57,9 +58,6 @@ class callbackConfig extends Model
         }
         if (null !== $this->signatureValue) {
             $res['SignatureValue'] = $this->signatureValue;
-        }
-        if (null !== $this->apiIds) {
-            $res['ApiIds'] = $this->apiIds;
         }
 
         return $res;
@@ -73,6 +71,11 @@ class callbackConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiIds'])) {
+            if (!empty($map['ApiIds'])) {
+                $model->apiIds = $map['ApiIds'];
+            }
+        }
         if (isset($map['BackendUrl'])) {
             $model->backendUrl = $map['BackendUrl'];
         }
@@ -81,11 +84,6 @@ class callbackConfig extends Model
         }
         if (isset($map['SignatureValue'])) {
             $model->signatureValue = $map['SignatureValue'];
-        }
-        if (isset($map['ApiIds'])) {
-            if (!empty($map['ApiIds'])) {
-                $model->apiIds = $map['ApiIds'];
-            }
         }
 
         return $model;

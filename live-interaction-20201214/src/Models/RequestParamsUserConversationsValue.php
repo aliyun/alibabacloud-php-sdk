@@ -9,50 +9,44 @@ use AlibabaCloud\Tea\Model;
 class RequestParamsUserConversationsValue extends Model
 {
     /**
-     * @description 是否置顶
+     * @example true
      *
      * @var bool
      */
     public $top;
 
     /**
-     * @description 未读数
+     * @example 0
      *
      * @var int
      */
     public $redPoint;
 
     /**
-     * @description 是否免打扰
+     * @example false
      *
      * @var bool
      */
     public $mute;
 
     /**
-     * @description 是否可见
+     * @example 1
      *
      * @var bool
      */
     public $visible;
 
     /**
-     * @description 创建时间戳
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 修改时间戳
-     *
      * @var int
      */
     public $modifyTime;
 
     /**
-     * @description 自定义信息
-     *
      * @var string[]
      */
     public $userExtensions;

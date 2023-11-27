@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppStatusRequest extends Model
 {
     /**
-     * @description 应用Id
+     * @example aaa111
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 请求
-     *
      * @var requestParams
      */
     public $requestParams;

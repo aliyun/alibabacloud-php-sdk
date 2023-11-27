@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 房间id
+     * @example testRoomId
      *
      * @var string
      */

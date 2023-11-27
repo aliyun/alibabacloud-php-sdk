@@ -9,26 +9,26 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 用户id
-     *
-     * @var string
-     */
-    public $appUid;
-
-    /**
-     * @description 会话id
+     * @example $1$10010:10086
      *
      * @var string
      */
     public $appCid;
 
     /**
+     * @example 123456
+     *
+     * @var string
+     */
+    public $appUid;
+
+    /**
      * @var string[]
      */
     public $keys;
     protected $_name = [
-        'appUid' => 'AppUid',
         'appCid' => 'AppCid',
+        'appUid' => 'AppUid',
         'keys'   => 'Keys',
     ];
 
@@ -39,11 +39,11 @@ class requestParams extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appUid) {
-            $res['AppUid'] = $this->appUid;
-        }
         if (null !== $this->appCid) {
             $res['AppCid'] = $this->appCid;
+        }
+        if (null !== $this->appUid) {
+            $res['AppUid'] = $this->appUid;
         }
         if (null !== $this->keys) {
             $res['Keys'] = $this->keys;
@@ -60,11 +60,11 @@ class requestParams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppUid'])) {
-            $model->appUid = $map['AppUid'];
-        }
         if (isset($map['AppCid'])) {
             $model->appCid = $map['AppCid'];
+        }
+        if (isset($map['AppUid'])) {
+            $model->appUid = $map['AppUid'];
         }
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {

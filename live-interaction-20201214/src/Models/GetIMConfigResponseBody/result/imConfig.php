@@ -11,21 +11,17 @@ use AlibabaCloud\Tea\Model;
 class imConfig extends Model
 {
     /**
-     * @description 消息配置
-     *
-     * @var msgConfig
-     */
-    public $msgConfig;
-
-    /**
-     * @description 回调配置
-     *
      * @var callbackConfig
      */
     public $callbackConfig;
+
+    /**
+     * @var msgConfig
+     */
+    public $msgConfig;
     protected $_name = [
-        'msgConfig'      => 'MsgConfig',
         'callbackConfig' => 'CallbackConfig',
+        'msgConfig'      => 'MsgConfig',
     ];
 
     public function validate()
@@ -35,11 +31,11 @@ class imConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->msgConfig) {
-            $res['MsgConfig'] = null !== $this->msgConfig ? $this->msgConfig->toMap() : null;
-        }
         if (null !== $this->callbackConfig) {
             $res['CallbackConfig'] = null !== $this->callbackConfig ? $this->callbackConfig->toMap() : null;
+        }
+        if (null !== $this->msgConfig) {
+            $res['MsgConfig'] = null !== $this->msgConfig ? $this->msgConfig->toMap() : null;
         }
 
         return $res;
@@ -53,11 +49,11 @@ class imConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MsgConfig'])) {
-            $model->msgConfig = msgConfig::fromMap($map['MsgConfig']);
-        }
         if (isset($map['CallbackConfig'])) {
             $model->callbackConfig = callbackConfig::fromMap($map['CallbackConfig']);
+        }
+        if (isset($map['MsgConfig'])) {
+            $model->msgConfig = msgConfig::fromMap($map['MsgConfig']);
         }
 
         return $model;

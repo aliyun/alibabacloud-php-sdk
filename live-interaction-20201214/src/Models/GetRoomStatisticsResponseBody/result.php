@@ -9,29 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 当前房间的在线观众数。
+     * @example 100
      *
      * @var int
      */
     public $onlineCount;
 
     /**
-     * @description 当前房间的历史用户访问数目（UV）。
-     *
-     * @var int
-     */
-    public $UV;
-
-    /**
-     * @description 当前房间的历史访问数目（PV）。
+     * @example 100
      *
      * @var int
      */
     public $PV;
+
+    /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $UV;
     protected $_name = [
         'onlineCount' => 'OnlineCount',
-        'UV'          => 'UV',
         'PV'          => 'PV',
+        'UV'          => 'UV',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class result extends Model
         if (null !== $this->onlineCount) {
             $res['OnlineCount'] = $this->onlineCount;
         }
-        if (null !== $this->UV) {
-            $res['UV'] = $this->UV;
-        }
         if (null !== $this->PV) {
             $res['PV'] = $this->PV;
+        }
+        if (null !== $this->UV) {
+            $res['UV'] = $this->UV;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class result extends Model
         if (isset($map['OnlineCount'])) {
             $model->onlineCount = $map['OnlineCount'];
         }
-        if (isset($map['UV'])) {
-            $model->UV = $map['UV'];
-        }
         if (isset($map['PV'])) {
             $model->PV = $map['PV'];
+        }
+        if (isset($map['UV'])) {
+            $model->UV = $map['UV'];
         }
 
         return $model;

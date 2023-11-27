@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class SetGroupMemberExtensionByKeysRequest extends Model
 {
     /**
-     * @description App ID, IMPaaS租户的ID
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 设置群成员扩展信息的请求体
-     *
      * @var requestParams
      */
     public $requestParams;

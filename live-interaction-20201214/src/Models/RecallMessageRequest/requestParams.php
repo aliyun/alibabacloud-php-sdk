@@ -9,53 +9,51 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 操作者ID
-     *
-     * @var string
-     */
-    public $appUid;
-
-    /**
-     * @description 会话ID
+     * @example 28017165705
      *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 消息ID
+     * @example 950000010
+     *
+     * @var string
+     */
+    public $appUid;
+
+    /**
+     * @var string[]
+     */
+    public $extensions;
+
+    /**
+     * @example 28017165705.center_daily
      *
      * @var string
      */
     public $msgId;
 
     /**
-     * @description 撤回显示类型（默认为0)。0：静默撤回，不显示撤回信息，1：普通撤回，显示撤回信息；
-     *
-     * @var int
-     */
-    public $type;
-
-    /**
-     * @description 操作者类型(默认为0)。0: 发送者; 1: 群主; 2: 系统; 3: 安全合规; 101: 业务自定义类型
+     * @example 0
      *
      * @var int
      */
     public $operatorType;
 
     /**
-     * @description 业务自定义扩展字段
+     * @example 0
      *
-     * @var string[]
+     * @var int
      */
-    public $extensions;
+    public $type;
     protected $_name = [
-        'appUid'       => 'AppUid',
         'appCid'       => 'AppCid',
-        'msgId'        => 'MsgId',
-        'type'         => 'Type',
-        'operatorType' => 'OperatorType',
+        'appUid'       => 'AppUid',
         'extensions'   => 'Extensions',
+        'msgId'        => 'MsgId',
+        'operatorType' => 'OperatorType',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -65,23 +63,23 @@ class requestParams extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appCid) {
+            $res['AppCid'] = $this->appCid;
+        }
         if (null !== $this->appUid) {
             $res['AppUid'] = $this->appUid;
         }
-        if (null !== $this->appCid) {
-            $res['AppCid'] = $this->appCid;
+        if (null !== $this->extensions) {
+            $res['Extensions'] = $this->extensions;
         }
         if (null !== $this->msgId) {
             $res['MsgId'] = $this->msgId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->operatorType) {
             $res['OperatorType'] = $this->operatorType;
         }
-        if (null !== $this->extensions) {
-            $res['Extensions'] = $this->extensions;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -95,23 +93,23 @@ class requestParams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppCid'])) {
+            $model->appCid = $map['AppCid'];
+        }
         if (isset($map['AppUid'])) {
             $model->appUid = $map['AppUid'];
         }
-        if (isset($map['AppCid'])) {
-            $model->appCid = $map['AppCid'];
+        if (isset($map['Extensions'])) {
+            $model->extensions = $map['Extensions'];
         }
         if (isset($map['MsgId'])) {
             $model->msgId = $map['MsgId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['OperatorType'])) {
             $model->operatorType = $map['OperatorType'];
         }
-        if (isset($map['Extensions'])) {
-            $model->extensions = $map['Extensions'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

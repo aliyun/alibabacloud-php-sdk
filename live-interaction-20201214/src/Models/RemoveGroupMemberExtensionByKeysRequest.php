@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class RemoveGroupMemberExtensionByKeysRequest extends Model
 {
     /**
-     * @description App ID, IMPaaS租户的ID
+     * @example apitest
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 删除群成员扩展信息的请求体
-     *
      * @var requestParams
      */
     public $requestParams;

@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 会话ID
+     * @example $2$111000
      *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 操作者用户ID
+     * @example 80000010
      *
      * @var string
      */
     public $operatorAppUid;
 
     /**
-     * @description 群聊标题
+     * @example 新群聊标题
      *
      * @var string
      */

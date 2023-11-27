@@ -9,43 +9,45 @@ use AlibabaCloud\Tea\Model;
 class UpdateTenantStatusResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @example C02635EE-C867-4CC0-9DE0-E4497378****
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example true
      *
      * @var bool
      */
     public $responseSuccess;
 
     /**
-     * @description 错误码
+     * @example 1001
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
+     * @example 参数错误
      *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description 是否更新成功
+     * @example true
      *
      * @var bool
      */
     public $result;
-
-    /**
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
+        'requestId'       => 'RequestId',
         'responseSuccess' => 'ResponseSuccess',
         'errorCode'       => 'errorCode',
         'errorMsg'        => 'errorMsg',
         'result'          => 'result',
-        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -55,6 +57,9 @@ class UpdateTenantStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->responseSuccess) {
             $res['ResponseSuccess'] = $this->responseSuccess;
         }
@@ -66,9 +71,6 @@ class UpdateTenantStatusResponseBody extends Model
         }
         if (null !== $this->result) {
             $res['result'] = $this->result;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -82,6 +84,9 @@ class UpdateTenantStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['ResponseSuccess'])) {
             $model->responseSuccess = $map['ResponseSuccess'];
         }
@@ -93,9 +98,6 @@ class UpdateTenantStatusResponseBody extends Model
         }
         if (isset($map['result'])) {
             $model->result = $map['result'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

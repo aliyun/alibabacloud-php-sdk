@@ -11,13 +11,13 @@ class QueryInterconnectionCidMappingShrinkRequest extends Model
     /**
      * @description AppId
      *
+     * @example apitest
+     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 查询请求体
-     *
      * @var string
      */
     public $requestParamsShrink;

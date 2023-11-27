@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ImportGroupChatMemberShrinkRequest extends Model
 {
     /**
-     * @description AppId
+     * @example apitest
      *
      * @var string
      */

@@ -9,29 +9,29 @@ use AlibabaCloud\Tea\Model;
 class request extends Model
 {
     /**
-     * @description 应用appKey
+     * @example testAppKey
      *
      * @var string
      */
     public $domain;
 
     /**
-     * @description 房间id
-     *
-     * @var string
-     */
-    public $roomId;
-
-    /**
-     * @description 操作人id
+     * @example testOpenId
      *
      * @var string
      */
     public $openId;
+
+    /**
+     * @example testRoomId
+     *
+     * @var string
+     */
+    public $roomId;
     protected $_name = [
         'domain' => 'domain',
-        'roomId' => 'roomId',
         'openId' => 'openId',
+        'roomId' => 'roomId',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class request extends Model
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
         }
-        if (null !== $this->roomId) {
-            $res['roomId'] = $this->roomId;
-        }
         if (null !== $this->openId) {
             $res['openId'] = $this->openId;
+        }
+        if (null !== $this->roomId) {
+            $res['roomId'] = $this->roomId;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class request extends Model
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
         }
-        if (isset($map['roomId'])) {
-            $model->roomId = $map['roomId'];
-        }
         if (isset($map['openId'])) {
             $model->openId = $map['openId'];
+        }
+        if (isset($map['roomId'])) {
+            $model->roomId = $map['roomId'];
         }
 
         return $model;

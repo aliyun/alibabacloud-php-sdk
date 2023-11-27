@@ -14,8 +14,6 @@ class DismissGroupShrinkRequest extends Model
     public $appId;
 
     /**
-     * @description 解散群聊请求实体
-     *
      * @var string
      */
     public $requestParamsShrink;

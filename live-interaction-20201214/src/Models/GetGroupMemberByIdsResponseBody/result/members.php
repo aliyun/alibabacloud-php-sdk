@@ -14,9 +14,14 @@ class members extends Model
     public $appUid;
 
     /**
+     * @var string[]
+     */
+    public $extensions;
+
+    /**
      * @var int
      */
-    public $role;
+    public $joinTime;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class members extends Model
     /**
      * @var int
      */
-    public $joinTime;
-
-    /**
-     * @var string[]
-     */
-    public $extensions;
+    public $role;
     protected $_name = [
         'appUid'     => 'AppUid',
-        'role'       => 'Role',
-        'nick'       => 'Nick',
-        'joinTime'   => 'JoinTime',
         'extensions' => 'Extensions',
+        'joinTime'   => 'JoinTime',
+        'nick'       => 'Nick',
+        'role'       => 'Role',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class members extends Model
         if (null !== $this->appUid) {
             $res['AppUid'] = $this->appUid;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
-        if (null !== $this->nick) {
-            $res['Nick'] = $this->nick;
+        if (null !== $this->extensions) {
+            $res['Extensions'] = $this->extensions;
         }
         if (null !== $this->joinTime) {
             $res['JoinTime'] = $this->joinTime;
         }
-        if (null !== $this->extensions) {
-            $res['Extensions'] = $this->extensions;
+        if (null !== $this->nick) {
+            $res['Nick'] = $this->nick;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class members extends Model
         if (isset($map['AppUid'])) {
             $model->appUid = $map['AppUid'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
-        if (isset($map['Nick'])) {
-            $model->nick = $map['Nick'];
+        if (isset($map['Extensions'])) {
+            $model->extensions = $map['Extensions'];
         }
         if (isset($map['JoinTime'])) {
             $model->joinTime = $map['JoinTime'];
         }
-        if (isset($map['Extensions'])) {
-            $model->extensions = $map['Extensions'];
+        if (isset($map['Nick'])) {
+            $model->nick = $map['Nick'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
 
         return $model;

@@ -9,53 +9,53 @@ use AlibabaCloud\Tea\Model;
 class roomMessageList extends Model
 {
     /**
-     * @description 房间ID。
+     * @example Hello,World
      *
      * @var string
      */
-    public $roomId;
+    public $body;
 
     /**
-     * @description 消息的唯一ID标识。由数字、大小写字母组成，长度不超过20。
+     * @example 0io**Fs6Q384
      *
      * @var string
      */
     public $messageId;
 
     /**
-     * @description 消息的类型。
-     *
-     * @var int
-     */
-    public $subType;
-
-    /**
-     * @description 消息的发送者ID。
+     * @example 9645**c180a1
      *
      * @var string
      */
-    public $senderId;
+    public $roomId;
 
     /**
-     * @description 消息的发送时间,毫秒unix时间戳。
+     * @example 1625125505079
      *
      * @var int
      */
     public $sendTimeMillis;
 
     /**
-     * @description 消息体。
+     * @example 62***59
      *
      * @var string
      */
-    public $body;
+    public $senderId;
+
+    /**
+     * @example 100001
+     *
+     * @var int
+     */
+    public $subType;
     protected $_name = [
-        'roomId'         => 'RoomId',
-        'messageId'      => 'MessageId',
-        'subType'        => 'SubType',
-        'senderId'       => 'SenderId',
-        'sendTimeMillis' => 'SendTimeMillis',
         'body'           => 'Body',
+        'messageId'      => 'MessageId',
+        'roomId'         => 'RoomId',
+        'sendTimeMillis' => 'SendTimeMillis',
+        'senderId'       => 'SenderId',
+        'subType'        => 'SubType',
     ];
 
     public function validate()
@@ -65,23 +65,23 @@ class roomMessageList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
+        if (null !== $this->body) {
+            $res['Body'] = $this->body;
         }
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
-        if (null !== $this->subType) {
-            $res['SubType'] = $this->subType;
-        }
-        if (null !== $this->senderId) {
-            $res['SenderId'] = $this->senderId;
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
         }
         if (null !== $this->sendTimeMillis) {
             $res['SendTimeMillis'] = $this->sendTimeMillis;
         }
-        if (null !== $this->body) {
-            $res['Body'] = $this->body;
+        if (null !== $this->senderId) {
+            $res['SenderId'] = $this->senderId;
+        }
+        if (null !== $this->subType) {
+            $res['SubType'] = $this->subType;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class roomMessageList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
+        if (isset($map['Body'])) {
+            $model->body = $map['Body'];
         }
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
-        if (isset($map['SubType'])) {
-            $model->subType = $map['SubType'];
-        }
-        if (isset($map['SenderId'])) {
-            $model->senderId = $map['SenderId'];
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
         }
         if (isset($map['SendTimeMillis'])) {
             $model->sendTimeMillis = $map['SendTimeMillis'];
         }
-        if (isset($map['Body'])) {
-            $model->body = $map['Body'];
+        if (isset($map['SenderId'])) {
+            $model->senderId = $map['SenderId'];
+        }
+        if (isset($map['SubType'])) {
+            $model->subType = $map['SubType'];
         }
 
         return $model;

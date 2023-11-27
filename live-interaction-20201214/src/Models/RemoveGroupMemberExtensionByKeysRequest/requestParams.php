@@ -9,22 +9,20 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 会话ID
+     * @example $2$11222333
      *
      * @var string
      */
     public $appCid;
 
     /**
-     * @description 用户ID
+     * @example 11112
      *
      * @var string
      */
     public $appUid;
 
     /**
-     * @description 扩展信息中需要删除的key列表
-     *
      * @var string[]
      */
     public $keys;

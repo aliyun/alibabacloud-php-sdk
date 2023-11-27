@@ -11,12 +11,14 @@ class appConfigs extends Model
     /**
      * @description appKey
      *
+     * @example sdfwfsefewadzsdfasd
+     *
      * @var string
      */
     public $appKey;
 
     /**
-     * @description 平台
+     * @example iOS
      *
      * @var string
      */

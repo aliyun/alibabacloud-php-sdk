@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppStatusShrinkRequest extends Model
 {
     /**
-     * @description 应用Id
+     * @example aaa111
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 请求
-     *
      * @var string
      */
     public $requestParamsShrink;
