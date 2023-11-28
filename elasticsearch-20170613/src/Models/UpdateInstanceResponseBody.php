@@ -10,6 +10,18 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @description The time when the instance was created.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -17,10 +29,19 @@ class UpdateInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The state of the instance. Valid values:
+     *
+     *   active: normal
+     *   activating: taking effect
+     *   inactive: frozen
+     *   invalid: invalid
+     *
      * @var result
      */
     public $result;
     protected $_name = [
+        'code'      => 'Code',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
         'result'    => 'Result',
     ];
@@ -32,6 +53,12 @@ class UpdateInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,6 +77,12 @@ class UpdateInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

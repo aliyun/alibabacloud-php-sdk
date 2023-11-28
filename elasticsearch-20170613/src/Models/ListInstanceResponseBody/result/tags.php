@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The size of the node storage space. Unit: GB.
+     *
      * @example env
      *
      * @var string
@@ -16,6 +18,8 @@ class tags extends Model
     public $tagKey;
 
     /**
+     * @description The storage type of the node. Only ultra disks (cloud_efficiency) are supported.
+     *
      * @example dev
      *
      * @var string

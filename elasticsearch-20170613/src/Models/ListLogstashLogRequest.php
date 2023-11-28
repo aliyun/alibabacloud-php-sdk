@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashLogRequest extends Model
 {
     /**
+     * @description 20
+     *
      * @example 1531910852074
      *
      * @var int
@@ -16,6 +18,8 @@ class ListLogstashLogRequest extends Model
     public $beginTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1531910852074
      *
      * @var int
@@ -23,6 +27,8 @@ class ListLogstashLogRequest extends Model
     public $endTime;
 
     /**
+     * @description The returned data.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListLogstashLogRequest extends Model
     public $page;
 
     /**
+     * @description 1
+     *
      * @example host:10.7.xx.xx AND level:info AND content:opening
      *
      * @var string
@@ -37,6 +45,8 @@ class ListLogstashLogRequest extends Model
     public $query;
 
     /**
+     * @description The severity level of the log entry. Including trace, debug, info, warn, error, etc. (GC logs have no level).
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +54,8 @@ class ListLogstashLogRequest extends Model
     public $size;
 
     /**
+     * @description 1531910852074
+     *
      * @example LOGSTASH_INSTANCE_LOG
      *
      * @var string

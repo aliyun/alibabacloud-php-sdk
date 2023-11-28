@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallKibanaSystemPluginResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DC****
      *
      * @var string
@@ -16,6 +18,8 @@ class InstallKibanaSystemPluginResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of plug-ins to be installed.
+     *
      * @var string[]
      */
     public $result;

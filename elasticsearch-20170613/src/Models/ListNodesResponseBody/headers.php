@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The number of entries returned.
+     *
      * @example 10
      *
      * @var int

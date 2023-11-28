@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceIndicesRequest extends Model
 {
     /**
+     * @description false
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class ListInstanceIndicesRequest extends Model
     public $all;
 
     /**
+     * @description 15
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class ListInstanceIndicesRequest extends Model
     public $isManaged;
 
     /**
+     * @description The ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class ListInstanceIndicesRequest extends Model
     public $isOpenstore;
 
     /**
+     * @description 1
+     *
      * @example log-0001
      *
      * @var string
@@ -37,6 +45,8 @@ class ListInstanceIndicesRequest extends Model
     public $name;
 
     /**
+     * @description The header of the response.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class ListInstanceIndicesRequest extends Model
     public $page;
 
     /**
+     * @description The total size of the index in Cloud Hosting. Unit: bytes.
+     *
      * @example 15
      *
      * @var int

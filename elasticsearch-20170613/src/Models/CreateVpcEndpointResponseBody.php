@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointResponseBody extends Model
 {
     /**
+     * @description The endpoint domain name, which is used to configure the connection.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DCC47D9
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateVpcEndpointResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the endpoint on the service VPC side.
+     *
      * @var result
      */
     public $result;

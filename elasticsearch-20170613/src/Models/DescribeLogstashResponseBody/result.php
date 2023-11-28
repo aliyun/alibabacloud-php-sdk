@@ -14,11 +14,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The configuration information of the node.
+     *
      * @var mixed[][]
      */
     public $extendConfigs;
 
     /**
+     * @description The number of data nodes.
+     *
      * @example rg-aekzvowej3i****
      *
      * @var string
@@ -26,16 +30,28 @@ class result extends Model
     public $resourceGroupId;
 
     /**
+     * @description The key of the tag.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The status of the zone. Valid values:
+     *
+     *   ISOLATION: offline
+     *   NORMAL
+     *
      * @var zoneInfos[]
      */
     public $zoneInfos;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   prepaid: subscription
+     *   postpaid: pay-as-you-go
+     *
      * @example {"slowlog.threshold.warn": "2s","slowlog.threshold.info": "1s","slowlog.threshold.debug": "500ms","slowlog.threshold.trace": "100ms" }
      *
      * @var mixed[]
@@ -43,6 +59,13 @@ class result extends Model
     public $config;
 
     /**
+     * @description The state of the instance. Four states are supported:
+     *
+     *   Normal: active
+     *   Active: activating
+     *   Freeze: inactive
+     *   Invalid: invalid
+     *
      * @example 2020-02-06T14:12:03.672Z
      *
      * @var string
@@ -50,6 +73,8 @@ class result extends Model
     public $createdAt;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @example ls-cn-abc
      *
      * @var string
@@ -57,11 +82,15 @@ class result extends Model
     public $description;
 
     /**
+     * @description The ID of the zone where the node resides.
+     *
      * @var endpointList[]
      */
     public $endpointList;
 
     /**
+     * @description The access information of the node.
+     *
      * @example ls-cn-abc
      *
      * @var string
@@ -69,11 +98,15 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @var networkConfig
      */
     public $networkConfig;
 
     /**
+     * @description The name of the instance.
+     *
      * @example 2
      *
      * @var int
@@ -81,11 +114,15 @@ class result extends Model
     public $nodeAmount;
 
     /**
+     * @description The specifications of the node.
+     *
      * @var nodeSpec
      */
     public $nodeSpec;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
      * @example prepaid
      *
      * @var string
@@ -93,6 +130,8 @@ class result extends Model
     public $paymentType;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the elastic container instances belong.
+     *
      * @example active
      *
      * @var string
@@ -100,6 +139,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The edition of the dedicated KMS instance.
+     *
      * @example 2020-02-06T14:22:36.850Z
      *
      * @var string
@@ -107,6 +148,8 @@ class result extends Model
     public $updatedAt;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 7.4.0_with_X-Pack
      *
      * @var string
@@ -114,6 +157,8 @@ class result extends Model
     public $version;
 
     /**
+     * @description The time when the instance was last updated.
+     *
      * @example vpc-bp16k1dvzxtmagcva****
      *
      * @var string

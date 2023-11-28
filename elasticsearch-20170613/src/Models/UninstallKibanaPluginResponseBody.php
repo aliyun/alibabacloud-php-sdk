@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UninstallKibanaPluginResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D****
      *
      * @var string
@@ -16,6 +18,8 @@ class UninstallKibanaPluginResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result shows a list of uninstalled plug-ins.
+     *
      * @var string[]
      */
     public $result;

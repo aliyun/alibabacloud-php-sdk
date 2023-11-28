@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InitializeOperationRoleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 29101430-4797-4D1D-96C3-9FCBCCA8F845
      *
      * @var string
@@ -16,6 +18,11 @@ class InitializeOperationRoleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the service-linked role is created. Valid values:
+     *
+     *   true: The service-linked role is created.
+     *   false: The service-linked role fails to be created.
+     *
      * @example true
      *
      * @var bool

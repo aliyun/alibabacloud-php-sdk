@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the pipeline was created.
+     *
      * @example 50
      *
      * @var int
@@ -23,6 +25,8 @@ class result extends Model
     public $batchSize;
 
     /**
+     * @description The description of the pipeline.
+     *
      * @example input {  }  filter {  }  output {  }
      *
      * @var string
@@ -30,6 +34,12 @@ class result extends Model
     public $config;
 
     /**
+     * @description The state of the MPS queue. Valid values:
+     *
+     *   NOT_DEPLOYED: The node is not deployed.
+     *   RUNNING
+     *   DELETED: Deleted. The console does not display this status.
+     *
      * @example this is a test
      *
      * @var string
@@ -44,6 +54,8 @@ class result extends Model
     public $gmtCreatedTime;
 
     /**
+     * @description The total capacity of the queue in bytes. Unit: MB.
+     *
      * @example 2020-06-20T07:26:47.000+0000
      *
      * @var string
@@ -51,6 +63,8 @@ class result extends Model
     public $gmtUpdateTime;
 
     /**
+     * @description Number of queue checkpoint writes.
+     *
      * @example pipeline_test
      *
      * @var string
@@ -65,6 +79,8 @@ class result extends Model
     public $pipelineStatus;
 
     /**
+     * @description Pipeline batch delay. Unit: milliseconds.
+     *
      * @example 1024
      *
      * @var int
@@ -72,6 +88,8 @@ class result extends Model
     public $queueCheckPointWrites;
 
     /**
+     * @description The number of pipeline workers.
+     *
      * @example 1024
      *
      * @var int
@@ -79,13 +97,17 @@ class result extends Model
     public $queueMaxBytes;
 
     /**
-     * @example memory
+     * @description The specific configuration of the pipeline.
+     *
+     * @example MEMORY
      *
      * @var string
      */
     public $queueType;
 
     /**
+     * @description The size of the pipeline batch.
+     *
      * @example 2
      *
      * @var int

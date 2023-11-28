@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenewLogstashResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DC****
      *
      * @var string
@@ -16,6 +18,11 @@ class RenewLogstashResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result. Valid values:
+     *
+     *   true: The cluster is renewed.
+     *   false: The cluster fails to be renewed.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The IP address of the node that generates the log.
+     *
      * @example 1000
      *
      * @var int

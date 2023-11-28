@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example es-cn-6ja1ro4jt000c****
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The address of the repository.
+     *
      * @example RepoPath
      *
      * @var string

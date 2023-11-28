@@ -16,6 +16,8 @@ class sinkCluster extends Model
     public $dataSourceType;
 
     /**
+     * @description The settings configuration.
+     *
      * @example index_001
      *
      * @var string
@@ -23,6 +25,8 @@ class sinkCluster extends Model
     public $index;
 
     /**
+     * @description The type of the target index.
+     *
      * @example {\"doc\":{\"properties\":{\"interval_ms\":{\"type\":\"long\"},....}
      *
      * @var string
@@ -30,6 +34,8 @@ class sinkCluster extends Model
     public $mapping;
 
     /**
+     * @description The name of the target index.
+     *
      * @example xxxxx
      *
      * @var string
@@ -37,6 +43,8 @@ class sinkCluster extends Model
     public $password;
 
     /**
+     * @description The username of the destination cluster.
+     *
      * @example cluster_name
      *
      * @var string
@@ -44,6 +52,8 @@ class sinkCluster extends Model
     public $routing;
 
     /**
+     * @description Mapping configuration.
+     *
      * @example {\n  \"index\": {\n    \"replication\": {\n      \"type\": .....}
      *
      * @var string
@@ -51,6 +61,8 @@ class sinkCluster extends Model
     public $settings;
 
     /**
+     * @description The routing field. The primary key field is used by default.
+     *
      * @example index_001
      *
      * @var string
@@ -58,6 +70,8 @@ class sinkCluster extends Model
     public $type;
 
     /**
+     * @description The ID of the Virtual Private Cloud to which the cluster belongs. If the cluster access address is a public domain name, you can not specify the private endpoint.
+     *
      * @example elastic
      *
      * @var string
@@ -65,6 +79,8 @@ class sinkCluster extends Model
     public $username;
 
     /**
+     * @description The access port number of the cluster.
+     *
      * @example vpc-2ze55voww95g82gak****
      *
      * @var string
@@ -72,6 +88,8 @@ class sinkCluster extends Model
     public $vpcId;
 
     /**
+     * @description The type of the target cluster.
+     *
      * @example es-cn-oew1oxiro000f****-worker
      *
      * @var string
@@ -79,6 +97,8 @@ class sinkCluster extends Model
     public $vpcInstanceId;
 
     /**
+     * @description The instance ID of the cluster under the Virtual Private Cloud, or the ID of the SLB instance.
+     *
      * @example 9200
      *
      * @var string

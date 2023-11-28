@@ -30,6 +30,8 @@ class tagResource extends Model
     public $tagKey;
 
     /**
+     * @description The tag key.
+     *
      * @example dev
      *
      * @var string

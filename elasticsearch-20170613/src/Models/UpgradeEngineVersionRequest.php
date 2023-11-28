@@ -23,6 +23,8 @@ class UpgradeEngineVersionRequest extends Model
     public $version;
 
     /**
+     * @description The moderation results.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
      *
      * @var string
@@ -30,6 +32,13 @@ class UpgradeEngineVersionRequest extends Model
     public $clientToken;
 
     /**
+     * @description The monitoring type. Valid values:
+     *
+     *   checkClusterHealth: Cluster Health Status
+     *   checkConfigCompatible: Configuration Compatibility Status
+     *   checkClusterResource: resource space status
+     *   checkClusterSnapshot: Whether a snapshot exists
+     *
      * @example false
      *
      * @var bool

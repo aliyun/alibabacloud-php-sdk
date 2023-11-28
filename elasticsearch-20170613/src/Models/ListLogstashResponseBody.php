@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashResponseBody extends Model
 {
     /**
+     * @description The billing method of the instance. Supported: prepaid (subscription) and postpaid (pay-as-you-go).
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description Detailed information about the matching instances.
+     *
      * @example AC442F2F-5068-4434-AA21-E78947A9****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListLogstashResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The name of the VPC.
+     *
      * @var result[]
      */
     public $result;

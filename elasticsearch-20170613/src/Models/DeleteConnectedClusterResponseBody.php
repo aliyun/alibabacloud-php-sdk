@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteConnectedClusterResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteConnectedClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Return results:
+     *
+     *   true: remove the interworking instance successfully
+     *   false: remove the interworking instance failed
+     *
      * @example true
      *
      * @var bool

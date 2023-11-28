@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopPipelinesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -16,6 +18,11 @@ class StopPipelinesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result. Valid values:
+     *
+     *   true: The pipelines are stopped.
+     *   false: The pipelines fail to be stopped.
+     *
      * @example true
      *
      * @var bool

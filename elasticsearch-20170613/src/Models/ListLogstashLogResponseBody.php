@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashLogResponseBody extends Model
 {
     /**
+     * @description The details of the log.
+     *
      * @example 7F40EAA1-6F1D-4DD9-8DB8-C5F00C4E****
      *
      * @var string
@@ -17,6 +19,8 @@ class ListLogstashLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The timestamp of log generation. Unit: ms.
+     *
      * @var result[]
      */
     public $result;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The unit.
+     *
      * @example second
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $unit;
 
     /**
+     * @description The estimated restart time.
+     *
      * @example 600
      *
      * @var int

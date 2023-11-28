@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataTasksRequest extends Model
 {
     /**
+     * @description es-cn-n6w1o1x0w001c\*\*\*\*
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
      *
      * @var string

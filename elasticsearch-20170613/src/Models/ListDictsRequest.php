@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListDictsRequest extends Model
 {
     /**
+     * @description The type of the dictionary. Valid values:
+     *
+     *   IK: IK dictionary after a standard update
+     *   IK_HOT: IK dictionary after a rolling update
+     *   SYNONYMS: synonym dictionary
+     *   ALIWS: Alibaba Cloud dictionary
+     *
      * @example IK
      *
      * @var string
@@ -16,6 +23,8 @@ class ListDictsRequest extends Model
     public $analyzerType;
 
     /**
+     * @description The name of the dictionary file.
+     *
      * @example SYSTEM_MAIN.dic
      *
      * @var string

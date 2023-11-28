@@ -6,14 +6,16 @@ namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteIndexTemplateRequest extends Model
+class ListDiagnosisItemsRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
-    public $body;
+    public $lang;
     protected $_name = [
-        'body' => 'body',
+        'lang' => 'lang',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class DeleteIndexTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->lang) {
+            $res['lang'] = $this->lang;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class DeleteIndexTemplateRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteIndexTemplateRequest
+     * @return ListDiagnosisItemsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['lang'])) {
+            $model->lang = $map['lang'];
         }
 
         return $model;

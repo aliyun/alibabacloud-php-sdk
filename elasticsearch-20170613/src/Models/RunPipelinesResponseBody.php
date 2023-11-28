@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunPipelinesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -16,6 +18,11 @@ class RunPipelinesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result. Valid values:
+     *
+     *   true: successful
+     *   false: failed
+     *
      * @example true
      *
      * @var bool

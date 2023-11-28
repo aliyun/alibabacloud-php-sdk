@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelLogstashDeletionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 23EBF56B-2DC0-4507-8BE5-B87395DB0FEB
      *
      * @var string
@@ -16,6 +18,11 @@ class CancelLogstashDeletionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the cluster is restored. Valid values:
+     *
+     *   true: The cluster is restored.
+     *   false: The cluster is not restored.
+     *
      * @example true
      *
      * @var bool

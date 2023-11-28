@@ -166,6 +166,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDiagnoseReportIdsRequest
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDiagnoseReportIdsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDiagnoseReportRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDiagnoseReportResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDiagnosisItemsRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDiagnosisItemsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictInformationRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictInformationResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictsRequest;
@@ -1068,12 +1070,19 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param CreateDataTasksRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @deprecated
+     *   * Before you call this operation, note that:
+     *   * *   Currently, the one-click index migration feature only supports the China (Beijing) region.
+     *   * *   The source and destination Elasticsearch clusters must meet the following requirements: a user-created or Alibaba Cloud Elasticsearch Elasticsearch cluster with a source of version 6.7.0 and a Alibaba Cloud Elasticsearch Elasticsearch cluster with a destination of version 6.3.2 or 6.7.0.
+     *   *
+     * Deprecated
      *
-     * @return CreateDataTasksResponse
+     * @param string                 $InstanceId
+     * @param CreateDataTasksRequest $request    CreateDataTasksRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataTasksResponse CreateDataTasksResponse
      */
     public function createDataTasksWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1103,10 +1112,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param CreateDataTasksRequest $request
+     * @deprecated
+     *   * Before you call this operation, note that:
+     *   * *   Currently, the one-click index migration feature only supports the China (Beijing) region.
+     *   * *   The source and destination Elasticsearch clusters must meet the following requirements: a user-created or Alibaba Cloud Elasticsearch Elasticsearch cluster with a source of version 6.7.0 and a Alibaba Cloud Elasticsearch Elasticsearch cluster with a destination of version 6.3.2 or 6.7.0.
+     *   *
+     * Deprecated
      *
-     * @return CreateDataTasksResponse
+     * @param string                 $InstanceId
+     * @param CreateDataTasksRequest $request    CreateDataTasksRequest
+     *
+     * @return CreateDataTasksResponse CreateDataTasksResponse
      */
     public function createDataTasks($InstanceId, $request)
     {
@@ -1266,6 +1282,9 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->paymentType)) {
             $body['paymentType'] = $request->paymentType;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->version)) {
             $body['version'] = $request->version;
         }
@@ -1323,7 +1342,7 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => Utils::toArray($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreatePipelines',
@@ -1404,12 +1423,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*.
+     *   *
      * @param string                   $InstanceId
-     * @param CreateVpcEndpointRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CreateVpcEndpointRequest $request    CreateVpcEndpointRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateVpcEndpointResponse
+     * @return CreateVpcEndpointResponse CreateVpcEndpointResponse
      */
     public function createVpcEndpointWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1449,10 +1470,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*.
+     *   *
      * @param string                   $InstanceId
-     * @param CreateVpcEndpointRequest $request
+     * @param CreateVpcEndpointRequest $request    CreateVpcEndpointRequest
      *
-     * @return CreateVpcEndpointResponse
+     * @return CreateVpcEndpointResponse CreateVpcEndpointResponse
      */
     public function createVpcEndpoint($InstanceId, $request)
     {
@@ -1931,12 +1954,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+     *   *
      * @param string                $InstanceId
-     * @param DeleteLogstashRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param DeleteLogstashRequest $request    DeleteLogstashRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteLogstashResponse
+     * @return DeleteLogstashResponse DeleteLogstashResponse
      */
     public function deleteLogstashWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1968,10 +1993,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+     *   *
      * @param string                $InstanceId
-     * @param DeleteLogstashRequest $request
+     * @param DeleteLogstashRequest $request    DeleteLogstashRequest
      *
-     * @return DeleteLogstashResponse
+     * @return DeleteLogstashResponse DeleteLogstashResponse
      */
     public function deleteLogstash($InstanceId, $request)
     {
@@ -2134,11 +2161,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+     *   *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeAckOperatorResponse
+     * @return DescribeAckOperatorResponse DescribeAckOperatorResponse
      */
     public function describeAckOperatorWithOptions($ClusterId, $headers, $runtime)
     {
@@ -2161,9 +2190,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+     *   *
      * @param string $ClusterId
      *
-     * @return DescribeAckOperatorResponse
+     * @return DescribeAckOperatorResponse DescribeAckOperatorResponse
      */
     public function describeAckOperator($ClusterId)
     {
@@ -2524,11 +2555,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * An Elasticsearch cluster can be in a health state indicated by one of the following colors:
+     *   * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
+     *   * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
+     *   * *   RED: Primary shards are not normally allocated.
+     *   *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeElasticsearchHealthResponse
+     * @return DescribeElasticsearchHealthResponse DescribeElasticsearchHealthResponse
      */
     public function describeElasticsearchHealthWithOptions($InstanceId, $headers, $runtime)
     {
@@ -2551,9 +2587,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * An Elasticsearch cluster can be in a health state indicated by one of the following colors:
+     *   * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
+     *   * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
+     *   * *   RED: Primary shards are not normally allocated.
+     *   *
      * @param string $InstanceId
      *
-     * @return DescribeElasticsearchHealthResponse
+     * @return DescribeElasticsearchHealthResponse DescribeElasticsearchHealthResponse
      */
     public function describeElasticsearchHealth($InstanceId)
     {
@@ -3580,11 +3621,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param InitializeOperationRoleRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+     *   *
+     * @param InitializeOperationRoleRequest $request InitializeOperationRoleRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitializeOperationRoleResponse
+     * @return InitializeOperationRoleResponse InitializeOperationRoleResponse
      */
     public function initializeOperationRoleWithOptions($request, $headers, $runtime)
     {
@@ -3614,9 +3657,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param InitializeOperationRoleRequest $request
+     * > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+     *   *
+     * @param InitializeOperationRoleRequest $request InitializeOperationRoleRequest
      *
-     * @return InitializeOperationRoleResponse
+     * @return InitializeOperationRoleResponse InitializeOperationRoleResponse
      */
     public function initializeOperationRole($request)
     {
@@ -3627,12 +3672,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+     *   *
      * @param string                    $ClusterId
-     * @param InstallAckOperatorRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param InstallAckOperatorRequest $request   InstallAckOperatorRequest
+     * @param string[]                  $headers   map
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return InstallAckOperatorResponse
+     * @return InstallAckOperatorResponse InstallAckOperatorResponse
      */
     public function installAckOperatorWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -3662,10 +3709,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+     *   *
      * @param string                    $ClusterId
-     * @param InstallAckOperatorRequest $request
+     * @param InstallAckOperatorRequest $request   InstallAckOperatorRequest
      *
-     * @return InstallAckOperatorResponse
+     * @return InstallAckOperatorResponse InstallAckOperatorResponse
      */
     public function installAckOperator($ClusterId, $request)
     {
@@ -3725,12 +3774,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * ls-cn-oew1qbgl\\*\\*\\*\\*.
+     *   *
      * @param string                             $InstanceId
-     * @param InstallLogstashSystemPluginRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param InstallLogstashSystemPluginRequest $request    InstallLogstashSystemPluginRequest
+     * @param string[]                           $headers    map
+     * @param RuntimeOptions                     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InstallLogstashSystemPluginResponse
+     * @return InstallLogstashSystemPluginResponse InstallLogstashSystemPluginResponse
      */
     public function installLogstashSystemPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3760,10 +3811,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * ls-cn-oew1qbgl\\*\\*\\*\\*.
+     *   *
      * @param string                             $InstanceId
-     * @param InstallLogstashSystemPluginRequest $request
+     * @param InstallLogstashSystemPluginRequest $request    InstallLogstashSystemPluginRequest
      *
-     * @return InstallLogstashSystemPluginResponse
+     * @return InstallLogstashSystemPluginResponse InstallLogstashSystemPluginResponse
      */
     public function installLogstashSystemPlugin($InstanceId, $request)
     {
@@ -4015,12 +4068,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+     *   *
      * @param string                   $ClusterId
-     * @param ListAckNamespacesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListAckNamespacesRequest $request   ListAckNamespacesRequest
+     * @param string[]                 $headers   map
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListAckNamespacesResponse
+     * @return ListAckNamespacesResponse ListAckNamespacesResponse
      */
     public function listAckNamespacesWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -4052,10 +4107,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+     *   *
      * @param string                   $ClusterId
-     * @param ListAckNamespacesRequest $request
+     * @param ListAckNamespacesRequest $request   ListAckNamespacesRequest
      *
-     * @return ListAckNamespacesResponse
+     * @return ListAckNamespacesResponse ListAckNamespacesResponse
      */
     public function listAckNamespaces($ClusterId, $request)
     {
@@ -4858,6 +4915,52 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @param ListDiagnosisItemsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListDiagnosisItemsResponse
+     */
+    public function listDiagnosisItemsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDiagnosisItems',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/diagnosis/items',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDiagnosisItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDiagnosisItemsRequest $request
+     *
+     * @return ListDiagnosisItemsResponse
+     */
+    public function listDiagnosisItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDiagnosisItemsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param string                     $InstanceId
      * @param ListDictInformationRequest $request
      * @param string[]                   $headers
@@ -4963,11 +5066,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListEcsInstancesRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](~~146446~~).
+     *   *
+     * @param ListEcsInstancesRequest $request ListEcsInstancesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEcsInstancesResponse
+     * @return ListEcsInstancesResponse ListEcsInstancesResponse
      */
     public function listEcsInstancesWithOptions($request, $headers, $runtime)
     {
@@ -5011,9 +5116,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListEcsInstancesRequest $request
+     * **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](~~146446~~).
+     *   *
+     * @param ListEcsInstancesRequest $request ListEcsInstancesRequest
      *
-     * @return ListEcsInstancesResponse
+     * @return ListEcsInstancesResponse ListEcsInstancesResponse
      */
     public function listEcsInstances($request)
     {
@@ -5912,12 +6019,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+     *   *
      * @param string                     $InstanceId
-     * @param ListShardRecoveriesRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListShardRecoveriesRequest $request    ListShardRecoveriesRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListShardRecoveriesResponse
+     * @return ListShardRecoveriesResponse ListShardRecoveriesResponse
      */
     public function listShardRecoveriesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -5946,10 +6055,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+     *   *
      * @param string                     $InstanceId
-     * @param ListShardRecoveriesRequest $request
+     * @param ListShardRecoveriesRequest $request    ListShardRecoveriesRequest
      *
-     * @return ListShardRecoveriesResponse
+     * @return ListShardRecoveriesResponse ListShardRecoveriesResponse
      */
     public function listShardRecoveries($InstanceId, $request)
     {
@@ -6161,12 +6272,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
+     *   * *   The error message returned because the current account is in a zone that has sufficient resources.
+     *   *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](~~96650~~) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
+     *   * *   The cluster is in the healthy state.
+     *   *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+     *   *
      * @param string                    $InstanceId
-     * @param MigrateToOtherZoneRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param MigrateToOtherZoneRequest $request    MigrateToOtherZoneRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return MigrateToOtherZoneResponse
+     * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
      */
     public function migrateToOtherZoneWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6196,10 +6313,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
+     *   * *   The error message returned because the current account is in a zone that has sufficient resources.
+     *   *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](~~96650~~) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
+     *   * *   The cluster is in the healthy state.
+     *   *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+     *   *
      * @param string                    $InstanceId
-     * @param MigrateToOtherZoneRequest $request
+     * @param MigrateToOtherZoneRequest $request    MigrateToOtherZoneRequest
      *
-     * @return MigrateToOtherZoneResponse
+     * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
      */
     public function migrateToOtherZone($InstanceId, $request)
     {
@@ -6303,12 +6426,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * es-cn-n6w1o1x0w001c\\*\\*\\*\\*.
+     *   *
      * @param string                            $InstanceId
-     * @param ModifyInstanceMaintainTimeRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param ModifyInstanceMaintainTimeRequest $request    ModifyInstanceMaintainTimeRequest
+     * @param string[]                          $headers    map
+     * @param RuntimeOptions                    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceMaintainTimeResponse
+     * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
      */
     public function modifyInstanceMaintainTimeWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6338,10 +6463,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * es-cn-n6w1o1x0w001c\\*\\*\\*\\*.
+     *   *
      * @param string                            $InstanceId
-     * @param ModifyInstanceMaintainTimeRequest $request
+     * @param ModifyInstanceMaintainTimeRequest $request    ModifyInstanceMaintainTimeRequest
      *
-     * @return ModifyInstanceMaintainTimeResponse
+     * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
      */
     public function modifyInstanceMaintainTime($InstanceId, $request)
     {
@@ -6352,12 +6479,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * The ID of the cluster.
+     *   *
      * @param string                $InstanceId
-     * @param ModifyWhiteIpsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param ModifyWhiteIpsRequest $request    ModifyWhiteIpsRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyWhiteIpsResponse
+     * @return ModifyWhiteIpsResponse ModifyWhiteIpsResponse
      */
     public function modifyWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6403,10 +6532,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * The ID of the cluster.
+     *   *
      * @param string                $InstanceId
-     * @param ModifyWhiteIpsRequest $request
+     * @param ModifyWhiteIpsRequest $request    ModifyWhiteIpsRequest
      *
-     * @return ModifyWhiteIpsResponse
+     * @return ModifyWhiteIpsResponse ModifyWhiteIpsResponse
      */
     public function modifyWhiteIps($InstanceId, $request)
     {
@@ -6517,12 +6648,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * >  To ensure data security, we recommend that you enable HTTPS.
+     *   *
      * @param string           $InstanceId
-     * @param OpenHttpsRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param OpenHttpsRequest $request    OpenHttpsRequest
+     * @param string[]         $headers    map
+     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return OpenHttpsResponse
+     * @return OpenHttpsResponse OpenHttpsResponse
      */
     public function openHttpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6551,10 +6684,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * >  To ensure data security, we recommend that you enable HTTPS.
+     *   *
      * @param string           $InstanceId
-     * @param OpenHttpsRequest $request
+     * @param OpenHttpsRequest $request    OpenHttpsRequest
      *
-     * @return OpenHttpsResponse
+     * @return OpenHttpsResponse OpenHttpsResponse
      */
     public function openHttps($InstanceId, $request)
     {
@@ -6894,12 +7029,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+     *   *
      * @param string                 $InstanceId
-     * @param RestartInstanceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param RestartInstanceRequest $request    RestartInstanceRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6932,10 +7069,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+     *   *
      * @param string                 $InstanceId
-     * @param RestartInstanceRequest $request
+     * @param RestartInstanceRequest $request    RestartInstanceRequest
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstance($InstanceId, $request)
     {
@@ -7767,6 +7906,9 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->force)) {
+            $query['force'] = $request->force;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -7802,11 +7944,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * When you call this operation, take note of the following items:
+     *   * *   You can only delete user tags.
+     *   * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
+     *   * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -7845,9 +7992,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * When you call this operation, take note of the following items:
+     *   * *   You can only delete user tags.
+     *   * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
+     *   * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -7858,12 +8010,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*.
+     *   *
      * @param string                     $InstanceId
-     * @param UpdateAdminPasswordRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateAdminPasswordRequest $request    UpdateAdminPasswordRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateAdminPasswordResponse
+     * @return UpdateAdminPasswordResponse UpdateAdminPasswordResponse
      */
     public function updateAdminPasswordWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7897,10 +8051,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*.
+     *   *
      * @param string                     $InstanceId
-     * @param UpdateAdminPasswordRequest $request
+     * @param UpdateAdminPasswordRequest $request    UpdateAdminPasswordRequest
      *
-     * @return UpdateAdminPasswordResponse
+     * @return UpdateAdminPasswordResponse UpdateAdminPasswordResponse
      */
     public function updateAdminPassword($InstanceId, $request)
     {
@@ -7960,12 +8116,17 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Before you call this operation, take note of the following items:
+     *   * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
+     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *   *
      * @param string                 $InstanceId
-     * @param UpdateAliwsDictRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateAliwsDictRequest $request    UpdateAliwsDictRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateAliwsDictResponse
+     * @return UpdateAliwsDictResponse UpdateAliwsDictResponse
      */
     public function updateAliwsDictWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7995,10 +8156,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Before you call this operation, take note of the following items:
+     *   * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
+     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *   *
      * @param string                 $InstanceId
-     * @param UpdateAliwsDictRequest $request
+     * @param UpdateAliwsDictRequest $request    UpdateAliwsDictRequest
      *
-     * @return UpdateAliwsDictResponse
+     * @return UpdateAliwsDictResponse UpdateAliwsDictResponse
      */
     public function updateAliwsDict($InstanceId, $request)
     {
@@ -8381,12 +8547,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Before you call this operation, take note of the following items:
+     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *   *
      * @param string            $InstanceId
-     * @param UpdateDictRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param UpdateDictRequest $request    UpdateDictRequest
+     * @param string[]          $headers    map
+     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateDictResponse
+     * @return UpdateDictResponse UpdateDictResponse
      */
     public function updateDictWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8416,10 +8586,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Before you call this operation, take note of the following items:
+     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *   *
      * @param string            $InstanceId
-     * @param UpdateDictRequest $request
+     * @param UpdateDictRequest $request    UpdateDictRequest
      *
-     * @return UpdateDictResponse
+     * @return UpdateDictResponse UpdateDictResponse
      */
     public function updateDict($InstanceId, $request)
     {
@@ -8534,12 +8708,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+     *   *
      * @param string                   $InstanceId
-     * @param UpdateExtendfilesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param UpdateExtendfilesRequest $request    UpdateExtendfilesRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateExtendfilesResponse
+     * @return UpdateExtendfilesResponse UpdateExtendfilesResponse
      */
     public function updateExtendfilesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8569,10 +8745,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+     *   *
      * @param string                   $InstanceId
-     * @param UpdateExtendfilesRequest $request
+     * @param UpdateExtendfilesRequest $request    UpdateExtendfilesRequest
      *
-     * @return UpdateExtendfilesResponse
+     * @return UpdateExtendfilesResponse UpdateExtendfilesResponse
      */
     public function updateExtendfiles($InstanceId, $request)
     {
@@ -8583,12 +8761,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Before you call this operation, take note of the following items:
+     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *   *
      * @param string                  $InstanceId
-     * @param UpdateHotIkDictsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param UpdateHotIkDictsRequest $request    UpdateHotIkDictsRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateHotIkDictsResponse
+     * @return UpdateHotIkDictsResponse UpdateHotIkDictsResponse
      */
     public function updateHotIkDictsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8618,10 +8800,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Before you call this operation, take note of the following items:
+     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *   *
      * @param string                  $InstanceId
-     * @param UpdateHotIkDictsRequest $request
+     * @param UpdateHotIkDictsRequest $request    UpdateHotIkDictsRequest
      *
-     * @return UpdateHotIkDictsResponse
+     * @return UpdateHotIkDictsResponse UpdateHotIkDictsResponse
      */
     public function updateHotIkDicts($InstanceId, $request)
     {
@@ -8734,12 +8920,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * es-cn-n6w1ptcb30009\\*\\*\\*\\*.
+     *   *
      * @param string                $InstanceId
-     * @param UpdateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateInstanceRequest $request    UpdateInstanceRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8800,10 +8988,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * es-cn-n6w1ptcb30009\\*\\*\\*\\*.
+     *   *
      * @param string                $InstanceId
-     * @param UpdateInstanceRequest $request
+     * @param UpdateInstanceRequest $request    UpdateInstanceRequest
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstance($InstanceId, $request)
     {
@@ -8863,12 +9053,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * When you call this operation, take note of the following items:
+     *   * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+     *   *
      * @param string                        $InstanceId
-     * @param UpdateInstanceSettingsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateInstanceSettingsRequest $request    UpdateInstanceSettingsRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceSettingsResponse
+     * @return UpdateInstanceSettingsResponse UpdateInstanceSettingsResponse
      */
     public function updateInstanceSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8898,10 +9091,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * When you call this operation, take note of the following items:
+     *   * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+     *   *
      * @param string                        $InstanceId
-     * @param UpdateInstanceSettingsRequest $request
+     * @param UpdateInstanceSettingsRequest $request    UpdateInstanceSettingsRequest
      *
-     * @return UpdateInstanceSettingsResponse
+     * @return UpdateInstanceSettingsResponse UpdateInstanceSettingsResponse
      */
     public function updateInstanceSettings($InstanceId, $request)
     {
@@ -8961,12 +9157,18 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
+     *   * *   You can update an IP address whitelist by using the following parameters:
+     *   *     *   kibanaIPWhitelist
+     *   *     *   modifyMode and whiteIpGroup
+     *   * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+     *   *
      * @param string                      $InstanceId
-     * @param UpdateKibanaWhiteIpsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param UpdateKibanaWhiteIpsRequest $request    UpdateKibanaWhiteIpsRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateKibanaWhiteIpsResponse
+     * @return UpdateKibanaWhiteIpsResponse UpdateKibanaWhiteIpsResponse
      */
     public function updateKibanaWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9006,10 +9208,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
+     *   * *   You can update an IP address whitelist by using the following parameters:
+     *   *     *   kibanaIPWhitelist
+     *   *     *   modifyMode and whiteIpGroup
+     *   * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+     *   *
      * @param string                      $InstanceId
-     * @param UpdateKibanaWhiteIpsRequest $request
+     * @param UpdateKibanaWhiteIpsRequest $request    UpdateKibanaWhiteIpsRequest
      *
-     * @return UpdateKibanaWhiteIpsResponse
+     * @return UpdateKibanaWhiteIpsResponse UpdateKibanaWhiteIpsResponse
      */
     public function updateKibanaWhiteIps($InstanceId, $request)
     {
@@ -9125,12 +9333,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+     *   *
      * @param string                           $InstanceId
-     * @param UpdateLogstashDescriptionRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param UpdateLogstashDescriptionRequest $request    UpdateLogstashDescriptionRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateLogstashDescriptionResponse
+     * @return UpdateLogstashDescriptionResponse UpdateLogstashDescriptionResponse
      */
     public function updateLogstashDescriptionWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9139,10 +9349,14 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLogstashDescription',
@@ -9160,10 +9374,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+     *   *
      * @param string                           $InstanceId
-     * @param UpdateLogstashDescriptionRequest $request
+     * @param UpdateLogstashDescriptionRequest $request    UpdateLogstashDescriptionRequest
      *
-     * @return UpdateLogstashDescriptionResponse
+     * @return UpdateLogstashDescriptionResponse UpdateLogstashDescriptionResponse
      */
     public function updateLogstashDescription($InstanceId, $request)
     {
@@ -9174,12 +9390,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * When you call this operation, take note of the following items:
+     *   * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+     *   *
      * @param string                        $InstanceId
-     * @param UpdateLogstashSettingsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateLogstashSettingsRequest $request    UpdateLogstashSettingsRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateLogstashSettingsResponse
+     * @return UpdateLogstashSettingsResponse UpdateLogstashSettingsResponse
      */
     public function updateLogstashSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9209,10 +9428,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * When you call this operation, take note of the following items:
+     *   * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+     *   *
      * @param string                        $InstanceId
-     * @param UpdateLogstashSettingsRequest $request
+     * @param UpdateLogstashSettingsRequest $request    UpdateLogstashSettingsRequest
      *
-     * @return UpdateLogstashSettingsResponse
+     * @return UpdateLogstashSettingsResponse UpdateLogstashSettingsResponse
      */
     public function updateLogstashSettings($InstanceId, $request)
     {
@@ -9340,12 +9562,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
+     *   *
      * @param string                              $InstanceId
-     * @param UpdatePrivateNetworkWhiteIpsRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @param UpdatePrivateNetworkWhiteIpsRequest $request    UpdatePrivateNetworkWhiteIpsRequest
+     * @param string[]                            $headers    map
+     * @param RuntimeOptions                      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdatePrivateNetworkWhiteIpsResponse
+     * @return UpdatePrivateNetworkWhiteIpsResponse UpdatePrivateNetworkWhiteIpsResponse
      */
     public function updatePrivateNetworkWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9378,10 +9602,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
+     *   *
      * @param string                              $InstanceId
-     * @param UpdatePrivateNetworkWhiteIpsRequest $request
+     * @param UpdatePrivateNetworkWhiteIpsRequest $request    UpdatePrivateNetworkWhiteIpsRequest
      *
-     * @return UpdatePrivateNetworkWhiteIpsResponse
+     * @return UpdatePrivateNetworkWhiteIpsResponse UpdatePrivateNetworkWhiteIpsResponse
      */
     public function updatePrivateNetworkWhiteIps($InstanceId, $request)
     {
@@ -9392,12 +9618,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * When you call this operation, take note of the following items:
+     *   * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+     *   *
      * @param string                     $InstanceId
-     * @param UpdatePublicNetworkRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdatePublicNetworkRequest $request    UpdatePublicNetworkRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdatePublicNetworkResponse
+     * @return UpdatePublicNetworkResponse UpdatePublicNetworkResponse
      */
     public function updatePublicNetworkWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9427,10 +9656,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * When you call this operation, take note of the following items:
+     *   * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+     *   *
      * @param string                     $InstanceId
-     * @param UpdatePublicNetworkRequest $request
+     * @param UpdatePublicNetworkRequest $request    UpdatePublicNetworkRequest
      *
-     * @return UpdatePublicNetworkResponse
+     * @return UpdatePublicNetworkResponse UpdatePublicNetworkResponse
      */
     public function updatePublicNetwork($InstanceId, $request)
     {
@@ -9441,12 +9673,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
+     *   *
      * @param string                      $InstanceId
-     * @param UpdatePublicWhiteIpsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param UpdatePublicWhiteIpsRequest $request    UpdatePublicWhiteIpsRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdatePublicWhiteIpsResponse
+     * @return UpdatePublicWhiteIpsResponse UpdatePublicWhiteIpsResponse
      */
     public function updatePublicWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9479,10 +9713,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
+     *   *
      * @param string                      $InstanceId
-     * @param UpdatePublicWhiteIpsRequest $request
+     * @param UpdatePublicWhiteIpsRequest $request    UpdatePublicWhiteIpsRequest
      *
-     * @return UpdatePublicWhiteIpsResponse
+     * @return UpdatePublicWhiteIpsResponse UpdatePublicWhiteIpsResponse
      */
     public function updatePublicWhiteIps($InstanceId, $request)
     {
@@ -9586,12 +9822,16 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Before you call this operation, take note of the following items:
+     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *   *
      * @param string                     $InstanceId
-     * @param UpdateSynonymsDictsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateSynonymsDictsRequest $request    UpdateSynonymsDictsRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateSynonymsDictsResponse
+     * @return UpdateSynonymsDictsResponse UpdateSynonymsDictsResponse
      */
     public function updateSynonymsDictsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9621,10 +9861,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Before you call this operation, take note of the following items:
+     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *   *
      * @param string                     $InstanceId
-     * @param UpdateSynonymsDictsRequest $request
+     * @param UpdateSynonymsDictsRequest $request    UpdateSynonymsDictsRequest
      *
-     * @return UpdateSynonymsDictsResponse
+     * @return UpdateSynonymsDictsResponse UpdateSynonymsDictsResponse
      */
     public function updateSynonymsDicts($InstanceId, $request)
     {
@@ -9686,12 +9930,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](~~142230~~). You cannot force your program to obtain these parameters.
+     *   *
      * @param string                $InstanceId
-     * @param UpdateWhiteIpsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateWhiteIpsRequest $request    UpdateWhiteIpsRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateWhiteIpsResponse
+     * @return UpdateWhiteIpsResponse UpdateWhiteIpsResponse
      */
     public function updateWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9731,10 +9977,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](~~142230~~). You cannot force your program to obtain these parameters.
+     *   *
      * @param string                $InstanceId
-     * @param UpdateWhiteIpsRequest $request
+     * @param UpdateWhiteIpsRequest $request    UpdateWhiteIpsRequest
      *
-     * @return UpdateWhiteIpsResponse
+     * @return UpdateWhiteIpsResponse UpdateWhiteIpsResponse
      */
     public function updateWhiteIps($InstanceId, $request)
     {
@@ -9807,12 +10055,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*.
+     *   *
      * @param string                      $InstanceId
-     * @param UpgradeEngineVersionRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param UpgradeEngineVersionRequest $request    UpgradeEngineVersionRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpgradeEngineVersionResponse
+     * @return UpgradeEngineVersionResponse UpgradeEngineVersionResponse
      */
     public function upgradeEngineVersionWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9852,10 +10102,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*.
+     *   *
      * @param string                      $InstanceId
-     * @param UpgradeEngineVersionRequest $request
+     * @param UpgradeEngineVersionRequest $request    UpgradeEngineVersionRequest
      *
-     * @return UpgradeEngineVersionResponse
+     * @return UpgradeEngineVersionResponse UpgradeEngineVersionResponse
      */
     public function upgradeEngineVersion($InstanceId, $request)
     {
@@ -9866,12 +10118,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+     *   *
      * @param string                    $InstanceId
-     * @param ValidateConnectionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ValidateConnectionRequest $request    ValidateConnectionRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ValidateConnectionResponse
+     * @return ValidateConnectionResponse ValidateConnectionResponse
      */
     public function validateConnectionWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9901,10 +10155,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+     *   *
      * @param string                    $InstanceId
-     * @param ValidateConnectionRequest $request
+     * @param ValidateConnectionRequest $request    ValidateConnectionRequest
      *
-     * @return ValidateConnectionResponse
+     * @return ValidateConnectionResponse ValidateConnectionResponse
      */
     public function validateConnection($InstanceId, $request)
     {
@@ -10068,11 +10324,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * The configurations of warm nodes.
+     *   *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $headers, $runtime)
     {
@@ -10084,6 +10342,9 @@ class Elasticsearch extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->clientNodeConfiguration)) {
             $body['clientNodeConfiguration'] = $request->clientNodeConfiguration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->elasticDataNodeConfiguration)) {
             $body['elasticDataNodeConfiguration'] = $request->elasticDataNodeConfiguration;
@@ -10118,6 +10379,12 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->paymentType)) {
             $body['paymentType'] = $request->paymentType;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
         if (!Utils::isUnset($request->warmNodeConfiguration)) {
             $body['warmNodeConfiguration'] = $request->warmNodeConfiguration;
         }
@@ -10138,16 +10405,18 @@ class Elasticsearch extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType'    => 'none',
         ]);
 
         return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * The configurations of warm nodes.
+     *   *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {

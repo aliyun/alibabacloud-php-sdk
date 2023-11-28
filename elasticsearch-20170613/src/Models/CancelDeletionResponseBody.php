@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelDeletionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example D682B6B3-B425-46DA-A5FC-5F5C60553622
      *
      * @var string
@@ -16,6 +18,11 @@ class CancelDeletionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the cluster is restored. Valid values:
+     *
+     *   true: The cluster is restored.
+     *   false: The cluster fails to be restored.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceCluster extends Model
 {
     /**
+     * @description The information about the target cluster.
+     *
      * @example elasticsearch
      *
      * @var string
@@ -16,6 +18,8 @@ class sourceCluster extends Model
     public $dataSourceType;
 
     /**
+     * @description The username of the source cluster.
+     *
      * @example http://10.20.xx.xx:9200
      *
      * @var string
@@ -23,6 +27,8 @@ class sourceCluster extends Model
     public $endpoint;
 
     /**
+     * @description The type of the specified index.
+     *
      * @example index_001
      *
      * @var string
@@ -30,6 +36,8 @@ class sourceCluster extends Model
     public $index;
 
     /**
+     * @description Specifies the indexes to be migrated.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -37,6 +45,8 @@ class sourceCluster extends Model
     public $password;
 
     /**
+     * @description The public domain name of the cluster.
+     *
      * @example index_001
      *
      * @var string
@@ -44,6 +54,8 @@ class sourceCluster extends Model
     public $type;
 
     /**
+     * @description The ID of the Virtual Private Cloud where the source cluster resides. If the cluster access address is a public domain name, you can not specify the private endpoint.
+     *
      * @example elastic
      *
      * @var string
@@ -51,6 +63,8 @@ class sourceCluster extends Model
     public $username;
 
     /**
+     * @description The instance ID of the cluster under the Virtual Private Cloud, or the ID of the SLB instance.
+     *
      * @example vpc-2ze55voww95g82gak****
      *
      * @var string
@@ -58,6 +72,8 @@ class sourceCluster extends Model
     public $vpcId;
 
     /**
+     * @description The access port number of the source cluster.
+     *
      * @example es-cn-oew1oxiro000f****-worker
      *
      * @var string
@@ -65,6 +81,8 @@ class sourceCluster extends Model
     public $vpcInstanceId;
 
     /**
+     * @description The type of the source cluster. Default value: Elasticsearch.
+     *
      * @example 9200
      *
      * @var int

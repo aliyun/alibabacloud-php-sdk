@@ -16,6 +16,8 @@ class result extends Model
     public $content;
 
     /**
+     * @description *
+     ****
      * @example dynamicSettings
      *
      * @var string

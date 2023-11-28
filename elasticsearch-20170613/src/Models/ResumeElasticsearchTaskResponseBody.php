@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResumeElasticsearchTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -16,6 +18,11 @@ class ResumeElasticsearchTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Return results:
+     *
+     *   true: resume the interrupted change successfully
+     *   false: resume the interrupted change successfully failed
+     *
      * @example true
      *
      * @var bool

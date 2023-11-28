@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class extendConfigs extends Model
 {
     /**
+     * @description The type of the configuration items. Valid values:
+     *
+     *   collectorTargetInstance: indicates the information about the output of the shipper.
+     *   collectorDeployMachine: indicates the information about the machine on which the shipper is installed.
+     *   collectorElasticsearchForKibana: indicates the information about the Elasticsearch cluster for which Kibana Dashboard is enabled.
+     *
      * @example collectorDeployMachine
      *
      * @var string
@@ -17,6 +23,8 @@ class extendConfigs extends Model
     public $configType;
 
     /**
+     * @description Indicates whether Kibana Monitoring is enabled. This parameter is returned only when **configType** is set to **collectorTargetInstance** and **instanceType** is set to **elasticsearch**. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +32,8 @@ class extendConfigs extends Model
     public $enableMonitoring;
 
     /**
+     * @description The machine group ID. This parameter is returned only when **configType** is set to **collectorDeployMachine**.
+     *
      * @example default_ct-cn-5i2l75bz4776****
      *
      * @var string
@@ -31,6 +41,8 @@ class extendConfigs extends Model
     public $groupId;
 
     /**
+     * @description The address that is used to access Kibana over an internal network after you enable Kibana Dashboard. This parameter is returned only when **configType** is set to **collectorElasticsearchForKibana**.
+     *
      * @example es-cn-n6w1o1x0w001c****-kibana.internal.elasticsearch.aliyuncs.com:5601
      *
      * @var string
@@ -43,6 +55,8 @@ class extendConfigs extends Model
     public $hosts;
 
     /**
+     * @description The ID of the object that is associated with the shipper. If **configType** is set to **collectorTargetInstance**, the value of this parameter is the ID of the output of the shipper. If **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**, the value of this parameter is the ID of an ACK cluster.
+     *
      * @example es-cn-nif1z89fz003i****
      *
      * @var string
@@ -50,6 +64,8 @@ class extendConfigs extends Model
     public $instanceId;
 
     /**
+     * @description The type of the output of the shipper. Valid values: elasticsearch and logstash. This parameter is returned only when **configType** is set to **collectorTargetInstance**.
+     *
      * @example elasticsearch
      *
      * @var string
@@ -57,6 +73,8 @@ class extendConfigs extends Model
     public $instanceType;
 
     /**
+     * @description The address that is used to access Kibana over the Internet after you enable Kibana Dashboard. This parameter is returned only when **configType** is set to **collectorElasticsearchForKibana**.
+     *
      * @example https://es-cn-nif1z89fz003i****.kibana.elasticsearch.aliyuncs.com:5601
      *
      * @var string
@@ -64,11 +82,16 @@ class extendConfigs extends Model
     public $kibanaHost;
 
     /**
+     * @description This parameter is returned only when configType is set to collectorDeployMachine.
+     *
+     * This parameter indicates the information about the ECS instances or ACK clusters on which the shipper is installed.
      * @var machines[]
      */
     public $machines;
 
     /**
+     * @description The transfer protocol that is used. It is the same as the protocol over which you can access the output of the shipper. Valid values: HTTP and HTTPS. This parameter is returned only when **configType** is set to **collectorTargetInstance**.
+     *
      * @example HTTP
      *
      * @var string
@@ -76,6 +99,8 @@ class extendConfigs extends Model
     public $protocol;
 
     /**
+     * @description The number of pods from which logs are successfully collected in the ACK cluster. This parameter is returned only when **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**.
+     *
      * @example 8
      *
      * @var string
@@ -83,6 +108,8 @@ class extendConfigs extends Model
     public $successPodsCount;
 
     /**
+     * @description The number of pods from which logs needed to be collected in the ACK cluster. This parameter is returned only when **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**.
+     *
      * @example 10
      *
      * @var string
@@ -90,6 +117,11 @@ class extendConfigs extends Model
     public $totalPodsCount;
 
     /**
+     * @description The type of the machine on which the shipper is installed. This parameter is returned only when **configType** is set to **collectorDeployMachine**. Valid values:
+     *
+     *   ECSInstanceId
+     *   ACKCluster
+     *
      * @example ECSInstanceId
      *
      * @var string
@@ -97,6 +129,8 @@ class extendConfigs extends Model
     public $type;
 
     /**
+     * @description The username that is used to access the output of the shipper. Default value: elastic. This parameter is returned only when **configType** is set to **collectorTargetInstance** or **collectorElasticsearchForKibana**.
+     *
      * @example elastic
      *
      * @var string

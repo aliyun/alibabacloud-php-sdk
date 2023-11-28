@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the report.
+     *
      * @example 1535745731000
      *
      * @var int
@@ -17,11 +19,15 @@ class result extends Model
     public $createTime;
 
     /**
+     * @description The name of the item.
+     *
      * @var diagnoseItems[]
      */
     public $diagnoseItems;
 
     /**
+     * @description Reports the list of diagnostic item information.
+     *
      * @example YELLOW
      *
      * @var string
@@ -29,6 +35,8 @@ class result extends Model
     public $health;
 
     /**
+     * @description The overall health of the cluster in the report. Supported: GREEN, YELLOW, RED, and UNKNOWN.
+     *
      * @example es-cn-abc
      *
      * @var string
@@ -36,6 +44,8 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The diagnosis status. Valid values: Supported: SUCCESS, FAILED, and RUNNING.
+     *
      * @example trigger__2020-08-17T17:09:02f
      *
      * @var string
@@ -43,6 +53,8 @@ class result extends Model
     public $reportId;
 
     /**
+     * @description The ID of the instance for diagnosis.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -50,6 +62,8 @@ class result extends Model
     public $state;
 
     /**
+     * @description The timestamp when the report was created.
+     *
      * @example USER
      *
      * @var string

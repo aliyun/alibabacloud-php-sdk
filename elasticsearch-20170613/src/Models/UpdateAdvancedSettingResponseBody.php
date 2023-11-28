@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAdvancedSettingResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D****
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateAdvancedSettingResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Return results:
+     *
+     *   true: garbage collector configuration changed successfully
+     *   false: garbage collector configuration changed successfully failed
+     *
      * @example true
      *
      * @var bool

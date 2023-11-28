@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class networkConfig extends Model
 {
     /**
+     * @description The IP address whitelists.
+     *
      * @example vpc
      *
      * @var string
@@ -17,6 +19,8 @@ class networkConfig extends Model
     public $type;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vpc-bp1jy348ibzulk6hn****
      *
      * @var string
@@ -24,6 +28,8 @@ class networkConfig extends Model
     public $vpcId;
 
     /**
+     * @description The network type.
+     *
      * @example cn-hangzhou-h
      *
      * @var string
@@ -31,6 +37,8 @@ class networkConfig extends Model
     public $vsArea;
 
     /**
+     * @description The region ID.
+     *
      * @example vsw-bp1a0mifpletdd1da****
      *
      * @var string
@@ -38,6 +46,8 @@ class networkConfig extends Model
     public $vswitchId;
 
     /**
+     * @description The IP address whitelists.
+     *
      * @var whiteIpGroupList[]
      */
     public $whiteIpGroupList;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodeSpec extends Model
 {
     /**
+     * @description The network configurations.
+     *
      * @example 50
      *
      * @var int
@@ -16,6 +18,8 @@ class nodeSpec extends Model
     public $disk;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class nodeSpec extends Model
     public $diskEncryption;
 
     /**
+     * @description The zone where the cluster resides.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -30,6 +36,8 @@ class nodeSpec extends Model
     public $diskType;
 
     /**
+     * @description The type of the disk.
+     *
      * @example logstash.n4.small
      *
      * @var string

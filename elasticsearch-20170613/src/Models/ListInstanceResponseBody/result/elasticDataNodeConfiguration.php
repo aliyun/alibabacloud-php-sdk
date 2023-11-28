@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class elasticDataNodeConfiguration extends Model
 {
     /**
+     * @description The number of nodes.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,8 @@ class elasticDataNodeConfiguration extends Model
     public $amount;
 
     /**
+     * @description The size of the node storage space. Unit: GB.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class elasticDataNodeConfiguration extends Model
     public $disk;
 
     /**
+     * @description The storage type of the node.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class elasticDataNodeConfiguration extends Model
     public $diskEncryption;
 
     /**
+     * @description The configuration of dedicated master nodes.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -37,6 +45,8 @@ class elasticDataNodeConfiguration extends Model
     public $diskType;
 
     /**
+     * @description The instance type of the node. For more information, see [Specifications](~~271718~~).
+     *
      * @example elasticsearch.sn2ne.large
      *
      * @var string

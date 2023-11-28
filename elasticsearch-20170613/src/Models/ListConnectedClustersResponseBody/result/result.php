@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the remote instance that is connected to the network of the current instance.
+     *
      * @example es-cn-09k1rocex0006****
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $instances;
 
     /**
+     * @description The network type of the instance.
+     *
      * @example vpc
      *
      * @var string

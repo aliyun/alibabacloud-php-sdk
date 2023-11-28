@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class machines extends Model
 {
     /**
+     * @description The IDs of ECS instances.
+     *
+     * @example heartOk
+     *
      * @var string
      */
     public $agentStatus;
 
     /**
+     * @description The list of access addresses of the specified instance for the output of the collector. Displayed when the **configType** is **collectorTargetInstance**.
+     *
      * @example i-bp13y63575oypr9d****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLogstashResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 94B03BBA-A132-42C3-8367-0A0C1C45****
      *
      * @var string

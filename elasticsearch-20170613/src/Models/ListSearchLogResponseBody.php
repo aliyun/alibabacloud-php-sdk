@@ -11,11 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListSearchLogResponseBody extends Model
 {
     /**
+     * @description The level of the log. Valid values:
+     *
+     *   warn: warning log
+     *   info: information log
+     *   error: error log
+     *   trace: trace logs
+     *   debug: debug logs
+     *
+     * The level information has been migrated to the contentCollection field.
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The list of logs returned by the request.
+     *
      * @example 7F40EAA1-6F1D-4DD9-8DB8-C5F00C4E****
      *
      * @var string
@@ -23,6 +34,8 @@ class ListSearchLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The content of the log entry. Migrated to the contentCollection field.
+     *
      * @var result[]
      */
     public $result;

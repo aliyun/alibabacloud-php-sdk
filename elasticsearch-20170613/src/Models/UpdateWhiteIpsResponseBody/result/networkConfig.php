@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class networkConfig extends Model
 {
     /**
+     * @description The IP addresses in the whitelist.
+     *
      * @var whiteIpGroupList[]
      */
     public $whiteIpGroupList;

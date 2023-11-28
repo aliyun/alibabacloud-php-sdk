@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The configuration information of the data node.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 2018-07-13T03:58:07.253Z
      *
      * @var string
@@ -24,6 +28,8 @@ class result extends Model
     public $createdAt;
 
     /**
+     * @description The time when the instance was last updated.
+     *
      * @example ls-cn-abc
      *
      * @var string
@@ -31,6 +37,8 @@ class result extends Model
     public $description;
 
     /**
+     * @description The tag value of the cloud disk.
+     *
      * @example ls-cn-n6w1o5jq****
      *
      * @var string
@@ -38,11 +46,15 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The network type. Currently, only Virtual Private Cloud (VPC) is supported.
+     *
      * @var networkConfig
      */
     public $networkConfig;
 
     /**
+     * @description The state of the instance. Valid values: Normal, Active, Inactive, and Invalid.
+     *
      * @example 2
      *
      * @var int
@@ -50,11 +62,18 @@ class result extends Model
     public $nodeAmount;
 
     /**
+     * @description Specifies whether to use disk encryption. Valid values:
+     *
+     *   true: Enables the concurrent query feature for queries other than aggregate queries.
+     *   false: Disables the concurrent query feature for queries other than aggregate queries.
+     *
      * @var nodeSpec
      */
     public $nodeSpec;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @example postpaid
      *
      * @var string
@@ -62,6 +81,13 @@ class result extends Model
     public $paymentType;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The version of the instance. Currently, only 6.7.0\_with_X-Pack and 7.4.0\_with_X-Pack are supported.
+     *
      * @example active
      *
      * @var string
@@ -69,6 +95,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The tag of the instance. Valid values:
+     *
      * @example 2018-07-18T10:10:04.484Z
      *
      * @var string
@@ -76,23 +104,26 @@ class result extends Model
     public $updatedAt;
 
     /**
+     * @description The tag key of the cloud disk.
+     *
      * @example 6.7.0_with_X-Pack
      *
      * @var string
      */
     public $version;
     protected $_name = [
-        'tags'          => 'Tags',
-        'createdAt'     => 'createdAt',
-        'description'   => 'description',
-        'instanceId'    => 'instanceId',
-        'networkConfig' => 'networkConfig',
-        'nodeAmount'    => 'nodeAmount',
-        'nodeSpec'      => 'nodeSpec',
-        'paymentType'   => 'paymentType',
-        'status'        => 'status',
-        'updatedAt'     => 'updatedAt',
-        'version'       => 'version',
+        'tags'            => 'Tags',
+        'createdAt'       => 'createdAt',
+        'description'     => 'description',
+        'instanceId'      => 'instanceId',
+        'networkConfig'   => 'networkConfig',
+        'nodeAmount'      => 'nodeAmount',
+        'nodeSpec'        => 'nodeSpec',
+        'paymentType'     => 'paymentType',
+        'resourceGroupId' => 'resourceGroupId',
+        'status'          => 'status',
+        'updatedAt'       => 'updatedAt',
+        'version'         => 'version',
     ];
 
     public function validate()
@@ -131,6 +162,9 @@ class result extends Model
         }
         if (null !== $this->paymentType) {
             $res['paymentType'] = $this->paymentType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -182,6 +216,9 @@ class result extends Model
         }
         if (isset($map['paymentType'])) {
             $model->paymentType = $map['paymentType'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

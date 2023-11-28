@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipAddress extends Model
 {
     /**
+     * @description The information about the collectors on the ECS instance.
+     *
      * @example 172.16.xx.xx
      *
      * @var string
@@ -16,6 +18,8 @@ class ipAddress extends Model
     public $host;
 
     /**
+     * @description The IP address of the endpoint.
+     *
      * @example private
      *
      * @var string

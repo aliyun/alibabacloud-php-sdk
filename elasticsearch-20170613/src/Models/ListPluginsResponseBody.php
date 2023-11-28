@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListPluginsResponseBody extends Model
 {
     /**
+     * @description The description of the plug-in.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The return results.
+     *
      * @example 5A5D8E74-565C-43DC-B031-29289FA9****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListPluginsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the plug-in.
+     *
      * @var result[]
      */
     public $result;

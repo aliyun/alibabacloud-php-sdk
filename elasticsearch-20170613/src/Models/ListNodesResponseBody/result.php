@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The status of the shipper on the ECS instance. Valid values:
+     *
+     *   heartOk: The heartbeat is normal.
+     *   heartLost: The heartbeat is abnormal.
+     *   uninstalled: The shipper is not installed.
+     *   failed: The shipper fails to be installed.
+     *
      * @example heartOk
      *
      * @var string
@@ -18,6 +25,11 @@ class result extends Model
     public $agentStatus;
 
     /**
+     * @description Indicates whether the Cloud Assistant client is installed. Valid values:
+     *
+     *   true: installed
+     *   false: not installed
+     *
      * @example true
      *
      * @var string
@@ -25,6 +37,8 @@ class result extends Model
     public $cloudAssistantStatus;
 
     /**
+     * @description The ID of the ECS instance.
+     *
      * @example i-bp13y63575oypr****
      *
      * @var string
@@ -32,6 +46,8 @@ class result extends Model
     public $ecsInstanceId;
 
     /**
+     * @description The name of the ECS instance.
+     *
      * @example ECS_beat
      *
      * @var string
@@ -39,11 +55,18 @@ class result extends Model
     public $ecsInstanceName;
 
     /**
+     * @description The IP addresses of the ECS instance.
+     *
      * @var ipAddress[]
      */
     public $ipAddress;
 
     /**
+     * @description The operating system type of the ECS instance. Valid values:
+     *
+     *   windows: Windows Server
+     *   linux: Linux
+     *
      * @example linux
      *
      * @var string
@@ -51,6 +74,13 @@ class result extends Model
     public $osType;
 
     /**
+     * @description The status of the ECS instance. Valid values:
+     *
+     *   running: The instance is running.
+     *   starting: The instance is being started.
+     *   stopping: The instance is being stopped.
+     *   stopped: The instance is stopped.
+     *
      * @example running
      *
      * @var string
@@ -58,6 +88,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The tags of the ECS instance.
+     *
      * @var tags[]
      */
     public $tags;

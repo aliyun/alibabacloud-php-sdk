@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseReportResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The header of the response.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -23,6 +27,12 @@ class ListDiagnoseReportResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The trigger mode of health diagnostics. Valid values:
+     *
+     *   SYSTEM: The system is automatically triggered.
+     *   INNER: internal trigger
+     *   USER: manually triggered by the user
+     *
      * @var result[]
      */
     public $result;

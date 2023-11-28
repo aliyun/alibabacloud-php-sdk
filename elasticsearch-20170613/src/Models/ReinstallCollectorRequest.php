@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReinstallCollectorRequest extends Model
 {
     /**
+     * @description The request body parameters. For more information, see the Request body section in this topic.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
      *
      * @var string
@@ -16,6 +18,15 @@ class ReinstallCollectorRequest extends Model
     public $clientToken;
 
     /**
+     * @description Indicates whether the shipper is installed. Valid values:
+     *
+     *   true: The shipper is installed.
+     *   false: The shipper fails to be installed.
+     *
+     * @example {
+     * "restartType": "nodeEcsId",
+     * "nodes":["i-bp1gyhphjaj73jsr****","i-bp10piq1mkfnyw9t****"]
+     * }
      * @var string
      */
     public $body;

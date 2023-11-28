@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The public IP address whitelists for access to the Kibana console of the cluster.
+     *
      * @var string[]
      */
     public $kibanaIPWhitelist;
 
     /**
+     * @description The private IP address whitelists for access to the Kibana console of the cluster.
+     *
      * @var string[]
      */
     public $kibanaPrivateIPWhitelist;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @var networkConfig
      */
     public $networkConfig;

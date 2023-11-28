@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The name of the cluster.
+     *
      * @example logstash_name
      *
      * @var string

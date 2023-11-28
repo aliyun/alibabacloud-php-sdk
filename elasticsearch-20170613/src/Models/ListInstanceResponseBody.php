@@ -11,11 +11,20 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceResponseBody extends Model
 {
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   active: normal
+     *   activating: taking effect
+     *   inactive: frozen
+     *   invalid: invalid
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The time when the node is created.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -23,6 +32,8 @@ class ListInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether it is a service VPC.
+     *
      * @var result[]
      */
     public $result;

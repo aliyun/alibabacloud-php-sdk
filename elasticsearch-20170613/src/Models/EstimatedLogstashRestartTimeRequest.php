@@ -14,6 +14,8 @@ class EstimatedLogstashRestartTimeRequest extends Model
     public $body;
 
     /**
+     * @description Specifies whether to forcibly restart the cluster. Default value: false.
+     *
      * @example false
      *
      * @var bool

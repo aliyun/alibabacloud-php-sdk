@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class metaInfo extends Model
 {
     /**
+     * @description The fields in the Mapping for the index.
+     *
      * @var string[]
      */
     public $fields;
 
     /**
+     * @description The index list of the cluster.
+     *
      * @var string[]
      */
     public $indices;
 
     /**
+     * @description The Mapping configuration of the cluster.
+     *
      * @example {\"_doc\":{\"properties\":{\"user\":{\"properties\":{\"last\":{\"type\":\"text\",...}}}}}}
      *
      * @var string
@@ -26,6 +32,8 @@ class metaInfo extends Model
     public $mapping;
 
     /**
+     * @description The Settings of the cluster.
+     *
      * @example {\n  \"index\": {\n    \"replication\": {\n}.....}}
      *
      * @var string
@@ -33,6 +41,8 @@ class metaInfo extends Model
     public $settings;
 
     /**
+     * @description Specifies the type of the index.
+     *
      * @var string[]
      */
     public $typeName;

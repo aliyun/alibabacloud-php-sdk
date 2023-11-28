@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListDefaultCollectorConfigurationsRequest extends Model
 {
     /**
+     * @description The shipper type. Valid values:
+     *
+     *   fileBeat
+     *   metricBeat
+     *   heartBeat
+     *   auditBeat
+     *
      * @example fileBeat
      *
      * @var string
@@ -16,6 +23,11 @@ class ListDefaultCollectorConfigurationsRequest extends Model
     public $resType;
 
     /**
+     * @description The shipper version. The shipper version varies based on the type of the machine on which the shipper is deployed. Valid values:
+     *
+     *   ECS: 6.8.5\_with_community
+     *   ACK: 6.8.13\_with_community
+     *
      * @example 6.8.5_with_community
      *
      * @var string
@@ -23,6 +35,11 @@ class ListDefaultCollectorConfigurationsRequest extends Model
     public $resVersion;
 
     /**
+     * @description The type of the machine on which the shipper is deployed. If you do not configure this parameter, the default configuration files of shippers deployed on all types of machines are returned. Valid values:
+     *
+     *   ECS: ECS instance
+     *   ACK: ACK cluster
+     *
      * @example ECS
      *
      * @var string

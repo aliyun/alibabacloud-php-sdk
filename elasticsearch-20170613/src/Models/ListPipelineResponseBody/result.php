@@ -23,6 +23,12 @@ class result extends Model
     public $gmtUpdateTime;
 
     /**
+     * @description The status of the pipeline. Supported:
+     *
+     *   NOT_DEPLOYED: The node is not deployed.
+     *   RUNNING
+     *   DELETED: Deleted. The console does not display this status.
+     *
      * @example pipeline_test
      *
      * @var string

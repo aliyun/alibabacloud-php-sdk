@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The size of the dictionary file. Unit: bytes.
+     *
      * @example 6226
      *
      * @var int
@@ -16,6 +18,8 @@ class result extends Model
     public $fileSize;
 
     /**
+     * @description The name of the uploaded dictionary file.
+     *
      * @example aliws_ext_dict.txt
      *
      * @var string
@@ -23,6 +27,11 @@ class result extends Model
     public $name;
 
     /**
+     * @description The source type of the dictionary file. Valid values:
+     *
+     *   OSS
+     *   ORIGIN
+     *
      * @example OSS
      *
      * @var string
@@ -30,6 +39,8 @@ class result extends Model
     public $sourceType;
 
     /**
+     * @description The dictionary type. The value is fixed as ALI_WS.
+     *
      * @example ALI_WS
      *
      * @var string

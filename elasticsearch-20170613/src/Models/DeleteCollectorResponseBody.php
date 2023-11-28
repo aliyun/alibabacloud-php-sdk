@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCollectorResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteCollectorResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the shipper is deleted. Valid values:
+     *
+     *   true: The shipper is deleted.
+     *   false: The shipper fails to be deleted.
+     *
      * @example true
      *
      * @var bool

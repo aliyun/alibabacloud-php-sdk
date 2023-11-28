@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecommendTemplatesRequest extends Model
 {
     /**
+     * @description *
+     ****
      * @example general
      *
      * @var string

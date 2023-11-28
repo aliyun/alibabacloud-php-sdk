@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The name of the ECS instance.
+     *
      * @example true
      *
      * @var string
@@ -18,11 +20,15 @@ class result extends Model
     public $cloudAssistantStatus;
 
     /**
+     * @description The ID of the collector instance.
+     *
      * @var collectors[]
      */
     public $collectors;
 
     /**
+     * @description The tags of the ECS instance.
+     *
      * @example i-bp14ncqge8wy3l3d****
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $ecsInstanceId;
 
     /**
+     * @description The ID of the ECS instance.
+     *
      * @example ecsTestName
      *
      * @var string
@@ -37,11 +45,23 @@ class result extends Model
     public $ecsInstanceName;
 
     /**
+     * @description The type of the IP address that is used by the instance. Valid values:
+     *
+     *   public: public endpoint
+     *   private: private network address
+     *
      * @var ipAddress[]
      */
     public $ipAddress;
 
     /**
+     * @description The status of the ECS instance. Valid values:
+     *
+     *   running: The master instance is running
+     *   starting
+     *   stopping: The task is being stopped.
+     *   stopped: The node is stopped.
+     *
      * @example linux
      *
      * @var string
@@ -49,6 +69,8 @@ class result extends Model
     public $osType;
 
     /**
+     * @description The IP address of the ECS instance.
+     *
      * @example running
      *
      * @var string
@@ -56,6 +78,11 @@ class result extends Model
     public $status;
 
     /**
+     * @description The operating system type of the ECS instance. Valid values:
+     *
+     *   windows:Windows operating system
+     *   linux:Linux operating system
+     *
      * @example [ { "tagKey": "a", "tagValue": "b" } ]
      *
      * @var string

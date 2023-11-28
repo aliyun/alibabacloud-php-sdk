@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UninstallPluginResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DCC****
      *
      * @var string
@@ -16,6 +18,8 @@ class UninstallPluginResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of plug-ins to be unloaded. If the unloading fails, an exception is returned.
+     *
      * @var string[]
      */
     public $result;

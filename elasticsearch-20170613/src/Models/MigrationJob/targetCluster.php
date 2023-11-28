@@ -2,20 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateInstanceResponseBody;
+namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\MigrationJob;
 
 use AlibabaCloud\Tea\Model;
 
-class result extends Model
+class targetCluster extends Model
 {
     /**
-     * @example es-is-0u2ecp69tt****
-     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'instanceId' => 'instanceId',
+        'type'       => 'type',
     ];
 
     public function validate()
@@ -28,6 +32,9 @@ class result extends Model
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
 
         return $res;
     }
@@ -35,13 +42,16 @@ class result extends Model
     /**
      * @param array $map
      *
-     * @return result
+     * @return targetCluster
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEcsInstancesRequest extends Model
 {
     /**
+     * @description test
+     *
      * @example ["i-bp13y63575oypr9d****","i-bp1gyhphjaj73jsr****"]
      *
      * @var string
@@ -16,6 +18,8 @@ class ListEcsInstancesRequest extends Model
     public $ecsInstanceIds;
 
     /**
+     * @description \[{ "tagKey":"a","tagValue":"b"}]
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class ListEcsInstancesRequest extends Model
     public $ecsInstanceName;
 
     /**
+     * @description 10
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListEcsInstancesRequest extends Model
     public $page;
 
     /**
+     * @description \["i-bp13y63575oypr9d\*\*\*\*","i-bp1gyhphjaj73jsr\*\*\*\*"]
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +45,8 @@ class ListEcsInstancesRequest extends Model
     public $size;
 
     /**
+     * @description vpc-bp16k1dvzxtmagcva\*\*\*\*
+     *
      * @example [{ "tagKey":"a","tagValue":"b"}]
      *
      * @var string
@@ -44,6 +54,8 @@ class ListEcsInstancesRequest extends Model
     public $tags;
 
     /**
+     * @description The ID of the request.
+     *
      * @example vpc-bp16k1dvzxtmagcva****
      *
      * @var string

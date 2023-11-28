@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPluginsRequest extends Model
 {
     /**
+     * @description SYSTEM
+     *
      * @example analysis-ik
      *
      * @var string
@@ -16,6 +18,8 @@ class ListPluginsRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class ListPluginsRequest extends Model
     public $page;
 
     /**
+     * @description The header of the response.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ListPluginsRequest extends Model
     public $size;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example SYSTEM
      *
      * @var string

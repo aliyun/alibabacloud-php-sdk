@@ -16,11 +16,18 @@ class result extends Model
     public $collectorPaths;
 
     /**
+     * @description The information about the configuration file of the shipper.
+     *
      * @var configs[]
      */
     public $configs;
 
     /**
+     * @description Indicates whether a dry run is performed. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -28,11 +35,15 @@ class result extends Model
     public $dryRun;
 
     /**
+     * @description The extended configurations of the shipper.
+     *
      * @var extendConfigs[]
      */
     public $extendConfigs;
 
     /**
+     * @description The time when the shipper was created.
+     *
      * @example 2020-06-20T07:26:47.000+0000
      *
      * @var string
@@ -40,6 +51,8 @@ class result extends Model
     public $gmtCreatedTime;
 
     /**
+     * @description The time when the shipper was updated.
+     *
      * @example 2020-06-20T07:26:47.000+0000
      *
      * @var string
@@ -47,6 +60,8 @@ class result extends Model
     public $gmtUpdateTime;
 
     /**
+     * @description The name of the shipper.
+     *
      * @example ct-test
      *
      * @var string
@@ -54,6 +69,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The account ID.
+     *
      * @example 16852099488*****
      *
      * @var string
@@ -61,6 +78,8 @@ class result extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the shipper.
+     *
      * @example ct-cn-77uqof2s7rg5c****
      *
      * @var string
@@ -68,6 +87,8 @@ class result extends Model
     public $resId;
 
     /**
+     * @description The type of the shipper. Valid values: fileBeat, metricBeat, heartBeat, and audiBeat.
+     *
      * @example fileBeat
      *
      * @var string
@@ -75,6 +96,11 @@ class result extends Model
     public $resType;
 
     /**
+     * @description The version of the shipper. The version of a shipper depends on the type of the machine on which the shipper is deployed.
+     *
+     *   Elastic Compute Service (ECS) instance: 6.8.5\_with_community
+     *   Container Service for Kubernetes (ACK) cluster: 6.8.13\_with_community
+     *
      * @example 6.8.5_with_community
      *
      * @var string
@@ -82,6 +108,8 @@ class result extends Model
     public $resVersion;
 
     /**
+     * @description The status of the shipper. Valid values: activating and active.
+     *
      * @example active
      *
      * @var string
@@ -89,6 +117,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) where the shipper resides.
+     *
      * @example vpc-bp16k1dvzxtma*****
      *
      * @var string

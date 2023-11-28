@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The disk usage.
+     *
      * @example 4.2%
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $cpuPercent;
 
     /**
+     * @description The health status of the node. Valid values: GREEN, YELLOW, RED, and GRAY.
+     *
      * @example 1.0%
      *
      * @var string
@@ -30,6 +34,8 @@ class result extends Model
     public $health;
 
     /**
+     * @description The IP address of the node.
+     *
      * @example 21.6%
      *
      * @var string
@@ -37,6 +43,8 @@ class result extends Model
     public $heapPercent;
 
     /**
+     * @description The port that is used to connect to the node.
+     *
      * @example 10.15.XX.XX
      *
      * @var string
@@ -51,6 +59,8 @@ class result extends Model
     public $loadOneM;
 
     /**
+     * @description The 1-minute load of the node.
+     *
      * @example WORKER
      *
      * @var string
@@ -65,6 +75,14 @@ class result extends Model
     public $port;
 
     /**
+     * @description The type of the nodes. Valid values:
+     *
+     *   MASTER: dedicated master node
+     *   WORKER: hot node
+     *   WORKER_WARM: warm node
+     *   COORDINATING: client node
+     *   KIBANA: Kibana node
+     *
      * @example cn-hangzhou-i
      *
      * @var string

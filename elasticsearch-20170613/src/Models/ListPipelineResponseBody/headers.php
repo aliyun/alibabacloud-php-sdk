@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The time when the pipeline was updated.
+     *
      * @example 2
      *
      * @var int

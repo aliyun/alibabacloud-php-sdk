@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticsearchHealthResponseBody extends Model
 {
     /**
+     * @description The response code returned.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeElasticsearchHealthResponseBody extends Model
     public $code;
 
     /**
+     * @description The response message returned.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeElasticsearchHealthResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0731F217-2C8A-4D42-8BCD-5C352866E3B7
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeElasticsearchHealthResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The color that indicates the health status of the cluster.
+     *
      * @example GREEN
      *
      * @var string

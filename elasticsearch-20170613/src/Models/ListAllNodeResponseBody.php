@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAllNodeResponseBody extends Model
 {
     /**
+     * @description The zone ID of the node.
+     *
      * @example 0D71B597-F3FF-5B56-88D7-74F9D3F7****
      *
      * @var string
@@ -17,6 +19,9 @@ class ListAllNodeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The CPU utilization.
+     *
+     * >  If the **extended** request parameter is set to **true** and the monitoring information of the nodes in the cluster is being synchronized, the value of the cpuPercent parameter is null. In this case, you need to send a request again after 10 seconds to obtain the value of the cpuPercent parameter.
      * @var result[]
      */
     public $result;

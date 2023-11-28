@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseReportIdsRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The value must be a UNIX timestamp.
+     *
      * @example 1595174399999
      *
      * @var int
@@ -16,6 +18,8 @@ class ListDiagnoseReportIdsRequest extends Model
     public $endTime;
 
     /**
+     * @description The language of the reports.
+     *
      * @example spanish
      *
      * @var string
@@ -23,6 +27,8 @@ class ListDiagnoseReportIdsRequest extends Model
     public $lang;
 
     /**
+     * @description The number of the page to return. Valid values: 1 to 200. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListDiagnoseReportIdsRequest extends Model
     public $page;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 500. Default value: 10.
+     *
      * @example 15
      *
      * @var int
@@ -37,6 +45,8 @@ class ListDiagnoseReportIdsRequest extends Model
     public $size;
 
     /**
+     * @description The beginning of the time range to query. The value must be a UNIX timestamp.
+     *
      * @example 1595088000000
      *
      * @var int
@@ -44,6 +54,8 @@ class ListDiagnoseReportIdsRequest extends Model
     public $startTime;
 
     /**
+     * @description The method that is used to trigger health diagnostics. Valid values: SYSTEM, INNER, and USER.
+     *
      * @example SYSTEM
      *
      * @var string

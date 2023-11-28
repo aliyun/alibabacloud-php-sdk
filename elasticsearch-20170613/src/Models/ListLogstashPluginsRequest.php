@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashPluginsRequest extends Model
 {
     /**
+     * @description USER
+     *
      * @example logstash-filter-clone
      *
      * @var string
@@ -16,6 +18,8 @@ class ListLogstashPluginsRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class ListLogstashPluginsRequest extends Model
     public $page;
 
     /**
+     * @description The returned results.
+     *
      * @example 3
      *
      * @var int
@@ -30,6 +36,8 @@ class ListLogstashPluginsRequest extends Model
     public $size;
 
     /**
+     * @description The description of the plug-in.
+     *
      * @example USER
      *
      * @var string

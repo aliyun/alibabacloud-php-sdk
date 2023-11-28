@@ -16,11 +16,18 @@ class result extends Model
     public $collectorPaths;
 
     /**
+     * @description The information about the configuration file for the shipper.
+     *
      * @var configs[]
      */
     public $configs;
 
     /**
+     * @description Indicates whether the shipper is checked and updated. Valid values:
+     *
+     *   true: The shipper is only checked.
+     *   false: The shipper is checked and updated.
+     *
      * @example false
      *
      * @var bool
@@ -28,11 +35,15 @@ class result extends Model
     public $dryRun;
 
     /**
+     * @description The extended parameters that are configured for the shipper.
+     *
      * @var extendConfigs[]
      */
     public $extendConfigs;
 
     /**
+     * @description The time when the shipper was created.
+     *
      * @example 2020-06-20T07:26:47.000+0000
      *
      * @var string
@@ -40,6 +51,8 @@ class result extends Model
     public $gmtCreatedTime;
 
     /**
+     * @description The time when the shipper was updated.
+     *
      * @example 2020-06-20T07:26:47.000+0000
      *
      * @var string
@@ -47,6 +60,8 @@ class result extends Model
     public $gmtUpdateTime;
 
     /**
+     * @description The name of the shipper.
+     *
      * @example ct-test
      *
      * @var string
@@ -54,6 +69,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The account ID.
+     *
      * @example 16852099488*****
      *
      * @var string
@@ -61,6 +78,8 @@ class result extends Model
     public $ownerId;
 
     /**
+     * @description The shipper ID.
+     *
      * @example ct-cn-0v3xj86085dvq****
      *
      * @var string
@@ -68,6 +87,8 @@ class result extends Model
     public $resId;
 
     /**
+     * @description The type of the shipper. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
+     *
      * @example fileBeat
      *
      * @var string
@@ -75,6 +96,8 @@ class result extends Model
     public $resType;
 
     /**
+     * @description The version of the shipper.
+     *
      * @example 6.8.5_with_community
      *
      * @var string
@@ -82,6 +105,11 @@ class result extends Model
     public $resVersion;
 
     /**
+     * @description The status of the shipper. Valid values:
+     *
+     *   activing: The shipper is being initialized.
+     *   active: The shipper is in effect.
+     *
      * @example active
      *
      * @var string
@@ -89,6 +117,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The ID of the VPC in which the shipper resides.
+     *
      * @example vpc-bp16k1dvzxtma*****
      *
      * @var string

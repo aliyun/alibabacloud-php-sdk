@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class whiteIpGroup extends Model
 {
     /**
+     * @description The type of the whitelist. Set the value to **PRIVATE_ES**. This value indicates a private IP address whitelist.
+     *
      * @example test_group
      *
      * @var string
@@ -16,11 +18,15 @@ class whiteIpGroup extends Model
     public $groupName;
 
     /**
+     * @description The returned result.
+     *
      * @var string[]
      */
     public $ips;
 
     /**
+     * @description The returned result.
+     *
      * @example PRIVATE_ES
      *
      * @var string

@@ -1,3 +1,6 @@
+2023-11-28 Version: 1.2.0
+- Generated php 2017-06-13 for elasticsearch.
+
 2022-12-28 Version: 1.1.4
 - Improve API parameters for API`DeleteDeprecatedTemplate` `CreateIndexTemplate` `CreateCollector`.
 

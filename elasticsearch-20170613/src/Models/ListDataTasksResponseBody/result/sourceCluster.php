@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceCluster extends Model
 {
     /**
+     * @description The type of the source cluster. Default value: elasticsearch.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class sourceCluster extends Model
     public $dataSourceType;
 
     /**
+     * @description The index whose data you want to migrate.
+     *
      * @example product_info
      *
      * @var string
@@ -23,6 +27,8 @@ class sourceCluster extends Model
     public $index;
 
     /**
+     * @description The Mapping configuration of the cluster.
+     *
      * @example {\"_doc\":{\"properties\":{\"user\":{\"properties\":{\"last\":{\"type\":\"text\",...}}}}}}
      *
      * @var string
@@ -30,6 +36,8 @@ class sourceCluster extends Model
     public $mapping;
 
     /**
+     * @description The routing field to index the table. It is set to the primary key by default.
+     *
      * @example _id
      *
      * @var string
@@ -37,6 +45,8 @@ class sourceCluster extends Model
     public $routing;
 
     /**
+     * @description The Settings of the cluster.
+     *
      * @example {\n  \"index\": {\n    \"replication\": {\n}.....}}
      *
      * @var string
@@ -44,6 +54,8 @@ class sourceCluster extends Model
     public $settings;
 
     /**
+     * @description The type of the destination index.
+     *
      * @example _doc
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogstashResponseBody extends Model
 {
     /**
+     * @description Detailed information about the instance.
+     *
      * @example C9334241-4837-46C2-B24B-9BDC517318DE
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeLogstashResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The configurations of the instance.
+     *
      * @var result
      */
     public $result;

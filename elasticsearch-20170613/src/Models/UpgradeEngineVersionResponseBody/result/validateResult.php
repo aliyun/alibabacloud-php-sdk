@@ -23,6 +23,11 @@ class validateResult extends Model
     public $errorMsg;
 
     /**
+     * @description The verification is passed. Valid values:
+     *
+     *   success: through
+     *   failed: failed
+     *
      * @example clusterStatus
      *
      * @var string

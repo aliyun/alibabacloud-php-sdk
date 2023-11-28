@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class zoneInfos extends Model
 {
     /**
+     * @description The zone ID of the new instance.
+     *
      * @example NORMAL
      *
      * @var string
@@ -16,6 +18,8 @@ class zoneInfos extends Model
     public $status;
 
     /**
+     * @description The configuration of cluster extension parameters.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

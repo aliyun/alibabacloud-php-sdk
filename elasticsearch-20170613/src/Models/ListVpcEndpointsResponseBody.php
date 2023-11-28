@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DCC47D9
      *
      * @var string
@@ -17,6 +19,8 @@ class ListVpcEndpointsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the endpoints.
+     *
      * @var result[]
      */
     public $result;

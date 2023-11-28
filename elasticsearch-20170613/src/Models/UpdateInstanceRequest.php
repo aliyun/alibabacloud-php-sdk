@@ -53,6 +53,8 @@ class UpdateInstanceRequest extends Model
     public $warmNodeConfiguration;
 
     /**
+     * @description The result of the request.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
      *
      * @var string
@@ -67,6 +69,8 @@ class UpdateInstanceRequest extends Model
     public $force;
 
     /**
+     * @description The number of data nodes.
+     *
      * @example upgrade
      *
      * @var string

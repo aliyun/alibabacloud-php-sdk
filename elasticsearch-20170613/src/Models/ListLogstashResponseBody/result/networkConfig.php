@@ -16,6 +16,8 @@ class networkConfig extends Model
     public $type;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vpc-abc
      *
      * @var string

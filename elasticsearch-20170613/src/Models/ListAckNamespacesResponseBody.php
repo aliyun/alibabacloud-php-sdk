@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAckNamespacesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 95789100-A329-473B-9D14-9E0B7DB4BD5A
      *
      * @var string
@@ -17,6 +19,8 @@ class ListAckNamespacesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

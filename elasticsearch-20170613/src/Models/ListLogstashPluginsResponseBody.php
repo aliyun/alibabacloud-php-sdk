@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashPluginsResponseBody extends Model
 {
     /**
+     * @description The address of the documentation for the plug-in.
+     *
      * @example 99407AB-2FA9-489E-A259-40CF6DCC****
      *
      * @var string
@@ -17,6 +19,16 @@ class ListLogstashPluginsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the plug-in. Valid values:
+     *
+     *   INSTALLED: Installed
+     *   UNINSTALLED: Not installed
+     *   INSTALLING: The instance is being installed.
+     *   UNINSTALLING: The instance is being uninstalled.
+     *   UPGRADING: The backup gateway is being upgraded.
+     *   FAILED: Installation failed
+     *   UNKNOWN: The cluster is lost and cannot be created.
+     *
      * @var result[]
      */
     public $result;

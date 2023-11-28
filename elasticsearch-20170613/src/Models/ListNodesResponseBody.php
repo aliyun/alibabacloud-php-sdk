@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListNodesResponseBody extends Model
 {
     /**
+     * @description The header of the response.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E1FD7642-7C40-4FF2-9C0F-21F1A1746F70
      *
      * @var string
@@ -23,6 +27,8 @@ class ListNodesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

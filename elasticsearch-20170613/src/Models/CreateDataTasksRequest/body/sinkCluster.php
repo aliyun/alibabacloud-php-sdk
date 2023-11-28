@@ -23,23 +23,29 @@ class sinkCluster extends Model
     public $index;
 
     /**
+     * @example {\"doc\":{\"properties\":{\"interval_ms\":{\"type\":\"long\"},....}
+     *
      * @var string
      */
     public $mapping;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $password;
 
     /**
-     * @example id
+     * @example _id
      *
      * @var string
      */
     public $routing;
 
     /**
+     * @example {\n \"index\": {\n \"replication\": {\n \"type\": .....}
+     *
      * @var string
      */
     public $settings;

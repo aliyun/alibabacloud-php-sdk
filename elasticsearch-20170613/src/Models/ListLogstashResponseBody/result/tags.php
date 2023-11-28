@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The disk size of the node.
+     *
      * @example env
      *
      * @var string
@@ -16,6 +18,8 @@ class tags extends Model
     public $tagKey;
 
     /**
+     * @description The instance type of the ECS instance.
+     *
      * @example dev
      *
      * @var string

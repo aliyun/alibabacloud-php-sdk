@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListNodesRequest extends Model
 {
     /**
+     * @description The IDs of the ECS instances.
+     *
      * @example i-bp1ei8ysh7orb6eq****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListNodesRequest extends Model
     public $ecsInstanceIds;
 
     /**
+     * @description The name of the ECS instance.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class ListNodesRequest extends Model
     public $ecsInstanceName;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListNodesRequest extends Model
     public $page;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +45,8 @@ class ListNodesRequest extends Model
     public $size;
 
     /**
+     * @description The tags of the ECS instance. You must configure tagKey and tagValue.
+     *
      * @example [{"tagKey":"abc","tagValue":"xyz"}]
      *
      * @var string

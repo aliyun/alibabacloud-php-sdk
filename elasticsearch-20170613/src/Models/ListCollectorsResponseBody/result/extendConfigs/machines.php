@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class machines extends Model
 {
     /**
+     * @description The status of the shipper on the ECS instance. Valid values:
+     *
+     *   heartOk
+     *   heartLost
+     *   uninstalled
+     *   failed
+     *
      * @example heartOk
      *
      * @var string
@@ -16,6 +23,8 @@ class machines extends Model
     public $agentStatus;
 
     /**
+     * @description The IDs of the ECS instances.
+     *
      * @example i-bp13y63575oypr9d****
      *
      * @var string

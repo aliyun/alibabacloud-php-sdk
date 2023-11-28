@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ActivateZonesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 5A5D8E74-565C-43DC-B031-29289FA****
      *
      * @var string
@@ -16,6 +18,11 @@ class ActivateZonesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the nodes in disabled zones are restored. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

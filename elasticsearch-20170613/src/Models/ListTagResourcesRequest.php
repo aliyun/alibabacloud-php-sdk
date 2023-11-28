@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The number of the returned page.
+     *
      * @example 1d2db86sca4384811e0b5e8707e******
      *
      * @var string
@@ -16,6 +18,8 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description 1d2db86sca4384811e0b5e8707e\*\*\*\*\*\*
+     *
      * @example 1
      *
      * @deprecated
@@ -25,6 +29,8 @@ class ListTagResourcesRequest extends Model
     public $page;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ["es-cn-aaa","es-cn-bbb"]
      *
      * @var string
@@ -32,6 +38,8 @@ class ListTagResourcesRequest extends Model
     public $resourceIds;
 
     /**
+     * @description \[{"key":"env","value","dev"},{"key":"dev", "value":"IT"}]
+     *
      * @example INSTANCE
      *
      * @var string
@@ -39,6 +47,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description \["es-cn-aaa","es-cn-bbb"]
+     *
      * @example 10
      *
      * @deprecated
@@ -48,6 +58,9 @@ class ListTagResourcesRequest extends Model
     public $size;
 
     /**
+     * @description The header of the response. This parameter is empty and is for reference only. You cannot force this parameter to be relied on in the program.
+     *
+     * >  The return examples does not contain this parameter.
      * @example [{"key":"env","value","dev"},{"key":"dev",  "value":"IT"}]
      *
      * @var string

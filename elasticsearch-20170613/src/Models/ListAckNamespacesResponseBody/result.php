@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The namespace of the cluster.
+     *
      * @example logging
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $namespace;
 
     /**
+     * @description The status of the namespace.
+     *
      * @example Active
      *
      * @var string

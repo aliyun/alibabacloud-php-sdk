@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class kibanaConfiguration extends Model
 {
     /**
+     * @description The number of performance metrics.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class kibanaConfiguration extends Model
     public $amount;
 
     /**
+     * @description The size of the node storage space. Unit: GB.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class kibanaConfiguration extends Model
     public $disk;
 
     /**
+     * @description The storage type of the node.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -30,6 +36,8 @@ class kibanaConfiguration extends Model
     public $diskType;
 
     /**
+     * @description The specification of data nodes.
+     *
      * @example elasticsearch.n4.small
      *
      * @var string

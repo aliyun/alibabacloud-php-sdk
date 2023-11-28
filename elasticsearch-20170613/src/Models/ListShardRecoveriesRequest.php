@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListShardRecoveriesRequest extends Model
 {
     /**
+     * @description Specifies whether to return information about data restoration of shards. Valid values:
+     *
+     *   true: returns information about data restoration of shards that are being restored.
+     *   false: returns information about data restoration of all shards.
+     *
      * @example true
      *
      * @var bool

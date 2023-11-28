@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashRequest extends Model
 {
     /**
+     * @description rg-acfm2h5vbzd\*\*\*\*
+     *
      * @example ls-cn-abc
      *
      * @var string
@@ -16,6 +18,8 @@ class ListLogstashRequest extends Model
     public $description;
 
     /**
+     * @description \[{"tagKey":"key1","tagValue":"value1"}]
+     *
      * @example ls-cn-n6w1o5jq****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListLogstashRequest extends Model
     public $instanceId;
 
     /**
+     * @description ls-cn-n6w1o5jq\*\*\*\*
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListLogstashRequest extends Model
     public $page;
 
     /**
+     * @description Details of the request header.
+     *
      * @example rg-acfm2h5vbzd****
      *
      * @var string
@@ -37,6 +45,8 @@ class ListLogstashRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description 5.5.3\_with_X-Pack
+     *
      * @example 10
      *
      * @var int
@@ -44,11 +54,17 @@ class ListLogstashRequest extends Model
     public $size;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example [{"tagKey":"key1","tagValue":"value1"}]
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5.5.3_with_X-Pack
      *
      * @var string

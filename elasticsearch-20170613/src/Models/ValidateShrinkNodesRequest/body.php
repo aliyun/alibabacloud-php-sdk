@@ -16,11 +16,15 @@ class body extends Model
     public $host;
 
     /**
+     * @example es-cn-pl32xxxxxxx-data-f-1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example WORKER
+     *
      * @var string
      */
     public $nodeType;

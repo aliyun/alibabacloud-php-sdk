@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InterruptElasticsearchTaskResponseBody extends Model
 {
     /**
+     * @description The error code. Only displayed if an exception is returned.
+     *
      * @example InstanceStatusNotSupportCurrentAction
      *
      * @var string
@@ -16,6 +18,8 @@ class InterruptElasticsearchTaskResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message. Only displayed if an exception is returned.
+     *
      * @example The cluster is running tasks or in an error status. Try again later.
      *
      * @var string
@@ -23,6 +27,8 @@ class InterruptElasticsearchTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D****
      *
      * @var string
@@ -30,6 +36,11 @@ class InterruptElasticsearchTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Return results:
+     *
+     *   true: interrupted change successfully
+     *   false: interrupted change failed
+     *
      * @example true
      *
      * @var bool

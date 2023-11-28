@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateKibanaWhiteIpsResponseBody extends Model
 {
     /**
+     * @description The details of the Elasticsearch cluster.
+     *
      * @example E5EF11F1-DBAE-4020-AC24-DFA6C4345CAE
      *
      * @var string
@@ -17,6 +19,8 @@ class UpdateKibanaWhiteIpsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The private IP address whitelists for access to the Kibana console of the cluster.
+     *
      * @var result
      */
     public $result;

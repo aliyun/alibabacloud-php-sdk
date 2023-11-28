@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether the X-Pack Monitoring feature is enabled. Valid values:
+     *
+     *   true: enabled
+     *   false: disabled
+     *
      * @example true
      *
      * @var bool
@@ -21,6 +26,8 @@ class result extends Model
     public $endpoints;
 
     /**
+     * @description The ID of the associated Elasticsearch cluster.
+     *
      * @example es-cn-n6w1o1x0w001c****
      *
      * @var string
@@ -33,6 +40,8 @@ class result extends Model
     public $pipelineIds;
 
     /**
+     * @description The username that is used to access the associated Elasticsearch cluster.
+     *
      * @example elastic
      *
      * @var string

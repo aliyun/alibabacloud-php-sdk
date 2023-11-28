@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DiagnoseInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the report.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
      *
      * @var string
@@ -17,6 +19,8 @@ class DiagnoseInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The diagnosis status. Valid values: Supported: SUCCESS, FAILED, and RUNNING.
+     *
      * @var result
      */
     public $result;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointRequest extends Model
 {
     /**
+     * @description The returned result details.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateVpcEndpointRequest extends Model
     public $zoneId;
 
     /**
+     * @description The ID of the user endpoint service associated with the endpoint.
+     *
      * @example false
      *
      * @var bool

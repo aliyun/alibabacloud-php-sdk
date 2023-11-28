@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class nodeSpec extends Model
 {
     /**
+     * @description Whether to use disk encryption:
+     *
+     *   true
+     *   false
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +21,8 @@ class nodeSpec extends Model
     public $disk;
 
     /**
+     * @description The disk type of the node.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class nodeSpec extends Model
     public $diskEncryption;
 
     /**
+     * @description The network configurations.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -30,6 +39,8 @@ class nodeSpec extends Model
     public $diskType;
 
     /**
+     * @description The disk size of the node.
+     *
      * @example elasticsearch.sn1ne.large
      *
      * @var string

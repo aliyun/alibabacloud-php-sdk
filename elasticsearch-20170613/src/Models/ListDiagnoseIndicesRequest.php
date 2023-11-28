@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseIndicesRequest extends Model
 {
     /**
+     * @description The language. Multiple languages are supported.
+     *
      * @example en
      *
      * @var string

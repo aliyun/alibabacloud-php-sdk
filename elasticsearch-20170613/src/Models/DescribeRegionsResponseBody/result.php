@@ -30,6 +30,8 @@ class result extends Model
     public $regionEndpoint;
 
     /**
+     * @description The name of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +39,8 @@ class result extends Model
     public $regionId;
 
     /**
+     * @description The endpoint of the region that is exposed in the console.
+     *
      * @example available
      *
      * @var string

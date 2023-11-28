@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodeSpec extends Model
 {
     /**
+     * @description The node specifications.
+     *
      * @example 40
      *
      * @var int
@@ -16,6 +18,8 @@ class nodeSpec extends Model
     public $disk;
 
     /**
+     * @description The number of nodes.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -23,6 +27,8 @@ class nodeSpec extends Model
     public $diskType;
 
     /**
+     * @description The configuration of Kibana nodes.
+     *
      * @example elasticsearch.sn2ne.xlarge
      *
      * @var string

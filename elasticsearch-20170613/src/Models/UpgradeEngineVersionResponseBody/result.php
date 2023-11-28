@@ -17,11 +17,15 @@ class result extends Model
     public $status;
 
     /**
+     * @description The error message returned.
+     *
      * @var validateResult[]
      */
     public $validateResult;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example checkClusterHealth
      *
      * @var string

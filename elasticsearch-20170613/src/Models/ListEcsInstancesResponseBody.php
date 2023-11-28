@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListEcsInstancesResponseBody extends Model
 {
     /**
+     * @description The number of returned records.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The header of the response.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
      *
      * @var string
@@ -23,6 +27,11 @@ class ListEcsInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Cloud Assistant the installation status, support:
+     *
+     *   true: The Prometheus agent was installed.
+     *   false: The Prometheus agent was not installed.
+     *
      * @var result[]
      */
     public $result;

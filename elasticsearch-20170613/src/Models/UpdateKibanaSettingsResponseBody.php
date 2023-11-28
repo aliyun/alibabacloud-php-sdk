@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateKibanaSettingsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DC*****
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateKibanaSettingsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Return results:
+     *
+     *   true: The Kibana language modified successfully
+     *   false: The Kibana language modified failed
+     *
      * @example true
      *
      * @var bool

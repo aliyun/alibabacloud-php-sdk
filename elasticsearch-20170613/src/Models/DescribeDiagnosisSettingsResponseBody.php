@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisSettingsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5E82B8A8-EED7-4557-A6E9-D1AD3E58****
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDiagnosisSettingsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The return results.
+     *
      * @var result
      */
     public $result;

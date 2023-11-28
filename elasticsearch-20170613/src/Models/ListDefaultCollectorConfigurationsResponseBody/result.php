@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The content of the configuration file.
+     *
      * @example - key: log\n  title: Log file content\n  description: >\n    Contains log file lines.\n  fields:\n ......
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $content;
 
     /**
+     * @description The name of the configuration file.
+     *
      * @example fields.yml
      *
      * @var string

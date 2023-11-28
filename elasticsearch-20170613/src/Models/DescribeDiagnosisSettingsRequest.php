@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisSettingsRequest extends Model
 {
     /**
+     * @description The language of the returned result. Default value: en.
+     *
      * @example en
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseReportRequest extends Model
 {
     /**
+     * @description SYSTEM
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class ListDiagnoseReportRequest extends Model
     public $detail;
 
     /**
+     * @description 1
+     *
      * @example 1595174399999
      *
      * @var int
@@ -23,6 +27,8 @@ class ListDiagnoseReportRequest extends Model
     public $endTime;
 
     /**
+     * @description 1594569600000
+     *
      * @example spanish
      *
      * @var string
@@ -30,6 +36,8 @@ class ListDiagnoseReportRequest extends Model
     public $lang;
 
     /**
+     * @description 20
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class ListDiagnoseReportRequest extends Model
     public $page;
 
     /**
+     * @description true
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +54,8 @@ class ListDiagnoseReportRequest extends Model
     public $size;
 
     /**
+     * @description 1595174399999
+     *
      * @example 1594569600000
      *
      * @var int
@@ -51,6 +63,8 @@ class ListDiagnoseReportRequest extends Model
     public $startTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example SYSTEM
      *
      * @var string

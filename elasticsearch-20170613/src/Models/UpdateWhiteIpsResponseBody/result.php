@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The list of whitelists.
+     *
      * @var string[]
      */
     public $esIPWhitelist;
 
     /**
+     * @description The name of the whitelist. By default, the default whitelist is included.
+     *
      * @var networkConfig
      */
     public $networkConfig;

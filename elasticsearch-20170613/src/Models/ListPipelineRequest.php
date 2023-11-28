@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineRequest extends Model
 {
     /**
+     * @description The header of the response.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListPipelineRequest extends Model
     public $page;
 
     /**
+     * @description The ID of the request.
+     *
      * @example pipeline_test
      *
      * @var string
@@ -23,6 +27,8 @@ class ListPipelineRequest extends Model
     public $pipelineId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 15
      *
      * @var int

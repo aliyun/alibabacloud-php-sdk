@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The size of the driver file. Unit: byte.
+     *
      * @example 1853083
      *
      * @var int
@@ -16,6 +18,8 @@ class result extends Model
     public $fileSize;
 
     /**
+     * @description The name of the driver file.
+     *
      * @example mysql-connector-java-6.0.2.jar
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The source of the driver file. This parameter is fixed as ORIGIN, which indicates that the driver file is retained.
+     *
      * @example ORIGIN
      *
      * @var string

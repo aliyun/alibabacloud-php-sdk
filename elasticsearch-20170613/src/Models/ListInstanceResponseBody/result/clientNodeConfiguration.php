@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clientNodeConfiguration extends Model
 {
     /**
+     * @description The size of the node storage space. Unit: GB.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,11 @@ class clientNodeConfiguration extends Model
     public $amount;
 
     /**
+     * @description Specifies whether to enable disk encryption for the node. Valid values:
+     *
+     *   true: enables instant image cache.
+     *   false: disables reuse of image cache layers.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +30,12 @@ class clientNodeConfiguration extends Model
     public $disk;
 
     /**
+     * @description The storage type of the node. Valid values:
+     *
+     *   cloud_ssd: SSD.
+     *   cloud_essd: ESSD.
+     *   cloud_efficiency: ultra disk
+     *
      * @example cloud_efficiency
      *
      * @var string
@@ -30,6 +43,8 @@ class clientNodeConfiguration extends Model
     public $diskType;
 
     /**
+     * @description The number of nodes.
+     *
      * @example elasticsearch.sn2ne.large
      *
      * @var string

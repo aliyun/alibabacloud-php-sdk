@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartCollectorResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 84B4038A-AF38-4BF4-9FAD-EA92A4FFF00A
      *
      * @var string
@@ -16,6 +18,11 @@ class RestartCollectorResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the shipper is restarted. Valid values:
+     *
+     *   true: The shipper is restarted.
+     *   false: The shipper fails to be restarted.
+     *
      * @example true
      *
      * @var bool

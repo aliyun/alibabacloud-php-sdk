@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class whiteIpGroupList extends Model
 {
     /**
+     * @description The IP addresses in the whitelist.
+     *
      * @example test_group_name
      *
      * @var string
@@ -16,6 +18,8 @@ class whiteIpGroupList extends Model
     public $groupName;
 
     /**
+     * @description The IP addresses in the whitelist.
+     *
      * @var string[]
      */
     public $ips;

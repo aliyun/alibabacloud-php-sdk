@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceRequest extends Model
 {
     /**
+     * @description cn-hangzhou-i
+     *
      * @example aliyunes_test1
      *
      * @var string
@@ -16,6 +18,8 @@ class ListInstanceRequest extends Model
     public $description;
 
     /**
+     * @description advanced
+     *
      * @example 6.7_with_X-Pack
      *
      * @var string
@@ -23,6 +27,8 @@ class ListInstanceRequest extends Model
     public $esVersion;
 
     /**
+     * @description The number of data nodes.
+     *
      * @example advanced
      *
      * @var string
@@ -30,6 +36,8 @@ class ListInstanceRequest extends Model
     public $instanceCategory;
 
     /**
+     * @description postpaid
+     *
      * @example es-cn-v641a0ta3000g****
      *
      * @var string
@@ -37,6 +45,8 @@ class ListInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description \[{"tagKey":"key1","tagValue":"value1"}]
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,11 @@ class ListInstanceRequest extends Model
     public $page;
 
     /**
+     * @description Specifies whether to include dedicated master nodes. Valid values:
+     *
+     *   true: The files contain data that is dumped to the IA storage medium.
+     *   false: The files do not contain data that is dumped to the IA storage medium.
+     *
      * @example postpaid
      *
      * @var string
@@ -51,6 +66,8 @@ class ListInstanceRequest extends Model
     public $paymentType;
 
     /**
+     * @description The ID of the request.
+     *
      * @example rg-aekzvowej3i****
      *
      * @var string
@@ -58,6 +75,8 @@ class ListInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description vpc-bp16k1dvzxtmagcva\*\*\*\*
+     *
      * @example 10
      *
      * @var int
@@ -65,6 +84,8 @@ class ListInstanceRequest extends Model
     public $size;
 
     /**
+     * @description The header of the response.
+     *
      * @example [{"tagKey":"key1","tagValue":"value1"}]
      *
      * @var string
@@ -72,6 +93,8 @@ class ListInstanceRequest extends Model
     public $tags;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example vpc-bp16k1dvzxtmagcva****
      *
      * @var string
@@ -79,6 +102,8 @@ class ListInstanceRequest extends Model
     public $vpcId;
 
     /**
+     * @description The returned data.
+     *
      * @example cn-hangzhou-i
      *
      * @var string

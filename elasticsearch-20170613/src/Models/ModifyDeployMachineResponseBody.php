@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDeployMachineResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example C37CE536-6C0F-4778-9B59-6D94C7F7EB63
      *
      * @var string
@@ -16,6 +18,11 @@ class ModifyDeployMachineResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the ECS instances are changed. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

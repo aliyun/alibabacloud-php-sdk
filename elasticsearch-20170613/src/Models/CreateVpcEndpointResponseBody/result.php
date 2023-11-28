@@ -30,6 +30,8 @@ class result extends Model
     public $endpointName;
 
     /**
+     * @description The name of the service VPC-side endpoint.
+     *
      * @example epsrv-bp1w0p3jdirbfmt6****
      *
      * @var string

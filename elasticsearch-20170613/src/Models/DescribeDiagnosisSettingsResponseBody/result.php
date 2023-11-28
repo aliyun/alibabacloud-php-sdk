@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Scenarios of intelligent maintenance.
+     *
      * @example Business Search
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $scene;
 
     /**
+     * @description The timestamp of the last update for Intelligent Maintenance scenarios.
+     *
      * @example 1588994035385
      *
      * @var int

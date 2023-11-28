@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseIndicesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F05ED12E-140A-4ACB-B059-3A508A69F2E1
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The value of the tag.
+     *
      * @example 10
      *
      * @var int

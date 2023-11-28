@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
      * @example c5ea2c2d9a3cf499481292f60425d****
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $clusterId;
 
     /**
+     * @description The type of the cluster. The value is fixed as ManagedKubernetes.
+     *
      * @example ManagedKubernetes
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $clusterType;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The ID of the VPC to which the cluster belongs.
+     *
      * @example vpc-bp12nu14urf0upaf4****
      *
      * @var string

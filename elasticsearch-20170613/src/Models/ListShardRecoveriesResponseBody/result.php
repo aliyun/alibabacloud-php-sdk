@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The data restoration progress.
+     *
      * @example 80%
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $bytesPercent;
 
     /**
+     * @description The total amount of data that is restored.
+     *
      * @example 12086
      *
      * @var int
@@ -23,6 +27,8 @@ class result extends Model
     public $bytesTotal;
 
     /**
+     * @description The file execution progress.
+     *
      * @example 80.0%
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $filesPercent;
 
     /**
+     * @description The total number of files.
+     *
      * @example 79
      *
      * @var int
@@ -37,6 +45,8 @@ class result extends Model
     public $filesTotal;
 
     /**
+     * @description The name of the index.
+     *
      * @example my-index-000001
      *
      * @var string
@@ -44,6 +54,8 @@ class result extends Model
     public $index;
 
     /**
+     * @description The IP address of the source node.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -51,6 +63,8 @@ class result extends Model
     public $sourceHost;
 
     /**
+     * @description The name of the source node.
+     *
      * @example 2Kni3dJ
      *
      * @var string
@@ -58,6 +72,15 @@ class result extends Model
     public $sourceNode;
 
     /**
+     * @description The data restoration status. Valid values:
+     *
+     *   done: Data restoration is complete.
+     *   finalize: Data is being cleared.
+     *   index: Index metadata is being read, and bytes are being copied from source to destination.
+     *   init: Data restoration is not started.
+     *   start: Data restoration is started.
+     *   translog: Translogs are being redone.
+     *
      * @example done
      *
      * @var string
@@ -65,6 +88,8 @@ class result extends Model
     public $stage;
 
     /**
+     * @description The IP address of the destination node.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -72,6 +97,8 @@ class result extends Model
     public $targetHost;
 
     /**
+     * @description The name of the destination node.
+     *
      * @example YVVKLmW
      *
      * @var string
@@ -79,6 +106,8 @@ class result extends Model
     public $targetNode;
 
     /**
+     * @description The number of translog operations to be restored.
+     *
      * @example 12086
      *
      * @var int
@@ -86,6 +115,8 @@ class result extends Model
     public $translogOps;
 
     /**
+     * @description The restoration progress of translog operations.
+     *
      * @example 80%
      *
      * @var string

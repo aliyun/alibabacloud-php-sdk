@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The link that is used to download the dictionary over the Internet. The link is valid for 90s.
+     *
      * @example http://test_bucket.oss-cn-hangzhou.aliyuncs.com/AliyunEs/test.dic?Expires=162573****&OSSAccessKeyId=LTAI*****V9&Signature=PNPO********BBGsJDO4V3VfU4sE%3D
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $downloadUrl;
 
     /**
+     * @description The size of the dictionary file. Unit: byte.
+     *
      * @example 2782602
      *
      * @var int
@@ -23,6 +27,8 @@ class result extends Model
     public $fileSize;
 
     /**
+     * @description The name of the dictionary file.
+     *
      * @example SYSTEM_MAIN.dic
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The source type.
+     *
      * @example ORIGIN
      *
      * @var string
@@ -37,6 +45,11 @@ class result extends Model
     public $sourceType;
 
     /**
+     * @description The type of the IK dictionary. Valid values:
+     *
+     *   MAIN: main dictionary
+     *   STOP: stopword list
+     *
      * @example MAIN
      *
      * @var string

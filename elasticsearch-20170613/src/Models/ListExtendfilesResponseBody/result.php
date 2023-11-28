@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The path of the driver file.
+     *
      * @example /ssd/1/share/ls-cn-oew1qbgl****\/logstash/current/config/custom/mysql-connector-java-5.1.35.jar
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $filePath;
 
     /**
+     * @description The size of the driver file.
+     *
      * @example 968668
      *
      * @var int
@@ -23,6 +27,8 @@ class result extends Model
     public $fileSize;
 
     /**
+     * @description The name of the driver file.
+     *
      * @example mysql-connector-java-5.1.35.jar
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The source type.
+     *
      * @example ORIGIN
      *
      * @var string

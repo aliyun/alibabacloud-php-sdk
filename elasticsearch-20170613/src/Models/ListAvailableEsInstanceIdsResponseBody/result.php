@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The name of the Elasticsearch cluster.
+     *
      * @example instanceName
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $description;
 
     /**
+     * @description The address that is used to access the Elasticsearch cluster over the Internet.
+     *
      * @example http://es-cn-n6w1o1x0w001c****.elasticsearch.aliyuncs.com:9200
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $endpoint;
 
     /**
+     * @description The ID of the Elasticsearch cluster.
+     *
      * @example es-cn-n6w1o1x0w001c****
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $esInstanceId;
 
     /**
+     * @description The address that is used to access the Kibana console of the Elasticsearch cluster over the Internet.
+     *
      * @example https://es-cn-n6w1o1x0w001c****.kibana.elasticsearch.aliyuncs.com:5601
      *
      * @var string

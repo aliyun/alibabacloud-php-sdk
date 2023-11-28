@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @description The content of the file.
+     *
      * @example fileBeat.inputs:xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class configs extends Model
     public $content;
 
     /**
+     * @description The name of the file.
+     *
      * @example filebeat.yml
      *
      * @var string

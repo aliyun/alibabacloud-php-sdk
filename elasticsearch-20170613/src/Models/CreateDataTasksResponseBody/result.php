@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The access password of the target cluster.
+     *
      * @var sinkCluster
      */
     public $sinkCluster;
 
     /**
+     * @description The access password of the source cluster.
+     *
      * @var sourceCluster
      */
     public $sourceCluster;

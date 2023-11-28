@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAliwsDictResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -17,6 +19,8 @@ class UpdateAliwsDictResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

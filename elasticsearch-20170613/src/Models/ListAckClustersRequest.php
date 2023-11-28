@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAckClustersRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,8 @@ class ListAckClustersRequest extends Model
     public $page;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class ListAckClustersRequest extends Model
     public $size;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the ACK clusters belong.
+     *
      * @example vpc-bp12nu14urf0upaf4****
      *
      * @var string

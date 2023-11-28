@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeConnectableClustersRequest extends Model
 {
     /**
+     * @description The ID of the instance that can communicate with each other.
+     *
      * @example true
      *
      * @var bool

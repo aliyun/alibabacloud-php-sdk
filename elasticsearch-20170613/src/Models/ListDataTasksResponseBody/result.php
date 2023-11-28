@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the site monitoring task was created.
+     *
      * @example 2020-07-30 06:32:18
      *
      * @var string
@@ -18,16 +20,22 @@ class result extends Model
     public $createTime;
 
     /**
+     * @description The information of the target cluster.
+     *
      * @var sinkCluster
      */
     public $sinkCluster;
 
     /**
+     * @description The information about the source cluster.
+     *
      * @var sourceCluster
      */
     public $sourceCluster;
 
     /**
+     * @description The status of the task.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -35,6 +43,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
      * @example et_cn_mfv1233r47272****
      *
      * @var string

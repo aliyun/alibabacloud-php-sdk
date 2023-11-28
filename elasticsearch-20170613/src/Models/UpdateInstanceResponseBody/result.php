@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The private domain name of the instance.
+     *
      * @example 2018-07-13T03:58:07.253Z
      *
      * @var string
@@ -19,6 +21,8 @@ class result extends Model
     public $createdAt;
 
     /**
+     * @description The configuration of data nodes.
+     *
      * @example test
      *
      * @var string
@@ -26,6 +30,8 @@ class result extends Model
     public $description;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example es-cn-abc.elasticsearch.aliyuncs.com
      *
      * @var string
@@ -33,6 +39,8 @@ class result extends Model
     public $domain;
 
     /**
+     * @description The node specifications.
+     *
      * @example 5.5.3_with_X-Pack
      *
      * @var string
@@ -40,6 +48,8 @@ class result extends Model
     public $esVersion;
 
     /**
+     * @description The storage space of the node. Unit: GB.
+     *
      * @example es-cn-abc
      *
      * @var string
@@ -47,16 +57,25 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The size of the node storage space.
+     *
      * @var kibanaConfiguration
      */
     public $kibanaConfiguration;
 
     /**
+     * @description The storage space of the node. Unit: GB.
+     *
      * @var masterConfiguration
      */
     public $masterConfiguration;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   prepaid: subscription
+     *   postpaid: pay-as-you-go
+     *
      * @example 2
      *
      * @var int
@@ -64,11 +83,18 @@ class result extends Model
     public $nodeAmount;
 
     /**
+     * @description The storage type of the node. Valid values:
+     *
+     *   cloud_ssd: standard SSD
+     *   cloud_efficiency: ultra disk
+     *
      * @var nodeSpec
      */
     public $nodeSpec;
 
     /**
+     * @description The edition of the dedicated KMS instance.
+     *
      * @example postpaid
      *
      * @var string
@@ -76,6 +102,8 @@ class result extends Model
     public $paymentType;
 
     /**
+     * @description The name of the instance.
+     *
      * @example active
      *
      * @var string

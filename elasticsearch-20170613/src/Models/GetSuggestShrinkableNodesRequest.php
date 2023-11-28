@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSuggestShrinkableNodesRequest extends Model
 {
     /**
+     * @description The number of nodes that you want to remove.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class GetSuggestShrinkableNodesRequest extends Model
     public $count;
 
     /**
+     * @description Specifies whether to ignore the instance status. Default value: false.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class GetSuggestShrinkableNodesRequest extends Model
     public $ignoreStatus;
 
     /**
+     * @description The type of removing nodes. WORKER indicates hot node and WORKER_WARM indicates warm node.
+     *
      * @example WORKER
      *
      * @var string

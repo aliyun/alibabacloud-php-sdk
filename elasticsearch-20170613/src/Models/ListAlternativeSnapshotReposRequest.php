@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAlternativeSnapshotReposRequest extends Model
 {
     /**
+     * @description Indicates whether to return the OSS reference repository added. The return value. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

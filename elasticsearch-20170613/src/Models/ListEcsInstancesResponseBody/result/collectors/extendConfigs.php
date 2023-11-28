@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class extendConfigs extends Model
 {
     /**
+     * @description The instance type specified by Collector Output. Supports Elasticsearch and Logstash. Displayed when the **configType** is **collectorTargetInstance**.
+     *
      * @example collectorDeployMachine
      *
      * @var string
@@ -17,6 +19,8 @@ class extendConfigs extends Model
     public $configType;
 
     /**
+     * @description The ID of the host group. Displayed when the **configType** is **collectorDeployMachine**.
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +28,12 @@ class extendConfigs extends Model
     public $enableMonitoring;
 
     /**
+     * @description The configuration type. Valid values:
+     *
+     *   collectorTargetInstance: Collector Output
+     *   collectorDeployMachine: Collector Deployment Machine
+     *   Collector Elasticsearch ForKibana: Elasticsearch instance information that supports the Kibana dashboard
+     *
      * @example default_ct-cn-5i2l75bz4776****
      *
      * @var string
@@ -31,11 +41,15 @@ class extendConfigs extends Model
     public $groupId;
 
     /**
+     * @description The path in which Filebeat is collected.
+     *
      * @var string[]
      */
     public $hosts;
 
     /**
+     * @description The list of ECS instances on which the collector is deployed. Displayed when the **configType** is **collectorDeployMachines** and the **type** is **ECSInstanceId**.
+     *
      * @example es-cn-nif1z89fz003i****
      *
      * @var string
@@ -43,6 +57,8 @@ class extendConfigs extends Model
     public $instanceId;
 
     /**
+     * @description The transmission protocol, which must be the same as the access protocol of the instance specified by Output. HTTP and HTTPS. Displayed when the **configType** is **collectorTargetInstance**.
+     *
      * @example elasticsearch
      *
      * @var string
@@ -50,11 +66,20 @@ class extendConfigs extends Model
     public $instanceType;
 
     /**
+     * @description The status of each crawl on the ECS instance. Valid values:
+     *
+     *   heartOk: The heartbeat is normal.
+     *   heartLost: The heartbeat is abnormal.
+     *   uninstalled
+     *   failed: The installation failed.
+     *
      * @var machines[]
      */
     public $machines;
 
     /**
+     * @description The username that is used to access the instance. The default value is elastic. Displayed when the **configType** is **collectorTargetInstance** or **collectorElasticsearchForKibana**.
+     *
      * @example HTTP
      *
      * @var string
@@ -62,6 +87,8 @@ class extendConfigs extends Model
     public $protocol;
 
     /**
+     * @description The ID of the instance that is associated with the crawker. If the **configType** parameter is set to **collectorTargetInstance**, the value of this parameter is the ID of the output collector. If the **configType** parameter is set to **collectorDeployMachines** and the **type** parameter is set to **ACKCluster**, the value of this parameter is the ID of the ACK cluster.
+     *
      * @example ECSInstanceId
      *
      * @var string
@@ -69,6 +96,11 @@ class extendConfigs extends Model
     public $type;
 
     /**
+     * @description The type of the machine on which the Collector is deployed. This parameter is displayed when the **configType** is **collectorDeployMachine**. Valid values:
+     *
+     *   ECSInstanceId:ECS
+     *   ACKCluster: Container Kubernetes
+     *
      * @example elastic
      *
      * @var string

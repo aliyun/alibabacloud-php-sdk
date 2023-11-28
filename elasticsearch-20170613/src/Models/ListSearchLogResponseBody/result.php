@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example [GC (Allocation Failure) 2018-07-19T17:24:20.682+0800: 7516.513: [ParNew: 6604768K->81121K(7341504K), 0.0760606 secs] 7226662K->703015K(31813056K), 0.0762507 secs] [Times: user=0.52 sys=0.00, real=0.07 secs]
      *
      * @var string
@@ -23,6 +25,8 @@ class result extends Model
     public $contentCollection;
 
     /**
+     * @description Details of the log entry. Different content fields are returned for different log types.
+     *
      * @example 192.168.**.**
      *
      * @var string
@@ -37,6 +41,8 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The timestamp when the log is generated. Unit: ms.
+     *
      * @example info
      *
      * @var string

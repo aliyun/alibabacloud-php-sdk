@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeEngineVersionResponseBody extends Model
 {
     /**
+     * @description The verification information.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DC*****
      *
      * @var string
@@ -17,6 +19,14 @@ class UpgradeEngineVersionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The type of the error. Valid values:
+     *
+     *   clusterStatus: the health status of the cluster.
+     *   clusterConfigYml: Cluster YML File
+     *   clusterConfigPlugins: Cluster Configuration File
+     *   clusterResource: cluster resources
+     *   clusterSnapshot: cluster snapshot
+     *
      * @var result[]
      */
     public $result;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DiagnoseInstanceRequest extends Model
 {
     /**
+     * @description The timestamp when the diagnostic report was generated.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
      *
      * @var string
@@ -26,11 +28,15 @@ class DiagnoseInstanceRequest extends Model
     public $indices;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The returned data.
+     *
      * @example en
      *
      * @var string

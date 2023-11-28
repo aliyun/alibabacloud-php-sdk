@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResumeLogstashTaskResponseBody extends Model
 {
     /**
+     * @description The error code returned. If the API operation is successfully called, this parameter is not returned.
+     *
      * @example InstanceNotFound
      *
      * @var string
@@ -16,6 +18,8 @@ class ResumeLogstashTaskResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned. If the API operation is successfully called, this parameter is not returned.
+     *
      * @example The specified cluster does not exist. Check the cluster status and try again.
      *
      * @var string
@@ -23,6 +27,8 @@ class ResumeLogstashTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0FA05123-745C-42FD-A69B-AFF48EF9****
      *
      * @var string
@@ -30,6 +36,11 @@ class ResumeLogstashTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the change task is resumed. Valid values:
+     *
+     *   true: The change task is resumed.
+     *   false: The change task fails to be resumed.
+     *
      * @example true
      *
      * @var bool

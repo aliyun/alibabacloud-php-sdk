@@ -14,6 +14,8 @@ class MigrateToOtherZoneRequest extends Model
     public $body;
 
     /**
+     * @description Verify whether the zone node can be migrated. true indicates that the data is only verified and the migration task is not executed. false indicates that the migration task is executed after the verification is successful.
+     *
      * @example false
      *
      * @var bool

@@ -152,6 +152,13 @@ class result extends Model
     public $ikHotDicts;
 
     /**
+     * @example advanced
+     *
+     * @var string
+     */
+    public $instanceCategory;
+
+    /**
      * @example es-cn-3h4k3axh33th9****
      *
      * @var string
@@ -358,6 +365,7 @@ class result extends Model
         'haveClientNode'               => 'haveClientNode',
         'haveKibana'                   => 'haveKibana',
         'ikHotDicts'                   => 'ikHotDicts',
+        'instanceCategory'             => 'instanceCategory',
         'instanceId'                   => 'instanceId',
         'isNewDeployment'              => 'isNewDeployment',
         'kibanaConfiguration'          => 'kibanaConfiguration',
@@ -477,6 +485,9 @@ class result extends Model
                     $res['ikHotDicts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->instanceCategory) {
+            $res['instanceCategory'] = $this->instanceCategory;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
@@ -684,6 +695,9 @@ class result extends Model
                     $model->ikHotDicts[$n++] = null !== $item ? ikHotDicts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['instanceCategory'])) {
+            $model->instanceCategory = $map['instanceCategory'];
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];

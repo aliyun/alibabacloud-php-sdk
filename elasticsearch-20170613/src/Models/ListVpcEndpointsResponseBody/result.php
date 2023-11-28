@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The status of the endpoint connection. Valid values:
+     *
+     *   Pending
+     *   Connecting
+     *   Connected
+     *   Disconnecting
+     *   Disconnected
+     *   Deleting
+     *   ServiceDeleted
+     *
      * @example Disconnected
      *
      * @var string
@@ -16,6 +26,8 @@ class result extends Model
     public $connectionStatus;
 
     /**
+     * @description The time when the endpoint was created.
+     *
      * @example 2021-07-22T01:19:24Z
      *
      * @var string
@@ -23,6 +35,11 @@ class result extends Model
     public $createTime;
 
     /**
+     * @description The business status of the endpoint. Valid values:
+     *
+     *   Normal
+     *   FinancialLocked
+     *
      * @example Normal
      *
      * @var string
@@ -30,6 +47,8 @@ class result extends Model
     public $endpointBusinessStatus;
 
     /**
+     * @description The domain name of the endpoint. The domain name is used for connection configuration.
+     *
      * @example ep-bp18s6wy9420wdi4****.epsrv-bp1bz3efowa4kc0****.cn-hangzhou.privatelink.aliyuncs.com
      *
      * @var string
@@ -37,6 +56,8 @@ class result extends Model
     public $endpointDomain;
 
     /**
+     * @description The ID of the endpoint.
+     *
      * @example ep-bp1tah7zbrwmkjef****
      *
      * @var string
@@ -44,6 +65,8 @@ class result extends Model
     public $endpointId;
 
     /**
+     * @description The name of the endpoint.
+     *
      * @example test
      *
      * @var string
@@ -51,6 +74,13 @@ class result extends Model
     public $endpointName;
 
     /**
+     * @description The status of the endpoint. Valid values:
+     *
+     *   Creating
+     *   Active
+     *   Pending
+     *   Deleting
+     *
      * @example Active
      *
      * @var string
@@ -58,6 +88,8 @@ class result extends Model
     public $endpointStatus;
 
     /**
+     * @description The ID of the endpoint service with which the endpoint is associated.
+     *
      * @example epsrv-bp1w0p3jdirbfmt6****
      *
      * @var string
@@ -65,6 +97,8 @@ class result extends Model
     public $serviceId;
 
     /**
+     * @description The name of the endpoint service with which the endpoint is associated.
+     *
      * @example com.aliyuncs.privatelink.cn-hangzhou.epsrv-bp1w0p3jdirbfmt6****
      *
      * @var string

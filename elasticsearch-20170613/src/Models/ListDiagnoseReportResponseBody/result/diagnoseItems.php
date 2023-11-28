@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class diagnoseItems extends Model
 {
     /**
+     * @description The type of the diagnostic result. Valid values:
+     *
+     *   TEXT: text description
+     *   CONSOLE_API: console-triggered
+     *   ES_API: API triggered
+     *
      * @var detail
      */
     public $detail;
 
     /**
+     * @description The details of the diagnostic item.
+     *
      * @example YELLOW
      *
      * @var string
@@ -22,6 +30,8 @@ class diagnoseItems extends Model
     public $health;
 
     /**
+     * @description The health of the diagnostic item. Supported: GREEN, YELLOW, RED, and UNKNOWN.
+     *
      * @example IndexAliasUseDiagnostic
      *
      * @var string

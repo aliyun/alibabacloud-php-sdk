@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePipelineResponseBody extends Model
 {
     /**
+     * @description The time when the pipeline was updated.
+     *
      * @example 829F38F6-E2D6-4109-90A6-888160BD1***
      *
      * @var string
@@ -17,6 +19,11 @@ class DescribePipelineResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The type of the queue. Valid values:
+     *
+     *   MEMORY: a traditional memory-based queue.
+     *   PERSISTED: disk-based ACKed queue (persistent queue).
+     *
      * @var result
      */
     public $result;

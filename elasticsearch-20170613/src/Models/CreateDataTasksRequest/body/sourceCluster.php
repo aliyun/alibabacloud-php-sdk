@@ -30,6 +30,8 @@ class sourceCluster extends Model
     public $index;
 
     /**
+     * @example es_password
+     *
      * @var string
      */
     public $password;

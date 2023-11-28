@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagsRequest extends Model
 {
     /**
+     * @description The return results.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,8 @@ class ListTagsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The tag value of the ENI.
+     *
      * @example INSTANCE
      *
      * @var string

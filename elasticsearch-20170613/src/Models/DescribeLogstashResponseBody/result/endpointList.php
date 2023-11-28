@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class endpointList extends Model
 {
     /**
+     * @description The tags added to the ALB instance.
+     *
      * @example 172.16.**.**
      *
      * @var string
@@ -16,6 +18,8 @@ class endpointList extends Model
     public $host;
 
     /**
+     * @description The IP address of the node.
+     *
      * @example 9600
      *
      * @var string
@@ -23,6 +27,8 @@ class endpointList extends Model
     public $port;
 
     /**
+     * @description The port number.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

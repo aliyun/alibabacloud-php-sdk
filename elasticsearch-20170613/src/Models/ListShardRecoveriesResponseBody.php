@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListShardRecoveriesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DCC47D9
      *
      * @var string
@@ -17,6 +19,8 @@ class ListShardRecoveriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

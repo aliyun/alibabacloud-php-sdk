@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTransferableNodesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DCC****
      *
      * @var string
@@ -17,6 +19,8 @@ class GetTransferableNodesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The return results.
+     *
      * @var result[]
      */
     public $result;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The status of the public network access switch.
+     *
      * @example false
      *
      * @var bool

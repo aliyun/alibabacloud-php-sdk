@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete all parts. Default value: **false** . This parameter is valid only when **TagKeys** is not specified.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
+     * @description The resource list that you want to delete.
+     *
      * @example ["es-cn-09k1rocex0006****","es-cn-oew1rgiev0009****"]
      *
      * @var string
@@ -23,6 +27,8 @@ class UntagResourcesRequest extends Model
     public $resourceIds;
 
     /**
+     * @description The type of the resource. Fixed to **INSTANCE** .
+     *
      * @example INSTANCE
      *
      * @var string
@@ -30,6 +36,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The list of tags that you want to delete. The list can contain up to 20 subitems.
+     *
      * @example ["tagKey1","tagKey2"]
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Whether it is connectable.
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +19,8 @@ class result extends Model
     public $connectable;
 
     /**
+     * @description The metadata of the cluster.
+     *
      * @var metaInfo
      */
     public $metaInfo;

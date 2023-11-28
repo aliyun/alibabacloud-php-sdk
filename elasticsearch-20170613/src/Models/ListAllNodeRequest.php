@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAllNodeRequest extends Model
 {
     /**
+     * @description The Java Virtual Machine (JVM) heap memory usage of the node.
+     *
      * @example false
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Whether to enable automatic backup.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class result extends Model
     public $enable;
 
     /**
+     * @description Automatic backup time configuration, using Quartz Cron expression.
+     *
      * @example 0 0 01 ? * * *
      *
      * @var string

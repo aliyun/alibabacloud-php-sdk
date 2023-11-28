@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @description The diagnosis.
+     *
      * @example Check whether the number of replica shards is optimal and easy to maintain
      *
      * @var string
@@ -16,6 +18,8 @@ class detail extends Model
     public $desc;
 
     /**
+     * @description The description of the diagnostic item.
+     *
      * @example Number of Replica Shards
      *
      * @var string
@@ -23,6 +27,8 @@ class detail extends Model
     public $name;
 
     /**
+     * @description The suggestion for the diagnosis.
+     *
      * @example You may need to adjust the numbers of replica shards of some indices as follows:  [geoname08 : 0 -&gt; 1][geoname09 : 0 -&gt; 1][geonametest01 : 0 -&gt; 1]
      *
      * @var string
@@ -37,6 +43,8 @@ class detail extends Model
     public $suggest;
 
     /**
+     * @description The full name of the diagnostic item.
+     *
      * @example ES_API
      *
      * @var string

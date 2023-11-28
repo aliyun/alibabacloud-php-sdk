@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class synonymsDicts extends Model
 {
     /**
+     * @description The size of the Dictionary File. Unit: bytes.
+     *
      * @example 2782602
      *
      * @var int
@@ -16,6 +18,8 @@ class synonymsDicts extends Model
     public $fileSize;
 
     /**
+     * @description The name of the dictionary file.
+     *
      * @example SYSTEM_MAIN.dic
      *
      * @var string
@@ -23,6 +27,12 @@ class synonymsDicts extends Model
     public $name;
 
     /**
+     * @description The source type. Valid values:
+     *
+     *   OSS:OSS open storage (the OSS storage space must be publicly readable.)
+     *   ORIGIN: open-source Elasticsearch
+     *   UPLOAD
+     *
      * @example ORIGIN
      *
      * @var string
@@ -30,6 +40,13 @@ class synonymsDicts extends Model
     public $sourceType;
 
     /**
+     * @description The type of the dictionary. Valid values:
+     *
+     *   STOP: The STOP word.
+     *   MAIN: MAIN Dictionary
+     *   SYNONYMS: SYNONYMS
+     *   ALI_WS: an Alibaba Dictionary.
+     *
      * @example STOP
      *
      * @var string

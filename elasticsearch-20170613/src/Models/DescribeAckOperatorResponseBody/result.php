@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The installation status of ES-operator. Valid values:
+     *
+     *   deployed: ES-operator is installed.
+     *   not-deploy: ES-operator is not installed.
+     *   failed: ES-operator fails to be installed.
+     *   unknown: The installation status of ES-operator is unknown.
+     *
      * @example deployed
      *
      * @var string
@@ -16,6 +23,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The version of ES-operator.
+     *
      * @example 1
      *
      * @var string

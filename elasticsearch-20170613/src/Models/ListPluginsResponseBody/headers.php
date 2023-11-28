@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The address of the plug-in description document.
+     *
      * @example 2
      *
      * @var int

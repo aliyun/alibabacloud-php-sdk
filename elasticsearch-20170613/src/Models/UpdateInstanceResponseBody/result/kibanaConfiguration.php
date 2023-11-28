@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class kibanaConfiguration extends Model
 {
     /**
+     * @description The configuration of dedicated master nodes.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class kibanaConfiguration extends Model
     public $amount;
 
     /**
+     * @description The node specifications.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class kibanaConfiguration extends Model
     public $disk;
 
     /**
+     * @description The number of nodes.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -30,6 +36,8 @@ class kibanaConfiguration extends Model
     public $diskType;
 
     /**
+     * @description The storage type of the node. This parameter can be ignored.
+     *
      * @example elasticsearch.n4.small
      *
      * @var string

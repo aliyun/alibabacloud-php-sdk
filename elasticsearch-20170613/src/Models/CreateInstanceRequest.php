@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateInstanceRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateInstanceRequest extends Model
@@ -12,6 +13,13 @@ class CreateInstanceRequest extends Model
      * @var ClientNodeConfiguration
      */
     public $clientNodeConfiguration;
+
+    /**
+     * @example es
+     *
+     * @var string
+     */
+    public $description;
 
     /**
      * @var ElasticDataNodeConfiguration
@@ -79,6 +87,18 @@ class CreateInstanceRequest extends Model
     public $paymentType;
 
     /**
+     * @example rg-aekzu7tsu4nem4q
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var WarmNodeConfiguration
      */
     public $warmNodeConfiguration;
@@ -98,6 +118,7 @@ class CreateInstanceRequest extends Model
     public $clientToken;
     protected $_name = [
         'clientNodeConfiguration'      => 'clientNodeConfiguration',
+        'description'                  => 'description',
         'elasticDataNodeConfiguration' => 'elasticDataNodeConfiguration',
         'esAdminPassword'              => 'esAdminPassword',
         'esVersion'                    => 'esVersion',
@@ -109,6 +130,8 @@ class CreateInstanceRequest extends Model
         'nodeSpec'                     => 'nodeSpec',
         'paymentInfo'                  => 'paymentInfo',
         'paymentType'                  => 'paymentType',
+        'resourceGroupId'              => 'resourceGroupId',
+        'tags'                         => 'tags',
         'warmNodeConfiguration'        => 'warmNodeConfiguration',
         'zoneCount'                    => 'zoneCount',
         'clientToken'                  => 'clientToken',
@@ -123,6 +146,9 @@ class CreateInstanceRequest extends Model
         $res = [];
         if (null !== $this->clientNodeConfiguration) {
             $res['clientNodeConfiguration'] = null !== $this->clientNodeConfiguration ? $this->clientNodeConfiguration->toMap() : null;
+        }
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
         if (null !== $this->elasticDataNodeConfiguration) {
             $res['elasticDataNodeConfiguration'] = null !== $this->elasticDataNodeConfiguration ? $this->elasticDataNodeConfiguration->toMap() : null;
@@ -157,6 +183,18 @@ class CreateInstanceRequest extends Model
         if (null !== $this->paymentType) {
             $res['paymentType'] = $this->paymentType;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->warmNodeConfiguration) {
             $res['warmNodeConfiguration'] = null !== $this->warmNodeConfiguration ? $this->warmNodeConfiguration->toMap() : null;
         }
@@ -180,6 +218,9 @@ class CreateInstanceRequest extends Model
         $model = new self();
         if (isset($map['clientNodeConfiguration'])) {
             $model->clientNodeConfiguration = ClientNodeConfiguration::fromMap($map['clientNodeConfiguration']);
+        }
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
         if (isset($map['elasticDataNodeConfiguration'])) {
             $model->elasticDataNodeConfiguration = ElasticDataNodeConfiguration::fromMap($map['elasticDataNodeConfiguration']);
@@ -213,6 +254,18 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['paymentType'])) {
             $model->paymentType = $map['paymentType'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['warmNodeConfiguration'])) {
             $model->warmNodeConfiguration = WarmNodeConfiguration::fromMap($map['warmNodeConfiguration']);

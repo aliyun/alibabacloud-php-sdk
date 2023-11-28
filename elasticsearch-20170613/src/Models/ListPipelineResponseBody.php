@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineResponseBody extends Model
 {
     /**
+     * @description The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The response.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListPipelineResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the pipeline was created.
+     *
      * @var result[]
      */
     public $result;

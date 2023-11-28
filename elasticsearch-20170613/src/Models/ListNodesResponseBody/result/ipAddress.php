@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipAddress extends Model
 {
     /**
+     * @description The IP address.
+     *
      * @example 192.168.xx.xx
      *
      * @var string
@@ -16,6 +18,11 @@ class ipAddress extends Model
     public $host;
 
     /**
+     * @description The type of the IP address. Valid values:
+     *
+     *   public: public IP address
+     *   private: private IP address
+     *
      * @example public
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePipelinesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdatePipelinesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the pipeline is updated. Valid values:
+     *
+     *   true: The pipeline is updated.
+     *   false: The pipeline fails to be updated.
+     *
      * @example true
      *
      * @var bool

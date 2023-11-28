@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class masterConfiguration extends Model
 {
     /**
+     * @description The network type. Only Virtual Private Cloud (VPC) is supported.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,8 @@ class masterConfiguration extends Model
     public $amount;
 
     /**
+     * @description The vSwitch ID of the cluster.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class masterConfiguration extends Model
     public $disk;
 
     /**
+     * @description The configuration of data nodes.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -30,6 +36,8 @@ class masterConfiguration extends Model
     public $diskType;
 
     /**
+     * @description The zone where the cluster resides.
+     *
      * @example elasticsearch.sn2ne.large
      *
      * @var string

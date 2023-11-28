@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the instance was created.
+     *
      * @example 2020-07-06T10:18:48.662Z
      *
      * @var string
@@ -22,6 +24,8 @@ class result extends Model
     public $createdAt;
 
     /**
+     * @description The name of the instance.
+     *
      * @example es-cn-abc
      *
      * @var string
@@ -29,11 +33,15 @@ class result extends Model
     public $description;
 
     /**
+     * @description The configuration of the IK dictionaries.
+     *
      * @var dictList[]
      */
     public $dictList;
 
     /**
+     * @description The intranet access address of the instance.
+     *
      * @example es-cn-nif1q8auz0003****.elasticsearch.aliyuncs.com
      *
      * @var string
@@ -41,6 +49,8 @@ class result extends Model
     public $domain;
 
     /**
+     * @description The version of the instance.
+     *
      * @example 6.7.0_with_X-Pack
      *
      * @var string
@@ -48,6 +58,8 @@ class result extends Model
     public $esVersion;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example es-cn-n6w1o1x0w001c****
      *
      * @var string
@@ -55,11 +67,15 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The configuration of Kibana nodes.
+     *
      * @var kibanaConfiguration
      */
     public $kibanaConfiguration;
 
     /**
+     * @description The public network access address of Kibana.
+     *
      * @example es-cn-nif1q8auz0003****.kibana.elasticsearch.aliyuncs.com
      *
      * @var string
@@ -67,6 +83,8 @@ class result extends Model
     public $kibanaDomain;
 
     /**
+     * @description The public port of the Kibana network.
+     *
      * @example 5601
      *
      * @var int
@@ -74,16 +92,22 @@ class result extends Model
     public $kibanaPort;
 
     /**
+     * @description The configuration of dedicated master nodes.
+     *
      * @var masterConfiguration
      */
     public $masterConfiguration;
 
     /**
+     * @description The network configuration.
+     *
      * @var networkConfig
      */
     public $networkConfig;
 
     /**
+     * @description The number of data nodes.
+     *
      * @example 2
      *
      * @var int
@@ -91,11 +115,16 @@ class result extends Model
     public $nodeAmount;
 
     /**
+     * @description The configuration of data nodes.
+     *
      * @var nodeSpec
      */
     public $nodeSpec;
 
     /**
+     * @description The billing method of the created ECS instance.
+     *
+     * Valid values: prepaid and postpaid.
      * @example postpaid
      *
      * @var string
@@ -103,6 +132,8 @@ class result extends Model
     public $paymentType;
 
     /**
+     * @description The public network access address.
+     *
      * @example es-cn-n6w1o1x0w001c****.public.elasticsearch.aliyuncs.com
      *
      * @var string
@@ -110,6 +141,8 @@ class result extends Model
     public $publicDomain;
 
     /**
+     * @description The public network port.
+     *
      * @example 9200
      *
      * @var int
@@ -117,6 +150,9 @@ class result extends Model
     public $publicPort;
 
     /**
+     * @description The state of the cluster.
+     *
+     * Supported: active (normal), activating (initializing), inactive (blocked), and invalid (expired).
      * @example active
      *
      * @var string
@@ -124,11 +160,15 @@ class result extends Model
     public $status;
 
     /**
+     * @description The configuration of the synonym dictionaries.
+     *
      * @var synonymsDicts[]
      */
     public $synonymsDicts;
 
     /**
+     * @description The time when the instance was last updated.
+     *
      * @example 2018-07-18T10:10:04.484Z
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class masterConfiguration extends Model
 {
     /**
+     * @description The number of nodes in the cluster.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,8 @@ class masterConfiguration extends Model
     public $amount;
 
     /**
+     * @description The size of the node storage space. Unit: GB.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class masterConfiguration extends Model
     public $disk;
 
     /**
+     * @description The storage type of the node. This tool only supports cloud_ssd (cloud SSD) disks.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -30,6 +36,8 @@ class masterConfiguration extends Model
     public $diskType;
 
     /**
+     * @description The node specifications of the cluster.
+     *
      * @example elasticsearch.sn2ne.large
      *
      * @var string

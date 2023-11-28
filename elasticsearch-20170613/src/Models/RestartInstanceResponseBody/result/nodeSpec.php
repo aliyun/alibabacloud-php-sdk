@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodeSpec extends Model
 {
     /**
+     * @description The storage space size per data node. Unit: GB.
+     *
      * @example 50
      *
      * @var int
@@ -16,6 +18,8 @@ class nodeSpec extends Model
     public $disk;
 
     /**
+     * @description The storage type of the node. Valid values: cloud_ssd and cloud_efficiency.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -23,6 +27,8 @@ class nodeSpec extends Model
     public $diskType;
 
     /**
+     * @description The specification of data nodes.
+     *
      * @example elasticsearch.n4.small
      *
      * @var string

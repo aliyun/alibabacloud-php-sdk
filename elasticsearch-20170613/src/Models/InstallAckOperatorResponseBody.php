@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallAckOperatorResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EFA88951-7A6F-4A8E-AB8F-2BB7132BA751
      *
      * @var string
@@ -16,6 +18,11 @@ class InstallAckOperatorResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether ES-operator is installed. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -20,6 +20,8 @@ class CreateCollectorRequest extends Model
     public $configs;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
@@ -30,7 +32,7 @@ class CreateCollectorRequest extends Model
     public $extendConfigs;
 
     /**
-     * @example cn-collecor
+     * @example ct-test
      *
      * @var string
      */
@@ -51,13 +53,15 @@ class CreateCollectorRequest extends Model
     public $resVersion;
 
     /**
-     * @example vpc-45ews***
+     * @example vpc-bp12nu14urf0upaf*****
      *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the created crawer.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSynonymsDictsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 7C5622CC-B312-426F-85AA-B0271*******
      *
      * @var string
@@ -17,6 +19,8 @@ class UpdateSynonymsDictsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

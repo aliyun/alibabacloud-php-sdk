@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTransferableNodesRequest extends Model
 {
     /**
+     * @description The number of nodes to be migrated.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class GetTransferableNodesRequest extends Model
     public $count;
 
     /**
+     * @description The type of nodes.**WORKER**represents a hot node,**WORKER_WARM** represents a warm node.
+     *
      * @example WORKER
      *
      * @var string

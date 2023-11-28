@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class networkConfig extends Model
 {
     /**
+     * @description The ID of the vSwitch to which the instance is connected.
+     *
      * @example vpc
      *
      * @var string
@@ -16,6 +18,8 @@ class networkConfig extends Model
     public $type;
 
     /**
+     * @description The zone where the cluster resides.
+     *
      * @example vpc-bp16k1dvzxtmagcva****
      *
      * @var string
@@ -23,6 +27,8 @@ class networkConfig extends Model
     public $vpcId;
 
     /**
+     * @description The network type of the instance. Valid values: Currently, only Virtual Private Cloud (VPC) are supported.
+     *
      * @example cn-hangzhou-*
      *
      * @var string

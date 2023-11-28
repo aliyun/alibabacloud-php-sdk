@@ -16,11 +16,15 @@ class collectors extends Model
     public $collectorPaths;
 
     /**
+     * @description The content of the file.
+     *
      * @var configs[]
      */
     public $configs;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example false
      *
      * @var bool
@@ -28,11 +32,21 @@ class collectors extends Model
     public $dryRun;
 
     /**
+     * @description Whether Monitoring is enabled. This field is displayed when the **configType** is **collectorTargetInstance** and the **instanceType** is **Elasticsearch**. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @var extendConfigs[]
      */
     public $extendConfigs;
 
     /**
+     * @description The status of the collector. Valid values:
+     *
+     *   activating: The project is taking effect.
+     *   active: The instance has taken effect.
+     *
      * @example 2020-06-20T07:26:47.000+0000
      *
      * @var string
@@ -40,6 +54,11 @@ class collectors extends Model
     public $gmtCreatedTime;
 
     /**
+     * @description Specifies whether to verify and create a crawer. Valid values:
+     *
+     *   true: only verifies and does not create a
+     *   false: verifies and creates a
+     *
      * @example 2020-06-20T07:26:47.000+0000
      *
      * @var string
@@ -47,6 +66,8 @@ class collectors extends Model
     public $gmtUpdateTime;
 
     /**
+     * @description The configuration file information of the collector.
+     *
      * @example ct-testAbc
      *
      * @var string
@@ -54,6 +75,8 @@ class collectors extends Model
     public $name;
 
     /**
+     * @description The ID of the Virtual Private Cloud to which the collector belongs.
+     *
      * @example 16852***488*****
      *
      * @var string
@@ -61,6 +84,8 @@ class collectors extends Model
     public $ownerId;
 
     /**
+     * @description The time when the collector was updated.
+     *
      * @example ct-cn-0v3xj86085dvq****
      *
      * @var string
@@ -68,6 +93,8 @@ class collectors extends Model
     public $resId;
 
     /**
+     * @description The version of the collector. If the machine type of the collector is ECS, only **6.8.5\_with_community** is supported.
+     *
      * @example fileBeat
      *
      * @var string
@@ -75,6 +102,8 @@ class collectors extends Model
     public $resType;
 
     /**
+     * @description The time when the crawl collector was created.
+     *
      * @example 6.8.5_with_community
      *
      * @var string
@@ -82,6 +111,8 @@ class collectors extends Model
     public $resVersion;
 
     /**
+     * @description The name of the collector.
+     *
      * @example activing
      *
      * @var string
@@ -89,6 +120,8 @@ class collectors extends Model
     public $status;
 
     /**
+     * @description The type of the collector. FileBeat, metricBeat, heartBeat, and auditBeat are supported.
+     *
      * @example vpc-bp16k1dvzxtm******
      *
      * @var string

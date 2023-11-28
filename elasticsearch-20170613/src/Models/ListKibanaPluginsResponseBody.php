@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListKibanaPluginsResponseBody extends Model
 {
     /**
+     * @description The request header.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The request ID.
+     *
      * @example 11234B4A-34CE-473B-8E61-AD95702E****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListKibanaPluginsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the plug-ins.
+     *
      * @var result[]
      */
     public $result;

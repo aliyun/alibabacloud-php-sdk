@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListKibanaPluginsRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class ListKibanaPluginsRequest extends Model
     public $page;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int

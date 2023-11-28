@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The details of the index list.
+     *
      * @example 15
      *
      * @var int
@@ -16,6 +18,8 @@ class headers extends Model
     public $xManagedCount;
 
     /**
+     * @description The total number of indexes in the OpenStore cold phase.
+     *
      * @example 18093942932
      *
      * @var int
@@ -23,6 +27,8 @@ class headers extends Model
     public $xManagedStorageSize;
 
     /**
+     * @description The time when the index list was queried.
+     *
      * @example 5
      *
      * @var int
@@ -30,6 +36,8 @@ class headers extends Model
     public $xOSSCount;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example 9093942932
      *
      * @var int

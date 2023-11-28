@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The returned object.
+     *
      * @example env
      *
      * @var string
@@ -16,6 +18,11 @@ class tags extends Model
     public $key;
 
     /**
+     * @description Indicates whether tags are added to the clusters. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example IT
      *
      * @var string

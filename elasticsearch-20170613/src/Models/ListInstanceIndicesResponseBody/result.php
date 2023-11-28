@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The name of the Elasticsearch index.
+     *
      * @example 2021-01-11T05:49:41.114Z
      *
      * @var string
@@ -30,6 +32,12 @@ class result extends Model
     public $ilmExplain;
 
     /**
+     * @description The managed status of the index. The following three statuses are supported:
+     *
+     *   following: Hosting.
+     *   closing: The instance is being unhosted.
+     *   closed: unmanaged.
+     *
      * @example false
      *
      * @var string
@@ -37,6 +45,14 @@ class result extends Model
     public $isManaged;
 
     /**
+     * @description The current storage lifecycle. Value meaning:
+     *
+     *   warm: warm.
+     *   cold: the cold phase.
+     *   hot: hot phase.
+     *   delete: deletes a stage.
+     *
+     * >  If this parameter is empty, the current index is not managed by the lifecycle.
      * @example closing
      *
      * @var string
@@ -44,6 +60,8 @@ class result extends Model
     public $managedStatus;
 
     /**
+     * @description The full lifecycle status of the current index.
+     *
      * @example .kibana_task_manager_1
      *
      * @var string
@@ -58,6 +76,12 @@ class result extends Model
     public $phase;
 
     /**
+     * @description The running status of the index. The following three statuses are supported:
+     *
+     *   green: healthy.
+     *   yellow: alerts.
+     *   red: an exception.
+     *
      * @example 49298589
      *
      * @var int

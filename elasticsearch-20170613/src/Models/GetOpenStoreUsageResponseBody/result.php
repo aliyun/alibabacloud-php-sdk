@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The current OpenStore storage capacity (estimated value based on actual indexes). Unit: Byte.
+     *
      * @example 204800
      *
      * @var int
@@ -16,6 +18,8 @@ class result extends Model
     public $currentUsage;
 
     /**
+     * @description The storage capacity of OpenStore yesterday. Unit: bytes.
+     *
      * @example 184320
      *
      * @var int

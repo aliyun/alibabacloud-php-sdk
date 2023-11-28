@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description Specifies whether to include dedicated master nodes (obsolete). Valid values:
+     *
+     *   true: The files contain data that is dumped to the IA storage medium.
+     *   false: The files do not contain data that is dumped to the IA storage medium.
+     *
      * @example 10
      *
      * @var int

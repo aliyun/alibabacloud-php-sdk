@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDiagnosisSettingsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateDiagnosisSettingsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Return results:
+     *
+     *   true: update successfully
+     *   false: update failed
+     *
      * @example true
      *
      * @var bool

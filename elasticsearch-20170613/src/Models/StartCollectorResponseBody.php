@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartCollectorResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -16,6 +18,8 @@ class StartCollectorResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @example true
      *
      * @var bool

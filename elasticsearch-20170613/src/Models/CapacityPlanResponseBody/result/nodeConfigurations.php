@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodeConfigurations extends Model
 {
     /**
+     * @description The number of CPUs of the cloud desktop.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class nodeConfigurations extends Model
     public $amount;
 
     /**
+     * @description The size of the disk. Unit: GiB.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,14 @@ class nodeConfigurations extends Model
     public $cpu;
 
     /**
+     * @description The type of the hard disk. Valid values:
+     *
+     *   cloud_essd: enhanced SSD (ESSD)
+     *   cloud_ssd: standard SSD
+     *   cloud_efficiency: ultra disk
+     *   local_ssd: local SSD
+     *   local_efficiency: local ultra disk
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +42,8 @@ class nodeConfigurations extends Model
     public $disk;
 
     /**
+     * @description The memory size of the current node role.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -37,6 +51,15 @@ class nodeConfigurations extends Model
     public $diskType;
 
     /**
+     * @description The type of the node. Supported types are as follows:
+     *
+     *   WORKER: data node
+     *   WORKER_WARM: cold data node
+     *   MASTER: dedicated master node
+     *   KIBANA: Kibana node
+     *   COORDINATING: client node
+     *   ELASTIC_WORKER: elastic node
+     *
      * @example 2
      *
      * @var int
@@ -44,6 +67,11 @@ class nodeConfigurations extends Model
     public $memory;
 
     /**
+     * @description The result calculated based on the capacity planning. No default value is available. The values are as follows:
+     *
+     *   true: indicates that the number of data nodes calculated by capacity planning exceeds the threshold of 50.
+     *   false: The number of data nodes calculated by capacity planning is less than 50.
+     *
      * @example WORKER
      *
      * @var string

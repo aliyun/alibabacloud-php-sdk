@@ -14,6 +14,8 @@ class UpdatePublicWhiteIpsRequest extends Model
     public $body;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
      *
      * @var string
@@ -21,6 +23,8 @@ class UpdatePublicWhiteIpsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The results that are returned.
+     *
      * @example Cover
      *
      * @var string

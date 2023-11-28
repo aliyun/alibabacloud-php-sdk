@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceIndicesResponseBody extends Model
 {
     /**
+     * @description The total size of the OpenStore cold stage index for this instance. Unit: bytes.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The total number of indexes in Cloud Hosting.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DCC****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListInstanceIndicesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total storage space occupied by the current index. Unit: bytes.
+     *
      * @var result[]
      */
     public $result;

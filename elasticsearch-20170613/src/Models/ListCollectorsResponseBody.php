@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListCollectorsResponseBody extends Model
 {
     /**
+     * @description The header of the response.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The request ID.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListCollectorsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

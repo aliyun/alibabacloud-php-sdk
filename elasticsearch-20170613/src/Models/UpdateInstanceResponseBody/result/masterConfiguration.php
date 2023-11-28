@@ -30,6 +30,8 @@ class masterConfiguration extends Model
     public $diskType;
 
     /**
+     * @description The storage type of the node. Only cloud_ssd(SSD cloud disk) is supported.
+     *
      * @example elasticsearch.sn2ne.large
      *
      * @var string

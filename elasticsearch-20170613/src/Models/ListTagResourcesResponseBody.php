@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The labels of the resource.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The number of resources to query.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListTagResourcesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description A list of resources that have tags.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6D******
      *
      * @var string
@@ -30,6 +36,8 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The type of the resource. Fixed to `ALIYUN::ELASTICSEARCH::INSTANCE`.
+     *
      * @var tagResources
      */
     public $tagResources;

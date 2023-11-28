@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddSnapshotRepoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
      *
      * @var string
@@ -16,6 +18,11 @@ class AddSnapshotRepoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Return results:
+     *
+     *   true: Reference warehouse created successfully
+     *   false: Reference warehouse created failed
+     *
      * @example true
      *
      * @var bool

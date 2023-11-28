@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataTasksResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
      *
      * @var string
@@ -17,6 +19,8 @@ class ListDataTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The return results.
+     *
      * @var result[]
      */
     public $result;

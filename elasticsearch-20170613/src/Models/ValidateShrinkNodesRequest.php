@@ -15,11 +15,15 @@ class ValidateShrinkNodesRequest extends Model
     public $body;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -27,6 +31,11 @@ class ValidateShrinkNodesRequest extends Model
     public $ignoreStatus;
 
     /**
+     * @description Returned results:
+     *
+     *   true: can be scaled in
+     *   false: cannot be scaled in.
+     *
      * @example WORKER
      *
      * @var string

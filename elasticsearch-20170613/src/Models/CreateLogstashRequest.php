@@ -48,6 +48,11 @@ class CreateLogstashRequest extends Model
     public $paymentType;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example 6.7_with_X-Pack
      *
      * @var string
@@ -61,14 +66,15 @@ class CreateLogstashRequest extends Model
      */
     public $clientToken;
     protected $_name = [
-        'description'   => 'description',
-        'networkConfig' => 'networkConfig',
-        'nodeAmount'    => 'nodeAmount',
-        'nodeSpec'      => 'nodeSpec',
-        'paymentInfo'   => 'paymentInfo',
-        'paymentType'   => 'paymentType',
-        'version'       => 'version',
-        'clientToken'   => 'clientToken',
+        'description'     => 'description',
+        'networkConfig'   => 'networkConfig',
+        'nodeAmount'      => 'nodeAmount',
+        'nodeSpec'        => 'nodeSpec',
+        'paymentInfo'     => 'paymentInfo',
+        'paymentType'     => 'paymentType',
+        'resourceGroupId' => 'resourceGroupId',
+        'version'         => 'version',
+        'clientToken'     => 'clientToken',
     ];
 
     public function validate()
@@ -95,6 +101,9 @@ class CreateLogstashRequest extends Model
         }
         if (null !== $this->paymentType) {
             $res['paymentType'] = $this->paymentType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->version) {
             $res['version'] = $this->version;
@@ -131,6 +140,9 @@ class CreateLogstashRequest extends Model
         }
         if (isset($map['paymentType'])) {
             $model->paymentType = $map['paymentType'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['version'])) {
             $model->version = $map['version'];

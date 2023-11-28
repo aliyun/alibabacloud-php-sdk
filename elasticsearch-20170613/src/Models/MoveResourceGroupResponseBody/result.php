@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the cluster was created.
+     *
      * @example 2020-07-06T10:18:48.662Z
      *
      * @var string
@@ -22,6 +24,8 @@ class result extends Model
     public $createdAt;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example es-cn-abc
      *
      * @var string
@@ -29,11 +33,15 @@ class result extends Model
     public $description;
 
     /**
+     * @description The configurations of IK dictionaries.
+     *
      * @var dictList[]
      */
     public $dictList;
 
     /**
+     * @description The internal endpoint of the cluster.
+     *
      * @example es-cn-nif1q8auz0003****.elasticsearch.aliyuncs.com
      *
      * @var string
@@ -41,6 +49,8 @@ class result extends Model
     public $domain;
 
     /**
+     * @description The version of the cluster.
+     *
      * @example 6.7.0_with_X-Pack
      *
      * @var string
@@ -48,6 +58,8 @@ class result extends Model
     public $esVersion;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example es-cn-n6w1o1x0w001c****
      *
      * @var string
@@ -55,11 +67,15 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The configurations of Kibana nodes.
+     *
      * @var kibanaConfiguration
      */
     public $kibanaConfiguration;
 
     /**
+     * @description The public endpoint of the Kibana console of the cluster.
+     *
      * @example es-cn-nif1q8auz0003****.kibana.elasticsearch.aliyuncs.com
      *
      * @var string
@@ -67,6 +83,8 @@ class result extends Model
     public $kibanaDomain;
 
     /**
+     * @description The port number that is used to access the Kibana console of the cluster over the Internet.
+     *
      * @example 5601
      *
      * @var int
@@ -74,16 +92,22 @@ class result extends Model
     public $kibanaPort;
 
     /**
+     * @description The configurations of dedicated master nodes.
+     *
      * @var masterConfiguration
      */
     public $masterConfiguration;
 
     /**
+     * @description The network configurations.
+     *
      * @var networkConfig
      */
     public $networkConfig;
 
     /**
+     * @description The number of data nodes in the cluster.
+     *
      * @example 2
      *
      * @var int
@@ -91,11 +115,18 @@ class result extends Model
     public $nodeAmount;
 
     /**
+     * @description The configurations of data nodes.
+     *
      * @var nodeSpec
      */
     public $nodeSpec;
 
     /**
+     * @description The billing method of the cluster. Valid values:
+     *
+     *   prepaid: subscription
+     *   postpaid: pay-as-you-go
+     *
      * @example postpaid
      *
      * @var string
@@ -103,6 +134,8 @@ class result extends Model
     public $paymentType;
 
     /**
+     * @description The public endpoint of the cluster.
+     *
      * @example es-cn-n6w1o1x0w001c****.public.elasticsearch.aliyuncs.com
      *
      * @var string
@@ -110,6 +143,8 @@ class result extends Model
     public $publicDomain;
 
     /**
+     * @description The port number that is used to access the cluster over the Internet.
+     *
      * @example 9200
      *
      * @var int
@@ -117,6 +152,13 @@ class result extends Model
     public $publicPort;
 
     /**
+     * @description The status of the cluster. Valid values:
+     *
+     *   active: The cluster is normal.
+     *   activating: The cluster is being activated.
+     *   Inactive: The cluster is frozen.
+     *   invalid: The cluster is valid.
+     *
      * @example active
      *
      * @var string
@@ -124,11 +166,15 @@ class result extends Model
     public $status;
 
     /**
+     * @description The configurations of synonym dictionaries.
+     *
      * @var synonymsDicts[]
      */
     public $synonymsDicts;
 
     /**
+     * @description The time when the cluster was last updated.
+     *
      * @example 2018-07-18T10:10:04.484Z
      *
      * @var string

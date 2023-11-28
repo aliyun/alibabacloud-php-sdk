@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListDictsResponseBody extends Model
 {
     /**
+     * @description The header of the response.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2937F832-F39E-41EF-89BA-B528342A2A3A
      *
      * @var string
@@ -23,6 +27,8 @@ class ListDictsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

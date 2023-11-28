@@ -16,6 +16,8 @@ class UpdateDescriptionRequest extends Model
     public $description;
 
     /**
+     * @description The new name of the instance.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B350****
      *
      * @var string

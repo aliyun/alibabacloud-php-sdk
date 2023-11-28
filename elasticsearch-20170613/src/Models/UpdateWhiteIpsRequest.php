@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateWhiteIpsRequest extends Model
 {
     /**
+     * @description The name of the whitelist. This parameter is required if you configure the whiteIpGroup parameter.
+     *
      * @var string[]
      */
     public $esIPWhitelist;
 
     /**
+     * @description The IP addresses in the whitelist. This parameter is required if you configure the whiteIpGroup parameter.
+     *
      * @var whiteIpGroup
      */
     public $whiteIpGroup;
 
     /**
+     * @description The IP addresses in the whitelist.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
      *
      * @var string
@@ -27,6 +33,9 @@ class UpdateWhiteIpsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The IP addresses in the whitelist. This parameter is available if the whiteIpGroup parameter is left empty. The default IP address whitelist is updated based on the value of this parameter.
+     *
+     * >  You cannot configure both the esIPWhitelist and whiteIpGroup parameters.
      * @example Cover
      *
      * @var string

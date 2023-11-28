@@ -16,6 +16,11 @@ class UpdateAdminPasswordRequest extends Model
     public $esAdminPassword;
 
     /**
+     * @description Indicates whether the password was updated. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
      *
      * @var string

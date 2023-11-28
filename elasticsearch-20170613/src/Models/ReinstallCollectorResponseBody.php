@@ -16,6 +16,8 @@ class ReinstallCollectorResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example true
      *
      * @var bool

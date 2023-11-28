@@ -11,11 +11,16 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The type of the configuration. Set the value to sharedDisk.
+     *
+     * >  The extendConfigs attribute that may occur when the planned instance type is enhanced (advanced).
      * @var extendConfigs[]
      */
     public $extendConfigs;
 
     /**
+     * @description The node information.
+     *
      * @example advanced
      *
      * @var string
@@ -23,6 +28,8 @@ class result extends Model
     public $instanceCategory;
 
     /**
+     * @description The number of cores.
+     *
      * @var nodeConfigurations[]
      */
     public $nodeConfigurations;

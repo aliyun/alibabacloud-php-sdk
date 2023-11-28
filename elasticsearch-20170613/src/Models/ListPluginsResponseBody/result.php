@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The source type of the plug-in.
+     *
      * @example IK analysis plug-in for Elasticsearch.
      *
      * @var string
@@ -30,6 +32,8 @@ class result extends Model
     public $source;
 
     /**
+     * @description The name of the plug-in.
+     *
      * @example https://xxxx.html
      *
      * @var string

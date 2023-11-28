@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
-     * @example 详见https://help.aliyun.com/document_detail/146447.html
+     * @example "filebeat.inputs:xxx"
      *
      * @var string
      */
     public $content;
 
     /**
-     * @example fields.yml
+     * @example filebeat.yml
      *
      * @var string
      */

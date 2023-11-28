@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSearchLogRequest extends Model
 {
     /**
+     * @description 20
+     *
      * @example 1531910852074
      *
      * @var int
@@ -16,6 +18,8 @@ class ListSearchLogRequest extends Model
     public $beginTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1531910852074
      *
      * @var int
@@ -23,6 +27,8 @@ class ListSearchLogRequest extends Model
     public $endTime;
 
     /**
+     * @description The header of the response.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListSearchLogRequest extends Model
     public $page;
 
     /**
+     * @description 1
+     *
      * @example host:172.16.**.** AND content:netty
      *
      * @var string
@@ -37,6 +45,8 @@ class ListSearchLogRequest extends Model
     public $query;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +54,8 @@ class ListSearchLogRequest extends Model
     public $size;
 
     /**
+     * @description 1531910852074
+     *
      * @example INSTANCELOG
      *
      * @var string

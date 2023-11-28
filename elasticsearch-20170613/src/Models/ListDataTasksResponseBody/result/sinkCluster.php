@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sinkCluster extends Model
 {
     /**
+     * @description The type of the target cluster. Default value: elasticsearch.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class sinkCluster extends Model
     public $dataSourceType;
 
     /**
+     * @description The public network access address of the target cluster.
+     *
      * @example http://192.168.xx.xx:4101
      *
      * @var string
@@ -23,6 +27,8 @@ class sinkCluster extends Model
     public $endpoint;
 
     /**
+     * @description The target index.
+     *
      * @example product_info
      *
      * @var string
@@ -30,6 +36,8 @@ class sinkCluster extends Model
     public $index;
 
     /**
+     * @description The type of the destination index.
+     *
      * @example _doc
      *
      * @var string
@@ -37,6 +45,8 @@ class sinkCluster extends Model
     public $type;
 
     /**
+     * @description The ID of the VPC to which the cluster belongs.
+     *
      * @example vpc-2ze55voww95g82gak****
      *
      * @var string
@@ -44,6 +54,8 @@ class sinkCluster extends Model
     public $vpcId;
 
     /**
+     * @description The instance ID or Server Load Balancer (SLB) ID of the current cluster.
+     *
      * @example es-cn-09k1rnu3g0002****-worker
      *
      * @var string
@@ -51,6 +63,8 @@ class sinkCluster extends Model
     public $vpcInstanceId;
 
     /**
+     * @description The access port number of the cluster.
+     *
      * @example 9200
      *
      * @var string

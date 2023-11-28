@@ -22,6 +22,8 @@ class ShrinkNodeRequest extends Model
     public $clientToken;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;
