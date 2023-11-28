@@ -44,6 +44,11 @@ class CreateVpcPeerConnectionRequest extends Model
     public $acceptingVpcId;
 
     /**
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -119,6 +124,7 @@ class CreateVpcPeerConnectionRequest extends Model
         'acceptingAliUid'   => 'AcceptingAliUid',
         'acceptingRegionId' => 'AcceptingRegionId',
         'acceptingVpcId'    => 'AcceptingVpcId',
+        'bandwidth'         => 'Bandwidth',
         'clientToken'       => 'ClientToken',
         'description'       => 'Description',
         'dryRun'            => 'DryRun',
@@ -143,6 +149,9 @@ class CreateVpcPeerConnectionRequest extends Model
         }
         if (null !== $this->acceptingVpcId) {
             $res['AcceptingVpcId'] = $this->acceptingVpcId;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -185,6 +194,9 @@ class CreateVpcPeerConnectionRequest extends Model
         }
         if (isset($map['AcceptingVpcId'])) {
             $model->acceptingVpcId = $map['AcceptingVpcId'];
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

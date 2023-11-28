@@ -162,6 +162,9 @@ class VpcPeer extends OpenApiClient
         if (!Utils::isUnset($request->acceptingVpcId)) {
             $body['AcceptingVpcId'] = $request->acceptingVpcId;
         }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $body['Bandwidth'] = $request->bandwidth;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
         }
