@@ -62,7 +62,7 @@ class DescribeVersionConfigResponseBody extends Model
     public $assetLevel;
 
     /**
-     * @description The quota for configuration assessment. Unit: times/month.
+     * @description The purchased quota for configuration assessment. Unit: times/month.
      *
      * @example 10
      *
@@ -88,7 +88,7 @@ class DescribeVersionConfigResponseBody extends Model
     public $highestVersion;
 
     /**
-     * @description The number of honeypots.
+     * @description The purchased quota for the cloud honeypot feature.
      *
      * @example 20
      *
@@ -97,7 +97,7 @@ class DescribeVersionConfigResponseBody extends Model
     public $honeypotCapacity;
 
     /**
-     * @description The quota for the container image scan feature.
+     * @description The purchased quota for the container image scan feature.
      *
      * @example 8954
      *
@@ -151,6 +151,13 @@ class DescribeVersionConfigResponseBody extends Model
     public $isOverBalance;
 
     /**
+     * @description Indicates whether the pay-as-you-go billing method is used. Valid values:
+     *
+     *   **false**
+     *   **true**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isPostpay;
@@ -168,7 +175,7 @@ class DescribeVersionConfigResponseBody extends Model
     public $isTrialVersion;
 
     /**
-     * @description The timestamp when the last trial ends. Unit: milliseconds.
+     * @description The timestamp when the last trial of Security Center ends. Unit: milliseconds.
      *
      * @example 1603934844000
      *
@@ -204,27 +211,48 @@ class DescribeVersionConfigResponseBody extends Model
     public $openTime;
 
     /**
+     * @description The instance ID of Security Center that uses the pay-as-you-go billing method.
+     *
+     * @example postpay-sas-**
+     *
      * @var string
      */
     public $postPayInstanceId;
 
     /**
+     * @description The configuration of the pay-as-you-go module. Valid values:
+     *
+     *   **VUL**: vulnerability fixing module
+     *
+     * @example {"VUL":1}
+     *
      * @var string
      */
     public $postPayModuleSwitch;
 
     /**
+     * @description The creation time of Security Center that uses the pay-as-you-go billing method.
+     *
+     * @example 1698915219000
+     *
      * @var int
      */
     public $postPayOpenTime;
 
     /**
+     * @description The status of Security Center that uses the pay-as-you-go billing method. Valid values:
+     *
+     *   **1**: The instance runs as expected.
+     *   **2**: The instance is stopped due to overdue payments.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $postPayStatus;
 
     /**
-     * @description The quota for application protection. Unit: process/month.
+     * @description The purchased quota for application protection. Unit: process/month.
      *
      * @example 10
      *
@@ -233,9 +261,9 @@ class DescribeVersionConfigResponseBody extends Model
     public $raspCapacity;
 
     /**
-     * @description The timestamp when Security Center is released. Unit: milliseconds. The value of this parameter is seven days after Security Center expires.
+     * @description The timestamp when Security Center was released. Unit: milliseconds. The value of this parameter is seven days after Security Center expires.
      *
-     * > If you do not renew the subscription within seven days after the expiration date, the Value-added Plan, Basic Anti-Virus, Advanced, or Enterprise edition is downgraded to the Basic edition. In this case, you can no longer view the existing configurations or statistics such as DDoS alerts. You must purchase the Anti-virus, Advanced, or Enterprise edition to continue using relevant features. For more information, see [Purchase Security Center](~~42308~~).
+     * >  If you do not renew the subscription within seven days after the expiration date, Security Center of a paid edition is automatically downgraded to Security Center Basic. In this case, you can no longer use the features of the paid edition or view the existing configurations or statistics such as DDoS alerts in Security Center. You must purchase Security Center of a paid edition to use relevant features. For more information, see [Purchase Security Center](~~42308~~).
      * @example 1625846400000
      *
      * @var int
@@ -274,6 +302,15 @@ class DescribeVersionConfigResponseBody extends Model
      * @var int
      */
     public $sasScreen;
+
+    /**
+     * @description The purchased quota for malicious file detection SDK. Unit: process/month.
+     *
+     * @example 100
+     *
+     * @var int
+     */
+    public $sdkCapacity;
 
     /**
      * @description The log storage capacity that you purchase. Unit: GB. Valid values: 0 to 200000.
@@ -332,7 +369,7 @@ class DescribeVersionConfigResponseBody extends Model
     public $vmCores;
 
     /**
-     * @description The quota for vulnerability fixing. Unit: times/month.
+     * @description The purchased quota for vulnerability fixing. Unit: times/month.
      *
      * @example 10
      *
@@ -390,6 +427,7 @@ class DescribeVersionConfigResponseBody extends Model
         'requestId'              => 'RequestId',
         'sasLog'                 => 'SasLog',
         'sasScreen'              => 'SasScreen',
+        'sdkCapacity'            => 'SdkCapacity',
         'slsCapacity'            => 'SlsCapacity',
         'threatAnalysisCapacity' => 'ThreatAnalysisCapacity',
         'userDefinedAlarms'      => 'UserDefinedAlarms',
@@ -490,6 +528,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (null !== $this->sasScreen) {
             $res['SasScreen'] = $this->sasScreen;
+        }
+        if (null !== $this->sdkCapacity) {
+            $res['SdkCapacity'] = $this->sdkCapacity;
         }
         if (null !== $this->slsCapacity) {
             $res['SlsCapacity'] = $this->slsCapacity;
@@ -610,6 +651,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (isset($map['SasScreen'])) {
             $model->sasScreen = $map['SasScreen'];
+        }
+        if (isset($map['SdkCapacity'])) {
+            $model->sdkCapacity = $map['SdkCapacity'];
         }
         if (isset($map['SlsCapacity'])) {
             $model->slsCapacity = $map['SlsCapacity'];

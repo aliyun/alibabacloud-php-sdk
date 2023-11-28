@@ -11,11 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedMaliciousFilesResponseBody extends Model
 {
     /**
-     * @description The severity of the malicious image sample. Valid values:
-     *
-     *   **serious**
-     *   **suspicious**
-     *   **remind**
+     * @description The details of the malicious image sample.
      *
      * @var groupedMaliciousFileResponse[]
      */

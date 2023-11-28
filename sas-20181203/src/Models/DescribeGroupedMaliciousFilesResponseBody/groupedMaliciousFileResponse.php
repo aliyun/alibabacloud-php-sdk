@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class groupedMaliciousFileResponse extends Model
 {
     /**
-     * @description The timestamp when the first scan was performed. Unit: milliseconds.
+     * @description The timestamp generated when the first scan was performed. Unit: milliseconds.
      *
      * @example 1594907349000
      *
@@ -27,7 +27,7 @@ class groupedMaliciousFileResponse extends Model
     public $imageCount;
 
     /**
-     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     * @description The timestamp generated when the last scan was performed. Unit: milliseconds.
      *
      * @example 1596533942000
      *
@@ -49,6 +49,10 @@ class groupedMaliciousFileResponse extends Model
     public $level;
 
     /**
+     * @description The keyword of the malicious image sample.
+     *
+     * @example WEBSHELL_IMG
+     *
      * @var string
      */
     public $maliciousKey;
@@ -77,7 +81,7 @@ class groupedMaliciousFileResponse extends Model
      *   **0**: unhandled
      *   **1**: handled
      *   **2**: verifying
-     *   **3**: added to the whitelist
+     *   **3**: whitelisted
      *
      * @example 0
      *
