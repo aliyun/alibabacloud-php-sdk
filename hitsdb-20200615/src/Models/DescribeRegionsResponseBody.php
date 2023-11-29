@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsResponseBody extends Model
 {
     /**
-     * @description China (Hangzhou)
+     * @description The regions supported by Lindorm.
      *
      * @var regions[]
      */

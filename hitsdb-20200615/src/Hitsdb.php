@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\RenewLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\RenewLindormInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\SwitchLSQLV3MySQLServiceRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\SwitchLSQLV3MySQLServiceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UntagResourcesRequest;
@@ -144,7 +146,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
+     * You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
      *   *
      * @param CreateLindormInstanceRequest $request CreateLindormInstanceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -297,7 +299,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
+     * You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
      *   *
      * @param CreateLindormInstanceRequest $request CreateLindormInstanceRequest
      *
@@ -1033,6 +1035,67 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renewLindormInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SwitchLSQLV3MySQLServiceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SwitchLSQLV3MySQLServiceResponse
+     */
+    public function switchLSQLV3MySQLServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionType)) {
+            $query['ActionType'] = $request->actionType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchLSQLV3MySQLService',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SwitchLSQLV3MySQLServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SwitchLSQLV3MySQLServiceRequest $request
+     *
+     * @return SwitchLSQLV3MySQLServiceResponse
+     */
+    public function switchLSQLV3MySQLService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchLSQLV3MySQLServiceWithOptions($request, $runtime);
     }
 
     /**

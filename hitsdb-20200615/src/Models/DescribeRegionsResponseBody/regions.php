@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
+     * @description The name of the region.
+     *
      * @var string
      */
     public $localName;
 
     /**
-     * @description Queries the regions where Lindorm is available.
+     * @description The endpoint for the region.
      *
      * @example hitsdb.aliyuncs.com
      *
@@ -23,6 +25,8 @@ class regions extends Model
     public $regionEndpoint;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

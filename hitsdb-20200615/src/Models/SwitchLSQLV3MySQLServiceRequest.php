@@ -6,28 +6,17 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateInstanceIpWhiteListRequest extends Model
+class SwitchLSQLV3MySQLServiceRequest extends Model
 {
     /**
-     * @description Specifies whether to clear all IP addresses and CIDR blocks in the whitelist.
+     * @example 1
      *
-     * @example false
-     *
-     * @var bool
+     * @var int
      */
-    public $delete;
+    public $actionType;
 
     /**
-     * @example test_group
-     *
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @description The ID of the instance for which you want to configure a whitelist. You can call the [GetLindormInstanceList](~~426069~~) operation to obtain the ID.
-     *
-     * @example ld-bp1z3506imz2f****
+     * @example ld-bp1o3y0yme2i2****
      *
      * @var string
      */
@@ -54,28 +43,16 @@ class UpdateInstanceIpWhiteListRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IP addresses or CIDR blocks that you want to add to the whitelist.
-     *
-     * >  If you add 127.0.0.1 to the whitelist, all IP addresses cannot be used to access the Lindorm instance. If you add the CIDR block 192.168.0.0/24 to the whitelist, you can use all IP addresses in the CIDR block to access the Lindorm instance. Separate multiple IP addresses or CIDR blocks with commas (,).
-     * @example 106.11.XX.XX/24
-     *
-     * @var string
-     */
-    public $securityIpList;
-
-    /**
      * @var string
      */
     public $securityToken;
     protected $_name = [
-        'delete'               => 'Delete',
-        'groupName'            => 'GroupName',
+        'actionType'           => 'ActionType',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityIpList'       => 'SecurityIpList',
         'securityToken'        => 'SecurityToken',
     ];
 
@@ -86,11 +63,8 @@ class UpdateInstanceIpWhiteListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->delete) {
-            $res['Delete'] = $this->delete;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->actionType) {
+            $res['ActionType'] = $this->actionType;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -107,9 +81,6 @@ class UpdateInstanceIpWhiteListRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->securityIpList) {
-            $res['SecurityIpList'] = $this->securityIpList;
-        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -120,16 +91,13 @@ class UpdateInstanceIpWhiteListRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateInstanceIpWhiteListRequest
+     * @return SwitchLSQLV3MySQLServiceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Delete'])) {
-            $model->delete = $map['Delete'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['ActionType'])) {
+            $model->actionType = $map['ActionType'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -145,9 +113,6 @@ class UpdateInstanceIpWhiteListRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityIpList'])) {
-            $model->securityIpList = $map['SecurityIpList'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];

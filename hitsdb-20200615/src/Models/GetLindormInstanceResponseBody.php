@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetLindormInstanceResponseBody extends Model
 {
     /**
+     * @example 164901546557****
+     *
      * @var int
      */
     public $aliUid;
@@ -29,6 +31,12 @@ class GetLindormInstanceResponseBody extends Model
     public $arbiterZoneId;
 
     /**
+     * @description 部署架构，取值：
+     *
+     * - **1.0**：单可用区。
+     * - **2.0**：多可用区。
+     * @example 1.0
+     *
      * @var string
      */
     public $archVersion;
@@ -41,11 +49,22 @@ class GetLindormInstanceResponseBody extends Model
     public $autoRenew;
 
     /**
+     * @description The Capacity storage size of the instance.
+     *
+     * @example 0GB
+     *
      * @var int
      */
     public $coldStorage;
 
     /**
+     * @description The disk type of the core nodes. This parameter is returned only for multi-zone instances. Valid values:
+     *
+     *   **cloud_efficiency**: This instance uses the Standard type of storage.
+     *   **cloud_ssd**: This instance uses the Performance type of storage.
+     *   **cloud_essd**: This instance uses ESSDs for storage.
+     *   **cloud_essd_pl0**: This instance uses PL0 ESSDs for storage.
+     *
      * @example cloud_efficiency
      *
      * @var string
@@ -97,6 +116,16 @@ class GetLindormInstanceResponseBody extends Model
     public $deletionProtection;
 
     /**
+     * @description The storage type of the instance. Valid values:
+     *
+     *   **cloud_efficiency**: This instance uses the Standard type of storage.
+     *   **cloud_ssd**: This instance uses the Performance type of storage.
+     *   **cloud_essd**: This instance uses ESSDs for storage.
+     *   **cloud_essd_pl0**: This instance uses PL0 ESSDs for storage.
+     *   **capacity_cloud_storage**: This instance uses the Capacity type of storage.
+     *   **local_ssd_pro**: This instance uses local SSDs for storage.
+     *   **local_hdd_pro**: This instance uses local HDDs for storage.
+     *
      * @example cloud_efficiency
      *
      * @var string
@@ -118,6 +147,8 @@ class GetLindormInstanceResponseBody extends Model
     public $diskUsage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableBlob;
@@ -144,6 +175,12 @@ class GetLindormInstanceResponseBody extends Model
     public $enableKms;
 
     /**
+     * @description 实例是否开通LTS引擎，返回值：
+     *
+     * - **true**：开通LTS引擎。
+     * - **false**：未开通LTS引擎。
+     * @example true
+     *
      * @var bool
      */
     public $enableLTS;
@@ -180,6 +217,8 @@ class GetLindormInstanceResponseBody extends Model
     public $enableStream;
 
     /**
+     * @description The latest version number of the engine.
+     *
      * @var engineList[]
      */
     public $engineList;
@@ -220,6 +259,30 @@ class GetLindormInstanceResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   **CREATING**: The instance is being created.
+     *   **ACTIVATION**: The instance is running.
+     *   **COLD_EXPANDING**: The Capacity storage of the instance is being scaled up.
+     *   **MINOR_VERSION_TRANSING**: The minor version of the instance is being updated.
+     *   **RESIZING**: The nodes in the instance are being scaled up.
+     *   **SHRINKING**: The nodes in the instance are being scaled down.
+     *   **CLASS_CHANGING**: The specification of the instance is being changed.
+     *   **SSL_SWITCHING: SSL**: The SSL configurations of the instance are being changed.
+     *   **CDC_OPENING**: Data subscription is being enabled for the instance.
+     *   **TRANSFER**: The data of the instance is being transferred.
+     *   **DATABASE_TRANSFER**: The data of the instance is being transferred to databases.
+     *   **GUARD_CREATING**: A disaster recovery instance is being created.
+     *   **BACKUP_RECOVERING**: The data of the instance is being restored from a backup.
+     *   **DATABASE_IMPORTING**: Data is being imported to the instance.
+     *   **NET_MODIFYING**: The network configurations of the instance are being changed.
+     *   **NET_SWITCHING**: The network of the instance is being switched between a virtual private cloud (VPC) and the Internet.
+     *   **NET_CREATING**: The connection to the instance is being created.
+     *   **NET_DELETING**: The connection to the instance is being deleted.
+     *   **DELETING**: The instance is being deleted.
+     *   **RESTARTING**: The instance is restarting.
+     *   **LOCKED**: The instance is locked because it expires.
+     *
      * @example ACTIVATION
      *
      * @var string
@@ -248,6 +311,10 @@ class GetLindormInstanceResponseBody extends Model
     public $logNum;
 
     /**
+     * @description The storage capacity of the disk of a single log node. This parameter is returned only for multi-zone instances.
+     *
+     * @example 400GB
+     *
      * @var int
      */
     public $logSingleStorage;
@@ -325,6 +392,8 @@ class GetLindormInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @example rg-aek2wvd6oia****
+     *
      * @var string
      */
     public $resourceGroupId;

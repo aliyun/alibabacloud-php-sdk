@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class groupList extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $securityIpList;

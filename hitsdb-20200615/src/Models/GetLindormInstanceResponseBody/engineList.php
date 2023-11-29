@@ -44,6 +44,8 @@ class engineList extends Model
     public $latestVersion;
 
     /**
+     * @example 8GB
+     *
      * @var string
      */
     public $memorySize;
