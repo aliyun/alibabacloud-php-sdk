@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTenantRequest extends Model
 {
     /**
-     * @description The description of the database.
-     *
+     * @description The character set.
+     * For more information, see DescribeCharset.
      * @example utf8mb4
      *
      * @var string
@@ -18,8 +18,9 @@ class CreateTenantRequest extends Model
     public $charset;
 
     /**
-     * @description The number of resource distribution nodes in the tenant.
-     * The number is determined by the deployment mode of the cluster. If the cluster is deployed in 2-2-2 mode, the maximum number of resource distribution nodes is 2.
+     * @description The number of CPU cores of the tenant.
+     *
+     * > <br>The CPU specification of a single tenant cannot exceed that of the corresponding cluster. <br>For example, if the specification of the cluster is 14 CPU cores and 70 GB of memory, the CPU specification of the tenant cannot exceed 14 cores.
      * @example 2
      *
      * @var int
@@ -27,7 +28,7 @@ class CreateTenantRequest extends Model
     public $cpu;
 
     /**
-     * @description $.parameters[13].schema.example
+     * @description The description of the database.
      *
      * @example this is a test database
      *
@@ -36,8 +37,8 @@ class CreateTenantRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the vSwitch.
-     * For more information, see Use a vSwitch.
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -45,8 +46,14 @@ class CreateTenantRequest extends Model
     public $instanceId;
 
     /**
-     * @description The return result of the request.
+     * @var int
+     */
+    public $logDisk;
+
+    /**
+     * @description The memory size of the tenant, in GB.
      *
+     * > <br>The memory size of a single tenant cannot exceed that of the corresponding cluster. <br>For example, if the specification of the cluster is 14 CPU cores and 70 GB of memory, the memory size of the tenant cannot exceed 70 GB.
      * @example 10
      *
      * @var int
@@ -54,8 +61,8 @@ class CreateTenantRequest extends Model
     public $memory;
 
     /**
-     * @description $.parameters[12].schema.enumValueTitles
-     *
+     * @description The primary zone of the tenant.
+     * It is one of the zones in which the cluster is deployed.
      * @example cn-hangzhou-h
      *
      * @var string
@@ -63,8 +70,15 @@ class CreateTenantRequest extends Model
     public $primaryZone;
 
     /**
-     * @description The ID of the tenant.
+     * @example cn-shanghai-g-ro,cn-shanghai-h-ro
      *
+     * @var string
+     */
+    public $readOnlyZoneList;
+
+    /**
+     * @description The tenant mode.
+     * For more information, see [DescribeInstanceTenantModes](~~410354~~).
      * @example Oracle
      *
      * @var string
@@ -72,8 +86,8 @@ class CreateTenantRequest extends Model
     public $tenantMode;
 
     /**
-     * @description Alibaba Cloud CLI
-     *
+     * @description The name of the tenant.
+     * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_).  It cannot be set to sys.
      * @example pay_online
      *
      * @var string
@@ -81,9 +95,8 @@ class CreateTenantRequest extends Model
     public $tenantName;
 
     /**
-     * @description The memory size of the tenant, in GB.
+     * @description The time zone of the tenant. For more information, see [DescribeTimeZones](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describetimezones).
      *
-     * > <br>The memory size of a single tenant cannot exceed that of the corresponding cluster. <br>For example, if the specification of the cluster is 14 CPU cores and 70 GB of memory, the memory size of the tenant cannot exceed 70 GB.
      * @example Asia/Shanghai
      *
      * @var string
@@ -91,8 +104,8 @@ class CreateTenantRequest extends Model
     public $timeZone;
 
     /**
-     * @description $.parameters[11].schema.description
-     *
+     * @description The number of resource distribution nodes in the tenant.
+     * The number is determined by the deployment mode of the cluster. If the cluster is deployed in 2-2-2 mode, the maximum number of resource distribution nodes is 2.
      * @example 2
      *
      * @var int
@@ -100,8 +113,8 @@ class CreateTenantRequest extends Model
     public $unitNum;
 
     /**
-     * @description $.parameters[12].schema.description
-     *
+     * @description The ID of the vSwitch.
+     * For more information, see Use a vSwitch.
      * @example vsw-bp11k1aypnzu1l3whi****
      *
      * @var string
@@ -109,26 +122,28 @@ class CreateTenantRequest extends Model
     public $userVSwitchId;
 
     /**
-     * @description The time zone of the tenant.  For more information, see [DescribeTimeZones](https://help.aliyun.com/document_detail/410361.html).
-     *
+     * @description The ID of the VPC.
+     * For more information, see "What is a VPC".
      * @example vpc-bp1d2q3mhg9i23ofi****
      *
      * @var string
      */
     public $userVpcId;
     protected $_name = [
-        'charset'       => 'Charset',
-        'cpu'           => 'Cpu',
-        'description'   => 'Description',
-        'instanceId'    => 'InstanceId',
-        'memory'        => 'Memory',
-        'primaryZone'   => 'PrimaryZone',
-        'tenantMode'    => 'TenantMode',
-        'tenantName'    => 'TenantName',
-        'timeZone'      => 'TimeZone',
-        'unitNum'       => 'UnitNum',
-        'userVSwitchId' => 'UserVSwitchId',
-        'userVpcId'     => 'UserVpcId',
+        'charset'          => 'Charset',
+        'cpu'              => 'Cpu',
+        'description'      => 'Description',
+        'instanceId'       => 'InstanceId',
+        'logDisk'          => 'LogDisk',
+        'memory'           => 'Memory',
+        'primaryZone'      => 'PrimaryZone',
+        'readOnlyZoneList' => 'ReadOnlyZoneList',
+        'tenantMode'       => 'TenantMode',
+        'tenantName'       => 'TenantName',
+        'timeZone'         => 'TimeZone',
+        'unitNum'          => 'UnitNum',
+        'userVSwitchId'    => 'UserVSwitchId',
+        'userVpcId'        => 'UserVpcId',
     ];
 
     public function validate()
@@ -150,11 +165,17 @@ class CreateTenantRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->logDisk) {
+            $res['LogDisk'] = $this->logDisk;
+        }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
         if (null !== $this->primaryZone) {
             $res['PrimaryZone'] = $this->primaryZone;
+        }
+        if (null !== $this->readOnlyZoneList) {
+            $res['ReadOnlyZoneList'] = $this->readOnlyZoneList;
         }
         if (null !== $this->tenantMode) {
             $res['TenantMode'] = $this->tenantMode;
@@ -198,11 +219,17 @@ class CreateTenantRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['LogDisk'])) {
+            $model->logDisk = $map['LogDisk'];
+        }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
         if (isset($map['PrimaryZone'])) {
             $model->primaryZone = $map['PrimaryZone'];
+        }
+        if (isset($map['ReadOnlyZoneList'])) {
+            $model->readOnlyZoneList = $map['ReadOnlyZoneList'];
         }
         if (isset($map['TenantMode'])) {
             $model->tenantMode = $map['TenantMode'];

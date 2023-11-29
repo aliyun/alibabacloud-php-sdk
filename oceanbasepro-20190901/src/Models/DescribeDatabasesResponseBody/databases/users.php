@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @var string
+     */
+    public $privileges;
+
+    /**
      * @description The request ID.
      *
      * @example ReadOnly
@@ -35,9 +40,10 @@ class users extends Model
      */
     public $userType;
     protected $_name = [
-        'role'     => 'Role',
-        'userName' => 'UserName',
-        'userType' => 'UserType',
+        'privileges' => 'Privileges',
+        'role'       => 'Role',
+        'userName'   => 'UserName',
+        'userType'   => 'UserType',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class users extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->privileges) {
+            $res['Privileges'] = $this->privileges;
+        }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -68,6 +77,9 @@ class users extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Privileges'])) {
+            $model->privileges = $map['Privileges'];
+        }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

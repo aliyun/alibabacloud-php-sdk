@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class memory extends Model
 {
     /**
+     * @example 72
+     *
+     * @var int
+     */
+    public $originalTotalMemory;
+
+    /**
      * @description Indicates whether trusted ECS instances are used.
      *
      * @example 70
@@ -35,9 +42,10 @@ class memory extends Model
      */
     public $usedMemory;
     protected $_name = [
-        'totalMemory' => 'TotalMemory',
-        'unitMemory'  => 'UnitMemory',
-        'usedMemory'  => 'UsedMemory',
+        'originalTotalMemory' => 'OriginalTotalMemory',
+        'totalMemory'         => 'TotalMemory',
+        'unitMemory'          => 'UnitMemory',
+        'usedMemory'          => 'UsedMemory',
     ];
 
     public function validate()
@@ -47,6 +55,9 @@ class memory extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->originalTotalMemory) {
+            $res['OriginalTotalMemory'] = $this->originalTotalMemory;
+        }
         if (null !== $this->totalMemory) {
             $res['TotalMemory'] = $this->totalMemory;
         }
@@ -68,6 +79,9 @@ class memory extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OriginalTotalMemory'])) {
+            $model->originalTotalMemory = $map['OriginalTotalMemory'];
+        }
         if (isset($map['TotalMemory'])) {
             $model->totalMemory = $map['TotalMemory'];
         }

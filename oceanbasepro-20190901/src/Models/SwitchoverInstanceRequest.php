@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SwitchoverInstanceRequest extends Model
 {
     /**
+     * @description Whether to force the switchover.
+     * - false: Do not force the switchover.
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class SwitchoverInstanceRequest extends Model
     public $forced;
 
     /**
+     * @description The instance ID of the primary/standby instance. You can set the default value to the instance ID of the instance to be switched to the primary instance.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -23,6 +27,8 @@ class SwitchoverInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The instance ID of the instance to be switched to the primary instance.
+     *
      * @example ob4bv8o7sp****
      *
      * @var string

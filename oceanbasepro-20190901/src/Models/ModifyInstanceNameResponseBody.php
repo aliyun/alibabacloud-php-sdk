@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNameResponseBody extends Model
 {
     /**
-     * @description The name of the OceanBase cluster.
-     *
-     * @example ob4test
-     *
-     * @var string
-     */
-    public $instanceName;
-
-    /**
      * @description The operation that you want to perform.
      * Set the value to **ModifyInstanceName**.
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
@@ -26,8 +17,7 @@ class ModifyInstanceNameResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'instanceName' => 'InstanceName',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -37,9 +27,6 @@ class ModifyInstanceNameResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -55,9 +42,6 @@ class ModifyInstanceNameResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

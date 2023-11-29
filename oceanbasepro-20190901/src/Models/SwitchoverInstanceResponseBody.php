@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SwitchoverInstanceResponseBody extends Model
 {
     /**
+     * @description The list of data for the switchover.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469**-AA6F-4D**-B3DB-A***********
      *
      * @var string

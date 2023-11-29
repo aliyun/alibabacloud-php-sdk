@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
+     * @example 200
+     *
+     * @var int
+     */
+    public $originalTotalDiskSize;
+
+    /**
      * @description The request ID.
      *
      * @example 200
@@ -35,9 +42,10 @@ class diskSize extends Model
      */
     public $usedDiskSize;
     protected $_name = [
-        'totalDiskSize' => 'TotalDiskSize',
-        'unitDiskSize'  => 'UnitDiskSize',
-        'usedDiskSize'  => 'UsedDiskSize',
+        'originalTotalDiskSize' => 'OriginalTotalDiskSize',
+        'totalDiskSize'         => 'TotalDiskSize',
+        'unitDiskSize'          => 'UnitDiskSize',
+        'usedDiskSize'          => 'UsedDiskSize',
     ];
 
     public function validate()
@@ -47,6 +55,9 @@ class diskSize extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->originalTotalDiskSize) {
+            $res['OriginalTotalDiskSize'] = $this->originalTotalDiskSize;
+        }
         if (null !== $this->totalDiskSize) {
             $res['TotalDiskSize'] = $this->totalDiskSize;
         }
@@ -68,6 +79,9 @@ class diskSize extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OriginalTotalDiskSize'])) {
+            $model->originalTotalDiskSize = $map['OriginalTotalDiskSize'];
+        }
         if (isset($map['TotalDiskSize'])) {
             $model->totalDiskSize = $map['TotalDiskSize'];
         }

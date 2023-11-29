@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersHistoryRequest extends Model
 {
     /**
-     * @description The value of the parameter after the modification.
-     *
+     * @description The type of the parameter.
+     * Valid values: CLUSTER and TENANT.
      * @example TENANT
      *
      * @var string
@@ -18,8 +18,8 @@ class DescribeParametersHistoryRequest extends Model
     public $dimension;
 
     /**
-     * @description The list of parameter modification records.
-     *
+     * @description The resource ID of the parameter type.
+     * You can leave this parameter unspecified when you call this operation to query the modification history of cluster parameters. In the case of tenant parameters, pass the tenant ID.
      * @example ob2mr3oae0****
      *
      * @var string
@@ -27,7 +27,7 @@ class DescribeParametersHistoryRequest extends Model
     public $dimensionValue;
 
     /**
-     * @description Alibaba Cloud provides SDKs in different languages to help you quickly integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call APIs. In this way, you do not need to sign for verification.
+     * @description The end time for the query of parameter modification history.
      *
      * @example 2021-09-13 15:40:43
      *
@@ -36,7 +36,7 @@ class DescribeParametersHistoryRequest extends Model
     public $endTime;
 
     /**
-     * @description The name of the parameter.
+     * @description The ID of the OceanBase cluster.
      *
      * @example ob317v4uif****
      *
@@ -45,8 +45,8 @@ class DescribeParametersHistoryRequest extends Model
     public $instanceId;
 
     /**
-     * @description Default value: 10.
-     *
+     * @description The number of the page to return.
+     * - Default value: 1
      * @example 1
      *
      * @var int
@@ -54,8 +54,8 @@ class DescribeParametersHistoryRequest extends Model
     public $pageNumber;
 
     /**
-     * @description It is an Alibaba Cloud asset management and configuration tool, with which you can manage multiple Alibaba Cloud products and services by using commands. It is easy to use and a good helper in migration to cloud.
-     *
+     * @description The number of rows to return on each page.
+     * - Default value: 10
      * @example 10
      *
      * @var int
@@ -63,7 +63,7 @@ class DescribeParametersHistoryRequest extends Model
     public $pageSize;
 
     /**
-     * @description You can call this operation to query the modification history of cluster or tenant parameters.
+     * @description The start time of the time range for querying the parameter modification history.
      *
      * @example 2021-06-13 15:40:43
      *

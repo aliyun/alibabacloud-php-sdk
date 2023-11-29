@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the database.
+     *
      * @example test_db
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $dbName;
 
     /**
+     * @description SQL text.
+     *
      * @example select a from b
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $fulltext;
 
     /**
+     * @description Parameterized text.
+     *
      * @example select a from b
      *
      * @var string
@@ -30,11 +36,15 @@ class data extends Model
     public $statement;
 
     /**
+     * @description The table name related to the SQL.
+     *
      * @var string[]
      */
     public $tables;
 
     /**
+     * @description The username.
+     *
      * @example test_user
      *
      * @var string

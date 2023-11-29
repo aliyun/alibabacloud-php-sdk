@@ -10,11 +10,20 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateDatabaseRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateDatabaseResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateLabelRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateLabelResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateMySqlDataSourceRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateMySqlDataSourceResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOceanBaseDataSourceRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOceanBaseDataSourceResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOmsMysqlDataSourceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOmsMysqlDataSourceResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOmsOpenAPIProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOmsOpenAPIProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOmsOpenAPIProjectShrinkRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectShrinkRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateSecurityIpGroupRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateSecurityIpGroupResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantReadOnlyConnectionRequest;
@@ -31,6 +40,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteInstancesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteInstancesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteOmsOpenAPIProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteOmsOpenAPIProjectResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteProjectRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteSecurityIpGroupRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteSecurityIpGroupResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTenantSecurityIpGroupRequest;
@@ -46,6 +57,10 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableCpuResourceR
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableCpuResourceResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableMemResourceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableMemResourceResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableSpecRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableSpecResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeCharsetRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeCharsetResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeDatabasesRequest;
@@ -58,12 +73,16 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceSecurityConfi
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceSecurityConfigsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceSSLRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceSSLResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTagsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTagsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTenantModesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTenantModesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeMetricsDataRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeMetricsDataResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeNodeMetricsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeNodeMetricsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasAnomalySQLListRequest;
@@ -88,6 +107,16 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeParametersHistoryRequ
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeParametersHistoryResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeParametersResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectProgressRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectProgressResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectStepMetricRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectStepMetricResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectStepsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectStepsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeRecommendIndexRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeRecommendIndexResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSecurityIpGroupsRequest;
@@ -105,6 +134,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLPlansRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLPlansResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLSamplesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLSamplesResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantEncryptionRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantEncryptionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantMetricsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantMetricsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantRequest;
@@ -117,6 +148,7 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantTagsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantTagsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantUserRolesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantUserRolesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantUsersRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantUsersResponse;
@@ -128,8 +160,23 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTopSQLListResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTopSQLListShrinkRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\GetUploadOssUrlRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\GetUploadOssUrlResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\KillProcessListRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\KillProcessListResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListAllLabelsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListDataSourceRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListDataSourceResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListDataSourceShrinkRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectFullVerifyResultRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectFullVerifyResultResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectFullVerifyResultShrinkRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectsShrinkRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListWorkerInstancesRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListWorkerInstancesResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListWorkerInstancesShrinkRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyDatabaseDescriptionRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyDatabaseDescriptionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyDatabaseUserRolesRequest;
@@ -146,6 +193,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyParametersRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyParametersResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifySecurityIpsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantEncryptionRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantEncryptionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantPrimaryZoneRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantPrimaryZoneResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantResourceRequest;
@@ -164,10 +213,14 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantUserStatusRequest
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantUserStatusResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ReleaseOmsOpenAPIProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ReleaseOmsOpenAPIProjectResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ReleaseProjectRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ReleaseProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ResetOmsOpenAPIProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ResetOmsOpenAPIProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ResumeOmsOpenAPIProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ResumeOmsOpenAPIProjectResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ResumeProjectRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ResumeProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SearchOmsOpenAPIMonitorMetricRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SearchOmsOpenAPIMonitorMetricResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SearchOmsOpenAPIProjectsRequest;
@@ -175,8 +228,16 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SearchOmsOpenAPIProjectsRespo
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SearchOmsOpenAPIProjectsShrinkRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StartOmsOpenAPIProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StartOmsOpenAPIProjectResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StartProjectRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StartProjectResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StartProjectsByLabelRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StartProjectsByLabelResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopOmsOpenAPIProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopOmsOpenAPIProjectResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopProjectRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopProjectResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopProjectsByLabelRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopProjectsByLabelResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SwitchoverInstanceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SwitchoverInstanceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -304,11 +365,17 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->diskType)) {
             $body['DiskType'] = $request->diskType;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->instanceClass)) {
             $body['InstanceClass'] = $request->instanceClass;
         }
         if (!Utils::isUnset($request->instanceName)) {
             $body['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->isolationOptimization)) {
+            $body['IsolationOptimization'] = $request->isolationOptimization;
         }
         if (!Utils::isUnset($request->obVersion)) {
             $body['ObVersion'] = $request->obVersion;
@@ -318,6 +385,9 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodUnit)) {
             $body['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->replicaMode)) {
+            $body['ReplicaMode'] = $request->replicaMode;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['ResourceGroupId'] = $request->resourceGroupId;
@@ -359,8 +429,211 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * The description of the data source.
-     *   * It must be 2 to 256 characters in length. The default value is null.
+     * @param CreateLabelRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateLabelResponse
+     */
+    public function createLabelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLabel',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateLabelRequest $request
+     *
+     * @return CreateLabelResponse
+     */
+    public function createLabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLabelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateMySqlDataSourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateMySqlDataSourceResponse
+     */
+    public function createMySqlDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dgInstanceId)) {
+            $body['DgInstanceId'] = $request->dgInstanceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $body['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $body['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $body['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $body['Schema'] = $request->schema;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['UserName'] = $request->userName;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMySqlDataSource',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMySqlDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateMySqlDataSourceRequest $request
+     *
+     * @return CreateMySqlDataSourceResponse
+     */
+    public function createMySqlDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMySqlDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOceanBaseDataSourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateOceanBaseDataSourceResponse
+     */
+    public function createOceanBaseDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cluster)) {
+            $body['Cluster'] = $request->cluster;
+        }
+        if (!Utils::isUnset($request->configUrl)) {
+            $body['ConfigUrl'] = $request->configUrl;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->drcPassword)) {
+            $body['DrcPassword'] = $request->drcPassword;
+        }
+        if (!Utils::isUnset($request->drcUserName)) {
+            $body['DrcUserName'] = $request->drcUserName;
+        }
+        if (!Utils::isUnset($request->innerDrcPassword)) {
+            $body['InnerDrcPassword'] = $request->innerDrcPassword;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $body['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->logProxyIp)) {
+            $body['LogProxyIp'] = $request->logProxyIp;
+        }
+        if (!Utils::isUnset($request->logProxyPort)) {
+            $body['LogProxyPort'] = $request->logProxyPort;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $body['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $body['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->tenant)) {
+            $body['Tenant'] = $request->tenant;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['UserName'] = $request->userName;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOceanBaseDataSource',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOceanBaseDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOceanBaseDataSourceRequest $request
+     *
+     * @return CreateOceanBaseDataSourceResponse
+     */
+    public function createOceanBaseDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOceanBaseDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
      *   *
      * @param CreateOmsMysqlDataSourceRequest $request CreateOmsMysqlDataSourceRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -423,8 +696,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * The description of the data source.
-     *   * It must be 2 to 256 characters in length. The default value is null.
+     * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
      *   *
      * @param CreateOmsMysqlDataSourceRequest $request CreateOmsMysqlDataSourceRequest
      *
@@ -525,6 +797,120 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param CreateProjectRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProjectWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateProjectShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->commonTransferConfig)) {
+            $request->commonTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commonTransferConfig, 'CommonTransferConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->fullTransferConfig)) {
+            $request->fullTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fullTransferConfig, 'FullTransferConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->incrTransferConfig)) {
+            $request->incrTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->incrTransferConfig, 'IncrTransferConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->labelIds)) {
+            $request->labelIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labelIds, 'LabelIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->structTransferConfig)) {
+            $request->structTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->structTransferConfig, 'StructTransferConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->transferMapping)) {
+            $request->transferMappingShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transferMapping, 'TransferMapping', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->commonTransferConfigShrink)) {
+            $body['CommonTransferConfig'] = $request->commonTransferConfigShrink;
+        }
+        if (!Utils::isUnset($request->enableFullTransfer)) {
+            $body['EnableFullTransfer'] = $request->enableFullTransfer;
+        }
+        if (!Utils::isUnset($request->enableFullVerify)) {
+            $body['EnableFullVerify'] = $request->enableFullVerify;
+        }
+        if (!Utils::isUnset($request->enableIncrTransfer)) {
+            $body['EnableIncrTransfer'] = $request->enableIncrTransfer;
+        }
+        if (!Utils::isUnset($request->enableReverseIncrTransfer)) {
+            $body['EnableReverseIncrTransfer'] = $request->enableReverseIncrTransfer;
+        }
+        if (!Utils::isUnset($request->enableStructTransfer)) {
+            $body['EnableStructTransfer'] = $request->enableStructTransfer;
+        }
+        if (!Utils::isUnset($request->fullTransferConfigShrink)) {
+            $body['FullTransferConfig'] = $request->fullTransferConfigShrink;
+        }
+        if (!Utils::isUnset($request->incrTransferConfigShrink)) {
+            $body['IncrTransferConfig'] = $request->incrTransferConfigShrink;
+        }
+        if (!Utils::isUnset($request->labelIdsShrink)) {
+            $body['LabelIds'] = $request->labelIdsShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ossKey)) {
+            $body['OssKey'] = $request->ossKey;
+        }
+        if (!Utils::isUnset($request->sinkEndpointId)) {
+            $body['SinkEndpointId'] = $request->sinkEndpointId;
+        }
+        if (!Utils::isUnset($request->sourceEndpointId)) {
+            $body['SourceEndpointId'] = $request->sourceEndpointId;
+        }
+        if (!Utils::isUnset($request->structTransferConfigShrink)) {
+            $body['StructTransferConfig'] = $request->structTransferConfigShrink;
+        }
+        if (!Utils::isUnset($request->transferMappingShrink)) {
+            $body['TransferMapping'] = $request->transferMappingShrink;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->useOss)) {
+            $body['UseOss'] = $request->useOss;
+        }
+        if (!Utils::isUnset($request->workerGradeId)) {
+            $body['WorkerGradeId'] = $request->workerGradeId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProject',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateSecurityIpGroupRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -595,11 +981,17 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->logDisk)) {
+            $body['LogDisk'] = $request->logDisk;
+        }
         if (!Utils::isUnset($request->memory)) {
             $body['Memory'] = $request->memory;
         }
         if (!Utils::isUnset($request->primaryZone)) {
             $body['PrimaryZone'] = $request->primaryZone;
+        }
+        if (!Utils::isUnset($request->readOnlyZoneList)) {
+            $body['ReadOnlyZoneList'] = $request->readOnlyZoneList;
         }
         if (!Utils::isUnset($request->tenantMode)) {
             $body['TenantMode'] = $request->tenantMode;
@@ -664,6 +1056,12 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->tenantId)) {
             $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $body['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['VpcId'] = $request->vpcId;
         }
         if (!Utils::isUnset($request->zoneId)) {
             $body['ZoneId'] = $request->zoneId;
@@ -878,6 +1276,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->backupRetainMode)) {
             $body['BackupRetainMode'] = $request->backupRetainMode;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->instanceIds)) {
             $body['InstanceIds'] = $request->instanceIds;
         }
@@ -963,6 +1364,49 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteOmsOpenAPIProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProject',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -1182,6 +1626,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->filterConditionShrink)) {
             $body['FilterCondition'] = $request->filterConditionShrink;
         }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->nodeIp)) {
             $body['NodeIp'] = $request->nodeIp;
         }
@@ -1350,6 +1797,110 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeAvailableSpecRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAvailableSpecResponse
+     */
+    public function describeAvailableSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['Spec'] = $request->spec;
+        }
+        if (!Utils::isUnset($request->upgradeType)) {
+            $body['UpgradeType'] = $request->upgradeType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAvailableSpec',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAvailableSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAvailableSpecRequest $request
+     *
+     * @return DescribeAvailableSpecResponse
+     */
+    public function describeAvailableSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAvailableZoneRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAvailableZoneResponse
+     */
+    public function describeAvailableZoneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deployType)) {
+            $body['DeployType'] = $request->deployType;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->obVersion)) {
+            $body['ObVersion'] = $request->obVersion;
+        }
+        if (!Utils::isUnset($request->series)) {
+            $body['Series'] = $request->series;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['Spec'] = $request->spec;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAvailableZone',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAvailableZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAvailableZoneRequest $request
+     *
+     * @return DescribeAvailableZoneResponse
+     */
+    public function describeAvailableZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableZoneWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCharsetRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1359,6 +1910,9 @@ class OceanBasePro extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->series)) {
             $body['Series'] = $request->series;
         }
@@ -1407,6 +1961,9 @@ class OceanBasePro extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->databaseName)) {
             $body['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $body['PageNumber'] = $request->pageNumber;
@@ -1468,9 +2025,6 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $body['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1546,6 +2100,49 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeInstanceSSLRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInstanceSSLResponse
+     */
+    public function describeInstanceSSLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSSL',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceSSLRequest $request
+     *
+     * @return DescribeInstanceSSLResponse
+     */
+    public function describeInstanceSSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceSSLWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeInstanceSecurityConfigsRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -1555,6 +2152,9 @@ class OceanBasePro extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->checkId)) {
+            $body['CheckId'] = $request->checkId;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
@@ -1779,6 +2379,73 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeMetricsDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeMetricsDataResponse
+     */
+    public function describeMetricsDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupByLabels)) {
+            $query['GroupByLabels'] = $request->groupByLabels;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
+        }
+        if (!Utils::isUnset($request->sortMetricKey)) {
+            $query['SortMetricKey'] = $request->sortMetricKey;
+        }
+        if (!Utils::isUnset($request->sortOrder)) {
+            $query['SortOrder'] = $request->sortOrder;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricsData',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMetricsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMetricsDataRequest $request
+     *
+     * @return DescribeMetricsDataResponse
+     */
+    public function describeMetricsData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetricsDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeNodeMetricsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1864,6 +2531,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->dbName)) {
             $body['DbName'] = $request->dbName;
         }
+        if (!Utils::isUnset($request->dynamicSql)) {
+            $body['DynamicSql'] = $request->dynamicSql;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
         }
@@ -1872,6 +2542,9 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mergeDynamicSql)) {
+            $body['MergeDynamicSql'] = $request->mergeDynamicSql;
         }
         if (!Utils::isUnset($request->nodeIp)) {
             $body['NodeIp'] = $request->nodeIp;
@@ -1946,6 +2619,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->dbName)) {
             $body['DbName'] = $request->dbName;
         }
+        if (!Utils::isUnset($request->dynamicSql)) {
+            $body['DynamicSql'] = $request->dynamicSql;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
         }
@@ -2006,6 +2682,9 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->dbName)) {
             $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->dynamicSql)) {
+            $body['DynamicSql'] = $request->dynamicSql;
         }
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
@@ -2071,6 +2750,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->dbName)) {
             $body['DbName'] = $request->dbName;
         }
+        if (!Utils::isUnset($request->dynamicSql)) {
+            $body['DynamicSql'] = $request->dynamicSql;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
         }
@@ -2132,6 +2814,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->dbName)) {
             $body['DbName'] = $request->dbName;
         }
+        if (!Utils::isUnset($request->dynamicSql)) {
+            $body['DynamicSql'] = $request->dynamicSql;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
         }
@@ -2140,6 +2825,9 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mergeDynamicSql)) {
+            $body['MergeDynamicSql'] = $request->mergeDynamicSql;
         }
         if (!Utils::isUnset($request->nodeIp)) {
             $body['NodeIp'] = $request->nodeIp;
@@ -2214,6 +2902,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->dbName)) {
             $body['DbName'] = $request->dbName;
         }
+        if (!Utils::isUnset($request->dynamicSql)) {
+            $body['DynamicSql'] = $request->dynamicSql;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
         }
@@ -2222,6 +2913,9 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mergeDynamicSql)) {
+            $body['MergeDynamicSql'] = $request->mergeDynamicSql;
         }
         if (!Utils::isUnset($request->nodeIp)) {
             $body['NodeIp'] = $request->nodeIp;
@@ -2550,6 +3244,239 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeParametersHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeProjectRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeProjectResponse
+     */
+    public function describeProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProject',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeProjectRequest $request
+     *
+     * @return DescribeProjectResponse
+     */
+    public function describeProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeProjectComponentsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeProjectComponentsResponse
+     */
+    public function describeProjectComponentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProjectComponents',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeProjectComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeProjectComponentsRequest $request
+     *
+     * @return DescribeProjectComponentsResponse
+     */
+    public function describeProjectComponents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProjectComponentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeProjectProgressRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeProjectProgressResponse
+     */
+    public function describeProjectProgressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProjectProgress',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeProjectProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeProjectProgressRequest $request
+     *
+     * @return DescribeProjectProgressResponse
+     */
+    public function describeProjectProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProjectProgressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeProjectStepMetricRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeProjectStepMetricResponse
+     */
+    public function describeProjectStepMetricWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->aggregator)) {
+            $body['Aggregator'] = $request->aggregator;
+        }
+        if (!Utils::isUnset($request->beginTimestamp)) {
+            $body['BeginTimestamp'] = $request->beginTimestamp;
+        }
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $body['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->maxPointNum)) {
+            $body['MaxPointNum'] = $request->maxPointNum;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $body['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->stepName)) {
+            $body['StepName'] = $request->stepName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProjectStepMetric',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeProjectStepMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeProjectStepMetricRequest $request
+     *
+     * @return DescribeProjectStepMetricResponse
+     */
+    public function describeProjectStepMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProjectStepMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeProjectStepsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeProjectStepsResponse
+     */
+    public function describeProjectStepsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProjectSteps',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeProjectStepsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeProjectStepsRequest $request
+     *
+     * @return DescribeProjectStepsResponse
+     */
+    public function describeProjectSteps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProjectStepsWithOptions($request, $runtime);
     }
 
     /**
@@ -3047,6 +3974,61 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeTenantEncryptionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeTenantEncryptionResponse
+     */
+    public function describeTenantEncryptionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->tenantName)) {
+            $body['TenantName'] = $request->tenantName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTenantEncryption',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTenantEncryptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTenantEncryptionRequest $request
+     *
+     * @return DescribeTenantEncryptionResponse
+     */
+    public function describeTenantEncryption($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTenantEncryptionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeTenantMetricsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3123,6 +4105,9 @@ class OceanBasePro extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->checkId)) {
+            $body['CheckId'] = $request->checkId;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
@@ -3255,13 +4240,21 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeTenantUserRolesRequest $request
+     * @param RuntimeOptions                 $runtime
      *
      * @return DescribeTenantUserRolesResponse
      */
-    public function describeTenantUserRolesWithOptions($runtime)
+    public function describeTenantUserRolesWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
         $params = new Params([
             'action'      => 'DescribeTenantUserRoles',
             'version'     => '2019-09-01',
@@ -3278,13 +4271,15 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeTenantUserRolesRequest $request
+     *
      * @return DescribeTenantUserRolesResponse
      */
-    public function describeTenantUserRoles()
+    public function describeTenantUserRoles($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeTenantUserRolesWithOptions($runtime);
+        return $this->describeTenantUserRolesWithOptions($request, $runtime);
     }
 
     /**
@@ -3616,6 +4611,52 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param GetUploadOssUrlRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetUploadOssUrlResponse
+     */
+    public function getUploadOssUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->effectiveTimeMinutes)) {
+            $body['EffectiveTimeMinutes'] = $request->effectiveTimeMinutes;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUploadOssUrl',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUploadOssUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUploadOssUrlRequest $request
+     *
+     * @return GetUploadOssUrlResponse
+     */
+    public function getUploadOssUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUploadOssUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param KillProcessListRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -3662,6 +4703,321 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->killProcessListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAllLabelsResponse
+     */
+    public function listAllLabelsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListAllLabels',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAllLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListAllLabelsResponse
+     */
+    public function listAllLabels()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAllLabelsWithOptions($runtime);
+    }
+
+    /**
+     * @param ListDataSourceRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListDataSourceResponse
+     */
+    public function listDataSourceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListDataSourceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->types)) {
+            $request->typesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->order)) {
+            $body['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $body['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->sortField)) {
+            $body['SortField'] = $request->sortField;
+        }
+        if (!Utils::isUnset($request->typesShrink)) {
+            $body['Types'] = $request->typesShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataSource',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataSourceRequest $request
+     *
+     * @return ListDataSourceResponse
+     */
+    public function listDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProjectFullVerifyResultRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListProjectFullVerifyResultResponse
+     */
+    public function listProjectFullVerifyResultWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListProjectFullVerifyResultShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destSchemas)) {
+            $request->destSchemasShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destSchemas, 'DestSchemas', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceSchemas)) {
+            $request->sourceSchemasShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceSchemas, 'SourceSchemas', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->destSchemasShrink)) {
+            $body['DestSchemas'] = $request->destSchemasShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sourceSchemasShrink)) {
+            $body['SourceSchemas'] = $request->sourceSchemasShrink;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjectFullVerifyResult',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectFullVerifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectFullVerifyResultRequest $request
+     *
+     * @return ListProjectFullVerifyResultResponse
+     */
+    public function listProjectFullVerifyResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectFullVerifyResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProjectsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjectsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListProjectsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->labelIds)) {
+            $request->labelIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labelIds, 'LabelIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sinkEndpointTypes)) {
+            $request->sinkEndpointTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sinkEndpointTypes, 'SinkEndpointTypes', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceEndpointTypes)) {
+            $request->sourceEndpointTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceEndpointTypes, 'SourceEndpointTypes', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->status)) {
+            $request->statusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->status, 'Status', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->labelIdsShrink)) {
+            $body['LabelIds'] = $request->labelIdsShrink;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $body['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->sinkEndpointTypesShrink)) {
+            $body['SinkEndpointTypes'] = $request->sinkEndpointTypesShrink;
+        }
+        if (!Utils::isUnset($request->sortField)) {
+            $body['SortField'] = $request->sortField;
+        }
+        if (!Utils::isUnset($request->sourceEndpointTypesShrink)) {
+            $body['SourceEndpointTypes'] = $request->sourceEndpointTypesShrink;
+        }
+        if (!Utils::isUnset($request->statusShrink)) {
+            $body['Status'] = $request->statusShrink;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->visibleSubProject)) {
+            $body['VisibleSubProject'] = $request->visibleSubProject;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjects',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListWorkerInstancesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListWorkerInstancesResponse
+     */
+    public function listWorkerInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListWorkerInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->specs)) {
+            $request->specsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->specs, 'Specs', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->destType)) {
+            $body['DestType'] = $request->destType;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->onlyBindable)) {
+            $body['OnlyBindable'] = $request->onlyBindable;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $body['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->specsShrink)) {
+            $body['Specs'] = $request->specsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkerInstances',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListWorkerInstancesRequest $request
+     *
+     * @return ListWorkerInstancesResponse
+     */
+    public function listWorkerInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkerInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -3824,6 +5180,9 @@ class OceanBasePro extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
@@ -3872,6 +5231,9 @@ class OceanBasePro extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->diskSize)) {
             $body['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->instanceClass)) {
             $body['InstanceClass'] = $request->instanceClass;
@@ -4057,6 +5419,58 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param ModifyTenantEncryptionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyTenantEncryptionResponse
+     */
+    public function modifyTenantEncryptionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->encryptionKeyId)) {
+            $body['EncryptionKeyId'] = $request->encryptionKeyId;
+        }
+        if (!Utils::isUnset($request->encryptionType)) {
+            $body['EncryptionType'] = $request->encryptionType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTenantEncryption',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTenantEncryptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyTenantEncryptionRequest $request
+     *
+     * @return ModifyTenantEncryptionResponse
+     */
+    public function modifyTenantEncryption($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTenantEncryptionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyTenantPrimaryZoneRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4072,14 +5486,11 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->masterIntranetAddressZone)) {
             $body['MasterIntranetAddressZone'] = $request->masterIntranetAddressZone;
         }
-        if (!Utils::isUnset($request->modifyType)) {
-            $body['ModifyType'] = $request->modifyType;
-        }
         if (!Utils::isUnset($request->primaryZone)) {
             $body['PrimaryZone'] = $request->primaryZone;
         }
-        if (!Utils::isUnset($request->primaryZoneDeployType)) {
-            $body['PrimaryZoneDeployType'] = $request->primaryZoneDeployType;
+        if (!Utils::isUnset($request->tenantEndpointId)) {
+            $body['TenantEndpointId'] = $request->tenantEndpointId;
         }
         if (!Utils::isUnset($request->tenantId)) {
             $body['TenantId'] = $request->tenantId;
@@ -4133,8 +5544,14 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->logDisk)) {
+            $body['LogDisk'] = $request->logDisk;
+        }
         if (!Utils::isUnset($request->memory)) {
             $body['Memory'] = $request->memory;
+        }
+        if (!Utils::isUnset($request->readOnlyZoneList)) {
+            $body['ReadOnlyZoneList'] = $request->readOnlyZoneList;
         }
         if (!Utils::isUnset($request->tenantId)) {
             $body['TenantId'] = $request->tenantId;
@@ -4537,6 +5954,49 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param ReleaseProjectRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ReleaseProjectResponse
+     */
+    public function releaseProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseProject',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseProjectRequest $request
+     *
+     * @return ReleaseProjectResponse
+     */
+    public function releaseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResetOmsOpenAPIProjectRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -4638,6 +6098,49 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeOmsOpenAPIProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResumeProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ResumeProjectResponse
+     */
+    public function resumeProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeProject',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResumeProjectRequest $request
+     *
+     * @return ResumeProjectResponse
+     */
+    public function resumeProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -4835,6 +6338,92 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param StartProjectRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StartProjectResponse
+     */
+    public function startProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartProject',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartProjectRequest $request
+     *
+     * @return StartProjectResponse
+     */
+    public function startProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartProjectsByLabelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StartProjectsByLabelResponse
+     */
+    public function startProjectsByLabelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartProjectsByLabel',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartProjectsByLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartProjectsByLabelRequest $request
+     *
+     * @return StartProjectsByLabelResponse
+     */
+    public function startProjectsByLabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startProjectsByLabelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopOmsOpenAPIProjectRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -4884,6 +6473,92 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopOmsOpenAPIProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopProjectRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return StopProjectResponse
+     */
+    public function stopProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopProject',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopProjectRequest $request
+     *
+     * @return StopProjectResponse
+     */
+    public function stopProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopProjectsByLabelRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StopProjectsByLabelResponse
+     */
+    public function stopProjectsByLabelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopProjectsByLabel',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopProjectsByLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopProjectsByLabelRequest $request
+     *
+     * @return StopProjectsByLabelResponse
+     */
+    public function stopProjectsByLabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopProjectsByLabelWithOptions($request, $runtime);
     }
 
     /**

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCharsetRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description 实例的系列  - normal（默认）：标准集群版（云盘）  - normal_ssd：标准集群版（本地盘） - history：历史库集群版。
      *
      * @example normal
@@ -26,6 +31,7 @@ class DescribeCharsetRequest extends Model
      */
     public $tenantMode;
     protected $_name = [
+        'instanceId' => 'InstanceId',
         'series'     => 'Series',
         'tenantMode' => 'TenantMode',
     ];
@@ -37,6 +43,9 @@ class DescribeCharsetRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->series) {
             $res['Series'] = $this->series;
         }
@@ -55,6 +64,9 @@ class DescribeCharsetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Series'])) {
             $model->series = $map['Series'];
         }

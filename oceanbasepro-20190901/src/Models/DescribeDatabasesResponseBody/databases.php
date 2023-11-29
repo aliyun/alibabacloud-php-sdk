@@ -105,6 +105,13 @@ class databases extends Model
     public $tenantId;
 
     /**
+     * @example tenantABC
+     *
+     * @var string
+     */
+    public $tenantName;
+
+    /**
      * @description The name of the database table.
      *
      * @var users[]
@@ -123,6 +130,7 @@ class databases extends Model
         'status'       => 'Status',
         'tables'       => 'Tables',
         'tenantId'     => 'TenantId',
+        'tenantName'   => 'TenantName',
         'users'        => 'Users',
     ];
 
@@ -174,6 +182,9 @@ class databases extends Model
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+        if (null !== $this->tenantName) {
+            $res['TenantName'] = $this->tenantName;
         }
         if (null !== $this->users) {
             $res['Users'] = [];
@@ -237,6 +248,9 @@ class databases extends Model
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+        if (isset($map['TenantName'])) {
+            $model->tenantName = $map['TenantName'];
         }
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody\instances;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody\instances\resource\capacityUnit;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody\instances\resource\cpu;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody\instances\resource\diskSize;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody\instances\resource\memory;
@@ -11,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 
 class resource extends Model
 {
+    /**
+     * @var capacityUnit
+     */
+    public $capacityUnit;
+
     /**
      * @description Indicates whether new nodes can be added.
      *
@@ -39,10 +45,11 @@ class resource extends Model
      */
     public $unitCount;
     protected $_name = [
-        'cpu'       => 'Cpu',
-        'diskSize'  => 'DiskSize',
-        'memory'    => 'Memory',
-        'unitCount' => 'UnitCount',
+        'capacityUnit' => 'CapacityUnit',
+        'cpu'          => 'Cpu',
+        'diskSize'     => 'DiskSize',
+        'memory'       => 'Memory',
+        'unitCount'    => 'UnitCount',
     ];
 
     public function validate()
@@ -52,6 +59,9 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->capacityUnit) {
+            $res['CapacityUnit'] = null !== $this->capacityUnit ? $this->capacityUnit->toMap() : null;
+        }
         if (null !== $this->cpu) {
             $res['Cpu'] = null !== $this->cpu ? $this->cpu->toMap() : null;
         }
@@ -76,6 +86,9 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CapacityUnit'])) {
+            $model->capacityUnit = capacityUnit::fromMap($map['CapacityUnit']);
+        }
         if (isset($map['Cpu'])) {
             $model->cpu = cpu::fromMap($map['Cpu']);
         }

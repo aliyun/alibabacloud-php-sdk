@@ -10,8 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersHistoryResponseBody extends Model
 {
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description The request ID.
+     *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribeParametersHistoryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the parameter modification took effect.
+     * @description The list of parameter modification records.
      *
      * @var respond[]
      */

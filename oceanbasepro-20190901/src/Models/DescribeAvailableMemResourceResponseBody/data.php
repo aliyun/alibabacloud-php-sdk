@@ -25,6 +25,13 @@ class data extends Model
     public $minMem;
 
     /**
+     * @example 10.0
+     *
+     * @var string
+     */
+    public $safeMem;
+
+    /**
      * @example 2
      *
      * @var int
@@ -33,6 +40,7 @@ class data extends Model
     protected $_name = [
         'maxMem'  => 'MaxMem',
         'minMem'  => 'MinMem',
+        'safeMem' => 'SafeMem',
         'usedMem' => 'UsedMem',
     ];
 
@@ -48,6 +56,9 @@ class data extends Model
         }
         if (null !== $this->minMem) {
             $res['MinMem'] = $this->minMem;
+        }
+        if (null !== $this->safeMem) {
+            $res['SafeMem'] = $this->safeMem;
         }
         if (null !== $this->usedMem) {
             $res['UsedMem'] = $this->usedMem;
@@ -69,6 +80,9 @@ class data extends Model
         }
         if (isset($map['MinMem'])) {
             $model->minMem = $map['MinMem'];
+        }
+        if (isset($map['SafeMem'])) {
+            $model->safeMem = $map['SafeMem'];
         }
         if (isset($map['UsedMem'])) {
             $model->usedMem = $map['UsedMem'];

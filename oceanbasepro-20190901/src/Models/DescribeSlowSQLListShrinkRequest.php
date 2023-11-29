@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowSQLListShrinkRequest extends Model
 {
     /**
-     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
+     * @description The name of the database.
      *
      * @example testdb
      *
@@ -18,6 +18,8 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $dbName;
 
     /**
+     * @description The end time of the time range for querying slow SQL statements.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2021-09-13T15:40:43Z
      *
      * @var string
@@ -34,7 +36,7 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $filterConditionShrink;
 
     /**
-     * @description The number of plan misses.
+     * @description The IP address of the database node.
      *
      * @example i-bp18qljorblo8es*****
      *
@@ -43,8 +45,8 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $nodeIp;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description The number of rows to return on each page.
+     * - Default value: 10
      * @example 10
      *
      * @var int
@@ -52,8 +54,8 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The return result of the request.
-     *
+     * @description The number of the page to return.
+     * - Default value: 1
      * @example 1
      *
      * @var int
@@ -61,7 +63,7 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @description The internal wait time.
+     * @description The SQL ID, which uniquely identifies an SQL statement.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -70,7 +72,7 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $SQLId;
 
     /**
-     * @description Alibaba Cloud CLI
+     * @description The search keyword.
      *
      * @example update
      *
@@ -79,7 +81,7 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $searchKeyWord;
 
     /**
-     * @description The IP address of the database node.
+     * @description The search parameter.
      *
      * @example cputime
      *
@@ -88,7 +90,7 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $searchParameter;
 
     /**
-     * @description The queuing time.
+     * @description The search rule.
      *
      * @example >
      *
@@ -97,7 +99,7 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $searchRule;
 
     /**
-     * @description The list of slow SQL statements.
+     * @description The search value.
      *
      * @example 0.01
      *
@@ -106,8 +108,8 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $searchValue;
 
     /**
-     * @description The number of rows to return on each page.
-     * - Default value: 10
+     * @description The sorted column.
+     *
      * @example cputime
      *
      * @var string
@@ -115,7 +117,7 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $sortColumn;
 
     /**
-     * @description The average CPU time.
+     * @description The sorting rule.
      *
      * @example desc
      *
@@ -124,8 +126,8 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $sortOrder;
 
     /**
-     * @description The list of slow SQL statements.
-     *
+     * @description The start time of the time range for querying slow SQL statements.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -133,7 +135,7 @@ class DescribeSlowSQLListShrinkRequest extends Model
     public $startTime;
 
     /**
-     * @description The number of logical reads.
+     * @description The ID of the tenant.
      *
      * @example t2mr3oae0****
      *

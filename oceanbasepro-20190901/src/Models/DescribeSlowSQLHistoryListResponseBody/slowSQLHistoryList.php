@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class slowSQLHistoryList extends Model
 {
     /**
+     * @description The quantity.
+     *
      * @example 1
      *
      * @var int
@@ -17,7 +19,7 @@ class slowSQLHistoryList extends Model
     public $count;
 
     /**
-     * @description The SQL ID, which uniquely identifies an SQL statement.
+     * @description The return result of the request.
      *
      * @var list_[]
      */

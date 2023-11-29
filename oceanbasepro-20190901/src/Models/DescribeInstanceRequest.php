@@ -25,19 +25,9 @@ class DescribeInstanceRequest extends Model
      * @var int
      */
     public $pageNumber;
-
-    /**
-     * @description The server with the highest disk usage.
-     *
-     * @example 10
-     *
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -52,9 +42,6 @@ class DescribeInstanceRequest extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -73,9 +60,6 @@ class DescribeInstanceRequest extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

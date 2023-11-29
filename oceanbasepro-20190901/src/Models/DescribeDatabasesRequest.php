@@ -18,6 +18,13 @@ class DescribeDatabasesRequest extends Model
     public $databaseName;
 
     /**
+     * @example ob4wibn0abo9uo
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description The return result of the request.
      *
      * @example 1
@@ -63,6 +70,7 @@ class DescribeDatabasesRequest extends Model
     public $withTables;
     protected $_name = [
         'databaseName' => 'DatabaseName',
+        'instanceId'   => 'InstanceId',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'searchKey'    => 'SearchKey',
@@ -79,6 +87,9 @@ class DescribeDatabasesRequest extends Model
         $res = [];
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -109,6 +120,9 @@ class DescribeDatabasesRequest extends Model
         $model = new self();
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

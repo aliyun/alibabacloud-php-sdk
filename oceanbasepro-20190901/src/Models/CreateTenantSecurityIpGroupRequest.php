@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTenantSecurityIpGroupRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateTenantSecurityIpGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description The group name of the whitelist group of IP addresses.
+     *
+     * It starts with lowercase letters and ends with lowercase letters or numbers. It can only contain lowercase letters, numbers, and underscores, and should be 2~32 characters in length.
      * @example paytest
      *
      * @var string
@@ -23,6 +28,9 @@ class CreateTenantSecurityIpGroupRequest extends Model
     public $securityIpGroupName;
 
     /**
+     * @description The list of IP addresses in the whitelist group.
+     *
+     * It is a JSON array. Each object in the array is an IP address or a CIDR block. You can have up to 40 whitelists.
      * @example 192.***.*.*"
      *
      * @var string
@@ -30,6 +38,8 @@ class CreateTenantSecurityIpGroupRequest extends Model
     public $securityIps;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t4louaeei****
      *
      * @var string

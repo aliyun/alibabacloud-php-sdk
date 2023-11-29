@@ -10,6 +10,25 @@ use AlibabaCloud\Tea\Model;
 class instanceSecurityConfigs extends Model
 {
     /**
+     * @example xxx
+     *
+     * @var string
+     */
+    public $checkId;
+
+    /**
+     * @var string
+     */
+    public $checkTime;
+
+    /**
+     * @example ob317v4uif****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var securityConfigs[]
      */
     public $securityConfigs;
@@ -28,6 +47,9 @@ class instanceSecurityConfigs extends Model
      */
     public $totalRiskCount;
     protected $_name = [
+        'checkId'         => 'CheckId',
+        'checkTime'       => 'CheckTime',
+        'instanceId'      => 'InstanceId',
         'securityConfigs' => 'SecurityConfigs',
         'totalCheckCount' => 'TotalCheckCount',
         'totalRiskCount'  => 'TotalRiskCount',
@@ -40,6 +62,15 @@ class instanceSecurityConfigs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkId) {
+            $res['CheckId'] = $this->checkId;
+        }
+        if (null !== $this->checkTime) {
+            $res['CheckTime'] = $this->checkTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->securityConfigs) {
             $res['SecurityConfigs'] = [];
             if (null !== $this->securityConfigs && \is_array($this->securityConfigs)) {
@@ -67,6 +98,15 @@ class instanceSecurityConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckId'])) {
+            $model->checkId = $map['CheckId'];
+        }
+        if (isset($map['CheckTime'])) {
+            $model->checkTime = $map['CheckTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['SecurityConfigs'])) {
             if (!empty($map['SecurityConfigs'])) {
                 $model->securityConfigs = [];

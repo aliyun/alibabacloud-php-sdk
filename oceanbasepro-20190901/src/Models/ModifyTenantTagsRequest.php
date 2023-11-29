@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantTagsRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyTenantTagsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The tags.
+     *
      * @example [{"Key": "xxx", "Value", "xxx"},{}]
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyTenantTagsRequest extends Model
     public $tags;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example xxx
      *
      * @var string

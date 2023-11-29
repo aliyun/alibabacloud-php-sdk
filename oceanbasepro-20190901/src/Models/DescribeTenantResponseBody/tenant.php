@@ -116,6 +116,11 @@ class tenant extends Model
     public $enableInternetAddressService;
 
     /**
+     * @var bool
+     */
+    public $enableParallelQuery;
+
+    /**
      * @example false
      *
      * @var bool
@@ -153,6 +158,13 @@ class tenant extends Model
      * @var string
      */
     public $masterIntranetAddressZone;
+
+    /**
+     * @example 32
+     *
+     * @var int
+     */
+    public $maxParallelQueryDegree;
 
     /**
      * @example POSTPAY
@@ -257,6 +269,11 @@ class tenant extends Model
     public $tenantZones;
 
     /**
+     * @var string
+     */
+    public $timeZone;
+
+    /**
      * @description Indicates whether the clog service is available. To enable the clog service, submit a ticket.
      *
      * @example vpc-bp1d2q3mhg9i23ofi****
@@ -277,9 +294,11 @@ class tenant extends Model
         'enableBinlogService'          => 'EnableBinlogService',
         'enableClogService'            => 'EnableClogService',
         'enableInternetAddressService' => 'EnableInternetAddressService',
+        'enableParallelQuery'          => 'EnableParallelQuery',
         'enableReadWriteSplit'         => 'EnableReadWriteSplit',
         'instanceType'                 => 'InstanceType',
         'masterIntranetAddressZone'    => 'MasterIntranetAddressZone',
+        'maxParallelQueryDegree'       => 'MaxParallelQueryDegree',
         'payType'                      => 'PayType',
         'primaryZone'                  => 'PrimaryZone',
         'primaryZoneDeployType'        => 'PrimaryZoneDeployType',
@@ -291,6 +310,7 @@ class tenant extends Model
         'tenantName'                   => 'TenantName',
         'tenantResource'               => 'TenantResource',
         'tenantZones'                  => 'TenantZones',
+        'timeZone'                     => 'TimeZone',
         'vpcId'                        => 'VpcId',
     ];
 
@@ -337,6 +357,9 @@ class tenant extends Model
         if (null !== $this->enableInternetAddressService) {
             $res['EnableInternetAddressService'] = $this->enableInternetAddressService;
         }
+        if (null !== $this->enableParallelQuery) {
+            $res['EnableParallelQuery'] = $this->enableParallelQuery;
+        }
         if (null !== $this->enableReadWriteSplit) {
             $res['EnableReadWriteSplit'] = $this->enableReadWriteSplit;
         }
@@ -345,6 +368,9 @@ class tenant extends Model
         }
         if (null !== $this->masterIntranetAddressZone) {
             $res['MasterIntranetAddressZone'] = $this->masterIntranetAddressZone;
+        }
+        if (null !== $this->maxParallelQueryDegree) {
+            $res['MaxParallelQueryDegree'] = $this->maxParallelQueryDegree;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -390,6 +416,9 @@ class tenant extends Model
                     $res['TenantZones'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -444,6 +473,9 @@ class tenant extends Model
         if (isset($map['EnableInternetAddressService'])) {
             $model->enableInternetAddressService = $map['EnableInternetAddressService'];
         }
+        if (isset($map['EnableParallelQuery'])) {
+            $model->enableParallelQuery = $map['EnableParallelQuery'];
+        }
         if (isset($map['EnableReadWriteSplit'])) {
             $model->enableReadWriteSplit = $map['EnableReadWriteSplit'];
         }
@@ -452,6 +484,9 @@ class tenant extends Model
         }
         if (isset($map['MasterIntranetAddressZone'])) {
             $model->masterIntranetAddressZone = $map['MasterIntranetAddressZone'];
+        }
+        if (isset($map['MaxParallelQueryDegree'])) {
+            $model->maxParallelQueryDegree = $map['MaxParallelQueryDegree'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
@@ -497,6 +532,9 @@ class tenant extends Model
                     $model->tenantZones[$n++] = null !== $item ? tenantZones::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

@@ -18,6 +18,11 @@ class diskSize extends Model
     public $dataUsedSize;
 
     /**
+     * @var float
+     */
+    public $maxDiskSize;
+
+    /**
      * @description The time in UTC when the cluster expires.
      *
      * @var string[]
@@ -32,6 +37,13 @@ class diskSize extends Model
      * @var float
      */
     public $maxDiskUsedPercent;
+
+    /**
+     * @example 200
+     *
+     * @var int
+     */
+    public $originalTotalDiskSize;
 
     /**
      * @description The data replica distribution mode of the cluster. Valid values:
@@ -60,12 +72,14 @@ class diskSize extends Model
      */
     public $usedDiskSize;
     protected $_name = [
-        'dataUsedSize'        => 'DataUsedSize',
-        'maxDiskUsedObServer' => 'MaxDiskUsedObServer',
-        'maxDiskUsedPercent'  => 'MaxDiskUsedPercent',
-        'totalDiskSize'       => 'TotalDiskSize',
-        'unitDiskSize'        => 'UnitDiskSize',
-        'usedDiskSize'        => 'UsedDiskSize',
+        'dataUsedSize'          => 'DataUsedSize',
+        'maxDiskSize'           => 'MaxDiskSize',
+        'maxDiskUsedObServer'   => 'MaxDiskUsedObServer',
+        'maxDiskUsedPercent'    => 'MaxDiskUsedPercent',
+        'originalTotalDiskSize' => 'OriginalTotalDiskSize',
+        'totalDiskSize'         => 'TotalDiskSize',
+        'unitDiskSize'          => 'UnitDiskSize',
+        'usedDiskSize'          => 'UsedDiskSize',
     ];
 
     public function validate()
@@ -78,11 +92,17 @@ class diskSize extends Model
         if (null !== $this->dataUsedSize) {
             $res['DataUsedSize'] = $this->dataUsedSize;
         }
+        if (null !== $this->maxDiskSize) {
+            $res['MaxDiskSize'] = $this->maxDiskSize;
+        }
         if (null !== $this->maxDiskUsedObServer) {
             $res['MaxDiskUsedObServer'] = $this->maxDiskUsedObServer;
         }
         if (null !== $this->maxDiskUsedPercent) {
             $res['MaxDiskUsedPercent'] = $this->maxDiskUsedPercent;
+        }
+        if (null !== $this->originalTotalDiskSize) {
+            $res['OriginalTotalDiskSize'] = $this->originalTotalDiskSize;
         }
         if (null !== $this->totalDiskSize) {
             $res['TotalDiskSize'] = $this->totalDiskSize;
@@ -108,6 +128,9 @@ class diskSize extends Model
         if (isset($map['DataUsedSize'])) {
             $model->dataUsedSize = $map['DataUsedSize'];
         }
+        if (isset($map['MaxDiskSize'])) {
+            $model->maxDiskSize = $map['MaxDiskSize'];
+        }
         if (isset($map['MaxDiskUsedObServer'])) {
             if (!empty($map['MaxDiskUsedObServer'])) {
                 $model->maxDiskUsedObServer = $map['MaxDiskUsedObServer'];
@@ -115,6 +138,9 @@ class diskSize extends Model
         }
         if (isset($map['MaxDiskUsedPercent'])) {
             $model->maxDiskUsedPercent = $map['MaxDiskUsedPercent'];
+        }
+        if (isset($map['OriginalTotalDiskSize'])) {
+            $model->originalTotalDiskSize = $map['OriginalTotalDiskSize'];
         }
         if (isset($map['TotalDiskSize'])) {
             $model->totalDiskSize = $map['TotalDiskSize'];

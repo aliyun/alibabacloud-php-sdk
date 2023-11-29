@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLSamplesRequest extends Model
 {
     /**
+     * @description The database name.
+     *
      * @example test_db
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeSQLSamplesRequest extends Model
     public $dbName;
 
     /**
+     * @description The end time of querying the slow query execution.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2023-04-12T05:38:38Z
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeSQLSamplesRequest extends Model
     public $endTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -30,7 +36,7 @@ class DescribeSQLSamplesRequest extends Model
     public $instanceId;
 
     /**
-     * @description SQL ID。
+     * @description SQL ID.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -39,6 +45,8 @@ class DescribeSQLSamplesRequest extends Model
     public $sqlId;
 
     /**
+     * @description The start time of querying the slow query execution.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2023-04-12T04:38:38Z
      *
      * @var string
@@ -46,6 +54,8 @@ class DescribeSQLSamplesRequest extends Model
     public $startTime;
 
     /**
+     * @description The tenant ID.
+     *
      * @example t4louaeei****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLSamplesResponseBody extends Model
 {
     /**
+     * @description The list of sample data of slow query execution details.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description Request ID.
+     *
      * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string

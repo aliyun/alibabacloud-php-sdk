@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOasAnomalySQLListRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     * - en: English
      * @example zh-CN
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The current page.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $current;
 
     /**
+     * @description The name of the database.
+     *
      * @example db_****
      *
      * @var string
@@ -30,6 +36,13 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $dbName;
 
     /**
+     * @var bool
+     */
+    public $dynamicSql;
+
+    /**
+     * @description The end time of the monitoring data.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2023-04-12T05:38:38Z
      *
      * @var string
@@ -37,13 +50,17 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $endTime;
 
     /**
-     * @example [dbName:test_db]
+     * @description All parameters are referenced by the symbol @. For a list of available parameters, refer to the returned parameters in [Query performance indicators of an SQL statement](https://en.oceanbase.com/docs/community-ocp-en-10000000000840290).
+     *
+     * @example @avgCpuTime > 20 and @executions > 100
      *
      * @var string
      */
     public $filterCondition;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -51,6 +68,13 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $instanceId;
 
     /**
+     * @var bool
+     */
+    public $mergeDynamicSql;
+
+    /**
+     * @description The node IP.
+     *
      * @example i-bp19y05uq6x*********
      *
      * @var string
@@ -58,6 +82,8 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $nodeIp;
 
     /**
+     * @description Page size.
+     * - Default value: 1
      * @example 10
      *
      * @var int
@@ -65,6 +91,8 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The search keyword.
+     *
      * @example update
      *
      * @var string
@@ -72,6 +100,8 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $searchKeyWord;
 
     /**
+     * @description The search parameter.
+     *
      * @example cputime
      *
      * @var string
@@ -79,6 +109,8 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $searchParam;
 
     /**
+     * @description The search rule.
+     * Valid values: "=", ">", ">=", "<", and "<="
      * @example >
      *
      * @var string
@@ -86,6 +118,8 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $searchRule;
 
     /**
+     * @description The search value.
+     *
      * @example 0.01
      *
      * @var string
@@ -93,7 +127,7 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $searchValue;
 
     /**
-     * @description SQL ID。
+     * @description SQL ID.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -102,6 +136,8 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $sqlId;
 
     /**
+     * @description Max length of the returned SQL text.
+     *
      * @example 65535
      *
      * @var int
@@ -109,6 +145,8 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $sqlTextLength;
 
     /**
+     * @description The start time of the monitoring data.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2023-04-12T04:38:38Z
      *
      * @var string
@@ -116,6 +154,8 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $startTime;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t4louaeei****
      *
      * @var string
@@ -125,9 +165,11 @@ class DescribeOasAnomalySQLListRequest extends Model
         'acceptLanguage'  => 'AcceptLanguage',
         'current'         => 'Current',
         'dbName'          => 'DbName',
+        'dynamicSql'      => 'DynamicSql',
         'endTime'         => 'EndTime',
         'filterCondition' => 'FilterCondition',
         'instanceId'      => 'InstanceId',
+        'mergeDynamicSql' => 'MergeDynamicSql',
         'nodeIp'          => 'NodeIp',
         'pageSize'        => 'PageSize',
         'searchKeyWord'   => 'SearchKeyWord',
@@ -156,6 +198,9 @@ class DescribeOasAnomalySQLListRequest extends Model
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+        if (null !== $this->dynamicSql) {
+            $res['DynamicSql'] = $this->dynamicSql;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -164,6 +209,9 @@ class DescribeOasAnomalySQLListRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mergeDynamicSql) {
+            $res['MergeDynamicSql'] = $this->mergeDynamicSql;
         }
         if (null !== $this->nodeIp) {
             $res['NodeIp'] = $this->nodeIp;
@@ -216,6 +264,9 @@ class DescribeOasAnomalySQLListRequest extends Model
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+        if (isset($map['DynamicSql'])) {
+            $model->dynamicSql = $map['DynamicSql'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -224,6 +275,9 @@ class DescribeOasAnomalySQLListRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MergeDynamicSql'])) {
+            $model->mergeDynamicSql = $map['MergeDynamicSql'];
         }
         if (isset($map['NodeIp'])) {
             $model->nodeIp = $map['NodeIp'];

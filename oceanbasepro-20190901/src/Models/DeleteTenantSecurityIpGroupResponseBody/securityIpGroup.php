@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class securityIpGroup extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -16,6 +18,8 @@ class securityIpGroup extends Model
     public $instanceId;
 
     /**
+     * @description The name of the whitelist group.
+     *
      * @example paytest
      *
      * @var string
@@ -23,6 +27,8 @@ class securityIpGroup extends Model
     public $securityIpGroupName;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t4louaeei****
      *
      * @var string

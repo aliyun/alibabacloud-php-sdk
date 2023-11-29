@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class slowSQLList extends Model
 {
     /**
-     * @description The username.
+     * @description The number of rows affected.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class slowSQLList extends Model
     public $affectedRows;
 
     /**
-     * @description The average response time.
+     * @description The wait time of the client.
      *
      * @example 0.0
      *
@@ -27,7 +27,7 @@ class slowSQLList extends Model
     public $appWaitTime;
 
     /**
-     * @description The wait time in concurrent execution.
+     * @description The number of block cache hits.
      *
      * @example 14
      *
@@ -36,7 +36,7 @@ class slowSQLList extends Model
     public $blockCacheHit;
 
     /**
-     * @description The request ID.
+     * @description The number of block index cache hits.
      *
      * @example 4
      *
@@ -45,6 +45,8 @@ class slowSQLList extends Model
     public $blockIndexCacheHit;
 
     /**
+     * @description The number of Bloom filter cache hits.
+     *
      * @example 0
      *
      * @var int
@@ -52,13 +54,8 @@ class slowSQLList extends Model
     public $bloomFilterCacheHit;
 
     /**
-     * @description ```
-     * http(s)://[Endpoint]/?Action=DescribeSlowSQLList
-     * &TenantId=t2mr3oae0****
-     * &SearchValue=0.01
-     * &SQLId=8D6E84****0B8FB1823D199E2CA1****
-     * &NodeIp=i-bp18qljorblo8es*****
-     * ```
+     * @description The IP address of the client.
+     *
      * @example 1*2.***.1*3.***
      *
      * @var string
@@ -66,7 +63,7 @@ class slowSQLList extends Model
     public $clientIp;
 
     /**
-     * @description The sorted column.
+     * @description The wait time in concurrent execution.
      *
      * @example 0.0
      *
@@ -75,7 +72,7 @@ class slowSQLList extends Model
     public $concurrencyWaitTime;
 
     /**
-     * @description The wait event.
+     * @description The average CPU time.
      *
      * @example 50.13
      *
@@ -84,7 +81,7 @@ class slowSQLList extends Model
     public $cpuTime;
 
     /**
-     * @description The search value.
+     * @description The name of the database.
      *
      * @example testdb
      *
@@ -93,7 +90,7 @@ class slowSQLList extends Model
     public $dbName;
 
     /**
-     * @description The time spent in hard parsing.
+     * @description The time to wait for decoding.
      *
      * @example 0.0
      *
@@ -102,7 +99,7 @@ class slowSQLList extends Model
     public $decodeTime;
 
     /**
-     * @description The IP address of the client.
+     * @description The number of physical reads.
      *
      * @example 0
      *
@@ -111,7 +108,7 @@ class slowSQLList extends Model
     public $diskRead;
 
     /**
-     * @description The search rule.
+     * @description The average response time.
      *
      * @example 76.382
      *
@@ -120,7 +117,7 @@ class slowSQLList extends Model
     public $elapsedTime;
 
     /**
-     * @description The number of row cache hits.
+     * @description The wait event.
      *
      * @example mysql response wait client
      *
@@ -129,7 +126,7 @@ class slowSQLList extends Model
     public $event;
 
     /**
-     * @description The total count.
+     * @description The number of executions per second.
      *
      * @example 163.0
      *
@@ -138,7 +135,7 @@ class slowSQLList extends Model
     public $execPerSecond;
 
     /**
-     * @description The number of block cache hits.
+     * @description The internal execution time.
      *
      * @example 61.044
      *
@@ -147,7 +144,7 @@ class slowSQLList extends Model
     public $executeTime;
 
     /**
-     * @description The IP address of the node.
+     * @description The number of executions.
      *
      * @example 89403
      *
@@ -156,7 +153,7 @@ class slowSQLList extends Model
     public $executions;
 
     /**
-     * @description {"name":"DescribeSlowSQLList","product":"OceanBasePro","version":"2019-09-01","path":"/","deprecated":0,"method":"GET|POST","protocol":"HTTP|HTTPS","hidden":0,"timeout":10000,"parameter_type":"Single","params":"[{\"name\":\"Action\",\"position\":\"Query\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"description\":\"\",\"example\":\"DescribeSlowSQLList\"},{\"name\":\"TenantId\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"t2mr3oae0****\"},{\"name\":\"StartTime\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"2021-06-13T15:40:43Z\"},{\"name\":\"EndTime\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"2021-09-13T15:40:43Z\"},{\"name\":\"DbName\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"testdb\"},{\"name\":\"SearchKeyWord\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"update\"},{\"name\":\"SearchParameter\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"cputime\"},{\"name\":\"SearchRule\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\">\"},{\"name\":\"SearchValue\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"0.01\"},{\"name\":\"SQLId\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"8D6E84****0B8FB1823D199E2CA1****\"},{\"name\":\"NodeIp\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"i-bp18qljorblo8es*****\"},{\"name\":\"PageNumber\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Integer\",\"title\":\"\",\"description\":\"\",\"example\":\"10\"},{\"name\":\"PageSize\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Integer\",\"title\":\"\",\"description\":\"\",\"example\":\"1\"},{\"name\":\"FilterCondition\",\"position\":\"Body\",\"style\":\"json\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"[dbName:sys]\"},{\"name\":\"SortColumn\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"cputime\"},{\"name\":\"SortOrder\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"desc\"}]","response_headers":"[]","response":"{\"type\":\"Object\",\"children\":[{\"name\":\"TotalCount\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"2\"},{\"name\":\"RequestId\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E\"},{\"name\":\"SlowSQLList\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Array\",\"subType\":\"Object\",\"description\":\"  \",\"children\":[{\"name\":\"Key\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"1\"},{\"name\":\"ExecPerSecond\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"163.0\"},{\"name\":\"SQLText\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"description\":\"\",\"example\":\"SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC\"},{\"name\":\"MaxCpuTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"257.967\"},{\"name\":\"BlockCacheHit\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"14\"},{\"name\":\"DecodeTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"RemotePlans\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"RPCCount\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"NetWaitTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"DiskRead\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"NodeIp\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"description\":\"\",\"example\":\"i-bp18qljorblo8es*****\"},{\"name\":\"ConcurrencyWaitTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"MemstoreReadRowCount\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"527\"},{\"name\":\"DbName\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"description\":\"\",\"example\":\"testdb\"},{\"name\":\"AppWaitTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"ElapsedTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"76.382\"},{\"name\":\"MissPlans\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"AffectedRows\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"ScheduleTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"Event\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"description\":\"\",\"example\":\"mysql response wait client\"},{\"name\":\"TotalWaitTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"10.966\"},{\"name\":\"ReturnRows\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"1\"},{\"name\":\"ExecuteTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"61.044\"},{\"name\":\"UserName\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"description\":\"\",\"example\":\"tester\"},{\"name\":\"Executions\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"89403\"},{\"name\":\"GetPlanTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"0.052\"},{\"name\":\"CpuTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"50.13\"},{\"name\":\"MaxElapsedTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"260.044\"},{\"name\":\"SQLType\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"1\"},{\"name\":\"BlockIndexCacheHit\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"4\"},{\"name\":\"RetryCount\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"SQLId\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"description\":\"SQLID。\",\"example\":\"8D6E84****0B8FB1823D199E2CA1****\"},{\"name\":\"ClientIp\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"description\":\"\",\"example\":\"1*2.***.1*3.***\"},{\"name\":\"BloomFilterCacheHit\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"IOWaitTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"FailTimes\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"QueueTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"description\":\"\",\"example\":\"15.275\"},{\"name\":\"RowCacheHit\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"LogicalRead\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"19\"},{\"name\":\"SsstoreReadRowCount\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"description\":\"\",\"example\":\"43086\"}],\"title\":\"\"}],\"title\":\"\",\"description\":\"\"}","errors":"{}"}
+     * @description The number of failures.
      *
      * @example 0
      *
@@ -165,7 +162,7 @@ class slowSQLList extends Model
     public $failTimes;
 
     /**
-     * @description The number of Bloom filter cache hits.
+     * @description The time spent in hard parsing.
      *
      * @example 0.052
      *
@@ -174,7 +171,7 @@ class slowSQLList extends Model
     public $getPlanTime;
 
     /**
-     * @description You can call this operation to query the list of slow SQL statements
+     * @description The I/O wait time.
      *
      * @example 0.0
      *
@@ -183,7 +180,7 @@ class slowSQLList extends Model
     public $IOWaitTime;
 
     /**
-     * @description The scheduling duration.
+     * @description The sequence number of the returned SQL statement.
      *
      * @example 1
      *
@@ -192,6 +189,8 @@ class slowSQLList extends Model
     public $key;
 
     /**
+     * @description The number of logical reads.
+     *
      * @example 19
      *
      * @var int
@@ -199,7 +198,7 @@ class slowSQLList extends Model
     public $logicalRead;
 
     /**
-     * @description The name of the database.
+     * @description The maximum CPU time.
      *
      * @example 257.967
      *
@@ -208,7 +207,7 @@ class slowSQLList extends Model
     public $maxCpuTime;
 
     /**
-     * @description The sequence number of the returned SQL statement.
+     * @description The maximum response time.
      *
      * @example 260.044
      *
@@ -217,7 +216,7 @@ class slowSQLList extends Model
     public $maxElapsedTime;
 
     /**
-     * @description The number of logical reads.
+     * @description The number of rows read from the memory.
      *
      * @example 527
      *
@@ -226,7 +225,7 @@ class slowSQLList extends Model
     public $memstoreReadRowCount;
 
     /**
-     * @description The number of RPCs.
+     * @description The number of plan misses.
      *
      * @example 0
      *
@@ -235,7 +234,7 @@ class slowSQLList extends Model
     public $missPlans;
 
     /**
-     * @description The search parameter.
+     * @description The network latency.
      *
      * @example 0.0
      *
@@ -244,7 +243,7 @@ class slowSQLList extends Model
     public $netWaitTime;
 
     /**
-     * @description The number of failures.
+     * @description The IP address of the node.
      *
      * @example i-bp18qljorblo8es*****
      *
@@ -253,6 +252,8 @@ class slowSQLList extends Model
     public $nodeIp;
 
     /**
+     * @description The queuing time.
+     *
      * @example 15.275
      *
      * @var float
@@ -260,7 +261,7 @@ class slowSQLList extends Model
     public $queueTime;
 
     /**
-     * @description The maximum response time.
+     * @description The number of RPCs.
      *
      * @example 0
      *
@@ -269,7 +270,7 @@ class slowSQLList extends Model
     public $RPCCount;
 
     /**
-     * @description The search keyword.
+     * @description The number of remote plans.
      *
      * @example 0
      *
@@ -278,7 +279,7 @@ class slowSQLList extends Model
     public $remotePlans;
 
     /**
-     * @description The number of physical reads.
+     * @description The number of retries.
      *
      * @example 0
      *
@@ -287,7 +288,7 @@ class slowSQLList extends Model
     public $retryCount;
 
     /**
-     * @description The wait time of the client.
+     * @description The number of rows returned.
      *
      * @example 1
      *
@@ -296,6 +297,8 @@ class slowSQLList extends Model
     public $returnRows;
 
     /**
+     * @description The number of row cache hits.
+     *
      * @example 0
      *
      * @var int
@@ -303,7 +306,7 @@ class slowSQLList extends Model
     public $rowCacheHit;
 
     /**
-     * @description Example 1
+     * @description SQLID.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -312,7 +315,7 @@ class slowSQLList extends Model
     public $SQLId;
 
     /**
-     * @description The network latency.
+     * @description The SQL text.
      *
      * @example SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
      *
@@ -321,7 +324,7 @@ class slowSQLList extends Model
     public $SQLText;
 
     /**
-     * @description SQLID.
+     * @description The SQL type.
      *
      * @example 1
      *
@@ -330,7 +333,7 @@ class slowSQLList extends Model
     public $SQLType;
 
     /**
-     * @description The internal execution time.
+     * @description The scheduling duration.
      *
      * @example 0.0
      *
@@ -339,6 +342,8 @@ class slowSQLList extends Model
     public $scheduleTime;
 
     /**
+     * @description The number of rows read from the disk.
+     *
      * @example 43086
      *
      * @var int
@@ -346,7 +351,7 @@ class slowSQLList extends Model
     public $ssstoreReadRowCount;
 
     /**
-     * @description The SQL ID, which uniquely identifies an SQL statement.
+     * @description The internal wait time.
      *
      * @example 10.966
      *
@@ -355,7 +360,7 @@ class slowSQLList extends Model
     public $totalWaitTime;
 
     /**
-     * @description The number of executions.
+     * @description The username.
      *
      * @example tester
      *

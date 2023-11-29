@@ -10,6 +10,27 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @example xxx
+     *
+     * @var string
+     */
+    public $checkId;
+
+    /**
+     * @example 2023-08-07 15:30:00
+     *
+     * @var string
+     */
+    public $checkTime;
+
+    /**
+     * @example ob317v4uif****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var tenantSecurityConfigs[]
      */
     public $tenantSecurityConfigs;
@@ -28,6 +49,9 @@ class configs extends Model
      */
     public $totalRiskCount;
     protected $_name = [
+        'checkId'               => 'CheckId',
+        'checkTime'             => 'CheckTime',
+        'instanceId'            => 'InstanceId',
         'tenantSecurityConfigs' => 'TenantSecurityConfigs',
         'totalCheckCount'       => 'TotalCheckCount',
         'totalRiskCount'        => 'TotalRiskCount',
@@ -40,6 +64,15 @@ class configs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkId) {
+            $res['CheckId'] = $this->checkId;
+        }
+        if (null !== $this->checkTime) {
+            $res['CheckTime'] = $this->checkTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->tenantSecurityConfigs) {
             $res['TenantSecurityConfigs'] = [];
             if (null !== $this->tenantSecurityConfigs && \is_array($this->tenantSecurityConfigs)) {
@@ -67,6 +100,15 @@ class configs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckId'])) {
+            $model->checkId = $map['CheckId'];
+        }
+        if (isset($map['CheckTime'])) {
+            $model->checkTime = $map['CheckTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['TenantSecurityConfigs'])) {
             if (!empty($map['TenantSecurityConfigs'])) {
                 $model->tenantSecurityConfigs = [];

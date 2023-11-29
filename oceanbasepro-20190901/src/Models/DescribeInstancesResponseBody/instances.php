@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody\instances\dataDiskAutoScaleConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody\instances\resource;
 use AlibabaCloud\Tea\Model;
 
@@ -35,6 +36,13 @@ class instances extends Model
     public $cpu;
 
     /**
+     * @example X86_64、 AARCH64
+     *
+     * @var string
+     */
+    public $cpuArchitecture;
+
+    /**
      * @description The number of OceanBase clusters queried.
      *
      * @example 2021-10-19T07:13:41Z
@@ -42,6 +50,11 @@ class instances extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var dataDiskAutoScaleConfig
+     */
+    public $dataDiskAutoScaleConfig;
 
     /**
      * @description The request ID.
@@ -105,6 +118,11 @@ class instances extends Model
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @var bool
+     */
+    public $inTempCapacityStatus;
 
     /**
      * @description The instance type.
@@ -191,14 +209,6 @@ class instances extends Model
     public $resourceGroupId;
 
     /**
-     * @description The number of the page to return.
-     *
-     * - Default value: 1
-     * @var string[]
-     */
-    public $securityIps;
-
-    /**
      * @description The billing method for the OceanBase cluster. Valid values:
      * - POSTPAY: the pay-as-you-go billing method.
      * @example NORMAL
@@ -243,33 +253,35 @@ class instances extends Model
      */
     public $vpcId;
     protected $_name = [
-        'availableZones'     => 'AvailableZones',
-        'commodityCode'      => 'CommodityCode',
-        'cpu'                => 'Cpu',
-        'createTime'         => 'CreateTime',
-        'deployMode'         => 'DeployMode',
-        'deployType'         => 'DeployType',
-        'diskSize'           => 'DiskSize',
-        'diskType'           => 'DiskType',
-        'enableUpgradeNodes' => 'EnableUpgradeNodes',
-        'expireSeconds'      => 'ExpireSeconds',
-        'expireTime'         => 'ExpireTime',
-        'instanceClass'      => 'InstanceClass',
-        'instanceId'         => 'InstanceId',
-        'instanceName'       => 'InstanceName',
-        'instanceRole'       => 'InstanceRole',
-        'instanceType'       => 'InstanceType',
-        'maintainTime'       => 'MaintainTime',
-        'mem'                => 'Mem',
-        'payType'            => 'PayType',
-        'resource'           => 'Resource',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'securityIps'        => 'SecurityIps',
-        'series'             => 'Series',
-        'state'              => 'State',
-        'usedDiskSize'       => 'UsedDiskSize',
-        'version'            => 'Version',
-        'vpcId'              => 'VpcId',
+        'availableZones'          => 'AvailableZones',
+        'commodityCode'           => 'CommodityCode',
+        'cpu'                     => 'Cpu',
+        'cpuArchitecture'         => 'CpuArchitecture',
+        'createTime'              => 'CreateTime',
+        'dataDiskAutoScaleConfig' => 'DataDiskAutoScaleConfig',
+        'deployMode'              => 'DeployMode',
+        'deployType'              => 'DeployType',
+        'diskSize'                => 'DiskSize',
+        'diskType'                => 'DiskType',
+        'enableUpgradeNodes'      => 'EnableUpgradeNodes',
+        'expireSeconds'           => 'ExpireSeconds',
+        'expireTime'              => 'ExpireTime',
+        'inTempCapacityStatus'    => 'InTempCapacityStatus',
+        'instanceClass'           => 'InstanceClass',
+        'instanceId'              => 'InstanceId',
+        'instanceName'            => 'InstanceName',
+        'instanceRole'            => 'InstanceRole',
+        'instanceType'            => 'InstanceType',
+        'maintainTime'            => 'MaintainTime',
+        'mem'                     => 'Mem',
+        'payType'                 => 'PayType',
+        'resource'                => 'Resource',
+        'resourceGroupId'         => 'ResourceGroupId',
+        'series'                  => 'Series',
+        'state'                   => 'State',
+        'usedDiskSize'            => 'UsedDiskSize',
+        'version'                 => 'Version',
+        'vpcId'                   => 'VpcId',
     ];
 
     public function validate()
@@ -288,8 +300,14 @@ class instances extends Model
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+        if (null !== $this->cpuArchitecture) {
+            $res['CpuArchitecture'] = $this->cpuArchitecture;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->dataDiskAutoScaleConfig) {
+            $res['DataDiskAutoScaleConfig'] = null !== $this->dataDiskAutoScaleConfig ? $this->dataDiskAutoScaleConfig->toMap() : null;
         }
         if (null !== $this->deployMode) {
             $res['DeployMode'] = $this->deployMode;
@@ -311,6 +329,9 @@ class instances extends Model
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->inTempCapacityStatus) {
+            $res['InTempCapacityStatus'] = $this->inTempCapacityStatus;
         }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
@@ -341,9 +362,6 @@ class instances extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->securityIps) {
-            $res['SecurityIps'] = $this->securityIps;
         }
         if (null !== $this->series) {
             $res['Series'] = $this->series;
@@ -383,8 +401,14 @@ class instances extends Model
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+        if (isset($map['CpuArchitecture'])) {
+            $model->cpuArchitecture = $map['CpuArchitecture'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DataDiskAutoScaleConfig'])) {
+            $model->dataDiskAutoScaleConfig = dataDiskAutoScaleConfig::fromMap($map['DataDiskAutoScaleConfig']);
         }
         if (isset($map['DeployMode'])) {
             $model->deployMode = $map['DeployMode'];
@@ -406,6 +430,9 @@ class instances extends Model
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['InTempCapacityStatus'])) {
+            $model->inTempCapacityStatus = $map['InTempCapacityStatus'];
         }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
@@ -436,11 +463,6 @@ class instances extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['SecurityIps'])) {
-            if (!empty($map['SecurityIps'])) {
-                $model->securityIps = $map['SecurityIps'];
-            }
         }
         if (isset($map['Series'])) {
             $model->series = $map['Series'];

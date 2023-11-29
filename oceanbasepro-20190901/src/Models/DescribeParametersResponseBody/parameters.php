@@ -79,6 +79,13 @@ class parameters extends Model
     public $rejectedValue;
 
     /**
+     * @example s
+     *
+     * @var string
+     */
+    public $unit;
+
+    /**
      * @description The invalid value range of the parameter.
      * It is an array with two string elements, which represents a range. The first element represents the minimum value and the second element represents the maximum value.
      * @example CAPACITY
@@ -95,6 +102,7 @@ class parameters extends Model
         'needReboot'      => 'NeedReboot',
         'readonly'        => 'Readonly',
         'rejectedValue'   => 'RejectedValue',
+        'unit'            => 'Unit',
         'valueType'       => 'ValueType',
     ];
 
@@ -128,6 +136,9 @@ class parameters extends Model
         }
         if (null !== $this->rejectedValue) {
             $res['RejectedValue'] = $this->rejectedValue;
+        }
+        if (null !== $this->unit) {
+            $res['Unit'] = $this->unit;
         }
         if (null !== $this->valueType) {
             $res['ValueType'] = $this->valueType;
@@ -171,6 +182,9 @@ class parameters extends Model
             if (!empty($map['RejectedValue'])) {
                 $model->rejectedValue = $map['RejectedValue'];
             }
+        }
+        if (isset($map['Unit'])) {
+            $model->unit = $map['Unit'];
         }
         if (isset($map['ValueType'])) {
             $model->valueType = $map['ValueType'];

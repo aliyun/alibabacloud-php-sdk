@@ -16,6 +16,11 @@ class DeleteInstancesRequest extends Model
     public $backupRetainMode;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @example [”ob ob3f6yhv9uxxxx“]
      *
      * @var string
@@ -23,6 +28,7 @@ class DeleteInstancesRequest extends Model
     public $instanceIds;
     protected $_name = [
         'backupRetainMode' => 'BackupRetainMode',
+        'dryRun'           => 'DryRun',
         'instanceIds'      => 'InstanceIds',
     ];
 
@@ -35,6 +41,9 @@ class DeleteInstancesRequest extends Model
         $res = [];
         if (null !== $this->backupRetainMode) {
             $res['BackupRetainMode'] = $this->backupRetainMode;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
@@ -53,6 +62,9 @@ class DeleteInstancesRequest extends Model
         $model = new self();
         if (isset($map['BackupRetainMode'])) {
             $model->backupRetainMode = $map['BackupRetainMode'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];

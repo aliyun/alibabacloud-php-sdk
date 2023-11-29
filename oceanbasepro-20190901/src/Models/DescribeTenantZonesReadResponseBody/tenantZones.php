@@ -27,13 +27,6 @@ class tenantZones extends Model
     /**
      * @example true
      *
-     * @var bool
-     */
-    public $isReadOnlyAddressMaster;
-
-    /**
-     * @example true
-     *
      * @var string
      */
     public $isReadable;
@@ -45,11 +38,10 @@ class tenantZones extends Model
      */
     public $zone;
     protected $_name = [
-        'isElectable'             => 'IsElectable',
-        'isPrimary'               => 'IsPrimary',
-        'isReadOnlyAddressMaster' => 'IsReadOnlyAddressMaster',
-        'isReadable'              => 'IsReadable',
-        'zone'                    => 'Zone',
+        'isElectable' => 'IsElectable',
+        'isPrimary'   => 'IsPrimary',
+        'isReadable'  => 'IsReadable',
+        'zone'        => 'Zone',
     ];
 
     public function validate()
@@ -64,9 +56,6 @@ class tenantZones extends Model
         }
         if (null !== $this->isPrimary) {
             $res['IsPrimary'] = $this->isPrimary;
-        }
-        if (null !== $this->isReadOnlyAddressMaster) {
-            $res['IsReadOnlyAddressMaster'] = $this->isReadOnlyAddressMaster;
         }
         if (null !== $this->isReadable) {
             $res['IsReadable'] = $this->isReadable;
@@ -91,9 +80,6 @@ class tenantZones extends Model
         }
         if (isset($map['IsPrimary'])) {
             $model->isPrimary = $map['IsPrimary'];
-        }
-        if (isset($map['IsReadOnlyAddressMaster'])) {
-            $model->isReadOnlyAddressMaster = $map['IsReadOnlyAddressMaster'];
         }
         if (isset($map['IsReadable'])) {
             $model->isReadable = $map['IsReadable'];

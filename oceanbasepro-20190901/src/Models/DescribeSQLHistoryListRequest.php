@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLHistoryListRequest extends Model
 {
     /**
-     * @description The number of block index cache hits.
-     *
+     * @description The end time of the time range for querying the SQL execution history.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2021-09-13T15:40:43Z
      *
      * @var string
@@ -18,7 +18,7 @@ class DescribeSQLHistoryListRequest extends Model
     public $endTime;
 
     /**
-     * @description The end time in UTC +0.
+     * @description The page number.
      *
      * @example 1
      *
@@ -27,8 +27,8 @@ class DescribeSQLHistoryListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The end time.
-     *
+     * @description The number of entries returned on each page.
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -36,7 +36,7 @@ class DescribeSQLHistoryListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of block index cache hits.
+     * @description SQLID.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -45,8 +45,8 @@ class DescribeSQLHistoryListRequest extends Model
     public $SQLId;
 
     /**
-     * @description The maximum response time.
-     *
+     * @description The start time of the time range for querying the SQL execution history.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -54,7 +54,7 @@ class DescribeSQLHistoryListRequest extends Model
     public $startTime;
 
     /**
-     * @description The average CPU time.
+     * @description The ID of the tenant.
      *
      * @example t2mr3oae0****
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeAnomalySQLListResponseBody extends Model
 {
     /**
-     * @description The diagnostic rule.
+     * @description The list of suspicious SQL statements.
      *
      * @var anomalySQLList[]
      */
     public $anomalySQLList;
 
     /**
-     * @description The sorting rule.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -26,7 +26,7 @@ class DescribeAnomalySQLListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The SQL text.
+     * @description The total count.
      *
      * @example 2
      *

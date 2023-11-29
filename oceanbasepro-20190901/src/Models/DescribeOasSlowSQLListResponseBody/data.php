@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSlowSQLListResponseBody;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSlowSQLListResponseBody\data\sqlList;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Average updated rows during the execution period.
+     *
      * @example 9978.75
      *
      * @var float
@@ -16,6 +19,8 @@ class data extends Model
     public $avgAffectedRows;
 
     /**
+     * @description Average Application event wait time (in milliseconds) during the client waiting period.
+     *
      * @example 0.0
      *
      * @var float
@@ -23,6 +28,8 @@ class data extends Model
     public $avgApplicationWaitTime;
 
     /**
+     * @description Average BlockCache hit count during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -30,6 +37,8 @@ class data extends Model
     public $avgBlockCacheHit;
 
     /**
+     * @description Average BlockIndexCache hit count during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -37,6 +46,8 @@ class data extends Model
     public $avgBlockIndexCacheHit;
 
     /**
+     * @description Average BloomFilterCache hit count during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -44,6 +55,8 @@ class data extends Model
     public $avgBloomFilterCacheHit;
 
     /**
+     * @description Average Concurrency event wait time (in milliseconds) during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -51,6 +64,8 @@ class data extends Model
     public $avgConcurrencyWaitTime;
 
     /**
+     * @description Average CPU time (in milliseconds) during the execution period.
+     *
      * @example 1875.34
      *
      * @var float
@@ -58,6 +73,13 @@ class data extends Model
     public $avgCpuTime;
 
     /**
+     * @var float
+     */
+    public $avgDbTime;
+
+    /**
+     * @description Average syntax parsing time (in milliseconds) during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -65,6 +87,8 @@ class data extends Model
     public $avgDecodeTime;
 
     /**
+     * @description Average physical read count during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -72,6 +96,8 @@ class data extends Model
     public $avgDiskReads;
 
     /**
+     * @description Average response time (in milliseconds) during the execution period.
+     *
      * @example 1876.78
      *
      * @var float
@@ -79,6 +105,8 @@ class data extends Model
     public $avgElapsedTime;
 
     /**
+     * @description Average plan execution time (in milliseconds) during the execution period.
+     *
      * @example 1895.7
      *
      * @var float
@@ -86,6 +114,8 @@ class data extends Model
     public $avgExecuteTime;
 
     /**
+     * @description Average number of RPC requests executed during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -93,6 +123,8 @@ class data extends Model
     public $avgExecutorRpcCount;
 
     /**
+     * @description Average degree of parallelism during the execution period.
+     *
      * @example 3
      *
      * @var float
@@ -100,6 +132,8 @@ class data extends Model
     public $avgExpectedWorkerCount;
 
     /**
+     * @description Average plan generation time (in milliseconds) during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -107,6 +141,8 @@ class data extends Model
     public $avgGetPlanTime;
 
     /**
+     * @description Average logical reads of the SQL during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -114,6 +150,8 @@ class data extends Model
     public $avgLogicalReads;
 
     /**
+     * @description Strong consistent transaction percentage during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -121,6 +159,8 @@ class data extends Model
     public $avgMemstoreReadRows;
 
     /**
+     * @description Average network transmission time (in milliseconds) during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -128,6 +168,8 @@ class data extends Model
     public $avgNetTime;
 
     /**
+     * @description Average network enqueue time (in milliseconds) during the network waiting period.
+     *
      * @example 0.0
      *
      * @var float
@@ -135,6 +177,8 @@ class data extends Model
     public $avgNetWaitTime;
 
     /**
+     * @description Average number of partition accessed during the execution period.
+     *
      * @example 1.0
      *
      * @var float
@@ -142,6 +186,8 @@ class data extends Model
     public $avgPartitionCount;
 
     /**
+     * @description Average queueing time (in milliseconds) during the execution period.
+     *
      * @example 0.01
      *
      * @var float
@@ -149,6 +195,8 @@ class data extends Model
     public $avgQueueTime;
 
     /**
+     * @description Average number of rows returned during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -156,6 +204,8 @@ class data extends Model
     public $avgReturnRows;
 
     /**
+     * @description Average RowCache hit count during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -163,6 +213,8 @@ class data extends Model
     public $avgRowCacheHit;
 
     /**
+     * @description Average number of RPC sent during the execution.
+     *
      * @example 8.0
      *
      * @var float
@@ -170,6 +222,8 @@ class data extends Model
     public $avgRpcCount;
 
     /**
+     * @description Average Schedule event wait time (in milliseconds) during the scheduling period.
+     *
      * @example 0.0
      *
      * @var float
@@ -177,6 +231,8 @@ class data extends Model
     public $avgScheduleTime;
 
     /**
+     * @description Eventually consistent transaction percentage during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -184,6 +240,8 @@ class data extends Model
     public $avgSsstoreReadRows;
 
     /**
+     * @description Average number of threads used of the SQL during the execution period.
+     *
      * @example 3
      *
      * @var float
@@ -191,6 +249,8 @@ class data extends Model
     public $avgUsedWorkerCount;
 
     /**
+     * @description Average UserIO event wait time (in milliseconds) during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -198,6 +258,8 @@ class data extends Model
     public $avgUserIoWaitTime;
 
     /**
+     * @description Average number of waits during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -205,6 +267,8 @@ class data extends Model
     public $avgWaitCount;
 
     /**
+     * @description Average wait time (in milliseconds) during the execution period.
+     *
      * @example 1.42
      *
      * @var float
@@ -212,6 +276,8 @@ class data extends Model
     public $avgWaitTime;
 
     /**
+     * @description Client IP.
+     *
      * @example 1*2.***.1*3.***
      *
      * @var string
@@ -219,6 +285,8 @@ class data extends Model
     public $clientIp;
 
     /**
+     * @description The name of the database.
+     *
      * @example test_db
      *
      * @var string
@@ -226,6 +294,8 @@ class data extends Model
     public $dbName;
 
     /**
+     * @description Distributed plan percentage during the execution period.
+     *
      * @example 100.0
      *
      * @var float
@@ -233,6 +303,13 @@ class data extends Model
     public $distPlanPercentage;
 
     /**
+     * @var bool
+     */
+    public $dynamicSql;
+
+    /**
+     * @description Average execution count per second during the execution period.
+     *
      * @example 0.31
      *
      * @var float
@@ -240,6 +317,8 @@ class data extends Model
     public $execPs;
 
     /**
+     * @description Total number of executions during the execution period.
+     *
      * @example 1
      *
      * @var float
@@ -247,6 +326,8 @@ class data extends Model
     public $executions;
 
     /**
+     * @description Average number of partition accessed during the execution period.
+     *
      * @example 0
      *
      * @var float
@@ -254,6 +335,8 @@ class data extends Model
     public $failCount;
 
     /**
+     * @description Error percentage during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -261,6 +344,8 @@ class data extends Model
     public $failPercentage;
 
     /**
+     * @description Whether an internal SQL.
+     *
      * @example false
      *
      * @var bool
@@ -268,6 +353,8 @@ class data extends Model
     public $inner;
 
     /**
+     * @description Local plan percentage during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -275,6 +362,8 @@ class data extends Model
     public $localPlanPercentage;
 
     /**
+     * @description Max affected rows during the execution period.
+     *
      * @example 10000.0
      *
      * @var float
@@ -282,6 +371,8 @@ class data extends Model
     public $maxAffectedRows;
 
     /**
+     * @description Max Application event wait time (in milliseconds) during the execution period
+     *
      * @example 0.0
      *
      * @var float
@@ -289,6 +380,8 @@ class data extends Model
     public $maxApplicationWaitTime;
 
     /**
+     * @description Max Concurrency event wait time (in milliseconds) during the execution period
+     *
      * @example 0.0
      *
      * @var float
@@ -296,6 +389,8 @@ class data extends Model
     public $maxConcurrencyWaitTime;
 
     /**
+     * @description Max CPU time.
+     *
      * @example 257.967
      *
      * @var float
@@ -303,6 +398,8 @@ class data extends Model
     public $maxCpuTime;
 
     /**
+     * @description Max physical read count during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -310,6 +407,8 @@ class data extends Model
     public $maxDiskReads;
 
     /**
+     * @description Max response time during the execution period.
+     *
      * @example 260.044
      *
      * @var float
@@ -317,6 +416,8 @@ class data extends Model
     public $maxElapsedTime;
 
     /**
+     * @description Max returned rows during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -324,6 +425,8 @@ class data extends Model
     public $maxReturnRows;
 
     /**
+     * @description Max UserIO event wait time (in milliseconds) during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -331,6 +434,8 @@ class data extends Model
     public $maxUserIoWaitTime;
 
     /**
+     * @description Max wait time (in milliseconds) during the execution period.
+     *
      * @example 3.4
      *
      * @var float
@@ -338,6 +443,8 @@ class data extends Model
     public $maxWaitTime;
 
     /**
+     * @description Plan hit rage during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -345,6 +452,8 @@ class data extends Model
     public $missPlanPercentage;
 
     /**
+     * @description Missed hit count of the execution plan during the execution period.
+     *
      * @example 0
      *
      * @var float
@@ -352,6 +461,8 @@ class data extends Model
     public $missPlans;
 
     /**
+     * @description Remote plan percentage during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -359,6 +470,8 @@ class data extends Model
     public $remotePlanPercentage;
 
     /**
+     * @description Remote execution count during the execution period.
+     *
      * @example 0
      *
      * @var float
@@ -366,6 +479,8 @@ class data extends Model
     public $remotePlans;
 
     /**
+     * @description Number of occurrences of code 4012 during the execution period.
+     *
      * @example 0
      *
      * @var int
@@ -373,6 +488,8 @@ class data extends Model
     public $retCode4012Count;
 
     /**
+     * @description Number of occurrences of code 4013 during the execution period.
+     *
      * @example 0
      *
      * @var int
@@ -380,6 +497,8 @@ class data extends Model
     public $retCode4013Count;
 
     /**
+     * @description Number of occurrences of code 5001 during the execution period.
+     *
      * @example 0
      *
      * @var int
@@ -387,6 +506,8 @@ class data extends Model
     public $retCode5001Count;
 
     /**
+     * @description Number of occurrences of code 5024 during the execution period.
+     *
      * @example 0
      *
      * @var int
@@ -394,6 +515,8 @@ class data extends Model
     public $retCode5024Count;
 
     /**
+     * @description Number of occurrences of code 5167 during the execution period.
+     *
      * @example 0
      *
      * @var int
@@ -401,6 +524,8 @@ class data extends Model
     public $retCode5167Count;
 
     /**
+     * @description Number of occurrences of code 5217 during the execution period.
+     *
      * @example 0
      *
      * @var int
@@ -408,6 +533,8 @@ class data extends Model
     public $retCode5217Count;
 
     /**
+     * @description Number of occurrences of code 6002 during the execution period.
+     *
      * @example 0
      *
      * @var int
@@ -415,6 +542,8 @@ class data extends Model
     public $retCode6002Count;
 
     /**
+     * @description Total number of retries during the execution period.
+     *
      * @example 5
      *
      * @var float
@@ -422,6 +551,8 @@ class data extends Model
     public $retryCount;
 
     /**
+     * @description RPC count during the execution period.
+     *
      * @example 0
      *
      * @var float
@@ -429,6 +560,8 @@ class data extends Model
     public $rpcCount;
 
     /**
+     * @description The server where the SQL is executed.
+     *
      * @example i-bp1db1a**s038**mej**
      *
      * @var string
@@ -436,6 +569,8 @@ class data extends Model
     public $server;
 
     /**
+     * @description The IP address of the server.
+     *
      * @example i-bp1db1a**s038**mej**
      *
      * @var string
@@ -443,6 +578,8 @@ class data extends Model
     public $serverIp;
 
     /**
+     * @description The server port where the SQL is executed.
+     *
      * @example 10110
      *
      * @var int
@@ -450,7 +587,7 @@ class data extends Model
     public $serverPort;
 
     /**
-     * @description SQL ID。
+     * @description SQL ID.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -459,6 +596,13 @@ class data extends Model
     public $sqlId;
 
     /**
+     * @var sqlList[]
+     */
+    public $sqlList;
+
+    /**
+     * @description SQL text (the first 100 characters).
+     *
      * @example select a from b where
      *
      * @var string
@@ -466,6 +610,8 @@ class data extends Model
     public $sqlTextShort;
 
     /**
+     * @description SQL type.
+     *
      * @example select
      *
      * @var string
@@ -473,6 +619,8 @@ class data extends Model
     public $sqlType;
 
     /**
+     * @description Strong consistent transaction percentage during the execution period.
+     *
      * @example 100.0
      *
      * @var float
@@ -480,6 +628,13 @@ class data extends Model
     public $strongConsistencyPercentage;
 
     /**
+     * @var float
+     */
+    public $sumDbTime;
+
+    /**
+     * @description Total response time (in milliseconds) during the execution period.
+     *
      * @example 11452126.36
      *
      * @var float
@@ -487,6 +642,8 @@ class data extends Model
     public $sumElapsedTime;
 
     /**
+     * @description Total logical reads of the SQL during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -494,6 +651,8 @@ class data extends Model
     public $sumLogicalReads;
 
     /**
+     * @description The total wait time (in milliseconds) during the internal waiting period.
+     *
      * @example 9421.73
      *
      * @var float
@@ -501,6 +660,8 @@ class data extends Model
     public $sumWaitTime;
 
     /**
+     * @description Table scan percentage during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -508,6 +669,8 @@ class data extends Model
     public $tableScanPercentage;
 
     /**
+     * @description Total wait time during the execution period.
+     *
      * @example 10.966
      *
      * @var float
@@ -515,6 +678,8 @@ class data extends Model
     public $totalWaitTime;
 
     /**
+     * @description Username.
+     *
      * @example test_user
      *
      * @var string
@@ -522,6 +687,8 @@ class data extends Model
     public $userName;
 
     /**
+     * @description Longest wait event during the execution period.
+     *
      * @example none
      *
      * @var string
@@ -529,6 +696,8 @@ class data extends Model
     public $waitEvent;
 
     /**
+     * @description Eventually consistent transaction percentage during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -542,6 +711,7 @@ class data extends Model
         'avgBloomFilterCacheHit'      => 'AvgBloomFilterCacheHit',
         'avgConcurrencyWaitTime'      => 'AvgConcurrencyWaitTime',
         'avgCpuTime'                  => 'AvgCpuTime',
+        'avgDbTime'                   => 'AvgDbTime',
         'avgDecodeTime'               => 'AvgDecodeTime',
         'avgDiskReads'                => 'AvgDiskReads',
         'avgElapsedTime'              => 'AvgElapsedTime',
@@ -567,6 +737,7 @@ class data extends Model
         'clientIp'                    => 'ClientIp',
         'dbName'                      => 'DbName',
         'distPlanPercentage'          => 'DistPlanPercentage',
+        'dynamicSql'                  => 'DynamicSql',
         'execPs'                      => 'ExecPs',
         'executions'                  => 'Executions',
         'failCount'                   => 'FailCount',
@@ -599,9 +770,11 @@ class data extends Model
         'serverIp'                    => 'ServerIp',
         'serverPort'                  => 'ServerPort',
         'sqlId'                       => 'SqlId',
+        'sqlList'                     => 'SqlList',
         'sqlTextShort'                => 'SqlTextShort',
         'sqlType'                     => 'SqlType',
         'strongConsistencyPercentage' => 'StrongConsistencyPercentage',
+        'sumDbTime'                   => 'SumDbTime',
         'sumElapsedTime'              => 'SumElapsedTime',
         'sumLogicalReads'             => 'SumLogicalReads',
         'sumWaitTime'                 => 'SumWaitTime',
@@ -639,6 +812,9 @@ class data extends Model
         }
         if (null !== $this->avgCpuTime) {
             $res['AvgCpuTime'] = $this->avgCpuTime;
+        }
+        if (null !== $this->avgDbTime) {
+            $res['AvgDbTime'] = $this->avgDbTime;
         }
         if (null !== $this->avgDecodeTime) {
             $res['AvgDecodeTime'] = $this->avgDecodeTime;
@@ -714,6 +890,9 @@ class data extends Model
         }
         if (null !== $this->distPlanPercentage) {
             $res['DistPlanPercentage'] = $this->distPlanPercentage;
+        }
+        if (null !== $this->dynamicSql) {
+            $res['DynamicSql'] = $this->dynamicSql;
         }
         if (null !== $this->execPs) {
             $res['ExecPs'] = $this->execPs;
@@ -811,6 +990,15 @@ class data extends Model
         if (null !== $this->sqlId) {
             $res['SqlId'] = $this->sqlId;
         }
+        if (null !== $this->sqlList) {
+            $res['SqlList'] = [];
+            if (null !== $this->sqlList && \is_array($this->sqlList)) {
+                $n = 0;
+                foreach ($this->sqlList as $item) {
+                    $res['SqlList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->sqlTextShort) {
             $res['SqlTextShort'] = $this->sqlTextShort;
         }
@@ -819,6 +1007,9 @@ class data extends Model
         }
         if (null !== $this->strongConsistencyPercentage) {
             $res['StrongConsistencyPercentage'] = $this->strongConsistencyPercentage;
+        }
+        if (null !== $this->sumDbTime) {
+            $res['SumDbTime'] = $this->sumDbTime;
         }
         if (null !== $this->sumElapsedTime) {
             $res['SumElapsedTime'] = $this->sumElapsedTime;
@@ -876,6 +1067,9 @@ class data extends Model
         }
         if (isset($map['AvgCpuTime'])) {
             $model->avgCpuTime = $map['AvgCpuTime'];
+        }
+        if (isset($map['AvgDbTime'])) {
+            $model->avgDbTime = $map['AvgDbTime'];
         }
         if (isset($map['AvgDecodeTime'])) {
             $model->avgDecodeTime = $map['AvgDecodeTime'];
@@ -951,6 +1145,9 @@ class data extends Model
         }
         if (isset($map['DistPlanPercentage'])) {
             $model->distPlanPercentage = $map['DistPlanPercentage'];
+        }
+        if (isset($map['DynamicSql'])) {
+            $model->dynamicSql = $map['DynamicSql'];
         }
         if (isset($map['ExecPs'])) {
             $model->execPs = $map['ExecPs'];
@@ -1048,6 +1245,15 @@ class data extends Model
         if (isset($map['SqlId'])) {
             $model->sqlId = $map['SqlId'];
         }
+        if (isset($map['SqlList'])) {
+            if (!empty($map['SqlList'])) {
+                $model->sqlList = [];
+                $n              = 0;
+                foreach ($map['SqlList'] as $item) {
+                    $model->sqlList[$n++] = null !== $item ? sqlList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['SqlTextShort'])) {
             $model->sqlTextShort = $map['SqlTextShort'];
         }
@@ -1056,6 +1262,9 @@ class data extends Model
         }
         if (isset($map['StrongConsistencyPercentage'])) {
             $model->strongConsistencyPercentage = $map['StrongConsistencyPercentage'];
+        }
+        if (isset($map['SumDbTime'])) {
+            $model->sumDbTime = $map['SumDbTime'];
         }
         if (isset($map['SumElapsedTime'])) {
             $model->sumElapsedTime = $map['SumElapsedTime'];

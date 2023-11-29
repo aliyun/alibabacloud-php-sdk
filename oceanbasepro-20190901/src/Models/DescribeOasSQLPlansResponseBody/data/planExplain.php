@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class planExplain extends Model
 {
     /**
+     * @description JSON string of the SQL execution plan.
+     *
      * @example {\"RootOperations\":[{\"Children\
      *
      * @var string

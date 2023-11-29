@@ -10,19 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutlineBindingResponseBody extends Model
 {
     /**
-     * @description ```
-     * http(s)://[Endpoint]/?Action=DescribeOutlineBinding
-     * &TenantId=t2mr3oae0****
-     * &DatabaseName=testdb
-     * &SQLId=8D6E84****0B8FB1823D199E2CA1****
-     * &IsConcurrentLimit=false
-     * &InstanceId=ob317v4uif****
-     * ```
+     * @description The binding information.
+     *
      * @var outlineBinding
      */
     public $outlineBinding;
 
     /**
+     * @description The request ID.
+     *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
      * @var string

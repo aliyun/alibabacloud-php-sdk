@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteTenantUsersRequest extends Model
 {
     /**
-     * @description Example 1
+     * @description The ID of the OceanBase cluster.
      *
      * @example ob317v4uif****
      *
@@ -18,7 +18,7 @@ class DeleteTenantUsersRequest extends Model
     public $instanceId;
 
     /**
-     * @description $.parameters[4].schema.enumValueTitles
+     * @description The ID of the tenant.
      *
      * @example ob2mr3oae0****
      *
@@ -27,7 +27,7 @@ class DeleteTenantUsersRequest extends Model
     public $tenantId;
 
     /**
-     * @description $.parameters[2].schema.example
+     * @description A list of usernames.
      *
      * @example ["testUser"]
      *

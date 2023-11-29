@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Average updated rows during the execution period.
+     *
      * @example 10000.0
      *
      * @var float
@@ -16,6 +18,8 @@ class data extends Model
     public $affectedRows;
 
     /**
+     * @description Application event waiting time (in milliseconds).
+     *
      * @example 0.0
      *
      * @var float
@@ -23,6 +27,8 @@ class data extends Model
     public $applicationWaitTime;
 
     /**
+     * @description BlockCache hit count
+     *
      * @example 99279.0
      *
      * @var float
@@ -30,6 +36,8 @@ class data extends Model
     public $blockCacheHit;
 
     /**
+     * @description BlockIndexCache hit count
+     *
      * @example 142514.0
      *
      * @var float
@@ -37,6 +45,8 @@ class data extends Model
     public $blockIndexCacheHit;
 
     /**
+     * @description BloomFilterCache hit count.
+     *
      * @example 0.0
      *
      * @var float
@@ -44,6 +54,8 @@ class data extends Model
     public $bloomFilterCacheHit;
 
     /**
+     * @description Client IP.
+     *
      * @example i-bp1db****38uemejio
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $clientIp;
 
     /**
+     * @description Client port.
+     *
      * @example 4****
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $clientPort;
 
     /**
+     * @description Concurrency event waiting time (in milliseconds).
+     *
      * @example 0.0
      *
      * @var float
@@ -65,6 +81,8 @@ class data extends Model
     public $concurrencyWaitTime;
 
     /**
+     * @description Consistency level.
+     *
      * @example 3
      *
      * @var string
@@ -72,6 +90,8 @@ class data extends Model
     public $consistencyLevel;
 
     /**
+     * @description CPU time (in milliseconds).
+     *
      * @example 3377.57
      *
      * @var float
@@ -79,6 +99,8 @@ class data extends Model
     public $cpuTime;
 
     /**
+     * @description Database name.
+     *
      * @example test_db
      *
      * @var string
@@ -86,6 +108,8 @@ class data extends Model
     public $dbName;
 
     /**
+     * @description Syntax parsing time (in milliseconds).
+     *
      * @example 0.0
      *
      * @var float
@@ -93,6 +117,8 @@ class data extends Model
     public $decodeTime;
 
     /**
+     * @description Disk read count.
+     *
      * @example 96972.0
      *
      * @var float
@@ -100,6 +126,8 @@ class data extends Model
     public $diskReads;
 
     /**
+     * @description Response time (in milliseconds).
+     *
      * @example 2182.66
      *
      * @var float
@@ -107,6 +135,8 @@ class data extends Model
     public $elapsedTime;
 
     /**
+     * @description Plan execution time (in milliseconds).
+     *
      * @example 8262.01
      *
      * @var float
@@ -114,6 +144,8 @@ class data extends Model
     public $executeTime;
 
     /**
+     * @description Whether to initiate RPC.
+     *
      * @example 0.0
      *
      * @var float
@@ -121,6 +153,8 @@ class data extends Model
     public $executorRpc;
 
     /**
+     * @description Degree of parallelism.
+     *
      * @example 0
      *
      * @var float
@@ -128,6 +162,13 @@ class data extends Model
     public $expectedWorkerCount;
 
     /**
+     * @var string
+     */
+    public $fullSqlText;
+
+    /**
+     * @description Plan generation time (in milliseconds).
+     *
      * @example 0.19
      *
      * @var float
@@ -135,6 +176,8 @@ class data extends Model
     public $getPlanTime;
 
     /**
+     * @description Whether to hit the execution plan.
+     *
      * @example true
      *
      * @var float
@@ -142,6 +185,8 @@ class data extends Model
     public $hitPlan;
 
     /**
+     * @description Whether an internal SQL.
+     *
      * @example false
      *
      * @var bool
@@ -149,6 +194,8 @@ class data extends Model
     public $inner;
 
     /**
+     * @description Memstore read row count.
+     *
      * @example 0
      *
      * @var float
@@ -156,6 +203,8 @@ class data extends Model
     public $memstoreReadRows;
 
     /**
+     * @description Network transmission time (in milliseconds).
+     *
      * @example 0.0
      *
      * @var float
@@ -163,6 +212,8 @@ class data extends Model
     public $netTime;
 
     /**
+     * @description Network enqueue time (in milliseconds).
+     *
      * @example 0.0
      *
      * @var float
@@ -170,6 +221,8 @@ class data extends Model
     public $netWaitTime;
 
     /**
+     * @description Database ID.
+     *
      * @example 11006111****4828
      *
      * @var float
@@ -177,7 +230,7 @@ class data extends Model
     public $obDbId;
 
     /**
-     * @description server  ID。
+     * @description Server  ID.
      *
      * @example 2
      *
@@ -186,6 +239,8 @@ class data extends Model
     public $obServerId;
 
     /**
+     * @description User ID.
+     *
      * @example 100010
      *
      * @var float
@@ -193,6 +248,8 @@ class data extends Model
     public $obUserId;
 
     /**
+     * @description Average number of partition accessed during the execution period.
+     *
      * @example 1.0
      *
      * @var float
@@ -200,6 +257,8 @@ class data extends Model
     public $partitionCount;
 
     /**
+     * @description The execution plan ID.
+     *
      * @example 590****
      *
      * @var float
@@ -207,6 +266,8 @@ class data extends Model
     public $planId;
 
     /**
+     * @description Plan type.
+     *
      * @example LOCAL
      *
      * @var string
@@ -214,6 +275,8 @@ class data extends Model
     public $planType;
 
     /**
+     * @description Queueing time (in milliseconds).
+     *
      * @example 0.02
      *
      * @var float
@@ -221,6 +284,8 @@ class data extends Model
     public $queueTime;
 
     /**
+     * @description Request ID.
+     *
      * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string
@@ -228,6 +293,8 @@ class data extends Model
     public $requestId;
 
     /**
+     * @description SQL request time.
+     *
      * @example 2023-04-12T04:46:38Z
      *
      * @var string
@@ -235,6 +302,8 @@ class data extends Model
     public $requestTime;
 
     /**
+     * @description Result code.
+     *
      * @example 0
      *
      * @var float
@@ -242,6 +311,8 @@ class data extends Model
     public $retCode;
 
     /**
+     * @description Retry count.
+     *
      * @example 0
      *
      * @var float
@@ -249,6 +320,8 @@ class data extends Model
     public $retryCount;
 
     /**
+     * @description Average returned rows during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -256,6 +329,8 @@ class data extends Model
     public $returnRows;
 
     /**
+     * @description RowCache hit count.
+     *
      * @example 498.0
      *
      * @var float
@@ -263,6 +338,8 @@ class data extends Model
     public $rowCacheHit;
 
     /**
+     * @description Number of RPC sent.
+     *
      * @example 8.0
      *
      * @var float
@@ -270,6 +347,8 @@ class data extends Model
     public $rpcCount;
 
     /**
+     * @description Schedule event waiting time (in milliseconds).
+     *
      * @example 0.0
      *
      * @var float
@@ -277,6 +356,8 @@ class data extends Model
     public $scheduleTime;
 
     /**
+     * @description The server where the SQL is executed.
+     *
      * @example i-bp1db1****8uemejio
      *
      * @var string
@@ -284,6 +365,8 @@ class data extends Model
     public $server;
 
     /**
+     * @description SQL type.
+     *
      * @example select
      *
      * @var string
@@ -291,6 +374,8 @@ class data extends Model
     public $sqlType;
 
     /**
+     * @description Ssstore read row count.
+     *
      * @example 986190
      *
      * @var float
@@ -298,6 +383,8 @@ class data extends Model
     public $ssstoreReadRows;
 
     /**
+     * @description Parameterized SQL text.
+     *
      * @example select a from b
      *
      * @var string
@@ -305,6 +392,8 @@ class data extends Model
     public $statement;
 
     /**
+     * @description Whether to perform full table scan.
+     *
      * @example false
      *
      * @var float
@@ -312,6 +401,8 @@ class data extends Model
     public $tableScan;
 
     /**
+     * @description Trace ID.
+     *
      * @example YB42C****-0005E303D1****-0-0
      *
      * @var string
@@ -319,7 +410,7 @@ class data extends Model
     public $traceId;
 
     /**
-     * @description transaction hash。
+     * @description Transaction hash.
      *
      * @example 1219****927****73791
      *
@@ -328,6 +419,8 @@ class data extends Model
     public $transHash;
 
     /**
+     * @description Actual number of SQL execution threads.
+     *
      * @example 0
      *
      * @var float
@@ -335,6 +428,8 @@ class data extends Model
     public $usedWorkerCount;
 
     /**
+     * @description UserIO event waiting time (in milliseconds).
+     *
      * @example 0.0
      *
      * @var float
@@ -342,6 +437,8 @@ class data extends Model
     public $userIoWaitTime;
 
     /**
+     * @description Username.
+     *
      * @example test_user
      *
      * @var string
@@ -349,6 +446,8 @@ class data extends Model
     public $userName;
 
     /**
+     * @description Wait count.
+     *
      * @example 0.0
      *
      * @var float
@@ -356,6 +455,8 @@ class data extends Model
     public $waitCount;
 
     /**
+     * @description Longest wait event during the execution period.
+     *
      * @example none
      *
      * @var string
@@ -363,6 +464,8 @@ class data extends Model
     public $waitEvent;
 
     /**
+     * @description Wait time (in milliseconds).
+     *
      * @example 0.0
      *
      * @var float
@@ -386,6 +489,7 @@ class data extends Model
         'executeTime'         => 'ExecuteTime',
         'executorRpc'         => 'ExecutorRpc',
         'expectedWorkerCount' => 'ExpectedWorkerCount',
+        'fullSqlText'         => 'FullSqlText',
         'getPlanTime'         => 'GetPlanTime',
         'hitPlan'             => 'HitPlan',
         'inner'               => 'Inner',
@@ -479,6 +583,9 @@ class data extends Model
         }
         if (null !== $this->expectedWorkerCount) {
             $res['ExpectedWorkerCount'] = $this->expectedWorkerCount;
+        }
+        if (null !== $this->fullSqlText) {
+            $res['FullSqlText'] = $this->fullSqlText;
         }
         if (null !== $this->getPlanTime) {
             $res['GetPlanTime'] = $this->getPlanTime;
@@ -644,6 +751,9 @@ class data extends Model
         }
         if (isset($map['ExpectedWorkerCount'])) {
             $model->expectedWorkerCount = $map['ExpectedWorkerCount'];
+        }
+        if (isset($map['FullSqlText'])) {
+            $model->fullSqlText = $map['FullSqlText'];
         }
         if (isset($map['GetPlanTime'])) {
             $model->getPlanTime = $map['GetPlanTime'];

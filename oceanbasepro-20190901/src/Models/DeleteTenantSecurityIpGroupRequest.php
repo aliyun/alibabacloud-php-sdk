@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTenantSecurityIpGroupRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -16,6 +18,9 @@ class DeleteTenantSecurityIpGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description The group name of the whitelist group of IP addresses.
+     *
+     * It starts with lowercase letters and ends with lowercase letters or numbers. It can only contain lowercase letters, numbers, and underscores, and should be 2~32 characters in length.
      * @example paytest
      *
      * @var string
@@ -23,6 +28,8 @@ class DeleteTenantSecurityIpGroupRequest extends Model
     public $securityIpGroupName;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t4louaeei****
      *
      * @var string

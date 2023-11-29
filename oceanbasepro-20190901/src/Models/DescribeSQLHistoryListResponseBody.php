@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLHistoryListResponseBody extends Model
 {
     /**
-     * @description The IP address of the client.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -19,7 +19,7 @@ class DescribeSQLHistoryListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of Bloom filter cache hits.
+     * @description The execution history of the SQL statement.
      *
      * @var SQLHistoryList
      */

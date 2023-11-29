@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class plans extends Model
 {
     /**
+     * @description Average Application event waiting time (in milliseconds) during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -16,6 +18,8 @@ class plans extends Model
     public $avgApplicationWaitTime;
 
     /**
+     * @description Average cache read count during the execution period.
+     *
      * @example 30137.03
      *
      * @var float
@@ -23,6 +27,8 @@ class plans extends Model
     public $avgBufferGets;
 
     /**
+     * @description Average Concurrency event waiting time (in milliseconds) during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -30,6 +36,8 @@ class plans extends Model
     public $avgConcurrencyWaitTime;
 
     /**
+     * @description Average CPU time (in milliseconds) during the execution period.
+     *
      * @example 1875.34
      *
      * @var float
@@ -37,6 +45,8 @@ class plans extends Model
     public $avgCpuTime;
 
     /**
+     * @description The average physical read count during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -44,6 +54,8 @@ class plans extends Model
     public $avgDiskReads;
 
     /**
+     * @description The average physical write count during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -51,6 +63,8 @@ class plans extends Model
     public $avgDiskWrites;
 
     /**
+     * @description Average interval waiting time (in milliseconds) during the execution period.
+     *
      * @example 1876.78
      *
      * @var float
@@ -58,6 +72,8 @@ class plans extends Model
     public $avgElapsedTime;
 
     /**
+     * @description Average row processing waiting time (in milliseconds) during the execution period.
+     *
      * @example 1.0
      *
      * @var float
@@ -65,6 +81,8 @@ class plans extends Model
     public $avgRowProcessed;
 
     /**
+     * @description Average UserIo event waiting time (in milliseconds) during the execution period.
+     *
      * @example 0.0
      *
      * @var float
@@ -72,6 +90,8 @@ class plans extends Model
     public $avgUserIoWaitTime;
 
     /**
+     * @description Collection time.
+     *
      * @example 1684368****00000
      *
      * @var int
@@ -79,6 +99,8 @@ class plans extends Model
     public $collectTimeUs;
 
     /**
+     * @description Percentage of delayed long-running queries.
+     *
      * @example 0.0
      *
      * @var float
@@ -86,6 +108,8 @@ class plans extends Model
     public $delayedLargeQueryPercentage;
 
     /**
+     * @description The average execution count per second during the execution period.
+     *
      * @example 0.31
      *
      * @var float
@@ -93,6 +117,8 @@ class plans extends Model
     public $execPs;
 
     /**
+     * @description The total number of executions during the execution period.
+     *
      * @example 1
      *
      * @var int
@@ -100,6 +126,8 @@ class plans extends Model
     public $executions;
 
     /**
+     * @description First time to load the plan.
+     *
      * @example 2023-04-12T04:46:38Z
      *
      * @var string
@@ -107,6 +135,8 @@ class plans extends Model
     public $firstLoadTime;
 
     /**
+     * @description First loading time.
+     *
      * @example 1684****03289441
      *
      * @var int
@@ -114,6 +144,8 @@ class plans extends Model
     public $firstLoadTimeUs;
 
     /**
+     * @description Whether to hit the diagnosis.
+     *
      * @example false
      *
      * @var bool
@@ -121,6 +153,8 @@ class plans extends Model
     public $hitDiagnosis;
 
     /**
+     * @description Hit rate.
+     *
      * @example 100.0
      *
      * @var float
@@ -128,6 +162,8 @@ class plans extends Model
     public $hitPercentage;
 
     /**
+     * @description Percentage of completed long-running queries.
+     *
      * @example 0.0
      *
      * @var float
@@ -135,6 +171,8 @@ class plans extends Model
     public $largeQueryPercentage;
 
     /**
+     * @description Merge version.
+     *
      * @example 513
      *
      * @var int
@@ -142,6 +180,8 @@ class plans extends Model
     public $mergedVersion;
 
     /**
+     * @description Database ID.
+     *
      * @example 11006****828
      *
      * @var int
@@ -149,7 +189,7 @@ class plans extends Model
     public $obDbId;
 
     /**
-     * @description server  ID。
+     * @description Server ID.
      *
      * @example 2
      *
@@ -158,6 +198,8 @@ class plans extends Model
     public $obServerId;
 
     /**
+     * @description The outline_data parameter of the SQL execution plan.
+     *
      * @example /*+ BEGIN_OUTLINE_DATA INDEX(@\"SEL$1\
      *
      * @var string
@@ -165,7 +207,7 @@ class plans extends Model
     public $outlineData;
 
     /**
-     * @description Outline ID。
+     * @description Outline ID.
      *
      * @example -1
      *
@@ -174,6 +216,8 @@ class plans extends Model
     public $outlineId;
 
     /**
+     * @description The internal identifier of the SQL execution plan in the diagnostic system.
+     *
      * @example -86290582****886880
      *
      * @var string
@@ -181,6 +225,8 @@ class plans extends Model
     public $planHash;
 
     /**
+     * @description The ID of the plan.
+     *
      * @example 590****
      *
      * @var int
@@ -188,6 +234,8 @@ class plans extends Model
     public $planId;
 
     /**
+     * @description Plan size.
+     *
      * @example 10****
      *
      * @var int
@@ -195,6 +243,8 @@ class plans extends Model
     public $planSize;
 
     /**
+     * @description Plan type, including LOCAL, REMOTE, DIST.
+     *
      * @example LOCAL
      *
      * @var string
@@ -202,6 +252,8 @@ class plans extends Model
     public $planType;
 
     /**
+     * @description The internal unique identifier of the SQL execution plan in the diagnostic system.
+     *
      * @example "52c7c53****53e61b3f7586b17****ad"
      *
      * @var string
@@ -209,6 +261,8 @@ class plans extends Model
     public $planUnionHash;
 
     /**
+     * @description Schema version.
+     *
      * @example 16838****3550464
      *
      * @var int
@@ -216,6 +270,8 @@ class plans extends Model
     public $schemaVersion;
 
     /**
+     * @description The server where the SQL is executed.
+     *
      * @example i-bp1db1a9us038****jio
      *
      * @var string
@@ -223,6 +279,8 @@ class plans extends Model
     public $server;
 
     /**
+     * @description The ID of the backend server instance.
+     *
      * @example 2
      *
      * @var int
@@ -230,6 +288,13 @@ class plans extends Model
     public $serverId;
 
     /**
+     * @var string
+     */
+    public $sqlId;
+
+    /**
+     * @description Whether a full table scan is performed.
+     *
      * @example false
      *
      * @var bool
@@ -237,6 +302,8 @@ class plans extends Model
     public $tableScan;
 
     /**
+     * @description Percentage of timeouts.
+     *
      * @example 0.0
      *
      * @var float
@@ -244,6 +311,8 @@ class plans extends Model
     public $timeoutPercentage;
 
     /**
+     * @description The unique identifier of the plan.
+     *
      * @example AAAAAAAAAAI****AAFoT2QAF--7W****
      *
      * @var string
@@ -281,6 +350,7 @@ class plans extends Model
         'schemaVersion'               => 'SchemaVersion',
         'server'                      => 'Server',
         'serverId'                    => 'ServerId',
+        'sqlId'                       => 'SqlId',
         'tableScan'                   => 'TableScan',
         'timeoutPercentage'           => 'TimeoutPercentage',
         'uid'                         => 'Uid',
@@ -385,6 +455,9 @@ class plans extends Model
         }
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
+        }
+        if (null !== $this->sqlId) {
+            $res['SqlId'] = $this->sqlId;
         }
         if (null !== $this->tableScan) {
             $res['TableScan'] = $this->tableScan;
@@ -499,6 +572,9 @@ class plans extends Model
         }
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];
+        }
+        if (isset($map['SqlId'])) {
+            $model->sqlId = $map['SqlId'];
         }
         if (isset($map['TableScan'])) {
             $model->tableScan = $map['TableScan'];

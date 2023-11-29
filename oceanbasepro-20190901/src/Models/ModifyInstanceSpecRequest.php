@@ -16,6 +16,11 @@ class ModifyInstanceSpecRequest extends Model
     public $diskSize;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @example 14C70GB
      *
      * @var string
@@ -30,6 +35,7 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceId;
     protected $_name = [
         'diskSize'      => 'DiskSize',
+        'dryRun'        => 'DryRun',
         'instanceClass' => 'InstanceClass',
         'instanceId'    => 'InstanceId',
     ];
@@ -43,6 +49,9 @@ class ModifyInstanceSpecRequest extends Model
         $res = [];
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
@@ -64,6 +73,9 @@ class ModifyInstanceSpecRequest extends Model
         $model = new self();
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];

@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class logDiskSize extends Model
 {
     /**
+     * @var string
+     */
+    public $logAssignedSize;
+
+    /**
+     * @var string[]
+     */
+    public $maxLogAssignedObServer;
+
+    /**
+     * @var string
+     */
+    public $maxLogAssignedPercent;
+
+    /**
      * @description The ID of the region.
      *
      * @example 400
@@ -26,8 +41,11 @@ class logDiskSize extends Model
      */
     public $unitDiskSize;
     protected $_name = [
-        'totalDiskSize' => 'TotalDiskSize',
-        'unitDiskSize'  => 'UnitDiskSize',
+        'logAssignedSize'        => 'LogAssignedSize',
+        'maxLogAssignedObServer' => 'MaxLogAssignedObServer',
+        'maxLogAssignedPercent'  => 'MaxLogAssignedPercent',
+        'totalDiskSize'          => 'TotalDiskSize',
+        'unitDiskSize'           => 'UnitDiskSize',
     ];
 
     public function validate()
@@ -37,6 +55,15 @@ class logDiskSize extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->logAssignedSize) {
+            $res['LogAssignedSize'] = $this->logAssignedSize;
+        }
+        if (null !== $this->maxLogAssignedObServer) {
+            $res['MaxLogAssignedObServer'] = $this->maxLogAssignedObServer;
+        }
+        if (null !== $this->maxLogAssignedPercent) {
+            $res['MaxLogAssignedPercent'] = $this->maxLogAssignedPercent;
+        }
         if (null !== $this->totalDiskSize) {
             $res['TotalDiskSize'] = $this->totalDiskSize;
         }
@@ -55,6 +82,17 @@ class logDiskSize extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LogAssignedSize'])) {
+            $model->logAssignedSize = $map['LogAssignedSize'];
+        }
+        if (isset($map['MaxLogAssignedObServer'])) {
+            if (!empty($map['MaxLogAssignedObServer'])) {
+                $model->maxLogAssignedObServer = $map['MaxLogAssignedObServer'];
+            }
+        }
+        if (isset($map['MaxLogAssignedPercent'])) {
+            $model->maxLogAssignedPercent = $map['MaxLogAssignedPercent'];
+        }
         if (isset($map['TotalDiskSize'])) {
             $model->totalDiskSize = $map['TotalDiskSize'];
         }

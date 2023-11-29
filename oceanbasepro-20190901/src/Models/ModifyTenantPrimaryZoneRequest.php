@@ -30,15 +30,6 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $masterIntranetAddressZone;
 
     /**
-     * @description The switching mode.
-     *
-     * @example AllLink
-     *
-     * @var string
-     */
-    public $modifyType;
-
-    /**
      * @description The ID of the vSwitch.
      *
      * @example cn-hangzhou-h
@@ -48,13 +39,11 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $primaryZone;
 
     /**
-     * @description Example 1
-     *
-     * @example RANDOM
+     * @example obe-4tw51gp7****
      *
      * @var string
      */
-    public $primaryZoneDeployType;
+    public $tenantEndpointId;
 
     /**
      * @description The return result of the request.
@@ -76,9 +65,8 @@ class ModifyTenantPrimaryZoneRequest extends Model
     protected $_name = [
         'instanceId'                => 'InstanceId',
         'masterIntranetAddressZone' => 'MasterIntranetAddressZone',
-        'modifyType'                => 'ModifyType',
         'primaryZone'               => 'PrimaryZone',
-        'primaryZoneDeployType'     => 'PrimaryZoneDeployType',
+        'tenantEndpointId'          => 'TenantEndpointId',
         'tenantId'                  => 'TenantId',
         'userVSwitchId'             => 'UserVSwitchId',
     ];
@@ -96,14 +84,11 @@ class ModifyTenantPrimaryZoneRequest extends Model
         if (null !== $this->masterIntranetAddressZone) {
             $res['MasterIntranetAddressZone'] = $this->masterIntranetAddressZone;
         }
-        if (null !== $this->modifyType) {
-            $res['ModifyType'] = $this->modifyType;
-        }
         if (null !== $this->primaryZone) {
             $res['PrimaryZone'] = $this->primaryZone;
         }
-        if (null !== $this->primaryZoneDeployType) {
-            $res['PrimaryZoneDeployType'] = $this->primaryZoneDeployType;
+        if (null !== $this->tenantEndpointId) {
+            $res['TenantEndpointId'] = $this->tenantEndpointId;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -129,14 +114,11 @@ class ModifyTenantPrimaryZoneRequest extends Model
         if (isset($map['MasterIntranetAddressZone'])) {
             $model->masterIntranetAddressZone = $map['MasterIntranetAddressZone'];
         }
-        if (isset($map['ModifyType'])) {
-            $model->modifyType = $map['ModifyType'];
-        }
         if (isset($map['PrimaryZone'])) {
             $model->primaryZone = $map['PrimaryZone'];
         }
-        if (isset($map['PrimaryZoneDeployType'])) {
-            $model->primaryZoneDeployType = $map['PrimaryZoneDeployType'];
+        if (isset($map['TenantEndpointId'])) {
+            $model->tenantEndpointId = $map['TenantEndpointId'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

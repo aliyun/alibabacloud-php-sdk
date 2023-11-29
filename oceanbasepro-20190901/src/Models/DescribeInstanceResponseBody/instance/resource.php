@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\resource\capacityUnit;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\resource\cpu;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\resource\diskSize;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\resource\logDiskSize;
@@ -12,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 
 class resource extends Model
 {
+    /**
+     * @var capacityUnit
+     */
+    public $capacityUnit;
+
     /**
      * @description The information of the OceanBase cluster.
      *
@@ -49,11 +55,12 @@ class resource extends Model
      */
     public $unitCount;
     protected $_name = [
-        'cpu'         => 'Cpu',
-        'diskSize'    => 'DiskSize',
-        'logDiskSize' => 'LogDiskSize',
-        'memory'      => 'Memory',
-        'unitCount'   => 'UnitCount',
+        'capacityUnit' => 'CapacityUnit',
+        'cpu'          => 'Cpu',
+        'diskSize'     => 'DiskSize',
+        'logDiskSize'  => 'LogDiskSize',
+        'memory'       => 'Memory',
+        'unitCount'    => 'UnitCount',
     ];
 
     public function validate()
@@ -63,6 +70,9 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->capacityUnit) {
+            $res['CapacityUnit'] = null !== $this->capacityUnit ? $this->capacityUnit->toMap() : null;
+        }
         if (null !== $this->cpu) {
             $res['Cpu'] = null !== $this->cpu ? $this->cpu->toMap() : null;
         }
@@ -90,6 +100,9 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CapacityUnit'])) {
+            $model->capacityUnit = capacityUnit::fromMap($map['CapacityUnit']);
+        }
         if (isset($map['Cpu'])) {
             $model->cpu = cpu::fromMap($map['Cpu']);
         }

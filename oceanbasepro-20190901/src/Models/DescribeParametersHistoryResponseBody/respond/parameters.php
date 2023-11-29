@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description The request ID.
+     * @description The time when the parameter modification was initiated.
      *
      * @example 2021-09-14 10:57:44
      *
@@ -18,12 +18,8 @@ class parameters extends Model
     public $createTime;
 
     /**
-     * @description ```
-     * http(s)://[Endpoint]/?Action=DescribeParametersHistory
-     * &InstanceId=ob317v4uif****
-     * &Dimension=TENANT
-     * &DimensionValue=ob2mr3oae0****
-     * ```
+     * @description The resource ID of the parameter type.
+     * - When you called this operation to query the modification history of tenant parameters, the value is the tenant ID.
      * @example DEFAULT_DIMENSION_VALUE
      *
      * @var string
@@ -31,7 +27,7 @@ class parameters extends Model
     public $dimensionValue;
 
     /**
-     * @description You can call this operation to query the modification history of cluster or tenant parameters.
+     * @description The name of the parameter.
      *
      * @example connect_timeout
      *
@@ -40,6 +36,8 @@ class parameters extends Model
     public $name;
 
     /**
+     * @description The value of the parameter after the modification.
+     *
      * @example 200
      *
      * @var string
@@ -47,7 +45,7 @@ class parameters extends Model
     public $newValue;
 
     /**
-     * @description The start time of the time range for querying the parameter modification history.
+     * @description The parameter value before modification.
      *
      * @example 300
      *
@@ -56,8 +54,8 @@ class parameters extends Model
     public $oldValue;
 
     /**
-     * @description -
-     *
+     * @description The modification status. Valid values:
+     * - SCHEDULING: The modification was to be made.
      * @example APPLIED
      *
      * @var string
@@ -65,7 +63,7 @@ class parameters extends Model
     public $status;
 
     /**
-     * @description The name of the parameter.
+     * @description The time when the parameter modification took effect.
      *
      * @example 2021-09-14 10:57:44
      *

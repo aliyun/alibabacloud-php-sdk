@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNodeNumRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @example ob3h8ytroxxxxx
      *
      * @var string
@@ -22,6 +27,7 @@ class ModifyInstanceNodeNumRequest extends Model
      */
     public $nodeNum;
     protected $_name = [
+        'dryRun'     => 'DryRun',
         'instanceId' => 'InstanceId',
         'nodeNum'    => 'NodeNum',
     ];
@@ -33,6 +39,9 @@ class ModifyInstanceNodeNumRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -51,6 +60,9 @@ class ModifyInstanceNodeNumRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

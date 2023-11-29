@@ -23,6 +23,20 @@ class CreateTenantReadOnlyConnectionRequest extends Model
     public $tenantId;
 
     /**
+     * @example vsw-bp11k1aypnzu1l3whi****
+     *
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @example vpc-bp1d2q3mhg9i23ofi****
+     *
+     * @var string
+     */
+    public $vpcId;
+
+    /**
      * @example cn-hangzhou-i
      *
      * @var string
@@ -31,6 +45,8 @@ class CreateTenantReadOnlyConnectionRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'tenantId'   => 'TenantId',
+        'vSwitchId'  => 'VSwitchId',
+        'vpcId'      => 'VpcId',
         'zoneId'     => 'ZoneId',
     ];
 
@@ -46,6 +62,12 @@ class CreateTenantReadOnlyConnectionRequest extends Model
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -67,6 +89,12 @@ class CreateTenantReadOnlyConnectionRequest extends Model
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

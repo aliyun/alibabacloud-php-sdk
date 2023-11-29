@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateOmsMysqlDataSourceRequest extends Model
 {
     /**
-     * @example oms测试mysql数据源
+     * @description The description of the data source.
+     *
+     * It must be 2 to 256 characters in length. The default value is null.
+     * @example MySQL data source for OMS testing
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the database gateway instance.
+     *
+     * > <br>If Type is set to DG, this parameter is required.
      * @example dg-yhss6sdlaff****
      *
      * @var string
@@ -23,6 +29,9 @@ class CreateOmsMysqlDataSourceRequest extends Model
     public $dgDatabaseId;
 
     /**
+     * @description The ID of the ECS instance of the data source.
+     *
+     * > <br>If Type is set to RDS, PolarDB, or DG, this parameter is required.
      * @example pc-12ab34cd56******
      *
      * @var string
@@ -30,6 +39,9 @@ class CreateOmsMysqlDataSourceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The IP address of the data source.
+     *
+     * > <br>If Type is set to INTERNET or VPC, this parameter is required.
      * @example 10.0.****
      *
      * @var string
@@ -37,13 +49,8 @@ class CreateOmsMysqlDataSourceRequest extends Model
     public $ip;
 
     /**
-     * @description ```
-     * &Type=INTERNET
-     * &VpcId=vpc-12345abcde*******
-     * &InstanceId=pc-12ab34cd56******
-     * &DgDatabaseId=dg-yhss6sdlaff****
-     * &Ip=10.0.****
-     * ```
+     * @description The name of the data source.
+     * > <br>Invalid characters, such as slashes (/), are not allowed.
      * @example oms-mysql
      *
      * @var string
@@ -51,6 +58,8 @@ class CreateOmsMysqlDataSourceRequest extends Model
     public $name;
 
     /**
+     * @description The password of the username that is used to access the database. It must be Base64 encoded.
+     * For example, for the password abcd123@!, the Base64-encoded value is YWJjZDEyM0Ah.
      * @example YWJjZDEyM0Ah
      *
      * @var string
@@ -58,6 +67,9 @@ class CreateOmsMysqlDataSourceRequest extends Model
     public $password;
 
     /**
+     * @description The port number of the data source.
+     *
+     * > <br>If Type is set to INTERNET or VPC, this parameter is required.
      * @example 3306
      *
      * @var string
@@ -65,6 +77,9 @@ class CreateOmsMysqlDataSourceRequest extends Model
     public $port;
 
     /**
+     * @description The name of the database.
+     *
+     * > <br>If you specify this parameter, subsequent migration or synchronization operations will take effect on this database only.
      * @example test
      *
      * @var string
@@ -72,6 +87,8 @@ class CreateOmsMysqlDataSourceRequest extends Model
     public $schema;
 
     /**
+     * @description The type of the MySQL data source.
+     * Valid values: INTERNET, VPC, RDS, PolarDB, and DG.
      * @example INTERNET
      *
      * @var string
@@ -79,6 +96,8 @@ class CreateOmsMysqlDataSourceRequest extends Model
     public $type;
 
     /**
+     * @description The username that is used to access the database.
+     *
      * @example omsTestUser
      *
      * @var string
@@ -86,6 +105,9 @@ class CreateOmsMysqlDataSourceRequest extends Model
     public $username;
 
     /**
+     * @description The ID of the VPC to which the data source belongs.
+     *
+     * > <br>If Type is set to VPC, this parameter is required.
      * @example vpc-12345abcde*******
      *
      * @var string

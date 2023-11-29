@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeOasSlowSQLListResponseBody extends Model
 {
     /**
+     * @description The list of slow queries.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string

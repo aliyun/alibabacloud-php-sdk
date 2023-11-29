@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class cpu extends Model
 {
     /**
+     * @example 14
+     *
+     * @var int
+     */
+    public $originalTotalCpu;
+
+    /**
      * @description The name of the OceanBase cluster.
      * If this parameter is not specified, the value is the instance ID of the cluster by default.
      * @example 14
@@ -36,9 +43,10 @@ class cpu extends Model
      */
     public $usedCpu;
     protected $_name = [
-        'totalCpu' => 'TotalCpu',
-        'unitCpu'  => 'UnitCpu',
-        'usedCpu'  => 'UsedCpu',
+        'originalTotalCpu' => 'OriginalTotalCpu',
+        'totalCpu'         => 'TotalCpu',
+        'unitCpu'          => 'UnitCpu',
+        'usedCpu'          => 'UsedCpu',
     ];
 
     public function validate()
@@ -48,6 +56,9 @@ class cpu extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->originalTotalCpu) {
+            $res['OriginalTotalCpu'] = $this->originalTotalCpu;
+        }
         if (null !== $this->totalCpu) {
             $res['TotalCpu'] = $this->totalCpu;
         }
@@ -69,6 +80,9 @@ class cpu extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OriginalTotalCpu'])) {
+            $model->originalTotalCpu = $map['OriginalTotalCpu'];
+        }
         if (isset($map['TotalCpu'])) {
             $model->totalCpu = $map['TotalCpu'];
         }

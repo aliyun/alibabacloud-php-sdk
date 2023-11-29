@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRunResult;
+
+    /**
      * @description 订单ID。该参数只有创建包年包月ECS实例（请求参数InstanceChargeType=PrePaid）时有返回值。
      *
      * @example i-bp67acfmxazb4p****
@@ -33,6 +38,7 @@ class data extends Model
      */
     public $resourceGroupId;
     protected $_name = [
+        'dryRunResult'    => 'DryRunResult',
         'instanceId'      => 'InstanceId',
         'orderId'         => 'OrderId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -45,6 +51,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRunResult) {
+            $res['DryRunResult'] = $this->dryRunResult;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -66,6 +75,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRunResult'])) {
+            $model->dryRunResult = $map['DryRunResult'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

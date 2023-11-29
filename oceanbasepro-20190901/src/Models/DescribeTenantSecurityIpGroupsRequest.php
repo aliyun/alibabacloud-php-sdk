@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantSecurityIpGroupsRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeTenantSecurityIpGroupsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t4louaeei****
      *
      * @var string

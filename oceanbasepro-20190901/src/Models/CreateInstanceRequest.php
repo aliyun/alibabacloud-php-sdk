@@ -54,6 +54,11 @@ class CreateInstanceRequest extends Model
     public $diskType;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The specifications of the cluster.
      * - 62C400GB: indicates 62 CPU cores and 400 GB of memory.
      * @example 14C70GB
@@ -70,6 +75,11 @@ class CreateInstanceRequest extends Model
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $isolationOptimization;
 
     /**
      * @description OceanBase Server version number.
@@ -99,6 +109,13 @@ class CreateInstanceRequest extends Model
     public $periodUnit;
 
     /**
+     * @example 3
+     *
+     * @var string
+     */
+    public $replicaMode;
+
+    /**
      * @description The ID of the resource group to which the instance belongs.
      *
      * @example rg-bp67acfmxazb4p****
@@ -125,19 +142,22 @@ class CreateInstanceRequest extends Model
      */
     public $zones;
     protected $_name = [
-        'autoRenew'       => 'AutoRenew',
-        'autoRenewPeriod' => 'AutoRenewPeriod',
-        'chargeType'      => 'ChargeType',
-        'diskSize'        => 'DiskSize',
-        'diskType'        => 'DiskType',
-        'instanceClass'   => 'InstanceClass',
-        'instanceName'    => 'InstanceName',
-        'obVersion'       => 'ObVersion',
-        'period'          => 'Period',
-        'periodUnit'      => 'PeriodUnit',
-        'resourceGroupId' => 'ResourceGroupId',
-        'series'          => 'Series',
-        'zones'           => 'Zones',
+        'autoRenew'             => 'AutoRenew',
+        'autoRenewPeriod'       => 'AutoRenewPeriod',
+        'chargeType'            => 'ChargeType',
+        'diskSize'              => 'DiskSize',
+        'diskType'              => 'DiskType',
+        'dryRun'                => 'DryRun',
+        'instanceClass'         => 'InstanceClass',
+        'instanceName'          => 'InstanceName',
+        'isolationOptimization' => 'IsolationOptimization',
+        'obVersion'             => 'ObVersion',
+        'period'                => 'Period',
+        'periodUnit'            => 'PeriodUnit',
+        'replicaMode'           => 'ReplicaMode',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'series'                => 'Series',
+        'zones'                 => 'Zones',
     ];
 
     public function validate()
@@ -162,11 +182,17 @@ class CreateInstanceRequest extends Model
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
         }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->isolationOptimization) {
+            $res['IsolationOptimization'] = $this->isolationOptimization;
         }
         if (null !== $this->obVersion) {
             $res['ObVersion'] = $this->obVersion;
@@ -176,6 +202,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+        if (null !== $this->replicaMode) {
+            $res['ReplicaMode'] = $this->replicaMode;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -213,11 +242,17 @@ class CreateInstanceRequest extends Model
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
         }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['IsolationOptimization'])) {
+            $model->isolationOptimization = $map['IsolationOptimization'];
         }
         if (isset($map['ObVersion'])) {
             $model->obVersion = $map['ObVersion'];
@@ -227,6 +262,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['ReplicaMode'])) {
+            $model->replicaMode = $map['ReplicaMode'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

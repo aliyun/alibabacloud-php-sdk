@@ -18,15 +18,6 @@ class tenantConnections extends Model
     public $addressType;
 
     /**
-     * @description 是否开启事务拆分
-     *
-     * @example ReadWrite
-     *
-     * @var string
-     */
-    public $connectionRole;
-
-    /**
      * @description The Internet address for accessing the tenant.
      *
      * @example ["cn-hangzhou-i", "cn-hangzhou-j"]
@@ -34,6 +25,11 @@ class tenantConnections extends Model
      * @var string[]
      */
     public $connectionZones;
+
+    /**
+     * @var bool
+     */
+    public $enableTransactionSplit;
 
     /**
      * @description The ID of the VPC.
@@ -108,6 +104,25 @@ class tenantConnections extends Model
     public $intranetPort;
 
     /**
+     * @example 5000
+     *
+     * @var int
+     */
+    public $maxConnectionNum;
+
+    /**
+     * @var int
+     */
+    public $parallelQueryDegree;
+
+    /**
+     * @example obe-4tw51gp7****
+     *
+     * @var string
+     */
+    public $tenantEndpointId;
+
+    /**
      * @description The primary zone corresponding to the address for accessing the tenant.
      *
      * @example true
@@ -135,8 +150,8 @@ class tenantConnections extends Model
     public $vpcId;
     protected $_name = [
         'addressType'                 => 'AddressType',
-        'connectionRole'              => 'ConnectionRole',
         'connectionZones'             => 'ConnectionZones',
+        'enableTransactionSplit'      => 'EnableTransactionSplit',
         'internetAddress'             => 'InternetAddress',
         'internetAddressStatus'       => 'InternetAddressStatus',
         'internetPort'                => 'InternetPort',
@@ -145,6 +160,9 @@ class tenantConnections extends Model
         'intranetAddressSlaveZoneId'  => 'IntranetAddressSlaveZoneId',
         'intranetAddressStatus'       => 'IntranetAddressStatus',
         'intranetPort'                => 'IntranetPort',
+        'maxConnectionNum'            => 'MaxConnectionNum',
+        'parallelQueryDegree'         => 'ParallelQueryDegree',
+        'tenantEndpointId'            => 'TenantEndpointId',
         'transactionSplit'            => 'TransactionSplit',
         'vSwitchId'                   => 'VSwitchId',
         'vpcId'                       => 'VpcId',
@@ -160,11 +178,11 @@ class tenantConnections extends Model
         if (null !== $this->addressType) {
             $res['AddressType'] = $this->addressType;
         }
-        if (null !== $this->connectionRole) {
-            $res['ConnectionRole'] = $this->connectionRole;
-        }
         if (null !== $this->connectionZones) {
             $res['ConnectionZones'] = $this->connectionZones;
+        }
+        if (null !== $this->enableTransactionSplit) {
+            $res['EnableTransactionSplit'] = $this->enableTransactionSplit;
         }
         if (null !== $this->internetAddress) {
             $res['InternetAddress'] = $this->internetAddress;
@@ -190,6 +208,15 @@ class tenantConnections extends Model
         if (null !== $this->intranetPort) {
             $res['IntranetPort'] = $this->intranetPort;
         }
+        if (null !== $this->maxConnectionNum) {
+            $res['MaxConnectionNum'] = $this->maxConnectionNum;
+        }
+        if (null !== $this->parallelQueryDegree) {
+            $res['ParallelQueryDegree'] = $this->parallelQueryDegree;
+        }
+        if (null !== $this->tenantEndpointId) {
+            $res['TenantEndpointId'] = $this->tenantEndpointId;
+        }
         if (null !== $this->transactionSplit) {
             $res['TransactionSplit'] = $this->transactionSplit;
         }
@@ -214,13 +241,13 @@ class tenantConnections extends Model
         if (isset($map['AddressType'])) {
             $model->addressType = $map['AddressType'];
         }
-        if (isset($map['ConnectionRole'])) {
-            $model->connectionRole = $map['ConnectionRole'];
-        }
         if (isset($map['ConnectionZones'])) {
             if (!empty($map['ConnectionZones'])) {
                 $model->connectionZones = $map['ConnectionZones'];
             }
+        }
+        if (isset($map['EnableTransactionSplit'])) {
+            $model->enableTransactionSplit = $map['EnableTransactionSplit'];
         }
         if (isset($map['InternetAddress'])) {
             $model->internetAddress = $map['InternetAddress'];
@@ -245,6 +272,15 @@ class tenantConnections extends Model
         }
         if (isset($map['IntranetPort'])) {
             $model->intranetPort = $map['IntranetPort'];
+        }
+        if (isset($map['MaxConnectionNum'])) {
+            $model->maxConnectionNum = $map['MaxConnectionNum'];
+        }
+        if (isset($map['ParallelQueryDegree'])) {
+            $model->parallelQueryDegree = $map['ParallelQueryDegree'];
+        }
+        if (isset($map['TenantEndpointId'])) {
+            $model->tenantEndpointId = $map['TenantEndpointId'];
         }
         if (isset($map['TransactionSplit'])) {
             $model->transactionSplit = $map['TransactionSplit'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOasSQLHistoryListRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     * - en: English
      * @example zh-CN
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeOasSQLHistoryListRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The name of the database.
+     *
      * @example test_db
      *
      * @var string
@@ -23,6 +27,13 @@ class DescribeOasSQLHistoryListRequest extends Model
     public $dbName;
 
     /**
+     * @var bool
+     */
+    public $dynamicSql;
+
+    /**
+     * @description The end time of querying the execution history of the SQL statement.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2023-04-12T05:38:38Z
      *
      * @var string
@@ -30,6 +41,8 @@ class DescribeOasSQLHistoryListRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -37,6 +50,8 @@ class DescribeOasSQLHistoryListRequest extends Model
     public $instanceId;
 
     /**
+     * @description The IP address of the node.
+     *
      * @example i-bp19y05uq6x*********
      *
      * @var string
@@ -44,7 +59,7 @@ class DescribeOasSQLHistoryListRequest extends Model
     public $nodeIp;
 
     /**
-     * @description SQL ID。
+     * @description SQL ID.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -53,6 +68,8 @@ class DescribeOasSQLHistoryListRequest extends Model
     public $sqlId;
 
     /**
+     * @description The start time of querying the execution history of the SQL statement.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2023-04-12T04:38:38Z
      *
      * @var string
@@ -60,6 +77,8 @@ class DescribeOasSQLHistoryListRequest extends Model
     public $startTime;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t4louaeei****
      *
      * @var string
@@ -68,6 +87,7 @@ class DescribeOasSQLHistoryListRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'dbName'         => 'DbName',
+        'dynamicSql'     => 'DynamicSql',
         'endTime'        => 'EndTime',
         'instanceId'     => 'InstanceId',
         'nodeIp'         => 'NodeIp',
@@ -88,6 +108,9 @@ class DescribeOasSQLHistoryListRequest extends Model
         }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->dynamicSql) {
+            $res['DynamicSql'] = $this->dynamicSql;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -124,6 +147,9 @@ class DescribeOasSQLHistoryListRequest extends Model
         }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['DynamicSql'])) {
+            $model->dynamicSql = $map['DynamicSql'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Average CPU time (in milliseconds) during the execution period.
+     *
      * @example 1875.34
      *
      * @var float
@@ -18,6 +20,8 @@ class data extends Model
     public $avgCpuTime;
 
     /**
+     * @description Whether to bind the execution plan.
+     *
      * @example false
      *
      * @var bool
@@ -25,6 +29,8 @@ class data extends Model
     public $bounded;
 
     /**
+     * @description Execution count.
+     *
      * @example 1
      *
      * @var int
@@ -32,6 +38,8 @@ class data extends Model
     public $executions;
 
     /**
+     * @description First loading time.
+     *
      * @example 2023-04-12T04:46:38Z
      *
      * @var string
@@ -39,6 +47,8 @@ class data extends Model
     public $firstLoadTime;
 
     /**
+     * @description Whether to hit the diagnosis.
+     *
      * @example false
      *
      * @var bool
@@ -46,6 +56,8 @@ class data extends Model
     public $hitDiagnosis;
 
     /**
+     * @description Hit rate.
+     *
      * @example 100.0
      *
      * @var float
@@ -53,6 +65,8 @@ class data extends Model
     public $hitPercentage;
 
     /**
+     * @description Merge version.
+     *
      * @example 513
      *
      * @var int
@@ -60,11 +74,15 @@ class data extends Model
     public $mergedVersion;
 
     /**
+     * @description Execution plan.
+     *
      * @var planExplain
      */
     public $planExplain;
 
     /**
+     * @description The internal identifier of the SQL execution plan in the diagnostic system.
+     *
      * @example 1758****24913166****
      *
      * @var string
@@ -72,6 +90,8 @@ class data extends Model
     public $planHash;
 
     /**
+     * @description Execution plan type.
+     *
      * @example LOCAL
      *
      * @var string
@@ -79,6 +99,8 @@ class data extends Model
     public $planType;
 
     /**
+     * @description The internal unique identifier of the SQL execution plan in the diagnostic system.
+     *
      * @example "52c7c53****53e61b3f7586b17****ad"
      *
      * @var string
@@ -86,11 +108,15 @@ class data extends Model
     public $planUnionHash;
 
     /**
+     * @description The list of the execution plan.
+     *
      * @var plans[]
      */
     public $plans;
 
     /**
+     * @description The SQL for the query.
+     *
      * @example "select 1 from t"
      *
      * @var string

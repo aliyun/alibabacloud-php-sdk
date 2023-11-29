@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOasSQLPlansRequest extends Model
 {
     /**
+     * @description Supported language. Valid values:
+     * - en-US: English
      * @example zh-CN
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeOasSQLPlansRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The name of the database.
+     *
      * @example test_db
      *
      * @var string
@@ -23,6 +27,13 @@ class DescribeOasSQLPlansRequest extends Model
     public $dbName;
 
     /**
+     * @var bool
+     */
+    public $dynamicSql;
+
+    /**
+     * @description The end time of querying the SQL execution plan.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2023-04-12T05:38:38Z
      *
      * @var string
@@ -30,6 +41,8 @@ class DescribeOasSQLPlansRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -37,7 +50,7 @@ class DescribeOasSQLPlansRequest extends Model
     public $instanceId;
 
     /**
-     * @description SQL ID。
+     * @description SQL ID.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -46,6 +59,8 @@ class DescribeOasSQLPlansRequest extends Model
     public $sqlId;
 
     /**
+     * @description The start time of querying the SQL execution plan.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2023-04-12T04:38:38Z
      *
      * @var string
@@ -53,6 +68,8 @@ class DescribeOasSQLPlansRequest extends Model
     public $startTime;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t4louaeei****
      *
      * @var string
@@ -61,6 +78,7 @@ class DescribeOasSQLPlansRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'dbName'         => 'DbName',
+        'dynamicSql'     => 'DynamicSql',
         'endTime'        => 'EndTime',
         'instanceId'     => 'InstanceId',
         'sqlId'          => 'SqlId',
@@ -80,6 +98,9 @@ class DescribeOasSQLPlansRequest extends Model
         }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->dynamicSql) {
+            $res['DynamicSql'] = $this->dynamicSql;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -113,6 +134,9 @@ class DescribeOasSQLPlansRequest extends Model
         }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['DynamicSql'])) {
+            $model->dynamicSql = $map['DynamicSql'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

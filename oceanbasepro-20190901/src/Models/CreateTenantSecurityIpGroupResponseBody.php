@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTenantSecurityIpGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateTenantSecurityIpGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information of the whitelist group.
+     *
      * @var securityIpGroup
      */
     public $securityIpGroup;

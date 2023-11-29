@@ -4,7 +4,9 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\dataDiskAutoScaleConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\resource;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\tenantCreatable;
 use AlibabaCloud\Tea\Model;
 
 class instance extends Model
@@ -33,6 +35,13 @@ class instance extends Model
     public $availableZones;
 
     /**
+     * @example X86
+     *
+     * @var string
+     */
+    public $cpuArchitecture;
+
+    /**
      * @description Indicates whether the log disk specifications can be upgraded.
      *
      * @example 2021-10-19T07:13:41Z
@@ -40,6 +49,16 @@ class instance extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var bool
+     */
+    public $dataDiskAutoScale;
+
+    /**
+     * @var dataDiskAutoScaleConfig
+     */
+    public $dataDiskAutoScaleConfig;
 
     /**
      * @description The total number of CPU cores of the cluster.
@@ -83,6 +102,11 @@ class instance extends Model
     public $enableIsolationOptimization;
 
     /**
+     * @var bool
+     */
+    public $enableProxyService;
+
+    /**
      * @example false
      *
      * @var bool
@@ -97,6 +121,11 @@ class instance extends Model
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @var bool
+     */
+    public $inTempCapacityStatus;
 
     /**
      * @description The detailed information of the OBServer version.
@@ -186,6 +215,21 @@ class instance extends Model
     public $payType;
 
     /**
+     * @var string
+     */
+    public $proxyClusterId;
+
+    /**
+     * @var string
+     */
+    public $proxyServiceStatus;
+
+    /**
+     * @var string
+     */
+    public $replicaMode;
+
+    /**
      * @description The size of used memory in the cluster, in GB.
      *
      * @var resource
@@ -211,6 +255,11 @@ class instance extends Model
     public $status;
 
     /**
+     * @var tenantCreatable
+     */
+    public $tenantCreatable;
+
+    /**
      * @description You can call this operation to query the detailed information of an OceanBase cluster.
      *
      * @example 2.2.77
@@ -227,14 +276,19 @@ class instance extends Model
         'autoRenewal'                 => 'AutoRenewal',
         'autoUpgradeObVersion'        => 'AutoUpgradeObVersion',
         'availableZones'              => 'AvailableZones',
+        'cpuArchitecture'             => 'CpuArchitecture',
         'createTime'                  => 'CreateTime',
+        'dataDiskAutoScale'           => 'DataDiskAutoScale',
+        'dataDiskAutoScaleConfig'     => 'DataDiskAutoScaleConfig',
         'dataMergeTime'               => 'DataMergeTime',
         'deployMode'                  => 'DeployMode',
         'deployType'                  => 'DeployType',
         'diskType'                    => 'DiskType',
         'enableIsolationOptimization' => 'EnableIsolationOptimization',
+        'enableProxyService'          => 'EnableProxyService',
         'enableUpgradeLogDisk'        => 'EnableUpgradeLogDisk',
         'expireTime'                  => 'ExpireTime',
+        'inTempCapacityStatus'        => 'InTempCapacityStatus',
         'instanceClass'               => 'InstanceClass',
         'instanceId'                  => 'InstanceId',
         'instanceName'                => 'InstanceName',
@@ -246,9 +300,13 @@ class instance extends Model
         'nodeNum'                     => 'NodeNum',
         'obRpmVersion'                => 'ObRpmVersion',
         'payType'                     => 'PayType',
+        'proxyClusterId'              => 'ProxyClusterId',
+        'proxyServiceStatus'          => 'ProxyServiceStatus',
+        'replicaMode'                 => 'ReplicaMode',
         'resource'                    => 'Resource',
         'series'                      => 'Series',
         'status'                      => 'Status',
+        'tenantCreatable'             => 'TenantCreatable',
         'version'                     => 'Version',
         'zones'                       => 'Zones',
     ];
@@ -269,8 +327,17 @@ class instance extends Model
         if (null !== $this->availableZones) {
             $res['AvailableZones'] = $this->availableZones;
         }
+        if (null !== $this->cpuArchitecture) {
+            $res['CpuArchitecture'] = $this->cpuArchitecture;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->dataDiskAutoScale) {
+            $res['DataDiskAutoScale'] = $this->dataDiskAutoScale;
+        }
+        if (null !== $this->dataDiskAutoScaleConfig) {
+            $res['DataDiskAutoScaleConfig'] = null !== $this->dataDiskAutoScaleConfig ? $this->dataDiskAutoScaleConfig->toMap() : null;
         }
         if (null !== $this->dataMergeTime) {
             $res['DataMergeTime'] = $this->dataMergeTime;
@@ -287,11 +354,17 @@ class instance extends Model
         if (null !== $this->enableIsolationOptimization) {
             $res['EnableIsolationOptimization'] = $this->enableIsolationOptimization;
         }
+        if (null !== $this->enableProxyService) {
+            $res['EnableProxyService'] = $this->enableProxyService;
+        }
         if (null !== $this->enableUpgradeLogDisk) {
             $res['EnableUpgradeLogDisk'] = $this->enableUpgradeLogDisk;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->inTempCapacityStatus) {
+            $res['InTempCapacityStatus'] = $this->inTempCapacityStatus;
         }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
@@ -326,6 +399,15 @@ class instance extends Model
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
+        if (null !== $this->proxyClusterId) {
+            $res['ProxyClusterId'] = $this->proxyClusterId;
+        }
+        if (null !== $this->proxyServiceStatus) {
+            $res['ProxyServiceStatus'] = $this->proxyServiceStatus;
+        }
+        if (null !== $this->replicaMode) {
+            $res['ReplicaMode'] = $this->replicaMode;
+        }
         if (null !== $this->resource) {
             $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
         }
@@ -334,6 +416,9 @@ class instance extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tenantCreatable) {
+            $res['TenantCreatable'] = null !== $this->tenantCreatable ? $this->tenantCreatable->toMap() : null;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -364,8 +449,17 @@ class instance extends Model
                 $model->availableZones = $map['AvailableZones'];
             }
         }
+        if (isset($map['CpuArchitecture'])) {
+            $model->cpuArchitecture = $map['CpuArchitecture'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DataDiskAutoScale'])) {
+            $model->dataDiskAutoScale = $map['DataDiskAutoScale'];
+        }
+        if (isset($map['DataDiskAutoScaleConfig'])) {
+            $model->dataDiskAutoScaleConfig = dataDiskAutoScaleConfig::fromMap($map['DataDiskAutoScaleConfig']);
         }
         if (isset($map['DataMergeTime'])) {
             $model->dataMergeTime = $map['DataMergeTime'];
@@ -382,11 +476,17 @@ class instance extends Model
         if (isset($map['EnableIsolationOptimization'])) {
             $model->enableIsolationOptimization = $map['EnableIsolationOptimization'];
         }
+        if (isset($map['EnableProxyService'])) {
+            $model->enableProxyService = $map['EnableProxyService'];
+        }
         if (isset($map['EnableUpgradeLogDisk'])) {
             $model->enableUpgradeLogDisk = $map['EnableUpgradeLogDisk'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['InTempCapacityStatus'])) {
+            $model->inTempCapacityStatus = $map['InTempCapacityStatus'];
         }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
@@ -421,6 +521,15 @@ class instance extends Model
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
+        if (isset($map['ProxyClusterId'])) {
+            $model->proxyClusterId = $map['ProxyClusterId'];
+        }
+        if (isset($map['ProxyServiceStatus'])) {
+            $model->proxyServiceStatus = $map['ProxyServiceStatus'];
+        }
+        if (isset($map['ReplicaMode'])) {
+            $model->replicaMode = $map['ReplicaMode'];
+        }
         if (isset($map['Resource'])) {
             $model->resource = resource::fromMap($map['Resource']);
         }
@@ -429,6 +538,9 @@ class instance extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TenantCreatable'])) {
+            $model->tenantCreatable = tenantCreatable::fromMap($map['TenantCreatable']);
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

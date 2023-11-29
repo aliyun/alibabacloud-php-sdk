@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The message of the switchover.
+     *
      * @example delete tag-value success
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $message;
 
     /**
+     * @description Whether the switchover is successful.
+     * - false: the switchover failed.
      * @example true
      *
      * @var bool

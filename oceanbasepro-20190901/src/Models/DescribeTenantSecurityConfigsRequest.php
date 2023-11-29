@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantSecurityConfigsRequest extends Model
 {
     /**
+     * @example ****
+     *
+     * @var string
+     */
+    public $checkId;
+
+    /**
      * @example ob317v4uif****
      *
      * @var string
@@ -22,6 +29,7 @@ class DescribeTenantSecurityConfigsRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'checkId'    => 'CheckId',
         'instanceId' => 'InstanceId',
         'tenantId'   => 'TenantId',
     ];
@@ -33,6 +41,9 @@ class DescribeTenantSecurityConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkId) {
+            $res['CheckId'] = $this->checkId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -51,6 +62,9 @@ class DescribeTenantSecurityConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckId'])) {
+            $model->checkId = $map['CheckId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

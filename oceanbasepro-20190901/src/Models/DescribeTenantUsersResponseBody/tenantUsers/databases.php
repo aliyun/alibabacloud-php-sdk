@@ -16,6 +16,11 @@ class databases extends Model
     public $database;
 
     /**
+     * @var string
+     */
+    public $privileges;
+
+    /**
      * @example ReadOnly
      *
      * @var string
@@ -29,9 +34,10 @@ class databases extends Model
      */
     public $table;
     protected $_name = [
-        'database' => 'Database',
-        'role'     => 'Role',
-        'table'    => 'Table',
+        'database'   => 'Database',
+        'privileges' => 'Privileges',
+        'role'       => 'Role',
+        'table'      => 'Table',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class databases extends Model
         $res = [];
         if (null !== $this->database) {
             $res['Database'] = $this->database;
+        }
+        if (null !== $this->privileges) {
+            $res['Privileges'] = $this->privileges;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
@@ -64,6 +73,9 @@ class databases extends Model
         $model = new self();
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
+        }
+        if (isset($map['Privileges'])) {
+            $model->privileges = $map['Privileges'];
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
