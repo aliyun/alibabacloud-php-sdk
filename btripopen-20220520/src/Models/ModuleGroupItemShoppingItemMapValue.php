@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleFlightItemListBestPriceItemShoppingItemMapValue\cabinQuantityList;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleFlightItemListBestPriceItemShoppingItemMapValue\searchPrice;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleFlightItemListBestPriceItemShoppingItemMapValue\segmentPriceList;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleGroupItemShoppingItemMapValue\cabinQuantityList;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleGroupItemShoppingItemMapValue\searchPrice;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleGroupItemShoppingItemMapValue\segmentPriceList;
 use AlibabaCloud\Tea\Model;
 
-class ModuleFlightItemListBestPriceItemShoppingItemMapValue extends Model
+class ModuleGroupItemShoppingItemMapValue extends Model
 {
     /**
      * @var cabinQuantityList[]
@@ -25,32 +25,10 @@ class ModuleFlightItemListBestPriceItemShoppingItemMapValue extends Model
      * @var segmentPriceList[]
      */
     public $segmentPriceList;
-
-    /**
-     * @description id
-     *
-     * @example ADT07df0bd9-f803-4a50-8449-f4bd675d9939
-     *
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var ModuleFlightItemListBestPriceItemShoppingItemMapValueCabinQuantityValue[]
-     */
-    public $cabinQuantity;
-
-    /**
-     * @var ModuleFlightItemListBestPriceItemShoppingItemMapValueSegmentPriceValue[]
-     */
-    public $segmentPrice;
     protected $_name = [
         'cabinQuantityList' => 'cabin_quantity_list',
         'searchPrice'       => 'search_price',
         'segmentPriceList'  => 'segment_price_list',
-        'id'                => 'id',
-        'cabinQuantity'     => 'cabin_quantity',
-        'segmentPrice'      => 'segment_price',
     ];
 
     public function validate()
@@ -81,25 +59,6 @@ class ModuleFlightItemListBestPriceItemShoppingItemMapValue extends Model
                 }
             }
         }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-        if (null !== $this->cabinQuantity) {
-            $res['cabin_quantity'] = [];
-            if (null !== $this->cabinQuantity && \is_array($this->cabinQuantity)) {
-                foreach ($this->cabinQuantity as $key => $val) {
-                    $res['cabin_quantity'][$key] = null !== $val ? $val->toMap() : $val;
-                }
-            }
-        }
-        if (null !== $this->segmentPrice) {
-            $res['segment_price'] = [];
-            if (null !== $this->segmentPrice && \is_array($this->segmentPrice)) {
-                foreach ($this->segmentPrice as $key => $val) {
-                    $res['segment_price'][$key] = null !== $val ? $val->toMap() : $val;
-                }
-            }
-        }
 
         return $res;
     }
@@ -107,7 +66,7 @@ class ModuleFlightItemListBestPriceItemShoppingItemMapValue extends Model
     /**
      * @param array $map
      *
-     * @return ModuleFlightItemListBestPriceItemShoppingItemMapValue
+     * @return ModuleGroupItemShoppingItemMapValue
      */
     public static function fromMap($map = [])
     {
@@ -132,15 +91,6 @@ class ModuleFlightItemListBestPriceItemShoppingItemMapValue extends Model
                     $model->segmentPriceList[$n++] = null !== $item ? segmentPriceList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-        if (isset($map['cabin_quantity'])) {
-            $model->cabinQuantity = $map['cabin_quantity'];
-        }
-        if (isset($map['segment_price'])) {
-            $model->segmentPrice = $map['segment_price'];
         }
 
         return $model;

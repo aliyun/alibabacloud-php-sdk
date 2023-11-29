@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ModuleItemListSubItemsShoppingItemMapValue extends Model
 {
     /**
+     * @var searchPrice
+     */
+    public $searchPrice;
+
+    /**
      * @description id
      *
      * @example ADT07df0bd9-f803-4a50-8449-f4bd675d9939
@@ -24,18 +29,13 @@ class ModuleItemListSubItemsShoppingItemMapValue extends Model
     public $cabinQuantity;
 
     /**
-     * @var searchPrice
-     */
-    public $searchPrice;
-
-    /**
      * @var ModuleItemListSubItemsShoppingItemMapValueSegmentPriceValue[]
      */
     public $segmentPrice;
     protected $_name = [
+        'searchPrice'   => 'search_price',
         'id'            => 'id',
         'cabinQuantity' => 'cabin_quantity',
-        'searchPrice'   => 'search_price',
         'segmentPrice'  => 'segment_price',
     ];
 
@@ -46,6 +46,9 @@ class ModuleItemListSubItemsShoppingItemMapValue extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->searchPrice) {
+            $res['search_price'] = null !== $this->searchPrice ? $this->searchPrice->toMap() : null;
+        }
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
@@ -56,9 +59,6 @@ class ModuleItemListSubItemsShoppingItemMapValue extends Model
                     $res['cabin_quantity'][$key] = null !== $val ? $val->toMap() : $val;
                 }
             }
-        }
-        if (null !== $this->searchPrice) {
-            $res['search_price'] = null !== $this->searchPrice ? $this->searchPrice->toMap() : null;
         }
         if (null !== $this->segmentPrice) {
             $res['segment_price'] = [];
@@ -80,14 +80,14 @@ class ModuleItemListSubItemsShoppingItemMapValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['search_price'])) {
+            $model->searchPrice = searchPrice::fromMap($map['search_price']);
+        }
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
         if (isset($map['cabin_quantity'])) {
             $model->cabinQuantity = $map['cabin_quantity'];
-        }
-        if (isset($map['search_price'])) {
-            $model->searchPrice = searchPrice::fromMap($map['search_price']);
         }
         if (isset($map['segment_price'])) {
             $model->segmentPrice = $map['segment_price'];
