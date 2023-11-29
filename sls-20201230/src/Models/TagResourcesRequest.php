@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The resource IDs. You can specify only one resource and add tags to the resource.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Set the value to project.
+     *
      * @example project
      *
      * @var string
@@ -22,6 +26,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags that you want to add to the resource. Up to 20 tags are supported at a time. Each tag is a key-value pair.
+     *
      * @var tags[]
      */
     public $tags;

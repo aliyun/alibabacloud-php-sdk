@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class line extends Model
 {
     /**
+     * @description Specifies whether to enable case sensitivity. Valid values:
+     *
+     *   true
+     *   false (default)
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,11 @@ class line extends Model
     public $caseSensitive;
 
     /**
+     * @description Specifies whether to include Chinese characters. Valid values:
+     *
+     *   true
+     *   false (default)
+     *
      * @example false
      *
      * @var bool
@@ -23,16 +33,22 @@ class line extends Model
     public $chn;
 
     /**
+     * @description The excluded fields. You cannot specify both include_keys and exclude_keys.
+     *
      * @var string[]
      */
     public $excludeKeys;
 
     /**
+     * @description The included fields. You cannot specify both include_keys and exclude_keys.
+     *
      * @var string[]
      */
     public $includeKeys;
 
     /**
+     * @description The delimiters. You can specify a delimiter to delimit the content of a field value. For more information about delimiters, see Example.
+     *
      * @var string[]
      */
     public $token;

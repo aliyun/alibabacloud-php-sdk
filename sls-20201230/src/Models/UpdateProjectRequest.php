@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectRequest extends Model
 {
     /**
+     * @description The description of the project. The default value is an empty string.
+     *
      * @example Description of my-project-test
      *
      * @var string

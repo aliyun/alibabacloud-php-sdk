@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListExternalStoreResponseBody extends Model
 {
     /**
+     * @description The number of external stores returned on the current page.
+     *
      * @example 3
      *
      * @var int
@@ -16,11 +18,15 @@ class ListExternalStoreResponseBody extends Model
     public $count;
 
     /**
+     * @description The names of the external stores.
+     *
      * @var ExternalStore[]
      */
     public $externalstores;
 
     /**
+     * @description The number of external stores that meet the query conditions.
+     *
      * @example 3
      *
      * @var int

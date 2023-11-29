@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateIndexRequest extends Model
 {
     /**
+     * @description The configuration of field indexes. A field index is a key-value pair in which the key specifies the name of the field and the value specifies the index configuration of the field. You must specify this parameter, the line parameter, or both parameters. For more information, see Example.
+     *
      * @var KeysValue[]
      */
     public $keys;
 
     /**
+     * @description The configuration of full-text indexes. You must specify this parameter, the keys parameter, or both parameters. For more information, see Example.
+     *
      * @var line
      */
     public $line;
 
     /**
+     * @description Specifies whether to turn on LogReduce. After you turn on LogReduce, either the whitelist or blacklist takes effect.
+     *
      * @example false
      *
      * @var bool
@@ -27,16 +33,22 @@ class CreateIndexRequest extends Model
     public $logReduce;
 
     /**
+     * @description The fields in the blacklist that you want to use to cluster logs.
+     *
      * @var string[]
      */
     public $logReduceBlackList;
 
     /**
+     * @description The fields in the whitelist that you want to use to cluster logs.
+     *
      * @var string[]
      */
     public $logReduceWhiteList;
 
     /**
+     * @description The maximum length of a field value that can be retained. Default value: 2048. Unit: bytes. The default value is equal to 2 KB. You can change the value of max_text_len. Valid values: 64 to 16384.
+     *
      * @example 2048
      *
      * @var int
@@ -44,6 +56,8 @@ class CreateIndexRequest extends Model
     public $maxTextLen;
 
     /**
+     * @description The retention period of logs. Unit: days. Valid values: 7, 30, and 90.
+     *
      * @example 30
      *
      * @var int

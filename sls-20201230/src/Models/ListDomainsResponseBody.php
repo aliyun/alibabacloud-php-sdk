@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsResponseBody extends Model
 {
     /**
+     * @description The number of domain names that are returned on the current page.
+     *
      * @example 1
      *
      * @var int
@@ -16,11 +18,15 @@ class ListDomainsResponseBody extends Model
     public $count;
 
     /**
+     * @description The domain names.
+     *
      * @var string[]
      */
     public $domains;
 
     /**
+     * @description The total number of domain names that are returned.
+     *
      * @example 1
      *
      * @var int

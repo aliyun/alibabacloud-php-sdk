@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectRequest extends Model
 {
     /**
+     * @description Data redundancy type
+     *
      * @example LRS
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateProjectRequest extends Model
     public $dataRedundancyType;
 
     /**
+     * @description The description of the project.
+     *
      * @example this is test
      *
      * @var string
@@ -23,6 +27,13 @@ class CreateProjectRequest extends Model
     public $description;
 
     /**
+     * @description The name of the project. The name must be unique in a region. You cannot change the name after you create the project. The name must meet the following requirements:
+     *
+     *   The name must be unique.
+     *   It can contain only lowercase letters, digits, and hyphens (-).
+     *   It must start and end with a lowercase letter or a digit.
+     *   It must be 3 to 63 characters in length.
+     *
      * @example test-project
      *
      * @var string
@@ -30,6 +41,10 @@ class CreateProjectRequest extends Model
     public $projectName;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aekzf******sxby
+     *
      * @var string
      */
     public $resourceGroupId;

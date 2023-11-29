@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetContextLogsResponseBody extends Model
 {
     /**
+     * @description The number of logs that are generated before the generation time of the start log.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class GetContextLogsResponseBody extends Model
     public $backLines;
 
     /**
+     * @description The number of logs that are generated after the generation time of the start log.
+     *
      * @example 100
      *
      * @var int
@@ -23,11 +27,18 @@ class GetContextLogsResponseBody extends Model
     public $forwardLines;
 
     /**
+     * @description The logs that are returned.
+     *
      * @var mixed[][]
      */
     public $logs;
 
     /**
+     * @description Indicates whether the query and analysis results are complete. Valid values:
+     *
+     *   Complete: The query is successful, and the complete query and analysis results are returned.
+     *   Incomplete: The query is successful, but the query and analysis results are incomplete. To obtain the complete results, you must repeat the request.
+     *
      * @example Complete
      *
      * @var string
@@ -35,6 +46,8 @@ class GetContextLogsResponseBody extends Model
     public $progress;
 
     /**
+     * @description The total number of logs that are returned. The logs include the start log that is specified in the request.
+     *
      * @example 201
      *
      * @var int

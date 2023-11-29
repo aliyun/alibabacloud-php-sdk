@@ -11,6 +11,8 @@ class GetLogsV2Headers extends Model
     public $commonHeaders;
 
     /**
+     * @description The compression method.
+     *
      * @example lz4
      *
      * @var string

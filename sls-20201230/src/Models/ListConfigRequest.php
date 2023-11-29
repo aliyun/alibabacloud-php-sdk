@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListConfigRequest extends Model
 {
     /**
+     * @example logtail-config-sample
+     *
      * @var string
      */
     public $configName;
 
     /**
+     * @example ali-test-logstore
+     *
      * @var string
      */
     public $logstoreName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

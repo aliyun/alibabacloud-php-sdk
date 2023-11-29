@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutProjectPolicyRequest extends Model
 {
     /**
+     * @description The project policy.
+     *
      * @example { 	"Version": "1", 	"Statement": [{ 		"Action": ["log:PostLogStoreLogs"], 		"Resource": "acs:log:*:*:project/exampleproject/*", 		"Effect": "Deny", 		"Condition": { 			"StringNotLike": { 				"acs:SourceVpc": ["vpc-*"] 			} 		} 	}] }
      *
      * @var string

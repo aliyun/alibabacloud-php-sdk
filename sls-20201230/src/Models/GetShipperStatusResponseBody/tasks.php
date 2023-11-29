@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The ID of the log shipping job.
+     *
      * @example abcdefghijk
      *
      * @var string
@@ -16,6 +18,8 @@ class tasks extends Model
     public $id;
 
     /**
+     * @description The error code of the log shipping job.
+     *
      * @example UnAuthorized
      *
      * @var string
@@ -23,6 +27,8 @@ class tasks extends Model
     public $taskCode;
 
     /**
+     * @description The start time of the log shipping job. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1448925013
      *
      * @var int
@@ -30,6 +36,8 @@ class tasks extends Model
     public $taskCreateTime;
 
     /**
+     * @description The number of logs that are shipped in the log shipping job.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class tasks extends Model
     public $taskDataLines;
 
     /**
+     * @description The end time of the log shipping job. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1448926013
      *
      * @var int
@@ -44,6 +54,8 @@ class tasks extends Model
     public $taskFinishTime;
 
     /**
+     * @description The time when Simple Log Service receives the most recent log of the log shipping job. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1448915013
      *
      * @var int
@@ -51,13 +63,17 @@ class tasks extends Model
     public $taskLastDataReceiveTime;
 
     /**
-     * @example AccessDenied: You have no right to access this object because of bucket acl.
+     * @description The error message of the log shipping job.
+     *
+     * @example Internal server error
      *
      * @var string
      */
     public $taskMessage;
 
     /**
+     * @description The status of the log shipping job. Valid values: running, success, and fail.
+     *
      * @example success
      *
      * @var string

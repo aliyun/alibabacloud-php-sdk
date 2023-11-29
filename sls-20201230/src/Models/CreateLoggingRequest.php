@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateLoggingRequest extends Model
 {
     /**
+     * @description The configurations of service logs.
+     *
      * @var loggingDetails[]
      */
     public $loggingDetails;
 
     /**
+     * @description The name of the project to which service logs are stored.
+     *
      * @example my-project
      *
      * @var string

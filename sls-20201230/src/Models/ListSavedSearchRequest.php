@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSavedSearchRequest extends Model
 {
     /**
+     * @description The line from which the query starts. Default value: 0.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class ListSavedSearchRequest extends Model
     public $offset;
 
     /**
+     * @description The number of entries per page. Maximum value: 500.
+     *
      * @example 10
      *
      * @var int

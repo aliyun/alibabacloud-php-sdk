@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description The AccessKey ID of your account.
+     *
      * @example LTAI5tFsHGGeYry*****1Sz
      *
      * @var string
@@ -17,6 +19,8 @@ class parameter extends Model
     public $accessid;
 
     /**
+     * @description The AccessKey secret of your account.
+     *
      * @example GyviCLDVHkHrOztdkxuE6******Rp6
      *
      * @var string
@@ -24,6 +28,8 @@ class parameter extends Model
     public $accesskey;
 
     /**
+     * @description The name of the OSS bucket.
+     *
      * @example my-bucket
      *
      * @var string
@@ -31,11 +37,15 @@ class parameter extends Model
     public $bucket;
 
     /**
+     * @description The associated fields.
+     *
      * @var columns[]
      */
     public $columns;
 
     /**
+     * @description The OSS endpoint.
+     *
      * @example oss-cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -43,6 +53,8 @@ class parameter extends Model
     public $endpoint;
 
     /**
+     * @description The associated objects.
+     *
      * @var string[]
      */
     public $objects;

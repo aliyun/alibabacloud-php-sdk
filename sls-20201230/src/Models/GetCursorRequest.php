@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCursorRequest extends Model
 {
     /**
+     * @description The point in time that you want to use to query a cursor. Set the value to a UNIX timestamp or a string such as `begin` and `end`.
+     *
      * @example begin
      *
      * @var string

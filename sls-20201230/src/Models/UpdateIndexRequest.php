@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateIndexRequest extends Model
 {
     /**
+     * @description The configuration of field indexes. A field index is a key-value pair in which the key specifies the name of the field and the value specifies the index configuration of the field.
+     *
      * @var KeysValue[]
      */
     public $keys;
 
     /**
+     * @description The configuration of full-text indexes.
+     *
      * @var line
      */
     public $line;
 
     /**
+     * @description Specifies whether to turn on LogReduce. If you turn on LogReduce, only one of `log_reduce_white_list` and `log_reduce_black_list` takes effect.
+     *
      * @example false
      *
      * @var bool
@@ -27,16 +33,22 @@ class UpdateIndexRequest extends Model
     public $logReduce;
 
     /**
+     * @description The fields in the blacklist that you want to use to cluster logs.
+     *
      * @var string[]
      */
     public $logReduceBlackList;
 
     /**
+     * @description The fields in the whitelist that you want to use to cluster logs.
+     *
      * @var string[]
      */
     public $logReduceWhiteList;
 
     /**
+     * @description The maximum length of a field value that can be retained.
+     *
      * @example 2048
      *
      * @var int
@@ -44,6 +56,8 @@ class UpdateIndexRequest extends Model
     public $maxTextLen;
 
     /**
+     * @description The retention period of data. Unit: days. Valid values: 7, 30, and 90.
+     *
      * @example 30
      *
      * @var int

@@ -72,27 +72,6 @@ class Ticket extends Model
     public $ticketId;
 
     /**
-     * @example dashboard
-     *
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @example false
-     *
-     * @var bool
-     */
-    public $unlimitedExpiration;
-
-    /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $unlimitedNumber;
-
-    /**
      * @example 1
      *
      * @var int
@@ -106,20 +85,17 @@ class Ticket extends Model
      */
     public $valid;
     protected $_name = [
-        'callerUid'           => 'callerUid',
-        'createDate'          => 'createDate',
-        'expirationTime'      => 'expirationTime',
-        'expireDate'          => 'expireDate',
-        'extra'               => 'extra',
-        'name'                => 'name',
-        'number'              => 'number',
-        'ticket'              => 'ticket',
-        'ticketId'            => 'ticketId',
-        'type'                => 'type',
-        'unlimitedExpiration' => 'unlimitedExpiration',
-        'unlimitedNumber'     => 'unlimitedNumber',
-        'usedNumber'          => 'usedNumber',
-        'valid'               => 'valid',
+        'callerUid'      => 'callerUid',
+        'createDate'     => 'createDate',
+        'expirationTime' => 'expirationTime',
+        'expireDate'     => 'expireDate',
+        'extra'          => 'extra',
+        'name'           => 'name',
+        'number'         => 'number',
+        'ticket'         => 'ticket',
+        'ticketId'       => 'ticketId',
+        'usedNumber'     => 'usedNumber',
+        'valid'          => 'valid',
     ];
 
     public function validate()
@@ -155,15 +131,6 @@ class Ticket extends Model
         }
         if (null !== $this->ticketId) {
             $res['ticketId'] = $this->ticketId;
-        }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
-        }
-        if (null !== $this->unlimitedExpiration) {
-            $res['unlimitedExpiration'] = $this->unlimitedExpiration;
-        }
-        if (null !== $this->unlimitedNumber) {
-            $res['unlimitedNumber'] = $this->unlimitedNumber;
         }
         if (null !== $this->usedNumber) {
             $res['usedNumber'] = $this->usedNumber;
@@ -209,15 +176,6 @@ class Ticket extends Model
         }
         if (isset($map['ticketId'])) {
             $model->ticketId = $map['ticketId'];
-        }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
-        }
-        if (isset($map['unlimitedExpiration'])) {
-            $model->unlimitedExpiration = $map['unlimitedExpiration'];
-        }
-        if (isset($map['unlimitedNumber'])) {
-            $model->unlimitedNumber = $map['unlimitedNumber'];
         }
         if (isset($map['usedNumber'])) {
             $model->usedNumber = $map['usedNumber'];

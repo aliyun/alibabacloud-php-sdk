@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAppliedMachineGroupsResponseBody extends Model
 {
     /**
+     * @description The number of returned machine groups.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class GetAppliedMachineGroupsResponseBody extends Model
     public $count;
 
     /**
+     * @description The names of the returned machine groups.
+     *
      * @example [ "sample-group1","sample-group2" ]
      *
      * @var string[]

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class line extends Model
 {
     /**
+     * @description Indicates whether case sensitivity is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,11 @@ class line extends Model
     public $caseSensitive;
 
     /**
+     * @description Indicates whether Chinese characters are included. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -23,16 +33,22 @@ class line extends Model
     public $chn;
 
     /**
+     * @description The excluded fields.
+     *
      * @var string[]
      */
     public $excludeKeys;
 
     /**
+     * @description The included fields.
+     *
      * @var string[]
      */
     public $includeKeys;
 
     /**
+     * @description The delimiters.
+     *
      * @var string[]
      */
     public $token;

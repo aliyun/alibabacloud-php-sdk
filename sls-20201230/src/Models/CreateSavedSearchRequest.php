@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSavedSearchRequest extends Model
 {
     /**
+     * @description The display name.
+     *
      * @example displayname
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSavedSearchRequest extends Model
     public $displayName;
 
     /**
+     * @description The name of the Logstore to which the saved search belongs.
+     *
      * @example aliyun-test-logstore
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateSavedSearchRequest extends Model
     public $logstore;
 
     /**
+     * @description The name of the saved search. The name must be 3 to 63 characters in length.
+     *
      * @example pv in minutes
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateSavedSearchRequest extends Model
     public $savedsearchName;
 
     /**
+     * @description The query statement of the saved search. A query statement consists of a search statement and an analytic statement in the `Search statement|Analytic statement` format. For more information about search statements and analytic statements, see [Log search overview](~~43772~~) and [Log analysis overview](~~53608~~).
+     *
      * @example *|select date_format(__time__-__time__%60, \"%H:%i:%s\") as time, COUNT(*) as pv group by time
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateSavedSearchRequest extends Model
     public $searchQuery;
 
     /**
+     * @description The topic of the log.
+     *
      * @example theme
      *
      * @var string

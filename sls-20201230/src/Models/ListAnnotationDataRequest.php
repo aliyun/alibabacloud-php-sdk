@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListAnnotationDataRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $size;

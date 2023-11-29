@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
      * @example example.com
      *
      * @var string

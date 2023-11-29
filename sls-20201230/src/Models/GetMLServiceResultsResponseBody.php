@@ -4,27 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2ResponseBody\meta;
 use AlibabaCloud\Tea\Model;
 
-class GetLogsV2ResponseBody extends Model
+class GetMLServiceResultsResponseBody extends Model
 {
     /**
-     * @description The returned result.
-     *
      * @var string[][]
      */
     public $data;
 
     /**
-     * @description The metadata that is returned.
-     *
-     * @var meta
+     * @var string[]
      */
-    public $meta;
+    public $status;
     protected $_name = [
-        'data' => 'data',
-        'meta' => 'meta',
+        'data'   => 'data',
+        'status' => 'status',
     ];
 
     public function validate()
@@ -37,8 +32,8 @@ class GetLogsV2ResponseBody extends Model
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
-        if (null !== $this->meta) {
-            $res['meta'] = null !== $this->meta ? $this->meta->toMap() : null;
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -47,7 +42,7 @@ class GetLogsV2ResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetLogsV2ResponseBody
+     * @return GetMLServiceResultsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -57,8 +52,8 @@ class GetLogsV2ResponseBody extends Model
                 $model->data = $map['data'];
             }
         }
-        if (isset($map['meta'])) {
-            $model->meta = meta::fromMap($map['meta']);
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

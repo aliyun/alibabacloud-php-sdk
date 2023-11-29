@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetShipperStatusResponseBody extends Model
 {
     /**
+     * @description The number of log shipping jobs returned on the current page.
+     *
      * @example 10
      *
      * @var int
@@ -18,16 +20,22 @@ class GetShipperStatusResponseBody extends Model
     public $count;
 
     /**
+     * @description The statistics about log shipping jobs.
+     *
      * @var statistics
      */
     public $statistics;
 
     /**
+     * @description The details of log shipping jobs.
+     *
      * @var tasks
      */
     public $tasks;
 
     /**
+     * @description The total number of log shipping jobs.
+     *
      * @example 20
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMachineGroupMachineRequest extends Model
 {
     /**
+     * @description The operation on the machine. Valid values: add and delete. A value of add specifies to add the machine to the machine group. A value of delete specifies to remove the machine from the machine group.
+     *
      * @example add
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateMachineGroupMachineRequest extends Model
     public $action;
 
     /**
+     * @description The machines to be added or removed.
+     *
      * @var string[]
      */
     public $body;

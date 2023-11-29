@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
+     * @description The number of log shipping jobs that are in the fail state.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class statistics extends Model
     public $fail;
 
     /**
+     * @description The number of log shipping jobs that are in the running state.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class statistics extends Model
     public $running;
 
     /**
+     * @description The number of log shipping jobs that are in the success state.
+     *
      * @example 20
      *
      * @var int

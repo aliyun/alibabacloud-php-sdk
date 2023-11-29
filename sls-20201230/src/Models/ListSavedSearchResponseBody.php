@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSavedSearchResponseBody extends Model
 {
     /**
+     * @description The number of saved searches returned on the current page.
+     *
      * @example 4
      *
      * @var int
@@ -16,6 +18,8 @@ class ListSavedSearchResponseBody extends Model
     public $count;
 
     /**
+     * @description The saved searches.
+     *
      * @example [ "test-1", "test-2" ]
      *
      * @var SavedSearch[]
@@ -23,6 +27,8 @@ class ListSavedSearchResponseBody extends Model
     public $savedsearchItems;
 
     /**
+     * @description The total number of saved searches that meet the query conditions.
+     *
      * @example 4
      *
      * @var int

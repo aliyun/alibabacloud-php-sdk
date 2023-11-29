@@ -19,16 +19,22 @@ class UpdateDashboardRequest extends Model
     public $charts;
 
     /**
+     * @example dashboard-1609294922657-434834
+     *
      * @var string
      */
     public $dashboardName;
 
     /**
+     * @example test dashboard.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Method pv
+     *
      * @var string
      */
     public $displayName;

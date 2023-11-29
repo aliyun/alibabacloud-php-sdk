@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The start time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned.
      * @example 1409529600
      *
      * @var int
@@ -16,6 +19,9 @@ class body extends Model
     public $from;
 
     /**
+     * @description The end time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned.
      * @example 1409569200
      *
      * @var int
@@ -23,6 +29,8 @@ class body extends Model
     public $to;
 
     /**
+     * @description The number of logs that are generated within the subinterval.
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +38,9 @@ class body extends Model
     public $count;
 
     /**
+     * @description Indicates whether the query and analysis results in the subinterval is complete. Valid values:
+     *
+     * Incomplete: The query is successful, but the query and analysis results are incomplete. To obtain the complete results, you must repeat the request.
      * @example Complete
      *
      * @var string

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesShrinkRequest extends Model
 {
     /**
+     * @description The IDs of the resources for which you want to query tags. You must specify at least one of resourceId and tags.
+     *
      * @var string
      */
     public $resourceIdShrink;
 
     /**
+     * @description The type of the resource. Set the value to project.
+     *
      * @example project
      *
      * @var string
@@ -21,6 +25,9 @@ class ListTagResourcesShrinkRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags that you want to use to filter resources based on exact match. Each tag is a key-value pair. You must specify at least one of resourceId and tags.
+     *
+     * You can enter up to 20 tags.
      * @var string
      */
     public $tagsShrink;

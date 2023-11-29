@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description The name of the database in the ApsaraDB RDS for MySQL instance.
+     *
      * @example meta
      *
      * @var string
@@ -16,6 +18,8 @@ class parameter extends Model
     public $db;
 
     /**
+     * @description The internal or public endpoint of the ApsaraDB RDS for MySQL instance.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -23,6 +27,8 @@ class parameter extends Model
     public $host;
 
     /**
+     * @description The ID of the ApsaraDB RDS for MySQL instance.
+     *
      * @example i-bp1b6c719dfa08exf****
      *
      * @var string
@@ -30,6 +36,8 @@ class parameter extends Model
     public $instanceId;
 
     /**
+     * @description The password that is used to log on to the ApsaraDB RDS for MySQL instance.
+     *
      * @example sfdsfldsfksfls****
      *
      * @var string
@@ -37,6 +45,8 @@ class parameter extends Model
     public $password;
 
     /**
+     * @description The internal or public port of the ApsaraDB RDS for MySQL instance.
+     *
      * @example 3306
      *
      * @var string
@@ -44,6 +54,8 @@ class parameter extends Model
     public $port;
 
     /**
+     * @description The region where the ApsaraDB RDS for MySQL instance resides. Valid values: cn-qingdao, cn-beijing, and cn-hangzhou.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -51,6 +63,8 @@ class parameter extends Model
     public $region;
 
     /**
+     * @description The name of the database table in the ApsaraDB RDS for MySQL instance.
+     *
      * @example join_meta
      *
      * @var string
@@ -58,6 +72,8 @@ class parameter extends Model
     public $table;
 
     /**
+     * @description The username that is used to log on to the ApsaraDB RDS for MySQL instance.
+     *
      * @example root
      *
      * @var string
@@ -65,6 +81,8 @@ class parameter extends Model
     public $username;
 
     /**
+     * @description The ID of the VPC to which the ApsaraDB RDS for MySQL instance belongs.
+     *
      * @example vpc-bp1aevy8sofi8mh1q****
      *
      * @var string

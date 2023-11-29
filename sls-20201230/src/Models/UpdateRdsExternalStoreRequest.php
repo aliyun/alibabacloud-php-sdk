@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateRdsExternalStoreRequest extends Model
 {
     /**
+     * @description The name of the external store.
+     *
      * @example rds_store
      *
      * @var string
@@ -17,11 +19,15 @@ class UpdateRdsExternalStoreRequest extends Model
     public $externalStoreName;
 
     /**
+     * @description The parameter struct.
+     *
      * @var parameter
      */
     public $parameter;
 
     /**
+     * @description The storage type. Set the value to rds-vpc, which indicates an ApsaraDB RDS for MySQL database in a virtual private cloud (VPC).
+     *
      * @example rds-vpc
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOssExternalStoreRequest extends Model
 {
     /**
+     * @description The name of the external store.
+     *
      * @example test_oss_store
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateOssExternalStoreRequest extends Model
     public $externalStoreName;
 
     /**
+     * @description The parameters that are configured for the external store.
+     *
      * @var parameter
      */
     public $parameter;
 
     /**
+     * @description The type of the external store. Set the value to oss.
+     *
      * @example oss
      *
      * @var string

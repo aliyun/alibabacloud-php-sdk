@@ -14,6 +14,8 @@ class ListAnnotationDataSetsResponseBody extends Model
     public $data;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $total;

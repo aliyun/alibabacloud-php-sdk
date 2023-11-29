@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateMachineGroupRequest extends Model
 {
     /**
+     * @description The attribute of the machine group. This parameter is empty by default.
+     *
      * @var groupAttribute
      */
     public $groupAttribute;
 
     /**
+     * @description The name of the machine group.
+     *
      * @example test-machine-group
      *
      * @var string
@@ -22,6 +26,8 @@ class UpdateMachineGroupRequest extends Model
     public $groupName;
 
     /**
+     * @description The type of the machine group. Set the value to an empty string.
+     *
      * @example ""
      *
      * @var string
@@ -29,6 +35,11 @@ class UpdateMachineGroupRequest extends Model
     public $groupType;
 
     /**
+     * @description The identifier type of the machine group. Valid values:
+     *
+     *   ip: The machine group uses IP addresses as identifiers.
+     *   userdefined: The machine group uses custom identifiers.
+     *
      * @example userdefined
      *
      * @var string
@@ -36,6 +47,11 @@ class UpdateMachineGroupRequest extends Model
     public $machineIdentifyType;
 
     /**
+     * @description The identifiers of the machines in the machine group.
+     *
+     *   If you set machineIdentifyType to ip, enter the IP addresses of the machines.
+     *   If you set machineIdentifyType to userdefined, enter a custom identifier.
+     *
      * @example [uu_id_1，uu_id_2]
      *
      * @var string[]

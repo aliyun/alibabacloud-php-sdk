@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description Shard ID。
+     * @description The shard ID.
      *
      * @example 0
      *
@@ -18,6 +18,8 @@ class body extends Model
     public $shard;
 
     /**
+     * @description The value of the checkpoint.
+     *
      * @example MTUyNDE1NTM3OTM3MzkwODQ5Ng==
      *
      * @var string
@@ -25,6 +27,8 @@ class body extends Model
     public $checkpoint;
 
     /**
+     * @description The time when the checkpoint was last updated. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1524224984800922
      *
      * @var int
@@ -32,6 +36,8 @@ class body extends Model
     public $updateTime;
 
     /**
+     * @description The consumer at the checkpoint.
+     *
      * @example consumer_1
      *
      * @var string

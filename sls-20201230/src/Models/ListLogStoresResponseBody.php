@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListLogStoresResponseBody extends Model
 {
     /**
+     * @description The number of entries that are returned on the current page.
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The Logstores that meet the query conditions.
+     *
      * @example ["test-1","test-2"]
      *
      * @var string[]
@@ -21,6 +25,8 @@ class ListLogStoresResponseBody extends Model
     public $logstores;
 
     /**
+     * @description The number of the Logstores that meet the query conditions.
+     *
      * @example 2
      *
      * @var int

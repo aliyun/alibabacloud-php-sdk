@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProjectResponseBody extends Model
 {
     /**
+     * @description The number of returned projects on the current page.
+     *
      * @example 2
      *
      * @var int
@@ -16,11 +18,15 @@ class ListProjectResponseBody extends Model
     public $count;
 
     /**
+     * @description The projects that meet the query conditions.
+     *
      * @var Project[]
      */
     public $projects;
 
     /**
+     * @description The total number of projects that meet the query conditions.
+     *
      * @example 11
      *
      * @var int

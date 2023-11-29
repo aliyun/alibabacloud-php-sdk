@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMachinesResponseBody extends Model
 {
     /**
+     * @description The number of machines that are returned on the current page.
+     *
      * @example 3
      *
      * @var int
@@ -16,11 +18,15 @@ class ListMachinesResponseBody extends Model
     public $count;
 
     /**
+     * @description The machines that are returned.
+     *
      * @var Machine[]
      */
     public $machines;
 
     /**
+     * @description The total number of machines.
+     *
      * @example 8
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCursorResponseBody extends Model
 {
     /**
+     * @description The value of the cursor.
+     *
      * @example MTQ0NzI5OTYwNjg5NjYzMjM1Ng==
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetContextLogsRequest extends Model
 {
     /**
+     * @description The number of logs that you want to obtain and are generated before the generation time of the start log. Valid values: (0,100].
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class GetContextLogsRequest extends Model
     public $backLines;
 
     /**
+     * @description The number of logs that you want to obtain and are generated after the generation time of the start log. Valid values: (0,100].
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class GetContextLogsRequest extends Model
     public $forwardLines;
 
     /**
+     * @description The unique identifier of the log group to which the start log belongs.
+     *
      * @example 85C897C740352DC6-808
      *
      * @var string
@@ -30,6 +36,8 @@ class GetContextLogsRequest extends Model
     public $packId;
 
     /**
+     * @description The unique context identifier of the start log in the log group.
+     *
      * @example 2|MTY1NTcwNTUzODY5MTY0MDk1Mg==|3|0
      *
      * @var string
@@ -37,6 +45,8 @@ class GetContextLogsRequest extends Model
     public $packMeta;
 
     /**
+     * @description The type of the data in the Logstore. Set the value to context_log.
+     *
      * @example context_log
      *
      * @var string

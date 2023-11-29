@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class CreateMachineGroupRequest extends Model
 {
     /**
+     * @description The attributes of the machine group.
+     *
      * @var groupAttribute
      */
     public $groupAttribute;
 
     /**
+     * @description The name of the machine group. The name must meet the following requirements:
+     *
+     *   The name of each machine group in a project must be unique.
+     *   It can contain only lowercase letters, digits, hyphens (-), and underscores (\_).
+     *   It must start and end with a lowercase letter or a digit.
+     *   It must be 3 to 128 characters in length.
+     *
      * @example test-machine-group
      *
      * @var string
@@ -22,6 +31,8 @@ class CreateMachineGroupRequest extends Model
     public $groupName;
 
     /**
+     * @description The type of the machine group. The parameter can be left empty.
+     *
      * @example ""
      *
      * @var string
@@ -29,6 +40,11 @@ class CreateMachineGroupRequest extends Model
     public $groupType;
 
     /**
+     * @description The type of the machine group identifier. Valid values:
+     *
+     *   ip: The machine group uses IP addresses as identifiers.
+     *   userdefined: The machine group uses custom identifiers.
+     *
      * @example ip
      *
      * @var string
@@ -36,6 +52,11 @@ class CreateMachineGroupRequest extends Model
     public $machineIdentifyType;
 
     /**
+     * @description The identifiers of machine group.
+     *
+     *   If you set machineIdentifyType to ip, enter the IP address of the machine.
+     *   If you set machineIdentifyType to userdefined, enter a custom identifier.
+     *
      * @var string[]
      */
     public $machineList;

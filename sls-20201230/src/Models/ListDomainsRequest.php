@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsRequest extends Model
 {
     /**
+     * @description The domain name that is used to match custom domain names. For example, if you set domainName to `example.com`, the matched domain names are `a.example.com` and `b.example.com`.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDomainsRequest extends Model
     public $domainName;
 
     /**
+     * @description The line from which the query starts. Default value: 0.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class ListDomainsRequest extends Model
     public $offset;
 
     /**
+     * @description The number of entries per page. Default value: 500. Maximum value: 500.
+     *
      * @example 10
      *
      * @var int

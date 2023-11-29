@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCursorTimeResponseBody extends Model
 {
     /**
+     * @description The server time that is queried based on the cursor. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1554260243
      *
      * @var string

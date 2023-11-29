@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetShipperStatusRequest extends Model
 {
     /**
+     * @description The start time of the log shipping job. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1409529600
      *
      * @var int
@@ -16,6 +18,8 @@ class GetShipperStatusRequest extends Model
     public $from;
 
     /**
+     * @description The line from which the query starts. Default value: 0.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class GetShipperStatusRequest extends Model
     public $offset;
 
     /**
+     * @description The number of entries per page. Default value: 100. Maximum value: 500.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +36,8 @@ class GetShipperStatusRequest extends Model
     public $size;
 
     /**
+     * @description The status of the log shipping job. This parameter is empty by default, which indicates that log shipping jobs in all states are returned. Valid values: success, fail, and running.
+     *
      * @example success
      *
      * @var string
@@ -37,6 +45,8 @@ class GetShipperStatusRequest extends Model
     public $status;
 
     /**
+     * @description The end time of the log shipping job. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1627269085
      *
      * @var int

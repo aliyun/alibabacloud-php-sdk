@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class loggingDetails extends Model
 {
     /**
+     * @description The name of the Logstore to which you want to save service logs.
+     *
      * @example my-logstore
      *
      * @var string
@@ -16,6 +18,17 @@ class loggingDetails extends Model
     public $logstore;
 
     /**
+     * @description The type of service logs. Valid values:
+     *
+     *   consumergroup_log: the consumption delay logs of consumer groups.
+     *   logtail_alarm: the alert logs of Logtail.
+     *   operation_log: the operation logs.
+     *   logtail_profile: the collection logs of Logtail.
+     *   metering: the metering logs.
+     *   logtail_status: the status logs of Logtail.
+     *   scheduledsqlalert: the operational logs of Scheduled SQL jobs.
+     *   etl_alert: the operational logs of data transformation jobs.
+     *
      * @example consumergroup_log
      *
      * @var string

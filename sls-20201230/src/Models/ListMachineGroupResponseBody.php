@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMachineGroupResponseBody extends Model
 {
     /**
+     * @description The number of machine groups that are returned on the current page.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class ListMachineGroupResponseBody extends Model
     public $count;
 
     /**
+     * @description The machine groups that meet the query conditions.
+     *
      * @example [ "test-machine-group-1", "test-machine-group-2" ]
      *
      * @var string[]
@@ -23,6 +27,8 @@ class ListMachineGroupResponseBody extends Model
     public $machinegroups;
 
     /**
+     * @description The total number of machine groups that meet the query conditions.
+     *
      * @example 2
      *
      * @var int

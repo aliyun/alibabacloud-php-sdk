@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class meta extends Model
 {
     /**
+     * @description The SQL statement after | in the query statement.
+     *
      * @example select *
      *
      * @var string
@@ -16,6 +18,8 @@ class meta extends Model
     public $aggQuery;
 
     /**
+     * @description The number of rows that are returned.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class meta extends Model
     public $count;
 
     /**
+     * @description The amount of time that is consumed by the request. Unit: milliseconds.
+     *
      * @example 5
      *
      * @var int
@@ -30,6 +36,8 @@ class meta extends Model
     public $elapsedMillisecond;
 
     /**
+     * @description Indicates whether the query is an SQL query.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +45,8 @@ class meta extends Model
     public $hasSQL;
 
     /**
+     * @description Indicates whether the returned result is accurate.
+     *
      * @example true
      *
      * @var bool
@@ -44,11 +54,15 @@ class meta extends Model
     public $isAccurate;
 
     /**
+     * @description All keys in the query result.
+     *
      * @var string[]
      */
     public $keys;
 
     /**
+     * @description The number of logs that are processed in the request.
+     *
      * @example 10000
      *
      * @var int
@@ -56,6 +70,8 @@ class meta extends Model
     public $processedBytes;
 
     /**
+     * @description The number of rows that are processed in the request.
+     *
      * @example 10000
      *
      * @var int
@@ -63,6 +79,11 @@ class meta extends Model
     public $processedRows;
 
     /**
+     * @description Indicates whether the query result is complete. Valid values:
+     *
+     *   Complete: The query was successful, and the complete result is returned.
+     *   Incomplete: The query was successful, but the query result is incomplete. To obtain the complete result, you must call the operation again.
+     *
      * @example Complete
      *
      * @var string
@@ -70,6 +91,8 @@ class meta extends Model
     public $progress;
 
     /**
+     * @description The type of observable data.
+     *
      * @example None
      *
      * @var string
@@ -77,11 +100,15 @@ class meta extends Model
     public $telementryType;
 
     /**
+     * @description All terms in the query statement.
+     *
      * @var mixed[][]
      */
     public $terms;
 
     /**
+     * @description The part before | in the query statement.
+     *
      * @example *
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProjectRequest extends Model
 {
     /**
+     * @description The line from which the query starts. Default value: 0.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class ListProjectRequest extends Model
     public $offset;
 
     /**
+     * @description The name of the project.
+     *
      * @example ali-test-project
      *
      * @var string
@@ -23,15 +27,23 @@ class ListProjectRequest extends Model
     public $projectName;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The number of entries per page. Default value: 100. This operation can return up to 500 projects.
+     *
      * @example 10
      *
      * @var int
      */
     public $size;
     protected $_name = [
-        'offset'      => 'offset',
-        'projectName' => 'projectName',
-        'size'        => 'size',
+        'offset'          => 'offset',
+        'projectName'     => 'projectName',
+        'resourceGroupId' => 'resourceGroupId',
+        'size'            => 'size',
     ];
 
     public function validate()
@@ -46,6 +58,9 @@ class ListProjectRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['projectName'] = $this->projectName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->size) {
             $res['size'] = $this->size;
@@ -67,6 +82,9 @@ class ListProjectRequest extends Model
         }
         if (isset($map['projectName'])) {
             $model->projectName = $map['projectName'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['size'])) {
             $model->size = $map['size'];

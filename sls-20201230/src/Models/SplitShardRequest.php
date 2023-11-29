@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SplitShardRequest extends Model
 {
     /**
+     * @description The position where the shard is split.
+     *
      * @example ef000000000000000000000000000000
      *
      * @var string
@@ -16,6 +18,8 @@ class SplitShardRequest extends Model
     public $key;
 
     /**
+     * @description The number of new shards that are generated after splitting.
+     *
      * @example 2
      *
      * @var int

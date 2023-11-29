@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The key of the tag that you want to use to filter resources. For example, if you set the key to `"test-key"`, only resources to which the key is added are returned.``
+     *
      * @example key1
      *
      * @var string
@@ -16,6 +18,8 @@ class tags extends Model
     public $key;
 
     /**
+     * @description The value of the tag that you want to use to filter resources. If you set the value to null, resources are filtered based only on the key of the tag.
+     *
      * @example value1
      *
      * @var string

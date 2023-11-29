@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMachineGroupRequest extends Model
 {
     /**
+     * @description The name of the machine group. This parameter is used to filter machine groups. Partial match is supported.
+     *
      * @example test-machine-group
      *
      * @var string
@@ -16,6 +18,8 @@ class ListMachineGroupRequest extends Model
     public $groupName;
 
     /**
+     * @description The line from which the query starts. Default value: 0.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListMachineGroupRequest extends Model
     public $offset;
 
     /**
+     * @description The number of entries per page. Maximum value: 500.
+     *
      * @example 10
      *
      * @var int

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dashboardItems extends Model
 {
     /**
+     * @example dashboard-1609294922657-434834
+     *
      * @var string
      */
     public $dashboardName;
 
     /**
+     * @example data-ingest
+     *
      * @var string
      */
     public $displayName;

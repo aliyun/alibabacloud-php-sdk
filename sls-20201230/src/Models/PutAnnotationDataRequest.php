@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutAnnotationDataRequest extends Model
 {
     /**
+     * @example 2156d560fc7c01420542df92cd6365ds
+     *
      * @var string
      */
     public $annotationdataId;

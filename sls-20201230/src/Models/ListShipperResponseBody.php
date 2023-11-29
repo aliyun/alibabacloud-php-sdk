@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListShipperResponseBody extends Model
 {
     /**
+     * @description The number of log shipping jobs returned.
+     *
      * @example 3
      *
      * @var int
@@ -16,11 +18,15 @@ class ListShipperResponseBody extends Model
     public $count;
 
     /**
+     * @description The names of the log shipping jobs.
+     *
      * @var string[]
      */
     public $shipper;
 
     /**
+     * @description The total number of log shipping jobs.
+     *
      * @example 5
      *
      * @var int

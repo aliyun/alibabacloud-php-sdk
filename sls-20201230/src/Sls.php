@@ -40,8 +40,6 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataSetResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationLabelResponse;
@@ -92,6 +90,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Request;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Response;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetMLServiceResultsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetMLServiceResultsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectPolicyResponse;
@@ -203,13 +203,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $machineGroup
      * @param string         $configName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ApplyConfigToMachineGroupResponse
+     * @return ApplyConfigToMachineGroupResponse ApplyConfigToMachineGroupResponse
      */
     public function applyConfigToMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime)
     {
@@ -235,11 +237,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $machineGroup
      * @param string $configName
      *
-     * @return ApplyConfigToMachineGroupResponse
+     * @return ApplyConfigToMachineGroupResponse ApplyConfigToMachineGroupResponse
      */
     public function applyConfigToMachineGroup($project, $machineGroup, $configName)
     {
@@ -499,13 +503,18 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   You can create up to 30 consumer groups for a Logstore.
+     *   * *   Simple Log Service provides examples of both regular log consumption and consumer group-based log consumption by using Simple Log Service SDKs for Java. For more information, see [Consume log data](~~120035~~) and [Use consumer groups to consume data](~~28998~~).
+     *   *
      * @param string                     $project
      * @param string                     $logstore
-     * @param CreateConsumerGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param CreateConsumerGroupRequest $request  CreateConsumerGroupRequest
+     * @param string[]                   $headers  map
+     * @param RuntimeOptions             $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
      */
     public function createConsumerGroupWithOptions($project, $logstore, $request, $headers, $runtime)
     {
@@ -543,11 +552,16 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   You can create up to 30 consumer groups for a Logstore.
+     *   * *   Simple Log Service provides examples of both regular log consumption and consumer group-based log consumption by using Simple Log Service SDKs for Java. For more information, see [Consume log data](~~120035~~) and [Use consumer groups to consume data](~~28998~~).
+     *   *
      * @param string                     $project
      * @param string                     $logstore
-     * @param CreateConsumerGroupRequest $request
+     * @param CreateConsumerGroupRequest $request  CreateConsumerGroupRequest
      *
-     * @return CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
      */
     public function createConsumerGroup($project, $logstore, $request)
     {
@@ -605,12 +619,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string              $project
-     * @param CreateDomainRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param CreateDomainRequest $request CreateDomainRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDomainResponse
+     * @return CreateDomainResponse CreateDomainResponse
      */
     public function createDomainWithOptions($project, $request, $headers, $runtime)
     {
@@ -642,10 +658,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string              $project
-     * @param CreateDomainRequest $request
+     * @param CreateDomainRequest $request CreateDomainRequest
      *
-     * @return CreateDomainResponse
+     * @return CreateDomainResponse CreateDomainResponse
      */
     public function createDomain($project, $request)
     {
@@ -656,13 +674,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string             $project
      * @param string             $logstore
-     * @param CreateIndexRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param CreateIndexRequest $request  CreateIndexRequest
+     * @param string[]           $headers  map
+     * @param RuntimeOptions     $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateIndexResponse
+     * @return CreateIndexResponse CreateIndexResponse
      */
     public function createIndexWithOptions($project, $logstore, $request, $headers, $runtime)
     {
@@ -712,11 +732,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string             $project
      * @param string             $logstore
-     * @param CreateIndexRequest $request
+     * @param CreateIndexRequest $request  CreateIndexRequest
      *
-     * @return CreateIndexResponse
+     * @return CreateIndexResponse CreateIndexResponse
      */
     public function createIndex($project, $logstore, $request)
     {
@@ -727,12 +749,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                $project
-     * @param CreateLogStoreRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CreateLogStoreRequest $request CreateLogStoreRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLogStoreResponse
+     * @return CreateLogStoreResponse CreateLogStoreResponse
      */
     public function createLogStoreWithOptions($project, $request, $headers, $runtime)
     {
@@ -794,10 +819,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                $project
-     * @param CreateLogStoreRequest $request
+     * @param CreateLogStoreRequest $request CreateLogStoreRequest
      *
-     * @return CreateLogStoreResponse
+     * @return CreateLogStoreResponse CreateLogStoreResponse
      */
     public function createLogStore($project, $request)
     {
@@ -808,12 +836,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string               $project
-     * @param CreateLoggingRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param CreateLoggingRequest $request CreateLoggingRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoggingResponse
+     * @return CreateLoggingResponse CreateLoggingResponse
      */
     public function createLoggingWithOptions($project, $request, $headers, $runtime)
     {
@@ -848,10 +878,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string               $project
-     * @param CreateLoggingRequest $request
+     * @param CreateLoggingRequest $request CreateLoggingRequest
      *
-     * @return CreateLoggingResponse
+     * @return CreateLoggingResponse CreateLoggingResponse
      */
     public function createLogging($project, $request)
     {
@@ -931,12 +963,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                    $project
-     * @param CreateMachineGroupRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param CreateMachineGroupRequest $request CreateMachineGroupRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMachineGroupResponse
+     * @return CreateMachineGroupResponse CreateMachineGroupResponse
      */
     public function createMachineGroupWithOptions($project, $request, $headers, $runtime)
     {
@@ -980,10 +1015,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                    $project
-     * @param CreateMachineGroupRequest $request
+     * @param CreateMachineGroupRequest $request CreateMachineGroupRequest
      *
-     * @return CreateMachineGroupResponse
+     * @return CreateMachineGroupResponse CreateMachineGroupResponse
      */
     public function createMachineGroup($project, $request)
     {
@@ -994,12 +1032,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                        $project
-     * @param CreateOssExternalStoreRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateOssExternalStoreRequest $request CreateOssExternalStoreRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOssExternalStoreResponse
+     * @return CreateOssExternalStoreResponse CreateOssExternalStoreResponse
      */
     public function createOssExternalStoreWithOptions($project, $request, $headers, $runtime)
     {
@@ -1037,10 +1077,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                        $project
-     * @param CreateOssExternalStoreRequest $request
+     * @param CreateOssExternalStoreRequest $request CreateOssExternalStoreRequest
      *
-     * @return CreateOssExternalStoreResponse
+     * @return CreateOssExternalStoreResponse CreateOssExternalStoreResponse
      */
     public function createOssExternalStore($project, $request)
     {
@@ -1106,12 +1148,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                        $project
-     * @param CreateRdsExternalStoreRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateRdsExternalStoreRequest $request CreateRdsExternalStoreRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRdsExternalStoreResponse
+     * @return CreateRdsExternalStoreResponse CreateRdsExternalStoreResponse
      */
     public function createRdsExternalStoreWithOptions($project, $request, $headers, $runtime)
     {
@@ -1149,10 +1193,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                        $project
-     * @param CreateRdsExternalStoreRequest $request
+     * @param CreateRdsExternalStoreRequest $request CreateRdsExternalStoreRequest
      *
-     * @return CreateRdsExternalStoreResponse
+     * @return CreateRdsExternalStoreResponse CreateRdsExternalStoreResponse
      */
     public function createRdsExternalStore($project, $request)
     {
@@ -1163,12 +1209,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                   $project
-     * @param CreateSavedSearchRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CreateSavedSearchRequest $request CreateSavedSearchRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSavedSearchResponse
+     * @return CreateSavedSearchResponse CreateSavedSearchResponse
      */
     public function createSavedSearchWithOptions($project, $request, $headers, $runtime)
     {
@@ -1212,10 +1261,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                   $project
-     * @param CreateSavedSearchRequest $request
+     * @param CreateSavedSearchRequest $request CreateSavedSearchRequest
      *
-     * @return CreateSavedSearchResponse
+     * @return CreateSavedSearchResponse CreateSavedSearchResponse
      */
     public function createSavedSearch($project, $request)
     {
@@ -1223,55 +1275,6 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->createSavedSearchWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param CreateTicketRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateTicketResponse
-     */
-    public function createTicketWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->playAccessKeyId)) {
-            $body['playAccessKeyId'] = $request->playAccessKeyId;
-        }
-        if (!Utils::isUnset($request->playAccessKeySecret)) {
-            $body['playAccessKeySecret'] = $request->playAccessKeySecret;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateTicket',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/tickets',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateTicketResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateTicketRequest $request
-     *
-     * @return CreateTicketResponse
-     */
-    public function createTicket($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createTicketWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1493,13 +1496,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $logstore
      * @param string         $consumerGroup
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroupWithOptions($project, $logstore, $consumerGroup, $headers, $runtime)
     {
@@ -1525,11 +1530,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $logstore
      * @param string $consumerGroup
      *
-     * @return DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroup($project, $logstore, $consumerGroup)
     {
@@ -1585,12 +1592,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $domainName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomainWithOptions($project, $domainName, $headers, $runtime)
     {
@@ -1616,10 +1625,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $domainName
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomain($project, $domainName)
     {
@@ -1630,12 +1641,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $externalStoreName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers           map
+     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
      *
-     * @return DeleteExternalStoreResponse
+     * @return DeleteExternalStoreResponse DeleteExternalStoreResponse
      */
     public function deleteExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime)
     {
@@ -1661,10 +1674,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $externalStoreName
      *
-     * @return DeleteExternalStoreResponse
+     * @return DeleteExternalStoreResponse DeleteExternalStoreResponse
      */
     public function deleteExternalStore($project, $externalStoreName)
     {
@@ -1675,12 +1690,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteIndexResponse
+     * @return DeleteIndexResponse DeleteIndexResponse
      */
     public function deleteIndexWithOptions($project, $logstore, $headers, $runtime)
     {
@@ -1706,10 +1724,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $logstore
      *
-     * @return DeleteIndexResponse
+     * @return DeleteIndexResponse DeleteIndexResponse
      */
     public function deleteIndex($project, $logstore)
     {
@@ -1720,12 +1741,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteLogStoreResponse
+     * @return DeleteLogStoreResponse DeleteLogStoreResponse
      */
     public function deleteLogStoreWithOptions($project, $logstore, $headers, $runtime)
     {
@@ -1751,10 +1775,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $logstore
      *
-     * @return DeleteLogStoreResponse
+     * @return DeleteLogStoreResponse DeleteLogStoreResponse
      */
     public function deleteLogStore($project, $logstore)
     {
@@ -1853,12 +1880,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $machineGroup
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteMachineGroupResponse
+     * @return DeleteMachineGroupResponse DeleteMachineGroupResponse
      */
     public function deleteMachineGroupWithOptions($project, $machineGroup, $headers, $runtime)
     {
@@ -1884,10 +1914,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $machineGroup
      *
-     * @return DeleteMachineGroupResponse
+     * @return DeleteMachineGroupResponse DeleteMachineGroupResponse
      */
     public function deleteMachineGroup($project, $machineGroup)
     {
@@ -1941,11 +1974,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProjectPolicyResponse
+     * @return DeleteProjectPolicyResponse DeleteProjectPolicyResponse
      */
     public function deleteProjectPolicyWithOptions($project, $headers, $runtime)
     {
@@ -1971,9 +2007,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      *
-     * @return DeleteProjectPolicyResponse
+     * @return DeleteProjectPolicyResponse DeleteProjectPolicyResponse
      */
     public function deleteProjectPolicy($project)
     {
@@ -1984,12 +2023,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $savedsearchName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return DeleteSavedSearchResponse
+     * @return DeleteSavedSearchResponse DeleteSavedSearchResponse
      */
     public function deleteSavedSearchWithOptions($project, $savedsearchName, $headers, $runtime)
     {
@@ -2015,10 +2057,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $savedsearchName
      *
-     * @return DeleteSavedSearchResponse
+     * @return DeleteSavedSearchResponse DeleteSavedSearchResponse
      */
     public function deleteSavedSearch($project, $savedsearchName)
     {
@@ -2029,13 +2074,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $logstore
      * @param string         $shipperName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteShipperResponse
+     * @return DeleteShipperResponse DeleteShipperResponse
      */
     public function deleteShipperWithOptions($project, $logstore, $shipperName, $headers, $runtime)
     {
@@ -2061,11 +2108,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $logstore
      * @param string $shipperName
      *
-     * @return DeleteShipperResponse
+     * @return DeleteShipperResponse DeleteShipperResponse
      */
     public function deleteShipper($project, $logstore, $shipperName)
     {
@@ -2198,12 +2247,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $machineGroup
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetAppliedConfigsResponse
+     * @return GetAppliedConfigsResponse GetAppliedConfigsResponse
      */
     public function getAppliedConfigsWithOptions($project, $machineGroup, $headers, $runtime)
     {
@@ -2229,10 +2280,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $machineGroup
      *
-     * @return GetAppliedConfigsResponse
+     * @return GetAppliedConfigsResponse GetAppliedConfigsResponse
      */
     public function getAppliedConfigs($project, $machineGroup)
     {
@@ -2243,12 +2296,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $configName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetAppliedMachineGroupsResponse
+     * @return GetAppliedMachineGroupsResponse GetAppliedMachineGroupsResponse
      */
     public function getAppliedMachineGroupsWithOptions($project, $configName, $headers, $runtime)
     {
@@ -2274,10 +2329,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $configName
      *
-     * @return GetAppliedMachineGroupsResponse
+     * @return GetAppliedMachineGroupsResponse GetAppliedMachineGroupsResponse
      */
     public function getAppliedMachineGroups($project, $configName)
     {
@@ -2288,14 +2345,16 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string               $project
      * @param string               $logstore
      * @param string               $consumerGroup
-     * @param GetCheckPointRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetCheckPointRequest $request       GetCheckPointRequest
+     * @param string[]             $headers       map
+     * @param RuntimeOptions       $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetCheckPointResponse
+     * @return GetCheckPointResponse GetCheckPointResponse
      */
     public function getCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
     {
@@ -2327,12 +2386,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string               $project
      * @param string               $logstore
      * @param string               $consumerGroup
-     * @param GetCheckPointRequest $request
+     * @param GetCheckPointRequest $request       GetCheckPointRequest
      *
-     * @return GetCheckPointResponse
+     * @return GetCheckPointResponse GetCheckPointResponse
      */
     public function getCheckPoint($project, $logstore, $consumerGroup, $request)
     {
@@ -2439,13 +2500,16 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * *   You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                $project
      * @param string                $logstore
-     * @param GetContextLogsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param GetContextLogsRequest $request  GetContextLogsRequest
+     * @param string[]              $headers  map
+     * @param RuntimeOptions        $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetContextLogsResponse
+     * @return GetContextLogsResponse GetContextLogsResponse
      */
     public function getContextLogsWithOptions($project, $logstore, $request, $headers, $runtime)
     {
@@ -2489,11 +2553,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * *   You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                $project
      * @param string                $logstore
-     * @param GetContextLogsRequest $request
+     * @param GetContextLogsRequest $request  GetContextLogsRequest
      *
-     * @return GetContextLogsResponse
+     * @return GetContextLogsResponse GetContextLogsResponse
      */
     public function getContextLogs($project, $logstore, $request)
     {
@@ -2504,14 +2571,21 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   The following content describes the relationships among a cursor, project, Logstore, and shard:
+     *   *     *   A project can have multiple Logstores.
+     *   *     *   A Logstore can have multiple shards.
+     *   *     *   You can use a cursor to obtain a log in a shard.
+     *   *
      * @param string           $project
      * @param string           $logstore
      * @param string           $shardId
-     * @param GetCursorRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param GetCursorRequest $request  GetCursorRequest
+     * @param string[]         $headers  map
+     * @param RuntimeOptions   $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetCursorResponse
+     * @return GetCursorResponse GetCursorResponse
      */
     public function getCursorWithOptions($project, $logstore, $shardId, $request, $headers, $runtime)
     {
@@ -2543,12 +2617,19 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   The following content describes the relationships among a cursor, project, Logstore, and shard:
+     *   *     *   A project can have multiple Logstores.
+     *   *     *   A Logstore can have multiple shards.
+     *   *     *   You can use a cursor to obtain a log in a shard.
+     *   *
      * @param string           $project
      * @param string           $logstore
      * @param string           $shardId
-     * @param GetCursorRequest $request
+     * @param GetCursorRequest $request  GetCursorRequest
      *
-     * @return GetCursorResponse
+     * @return GetCursorResponse GetCursorResponse
      */
     public function getCursor($project, $logstore, $shardId, $request)
     {
@@ -2659,12 +2740,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * *   The supported data sources of external stores include Object Storage Service (OSS) buckets and ApsaraDB RDS for MySQL databases in a virtual private cloud (VPC).
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $externalStoreName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers           map
+     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
      *
-     * @return GetExternalStoreResponse
+     * @return GetExternalStoreResponse GetExternalStoreResponse
      */
     public function getExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime)
     {
@@ -2690,10 +2774,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * *   The supported data sources of external stores include Object Storage Service (OSS) buckets and ApsaraDB RDS for MySQL databases in a virtual private cloud (VPC).
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $externalStoreName
      *
-     * @return GetExternalStoreResponse
+     * @return GetExternalStoreResponse GetExternalStoreResponse
      */
     public function getExternalStore($project, $externalStoreName)
     {
@@ -2704,13 +2791,24 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   The time range is evenly divided into subintervals in the responses. If the time range that is specified in the request remains unchanged, the subintervals in the responses also remain unchanged.
+     *   * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+     *   * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log after a short latency. The latency of a query varies based on the type of the log. Simple Log Service classifies logs into the following types based on the log time:
+     *   *     *   Real-time data: The difference between the time record in a log and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds.
+     *   *     *   Historical data: The difference between the time record in a log and the current time on Simple Log Service is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios.
+     *   *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+     *   * > Simple Log Service calculates the difference between the log time that is specified by the \\__time\\_\\_ field and the receiving time that is specified by the \\__tag\\_\\_:\\__receive_time\\_\\_ field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval \\[-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
+     *   * *   Simple Log Service provides examples on how to call the GetHistograms operation by using Simple Log Service SDK for Java. For more information, see [Use GetHistograms to query the distribution of logs](~~462234~~).
+     *   *
      * @param string               $project
      * @param string               $logstore
-     * @param GetHistogramsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetHistogramsRequest $request  GetHistogramsRequest
+     * @param string[]             $headers  map
+     * @param RuntimeOptions       $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetHistogramsResponse
+     * @return GetHistogramsResponse GetHistogramsResponse
      */
     public function getHistogramsWithOptions($project, $logstore, $request, $headers, $runtime)
     {
@@ -2751,11 +2849,22 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   The time range is evenly divided into subintervals in the responses. If the time range that is specified in the request remains unchanged, the subintervals in the responses also remain unchanged.
+     *   * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+     *   * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log after a short latency. The latency of a query varies based on the type of the log. Simple Log Service classifies logs into the following types based on the log time:
+     *   *     *   Real-time data: The difference between the time record in a log and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds.
+     *   *     *   Historical data: The difference between the time record in a log and the current time on Simple Log Service is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios.
+     *   *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+     *   * > Simple Log Service calculates the difference between the log time that is specified by the \\__time\\_\\_ field and the receiving time that is specified by the \\__tag\\_\\_:\\__receive_time\\_\\_ field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval \\[-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
+     *   * *   Simple Log Service provides examples on how to call the GetHistograms operation by using Simple Log Service SDK for Java. For more information, see [Use GetHistograms to query the distribution of logs](~~462234~~).
+     *   *
      * @param string               $project
      * @param string               $logstore
-     * @param GetHistogramsRequest $request
+     * @param GetHistogramsRequest $request  GetHistogramsRequest
      *
-     * @return GetHistogramsResponse
+     * @return GetHistogramsResponse GetHistogramsResponse
      */
     public function getHistograms($project, $logstore, $request)
     {
@@ -2766,12 +2875,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetIndexResponse
+     * @return GetIndexResponse GetIndexResponse
      */
     public function getIndexWithOptions($project, $logstore, $headers, $runtime)
     {
@@ -2797,10 +2909,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $logstore
      *
-     * @return GetIndexResponse
+     * @return GetIndexResponse GetIndexResponse
      */
     public function getIndex($project, $logstore)
     {
@@ -2811,12 +2926,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetLogStoreResponse
+     * @return GetLogStoreResponse GetLogStoreResponse
      */
     public function getLogStoreWithOptions($project, $logstore, $headers, $runtime)
     {
@@ -2842,10 +2960,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $logstore
      *
-     * @return GetLogStoreResponse
+     * @return GetLogStoreResponse GetLogStoreResponse
      */
     public function getLogStore($project, $logstore)
     {
@@ -2901,11 +3022,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLoggingResponse
+     * @return GetLoggingResponse GetLoggingResponse
      */
     public function getLoggingWithOptions($project, $headers, $runtime)
     {
@@ -2931,9 +3054,11 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      *
-     * @return GetLoggingResponse
+     * @return GetLoggingResponse GetLoggingResponse
      */
     public function getLogging($project)
     {
@@ -2944,13 +3069,24 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * > Simple Log Service allows you to create a Scheduled SQL job. For more information, see [Create a Scheduled SQL job](~~286457~~).
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot forecast the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the x-log-progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+     *   * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log after a short latency. The latency of a query varies based on the type of the log. Simple Log Service classifies logs into the following types based on the log time:
+     *   *         Real-time data: The difference between the time record in a log and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. This type of log is usually generated in common scenarios.
+     *   *     *   Historical data: The difference between the time record in a log and the current time on Simple Log Service is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios.
+     *   *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+     *   * > Simple Log Service calculates the difference between the log time that is specified by the \\__time\\_\\_ field and the receiving time that is specified by the \\__tag\\_\\_:**receive_time** field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval \\[-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
+     *   * *   Simple Log Service provides examples on how to call the GetLogs operation by using Simple Log Service SDK for Java and Simple Log Service SDK for Python. For more information, see [Examples of calling the GetLogs operation by using Simple Log Service SDK for Java](~~407683~~) and [Examples of calling the GetLogs operation by using Simple Log Service SDK for Python](~~407684~~).
+     *   *
      * @param string         $project
      * @param string         $logstore
-     * @param GetLogsRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param GetLogsRequest $request  GetLogsRequest
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetLogsResponse
+     * @return GetLogsResponse GetLogsResponse
      */
     public function getLogsWithOptions($project, $logstore, $request, $headers, $runtime)
     {
@@ -3003,11 +3139,22 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * > Simple Log Service allows you to create a Scheduled SQL job. For more information, see [Create a Scheduled SQL job](~~286457~~).
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot forecast the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the x-log-progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+     *   * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log after a short latency. The latency of a query varies based on the type of the log. Simple Log Service classifies logs into the following types based on the log time:
+     *   *         Real-time data: The difference between the time record in a log and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. This type of log is usually generated in common scenarios.
+     *   *     *   Historical data: The difference between the time record in a log and the current time on Simple Log Service is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios.
+     *   *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+     *   * > Simple Log Service calculates the difference between the log time that is specified by the \\__time\\_\\_ field and the receiving time that is specified by the \\__tag\\_\\_:**receive_time** field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval \\[-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
+     *   * *   Simple Log Service provides examples on how to call the GetLogs operation by using Simple Log Service SDK for Java and Simple Log Service SDK for Python. For more information, see [Examples of calling the GetLogs operation by using Simple Log Service SDK for Java](~~407683~~) and [Examples of calling the GetLogs operation by using Simple Log Service SDK for Python](~~407684~~).
+     *   *
      * @param string         $project
      * @param string         $logstore
-     * @param GetLogsRequest $request
+     * @param GetLogsRequest $request  GetLogsRequest
      *
-     * @return GetLogsResponse
+     * @return GetLogsResponse GetLogsResponse
      */
     public function getLogs($project, $logstore, $request)
     {
@@ -3018,13 +3165,19 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times you must call this API operation to obtain a complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation again to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+     *   * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log. The latency of the query varies based on the type of the log. Simple Log Service classifies logs into the following types based on log timestamps:
+     *   * 1.  1.  Real-time data: The difference between the time record in the log and the current server time is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as real-time data. This type of log is usually generated in common scenarios.
+     *   * 2.  2.  Historical data: The difference between the time record in the log and the current server time is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as historical data. This type of log is usually generated in data backfill scenarios. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+     *   *
      * @param string           $project
      * @param string           $logstore
-     * @param GetLogsV2Request $request
-     * @param GetLogsV2Headers $headers
-     * @param RuntimeOptions   $runtime
+     * @param GetLogsV2Request $request  GetLogsV2Request
+     * @param GetLogsV2Headers $headers  GetLogsV2Headers
+     * @param RuntimeOptions   $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetLogsV2Response
+     * @return GetLogsV2Response GetLogsV2Response
      */
     public function getLogsV2WithOptions($project, $logstore, $request, $headers, $runtime)
     {
@@ -3093,11 +3246,17 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times you must call this API operation to obtain a complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation again to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
+     *   * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log. The latency of the query varies based on the type of the log. Simple Log Service classifies logs into the following types based on log timestamps:
+     *   * 1.  1.  Real-time data: The difference between the time record in the log and the current server time is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as real-time data. This type of log is usually generated in common scenarios.
+     *   * 2.  2.  Historical data: The difference between the time record in the log and the current server time is within the interval \\[-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as historical data. This type of log is usually generated in data backfill scenarios. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+     *   *
      * @param string           $project
      * @param string           $logstore
-     * @param GetLogsV2Request $request
+     * @param GetLogsV2Request $request  GetLogsV2Request
      *
-     * @return GetLogsV2Response
+     * @return GetLogsV2Response GetLogsV2Response
      */
     public function getLogsV2($project, $logstore, $request)
     {
@@ -3153,12 +3312,63 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                     $serviceName
+     * @param GetMLServiceResultsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMLServiceResultsResponse
+     */
+    public function getMLServiceResultsWithOptions($serviceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowBuiltin)) {
+            $query['allowBuiltin'] = $request->allowBuiltin;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMLServiceResults',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/service/' . $serviceName . '/analysis',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMLServiceResultsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $serviceName
+     * @param GetMLServiceResultsRequest $request
+     *
+     * @return GetMLServiceResultsResponse
+     */
+    public function getMLServiceResults($serviceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMLServiceResultsWithOptions($serviceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $machineGroup
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetMachineGroupResponse
+     * @return GetMachineGroupResponse GetMachineGroupResponse
      */
     public function getMachineGroupWithOptions($project, $machineGroup, $headers, $runtime)
     {
@@ -3184,10 +3394,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $machineGroup
      *
-     * @return GetMachineGroupResponse
+     * @return GetMachineGroupResponse GetMachineGroupResponse
      */
     public function getMachineGroup($project, $machineGroup)
     {
@@ -3198,11 +3410,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProjectWithOptions($project, $headers, $runtime)
     {
@@ -3228,9 +3443,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProject($project)
     {
@@ -3241,12 +3459,19 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   You can use the query parameter to specify a standard SQL statement.
+     *   * *   You must specify a project in the domain name of the request.
+     *   * *   You must specify a Logstore in the FROM clause of the SQL statement. A Logstore can be used as an SQL table.
+     *   * *   You must specify a time range in the SQL statement by using the \\__date\\_\\_ parameter or \\__time\\_\\_ parameter. The value of the \\__date\\_\\_ parameter is a timestamp, and the value of the \\__time\\_\\_ parameter is an integer. The unit of the \\__time\\_\\_ parameter is seconds.
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                $project
-     * @param GetProjectLogsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param GetProjectLogsRequest $request GetProjectLogsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProjectLogsResponse
+     * @return GetProjectLogsResponse GetProjectLogsResponse
      */
     public function getProjectLogsWithOptions($project, $request, $headers, $runtime)
     {
@@ -3281,10 +3506,17 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   You can use the query parameter to specify a standard SQL statement.
+     *   * *   You must specify a project in the domain name of the request.
+     *   * *   You must specify a Logstore in the FROM clause of the SQL statement. A Logstore can be used as an SQL table.
+     *   * *   You must specify a time range in the SQL statement by using the \\__date\\_\\_ parameter or \\__time\\_\\_ parameter. The value of the \\__date\\_\\_ parameter is a timestamp, and the value of the \\__time\\_\\_ parameter is an integer. The unit of the \\__time\\_\\_ parameter is seconds.
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                $project
-     * @param GetProjectLogsRequest $request
+     * @param GetProjectLogsRequest $request GetProjectLogsRequest
      *
-     * @return GetProjectLogsResponse
+     * @return GetProjectLogsResponse GetProjectLogsResponse
      */
     public function getProjectLogs($project, $request)
     {
@@ -3295,11 +3527,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProjectPolicyResponse
+     * @return GetProjectPolicyResponse GetProjectPolicyResponse
      */
     public function getProjectPolicyWithOptions($project, $headers, $runtime)
     {
@@ -3325,9 +3560,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      *
-     * @return GetProjectPolicyResponse
+     * @return GetProjectPolicyResponse GetProjectPolicyResponse
      */
     public function getProjectPolicy($project)
     {
@@ -3338,12 +3576,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $savedsearchName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return GetSavedSearchResponse
+     * @return GetSavedSearchResponse GetSavedSearchResponse
      */
     public function getSavedSearchWithOptions($project, $savedsearchName, $headers, $runtime)
     {
@@ -3369,10 +3610,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $savedsearchName
      *
-     * @return GetSavedSearchResponse
+     * @return GetSavedSearchResponse GetSavedSearchResponse
      */
     public function getSavedSearch($project, $savedsearchName)
     {
@@ -3383,14 +3627,16 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                  $project
      * @param string                  $logstore
      * @param string                  $shipperName
-     * @param GetShipperStatusRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetShipperStatusRequest $request     GetShipperStatusRequest
+     * @param string[]                $headers     map
+     * @param RuntimeOptions          $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetShipperStatusResponse
+     * @return GetShipperStatusResponse GetShipperStatusResponse
      */
     public function getShipperStatusWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime)
     {
@@ -3434,12 +3680,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                  $project
      * @param string                  $logstore
      * @param string                  $shipperName
-     * @param GetShipperStatusRequest $request
+     * @param GetShipperStatusRequest $request     GetShipperStatusRequest
      *
-     * @return GetShipperStatusResponse
+     * @return GetShipperStatusResponse GetShipperStatusResponse
      */
     public function getShipperStatus($project, $logstore, $shipperName, $request)
     {
@@ -3728,12 +3976,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListConsumerGroupResponse
+     * @return ListConsumerGroupResponse ListConsumerGroupResponse
      */
     public function listConsumerGroupWithOptions($project, $logstore, $headers, $runtime)
     {
@@ -3759,10 +4010,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $logstore
      *
-     * @return ListConsumerGroupResponse
+     * @return ListConsumerGroupResponse ListConsumerGroupResponse
      */
     public function listConsumerGroup($project, $logstore)
     {
@@ -3827,12 +4081,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   Only one custom domain name can be bound to each project.
+     *   *
      * @param string             $project
-     * @param ListDomainsRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param ListDomainsRequest $request ListDomainsRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDomainsResponse
+     * @return ListDomainsResponse ListDomainsResponse
      */
     public function listDomainsWithOptions($project, $request, $headers, $runtime)
     {
@@ -3870,10 +4127,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   Only one custom domain name can be bound to each project.
+     *   *
      * @param string             $project
-     * @param ListDomainsRequest $request
+     * @param ListDomainsRequest $request ListDomainsRequest
      *
-     * @return ListDomainsResponse
+     * @return ListDomainsResponse ListDomainsResponse
      */
     public function listDomains($project, $request)
     {
@@ -3884,12 +4144,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                   $project
-     * @param ListExternalStoreRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListExternalStoreRequest $request ListExternalStoreRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExternalStoreResponse
+     * @return ListExternalStoreResponse ListExternalStoreResponse
      */
     public function listExternalStoreWithOptions($project, $request, $headers, $runtime)
     {
@@ -3927,10 +4189,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                   $project
-     * @param ListExternalStoreRequest $request
+     * @param ListExternalStoreRequest $request ListExternalStoreRequest
      *
-     * @return ListExternalStoreResponse
+     * @return ListExternalStoreResponse ListExternalStoreResponse
      */
     public function listExternalStore($project, $request)
     {
@@ -3941,12 +4205,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string               $project
-     * @param ListLogStoresRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListLogStoresRequest $request ListLogStoresRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLogStoresResponse
+     * @return ListLogStoresResponse ListLogStoresResponse
      */
     public function listLogStoresWithOptions($project, $request, $headers, $runtime)
     {
@@ -3990,10 +4257,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string               $project
-     * @param ListLogStoresRequest $request
+     * @param ListLogStoresRequest $request ListLogStoresRequest
      *
-     * @return ListLogStoresResponse
+     * @return ListLogStoresResponse ListLogStoresResponse
      */
     public function listLogStores($project, $request)
     {
@@ -4064,12 +4334,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                  $project
-     * @param ListMachineGroupRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param ListMachineGroupRequest $request ListMachineGroupRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMachineGroupResponse
+     * @return ListMachineGroupResponse ListMachineGroupResponse
      */
     public function listMachineGroupWithOptions($project, $request, $headers, $runtime)
     {
@@ -4107,10 +4379,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                  $project
-     * @param ListMachineGroupRequest $request
+     * @param ListMachineGroupRequest $request ListMachineGroupRequest
      *
-     * @return ListMachineGroupResponse
+     * @return ListMachineGroupResponse ListMachineGroupResponse
      */
     public function listMachineGroup($project, $request)
     {
@@ -4121,13 +4395,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string              $project
      * @param string              $machineGroup
-     * @param ListMachinesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param ListMachinesRequest $request      ListMachinesRequest
+     * @param string[]            $headers      map
+     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListMachinesResponse
+     * @return ListMachinesResponse ListMachinesResponse
      */
     public function listMachinesWithOptions($project, $machineGroup, $request, $headers, $runtime)
     {
@@ -4162,11 +4438,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string              $project
      * @param string              $machineGroup
-     * @param ListMachinesRequest $request
+     * @param ListMachinesRequest $request      ListMachinesRequest
      *
-     * @return ListMachinesResponse
+     * @return ListMachinesResponse ListMachinesResponse
      */
     public function listMachines($project, $machineGroup, $request)
     {
@@ -4177,14 +4455,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string             $resourceGroupId
-     * @param ListProjectRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
+     * @param ListProjectRequest $request ListProjectRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectResponse
+     * @return ListProjectResponse ListProjectResponse
      */
-    public function listProjectWithOptions($resourceGroupId, $request, $headers, $runtime)
+    public function listProjectWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
@@ -4193,6 +4473,9 @@ class Sls extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['projectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['resourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->size)) {
             $query['size'] = $request->size;
@@ -4217,26 +4500,31 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string             $resourceGroupId
-     * @param ListProjectRequest $request
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
+     * @param ListProjectRequest $request ListProjectRequest
      *
-     * @return ListProjectResponse
+     * @return ListProjectResponse ListProjectResponse
      */
-    public function listProject($resourceGroupId, $request)
+    public function listProject($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProjectWithOptions($resourceGroupId, $request, $headers, $runtime);
+        return $this->listProjectWithOptions($request, $headers, $runtime);
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                 $project
-     * @param ListSavedSearchRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListSavedSearchRequest $request ListSavedSearchRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSavedSearchResponse
+     * @return ListSavedSearchResponse ListSavedSearchResponse
      */
     public function listSavedSearchWithOptions($project, $request, $headers, $runtime)
     {
@@ -4271,10 +4559,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                 $project
-     * @param ListSavedSearchRequest $request
+     * @param ListSavedSearchRequest $request ListSavedSearchRequest
      *
-     * @return ListSavedSearchResponse
+     * @return ListSavedSearchResponse ListSavedSearchResponse
      */
     public function listSavedSearch($project, $request)
     {
@@ -4330,12 +4621,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListShipperResponse
+     * @return ListShipperResponse ListShipperResponse
      */
     public function listShipperWithOptions($project, $logstore, $headers, $runtime)
     {
@@ -4361,10 +4654,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $logstore
      *
-     * @return ListShipperResponse
+     * @return ListShipperResponse ListShipperResponse
      */
     public function listShipper($project, $logstore)
     {
@@ -4375,11 +4670,14 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
+     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
@@ -4422,9 +4720,12 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4491,12 +4792,19 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   Alibaba Cloud Simple Log Service allows you to configure a project policy to authorize other users to access the specified Log Service resources.
+     *   *     *   You must configure a project policy based on policy syntax. Before you configure a project policy, you must be familiar with the Action, Resource, and Condition parameters. For more information, see [RAM](~~128139~~).
+     *   *     *   If you set the Principal element to an asterisk (\\*) and do not configure the Condition element when you configure a project policy, the policy applies to all users except for the project owner. If you set the Principal element to an asterisk (\\*) and configure the Condition element when you configure a project policy, the policy applies to all users including the project owner.
+     *   *     *   You can configure multiple project policies for a project. The total size of the policies cannot exceed 16 KB.
+     *   *
      * @param string                  $project
-     * @param PutProjectPolicyRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param PutProjectPolicyRequest $request PutProjectPolicyRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutProjectPolicyResponse
+     * @return PutProjectPolicyResponse PutProjectPolicyResponse
      */
     public function putProjectPolicyWithOptions($project, $request, $headers, $runtime)
     {
@@ -4524,10 +4832,17 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   Alibaba Cloud Simple Log Service allows you to configure a project policy to authorize other users to access the specified Log Service resources.
+     *   *     *   You must configure a project policy based on policy syntax. Before you configure a project policy, you must be familiar with the Action, Resource, and Condition parameters. For more information, see [RAM](~~128139~~).
+     *   *     *   If you set the Principal element to an asterisk (\\*) and do not configure the Condition element when you configure a project policy, the policy applies to all users except for the project owner. If you set the Principal element to an asterisk (\\*) and configure the Condition element when you configure a project policy, the policy applies to all users including the project owner.
+     *   *     *   You can configure multiple project policies for a project. The total size of the policies cannot exceed 16 KB.
+     *   *
      * @param string                  $project
-     * @param PutProjectPolicyRequest $request
+     * @param PutProjectPolicyRequest $request PutProjectPolicyRequest
      *
-     * @return PutProjectPolicyResponse
+     * @return PutProjectPolicyResponse PutProjectPolicyResponse
      */
     public function putProjectPolicy($project, $request)
     {
@@ -4600,12 +4915,16 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                       $serviceName
-     * @param QueryMLServiceResultsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return QueryMLServiceResultsResponse
+     * @param string                       $serviceName
+     * @param QueryMLServiceResultsRequest $request     QueryMLServiceResultsRequest
+     * @param string[]                     $headers     map
+     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return QueryMLServiceResultsResponse QueryMLServiceResultsResponse
      */
     public function queryMLServiceResultsWithOptions($serviceName, $request, $headers, $runtime)
     {
@@ -4635,10 +4954,14 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string                       $serviceName
-     * @param QueryMLServiceResultsRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return QueryMLServiceResultsResponse
+     * @param string                       $serviceName
+     * @param QueryMLServiceResultsRequest $request     QueryMLServiceResultsRequest
+     *
+     * @return QueryMLServiceResultsResponse QueryMLServiceResultsResponse
      */
     public function queryMLServiceResults($serviceName, $request)
     {
@@ -4649,13 +4972,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string         $project
      * @param string         $machineGroup
      * @param string         $configName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return RemoveConfigFromMachineGroupResponse
+     * @return RemoveConfigFromMachineGroupResponse RemoveConfigFromMachineGroupResponse
      */
     public function removeConfigFromMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime)
     {
@@ -4681,11 +5006,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string $project
      * @param string $machineGroup
      * @param string $configName
      *
-     * @return RemoveConfigFromMachineGroupResponse
+     * @return RemoveConfigFromMachineGroupResponse RemoveConfigFromMachineGroupResponse
      */
     public function removeConfigFromMachineGroup($project, $machineGroup, $configName)
     {
@@ -4696,14 +5023,18 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   Each shard has an MD5 hash range, and each range is a left-closed, right-open interval. The interval is in the `[BeginKey,EndKey)` format. A shard can be in the readwrite or readonly state. You can split a shard and merge shards. For more information, see [Shard](~~28976~~).
+     *   *
      * @param string            $project
      * @param string            $logstore
      * @param string            $shard
-     * @param SplitShardRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param SplitShardRequest $request  SplitShardRequest
+     * @param string[]          $headers  map
+     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
      *
-     * @return SplitShardResponse
+     * @return SplitShardResponse SplitShardResponse
      */
     public function splitShardWithOptions($project, $logstore, $shard, $request, $headers, $runtime)
     {
@@ -4738,12 +5069,16 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   * *   Each shard has an MD5 hash range, and each range is a left-closed, right-open interval. The interval is in the `[BeginKey,EndKey)` format. A shard can be in the readwrite or readonly state. You can split a shard and merge shards. For more information, see [Shard](~~28976~~).
+     *   *
      * @param string            $project
      * @param string            $logstore
      * @param string            $shard
-     * @param SplitShardRequest $request
+     * @param SplitShardRequest $request  SplitShardRequest
      *
-     * @return SplitShardResponse
+     * @return SplitShardResponse SplitShardResponse
      */
     public function splitShard($project, $logstore, $shard, $request)
     {
@@ -4754,11 +5089,14 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * ### Usage notes
+     *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -4793,9 +5131,12 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * ### Usage notes
+     *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -4806,11 +5147,14 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * ### Usage notes
+     *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -4848,9 +5192,12 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * ### Usage notes
+     *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -4996,14 +5343,17 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                     $project
      * @param string                     $logstore
      * @param string                     $consumerGroup
-     * @param UpdateConsumerGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateConsumerGroupRequest $request       UpdateConsumerGroupRequest
+     * @param string[]                   $headers       map
+     * @param RuntimeOptions             $runtime       runtime options for this request RuntimeOptions
      *
-     * @return UpdateConsumerGroupResponse
+     * @return UpdateConsumerGroupResponse UpdateConsumerGroupResponse
      */
     public function updateConsumerGroupWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
     {
@@ -5038,12 +5388,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                     $project
      * @param string                     $logstore
      * @param string                     $consumerGroup
-     * @param UpdateConsumerGroupRequest $request
+     * @param UpdateConsumerGroupRequest $request       UpdateConsumerGroupRequest
      *
-     * @return UpdateConsumerGroupResponse
+     * @return UpdateConsumerGroupResponse UpdateConsumerGroupResponse
      */
     public function updateConsumerGroup($project, $logstore, $consumerGroup, $request)
     {
@@ -5119,13 +5472,16 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string             $project
      * @param string             $logstore
-     * @param UpdateIndexRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param UpdateIndexRequest $request  UpdateIndexRequest
+     * @param string[]           $headers  map
+     * @param RuntimeOptions     $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateIndexResponse
+     * @return UpdateIndexResponse UpdateIndexResponse
      */
     public function updateIndexWithOptions($project, $logstore, $request, $headers, $runtime)
     {
@@ -5175,11 +5531,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string             $project
      * @param string             $logstore
-     * @param UpdateIndexRequest $request
+     * @param UpdateIndexRequest $request  UpdateIndexRequest
      *
-     * @return UpdateIndexResponse
+     * @return UpdateIndexResponse UpdateIndexResponse
      */
     public function updateIndex($project, $logstore, $request)
     {
@@ -5190,13 +5549,17 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   * *   You can call the UpdateLogStore operation to change only the time-to-live (TTL) attribute.
+     *   *
      * @param string                $project
      * @param string                $logstore
-     * @param UpdateLogStoreRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateLogStoreRequest $request  UpdateLogStoreRequest
+     * @param string[]              $headers  map
+     * @param RuntimeOptions        $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateLogStoreResponse
+     * @return UpdateLogStoreResponse UpdateLogStoreResponse
      */
     public function updateLogStoreWithOptions($project, $logstore, $request, $headers, $runtime)
     {
@@ -5258,11 +5621,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * *   Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   * *   You can call the UpdateLogStore operation to change only the time-to-live (TTL) attribute.
+     *   *
      * @param string                $project
      * @param string                $logstore
-     * @param UpdateLogStoreRequest $request
+     * @param UpdateLogStoreRequest $request  UpdateLogStoreRequest
      *
-     * @return UpdateLogStoreResponse
+     * @return UpdateLogStoreResponse UpdateLogStoreResponse
      */
     public function updateLogStore($project, $logstore, $request)
     {
@@ -5326,12 +5693,14 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string               $project
-     * @param UpdateLoggingRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdateLoggingRequest $request UpdateLoggingRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoggingResponse
+     * @return UpdateLoggingResponse UpdateLoggingResponse
      */
     public function updateLoggingWithOptions($project, $request, $headers, $runtime)
     {
@@ -5366,10 +5735,12 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string               $project
-     * @param UpdateLoggingRequest $request
+     * @param UpdateLoggingRequest $request UpdateLoggingRequest
      *
-     * @return UpdateLoggingResponse
+     * @return UpdateLoggingResponse UpdateLoggingResponse
      */
     public function updateLogging($project, $request)
     {
@@ -5451,13 +5822,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                    $project
      * @param string                    $groupName
-     * @param UpdateMachineGroupRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateMachineGroupRequest $request   UpdateMachineGroupRequest
+     * @param string[]                  $headers   map
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateMachineGroupResponse
+     * @return UpdateMachineGroupResponse UpdateMachineGroupResponse
      */
     public function updateMachineGroupWithOptions($project, $groupName, $request, $headers, $runtime)
     {
@@ -5501,11 +5874,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                    $project
      * @param string                    $groupName
-     * @param UpdateMachineGroupRequest $request
+     * @param UpdateMachineGroupRequest $request   UpdateMachineGroupRequest
      *
-     * @return UpdateMachineGroupResponse
+     * @return UpdateMachineGroupResponse UpdateMachineGroupResponse
      */
     public function updateMachineGroup($project, $groupName, $request)
     {
@@ -5516,13 +5891,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                           $project
      * @param string                           $machineGroup
-     * @param UpdateMachineGroupMachineRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param UpdateMachineGroupMachineRequest $request      UpdateMachineGroupMachineRequest
+     * @param string[]                         $headers      map
+     * @param RuntimeOptions                   $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateMachineGroupMachineResponse
+     * @return UpdateMachineGroupMachineResponse UpdateMachineGroupMachineResponse
      */
     public function updateMachineGroupMachineWithOptions($project, $machineGroup, $request, $headers, $runtime)
     {
@@ -5555,11 +5932,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                           $project
      * @param string                           $machineGroup
-     * @param UpdateMachineGroupMachineRequest $request
+     * @param UpdateMachineGroupMachineRequest $request      UpdateMachineGroupMachineRequest
      *
-     * @return UpdateMachineGroupMachineResponse
+     * @return UpdateMachineGroupMachineResponse UpdateMachineGroupMachineResponse
      */
     public function updateMachineGroupMachine($project, $machineGroup, $request)
     {
@@ -5570,13 +5949,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                        $project
      * @param string                        $externalStoreName
-     * @param UpdateOssExternalStoreRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateOssExternalStoreRequest $request           UpdateOssExternalStoreRequest
+     * @param string[]                      $headers           map
+     * @param RuntimeOptions                $runtime           runtime options for this request RuntimeOptions
      *
-     * @return UpdateOssExternalStoreResponse
+     * @return UpdateOssExternalStoreResponse UpdateOssExternalStoreResponse
      */
     public function updateOssExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime)
     {
@@ -5614,11 +5995,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                        $project
      * @param string                        $externalStoreName
-     * @param UpdateOssExternalStoreRequest $request
+     * @param UpdateOssExternalStoreRequest $request           UpdateOssExternalStoreRequest
      *
-     * @return UpdateOssExternalStoreResponse
+     * @return UpdateOssExternalStoreResponse UpdateOssExternalStoreResponse
      */
     public function updateOssExternalStore($project, $externalStoreName, $request)
     {
@@ -5629,12 +6012,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string               $project
-     * @param UpdateProjectRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdateProjectRequest $request UpdateProjectRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectResponse
+     * @return UpdateProjectResponse UpdateProjectResponse
      */
     public function updateProjectWithOptions($project, $request, $headers, $runtime)
     {
@@ -5666,10 +6052,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * ### Usage notes
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string               $project
-     * @param UpdateProjectRequest $request
+     * @param UpdateProjectRequest $request UpdateProjectRequest
      *
-     * @return UpdateProjectResponse
+     * @return UpdateProjectResponse UpdateProjectResponse
      */
     public function updateProject($project, $request)
     {
@@ -5680,13 +6069,15 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                        $project
      * @param string                        $externalStoreName
-     * @param UpdateRdsExternalStoreRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateRdsExternalStoreRequest $request           UpdateRdsExternalStoreRequest
+     * @param string[]                      $headers           map
+     * @param RuntimeOptions                $runtime           runtime options for this request RuntimeOptions
      *
-     * @return UpdateRdsExternalStoreResponse
+     * @return UpdateRdsExternalStoreResponse UpdateRdsExternalStoreResponse
      */
     public function updateRdsExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime)
     {
@@ -5724,11 +6115,13 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *   *
      * @param string                        $project
      * @param string                        $externalStoreName
-     * @param UpdateRdsExternalStoreRequest $request
+     * @param UpdateRdsExternalStoreRequest $request           UpdateRdsExternalStoreRequest
      *
-     * @return UpdateRdsExternalStoreResponse
+     * @return UpdateRdsExternalStoreResponse UpdateRdsExternalStoreResponse
      */
     public function updateRdsExternalStore($project, $externalStoreName, $request)
     {

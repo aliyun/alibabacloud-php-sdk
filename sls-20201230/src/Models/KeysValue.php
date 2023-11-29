@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class KeysValue extends Model
 {
     /**
+     * @description Specifies whether to enable case sensitivity. This parameter is required only when **type** is set to **text**. Valid values:
+     *
+     *   true
+     *   false (default)
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,11 @@ class KeysValue extends Model
     public $caseSensitive;
 
     /**
+     * @description Specifies whether to include Chinese characters. This parameter is required only when **type** is set to **text**. Valid values:
+     *
+     *   true
+     *   false (default)
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +33,8 @@ class KeysValue extends Model
     public $chn;
 
     /**
+     * @description The data type of the field value. Valid values: text, json, double, and long.
+     *
      * @example text
      *
      * @var string
@@ -30,6 +42,8 @@ class KeysValue extends Model
     public $type;
 
     /**
+     * @description The alias of the field.
+     *
      * @example myAlias
      *
      * @var string
@@ -37,11 +51,15 @@ class KeysValue extends Model
     public $alias;
 
     /**
+     * @description The delimiters that are used to split text.
+     *
      * @var string[]
      */
     public $token;
 
     /**
+     * @description Specifies whether to turn on Enable Analytics for the field.
+     *
      * @example false
      *
      * @var bool

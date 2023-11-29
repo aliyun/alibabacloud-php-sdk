@@ -14,11 +14,15 @@ class ListConfigResponseBody extends Model
     public $configs;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $total;

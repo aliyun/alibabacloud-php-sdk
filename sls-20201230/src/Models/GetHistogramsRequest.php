@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetHistogramsRequest extends Model
 {
     /**
+     * @description The start time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1409529600
      *
      * @var int
@@ -16,13 +18,17 @@ class GetHistogramsRequest extends Model
     public $from;
 
     /**
-     * @example error
+     * @description The search statement. Only search statements are supported. Analytic statements are not supported. For more information about the syntax of search statements, see [Log search overview](~~43772~~).
+     *
+     * @example with_pack_meta
      *
      * @var string
      */
     public $query;
 
     /**
+     * @description The end time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1409569200
      *
      * @var int
@@ -30,6 +36,8 @@ class GetHistogramsRequest extends Model
     public $to;
 
     /**
+     * @description The topic of the logs.
+     *
      * @example topic
      *
      * @var string

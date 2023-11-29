@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListExternalStoreRequest extends Model
 {
     /**
+     * @description The name of the external store. You can query external stores that contain a specified string.
+     *
      * @example store
      *
      * @var string
@@ -16,6 +18,8 @@ class ListExternalStoreRequest extends Model
     public $externalStoreName;
 
     /**
+     * @description The line from which the query starts. Default value: 0.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class ListExternalStoreRequest extends Model
     public $offset;
 
     /**
+     * @description The number of entries per page. Maximum value: 500.
+     *
      * @example 10
      *
      * @var int

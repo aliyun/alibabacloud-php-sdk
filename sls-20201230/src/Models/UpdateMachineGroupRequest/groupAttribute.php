@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class groupAttribute extends Model
 {
     /**
+     * @description The identifier of the external management system on which the machine group depends. This parameter is empty by default.
+     *
      * @example testgroup2
      *
      * @var string
@@ -16,6 +18,8 @@ class groupAttribute extends Model
     public $externalName;
 
     /**
+     * @description The topic of the machine group. This parameter is empty by default.
+     *
      * @example testtopic2
      *
      * @var string
