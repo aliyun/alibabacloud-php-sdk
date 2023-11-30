@@ -10,11 +10,53 @@ use AlibabaCloud\Tea\Model;
 class BatchRequest extends Model
 {
     /**
+     * @description The child requests.
+     *
+     * The number of child requests. Valid value: 1 to 100.
      * @var requests[]
      */
     public $requests;
 
     /**
+     * @description The type of the resource that you want to manage. Valid values:
+     *
+     *   file: a file.
+     *   drive: an individual drive or a team drive.
+     *   user: a user.
+     *   group: a group.
+     *   membership: a group member.
+     *   share_link: a share.
+     *   async_task: an asynchronous task.
+     *
+     * <!---->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
      * @example file
      *
      * @var string

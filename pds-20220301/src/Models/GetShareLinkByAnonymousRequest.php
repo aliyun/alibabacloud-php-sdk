@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetShareLinkByAnonymousRequest extends Model
 {
     /**
+     * @description The share ID.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string

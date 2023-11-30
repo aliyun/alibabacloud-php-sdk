@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteFileRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID or folder ID.
+     *
      * @example 9520943DC264
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileResponseBody extends Model
 {
     /**
+     * @description The domain ID.
+     *
      * @example bj1
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFileResponseBody extends Model
     public $domainId;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateFileResponseBody extends Model
     public $driveId;
 
     /**
+     * @description Indicates whether the file exists.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class CreateFileResponseBody extends Model
     public $exist;
 
     /**
+     * @description The file ID.
+     *
      * @example fileid1
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateFileResponseBody extends Model
     public $fileId;
 
     /**
+     * @description The file name.
+     *
      * @example a.txt
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateFileResponseBody extends Model
     public $fileName;
 
     /**
+     * @description The ID of the parent directory.
+     *
      * @example fileid5
      *
      * @var string
@@ -51,11 +63,15 @@ class CreateFileResponseBody extends Model
     public $parentFileId;
 
     /**
+     * @description The information about the file parts.
+     *
      * @var UploadPartInfo[]
      */
     public $partInfoList;
 
     /**
+     * @description Indicates whether the file is instantly uploaded.
+     *
      * @example true
      *
      * @var bool
@@ -63,6 +79,8 @@ class CreateFileResponseBody extends Model
     public $rapidUpload;
 
     /**
+     * @description The state of the file.
+     *
      * @example uploading
      *
      * @var string
@@ -70,6 +88,8 @@ class CreateFileResponseBody extends Model
     public $status;
 
     /**
+     * @description The type of the file.
+     *
      * @example file
      *
      * @var string
@@ -77,6 +97,8 @@ class CreateFileResponseBody extends Model
     public $type;
 
     /**
+     * @description The ID of the upload task.
+     *
      * @example uploadid1
      *
      * @var string

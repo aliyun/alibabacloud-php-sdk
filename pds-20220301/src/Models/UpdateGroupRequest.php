@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupRequest extends Model
 {
     /**
+     * @description The description of the group after modification.
+     *
+     * @example test group description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the group that you want to modify.
+     *
      * @example 2e43ec8427dd45f19431b7504649a1b4
      *
      * @var string
@@ -21,6 +27,10 @@ class UpdateGroupRequest extends Model
     public $groupId;
 
     /**
+     * @description The name of the group after modification.
+     *
+     * @example test group
+     *
      * @var string
      */
     public $groupName;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class MoveFileResponseBody extends Model
 {
     /**
+     * @description The ID of the asynchronous task.
+     *
+     * If a non-empty string is returned, an asynchronous task is required. You can call the GetAsyncTask operation to obtain the information about an asynchronous task based on the task ID.
      * @example 23ebd1a24dba4166b1527add476ef2866051b4d5del106
      *
      * @var string
@@ -16,6 +19,8 @@ class MoveFileResponseBody extends Model
     public $asyncTaskId;
 
     /**
+     * @description The domain ID.
+     *
      * @example bj1
      *
      * @var string
@@ -23,6 +28,8 @@ class MoveFileResponseBody extends Model
     public $domainId;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +37,8 @@ class MoveFileResponseBody extends Model
     public $driveId;
 
     /**
+     * @description Indicates whether the file already exists in the destination directory.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +46,8 @@ class MoveFileResponseBody extends Model
     public $exist;
 
     /**
+     * @description The file ID.
+     *
      * @example fileid1
      *
      * @var string

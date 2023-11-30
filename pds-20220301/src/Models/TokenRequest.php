@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TokenRequest extends Model
 {
     /**
+     * @description The JWT assertion that is signed by using the JWT private key. The JWT assertion contains the information about the user to be authorized and the authorization parameters. For more information about the structure of the JWT assertion, see JWTPayload. This parameter is required if grant_type is set to urn:ietf:params:oauth:grant-type:jwt-bearer.
+     *
      * @example ey***asd
      *
      * @var string
@@ -16,6 +18,8 @@ class TokenRequest extends Model
     public $assertion;
 
     /**
+     * @description The AppId of the application that is created in the Drive and Photo Service console.
+     *
      * @example 1Zu***flH
      *
      * @var string
@@ -23,6 +27,8 @@ class TokenRequest extends Model
     public $clientId;
 
     /**
+     * @description The AppSecret of the application that is created in the Drive and Photo Service console. This parameter is required if the application is of the WebServer type.
+     *
      * @example 80D***3i5
      *
      * @var string
@@ -30,6 +36,8 @@ class TokenRequest extends Model
     public $clientSecret;
 
     /**
+     * @description The authorization code in the redirect URI that is specified after the authorization process is complete. This parameter is required if grant_type is set to authorization_code.
+     *
      * @example 0045157fa8e24f4f9a0d9e3ff158c1e0
      *
      * @var string
@@ -37,6 +45,9 @@ class TokenRequest extends Model
     public $code;
 
     /**
+     * @description The method that is used to generate an access token. Valid values:
+     *
+     * urn:ietf:params:oauth:grant-type:jwt-bearer: generates an access token by using a JWT assertion.
      * @example refresh_token
      *
      * @var string
@@ -44,6 +55,8 @@ class TokenRequest extends Model
     public $grantType;
 
     /**
+     * @description The redirect URI that is specified when you initiate the authorization request. This parameter is required if grant_type is set to authorization_code.
+     *
      * @example https://aliyun.com/pds
      *
      * @var string
@@ -51,6 +64,8 @@ class TokenRequest extends Model
     public $redirectUri;
 
     /**
+     * @description The refresh token that is used to refresh the access token. This parameter is required if grant_type is set to refresh_token.
+     *
      * @example 399623e13353490391266c7d48a13ed1
      *
      * @var string

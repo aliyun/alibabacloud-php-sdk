@@ -9,16 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SearchAddressGroupsRequest extends Model
 {
     /**
+     * @description The level of the location.
+     *
+     * Valid values:
+     *
+     *   country
+     *
+     * <!-- -->
+     *
+     *   province
+     *
+     * <!-- -->
+     *
+     *   city
+     *
+     * <!-- -->
+     *
+     *   district
+     *
+     * <!-- -->
+     *
+     *   township
+     *
+     * <!-- -->
      * @var string
      */
     public $addressLevel;
 
     /**
+     * @description The locations.
+     *
      * @var string[]
      */
     public $addressNames;
 
     /**
+     * @description The coordinates of the bottom right vertex of the rectangle. Set the value in the format of latitude,longitude.
+     *
      * @example 40.121,105.2121
      *
      * @var string
@@ -26,6 +53,8 @@ class SearchAddressGroupsRequest extends Model
     public $brGeoPoint;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -33,6 +62,8 @@ class SearchAddressGroupsRequest extends Model
     public $driveId;
 
     /**
+     * @description The method used to generate the thumbnail of an image.
+     *
      * @example image/resize,w_200
      *
      * @var string
@@ -40,6 +71,8 @@ class SearchAddressGroupsRequest extends Model
     public $imageThumbnailProcess;
 
     /**
+     * @description The coordinates of the top left vertex of the rectangle. Set the value in the format of latitude,longitude.
+     *
      * @example 39.121,101.2121
      *
      * @var string
@@ -47,6 +80,8 @@ class SearchAddressGroupsRequest extends Model
     public $tlGeoPoint;
 
     /**
+     * @description The method used to generate the thumbnail of a video.
+     *
      * @example video/snapshot,t_7000,f_jpg,w_800,h_600,m_fast
      *
      * @var string

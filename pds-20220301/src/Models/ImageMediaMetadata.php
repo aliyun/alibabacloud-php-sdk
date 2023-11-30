@@ -44,15 +44,6 @@ class ImageMediaMetadata extends Model
     public $exif;
 
     /**
-     * @example [{"FaceId":"a9a66a86-73dd-4c95-8b79-1d8a49db5226","GroupId":"Cluster-e3b7fb52-22b3-44f2-9746-8c1804bd6af0","FaceConfidence":0.999,"Age":13,"AgeConfidence":4,"Gender":"female","GenderConfidence":1,"Emotion":"none","EmotionConfidence":0.672,"FaceAttributes":{"Mask":"none","MaskConfidence":0.894,"Beard":"none","BeardConfidence":0.997,"Glasses":"none","GlassesConfidence":0.999,"Mouth":"close","MouthConfidence":0.937,"Hat":"none","HatConfidence":0.998,"HeadPose":{"Pitch":10.684,"Roll":-10.707,"Yaw":-20.094},"FaceBoundary":{"Width":457,"Height":687,"Top":1324,"Left":1356}}}]
-     *
-     * @deprecated
-     *
-     * @var string
-     */
-    public $faces;
-
-    /**
      * @var FaceThumbnail[]
      */
     public $facesThumbnail;
@@ -114,7 +105,6 @@ class ImageMediaMetadata extends Model
         'country'        => 'country',
         'district'       => 'district',
         'exif'           => 'exif',
-        'faces'          => 'faces',
         'facesThumbnail' => 'faces_thumbnail',
         'height'         => 'height',
         'imageQuality'   => 'image_quality',
@@ -147,9 +137,6 @@ class ImageMediaMetadata extends Model
         }
         if (null !== $this->exif) {
             $res['exif'] = $this->exif;
-        }
-        if (null !== $this->faces) {
-            $res['faces'] = $this->faces;
         }
         if (null !== $this->facesThumbnail) {
             $res['faces_thumbnail'] = [];
@@ -216,9 +203,6 @@ class ImageMediaMetadata extends Model
         }
         if (isset($map['exif'])) {
             $model->exif = $map['exif'];
-        }
-        if (isset($map['faces'])) {
-            $model->faces = $map['faces'];
         }
         if (isset($map['faces_thumbnail'])) {
             if (!empty($map['faces_thumbnail'])) {

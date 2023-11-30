@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUploadedPartsResponseBody extends Model
 {
     /**
+     * @description The file ID.
+     *
      * @example 322fb07b975f4b0ae1b543fe8475eee4c19eb2b2
      *
      * @var string
@@ -16,6 +18,8 @@ class ListUploadedPartsResponseBody extends Model
     public $fileId;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -23,6 +27,8 @@ class ListUploadedPartsResponseBody extends Model
     public $nextPartNumberMarker;
 
     /**
+     * @description Indicates whether the parallel upload feature is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class ListUploadedPartsResponseBody extends Model
     public $parallelUpload;
 
     /**
+     * @description The ID of the upload task.
+     *
      * @example 00166D06127B413BA1EC8ABB1144D101
      *
      * @var string
@@ -37,6 +45,8 @@ class ListUploadedPartsResponseBody extends Model
     public $uploadId;
 
     /**
+     * @description The information about the file parts.
+     *
      * @var UploadPartInfo[]
      */
     public $uploadedParts;

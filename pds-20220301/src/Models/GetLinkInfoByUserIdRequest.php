@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLinkInfoByUserIdRequest extends Model
 {
     /**
+     * @description The user ID.
+     *
      * @example xxx
      *
      * @var string

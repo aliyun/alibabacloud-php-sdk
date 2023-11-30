@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUploadedPartsRequest extends Model
 {
     /**
+     * @description The drive ID. This parameter is required if the file is not uploaded by using the share URL of the file.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class ListUploadedPartsRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 322fb07b975f4b0ae1b543fe8475eee4c19eb2b2
      *
      * @var string
@@ -23,6 +27,8 @@ class ListUploadedPartsRequest extends Model
     public $fileId;
 
     /**
+     * @description The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +36,8 @@ class ListUploadedPartsRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var int
@@ -37,6 +45,8 @@ class ListUploadedPartsRequest extends Model
     public $partNumberMarker;
 
     /**
+     * @description The share ID. This parameter is required if the file is uploaded by using the share URL of the file.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -44,6 +54,8 @@ class ListUploadedPartsRequest extends Model
     public $shareId;
 
     /**
+     * @description The ID of the upload task.
+     *
      * @example 00166D06127B413BA1EC8ABB1144D101
      *
      * @var string

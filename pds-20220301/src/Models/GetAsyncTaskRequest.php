@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAsyncTaskRequest extends Model
 {
     /**
+     * @description The ID of the asynchronous task.
+     *
      * @example 000e89fb-cf8f-11e9-8ab4-b6e980803a3b
      *
      * @var string

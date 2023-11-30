@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDownloadUrlResponseBody extends Model
 {
     /**
+     * @description The download URL of a file that is downloaded by using Alibaba Cloud CDN.
+     *
      * @example https://data-cdn.aliyunpds.com/hz22%2F5d79219b0aa9a7c995a94a96993ba3205cd91c5a%2F5d79219bf3261a5d38744da0834ed489b677a27a?Expires=xxxOSSAccessKeyId=xxx&Signature=xxx&response-content-disposition=attachment%3Bfilename%3DtBiZAoJPC2c8b13450eda4292b7f5f8010618e078.txt
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDownloadUrlResponseBody extends Model
     public $cdnUrl;
 
     /**
+     * @description The hash value of the file content.
+     *
      * @example EA4942AA8761213890A5C386F88E6464D2C31CA1
      *
      * @var string
@@ -23,6 +27,8 @@ class GetDownloadUrlResponseBody extends Model
     public $contentHash;
 
     /**
+     * @description The name of the algorithm that is used to calculate the hash value of the file content.
+     *
      * @example sha1
      *
      * @var string
@@ -30,6 +36,8 @@ class GetDownloadUrlResponseBody extends Model
     public $contentHashName;
 
     /**
+     * @description The hash value calculated by using 64-bit cyclic redundancy check (CRC-64).
+     *
      * @example 5498595269368962671
      *
      * @var string
@@ -37,6 +45,8 @@ class GetDownloadUrlResponseBody extends Model
     public $crc64Hash;
 
     /**
+     * @description The time when the download URL expires.
+     *
      * @example 2022-01-02T15:04:05.999Z07:00
      *
      * @var string
@@ -44,6 +54,8 @@ class GetDownloadUrlResponseBody extends Model
     public $expiration;
 
     /**
+     * @description The download URL of a file that is downloaded over a virtual private cloud (VPC).
+     *
      * @example https://data-vpc.aliyunpds.com/hz22%2F5d79219b0aa9a7c995a94a96993ba3205cd91c5a%2F5d79219bf3261a5d38744da0834ed489b677a27a?Expires=xxxOSSAccessKeyId=xxx&Signature=xxx&response-content-disposition=attachment%3Bfilename%3DtBiZAoJPC2c8b13450eda4292b7f5f8010618e078.txt
      *
      * @var string
@@ -51,6 +63,8 @@ class GetDownloadUrlResponseBody extends Model
     public $internalUrl;
 
     /**
+     * @description The size of the file. Unit: bytes.
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +72,8 @@ class GetDownloadUrlResponseBody extends Model
     public $size;
 
     /**
+     * @description The download URL of a file that is downloaded over the Internet.
+     *
      * @example https://data.aliyunpds.com/hz22%2F5d79219b0aa9a7c995a94a96993ba3205cd91c5a%2F5d79219bf3261a5d38744da0834ed489b677a27a?Expires=xxxOSSAccessKeyId=xxx&Signature=xxx&response-content-disposition=attachment%3Bfilename%3DtBiZAoJPC2c8b13450eda4292b7f5f8010618e078.txt
      *
      * @var string

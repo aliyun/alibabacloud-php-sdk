@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class partInfoList extends Model
 {
     /**
+     * @example ASKJDJSKDJJSJDJS
+     *
      * @var string
      */
     public $contentMd5;
 
     /**
+     * @description 该分片前所有数据的SHA1上下文，该字段只在多分片并发上传的模式下有效
+     *
      * @var parallelSha1Ctx
      */
     public $parallelSha1Ctx;
 
     /**
+     * @description The serial number of a part. The number starts from 1.
+     *
      * @example 1
      *
      * @var int

@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class groupCoverFaceBoundary extends Model
 {
     /**
+     * @example 300
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $width;
     protected $_name = [
-        'height' => 'height',
-        'left'   => 'left',
-        'top'    => 'top',
-        'width'  => 'width',
+        'height' => 'Height',
+        'left'   => 'Left',
+        'top'    => 'Top',
+        'width'  => 'Width',
     ];
 
     public function validate()
@@ -42,16 +50,16 @@ class groupCoverFaceBoundary extends Model
     {
         $res = [];
         if (null !== $this->height) {
-            $res['height'] = $this->height;
+            $res['Height'] = $this->height;
         }
         if (null !== $this->left) {
-            $res['left'] = $this->left;
+            $res['Left'] = $this->left;
         }
         if (null !== $this->top) {
-            $res['top'] = $this->top;
+            $res['Top'] = $this->top;
         }
         if (null !== $this->width) {
-            $res['width'] = $this->width;
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -65,17 +73,17 @@ class groupCoverFaceBoundary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['height'])) {
-            $model->height = $map['height'];
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
         }
-        if (isset($map['left'])) {
-            $model->left = $map['left'];
+        if (isset($map['Left'])) {
+            $model->left = $map['Left'];
         }
-        if (isset($map['top'])) {
-            $model->top = $map['top'];
+        if (isset($map['Top'])) {
+            $model->top = $map['Top'];
         }
-        if (isset($map['width'])) {
-            $model->width = $map['width'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDriveRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string

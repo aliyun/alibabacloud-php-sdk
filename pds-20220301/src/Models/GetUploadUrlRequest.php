@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetUploadUrlRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -17,6 +19,8 @@ class GetUploadUrlRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 5d5b846942cf94fa72324c14a4bda34e81da635d
      *
      * @var string
@@ -24,11 +28,15 @@ class GetUploadUrlRequest extends Model
     public $fileId;
 
     /**
+     * @description The information about the file parts.
+     *
      * @var partInfoList[]
      */
     public $partInfoList;
 
     /**
+     * @description The share ID.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -36,6 +44,8 @@ class GetUploadUrlRequest extends Model
     public $shareId;
 
     /**
+     * @description The ID of the upload task.
+     *
      * @example 10166D06127B413BA1EC8ABB1144D111
      *
      * @var string

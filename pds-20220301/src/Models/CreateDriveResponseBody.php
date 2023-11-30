@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDriveResponseBody extends Model
 {
     /**
+     * @description The domain ID.
+     *
      * @example bj1
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDriveResponseBody extends Model
     public $domainId;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string

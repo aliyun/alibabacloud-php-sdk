@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeltaGetLastCursorRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class DeltaGetLastCursorRequest extends Model
     public $driveId;
 
     /**
+     * @description The ID of the root file of the synced folder.
+     *
      * @example 622fb09598ae66777c7040109a16f49381f6abe1
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetGroupRequest extends Model
 {
     /**
+     * @description The group ID.
+     *
      * @example 2e43ec8427dd45f19431b7504649a1b1
      *
      * @var string

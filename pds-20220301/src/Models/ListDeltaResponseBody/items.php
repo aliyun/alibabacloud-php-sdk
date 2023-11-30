@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The information about the file.
+     *
      * @var File
      */
     public $file;
 
     /**
+     * @description The file ID.
+     *
      * @example 122fb09598ae66777c7040109a16f49381f6abe2
      *
      * @var string
@@ -22,6 +26,17 @@ class items extends Model
     public $fileId;
 
     /**
+     * @description The operation that is performed. Valid values: Valid values:
+     *
+     *   create
+     *   overwrite
+     *   delete
+     *   update
+     *   move
+     *   trash
+     *   restore
+     *   rename
+     *
      * @example create
      *
      * @var string

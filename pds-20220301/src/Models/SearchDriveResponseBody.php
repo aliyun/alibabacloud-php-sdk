@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SearchDriveResponseBody extends Model
 {
     /**
+     * @description The information about the drives.
+     *
      * @var Drive[]
      */
     public $items;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string

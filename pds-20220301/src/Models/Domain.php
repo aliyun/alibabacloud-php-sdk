@@ -49,6 +49,11 @@ class Domain extends Model
     public $publishedAppAccessStrategy;
 
     /**
+     * @var bool
+     */
+    public $sharable;
+
+    /**
      * @var int
      */
     public $sizeQuota;
@@ -86,6 +91,7 @@ class Domain extends Model
         'initDriveSize'              => 'init_drive_size',
         'parentDomainId'             => 'parent_domain_id',
         'publishedAppAccessStrategy' => 'published_app_access_strategy',
+        'sharable'                   => 'sharable',
         'sizeQuota'                  => 'size_quota',
         'sizeQuotaUsed'              => 'size_quota_used',
         'status'                     => 'status',
@@ -124,6 +130,9 @@ class Domain extends Model
         }
         if (null !== $this->publishedAppAccessStrategy) {
             $res['published_app_access_strategy'] = null !== $this->publishedAppAccessStrategy ? $this->publishedAppAccessStrategy->toMap() : null;
+        }
+        if (null !== $this->sharable) {
+            $res['sharable'] = $this->sharable;
         }
         if (null !== $this->sizeQuota) {
             $res['size_quota'] = $this->sizeQuota;
@@ -178,6 +187,9 @@ class Domain extends Model
         }
         if (isset($map['published_app_access_strategy'])) {
             $model->publishedAppAccessStrategy = AppAccessStrategy::fromMap($map['published_app_access_strategy']);
+        }
+        if (isset($map['sharable'])) {
+            $model->sharable = $map['sharable'];
         }
         if (isset($map['size_quota'])) {
             $model->sizeQuota = $map['size_quota'];

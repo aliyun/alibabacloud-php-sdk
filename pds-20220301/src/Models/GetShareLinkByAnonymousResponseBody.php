@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetShareLinkByAnonymousResponseBody extends Model
 {
     /**
+     * @description The number of times that the shared files are visited.
+     *
      * @example 30
      *
      * @var int
@@ -16,6 +18,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $accessCount;
 
     /**
+     * @description The profile picture of the user who created the share link.
+     *
      * @example https://aliyunpds.com/a.jpg
      *
      * @var string
@@ -23,6 +27,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $avatar;
 
     /**
+     * @description The ID of the user who created the share link.
+     *
      * @example c9b7a5aa04d14ae3867fdc886fa01da4
      *
      * @var string
@@ -30,6 +36,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $creatorId;
 
     /**
+     * @description The name of the user who created the share link. The value is masked.
+     *
      * @example AB***CD
      *
      * @var string
@@ -37,6 +45,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $creatorName;
 
     /**
+     * @description The mobile number of the user who created the share link. The value is masked.
+     *
      * @example 136****00
      *
      * @var string
@@ -44,6 +54,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $creatorPhone;
 
     /**
+     * @description Indicates whether the downloads of the shared files are prohibited.
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +63,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $disableDownload;
 
     /**
+     * @description Indicates whether the previews of the shared files are prohibited.
+     *
      * @example false
      *
      * @var bool
@@ -58,6 +72,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $disablePreview;
 
     /**
+     * @description Indicates whether the saves of the shared files are prohibited.
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +81,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $disableSave;
 
     /**
+     * @description The number of times that the shared files are downloaded.
+     *
      * @example 50
      *
      * @var int
@@ -72,6 +90,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $downloadCount;
 
     /**
+     * @description The maximum number of times that the shared files can be downloaded.
+     *
      * @example 100
      *
      * @var int
@@ -79,6 +99,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $downloadLimit;
 
     /**
+     * @description The time when the share link expires.
+     *
      * @example 2020-08-20T06:51:27.292Z
      *
      * @var string
@@ -86,6 +108,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $expiration;
 
     /**
+     * @description The number of times that the shared files are previewed.
+     *
      * @example 80
      *
      * @var int
@@ -93,6 +117,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $previewCount;
 
     /**
+     * @description The maximum number of times that the shared files can be previewed.
+     *
      * @example 100
      *
      * @var int
@@ -100,6 +126,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $previewLimit;
 
     /**
+     * @description The number of times that the shared files are reported.
+     *
      * @example 0
      *
      * @var int
@@ -107,6 +135,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $reportCount;
 
     /**
+     * @description The number of times that the shared files are saved.
+     *
      * @example 2
      *
      * @var int
@@ -114,6 +144,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $saveCount;
 
     /**
+     * @description The maximum number of times that the shared files can be saved and downloaded.
+     *
      * @example 200
      *
      * @var int
@@ -121,6 +153,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $saveDownloadLimit;
 
     /**
+     * @description The maximum number of times that the shared files can be saved.
+     *
      * @example 100
      *
      * @var int
@@ -128,11 +162,15 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $saveLimit;
 
     /**
+     * @description The name of the share link.
+     *
      * @var string
      */
     public $shareName;
 
     /**
+     * @description The time when the share link was last modified.
+     *
      * @example 2019-08-20T06:51:27.292Z
      *
      * @var string
@@ -140,6 +178,8 @@ class GetShareLinkByAnonymousResponseBody extends Model
     public $updatedAt;
 
     /**
+     * @description The number of times that the videos are previewed in the shared files.
+     *
      * @example 5
      *
      * @var int

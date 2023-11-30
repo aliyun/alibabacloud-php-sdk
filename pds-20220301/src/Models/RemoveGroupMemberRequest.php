@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveGroupMemberRequest extends Model
 {
     /**
+     * @description The ID of the group from which you want to remove a member.
+     *
      * @example 3e5***2c2
      *
      * @var string
@@ -16,6 +18,8 @@ class RemoveGroupMemberRequest extends Model
     public $groupId;
 
     /**
+     * @description The ID of the member. If member_type is set to user, set this parameter to the ID of the corresponding user.
+     *
      * @example 2e4***1b1
      *
      * @var string
@@ -23,6 +27,11 @@ class RemoveGroupMemberRequest extends Model
     public $memberId;
 
     /**
+     * @description The type of the member that you want to remove from the group. Only common users can be removed. If you want to remove all members from a group, you can directly delete the group. Valid value:
+     *
+     *   user
+     *
+     * Note: A group can be a member of only one group. It cannot be a member of multiple groups. A user can be a member of multiple groups.
      * @example user
      *
      * @var string

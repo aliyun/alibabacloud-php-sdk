@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDriveRequest extends Model
 {
     /**
+     * @description Specifies whether the drive is the default drive. Default value: false.
+     *
      * @example true
      *
      * @var bool
@@ -16,11 +18,15 @@ class CreateDriveRequest extends Model
     public $default;
 
     /**
+     * @description The description of the drive. The description can be up to 1,024 characters in length.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the drive. The name can be up to 128 characters in length.
+     *
      * @example my_drive
      *
      * @var string
@@ -28,6 +34,8 @@ class CreateDriveRequest extends Model
     public $driveName;
 
     /**
+     * @description The type of the drive. Set the value to normal.
+     *
      * @example normal
      *
      * @var string
@@ -35,11 +43,18 @@ class CreateDriveRequest extends Model
     public $driveType;
 
     /**
+     * @description The owner of the drive.
+     *
+     * @example 3b3d7245c159488da17d081ad6c64687
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The type of the owner. Valid values:
+     *
+     * user and group.
      * @example user
      *
      * @var string
@@ -47,6 +62,9 @@ class CreateDriveRequest extends Model
     public $ownerType;
 
     /**
+     * @description The state of the drive. Valid values:
+     *
+     * Default value: enabled.
      * @example enabled
      *
      * @var string
@@ -54,6 +72,8 @@ class CreateDriveRequest extends Model
     public $status;
 
     /**
+     * @description The total size of the drive. Unit: bytes. By default, the size is unlimited.
+     *
      * @example 1024
      *
      * @var int

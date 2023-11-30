@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFileRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,10 @@ class GetFileRequest extends Model
     public $driveId;
 
     /**
+     * @description The fields to return.
+     *
+     * 1.  If this parameter is set to \*, all fields of the file except the fields that must be specified are returned.
+     * By default, all fields except the fields that must be specified are returned.
      * @example *
      *
      * @var string
@@ -23,6 +29,8 @@ class GetFileRequest extends Model
     public $fields;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -30,6 +38,8 @@ class GetFileRequest extends Model
     public $fileId;
 
     /**
+     * @description The share ID. If you want to manage a file by using a share link, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -37,11 +47,15 @@ class GetFileRequest extends Model
     public $shareId;
 
     /**
+     * @description 缩略图配置，可一次性返回最多5个缩略图，map的key可以自定义，返回时按key返回对应的缩略图链接
+     *
      * @var ImageProcess[]
      */
     public $thumbnailProcesses;
 
     /**
+     * @description The time when the file expires. Unit: seconds. Valid values: 10 to 14400.
+     *
      * @example 100
      *
      * @var int

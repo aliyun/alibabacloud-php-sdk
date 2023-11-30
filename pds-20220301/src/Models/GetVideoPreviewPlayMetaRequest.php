@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetVideoPreviewPlayMetaRequest extends Model
 {
     /**
+     * @description The preview type. You must enable the corresponding video transcoding feature. Valid values:
+     *
+     *   live_transcoding: previews a live stream while transcoding is in progress.
+     *   quick_video: previews a video while transcoding is in progress.
+     *   offline_audio: previews a piece of audio after the audio is transcoded offline.
+     *   offline_video: previews a video after the video is transcoded offline.
+     *
      * @example live_transcoding
      *
      * @var string
@@ -16,6 +23,8 @@ class GetVideoPreviewPlayMetaRequest extends Model
     public $category;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +32,8 @@ class GetVideoPreviewPlayMetaRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -30,6 +41,8 @@ class GetVideoPreviewPlayMetaRequest extends Model
     public $fileId;
 
     /**
+     * @description The share ID. If you want to manage a file by using a sharing link, carry the `x-share-token` header in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify at least either `share_id` or `drive_id`.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagsRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class ListTagsRequest extends Model
     public $driveId;
 
     /**
+     * @description The method that is used to generate the thumbnail of an image.
+     *
      * @example image/resize,w_200
      *
      * @var string
@@ -23,6 +27,8 @@ class ListTagsRequest extends Model
     public $imageThumbnailProcess;
 
     /**
+     * @description The method that is used to generate the thumbnail of a video.
+     *
      * @example video/snapshot,t_7000,f_jpg,w_800,h_600,m_fast
      *
      * @var string

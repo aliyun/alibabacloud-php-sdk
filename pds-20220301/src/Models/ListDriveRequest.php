@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDriveRequest extends Model
 {
     /**
+     * @description The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class ListDriveRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -23,6 +27,8 @@ class ListDriveRequest extends Model
     public $marker;
 
     /**
+     * @description The owner of the drive. If this parameter is not specified, all drives are returned.
+     *
      * @example c9b7a5aa04d14ae3867fdc886fa01da4
      *
      * @var string
@@ -30,6 +36,9 @@ class ListDriveRequest extends Model
     public $owner;
 
     /**
+     * @description The type of the owner. Valid values:
+     *
+     * By default, drives of all owner types are returned.
      * @example user
      *
      * @var string

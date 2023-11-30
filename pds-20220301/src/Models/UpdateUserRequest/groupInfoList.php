@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class groupInfoList extends Model
 {
     /**
+     * @description The group ID.
+     *
      * @example g123
      *
      * @var string

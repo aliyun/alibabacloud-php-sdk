@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FileDeleteUserTagsRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class FileDeleteUserTagsRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -23,6 +27,8 @@ class FileDeleteUserTagsRequest extends Model
     public $fileId;
 
     /**
+     * @description The tags that you want to remove from a file. You cannot leave this parameter empty. You can specify up to 1,000 tags.
+     *
      * @var string[]
      */
     public $keyList;

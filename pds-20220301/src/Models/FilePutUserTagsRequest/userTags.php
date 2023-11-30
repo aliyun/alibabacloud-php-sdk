@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userTags extends Model
 {
     /**
+     * @description The name of the tag. The tag name cannot be empty and cannot contain number signs (#).
+     *
      * @example tag
      *
      * @var string
@@ -16,6 +18,8 @@ class userTags extends Model
     public $key;
 
     /**
+     * @description The value of the tag. The tag value cannot contain number signs (#).
+     *
      * @example value
      *
      * @var string

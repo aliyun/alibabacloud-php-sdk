@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetShareLinkTokenRequest extends Model
 {
     /**
+     * @description The validity period of the token. Valid values: (0,7200]. Default value: 7200. Unit: seconds.
+     *
      * @example 7200
      *
      * @var int
@@ -16,6 +18,8 @@ class GetShareLinkTokenRequest extends Model
     public $expireSec;
 
     /**
+     * @description The share ID.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -23,6 +27,8 @@ class GetShareLinkTokenRequest extends Model
     public $shareId;
 
     /**
+     * @description The access code.
+     *
      * @example abcF123x
      *
      * @var string

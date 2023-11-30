@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFacegroupRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateFacegroupRequest extends Model
     public $driveId;
 
     /**
+     * @description The face ID of the thumbnail of the face-based group. You can obtain the face ID from the **image_media_metadata** parameter in the returned results of the GetFile, ListFile, or SearchFile operation.
+     *
      * @example face1
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateFacegroupRequest extends Model
     public $groupCoverFaceId;
 
     /**
+     * @description The ID of the face-based group. You can call the ListFacegroups operation to query the group ID.
+     *
      * @example group-abc
      *
      * @var string
@@ -30,11 +36,15 @@ class UpdateFacegroupRequest extends Model
     public $groupId;
 
     /**
+     * @description The name of the face-based group. The name can be up to 128 characters in length.
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The remarks. The remarks can be up to 128 characters in length.
+     *
      * @var string
      */
     public $remarks;

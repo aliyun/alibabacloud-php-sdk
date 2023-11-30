@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @description The URL of the profile picture.
+     *
+     * If you specify the parameter in the DATA URL format, the URL must start with data:// and be encoded in Base64. The URL can be up to 300 KB in size.
      * @example http://a.b.c/pds.jpg
      *
      * @var string
@@ -17,11 +20,15 @@ class UpdateUserRequest extends Model
     public $avatar;
 
     /**
+     * @description The description of the user. The description can be up to 1,024 characters in length.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The email address of the user.
+     *
      * @example a@aliyunpds.com
      *
      * @var string
@@ -29,11 +36,15 @@ class UpdateUserRequest extends Model
     public $email;
 
     /**
+     * @description The information about the group.
+     *
      * @var groupInfoList[]
      */
     public $groupInfoList;
 
     /**
+     * @description The nickname of the user. The nickname can be up to 128 characters in length.
+     *
      * @example pdsuer
      *
      * @var string
@@ -41,6 +52,8 @@ class UpdateUserRequest extends Model
     public $nickName;
 
     /**
+     * @description The mobile number of the user.
+     *
      * @example 13900001111
      *
      * @var string
@@ -48,6 +61,12 @@ class UpdateUserRequest extends Model
     public $phone;
 
     /**
+     * @description The role of the user. Valid values:
+     *
+     *   superadmin
+     *   admin
+     *   user
+     *
      * @example user
      *
      * @var string
@@ -55,6 +74,11 @@ class UpdateUserRequest extends Model
     public $role;
 
     /**
+     * @description The state of the user. Valid values:
+     *
+     *   disabled: The user is prohibited from logon.
+     *   enabled: The user is in a normal state.
+     *
      * @example enabled
      *
      * @var string
@@ -62,11 +86,15 @@ class UpdateUserRequest extends Model
     public $status;
 
     /**
+     * @description The custom data. The data can be up to 1,024 characters in length.
+     *
      * @var string[]
      */
     public $userData;
 
     /**
+     * @description The user ID. The ID can be up to 64 characters in length and cannot contain a number sign (#).
+     *
      * @example c9b7a5aa04d14ae3867fdc886fa01da4
      *
      * @var string

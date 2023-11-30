@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListIdentityToBenefitPkgMappingResponseBody extends Model
 {
     /**
+     * @description The information about the benefit packages that are associated with an entity.
+     *
      * @var IdentityToBenefitPkgMapping[]
      */
     public $items;

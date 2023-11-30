@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeltaGetLastCursorResponseBody extends Model
 {
     /**
+     * @description The latest cursor of incremental information in the specified drive or synced folder.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string

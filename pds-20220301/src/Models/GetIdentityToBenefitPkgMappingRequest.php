@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetIdentityToBenefitPkgMappingRequest extends Model
 {
     /**
+     * @description The unique identifier of the benefit package.
+     *
      * @example 40cb7794c9294
      *
      * @var string
@@ -16,6 +18,9 @@ class GetIdentityToBenefitPkgMappingRequest extends Model
     public $benefitPkgId;
 
     /**
+     * @description The unique identifier of the entity.
+     *
+     * If you want to manage the benefits of a user, set this parameter to a user ID.
      * @example user123
      *
      * @var string
@@ -23,6 +28,8 @@ class GetIdentityToBenefitPkgMappingRequest extends Model
     public $identityId;
 
     /**
+     * @description The type of the entity. If you want to manage the benefits of a user, set this parameter to user.
+     *
      * @example user
      *
      * @var string

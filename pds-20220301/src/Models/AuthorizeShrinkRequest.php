@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeShrinkRequest extends Model
 {
     /**
+     * @description The application ID returned when the application was created.
+     *
      * @example 47eUHhrzgWBvlLWj
      *
      * @var string
@@ -16,6 +18,8 @@ class AuthorizeShrinkRequest extends Model
     public $clientId;
 
     /**
+     * @description Specifies whether to hide the consent page.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,15 @@ class AuthorizeShrinkRequest extends Model
     public $hideConsent;
 
     /**
+     * @description The authentication method. Valid values:
+     *
+     *   default: all logon methods that are integrated on the default logon page provided by Drive and Photo Service.
+     *   ding: logs on by scanning a DingTalk QR code.
+     *   ding_sns: logs on by entering a DingTalk account and its password.
+     *   ram: logs on as an Alibaba Cloud Resource Access Management (RAM) user.
+     *   wechat: logs on by scanning a WeCom QR code.
+     *   wechat_app: logs on without authentication in WeCom.
+     *
      * @example default
      *
      * @var string
@@ -30,6 +43,8 @@ class AuthorizeShrinkRequest extends Model
     public $loginType;
 
     /**
+     * @description The callback URL specified when the application was created.
+     *
      * @example https://www.aliyunpds.com/sign/callback
      *
      * @var string
@@ -37,6 +52,8 @@ class AuthorizeShrinkRequest extends Model
     public $redirectUri;
 
     /**
+     * @description The format in which to return the response. Set the value to code.
+     *
      * @example code
      *
      * @var string
@@ -44,11 +61,15 @@ class AuthorizeShrinkRequest extends Model
     public $responseType;
 
     /**
+     * @description The requested permissions. By default, all permissions are requested.
+     *
      * @var string
      */
     public $scopeShrink;
 
     /**
+     * @description The user-defined parameter to return in the callback URL after the requested permissions are granted.
+     *
      * @example customdata
      *
      * @var string

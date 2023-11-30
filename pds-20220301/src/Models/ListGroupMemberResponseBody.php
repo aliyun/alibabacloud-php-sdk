@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListGroupMemberResponseBody extends Model
 {
     /**
+     * @description The information about the groups.
+     *
      * @var Group[]
      */
     public $groupItems;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhM1
      *
      * @var string
@@ -21,6 +25,8 @@ class ListGroupMemberResponseBody extends Model
     public $nextMarker;
 
     /**
+     * @description The information about the users.
+     *
      * @var User[]
      */
     public $userItems;

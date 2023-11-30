@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileResponseBody extends Model
 {
     /**
+     * @description The ID of the asynchronous task. This parameter is returned only in asynchronous processing scenarios. You can call the [GetAsyncTask](~~440456~~) operation to query the information about the asynchronous task based on the task ID.
+     *
      * @example 000e89fb-cf8f-11e9-8ab4-b6e980803a3b
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteFileResponseBody extends Model
     public $asyncTaskId;
 
     /**
+     * @description The domain ID.
+     *
      * @example bj1
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteFileResponseBody extends Model
     public $domainId;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteFileResponseBody extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string

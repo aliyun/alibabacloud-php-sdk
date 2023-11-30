@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImportUserRequest extends Model
 {
     /**
+     * @description The display name of the authentication type.
+     *
      * @example 10000
      *
      * @var string
@@ -16,6 +18,16 @@ class ImportUserRequest extends Model
     public $authenticationDisplayName;
 
     /**
+     * @description The authentication type. Valid values:
+     *
+     *   mobile: mobile number.
+     *   email: email address.
+     *   ding: DingTalk account.
+     *   ram: Alibaba Cloud Resource Access Management (RAM) user.
+     *   wechat: WeCom account.
+     *   ldap: Lightweight Directory Access Protocol (LDAP) account.
+     *   custom: custom account.
+     *
      * @example mobile
      *
      * @var string
@@ -23,6 +35,8 @@ class ImportUserRequest extends Model
     public $authenticationType;
 
     /**
+     * @description Specifies whether to automatically create a drive.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +44,8 @@ class ImportUserRequest extends Model
     public $autoCreateDrive;
 
     /**
+     * @description The size of the drive. The value cannot be smaller than -1. A value of -1 specifies that the size is unlimited.
+     *
      * @example 10240
      *
      * @var int
@@ -37,6 +53,9 @@ class ImportUserRequest extends Model
     public $driveTotalSize;
 
     /**
+     * @description The additional information.
+     *
+     * If authentication_type is set to mobile, set this parameter to a country code. If you do not specify this parameter, 86 is used by default.
      * @example 1
      *
      * @var string
@@ -44,6 +63,8 @@ class ImportUserRequest extends Model
     public $extra;
 
     /**
+     * @description The unique identifier.
+     *
      * @example 130****
      *
      * @var string
@@ -51,6 +72,8 @@ class ImportUserRequest extends Model
     public $identity;
 
     /**
+     * @description The nickname of the user.
+     *
      * @example pdsuer
      *
      * @var string
@@ -58,6 +81,8 @@ class ImportUserRequest extends Model
     public $nickName;
 
     /**
+     * @description The ID of the group to which the user is added.
+     *
      * @example g12
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetVideoPreviewPlayMetaResponseBody extends Model
 {
     /**
+     * @description The domain ID.
+     *
      * @example bj1
      *
      * @var string
@@ -16,6 +18,8 @@ class GetVideoPreviewPlayMetaResponseBody extends Model
     public $domainId;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class GetVideoPreviewPlayMetaResponseBody extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example fileid1
      *
      * @var string
@@ -30,6 +36,8 @@ class GetVideoPreviewPlayMetaResponseBody extends Model
     public $fileId;
 
     /**
+     * @description The share ID.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -37,6 +45,8 @@ class GetVideoPreviewPlayMetaResponseBody extends Model
     public $shareId;
 
     /**
+     * @description The preview metadata of the video.
+     *
      * @var VideoPreviewPlayMeta
      */
     public $videoPreviewPlayMeta;

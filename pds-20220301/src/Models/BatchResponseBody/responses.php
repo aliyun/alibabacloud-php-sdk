@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class responses extends Model
 {
     /**
+     * @description The response parameters of a child request. For more information, see the topic of the corresponding child request.
+     *
      * @var string[]
      */
     public $body;
 
     /**
+     * @description The ID of the child request. The ID is used to associate a child request with a response.
+     *
      * @example 93433894994ad2e1
      *
      * @var string
@@ -21,6 +25,8 @@ class responses extends Model
     public $id;
 
     /**
+     * @description The returned HTTP status code of a child request. For more information, see the topic of the corresponding child request.
+     *
      * @example 200
      *
      * @var int

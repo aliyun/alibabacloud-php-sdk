@@ -10,16 +10,16 @@ use AlibabaCloud\Tea\Model;
 class memberList extends Model
 {
     /**
-     * @description 可授权对象，表示一个用户或者一个群组
+     * @description The identity to whom the permissions are granted, which is a user or a group.
      *
      * @var Identity
      */
     public $identity;
 
     /**
-     * @description 目前支持两种方式设置权限，一种是通过指定角色设置权限，另一种是自定义操作权限，此字段用于指定角色设置权限，与action\_list互斥，当两个字段同时设置时，以此字段为准
+     * @description The role ID. You can grant permissions by assigning roles to identities, or you can customize the permissions. To grant permissions by assigning roles to identities, specify role_id. role_id and action_list are mutually exclusive. If both parameters are specified, role_id has a higher priority.
      *
-     * SystemFileViewer（预览者）
+     * SystemFileViewer: viewer.
      * @example SystemFileDownloader
      *
      * @var string

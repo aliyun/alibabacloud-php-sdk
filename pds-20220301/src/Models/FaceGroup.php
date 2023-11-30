@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class FaceGroup extends Model
 {
     /**
+     * @example 2022-01-14T10:10:52.83948013+08:00
+     *
      * @var string
      */
     public $createdAt;
@@ -20,36 +22,50 @@ class FaceGroup extends Model
     public $groupCoverFaceBoundary;
 
     /**
+     * @example 6549c959640fbd517c9b4d93b3b36aecc45xxxxx
+     *
      * @var string
      */
     public $groupCoverFileId;
 
     /**
+     * @example 1080
+     *
      * @var int
      */
     public $groupCoverHeight;
 
     /**
+     * @example https://xxx
+     *
      * @var string
      */
     public $groupCoverUrl;
 
     /**
+     * @example 1920
+     *
      * @var int
      */
     public $groupCoverWidth;
 
     /**
+     * @example Cluster-ae6e3472-999e-410b-b54e-cd5dba****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $imageCount;
@@ -60,6 +76,8 @@ class FaceGroup extends Model
     public $remarks;
 
     /**
+     * @example 2022-01-14T10:10:52.83948013+08:00
+     *
      * @var string
      */
     public $updatedAt;

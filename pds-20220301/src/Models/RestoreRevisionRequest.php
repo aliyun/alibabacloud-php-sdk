@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestoreRevisionRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class RestoreRevisionRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -23,6 +27,8 @@ class RestoreRevisionRequest extends Model
     public $fileId;
 
     /**
+     * @description The version ID.
+     *
      * @example 40CB7794C929
      *
      * @var string

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetVideoPreviewPlayInfoRequest extends Model
 {
     /**
+     * @description The preview type. You must enable the corresponding video transcoding feature. Valid values:
+     *
+     *   live_transcoding: previews a live stream while transcoding is in progress.
+     *   quick_video: previews a video while transcoding is in progress.
+     *   offline_audio: previews a piece of audio after the audio is transcoded offline.
+     *   offline_video: previews a video after the video is transcoded offline.
+     *
      * @example live_transcoding
      *
      * @var string
@@ -16,6 +23,8 @@ class GetVideoPreviewPlayInfoRequest extends Model
     public $category;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +32,8 @@ class GetVideoPreviewPlayInfoRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -30,6 +41,13 @@ class GetVideoPreviewPlayInfoRequest extends Model
     public $fileId;
 
     /**
+     * @var bool
+     */
+    public $getMasterUrl;
+
+    /**
+     * @description Specifies whether not to query the playback URL. If you set this parameter to true, only transcoding metadata is returned. The video is not transcoded in the TS format, and the playback URL is not returned. If you set this parameter to false, the playback URL is returned. If the video has not been transcoded by using the template specified by template_id, the transcoding process is triggered. You are charged for the value-added service fees generated for transcoding.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +55,8 @@ class GetVideoPreviewPlayInfoRequest extends Model
     public $getWithoutUrl;
 
     /**
+     * @description The share ID. If you want to manage a file by using a sharing link, carry the `x-share-token` header in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify at least either `share_id` or `drive_id`.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -44,6 +64,8 @@ class GetVideoPreviewPlayInfoRequest extends Model
     public $shareId;
 
     /**
+     * @description The ID of the definition template. If you leave this parameter empty, all definition templates are available.
+     *
      * @example 264_480p
      *
      * @var string
@@ -51,8 +73,8 @@ class GetVideoPreviewPlayInfoRequest extends Model
     public $templateId;
 
     /**
-     * @description url超时时间，单位：秒。
-     * 默认15分钟，最大4小时。
+     * @description The validity period of the video preview. Unit: seconds. Default value: 900. Maximum value: 14400.
+     *
      * @example 3600
      *
      * @var int
@@ -62,6 +84,7 @@ class GetVideoPreviewPlayInfoRequest extends Model
         'category'      => 'category',
         'driveId'       => 'drive_id',
         'fileId'        => 'file_id',
+        'getMasterUrl'  => 'get_master_url',
         'getWithoutUrl' => 'get_without_url',
         'shareId'       => 'share_id',
         'templateId'    => 'template_id',
@@ -83,6 +106,9 @@ class GetVideoPreviewPlayInfoRequest extends Model
         }
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
+        }
+        if (null !== $this->getMasterUrl) {
+            $res['get_master_url'] = $this->getMasterUrl;
         }
         if (null !== $this->getWithoutUrl) {
             $res['get_without_url'] = $this->getWithoutUrl;
@@ -116,6 +142,9 @@ class GetVideoPreviewPlayInfoRequest extends Model
         }
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
+        }
+        if (isset($map['get_master_url'])) {
+            $model->getMasterUrl = $map['get_master_url'];
         }
         if (isset($map['get_without_url'])) {
             $model->getWithoutUrl = $map['get_without_url'];

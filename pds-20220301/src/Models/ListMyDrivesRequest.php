@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMyDrivesRequest extends Model
 {
     /**
+     * @description The maximum number of results to return. Default value: 100. Valid values: 1 to 100.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class ListMyDrivesRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string

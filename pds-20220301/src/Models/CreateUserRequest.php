@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateUserRequest extends Model
 {
     /**
+     * @description The URL of the profile picture.
+     *
+     * If you specify the parameter in the data URL format, the URL must start with data:// and be encoded in Base64. The URL can be up to 300 KB in size.
      * @example http://a.b.c/pds.jpg
      *
      * @var string
@@ -17,6 +20,8 @@ class CreateUserRequest extends Model
     public $avatar;
 
     /**
+     * @description The description of the user. The description can be up to 1,024 characters in length.
+     *
      * @example VIP用户
      *
      * @var string
@@ -24,6 +29,8 @@ class CreateUserRequest extends Model
     public $description;
 
     /**
+     * @description The email address.
+     *
      * @example 123@pds.com
      *
      * @var string
@@ -31,11 +38,15 @@ class CreateUserRequest extends Model
     public $email;
 
     /**
+     * @description The information about the group.
+     *
      * @var groupInfoList[]
      */
     public $groupInfoList;
 
     /**
+     * @description The nickname of the user. The nickname can be up to 128 characters in length.
+     *
      * @example pdsuer
      *
      * @var string
@@ -43,6 +54,8 @@ class CreateUserRequest extends Model
     public $nickName;
 
     /**
+     * @description The phone number.
+     *
      * @example 13900001111
      *
      * @var string
@@ -50,6 +63,33 @@ class CreateUserRequest extends Model
     public $phone;
 
     /**
+     * @description The role of the user. Default value: user. Valid values:
+     *
+     *   superadmin
+     *   admin
+     *   user
+     *
+     * Valid values:
+     *
+     *   subdomain_super_admin
+     *
+     * <!-- -->
+     *
+     *   subdomain_admin
+     *
+     * <!-- -->
+     *
+     *   superadmin
+     *
+     * <!-- -->
+     *
+     *   admin
+     *
+     * <!-- -->
+     *
+     *   user
+     *
+     * <!-- -->
      * @example user
      *
      * @var string
@@ -57,6 +97,11 @@ class CreateUserRequest extends Model
     public $role;
 
     /**
+     * @description The state of the user. Default value: enabled. Valid values:
+     *
+     *   enabled: The user is in a normal state.
+     *   disabled: The user is prohibited from logon.
+     *
      * @example enabled
      *
      * @var string
@@ -64,6 +109,8 @@ class CreateUserRequest extends Model
     public $status;
 
     /**
+     * @description The custom data. The data can be up to 1,024 characters in length.
+     *
      * @example md
      *
      * @var mixed[]
@@ -71,6 +118,8 @@ class CreateUserRequest extends Model
     public $userData;
 
     /**
+     * @description The user ID. The ID can be up to 64 characters in length and cannot contain number signs (#).
+     *
      * @example pdsuserid1
      *
      * @var string
@@ -78,6 +127,8 @@ class CreateUserRequest extends Model
     public $userId;
 
     /**
+     * @description The username. The username can be up to 128 characters in length.
+     *
      * @example pdsusername
      *
      * @var string

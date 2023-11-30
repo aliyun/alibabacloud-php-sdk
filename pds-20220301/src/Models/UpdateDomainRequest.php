@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainRequest extends Model
 {
     /**
+     * @description The description of the domain.
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description domain id
+     * @description The domain ID.
      *
      * @example bj1
      *
@@ -23,11 +25,15 @@ class UpdateDomainRequest extends Model
     public $domainId;
 
     /**
+     * @description The name of the domain.
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Specifies whether to enable the default drive feature. A value of true specifies that all users are assigned a drive by default on the first logon. Default value: false.
+     *
      * @example true
      *
      * @var bool
@@ -35,6 +41,8 @@ class UpdateDomainRequest extends Model
     public $initDriveEnable;
 
     /**
+     * @description The size of the default drive. Unit: bytes. You must specify init_drive_size if you set init_drive_enable to true. Default value: 0. A value of 0 specifies that the size of the default drive is 0 bytes and you cannot upload files to the drive. To initialize the default drive, set init_drive_size to 0. A value of -1 specifies that the size is unlimited.
+     *
      * @example 1073741824
      *
      * @var int
@@ -42,11 +50,15 @@ class UpdateDomainRequest extends Model
     public $initDriveSize;
 
     /**
+     * @description The access policy of the application.
+     *
      * @var AppAccessStrategy
      */
     public $publishedAppAccessStrategy;
 
     /**
+     * @description The total storage quota for all drives in the domain. A value of 0 specifies that the quota is unlimited.
+     *
      * @example 1099511627776
      *
      * @var int
@@ -54,6 +66,8 @@ class UpdateDomainRequest extends Model
     public $sizeQuota;
 
     /**
+     * @description The maximum number of users that can be created in the domain.
+     *
      * @example 50
      *
      * @var int

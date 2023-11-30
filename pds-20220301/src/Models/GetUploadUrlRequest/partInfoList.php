@@ -20,11 +20,15 @@ class partInfoList extends Model
     public $contentType;
 
     /**
+     * @description The SHA-1 hash value of the file content before the file part. This parameter takes effect only if the parallel upload feature is enabled.
+     *
      * @var parallelSha1Ctx
      */
     public $parallelSha1Ctx;
 
     /**
+     * @description The serial number of a part.
+     *
      * @example 1
      *
      * @var int

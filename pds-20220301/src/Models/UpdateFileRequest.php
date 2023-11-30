@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileRequest extends Model
 {
     /**
+     * @description The processing method that is used if the file that you want to modify has the same name as an existing file on the cloud. Valid values:
+     *
+     * Default value: ignore.
      * @example ignore
      *
      * @var string
@@ -16,11 +19,15 @@ class UpdateFileRequest extends Model
     public $checkNameMode;
 
     /**
+     * @description The description of the file. The description can be up to 1,024 characters in length.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -28,6 +35,8 @@ class UpdateFileRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -35,6 +44,8 @@ class UpdateFileRequest extends Model
     public $fileId;
 
     /**
+     * @description Specifies whether to hide the file.
+     *
      * @example true
      *
      * @var bool
@@ -42,11 +53,15 @@ class UpdateFileRequest extends Model
     public $hidden;
 
     /**
+     * @description The tags of the file. You can specify up to 100 tags.
+     *
      * @var string[]
      */
     public $labels;
 
     /**
+     * @description The local time when the file was modified. The time is in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
+     *
      * @example 2019-08-20T06:51:27.292Z
      *
      * @var string
@@ -54,6 +69,8 @@ class UpdateFileRequest extends Model
     public $localModifiedAt;
 
     /**
+     * @description The name of the file. The name can be up to 1,024 bytes in length based on the UTF-8 encoding rule.
+     *
      * @example a.jpg
      *
      * @var string
@@ -61,6 +78,8 @@ class UpdateFileRequest extends Model
     public $name;
 
     /**
+     * @description Specifies whether to add the file to favorites.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRevisionRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,9 @@ class GetRevisionRequest extends Model
     public $driveId;
 
     /**
+     * @description Specifies the returned fields.
+     *
+     * By default, this parameter is left empty. If you set this parameter to \*, all fields are returned. If you leave this parameter empty, the creator of the file is not returned.
      * @example *
      *
      * @var string
@@ -23,6 +28,8 @@ class GetRevisionRequest extends Model
     public $fields;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -30,6 +37,8 @@ class GetRevisionRequest extends Model
     public $fileId;
 
     /**
+     * @description The version ID.
+     *
      * @example 40CB7794C929
      *
      * @var string
@@ -37,6 +46,9 @@ class GetRevisionRequest extends Model
     public $revisionId;
 
     /**
+     * @description The validity period of the file download or preview. Valid values: 10 to 86400.
+     *
+     * Default value: 900. Unit: seconds.
      * @example 900
      *
      * @var int

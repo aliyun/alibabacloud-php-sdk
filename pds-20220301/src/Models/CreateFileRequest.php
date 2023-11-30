@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateFileRequest extends Model
 {
     /**
+     * @description The processing method that is used if the file that you want to create has the same name as an existing file on the cloud. Valid values:
+     *
+     * Default value: ignore.
      * @example ignore
      *
      * @var string
@@ -17,6 +20,8 @@ class CreateFileRequest extends Model
     public $checkNameMode;
 
     /**
+     * @description The hash value of the file content. The value is calculated based on the algorithm specified by content_hash_name.
+     *
      * @example 7C4A8D09CA3762AF61E59520943DC26494F8941B
      *
      * @var string
@@ -24,6 +29,8 @@ class CreateFileRequest extends Model
     public $contentHash;
 
     /**
+     * @description The name of the algorithm that is used to calculate the hash value of the file content. Only SHA1 is supported.
+     *
      * @example sha1
      *
      * @var string
@@ -31,6 +38,8 @@ class CreateFileRequest extends Model
     public $contentHashName;
 
     /**
+     * @description The type of the file content. Default value: application/oct-stream. For more information about common content types, see [How do I configure the Content-Type header?](https://help.aliyun.com/document_detail/39522.htm?spm=a2c4g.11186623.0.0.5a0b7dbb1TPnWF#concept-5041)
+     *
      * @example application/json
      *
      * @var string
@@ -38,6 +47,8 @@ class CreateFileRequest extends Model
     public $contentType;
 
     /**
+     * @description The description of the file. The description can be up to 1,024 characters in length. By default, this parameter is left empty.
+     *
      * @example 重要文件
      *
      * @var string
@@ -45,6 +56,8 @@ class CreateFileRequest extends Model
     public $description;
 
     /**
+     * @description The drive ID. This parameter is required if the file is not uploaded by using the share URL of the file.
+     *
      * @example 1
      *
      * @var string
@@ -52,6 +65,8 @@ class CreateFileRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID. This parameter is required if check_name_mode is set to ignore.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -59,6 +74,8 @@ class CreateFileRequest extends Model
     public $fileId;
 
     /**
+     * @description Specifies whether to hide the file or folder. By default, the file or folder is not hidden.
+     *
      * @example false
      *
      * @var bool
@@ -66,11 +83,15 @@ class CreateFileRequest extends Model
     public $hidden;
 
     /**
+     * @description The information about the image specified by the client.
+     *
      * @var ImageMediaMetadata
      */
     public $imageMediaMetadata;
 
     /**
+     * @description The local time when the file was created. By default, this parameter is left empty. The time is specified in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
+     *
      * @example 2019-08-20T06:51:27.292Z
      *
      * @var string
@@ -78,6 +99,8 @@ class CreateFileRequest extends Model
     public $localCreatedAt;
 
     /**
+     * @description The local time when the file was modified. By default, this parameter is left empty. The time is specified in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
+     *
      * @example 2019-08-20T06:51:27.292Z
      *
      * @var string
@@ -85,6 +108,8 @@ class CreateFileRequest extends Model
     public $localModifiedAt;
 
     /**
+     * @description The name of the file. The name can be up to 1,024 bytes in length based on the UTF-8 encoding rule and cannot end with a forward slash (/).
+     *
      * @example a.txt
      *
      * @var string
@@ -92,6 +117,8 @@ class CreateFileRequest extends Model
     public $name;
 
     /**
+     * @description Specifies whether to enable the parallel upload feature.
+     *
      * @example true
      *
      * @var bool
@@ -99,6 +126,8 @@ class CreateFileRequest extends Model
     public $parallelUpload;
 
     /**
+     * @description The ID of the parent directory. If you want to create a file or folder in the root directory, set this parameter to root.
+     *
      * @example fileid1
      *
      * @var string
@@ -106,11 +135,15 @@ class CreateFileRequest extends Model
     public $parentFileId;
 
     /**
+     * @description The information about the file parts. You can specify up to 10,000 parts. By default, if you do not specify this parameter, only one part is returned.
+     *
      * @var partInfoList[]
      */
     public $partInfoList;
 
     /**
+     * @description The SHA-1 hash value of the first 1 KB data of the file. This parameter is required if you perform instant file upload by using the pre-hashing feature. If the SHA-1 hash value is not matched on the cloud, the client does not need to calculate the SHA-1 hash value of the entire file.
+     *
      * @example 7C4A8D09CA3762AF61E59520943DC26494F89411
      *
      * @var string
@@ -118,6 +151,8 @@ class CreateFileRequest extends Model
     public $preHash;
 
     /**
+     * @description The share ID. This parameter is required if the file is uploaded by using the share URL of the file.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -125,6 +160,8 @@ class CreateFileRequest extends Model
     public $shareId;
 
     /**
+     * @description The file size. Unit: bytes.
+     *
      * @example 1024
      *
      * @var int
@@ -132,6 +169,9 @@ class CreateFileRequest extends Model
     public $size;
 
     /**
+     * @description The type of the file. Valid values:
+     *
+     * file folder
      * @example file
      *
      * @var string
@@ -139,11 +179,15 @@ class CreateFileRequest extends Model
     public $type;
 
     /**
+     * @description The custom tags. You can specify up to 1,000 tags.
+     *
      * @var UserTag[]
      */
     public $userTags;
 
     /**
+     * @description The information about the video specified by the client.
+     *
      * @var VideoMediaMetadata
      */
     public $videoMediaMetadata;

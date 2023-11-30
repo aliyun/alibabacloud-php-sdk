@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UnLinkAcountRequest extends Model
+class UnLinkAccountRequest extends Model
 {
     /**
-     * @example 86
+     * @example 1
      *
      * @var string
      */
@@ -23,14 +23,14 @@ class UnLinkAcountRequest extends Model
     public $identity;
 
     /**
-     * @example ding
+     * @example mobile
      *
      * @var string
      */
     public $type;
 
     /**
-     * @example xxx
+     * @example uid1
      *
      * @var string
      */
@@ -68,7 +68,7 @@ class UnLinkAcountRequest extends Model
     /**
      * @param array $map
      *
-     * @return UnLinkAcountRequest
+     * @return UnLinkAccountRequest
      */
     public static function fromMap($map = [])
     {

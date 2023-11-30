@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateRevisionRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateRevisionRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -23,6 +27,9 @@ class UpdateRevisionRequest extends Model
     public $fileId;
 
     /**
+     * @description Specifies whether to permanently retain a version.
+     *
+     * By default, this parameter is not specified, which indicates that you do not modify the permanent retention configuration of the version.
      * @example true
      *
      * @var bool
@@ -30,6 +37,9 @@ class UpdateRevisionRequest extends Model
     public $keepForever;
 
     /**
+     * @description The description of the version. The description can be up to 1,024 characters in length.
+     *
+     * By default, this parameter is not specified, which indicates that you do not modify the description of the version.
      * @example aaa
      *
      * @var string
@@ -37,6 +47,8 @@ class UpdateRevisionRequest extends Model
     public $revisionDescription;
 
     /**
+     * @description The version ID.
+     *
      * @example 40CB7794C929
      *
      * @var string

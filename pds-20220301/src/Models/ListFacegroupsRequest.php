@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFacegroupsRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class ListFacegroupsRequest extends Model
     public $driveId;
 
     /**
+     * @description The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class ListFacegroupsRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -30,6 +36,8 @@ class ListFacegroupsRequest extends Model
     public $marker;
 
     /**
+     * @description The filter condition that is used to query groups. The value can be up to 128 characters in length. An exact match is used.
+     *
      * @var string
      */
     public $remarks;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SearchShareLinkResponseBody extends Model
 {
     /**
+     * @description The share URLs.
+     *
      * @var ShareLink[]
      */
     public $items;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -21,6 +25,8 @@ class SearchShareLinkResponseBody extends Model
     public $nextMarker;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 101
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListRevisionRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,9 @@ class ListRevisionRequest extends Model
     public $driveId;
 
     /**
+     * @description Specifies the returned fields.
+     *
+     * By default, this parameter is left empty. If you set this parameter to \*, all fields are returned. If you leave this parameter empty, the creator of the file is not returned.
      * @example *
      *
      * @var string
@@ -23,6 +28,8 @@ class ListRevisionRequest extends Model
     public $fields;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -30,6 +37,9 @@ class ListRevisionRequest extends Model
     public $fileId;
 
     /**
+     * @description The maximum number of results to return. Valid values: 1 to 100.
+     *
+     * The number of returned results must be less than or equal to the specified number.
      * @example 100
      *
      * @var int
@@ -37,6 +47,9 @@ class ListRevisionRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.
+     *
+     * By default, this parameter is left empty.
      * @example 40CB7794C929
      *
      * @var string

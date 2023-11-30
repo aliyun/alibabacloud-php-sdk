@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagsResponseBody extends Model
 {
     /**
+     * @description The information about the tags.
+     *
      * @var ImageTag[]
      */
     public $tags;

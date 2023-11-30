@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLinkInfoByUserIdResponseBody extends Model
 {
     /**
+     * @description The information about the users.
+     *
      * @var AccountLinkInfo[]
      */
     public $items;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ClearRecyclebinResponseBody extends Model
 {
     /**
+     * @description The ID of the asynchronous task.
+     *
+     * You can call the GetAsyncTask operation to query the information about the asynchronous task based on the task ID.
      * @example 13ebd3a24dba4166b1527add676ef2866051b4d5dele16
      *
      * @var string
@@ -16,6 +19,8 @@ class ClearRecyclebinResponseBody extends Model
     public $asyncTaskId;
 
     /**
+     * @description The domain ID.
+     *
      * @example bj1
      *
      * @var string
@@ -23,6 +28,8 @@ class ClearRecyclebinResponseBody extends Model
     public $domainId;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string

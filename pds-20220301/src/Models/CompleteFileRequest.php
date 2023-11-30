@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CompleteFileRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class CompleteFileRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -23,6 +27,8 @@ class CompleteFileRequest extends Model
     public $fileId;
 
     /**
+     * @description The upload ID.
+     *
      * @example C9DCFE5A82644AC7A02DB74C30C934A6
      *
      * @var string

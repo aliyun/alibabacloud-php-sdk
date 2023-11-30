@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDownloadUrlRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDownloadUrlRequest extends Model
     public $driveId;
 
     /**
+     * @description The validity period of the download URL. Maximum value: 115200. Default value: 900. Unit: seconds.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class GetDownloadUrlRequest extends Model
     public $expireSec;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -30,6 +36,8 @@ class GetDownloadUrlRequest extends Model
     public $fileId;
 
     /**
+     * @description The name of the file. The name can be up to 1,024 characters in length.
+     *
      * @example 1.txt
      *
      * @var string
@@ -37,6 +45,8 @@ class GetDownloadUrlRequest extends Model
     public $fileName;
 
     /**
+     * @description The share ID. If you want to manage a file by using a sharing link, carry the `x-share-token` header in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify at least either `share_id` or `drive_id`.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string

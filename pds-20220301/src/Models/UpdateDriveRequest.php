@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateDriveRequest extends Model
 {
     /**
+     * @description The description of the drive. The description can be up to 1,024 characters in length.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -21,6 +25,8 @@ class UpdateDriveRequest extends Model
     public $driveId;
 
     /**
+     * @description The name of the drive. The name can be up to 128 characters in length.
+     *
      * @example my_drive
      *
      * @var string
@@ -28,8 +34,8 @@ class UpdateDriveRequest extends Model
     public $driveName;
 
     /**
-     * @description 归属者
-     * 注意，当前只允许通过 ak 来修改个人 drive 的所有者。
+     * @description The owner of the drive. Note: You can modify the owner of a personal drive only by using an AccessKey pair.
+     *
      * @example user1
      *
      * @var string
@@ -37,6 +43,9 @@ class UpdateDriveRequest extends Model
     public $owner;
 
     /**
+     * @description The state of the drive. Valid values:
+     *
+     * enabled and disabled.
      * @example enabled
      *
      * @var string
@@ -44,6 +53,8 @@ class UpdateDriveRequest extends Model
     public $status;
 
     /**
+     * @description The total size of the drive. Unit: bytes. A value of -1 specifies that the size is unlimited.
+     *
      * @example 10240
      *
      * @var int

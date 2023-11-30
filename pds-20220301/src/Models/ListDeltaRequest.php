@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDeltaRequest extends Model
 {
     /**
+     * @description The cursor of the incremental information.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDeltaRequest extends Model
     public $cursor;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,9 @@ class ListDeltaRequest extends Model
     public $driveId;
 
     /**
+     * @description The maximum number of results to return. Valid values: 0 to 100. Default value: 100.
+     *
+     * The number of returned results must be less than or equal to the specified number.
      * @example 50
      *
      * @var int
@@ -30,6 +37,8 @@ class ListDeltaRequest extends Model
     public $limit;
 
     /**
+     * @description The ID of the root file of the synced folder.
+     *
      * @example 622fb09598ae66777c7040109a16f49381f6abe1
      *
      * @var string

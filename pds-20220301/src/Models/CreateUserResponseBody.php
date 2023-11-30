@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateUserResponseBody extends Model
 {
     /**
+     * @description The URL of the profile picture.
+     *
      * @example http://aa.com/1.jpg
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateUserResponseBody extends Model
     public $avatar;
 
     /**
+     * @description The time when the user was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1639762579768
      *
      * @var int
@@ -23,6 +27,8 @@ class CreateUserResponseBody extends Model
     public $createdAt;
 
     /**
+     * @description The user who created the user.
+     *
      * @example user1
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateUserResponseBody extends Model
     public $creator;
 
     /**
+     * @description The ID of the default drive.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateUserResponseBody extends Model
     public $defaultDriveId;
 
     /**
+     * @description The description of the user.
+     *
      * @example vipuser
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateUserResponseBody extends Model
     public $description;
 
     /**
+     * @description The domain ID.
+     *
      * @example bj1
      *
      * @var string
@@ -51,6 +63,8 @@ class CreateUserResponseBody extends Model
     public $domainId;
 
     /**
+     * @description The email address.
+     *
      * @example a@a.com
      *
      * @var string
@@ -58,6 +72,8 @@ class CreateUserResponseBody extends Model
     public $email;
 
     /**
+     * @description The nickname of the user.
+     *
      * @example 001
      *
      * @var string
@@ -65,6 +81,8 @@ class CreateUserResponseBody extends Model
     public $nickName;
 
     /**
+     * @description The phone number.
+     *
      * @example 13900001111
      *
      * @var string
@@ -72,6 +90,12 @@ class CreateUserResponseBody extends Model
     public $phone;
 
     /**
+     * @description The role of the user. Valid values:
+     *
+     *   superadmin
+     *   admin
+     *   user
+     *
      * @example admin
      *
      * @var string
@@ -79,6 +103,11 @@ class CreateUserResponseBody extends Model
     public $role;
 
     /**
+     * @description The state of the user. Valid values:
+     *
+     *   disabled: The user is prohibited from logon.
+     *   enabled: The user is in a normal state.
+     *
      * @example enabled
      *
      * @var string
@@ -86,6 +115,8 @@ class CreateUserResponseBody extends Model
     public $status;
 
     /**
+     * @description The time when the user was modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1639762579768
      *
      * @var int
@@ -93,11 +124,15 @@ class CreateUserResponseBody extends Model
     public $updatedAt;
 
     /**
+     * @description The custom data.
+     *
      * @var mixed[]
      */
     public $userData;
 
     /**
+     * @description The user ID.
+     *
      * @example dingding_abc001
      *
      * @var string
@@ -105,6 +140,8 @@ class CreateUserResponseBody extends Model
     public $userId;
 
     /**
+     * @description The username.
+     *
      * @example pds
      *
      * @var string

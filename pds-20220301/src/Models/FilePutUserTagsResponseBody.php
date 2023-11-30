@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FilePutUserTagsResponseBody extends Model
 {
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string

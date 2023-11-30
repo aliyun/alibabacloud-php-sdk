@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateIdentityToBenefitPkgMappingRequest extends Model
 {
     /**
+     * @description The number of benefit packages.
+     *
+     * This parameter takes effect only for the benefit packages of the resource type. Default value: 1.
      * @example 1
      *
      * @var int
@@ -16,6 +19,8 @@ class CreateIdentityToBenefitPkgMappingRequest extends Model
     public $amount;
 
     /**
+     * @description The unique identifier of the benefit package.
+     *
      * @example 40cb7794c9294
      *
      * @var string
@@ -23,6 +28,9 @@ class CreateIdentityToBenefitPkgMappingRequest extends Model
     public $benefitPkgId;
 
     /**
+     * @description The time when the benefit package expires. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * By default, the benefit package never expires.
      * @example 1633167071000
      *
      * @var int
@@ -30,6 +38,9 @@ class CreateIdentityToBenefitPkgMappingRequest extends Model
     public $expireTime;
 
     /**
+     * @description The unique identifier of the entity.
+     *
+     * If you want to manage the benefits of a user, set this parameter to a user ID.
      * @example user123
      *
      * @var string
@@ -37,6 +48,9 @@ class CreateIdentityToBenefitPkgMappingRequest extends Model
     public $identityId;
 
     /**
+     * @description The type of the entity.
+     *
+     * If you want to manage the benefits of a user, set this parameter to user.
      * @example user
      *
      * @var string

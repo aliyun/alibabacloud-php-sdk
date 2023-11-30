@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CopyFileRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically rename the file if the file name already exists in the destination folder. Default value: false.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class CopyFileRequest extends Model
     public $autoRename;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class CopyFileRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID or folder ID.
+     *
      * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
      *
      * @var string
@@ -30,6 +36,8 @@ class CopyFileRequest extends Model
     public $fileId;
 
     /**
+     * @description The share ID. If you want to manage a file by using a share link, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -37,6 +45,8 @@ class CopyFileRequest extends Model
     public $shareId;
 
     /**
+     * @description The ID of the drive to which you want to copy the file or folder. Default value: the value of drive_id.
+     *
      * @example 1
      *
      * @var string
@@ -44,6 +54,8 @@ class CopyFileRequest extends Model
     public $toDriveId;
 
     /**
+     * @description The ID of the destination parent folder. If you want to copy the file or folder to a root directory, set this parameter to root.
+     *
      * @example 6520943DC261
      *
      * @var string

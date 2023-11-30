@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDeltaResponseBody extends Model
 {
     /**
+     * @description The cursor of the incremental information.
+     *
      * @example 1WQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -17,6 +19,8 @@ class ListDeltaResponseBody extends Model
     public $cursor;
 
     /**
+     * @description Indicates whether more information is returned.
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +28,8 @@ class ListDeltaResponseBody extends Model
     public $hasMore;
 
     /**
+     * @description The incremental information returned.
+     *
      * @var items[]
      */
     public $items;

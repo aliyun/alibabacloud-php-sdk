@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class FilePutUserTagsRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -17,6 +19,8 @@ class FilePutUserTagsRequest extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -24,6 +28,8 @@ class FilePutUserTagsRequest extends Model
     public $fileId;
 
     /**
+     * @description The tags to be added to the file. You cannot leave this parameter empty. You can specify up to 1,000 tags. You cannot specify tags that have the same name.
+     *
      * @var userTags[]
      */
     public $userTags;

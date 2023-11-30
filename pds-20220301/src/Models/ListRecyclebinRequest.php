@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListRecyclebinRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,11 @@ class ListRecyclebinRequest extends Model
     public $driveId;
 
     /**
+     * @description Specifies the returned fields.
+     *
+     * 1\. If you set this parameter to \*, all fields of the file are returned.
+     *
+     * The default value is a null value, which indicates that only some fields are returned.
      * @example *
      *
      * @var string
@@ -23,6 +30,9 @@ class ListRecyclebinRequest extends Model
     public $fields;
 
     /**
+     * @description The maximum number of results to return. Valid values: 1 to 200. Default value: 50.
+     *
+     * The number of returned results must be less than or equal to the specified number.
      * @example 50
      *
      * @var int
@@ -30,6 +40,8 @@ class ListRecyclebinRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string

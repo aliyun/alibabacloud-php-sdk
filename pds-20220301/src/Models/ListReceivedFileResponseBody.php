@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListReceivedFileResponseBody extends Model
 {
     /**
+     * @description The queried files.
+     *
      * @var File[]
      */
     public $items;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+     *
      * @example eym***
      *
      * @var string

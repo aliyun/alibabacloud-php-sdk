@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddGroupMemberRequest extends Model
 {
     /**
+     * @description The ID of the destination group to which the member is added.
+     *
      * @example 3e5***2c2
      *
      * @var string
@@ -16,6 +18,8 @@ class AddGroupMemberRequest extends Model
     public $groupId;
 
     /**
+     * @description The member ID. If member_type is set to user, set this parameter to a user ID.
+     *
      * @example 2e4***1b1
      *
      * @var string
@@ -23,6 +27,9 @@ class AddGroupMemberRequest extends Model
     public $memberId;
 
     /**
+     * @description The type of the member. Set the value to user. When you create a group, you can directly add the group to a parent group.
+     *
+     * Note: A group can be added to only one group. A user can be added to multiple groups.
      * @example user
      *
      * @var string

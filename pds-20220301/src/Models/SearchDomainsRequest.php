@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class SearchDomainsRequest extends Model
 {
     /**
+     * @description 预付费domain支持按订单实例ID搜索，通过下单接口获取对应的实例ID
+     *
+     * @example pds_trc_public_cn-h033e720j01
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+     *
+     * The number of returned results must be less than or equal to the specified number.
      * @example 50
      *
      * @var int
@@ -21,6 +28,8 @@ class SearchDomainsRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\
+     * By default, this parameter is empty.
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -28,11 +37,15 @@ class SearchDomainsRequest extends Model
     public $marker;
 
     /**
+     * @description The name of the domain. Fuzzy search is supported.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The sorting rule. Set the value to created_at, which specifies that the results are sorted based on the time when the domain was created.
+     *
      * @example created_at
      *
      * @var string

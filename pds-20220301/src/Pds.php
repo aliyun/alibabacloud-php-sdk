@@ -82,6 +82,7 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\GetAsyncTaskRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetAsyncTaskResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetDefaultDriveRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetDefaultDriveResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GetDomainQuotaResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetDomainRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetDomainResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetDownloadUrlRequest;
@@ -118,6 +119,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\GetVideoPreviewPlayInfoRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetVideoPreviewPlayInfoResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetVideoPreviewPlayMetaRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetVideoPreviewPlayMetaResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GroupUpdateNameRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GroupUpdateNameResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ImportUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ImportUserResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\InvestigateFileRequest;
@@ -142,6 +145,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupMemberRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupMemberResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListGroupResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListIdentityRoleRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListIdentityRoleResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListIdentityToBenefitPkgMappingRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListIdentityToBenefitPkgMappingResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListMyDrivesRequest;
@@ -198,8 +203,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\TokenRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\TokenResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\TrashFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\TrashFileResponse;
-use AlibabaCloud\SDK\Pds\V20220301\Models\UnLinkAcountRequest;
-use AlibabaCloud\SDK\Pds\V20220301\Models\UnLinkAcountResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\UnLinkAccountRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\UnLinkAccountResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateDomainRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateDomainResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateDriveRequest;
@@ -345,11 +350,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param AssignRoleRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * You can call this operation to assign a group administrator role to a user.
+     *   *
+     * @param AssignRoleRequest $request AssignRoleRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssignRoleResponse
+     * @return AssignRoleResponse AssignRoleResponse
      */
     public function assignRoleWithOptions($request, $headers, $runtime)
     {
@@ -387,9 +394,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param AssignRoleRequest $request
+     * You can call this operation to assign a group administrator role to a user.
+     *   *
+     * @param AssignRoleRequest $request AssignRoleRequest
      *
-     * @return AssignRoleResponse
+     * @return AssignRoleResponse AssignRoleResponse
      */
     public function assignRole($request)
     {
@@ -400,11 +409,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeRequest $tmpReq
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
+     *   *
+     * @param AuthorizeRequest $tmpReq  AuthorizeRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AuthorizeResponse
+     * @return AuthorizeResponse AuthorizeResponse
      */
     public function authorizeWithOptions($tmpReq, $headers, $runtime)
     {
@@ -449,16 +460,18 @@ class Pds extends OpenApiClient
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType'    => 'binary',
         ]);
 
         return AuthorizeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AuthorizeRequest $request
+     * For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
+     *   *
+     * @param AuthorizeRequest $request AuthorizeRequest
      *
-     * @return AuthorizeResponse
+     * @return AuthorizeResponse AuthorizeResponse
      */
     public function authorize($request)
     {
@@ -518,11 +531,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CancelAssignRoleRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * You can cancel only the group administrator role.
+     *   *
+     * @param CancelAssignRoleRequest $request CancelAssignRoleRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelAssignRoleResponse
+     * @return CancelAssignRoleResponse CancelAssignRoleResponse
      */
     public function cancelAssignRoleWithOptions($request, $headers, $runtime)
     {
@@ -560,9 +575,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CancelAssignRoleRequest $request
+     * You can cancel only the group administrator role.
+     *   *
+     * @param CancelAssignRoleRequest $request CancelAssignRoleRequest
      *
-     * @return CancelAssignRoleResponse
+     * @return CancelAssignRoleResponse CancelAssignRoleResponse
      */
     public function cancelAssignRole($request)
     {
@@ -842,11 +859,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+     *   *
+     * @param CreateDomainRequest $request CreateDomainRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDomainResponse
+     * @return CreateDomainResponse CreateDomainResponse
      */
     public function createDomainWithOptions($request, $headers, $runtime)
     {
@@ -893,9 +912,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainRequest $request
+     * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+     *   *
+     * @param CreateDomainRequest $request CreateDomainRequest
      *
-     * @return CreateDomainResponse
+     * @return CreateDomainResponse CreateDomainResponse
      */
     public function createDomain($request)
     {
@@ -1134,11 +1155,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateIdentityToBenefitPkgMappingRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
+     *   *
+     * @param CreateIdentityToBenefitPkgMappingRequest $request CreateIdentityToBenefitPkgMappingRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIdentityToBenefitPkgMappingResponse
+     * @return CreateIdentityToBenefitPkgMappingResponse CreateIdentityToBenefitPkgMappingResponse
      */
     public function createIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
     {
@@ -1179,9 +1202,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateIdentityToBenefitPkgMappingRequest $request
+     * If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
+     *   *
+     * @param CreateIdentityToBenefitPkgMappingRequest $request CreateIdentityToBenefitPkgMappingRequest
      *
-     * @return CreateIdentityToBenefitPkgMappingResponse
+     * @return CreateIdentityToBenefitPkgMappingResponse CreateIdentityToBenefitPkgMappingResponse
      */
     public function createIdentityToBenefitPkgMapping($request)
     {
@@ -1265,11 +1290,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateShareLinkRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
+     *   *
+     * @param CreateShareLinkRequest $request CreateShareLinkRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateShareLinkResponse
+     * @return CreateShareLinkResponse CreateShareLinkResponse
      */
     public function createShareLinkWithOptions($request, $headers, $runtime)
     {
@@ -1340,9 +1367,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateShareLinkRequest $request
+     * A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
+     *   *
+     * @param CreateShareLinkRequest $request CreateShareLinkRequest
      *
-     * @return CreateShareLinkResponse
+     * @return CreateShareLinkResponse CreateShareLinkResponse
      */
     public function createShareLink($request)
     {
@@ -1986,11 +2015,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DownloadFileRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * For information about best practices for downloading a file.
+     *   *
+     * @param DownloadFileRequest $request DownloadFileRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DownloadFileResponse
+     * @return DownloadFileResponse DownloadFileResponse
      */
     public function downloadFileWithOptions($request, $headers, $runtime)
     {
@@ -2034,9 +2065,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DownloadFileRequest $request
+     * For information about best practices for downloading a file.
+     *   *
+     * @param DownloadFileRequest $request DownloadFileRequest
      *
-     * @return DownloadFileResponse
+     * @return DownloadFileResponse DownloadFileResponse
      */
     public function downloadFile($request)
     {
@@ -2200,11 +2233,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FilePutUserTagsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * This operation is an incremental update operation. Take note of the following items:
+     *   * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
+     *   * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
+     *   * *   The existing tags with unique names are not affected.
+     *   *
+     * @param FilePutUserTagsRequest $request FilePutUserTagsRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return FilePutUserTagsResponse
+     * @return FilePutUserTagsResponse FilePutUserTagsResponse
      */
     public function filePutUserTagsWithOptions($request, $headers, $runtime)
     {
@@ -2239,9 +2277,14 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FilePutUserTagsRequest $request
+     * This operation is an incremental update operation. Take note of the following items:
+     *   * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
+     *   * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
+     *   * *   The existing tags with unique names are not affected.
+     *   *
+     * @param FilePutUserTagsRequest $request FilePutUserTagsRequest
      *
-     * @return FilePutUserTagsResponse
+     * @return FilePutUserTagsResponse FilePutUserTagsResponse
      */
     public function filePutUserTags($request)
     {
@@ -2442,6 +2485,43 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->getDomainWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDomainQuotaResponse
+     */
+    public function getDomainQuotaWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetDomainQuota',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/domain/get_quota',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDomainQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetDomainQuotaResponse
+     */
+    public function getDomainQuota()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDomainQuotaWithOptions($headers, $runtime);
     }
 
     /**
@@ -2956,11 +3036,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetShareLinkTokenRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
+     *   *
+     * @param GetShareLinkTokenRequest $request GetShareLinkTokenRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetShareLinkTokenResponse
+     * @return GetShareLinkTokenResponse GetShareLinkTokenResponse
      */
     public function getShareLinkTokenWithOptions($request, $headers, $runtime)
     {
@@ -2995,9 +3077,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetShareLinkTokenRequest $request
+     * To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
+     *   *
+     * @param GetShareLinkTokenRequest $request GetShareLinkTokenRequest
      *
-     * @return GetShareLinkTokenResponse
+     * @return GetShareLinkTokenResponse GetShareLinkTokenResponse
      */
     public function getShareLinkToken($request)
     {
@@ -3075,11 +3159,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetTaskStatusRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * **Before you call this operation, make sure that you are familiar with the [billing](~~425220~~) of Drive and Photo Service**.
+     *   * To call this operation, make sure that the value-added image processing feature is enabled.
+     *   * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
+     *   *
+     * @param GetTaskStatusRequest $request GetTaskStatusRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTaskStatusResponse
+     * @return GetTaskStatusResponse GetTaskStatusResponse
      */
     public function getTaskStatusWithOptions($request, $headers, $runtime)
     {
@@ -3111,9 +3199,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetTaskStatusRequest $request
+     * **Before you call this operation, make sure that you are familiar with the [billing](~~425220~~) of Drive and Photo Service**.
+     *   * To call this operation, make sure that the value-added image processing feature is enabled.
+     *   * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
+     *   *
+     * @param GetTaskStatusRequest $request GetTaskStatusRequest
      *
-     * @return GetTaskStatusResponse
+     * @return GetTaskStatusResponse GetTaskStatusResponse
      */
     public function getTaskStatus($request)
     {
@@ -3228,11 +3320,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetVideoPreviewPlayInfoRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * For more information about best practices, see [Preview videos online](~~427477~~).
+     *   *
+     * @param GetVideoPreviewPlayInfoRequest $request GetVideoPreviewPlayInfoRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVideoPreviewPlayInfoResponse
+     * @return GetVideoPreviewPlayInfoResponse GetVideoPreviewPlayInfoResponse
      */
     public function getVideoPreviewPlayInfoWithOptions($request, $headers, $runtime)
     {
@@ -3246,6 +3340,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileId)) {
             $body['file_id'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->getMasterUrl)) {
+            $body['get_master_url'] = $request->getMasterUrl;
         }
         if (!Utils::isUnset($request->getWithoutUrl)) {
             $body['get_without_url'] = $request->getWithoutUrl;
@@ -3279,9 +3376,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetVideoPreviewPlayInfoRequest $request
+     * For more information about best practices, see [Preview videos online](~~427477~~).
+     *   *
+     * @param GetVideoPreviewPlayInfoRequest $request GetVideoPreviewPlayInfoRequest
      *
-     * @return GetVideoPreviewPlayInfoResponse
+     * @return GetVideoPreviewPlayInfoResponse GetVideoPreviewPlayInfoResponse
      */
     public function getVideoPreviewPlayInfo($request)
     {
@@ -3292,11 +3391,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetVideoPreviewPlayMetaRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * For more information about best practices, see [Preview videos online](~~427477~~).
+     *   *
+     * @param GetVideoPreviewPlayMetaRequest $request GetVideoPreviewPlayMetaRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVideoPreviewPlayMetaResponse
+     * @return GetVideoPreviewPlayMetaResponse GetVideoPreviewPlayMetaResponse
      */
     public function getVideoPreviewPlayMetaWithOptions($request, $headers, $runtime)
     {
@@ -3334,9 +3435,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetVideoPreviewPlayMetaRequest $request
+     * For more information about best practices, see [Preview videos online](~~427477~~).
+     *   *
+     * @param GetVideoPreviewPlayMetaRequest $request GetVideoPreviewPlayMetaRequest
      *
-     * @return GetVideoPreviewPlayMetaResponse
+     * @return GetVideoPreviewPlayMetaResponse GetVideoPreviewPlayMetaResponse
      */
     public function getVideoPreviewPlayMeta($request)
     {
@@ -3344,6 +3447,55 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->getVideoPreviewPlayMetaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GroupUpdateNameRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GroupUpdateNameResponse
+     */
+    public function groupUpdateNameWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $body['group_id'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GroupUpdateName',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/group/update_name',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GroupUpdateNameResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param GroupUpdateNameRequest $request
+     *
+     * @return GroupUpdateNameResponse
+     */
+    public function groupUpdateName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->groupUpdateNameWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4031,6 +4183,52 @@ class Pds extends OpenApiClient
     }
 
     /**
+     * @param ListIdentityRoleRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListIdentityRoleResponse
+     */
+    public function listIdentityRoleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->identity)) {
+            $body['identity'] = $request->identity;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIdentityRole',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/role/list_identity_role',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIdentityRoleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIdentityRoleRequest $request
+     *
+     * @return ListIdentityRoleResponse
+     */
+    public function listIdentityRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIdentityRoleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param ListIdentityToBenefitPkgMappingRequest $request
      * @param string[]                               $headers
      * @param RuntimeOptions                         $runtime
@@ -4343,11 +4541,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListShareLinkRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * This operation is discontinued. To query shares, you can call the SearchShareLink operation.
+     *   *
+     * @param ListShareLinkRequest $request ListShareLinkRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListShareLinkResponse
+     * @return ListShareLinkResponse ListShareLinkResponse
      */
     public function listShareLinkWithOptions($request, $headers, $runtime)
     {
@@ -4391,9 +4591,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListShareLinkRequest $request
+     * This operation is discontinued. To query shares, you can call the SearchShareLink operation.
+     *   *
+     * @param ListShareLinkRequest $request ListShareLinkRequest
      *
-     * @return ListShareLinkResponse
+     * @return ListShareLinkResponse ListShareLinkResponse
      */
     public function listShareLink($request)
     {
@@ -4404,11 +4606,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
+     *   *
+     * @param ListTagsRequest $request ListTagsRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagsResponse
+     * @return ListTagsResponse ListTagsResponse
      */
     public function listTagsWithOptions($request, $headers, $runtime)
     {
@@ -4443,9 +4647,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request
+     * You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
+     *   *
+     * @param ListTagsRequest $request ListTagsRequest
      *
-     * @return ListTagsResponse
+     * @return ListTagsResponse ListTagsResponse
      */
     public function listTags($request)
     {
@@ -5530,11 +5736,14 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param TokenRequest   $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).<props="intl">只发布国际站</props>
+     *   * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).<props="intl">只发布国际站</props>.
+     *   *
+     * @param TokenRequest   $request TokenRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return TokenResponse
+     * @return TokenResponse TokenResponse
      */
     public function tokenWithOptions($request, $headers, $runtime)
     {
@@ -5581,9 +5790,12 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param TokenRequest $request
+     * For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).<props="intl">只发布国际站</props>
+     *   * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).<props="intl">只发布国际站</props>.
+     *   *
+     * @param TokenRequest $request TokenRequest
      *
-     * @return TokenResponse
+     * @return TokenResponse TokenResponse
      */
     public function token($request)
     {
@@ -5643,13 +5855,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UnLinkAcountRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param UnLinkAccountRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return UnLinkAcountResponse
+     * @return UnLinkAccountResponse
      */
-    public function unLinkAcountWithOptions($request, $headers, $runtime)
+    public function unLinkAccountWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
@@ -5670,7 +5882,7 @@ class Pds extends OpenApiClient
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnLinkAcount',
+            'action'      => 'UnLinkAccount',
             'version'     => '2022-03-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/v2/account/unlink',
@@ -5681,20 +5893,20 @@ class Pds extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UnLinkAcountResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnLinkAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UnLinkAcountRequest $request
+     * @param UnLinkAccountRequest $request
      *
-     * @return UnLinkAcountResponse
+     * @return UnLinkAccountResponse
      */
-    public function unLinkAcount($request)
+    public function unLinkAccount($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->unLinkAcountWithOptions($request, $headers, $runtime);
+        return $this->unLinkAccountWithOptions($request, $headers, $runtime);
     }
 
     /**

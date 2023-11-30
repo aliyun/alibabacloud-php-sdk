@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FileAddPermissionRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class FileAddPermissionRequest extends Model
     public $driveId;
 
     /**
+     * @description The ID of the folder. If you want to authorize a user or group to access a team drive, set this parameter to root. If you want to authorize a user or group to access an individual drive, you cannot set this parameter to root.
+     *
      * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
      *
      * @var string
@@ -23,6 +27,8 @@ class FileAddPermissionRequest extends Model
     public $fileId;
 
     /**
+     * @description The members that are authorized to access files.
+     *
      * @var FilePermissionMember[]
      */
     public $memberList;

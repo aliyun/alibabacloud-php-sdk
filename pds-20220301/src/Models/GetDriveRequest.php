@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDriveRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string

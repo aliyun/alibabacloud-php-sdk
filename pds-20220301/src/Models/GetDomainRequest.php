@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDomainRequest extends Model
 {
     /**
-     * @description domain id
+     * @description The ID of the domain.
      *
      * @example bj1
      *
@@ -18,6 +18,8 @@ class GetDomainRequest extends Model
     public $domainId;
 
     /**
+     * @description Specifies whether to return the used quota of the domain. Default value: false. If the quota of the domain is greater than 0 and you set this parameter to true, the used quota of the domain is returned.
+     *
      * @example true
      *
      * @var bool

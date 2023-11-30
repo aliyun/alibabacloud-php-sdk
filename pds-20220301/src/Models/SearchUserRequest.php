@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchUserRequest extends Model
 {
     /**
+     * @description The email address of the user.
+     *
      * @example 123@pds.com
      *
      * @var string
@@ -16,6 +18,8 @@ class SearchUserRequest extends Model
     public $email;
 
     /**
+     * @description The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class SearchUserRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\
+     * By default, this parameter is left empty.
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -30,6 +36,8 @@ class SearchUserRequest extends Model
     public $marker;
 
     /**
+     * @description The nickname of the user. The nickname can be up to 128 characters in length.
+     *
      * @example pdsuer
      *
      * @var string
@@ -37,6 +45,8 @@ class SearchUserRequest extends Model
     public $nickName;
 
     /**
+     * @description The nickname used for fuzzy searches. The nickname can be up to 128 characters in length.
+     *
      * @example la
      *
      * @var string
@@ -44,6 +54,8 @@ class SearchUserRequest extends Model
     public $nickNameForFuzzy;
 
     /**
+     * @description The mobile number of the user.
+     *
      * @example 13900001111
      *
      * @var string
@@ -51,6 +63,12 @@ class SearchUserRequest extends Model
     public $phone;
 
     /**
+     * @description The role of the user. Valid values:
+     *
+     *   superadmin
+     *   admin
+     *   user
+     *
      * @example user
      *
      * @var string
@@ -58,6 +76,11 @@ class SearchUserRequest extends Model
     public $role;
 
     /**
+     * @description The state of the user. Valid values:
+     *
+     *   disabled: The user is prohibited from logon.
+     *   enabled: The user is in a normal state.
+     *
      * @example enabled
      *
      * @var string
@@ -65,6 +88,8 @@ class SearchUserRequest extends Model
     public $status;
 
     /**
+     * @description The name of the user. The name can be up to 128 characters in length.
+     *
      * @example pds
      *
      * @var string

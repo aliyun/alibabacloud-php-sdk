@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListAssignmentRequest extends Model
 {
     /**
+     * @description The maximum number of results to return. Valid values: 1 to 100.
+     *
+     * The number of returned results must be less than or equal to the specified number.
      * @example 50
      *
      * @var int
@@ -16,6 +19,8 @@ class ListAssignmentRequest extends Model
     public $limit;
 
     /**
+     * @description The ID of the managed resource, such as a group ID.
+     *
      * @example 105***b82
      *
      * @var string
@@ -23,6 +28,8 @@ class ListAssignmentRequest extends Model
     public $manageResourceId;
 
     /**
+     * @description The type of the managed resource. Set the value to RT_Group, which specifies that the administrators of a group are queried.
+     *
      * @example RT_Group
      *
      * @var string
@@ -30,6 +37,8 @@ class ListAssignmentRequest extends Model
     public $manageResourceType;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string

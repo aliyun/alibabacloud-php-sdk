@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UnLinkAcountResponse extends Model
+class ListIdentityRoleResponse extends Model
 {
     /**
      * @var string[]
@@ -17,6 +17,11 @@ class UnLinkAcountResponse extends Model
      * @var int
      */
     public $statusCode;
+
+    /**
+     * @var BaseRoleMemberResponse
+     */
+    public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
@@ -26,6 +31,7 @@ class UnLinkAcountResponse extends Model
     {
         Model::validateRequired('headers', $this->headers, true);
         Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -37,6 +43,9 @@ class UnLinkAcountResponse extends Model
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
         }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
 
         return $res;
     }
@@ -44,7 +53,7 @@ class UnLinkAcountResponse extends Model
     /**
      * @param array $map
      *
-     * @return UnLinkAcountResponse
+     * @return ListIdentityRoleResponse
      */
     public static function fromMap($map = [])
     {
@@ -54,6 +63,9 @@ class UnLinkAcountResponse extends Model
         }
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = BaseRoleMemberResponse::fromMap($map['body']);
         }
 
         return $model;

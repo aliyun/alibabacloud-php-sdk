@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CopyFileResponseBody extends Model
 {
     /**
+     * @description The ID of the asynchronous task.
+     *
+     * If a file is copied, this parameter is not returned. If a folder is copied, the folder is asynchronously copied in the background and this parameter is returned. You can call the GetAsyncTask operation to query the information about the asynchronous task based on the task ID.
      * @example 000e89fb-cf8f-11e9-8ab4-b6e980803a3b
      *
      * @var string
@@ -16,6 +19,8 @@ class CopyFileResponseBody extends Model
     public $asyncTaskId;
 
     /**
+     * @description The domain ID.
+     *
      * @example bj1
      *
      * @var string
@@ -23,6 +28,8 @@ class CopyFileResponseBody extends Model
     public $domainId;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +37,8 @@ class CopyFileResponseBody extends Model
     public $driveId;
 
     /**
+     * @description The ID of the copied file or folder.
+     *
      * @example 4221bf6e6ab43a255edc4463bffa6f5f5d317401
      *
      * @var string

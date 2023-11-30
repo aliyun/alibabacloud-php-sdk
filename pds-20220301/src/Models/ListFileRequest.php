@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListFileRequest extends Model
 {
     /**
+     * @description The category of the file. Valid values:
+     *
+     * By default, files of all categories are returned.
      * @example image
      *
      * @var string
@@ -16,6 +19,8 @@ class ListFileRequest extends Model
     public $category;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +28,10 @@ class ListFileRequest extends Model
     public $driveId;
 
     /**
+     * @description The fields to return.
+     *
+     * 1.  If this parameter is set to \*, all fields of the file except the fields that must be specified are returned.
+     * By default, all fields except the fields that must be specified are returned.
      * @example *
      *
      * @var string
@@ -30,6 +39,9 @@ class ListFileRequest extends Model
     public $fields;
 
     /**
+     * @description The maximum number of results to return. Valid values: 1 to 100.
+     *
+     * The number of returned results must be less than or equal to the specified number.
      * @example 50
      *
      * @var int
@@ -37,6 +49,8 @@ class ListFileRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\
+     * By default, this parameter is empty.
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -44,6 +58,25 @@ class ListFileRequest extends Model
     public $marker;
 
     /**
+     * @description The sorting field.
+     *
+     * Valid values:
+     *
+     *   updated_at
+     *
+     * .
+     *
+     *   size
+     *
+     * .
+     *
+     *   name
+     *
+     * .
+     *
+     *   created_at
+     *
+     * .
      * @example updated_at
      *
      * @var string
@@ -51,6 +84,9 @@ class ListFileRequest extends Model
     public $orderBy;
 
     /**
+     * @description The sorting direction. Valid values:
+     *
+     * Default value: ASC.
      * @example ASC
      *
      * @var string
@@ -58,6 +94,8 @@ class ListFileRequest extends Model
     public $orderDirection;
 
     /**
+     * @description The ID of the parent folder. If the parent folder is a root directory, set this parameter to root.
+     *
      * @example root
      *
      * @var string
@@ -65,6 +103,8 @@ class ListFileRequest extends Model
     public $parentFileId;
 
     /**
+     * @description The share ID. If you want to manage a file by using a share link, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -72,6 +112,9 @@ class ListFileRequest extends Model
     public $shareId;
 
     /**
+     * @description The state of the file. Valid values:
+     *
+     * By default, only files in the available state are returned.
      * @example available
      *
      * @var string
@@ -79,11 +122,16 @@ class ListFileRequest extends Model
     public $status;
 
     /**
+     * @description The thumbnail configurations. Up to five thumbnails can be returned at a time. The value contains key-value pairs. You can customize the keys. The URL of a thumbnail is returned based on the key.
+     *
      * @var ImageProcess[]
      */
     public $thumbnailProcesses;
 
     /**
+     * @description The type of the file. Valid values:
+     *
+     * By default, files of all types are returned.
      * @example file
      *
      * @var string

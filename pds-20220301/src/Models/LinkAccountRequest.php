@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LinkAccountRequest extends Model
 {
     /**
+     * @description The additional information about the unique identifier of the account. For example, if type is set to mobile, set the value of extra to a country code. For example, a value of 86 specifies a mobile number in the Chinese mainland. If you do not specify this parameter, 86 is used by default.
+     *
      * @example 86
      *
      * @var string
@@ -16,16 +18,34 @@ class LinkAccountRequest extends Model
     public $extra;
 
     /**
+     * @description The unique identifier of the account, such as a mobile number.
+     *
+     * @example eyy***
+     *
      * @var string
      */
     public $identity;
 
     /**
+     * @description The account type. Valid values:
+     *
+     *   mobile: a mobile number.
+     *   email: an email address.
+     *   ding: a DingTalk account.
+     *   ram: an Alibaba Cloud Resource Access Management (RAM) user.
+     *   wechat: a WeCom account.
+     *   ldap: a Lightweight Directory Access Protocol (LDAP) account.
+     *   custom: a custom account.
+     *
+     * @example ding
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the user with which you want to associate an account.
+     *
      * @example xxx
      *
      * @var string

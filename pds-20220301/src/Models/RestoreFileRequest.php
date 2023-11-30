@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestoreFileRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class RestoreFileRequest extends Model
     public $driveId;
 
     /**
+     * @description The ID of the file or folder.
+     *
      * @example 4221bf6e6ab43a255edc4463bffa6f5f5d317401
      *
      * @var string

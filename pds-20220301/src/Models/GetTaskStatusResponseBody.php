@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetTaskStatusResponseBody extends Model
 {
     /**
+     * @description The state of the task.
+     *
+     * Valid values:
+     *
+     *   running
+     *
+     * .
+     *
+     *   failed
+     *
+     * .
+     *
+     *   succeeded
+     *
+     * .
      * @example running
      *
      * @var string

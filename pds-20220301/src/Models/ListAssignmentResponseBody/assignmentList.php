@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class assignmentList extends Model
 {
     /**
+     * @description The time when the role was assigned. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1622682267564
      *
      * @var int
@@ -17,6 +19,8 @@ class assignmentList extends Model
     public $createdAt;
 
     /**
+     * @description The ID of the user who assigned the role.
+     *
      * @example 216***c83
      *
      * @var string
@@ -24,6 +28,8 @@ class assignmentList extends Model
     public $creator;
 
     /**
+     * @description The domain ID.
+     *
      * @example hz1
      *
      * @var string
@@ -31,11 +37,15 @@ class assignmentList extends Model
     public $domainId;
 
     /**
+     * @description The identity to whom the role is assigned, which is a user or a group.
+     *
      * @var Identity
      */
     public $identity;
 
     /**
+     * @description The ID of the managed resource, such as a group ID.
+     *
      * @example 105***b82
      *
      * @var string
@@ -43,6 +53,8 @@ class assignmentList extends Model
     public $manageResourceId;
 
     /**
+     * @description The type of the managed resource. For example, a value of RT_Group indicates group.
+     *
      * @example RT_Group
      *
      * @var string
@@ -50,6 +62,8 @@ class assignmentList extends Model
     public $manageResourceType;
 
     /**
+     * @description The ID of the role assigned to the identity.
+     *
      * @example SystemGroupAdmin
      *
      * @var string

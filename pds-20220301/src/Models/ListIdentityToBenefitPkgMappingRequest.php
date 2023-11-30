@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListIdentityToBenefitPkgMappingRequest extends Model
 {
     /**
+     * @description The unique identifier of the entity.
+     *
+     * If you call this operation to manage the benefits of a user, set this parameter to the ID of the user.
      * @example user123
      *
      * @var string
@@ -16,6 +19,8 @@ class ListIdentityToBenefitPkgMappingRequest extends Model
     public $identityId;
 
     /**
+     * @description The type of the entity. If you call this operation to manage the benefits of a user, set this parameter to user.
+     *
      * @example user
      *
      * @var string
@@ -23,6 +28,8 @@ class ListIdentityToBenefitPkgMappingRequest extends Model
     public $identityType;
 
     /**
+     * @description Specifies whether to return the benefit packages that expire. Default value: false.
+     *
      * @example false
      *
      * @var bool

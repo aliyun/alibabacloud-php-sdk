@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUploadUrlResponseBody extends Model
 {
     /**
+     * @description The time when the upload task was created.
+     *
      * @example 2019-09-11T16:34:36.977Z
      *
      * @var string
@@ -16,6 +18,8 @@ class GetUploadUrlResponseBody extends Model
     public $createAt;
 
     /**
+     * @description The domain ID.
+     *
      * @example bj1
      *
      * @var string
@@ -23,6 +27,8 @@ class GetUploadUrlResponseBody extends Model
     public $domainId;
 
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +36,8 @@ class GetUploadUrlResponseBody extends Model
     public $driveId;
 
     /**
+     * @description The file ID.
+     *
      * @example 5d5b846942cf94fa72324c14a4bda34e81da635d
      *
      * @var string
@@ -37,11 +45,15 @@ class GetUploadUrlResponseBody extends Model
     public $fileId;
 
     /**
+     * @description The information about the file parts.
+     *
      * @var UploadPartInfo[]
      */
     public $partInfoList;
 
     /**
+     * @description The ID of the upload task.
+     *
      * @example 10166D06127B413BA1EC8ABB1144D111
      *
      * @var string

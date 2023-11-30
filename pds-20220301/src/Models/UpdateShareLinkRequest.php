@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateShareLinkRequest extends Model
 {
     /**
+     * @description The description of the share link. The description can be up to 1,024 characters in length.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to prohibit the downloads of the shared files.
+     *
      * @example false
      *
      * @var bool
@@ -21,6 +25,8 @@ class UpdateShareLinkRequest extends Model
     public $disableDownload;
 
     /**
+     * @description Specifies whether to prohibit the previews of the shared files.
+     *
      * @example false
      *
      * @var bool
@@ -28,6 +34,8 @@ class UpdateShareLinkRequest extends Model
     public $disablePreview;
 
     /**
+     * @description Specifies whether to prohibit the saves of the shared files.
+     *
      * @example false
      *
      * @var bool
@@ -35,6 +43,8 @@ class UpdateShareLinkRequest extends Model
     public $disableSave;
 
     /**
+     * @description The number of times that the shared files are downloaded. The value must be greater than or equal to 0.
+     *
      * @example 30
      *
      * @var int
@@ -42,6 +52,8 @@ class UpdateShareLinkRequest extends Model
     public $downloadCount;
 
     /**
+     * @description The maximum number of times that the shared files can be downloaded. The value must be greater than or equal to 0. A value of 0 specifies that the number is unlimited.
+     *
      * @example 100
      *
      * @var int
@@ -49,6 +61,8 @@ class UpdateShareLinkRequest extends Model
     public $downloadLimit;
 
     /**
+     * @description The time when the share link expires. The time follows the RFC 3339 standard. Example: 2020-06-28T11:33:00.000+08:00. If you leave this parameter empty, the share link never expires.
+     *
      * @example 2020-06-28T11:33:00.000+08:00
      *
      * @var string
@@ -56,6 +70,8 @@ class UpdateShareLinkRequest extends Model
     public $expiration;
 
     /**
+     * @description The number of times that the shared files are previewed. The value must be greater than or equal to 0.
+     *
      * @example 3
      *
      * @var int
@@ -63,6 +79,8 @@ class UpdateShareLinkRequest extends Model
     public $previewCount;
 
     /**
+     * @description The maximum number of times that the shared files can be previewed. The value must be greater than or equal to 0. A value of 0 specifies that the number is unlimited.
+     *
      * @example 100
      *
      * @var int
@@ -70,6 +88,8 @@ class UpdateShareLinkRequest extends Model
     public $previewLimit;
 
     /**
+     * @description The number of times that the shared files are reported. The value must be greater than or equal to 0.
+     *
      * @example 1
      *
      * @var int
@@ -77,6 +97,8 @@ class UpdateShareLinkRequest extends Model
     public $reportCount;
 
     /**
+     * @description The number of times that the shared files are saved. The value must be greater than or equal to 0.
+     *
      * @example 5
      *
      * @var int
@@ -84,6 +106,8 @@ class UpdateShareLinkRequest extends Model
     public $saveCount;
 
     /**
+     * @description The maximum number of times that the shared files can be saved. The value must be greater than or equal to 0. A value of 0 specifies that the number is unlimited.
+     *
      * @example 100
      *
      * @var int
@@ -91,6 +115,8 @@ class UpdateShareLinkRequest extends Model
     public $saveLimit;
 
     /**
+     * @description The share ID.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -98,11 +124,15 @@ class UpdateShareLinkRequest extends Model
     public $shareId;
 
     /**
+     * @description The name of the share link. By default, the name of the first file is used. The name can be up to 128 characters in length.
+     *
      * @var string
      */
     public $shareName;
 
     /**
+     * @description The access code. The access code can be up to 64 characters in length. A value of 0 specifies an empty string.
+     *
      * @example abcF123x
      *
      * @var string
@@ -110,6 +140,11 @@ class UpdateShareLinkRequest extends Model
     public $sharePwd;
 
     /**
+     * @description The state of the share link. Valid values:
+     *
+     *   disabled: The share link is canceled.
+     *   enabled: The share link is effective.
+     *
      * @example enabled
      *
      * @var string
@@ -117,6 +152,8 @@ class UpdateShareLinkRequest extends Model
     public $status;
 
     /**
+     * @description The number of times that the videos are previewed in the shared files. The value must be greater than or equal to 0.
+     *
      * @example 100
      *
      * @var int

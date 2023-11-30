@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTaskStatusRequest extends Model
 {
     /**
+     * @description The drive ID.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class GetTaskStatusRequest extends Model
     public $driveId;
 
     /**
+     * @description The ID of the task.
+     *
      * @example i:SimilarImageClustering-b67d53e7-2fe8-460f-9b95-1e93636923eb
      *
      * @var string

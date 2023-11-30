@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelAssignRoleRequest extends Model
 {
     /**
+     * @description The unique identifier. You can cancel only the role assigned to a user.
+     *
      * @var Identity
      */
     public $identity;
 
     /**
+     * @description The ID of the resource that the role manages. Set the value to a group ID.
+     *
      * @example 105***b82
      *
      * @var string
@@ -21,6 +25,8 @@ class CancelAssignRoleRequest extends Model
     public $manageResourceId;
 
     /**
+     * @description The type of the resource that the role manages. Set the value to RT_Group, which specifies group.
+     *
      * @example RT_Group
      *
      * @var string
@@ -28,6 +34,8 @@ class CancelAssignRoleRequest extends Model
     public $manageResourceType;
 
     /**
+     * @description The ID of the role to be canceled. Set the value to SystemGroupAdmin, which is the ID of the group administrator role.
+     *
      * @example SystemGroupAdmin
      *
      * @var string

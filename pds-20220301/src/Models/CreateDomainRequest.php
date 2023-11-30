@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainRequest extends Model
 {
     /**
+     * @description The description of the domain.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the domain.
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description Specifies whether to enable the default drive feature. A value of true specifies that all users are assigned a drive by default on the first logon. Default value: false.
+     *
      * @example true
      *
      * @var bool
@@ -26,6 +32,8 @@ class CreateDomainRequest extends Model
     public $initDriveEnable;
 
     /**
+     * @description The size of the default drive. Unit: bytes. You must specify init_drive_size if you set init_drive_enable to true. Default value: 0. A value of 0 specifies that the size of the default drive is 0 bytes and you cannot upload files to the drive. To initialize the default drive, set init_drive_size to 0. A value of -1 specifies that the size is unlimited.
+     *
      * @example 1073741824
      *
      * @var int
@@ -33,6 +41,8 @@ class CreateDomainRequest extends Model
     public $initDriveSize;
 
     /**
+     * @description The ID of the parent domain. If you want to create a child domain, specify parent_domain_id. In most cases, you do not need to create a child domain. If you want to perform secondary operations based on Drive and Photo Service, contact the customer service.
+     *
      * @example bj1
      *
      * @var string
@@ -40,6 +50,8 @@ class CreateDomainRequest extends Model
     public $parentDomainId;
 
     /**
+     * @description The total storage quota for all drives in the domain. A value of 0 specifies that the quota is unlimited.
+     *
      * @example 1099511627776
      *
      * @var int
@@ -47,6 +59,8 @@ class CreateDomainRequest extends Model
     public $sizeQuota;
 
     /**
+     * @description The largest number of users that can be created in the domain. A value of 0 specifies that the number is unlimited.
+     *
      * @example 50
      *
      * @var int

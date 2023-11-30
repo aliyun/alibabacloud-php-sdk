@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchAddressGroupsResponseBody extends Model
 {
     /**
+     * @description The location-based groups.
+     *
      * @var AddressGroup[]
      */
     public $items;
