@@ -63,16 +63,22 @@ class SimpleQueryRequest extends Model
      * @var string[]
      */
     public $withFields;
+
+    /**
+     * @var bool
+     */
+    public $withoutTotalHits;
     protected $_name = [
-        'aggregations' => 'Aggregations',
-        'datasetName'  => 'DatasetName',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'order'        => 'Order',
-        'projectName'  => 'ProjectName',
-        'query'        => 'Query',
-        'sort'         => 'Sort',
-        'withFields'   => 'WithFields',
+        'aggregations'     => 'Aggregations',
+        'datasetName'      => 'DatasetName',
+        'maxResults'       => 'MaxResults',
+        'nextToken'        => 'NextToken',
+        'order'            => 'Order',
+        'projectName'      => 'ProjectName',
+        'query'            => 'Query',
+        'sort'             => 'Sort',
+        'withFields'       => 'WithFields',
+        'withoutTotalHits' => 'WithoutTotalHits',
     ];
 
     public function validate()
@@ -114,6 +120,9 @@ class SimpleQueryRequest extends Model
         }
         if (null !== $this->withFields) {
             $res['WithFields'] = $this->withFields;
+        }
+        if (null !== $this->withoutTotalHits) {
+            $res['WithoutTotalHits'] = $this->withoutTotalHits;
         }
 
         return $res;
@@ -161,6 +170,9 @@ class SimpleQueryRequest extends Model
             if (!empty($map['WithFields'])) {
                 $model->withFields = $map['WithFields'];
             }
+        }
+        if (isset($map['WithoutTotalHits'])) {
+            $model->withoutTotalHits = $map['WithoutTotalHits'];
         }
 
         return $model;

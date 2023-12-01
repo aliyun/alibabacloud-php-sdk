@@ -37,12 +37,22 @@ class InputFile extends Model
     /**
      * @var string
      */
+    public $latLong;
+
+    /**
+     * @var string
+     */
     public $mediaType;
 
     /**
      * @var string
      */
     public $OSSURI;
+
+    /**
+     * @var string
+     */
+    public $produceTime;
 
     /**
      * @var string
@@ -54,8 +64,10 @@ class InputFile extends Model
         'customLabels' => 'CustomLabels',
         'figures'      => 'Figures',
         'fileHash'     => 'FileHash',
+        'latLong'      => 'LatLong',
         'mediaType'    => 'MediaType',
         'OSSURI'       => 'OSSURI',
+        'produceTime'  => 'ProduceTime',
         'URI'          => 'URI',
     ];
 
@@ -87,11 +99,17 @@ class InputFile extends Model
         if (null !== $this->fileHash) {
             $res['FileHash'] = $this->fileHash;
         }
+        if (null !== $this->latLong) {
+            $res['LatLong'] = $this->latLong;
+        }
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->OSSURI) {
             $res['OSSURI'] = $this->OSSURI;
+        }
+        if (null !== $this->produceTime) {
+            $res['ProduceTime'] = $this->produceTime;
         }
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
@@ -129,11 +147,17 @@ class InputFile extends Model
         if (isset($map['FileHash'])) {
             $model->fileHash = $map['FileHash'];
         }
+        if (isset($map['LatLong'])) {
+            $model->latLong = $map['LatLong'];
+        }
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
         if (isset($map['OSSURI'])) {
             $model->OSSURI = $map['OSSURI'];
+        }
+        if (isset($map['ProduceTime'])) {
+            $model->produceTime = $map['ProduceTime'];
         }
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];

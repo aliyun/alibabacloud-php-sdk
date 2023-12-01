@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AttachOSSBucketRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @example examplebucket
      *
      * @var string
@@ -22,6 +27,7 @@ class AttachOSSBucketRequest extends Model
      */
     public $projectName;
     protected $_name = [
+        'description' => 'Description',
         'OSSBucket'   => 'OSSBucket',
         'projectName' => 'ProjectName',
     ];
@@ -33,6 +39,9 @@ class AttachOSSBucketRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->OSSBucket) {
             $res['OSSBucket'] = $this->OSSBucket;
         }
@@ -51,6 +60,9 @@ class AttachOSSBucketRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['OSSBucket'])) {
             $model->OSSBucket = $map['OSSBucket'];
         }

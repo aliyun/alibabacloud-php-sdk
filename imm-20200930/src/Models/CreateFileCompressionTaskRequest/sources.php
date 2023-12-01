@@ -16,6 +16,11 @@ class sources extends Model
     public $alias;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @example oss://test-bucket/test-object
      *
      * @var string
@@ -23,6 +28,7 @@ class sources extends Model
     public $URI;
     protected $_name = [
         'alias' => 'Alias',
+        'mode'  => 'Mode',
         'URI'   => 'URI',
     ];
 
@@ -35,6 +41,9 @@ class sources extends Model
         $res = [];
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
@@ -53,6 +62,9 @@ class sources extends Model
         $model = new self();
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];

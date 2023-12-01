@@ -6,26 +6,21 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SemanticQueryRequest extends Model
+class FuzzyQueryShrinkRequest extends Model
 {
     /**
-     * @example immDatatest
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @example 10
+     * @example 1
      *
      * @var int
      */
     public $maxResults;
-
-    /**
-     * @var string[]
-     */
-    public $mediaTypes;
 
     /**
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
@@ -35,7 +30,14 @@ class SemanticQueryRequest extends Model
     public $nextToken;
 
     /**
-     * @example immtest
+     * @example asc,desc
+     *
+     * @var string
+     */
+    public $order;
+
+    /**
+     * @example test-project
      *
      * @var string
      */
@@ -47,17 +49,25 @@ class SemanticQueryRequest extends Model
     public $query;
 
     /**
-     * @var string[]
+     * @example Size,Filename
+     *
+     * @var string
      */
-    public $withFields;
+    public $sort;
+
+    /**
+     * @var string
+     */
+    public $withFieldsShrink;
     protected $_name = [
-        'datasetName' => 'DatasetName',
-        'maxResults'  => 'MaxResults',
-        'mediaTypes'  => 'MediaTypes',
-        'nextToken'   => 'NextToken',
-        'projectName' => 'ProjectName',
-        'query'       => 'Query',
-        'withFields'  => 'WithFields',
+        'datasetName'      => 'DatasetName',
+        'maxResults'       => 'MaxResults',
+        'nextToken'        => 'NextToken',
+        'order'            => 'Order',
+        'projectName'      => 'ProjectName',
+        'query'            => 'Query',
+        'sort'             => 'Sort',
+        'withFieldsShrink' => 'WithFields',
     ];
 
     public function validate()
@@ -73,11 +83,11 @@ class SemanticQueryRequest extends Model
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-        if (null !== $this->mediaTypes) {
-            $res['MediaTypes'] = $this->mediaTypes;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -85,8 +95,11 @@ class SemanticQueryRequest extends Model
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
-        if (null !== $this->withFields) {
-            $res['WithFields'] = $this->withFields;
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
+        }
+        if (null !== $this->withFieldsShrink) {
+            $res['WithFields'] = $this->withFieldsShrink;
         }
 
         return $res;
@@ -95,7 +108,7 @@ class SemanticQueryRequest extends Model
     /**
      * @param array $map
      *
-     * @return SemanticQueryRequest
+     * @return FuzzyQueryShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -106,13 +119,11 @@ class SemanticQueryRequest extends Model
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-        if (isset($map['MediaTypes'])) {
-            if (!empty($map['MediaTypes'])) {
-                $model->mediaTypes = $map['MediaTypes'];
-            }
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
@@ -120,10 +131,11 @@ class SemanticQueryRequest extends Model
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
+        }
         if (isset($map['WithFields'])) {
-            if (!empty($map['WithFields'])) {
-                $model->withFields = $map['WithFields'];
-            }
+            $model->withFieldsShrink = $map['WithFields'];
         }
 
         return $model;

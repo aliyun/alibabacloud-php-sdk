@@ -62,6 +62,11 @@ class SimpleQueryShrinkRequest extends Model
      * @var string
      */
     public $withFieldsShrink;
+
+    /**
+     * @var bool
+     */
+    public $withoutTotalHits;
     protected $_name = [
         'aggregationsShrink' => 'Aggregations',
         'datasetName'        => 'DatasetName',
@@ -72,6 +77,7 @@ class SimpleQueryShrinkRequest extends Model
         'queryShrink'        => 'Query',
         'sort'               => 'Sort',
         'withFieldsShrink'   => 'WithFields',
+        'withoutTotalHits'   => 'WithoutTotalHits',
     ];
 
     public function validate()
@@ -107,6 +113,9 @@ class SimpleQueryShrinkRequest extends Model
         }
         if (null !== $this->withFieldsShrink) {
             $res['WithFields'] = $this->withFieldsShrink;
+        }
+        if (null !== $this->withoutTotalHits) {
+            $res['WithoutTotalHits'] = $this->withoutTotalHits;
         }
 
         return $res;
@@ -146,6 +155,9 @@ class SimpleQueryShrinkRequest extends Model
         }
         if (isset($map['WithFields'])) {
             $model->withFieldsShrink = $map['WithFields'];
+        }
+        if (isset($map['WithoutTotalHits'])) {
+            $model->withoutTotalHits = $map['WithoutTotalHits'];
         }
 
         return $model;

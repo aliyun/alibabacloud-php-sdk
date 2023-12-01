@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SemanticQueryRequest extends Model
+class SemanticQueryShrinkRequest extends Model
 {
     /**
      * @example immDatatest
@@ -23,9 +23,9 @@ class SemanticQueryRequest extends Model
     public $maxResults;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $mediaTypes;
+    public $mediaTypesShrink;
 
     /**
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
@@ -47,17 +47,17 @@ class SemanticQueryRequest extends Model
     public $query;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $withFields;
+    public $withFieldsShrink;
     protected $_name = [
-        'datasetName' => 'DatasetName',
-        'maxResults'  => 'MaxResults',
-        'mediaTypes'  => 'MediaTypes',
-        'nextToken'   => 'NextToken',
-        'projectName' => 'ProjectName',
-        'query'       => 'Query',
-        'withFields'  => 'WithFields',
+        'datasetName'      => 'DatasetName',
+        'maxResults'       => 'MaxResults',
+        'mediaTypesShrink' => 'MediaTypes',
+        'nextToken'        => 'NextToken',
+        'projectName'      => 'ProjectName',
+        'query'            => 'Query',
+        'withFieldsShrink' => 'WithFields',
     ];
 
     public function validate()
@@ -73,8 +73,8 @@ class SemanticQueryRequest extends Model
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-        if (null !== $this->mediaTypes) {
-            $res['MediaTypes'] = $this->mediaTypes;
+        if (null !== $this->mediaTypesShrink) {
+            $res['MediaTypes'] = $this->mediaTypesShrink;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
@@ -85,8 +85,8 @@ class SemanticQueryRequest extends Model
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
-        if (null !== $this->withFields) {
-            $res['WithFields'] = $this->withFields;
+        if (null !== $this->withFieldsShrink) {
+            $res['WithFields'] = $this->withFieldsShrink;
         }
 
         return $res;
@@ -95,7 +95,7 @@ class SemanticQueryRequest extends Model
     /**
      * @param array $map
      *
-     * @return SemanticQueryRequest
+     * @return SemanticQueryShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -107,9 +107,7 @@ class SemanticQueryRequest extends Model
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['MediaTypes'])) {
-            if (!empty($map['MediaTypes'])) {
-                $model->mediaTypes = $map['MediaTypes'];
-            }
+            $model->mediaTypesShrink = $map['MediaTypes'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
@@ -121,9 +119,7 @@ class SemanticQueryRequest extends Model
             $model->query = $map['Query'];
         }
         if (isset($map['WithFields'])) {
-            if (!empty($map['WithFields'])) {
-                $model->withFields = $map['WithFields'];
-            }
+            $model->withFieldsShrink = $map['WithFields'];
         }
 
         return $model;

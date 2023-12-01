@@ -14,28 +14,14 @@ class SemanticQueryResponseBody extends Model
     public $files;
 
     /**
-     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
-     *
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @example 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $totalHits;
     protected $_name = [
         'files'     => 'Files',
-        'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'totalHits' => 'TotalHits',
     ];
 
     public function validate()
@@ -54,14 +40,8 @@ class SemanticQueryResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalHits) {
-            $res['TotalHits'] = $this->totalHits;
         }
 
         return $res;
@@ -84,14 +64,8 @@ class SemanticQueryResponseBody extends Model
                 }
             }
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalHits'])) {
-            $model->totalHits = $map['TotalHits'];
         }
 
         return $model;

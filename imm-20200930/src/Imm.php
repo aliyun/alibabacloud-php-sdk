@@ -147,6 +147,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ExtractDocumentTextResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ExtractDocumentTextShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenShrinkRequest;
@@ -220,6 +221,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SearchImageFigureClusterShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\SemanticQueryShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryShrinkRequest;
@@ -427,6 +429,9 @@ class Imm extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
         if (!Utils::isUnset($request->OSSBucket)) {
             $query['OSSBucket'] = $request->OSSBucket;
         }
@@ -3559,14 +3564,19 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param FuzzyQueryRequest $request
+     * @param FuzzyQueryRequest $tmpReq
      * @param RuntimeOptions    $runtime
      *
      * @return FuzzyQueryResponse
      */
-    public function fuzzyQueryWithOptions($request, $runtime)
+    public function fuzzyQueryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new FuzzyQueryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->withFields)) {
+            $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
@@ -3588,6 +3598,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->sort)) {
             $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->withFieldsShrink)) {
+            $query['WithFields'] = $request->withFieldsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5421,20 +5434,31 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SemanticQueryRequest $request
+     * @param SemanticQueryRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return SemanticQueryResponse
      */
-    public function semanticQueryWithOptions($request, $runtime)
+    public function semanticQueryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new SemanticQueryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->mediaTypes)) {
+            $request->mediaTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->mediaTypes, 'MediaTypes', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->withFields)) {
+            $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->mediaTypesShrink)) {
+            $query['MediaTypes'] = $request->mediaTypesShrink;
         }
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
@@ -5444,6 +5468,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->query)) {
             $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->withFieldsShrink)) {
+            $query['WithFields'] = $request->withFieldsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5522,6 +5549,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->withFieldsShrink)) {
             $query['WithFields'] = $request->withFieldsShrink;
+        }
+        if (!Utils::isUnset($request->withoutTotalHits)) {
+            $query['WithoutTotalHits'] = $request->withoutTotalHits;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

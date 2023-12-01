@@ -47,6 +47,13 @@ class DataIngestion extends Model
     public $notification;
 
     /**
+     * @example IncrementalScanning
+     *
+     * @var string
+     */
+    public $phase;
+
+    /**
      * @var string
      */
     public $state;
@@ -73,6 +80,7 @@ class DataIngestion extends Model
         'input'        => 'Input',
         'marker'       => 'Marker',
         'notification' => 'Notification',
+        'phase'        => 'Phase',
         'state'        => 'State',
         'statistic'    => 'Statistic',
         'tags'         => 'Tags',
@@ -112,6 +120,9 @@ class DataIngestion extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
+        }
+        if (null !== $this->phase) {
+            $res['Phase'] = $this->phase;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -163,6 +174,9 @@ class DataIngestion extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = notification::fromMap($map['Notification']);
+        }
+        if (isset($map['Phase'])) {
+            $model->phase = $map['Phase'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\CreateTriggerRequest;
 
+use AlibabaCloud\SDK\Imm\V20200930\Models\FastFailPolicy;
 use AlibabaCloud\Tea\Model;
 
 class actions extends Model
 {
+    /**
+     * @var FastFailPolicy
+     */
+    public $fastFailPolicy;
+
     /**
      * @example doc/convert
      *
@@ -20,8 +26,9 @@ class actions extends Model
      */
     public $parameters;
     protected $_name = [
-        'name'       => 'Name',
-        'parameters' => 'Parameters',
+        'fastFailPolicy' => 'FastFailPolicy',
+        'name'           => 'Name',
+        'parameters'     => 'Parameters',
     ];
 
     public function validate()
@@ -31,6 +38,9 @@ class actions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fastFailPolicy) {
+            $res['FastFailPolicy'] = null !== $this->fastFailPolicy ? $this->fastFailPolicy->toMap() : null;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,6 +59,9 @@ class actions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FastFailPolicy'])) {
+            $model->fastFailPolicy = FastFailPolicy::fromMap($map['FastFailPolicy']);
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
