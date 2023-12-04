@@ -118,6 +118,11 @@ class userList extends Model
      * @var string
      */
     public $userName;
+
+    /**
+     * @var string
+     */
+    public $userNick;
     protected $_name = [
         'baseCityCode'      => 'base_city_code',
         'birthday'          => 'birthday',
@@ -137,6 +142,7 @@ class userList extends Model
         'thirdDepartIdList' => 'third_depart_id_list',
         'userId'            => 'user_id',
         'userName'          => 'user_name',
+        'userNick'          => 'user_nick',
     ];
 
     public function validate()
@@ -205,6 +211,9 @@ class userList extends Model
         }
         if (null !== $this->userName) {
             $res['user_name'] = $this->userName;
+        }
+        if (null !== $this->userNick) {
+            $res['user_nick'] = $this->userNick;
         }
 
         return $res;
@@ -279,6 +288,9 @@ class userList extends Model
         }
         if (isset($map['user_name'])) {
             $model->userName = $map['user_name'];
+        }
+        if (isset($map['user_nick'])) {
+            $model->userNick = $map['user_nick'];
         }
 
         return $model;
