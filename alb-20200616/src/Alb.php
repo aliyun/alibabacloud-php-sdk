@@ -579,10 +579,12 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CancelShiftLoadBalancerZonesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+     *   *
+     * @param CancelShiftLoadBalancerZonesRequest $request CancelShiftLoadBalancerZonesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelShiftLoadBalancerZonesResponse
+     * @return CancelShiftLoadBalancerZonesResponse CancelShiftLoadBalancerZonesResponse
      */
     public function cancelShiftLoadBalancerZonesWithOptions($request, $runtime)
     {
@@ -619,9 +621,11 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CancelShiftLoadBalancerZonesRequest $request
+     * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+     *   *
+     * @param CancelShiftLoadBalancerZonesRequest $request CancelShiftLoadBalancerZonesRequest
      *
-     * @return CancelShiftLoadBalancerZonesResponse
+     * @return CancelShiftLoadBalancerZonesResponse CancelShiftLoadBalancerZonesResponse
      */
     public function cancelShiftLoadBalancerZones($request)
     {
@@ -3938,10 +3942,12 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param StartShiftLoadBalancerZonesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+     *   *
+     * @param StartShiftLoadBalancerZonesRequest $request StartShiftLoadBalancerZonesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartShiftLoadBalancerZonesResponse
+     * @return StartShiftLoadBalancerZonesResponse StartShiftLoadBalancerZonesResponse
      */
     public function startShiftLoadBalancerZonesWithOptions($request, $runtime)
     {
@@ -3978,9 +3984,11 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param StartShiftLoadBalancerZonesRequest $request
+     * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+     *   *
+     * @param StartShiftLoadBalancerZonesRequest $request StartShiftLoadBalancerZonesRequest
      *
-     * @return StartShiftLoadBalancerZonesResponse
+     * @return StartShiftLoadBalancerZonesResponse StartShiftLoadBalancerZonesResponse
      */
     public function startShiftLoadBalancerZones($request)
     {

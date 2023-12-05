@@ -15,8 +15,14 @@ class trafficMirrorConfig extends Model
      * @var mirrorGroupConfig
      */
     public $mirrorGroupConfig;
+
+    /**
+     * @var string
+     */
+    public $targetType;
     protected $_name = [
         'mirrorGroupConfig' => 'MirrorGroupConfig',
+        'targetType'        => 'TargetType',
     ];
 
     public function validate()
@@ -28,6 +34,9 @@ class trafficMirrorConfig extends Model
         $res = [];
         if (null !== $this->mirrorGroupConfig) {
             $res['MirrorGroupConfig'] = null !== $this->mirrorGroupConfig ? $this->mirrorGroupConfig->toMap() : null;
+        }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
         }
 
         return $res;
@@ -43,6 +52,9 @@ class trafficMirrorConfig extends Model
         $model = new self();
         if (isset($map['MirrorGroupConfig'])) {
             $model->mirrorGroupConfig = mirrorGroupConfig::fromMap($map['MirrorGroupConfig']);
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
 
         return $model;
