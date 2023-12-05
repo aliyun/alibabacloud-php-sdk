@@ -6,59 +6,51 @@ namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UploadBitcodeToMsaRequest extends Model
+class MTRSOCRServiceRequest extends Model
 {
     /**
-     * @example ALIPUBE5C3F6D091419
+     * @example ONEX8C7E7FA161089
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @example 3sAXCwAAAAAUAAAACHoAAP
+     * @example xydasf==ac
      *
      * @var string
      */
-    public $bitcode;
+    public $imageRaw;
 
     /**
-     * @example xcode14
-     *
-     * @var string
+     * @var bool
      */
-    public $codeVersion;
+    public $mask;
 
     /**
-     * @example {}
-     *
-     * @var string
-     */
-    public $license;
-
-    /**
-     * @example ZXCXMAHQ-zh_CN
+     * @example tabcaa
      *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @example ID_CARD_OCR
+     *
      * @var string
      */
     public $type;
 
     /**
-     * @example dev
+     * @example default
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'appId'       => 'AppId',
-        'bitcode'     => 'Bitcode',
-        'codeVersion' => 'CodeVersion',
-        'license'     => 'License',
+        'imageRaw'    => 'ImageRaw',
+        'mask'        => 'Mask',
         'tenantId'    => 'TenantId',
         'type'        => 'Type',
         'workspaceId' => 'WorkspaceId',
@@ -74,14 +66,11 @@ class UploadBitcodeToMsaRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->bitcode) {
-            $res['Bitcode'] = $this->bitcode;
+        if (null !== $this->imageRaw) {
+            $res['ImageRaw'] = $this->imageRaw;
         }
-        if (null !== $this->codeVersion) {
-            $res['CodeVersion'] = $this->codeVersion;
-        }
-        if (null !== $this->license) {
-            $res['License'] = $this->license;
+        if (null !== $this->mask) {
+            $res['Mask'] = $this->mask;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -99,7 +88,7 @@ class UploadBitcodeToMsaRequest extends Model
     /**
      * @param array $map
      *
-     * @return UploadBitcodeToMsaRequest
+     * @return MTRSOCRServiceRequest
      */
     public static function fromMap($map = [])
     {
@@ -107,14 +96,11 @@ class UploadBitcodeToMsaRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['Bitcode'])) {
-            $model->bitcode = $map['Bitcode'];
+        if (isset($map['ImageRaw'])) {
+            $model->imageRaw = $map['ImageRaw'];
         }
-        if (isset($map['CodeVersion'])) {
-            $model->codeVersion = $map['CodeVersion'];
-        }
-        if (isset($map['License'])) {
-            $model->license = $map['License'];
+        if (isset($map['Mask'])) {
+            $model->mask = $map['Mask'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

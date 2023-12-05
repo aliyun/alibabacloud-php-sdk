@@ -136,6 +136,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMgsApiRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMgsApiResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\LogMsaQueryRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\LogMsaQueryResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\MTRSOCRServiceRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\MTRSOCRServiceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiAddActiveCodeRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiAddActiveCodeResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiAddActiveSceneRequest;
@@ -4189,6 +4191,64 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * @param MTRSOCRServiceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return MTRSOCRServiceResponse
+     */
+    public function mTRSOCRServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->imageRaw)) {
+            $body['ImageRaw'] = $request->imageRaw;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $body['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'MTRSOCRService',
+            'version'     => '2020-10-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MTRSOCRServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MTRSOCRServiceRequest $request
+     *
+     * @return MTRSOCRServiceResponse
+     */
+    public function mTRSOCRService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mTRSOCRServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param OpenApiAddActiveCodeRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -6702,6 +6762,9 @@ class MPaaS extends OpenApiClient
         }
         if (!Utils::isUnset($request->tenantId)) {
             $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $body['WorkspaceId'] = $request->workspaceId;
