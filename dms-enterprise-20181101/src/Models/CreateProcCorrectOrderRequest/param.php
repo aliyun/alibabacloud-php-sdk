@@ -22,6 +22,11 @@ class param extends Model
     public $dbItemList;
 
     /**
+     * @var string
+     */
+    public $execMode;
+
+    /**
      * @example DELIMITER ///
      * BEGIN
      * SELECT *  FROM base_user;
@@ -53,6 +58,7 @@ class param extends Model
     protected $_name = [
         'classify'               => 'Classify',
         'dbItemList'             => 'DbItemList',
+        'execMode'               => 'ExecMode',
         'execSQL'                => 'ExecSQL',
         'rollbackAttachmentName' => 'RollbackAttachmentName',
         'rollbackSQL'            => 'RollbackSQL',
@@ -77,6 +83,9 @@ class param extends Model
                     $res['DbItemList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->execMode) {
+            $res['ExecMode'] = $this->execMode;
         }
         if (null !== $this->execSQL) {
             $res['ExecSQL'] = $this->execSQL;
@@ -113,6 +122,9 @@ class param extends Model
                     $model->dbItemList[$n++] = null !== $item ? dbItemList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ExecMode'])) {
+            $model->execMode = $map['ExecMode'];
         }
         if (isset($map['ExecSQL'])) {
             $model->execSQL = $map['ExecSQL'];
