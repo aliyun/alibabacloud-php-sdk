@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CloseMergeRequestRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CloseMergeRequestResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitStatusRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitStatusResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateDeployKeyRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateDeployKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFileRequest;
@@ -137,6 +139,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetGroupByPathResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetGroupDetailRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetGroupDetailResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetHostGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetMergeRequestChangeTreeRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetMergeRequestChangeTreeResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetMergeRequestRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetMergeRequestResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetOrganizationMemberResponse;
@@ -184,6 +188,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemWorkFlowInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListCommitStatusesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListCommitStatusesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListFlowTagGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListGroupMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListGroupMemberResponse;
@@ -191,6 +197,12 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListGroupRepositoriesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListGroupRepositoriesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestCommentsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestCommentsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestFilesReadsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestFilesReadsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestPatchSetsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestPatchSetsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListOrganizationMembersRequest;
@@ -751,6 +763,75 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->createBranchWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateCommitStatusRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateCommitStatusResponse
+     */
+    public function createCommitStatusWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        if (!Utils::isUnset($request->sha)) {
+            $query['sha'] = $request->sha;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->context)) {
+            $body['context'] = $request->context;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $body['state'] = $request->state;
+        }
+        if (!Utils::isUnset($request->targetUrl)) {
+            $body['targetUrl'] = $request->targetUrl;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCommitStatus',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/repository/commit_statuses/create_commit_status',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCommitStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCommitStatusRequest $request
+     *
+     * @return CreateCommitStatusResponse
+     */
+    public function createCommitStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCommitStatusWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4491,6 +4572,67 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param GetMergeRequestChangeTreeRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetMergeRequestChangeTreeResponse
+     */
+    public function getMergeRequestChangeTreeWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->fromPatchSetBizId)) {
+            $query['fromPatchSetBizId'] = $request->fromPatchSetBizId;
+        }
+        if (!Utils::isUnset($request->localId)) {
+            $query['localId'] = $request->localId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        if (!Utils::isUnset($request->toPatchSetBizId)) {
+            $query['toPatchSetBizId'] = $request->toPatchSetBizId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMergeRequestChangeTree',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/merge_requests/diffs/change_tree',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMergeRequestChangeTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMergeRequestChangeTreeRequest $request
+     *
+     * @return GetMergeRequestChangeTreeResponse
+     */
+    public function getMergeRequestChangeTree($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMergeRequestChangeTreeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param string         $organizationId
      * @param string         $accountId
      * @param string[]       $headers
@@ -5875,6 +6017,67 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param ListCommitStatusesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListCommitStatusesResponse
+     */
+    public function listCommitStatusesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        if (!Utils::isUnset($request->sha)) {
+            $query['sha'] = $request->sha;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCommitStatuses',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/repository/commit_statuses/list_commit_statuses',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCommitStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCommitStatusesRequest $request
+     *
+     * @return ListCommitStatusesResponse
+     */
+    public function listCommitStatuses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCommitStatusesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param string         $organizationId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -6095,6 +6298,194 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listHostGroupsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListMergeRequestCommentsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListMergeRequestCommentsResponse
+     */
+    public function listMergeRequestCommentsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->localId)) {
+            $query['localId'] = $request->localId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->commentType)) {
+            $body['commentType'] = $request->commentType;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            $body['filePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->patchSetBizIds)) {
+            $body['patchSetBizIds'] = $request->patchSetBizIds;
+        }
+        if (!Utils::isUnset($request->resolved)) {
+            $body['resolved'] = $request->resolved;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $body['state'] = $request->state;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMergeRequestComments',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/merge_requests/comments/list_comments',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMergeRequestCommentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMergeRequestCommentsRequest $request
+     *
+     * @return ListMergeRequestCommentsResponse
+     */
+    public function listMergeRequestComments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMergeRequestCommentsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListMergeRequestFilesReadsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListMergeRequestFilesReadsResponse
+     */
+    public function listMergeRequestFilesReadsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->fromPatchSetBizId)) {
+            $query['fromPatchSetBizId'] = $request->fromPatchSetBizId;
+        }
+        if (!Utils::isUnset($request->localId)) {
+            $query['localId'] = $request->localId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        if (!Utils::isUnset($request->toPatchSetBizId)) {
+            $query['toPatchSetBizId'] = $request->toPatchSetBizId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMergeRequestFilesReads',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/merge_requests/diffs/files_read_infos',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMergeRequestFilesReadsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMergeRequestFilesReadsRequest $request
+     *
+     * @return ListMergeRequestFilesReadsResponse
+     */
+    public function listMergeRequestFilesReads($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMergeRequestFilesReadsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListMergeRequestPatchSetsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListMergeRequestPatchSetsResponse
+     */
+    public function listMergeRequestPatchSetsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->localId)) {
+            $query['localId'] = $request->localId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMergeRequestPatchSets',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/merge_requests/diffs/list_patchsets',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMergeRequestPatchSetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMergeRequestPatchSetsRequest $request
+     *
+     * @return ListMergeRequestPatchSetsResponse
+     */
+    public function listMergeRequestPatchSets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMergeRequestPatchSetsWithOptions($request, $headers, $runtime);
     }
 
     /**
