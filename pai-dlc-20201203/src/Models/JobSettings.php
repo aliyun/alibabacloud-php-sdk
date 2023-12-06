@@ -70,6 +70,20 @@ class JobSettings extends Model
     public $errorMonitoringArgs;
 
     /**
+     * @example 30
+     *
+     * @var int
+     */
+    public $jobReservedMinutes;
+
+    /**
+     * @example Always
+     *
+     * @var string
+     */
+    public $jobReservedPolicy;
+
+    /**
      * @example AcceptQuotaOverSold
      *
      * @var string
@@ -97,6 +111,8 @@ class JobSettings extends Model
         'enableRDMA'                      => 'EnableRDMA',
         'enableTideResource'              => 'EnableTideResource',
         'errorMonitoringArgs'             => 'ErrorMonitoringArgs',
+        'jobReservedMinutes'              => 'JobReservedMinutes',
+        'jobReservedPolicy'               => 'JobReservedPolicy',
         'oversoldType'                    => 'OversoldType',
         'pipelineId'                      => 'PipelineId',
         'tags'                            => 'Tags',
@@ -135,6 +151,12 @@ class JobSettings extends Model
         }
         if (null !== $this->errorMonitoringArgs) {
             $res['ErrorMonitoringArgs'] = $this->errorMonitoringArgs;
+        }
+        if (null !== $this->jobReservedMinutes) {
+            $res['JobReservedMinutes'] = $this->jobReservedMinutes;
+        }
+        if (null !== $this->jobReservedPolicy) {
+            $res['JobReservedPolicy'] = $this->jobReservedPolicy;
         }
         if (null !== $this->oversoldType) {
             $res['OversoldType'] = $this->oversoldType;
@@ -183,6 +205,12 @@ class JobSettings extends Model
         }
         if (isset($map['ErrorMonitoringArgs'])) {
             $model->errorMonitoringArgs = $map['ErrorMonitoringArgs'];
+        }
+        if (isset($map['JobReservedMinutes'])) {
+            $model->jobReservedMinutes = $map['JobReservedMinutes'];
+        }
+        if (isset($map['JobReservedPolicy'])) {
+            $model->jobReservedPolicy = $map['JobReservedPolicy'];
         }
         if (isset($map['OversoldType'])) {
             $model->oversoldType = $map['OversoldType'];
