@@ -15,6 +15,8 @@ class SegmentHDSkyResponseBody extends Model
     public $data;
 
     /**
+     * @example 1173F38F-B4F4-4A07-AB2E-D490C01347E5
+     *
      * @var string
      */
     public $requestId;

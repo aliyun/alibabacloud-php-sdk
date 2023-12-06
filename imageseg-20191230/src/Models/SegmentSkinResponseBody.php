@@ -15,6 +15,8 @@ class SegmentSkinResponseBody extends Model
     public $data;
 
     /**
+     * @example DA007354-6CF5-45BE-8333-E06318D848C0
+     *
      * @var string
      */
     public $requestId;

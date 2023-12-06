@@ -15,6 +15,8 @@ class RefineMaskResponseBody extends Model
     public $data;
 
     /**
+     * @example E948F80B-86D9-54E0-9FF9-ACF3B1DA83C4
+     *
      * @var string
      */
     public $requestId;

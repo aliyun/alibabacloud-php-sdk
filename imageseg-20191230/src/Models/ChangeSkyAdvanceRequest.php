@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class ChangeSkyAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/ChangeSky/ChangeSky2.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/ChangeSky/ChangeSky6.jpg
+     *
      * @var Stream
      */
     public $replaceImageURLObject;

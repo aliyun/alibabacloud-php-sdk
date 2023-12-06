@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class SegmentSkyAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/SegmentSky/SegmentSky5.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

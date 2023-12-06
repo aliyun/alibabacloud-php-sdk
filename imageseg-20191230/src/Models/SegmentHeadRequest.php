@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SegmentHeadRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/SegmentHead/SegmentHead1.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example mask
+     *
      * @var string
      */
     public $returnForm;

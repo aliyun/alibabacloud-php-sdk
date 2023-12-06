@@ -15,6 +15,8 @@ class SegmentFoodResponseBody extends Model
     public $data;
 
     /**
+     * @example 38265D08-AD0F-4752-8E96-D1D9FB96C3D9
+     *
      * @var string
      */
     public $requestId;

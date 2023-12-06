@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class SegmentBodyAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/SegmentBody/SegmentBody1.png
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example mask
+     *
      * @var string
      */
     public $returnForm;

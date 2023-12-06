@@ -15,6 +15,8 @@ class SegmentCommonImageResponseBody extends Model
     public $data;
 
     /**
+     * @example 1B8BEF02-0672-44CA-A974-4D6FAC392497
+     *
      * @var string
      */
     public $requestId;

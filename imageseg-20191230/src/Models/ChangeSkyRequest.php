@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ChangeSkyRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/ChangeSky/ChangeSky2.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/ChangeSky/ChangeSky6.jpg
+     *
      * @var string
      */
     public $replaceImageURL;

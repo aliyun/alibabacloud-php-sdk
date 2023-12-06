@@ -20,6 +20,8 @@ class SegmentHDCommonImageResponseBody extends Model
     public $message;
 
     /**
+     * @example EC994171-7964-44B3-85AF-A715CB56747D
+     *
      * @var string
      */
     public $requestId;

@@ -15,6 +15,8 @@ class data extends Model
     public $elements;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/ParseFace/ParseFace1.jpg
+     *
      * @var string
      */
     public $originImageURL;

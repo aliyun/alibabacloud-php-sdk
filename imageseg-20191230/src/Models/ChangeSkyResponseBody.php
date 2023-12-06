@@ -15,6 +15,8 @@ class ChangeSkyResponseBody extends Model
     public $data;
 
     /**
+     * @example F9D60817-EC5A-4BAC-9092-4AD42220CFA8
+     *
      * @var string
      */
     public $requestId;

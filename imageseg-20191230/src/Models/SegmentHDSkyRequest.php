@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SegmentHDSkyRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/SegmentHDSky/SegmentHDSky4.jpg
+     *
      * @var string
      */
     public $imageURL;

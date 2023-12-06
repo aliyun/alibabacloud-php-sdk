@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RefineMaskAdvanceRequest extends Model
 {
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/RefineMask/RefineMask1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageseg/RefineMask/RefineMask6.jpg
+     *
      * @var Stream
      */
     public $maskImageURLObject;

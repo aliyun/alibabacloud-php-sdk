@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example 180
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example http://viapi-cn-shanghai-dha-segmenter.oss-cn-shanghai.aliyuncs.com/upload/result_HeadSegmenter/2021-12-31/invi_HeadSegmenter_016409228383064285967296_iPLUXA.png?Expires=1640924638&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSRp****&Signature=wpKOqSar1bYvGmlTMryfEH2Q9I****
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 113
+     *
      * @var int
      */
     public $width;
 
     /**
+     * @example 446
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @example 102
+     *
      * @var int
      */
     public $y;

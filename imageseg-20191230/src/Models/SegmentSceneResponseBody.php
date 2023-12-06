@@ -15,6 +15,8 @@ class SegmentSceneResponseBody extends Model
     public $data;
 
     /**
+     * @example 78EC13BB-74C5-4FBE-916E-C98BD721ED61
+     *
      * @var string
      */
     public $requestId;

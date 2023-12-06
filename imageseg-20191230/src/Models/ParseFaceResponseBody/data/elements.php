@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example http://vibktprfx-prod-prod-aic-gd-cn-shanghai.oss-cn-shanghai.aliyuncs.com/fivesensesegmenter/prod/560FA2E7-FDC6-59A5-ABDD-D62A05146734/skin/_18dd_20211231-040658.png?Expires=1640925418&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSRp****&Signature=2g0M88wZl%2Bn4t4gzQX%2BTIskpWB****
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example skin
+     *
      * @var string
      */
     public $name;
