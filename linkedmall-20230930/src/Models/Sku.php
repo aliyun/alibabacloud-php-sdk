@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class Sku extends Model
 {
     /**
+     * @example 6922454329176
+     *
+     * @var string
+     */
+    public $barcode;
+
+    /**
      * @example true
      *
      * @var bool
@@ -111,6 +118,7 @@ class Sku extends Model
      */
     public $title;
     protected $_name = [
+        'barcode'       => 'barcode',
         'canSell'       => 'canSell',
         'divisionCode'  => 'divisionCode',
         'fuzzyQuantity' => 'fuzzyQuantity',
@@ -135,6 +143,9 @@ class Sku extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->barcode) {
+            $res['barcode'] = $this->barcode;
+        }
         if (null !== $this->canSell) {
             $res['canSell'] = $this->canSell;
         }
@@ -198,6 +209,9 @@ class Sku extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['barcode'])) {
+            $model->barcode = $map['barcode'];
+        }
         if (isset($map['canSell'])) {
             $model->canSell = $map['canSell'];
         }

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class Product extends Model
 {
     /**
+     * @example Apple/苹果
+     *
+     * @var string
+     */
+    public $brandName;
+
+    /**
      * @example true
      *
      * @var bool
@@ -145,6 +152,7 @@ class Product extends Model
      */
     public $title;
     protected $_name = [
+        'brandName'      => 'brandName',
         'canSell'        => 'canSell',
         'categoryChain'  => 'categoryChain',
         'categoryLeafId' => 'categoryLeafId',
@@ -175,6 +183,9 @@ class Product extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->brandName) {
+            $res['brandName'] = $this->brandName;
+        }
         if (null !== $this->canSell) {
             $res['canSell'] = $this->canSell;
         }
@@ -274,6 +285,9 @@ class Product extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['brandName'])) {
+            $model->brandName = $map['brandName'];
+        }
         if (isset($map['canSell'])) {
             $model->canSell = $map['canSell'];
         }
