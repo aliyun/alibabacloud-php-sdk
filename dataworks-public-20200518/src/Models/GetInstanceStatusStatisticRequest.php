@@ -50,6 +50,11 @@ class GetInstanceStatusStatisticRequest extends Model
     public $projectId;
 
     /**
+     * @var string
+     */
+    public $schedulerPeriod;
+
+    /**
      * @description The scheduling type of the node. Valid values:
      *
      *   NORMAL: auto triggered node
@@ -63,11 +68,12 @@ class GetInstanceStatusStatisticRequest extends Model
      */
     public $schedulerType;
     protected $_name = [
-        'bizDate'       => 'BizDate',
-        'dagType'       => 'DagType',
-        'projectEnv'    => 'ProjectEnv',
-        'projectId'     => 'ProjectId',
-        'schedulerType' => 'SchedulerType',
+        'bizDate'         => 'BizDate',
+        'dagType'         => 'DagType',
+        'projectEnv'      => 'ProjectEnv',
+        'projectId'       => 'ProjectId',
+        'schedulerPeriod' => 'SchedulerPeriod',
+        'schedulerType'   => 'SchedulerType',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class GetInstanceStatusStatisticRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->schedulerPeriod) {
+            $res['SchedulerPeriod'] = $this->schedulerPeriod;
         }
         if (null !== $this->schedulerType) {
             $res['SchedulerType'] = $this->schedulerType;
@@ -115,6 +124,9 @@ class GetInstanceStatusStatisticRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['SchedulerPeriod'])) {
+            $model->schedulerPeriod = $map['SchedulerPeriod'];
         }
         if (isset($map['SchedulerType'])) {
             $model->schedulerType = $map['SchedulerType'];

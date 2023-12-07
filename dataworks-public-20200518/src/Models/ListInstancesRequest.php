@@ -75,6 +75,11 @@ class ListInstancesRequest extends Model
     public $nodeName;
 
     /**
+     * @var string
+     */
+    public $orderBy;
+
+    /**
      * @description The connection string.
      *
      * @example 193379****
@@ -144,6 +149,7 @@ class ListInstancesRequest extends Model
         'endBizdate'   => 'EndBizdate',
         'nodeId'       => 'NodeId',
         'nodeName'     => 'NodeName',
+        'orderBy'      => 'OrderBy',
         'owner'        => 'Owner',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
@@ -180,6 +186,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
+        }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
@@ -234,6 +243,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
+        }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];

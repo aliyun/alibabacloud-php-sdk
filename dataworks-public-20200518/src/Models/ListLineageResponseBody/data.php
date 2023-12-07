@@ -15,6 +15,8 @@ class data extends Model
     public $dataEntityList;
 
     /**
+     * @example nextTokenFromRequest-xxxsd-ff
+     *
      * @var string
      */
     public $nextToken;

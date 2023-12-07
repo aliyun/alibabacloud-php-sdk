@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListLineageRequest extends Model
 {
     /**
+     * @example up
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @example maxcompute-table.project.table
+     *
      * @var string
      */
     public $entityQualifiedName;
 
     /**
+     * @example name-keyword
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example next-token-from-previous-request
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

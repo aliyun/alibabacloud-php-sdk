@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class relationList extends Model
 {
     /**
+     * @example THIRD_PARTY
+     *
      * @var string
      */
     public $channel;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $datasource;
 
     /**
+     * @example aaabbccddguid
+     *
      * @var string
      */
     public $guid;
 
     /**
+     * @example sql
+     *
      * @var string
      */
     public $type;

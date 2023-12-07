@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
+     * @example 1686215809269
+     *
      * @var int
      */
     public $createTimestamp;

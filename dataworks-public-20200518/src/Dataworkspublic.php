@@ -6663,6 +6663,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->projectId)) {
             $body['ProjectId'] = $request->projectId;
         }
+        if (!Utils::isUnset($request->schedulerPeriod)) {
+            $body['SchedulerPeriod'] = $request->schedulerPeriod;
+        }
         if (!Utils::isUnset($request->schedulerType)) {
             $body['SchedulerType'] = $request->schedulerType;
         }
@@ -10473,6 +10476,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->nodeName)) {
             $body['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $body['OrderBy'] = $request->orderBy;
         }
         if (!Utils::isUnset($request->owner)) {
             $body['Owner'] = $request->owner;
