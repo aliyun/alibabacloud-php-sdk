@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckCdnDomainICPResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
      *
      * @var string
@@ -16,6 +18,11 @@ class CheckCdnDomainICPResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the resource plan. Valid value:
+     *
+     *   **DomainIsRegistration**: An ICP filing is obtained for the domain name.
+     *   **DomainNotRegistration**: No ICP filing is obtained for the domain name.
+     *
      * @example DomainIsRegistration
      *
      * @var string

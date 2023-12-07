@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckCdnDomainICPRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
      * @example example.com
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnSecFuncInfoResponseBody extends Model
 {
     /**
+     * @description Queried data.
+     *
      * @var content[]
      */
     public $content;
 
     /**
+     * @description The description.
+     *
      * @example OK
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeCdnSecFuncInfoResponseBody extends Model
     public $description;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeCdnSecFuncInfoResponseBody extends Model
     public $httpStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example BCD7D917-76F1-442F-BB75-C810DE34C761
      *
      * @var string
@@ -36,6 +44,11 @@ class DescribeCdnSecFuncInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The HTTP request response code.
+     *
+     *   0: OK.
+     *   Values other than 0: an error.
+     *
      * @example 0
      *
      * @var string

@@ -57,6 +57,10 @@ class SetCdnDomainSSLCertificateRequest extends Model
     public $domainName;
 
     /**
+     * @description Specifies whether the certificate is issued in canary releases. If you set this parameter to **staging**, the certificate is issued in canary releases. If you do not specify this parameter or set this parameter to other values, the certificate is officially issued.
+     *
+     * @example staging
+     *
      * @var string
      */
     public $env;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The tag.
+     *
      * @example TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
      *
      * @var string
@@ -16,6 +18,8 @@ class content extends Model
     public $label;
 
     /**
+     * @description The value.
+     *
      * @example TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
      *
      * @var string

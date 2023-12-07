@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchAddCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchAddCdnDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchDeleteCdnDomainConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchDeleteCdnDomainConfigResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchDescribeCdnIpInfoRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchDescribeCdnIpInfoResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetCdnDomainConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetCdnDomainConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetCdnDomainServerCertificateRequest;
@@ -77,6 +79,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainAtoaLogsRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainAtoaLogsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainByCertificateRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainByCertificateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainConfigsRequest;
@@ -668,6 +672,55 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchDeleteCdnDomainConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * **
+     *   * **The maximum number of times that each user can call this operation per second is 20.
+     *   *
+     * @param BatchDescribeCdnIpInfoRequest $request BatchDescribeCdnIpInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchDescribeCdnIpInfoResponse BatchDescribeCdnIpInfoResponse
+     */
+    public function batchDescribeCdnIpInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipAddrList)) {
+            $query['IpAddrList'] = $request->ipAddrList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDescribeCdnIpInfo',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchDescribeCdnIpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * **
+     *   * **The maximum number of times that each user can call this operation per second is 20.
+     *   *
+     * @param BatchDescribeCdnIpInfoRequest $request BatchDescribeCdnIpInfoRequest
+     *
+     * @return BatchDescribeCdnIpInfoResponse BatchDescribeCdnIpInfoResponse
+     */
+    public function batchDescribeCdnIpInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDescribeCdnIpInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -2365,6 +2418,61 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdnDeliverListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCdnDomainAtoaLogsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeCdnDomainAtoaLogsResponse
+     */
+    public function describeCdnDomainAtoaLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnDomainAtoaLogs',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnDomainAtoaLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnDomainAtoaLogsRequest $request
+     *
+     * @return DescribeCdnDomainAtoaLogsResponse
+     */
+    public function describeCdnDomainAtoaLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnDomainAtoaLogsWithOptions($request, $runtime);
     }
 
     /**

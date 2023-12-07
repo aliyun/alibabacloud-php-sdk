@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnSecFuncInfoRequest extends Model
 {
     /**
+     * @description The language.
+     *
+     *   en: English
+     *   zh: Chinese
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,11 @@ class DescribeCdnSecFuncInfoRequest extends Model
     public $lang;
 
     /**
+     * @description The type of the security feature. Valid values:
+     *
+     *   CipherSuiteGroupCustomize: custom cipher suite.
+     *   CipherSuiteGroupStrict: dustom cipher suite.
+     *
      * @example CipherSuiteGroupCustomize
      *
      * @var string

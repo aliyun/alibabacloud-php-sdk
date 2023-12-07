@@ -1,3 +1,6 @@
+2023-12-07 Version: 3.2.0
+- Generated php 2018-05-10 for Cdn.
+
 2023-10-18 Version: 3.1.2
 - Generated php 2018-05-10 for Cdn.
 
