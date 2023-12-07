@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetZidTagScoreByAtokenRequest;
 use AlibabaCloud\SDK\Antirisk\V20221128\Models\GetZidTagScoreByAtokenResponse;
 use AlibabaCloud\SDK\Antirisk\V20221128\Models\ListChannelRiskDetailsRequest;
 use AlibabaCloud\SDK\Antirisk\V20221128\Models\ListChannelRiskDetailsResponse;
+use AlibabaCloud\SDK\Antirisk\V20221128\Models\ListUninstallDetailRequest;
+use AlibabaCloud\SDK\Antirisk\V20221128\Models\ListUninstallDetailResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -259,5 +261,57 @@ class Antirisk extends OpenApiClient
         $headers = [];
 
         return $this->listChannelRiskDetailsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListUninstallDetailRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUninstallDetailResponse
+     */
+    public function listUninstallDetailWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->endDs)) {
+            $query['endDs'] = $request->endDs;
+        }
+        if (!Utils::isUnset($request->startDs)) {
+            $query['startDs'] = $request->startDs;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUninstallDetail',
+            'version'     => '2022-11-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/uninstall/listUninstallDetail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUninstallDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUninstallDetailRequest $request
+     *
+     * @return ListUninstallDetailResponse
+     */
+    public function listUninstallDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listUninstallDetailWithOptions($request, $headers, $runtime);
     }
 }
