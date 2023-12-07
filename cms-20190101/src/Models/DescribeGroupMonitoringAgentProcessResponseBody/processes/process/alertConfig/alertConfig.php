@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class alertConfig extends Model
 {
     /**
-     * @description The comparison operator of the threshold for critical-level alerts. Valid values:
+     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values:
      *
      *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
      *   GreaterThanThreshold: greater than the threshold
      *   LessThanOrEqualToThreshold: less than or equal to the threshold
      *   LessThanThreshold: less than the threshold
      *   NotEqualToThreshold: not equal to the threshold
-     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday.
      *   LessThanYesterday: less than the metric value at the same time yesterday
      *   GreaterThanLastWeek: greater than the metric value at the same time last week
      *   LessThanLastWeek: less than the metric value at the same time last week
@@ -44,7 +44,7 @@ class alertConfig extends Model
      *
      *   critical
      *   warn
-     *   info
+     *   Info
      *
      * @example warn
      *
@@ -62,9 +62,9 @@ class alertConfig extends Model
     public $noEffectiveInterval;
 
     /**
-     * @description The duration of the mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Minimum value: 3600, which is equivalent to one hour. Default value: 86400, which is equivalent to one day.
+     * @description The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Minimum value: 3600, which is equivalent to one hour. Default value: 86400, which is equivalent to one day.
      *
-     * >  Only one alert notification is sent during each mute period even if the metric value consecutively exceeds the alert threshold several times.
+     * >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
      * @example 86400
      *
      * @var string
@@ -81,12 +81,14 @@ class alertConfig extends Model
     public $statistics;
 
     /**
+     * @description The resource for which alerts are triggered.
+     *
      * @var targetList
      */
     public $targetList;
 
     /**
-     * @description The threshold for triggering alerts.
+     * @description The alert threshold.
      *
      * @example 5
      *

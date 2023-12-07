@@ -3309,6 +3309,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
         if (!Utils::isUnset($request->groupBy)) {
             $query['GroupBy'] = $request->groupBy;
         }
@@ -3335,6 +3338,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->product)) {
             $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
         }
         if (!Utils::isUnset($request->ruleName)) {
             $query['RuleName'] = $request->ruleName;
@@ -3401,6 +3407,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
         if (!Utils::isUnset($request->groupBy)) {
             $query['GroupBy'] = $request->groupBy;
         }
@@ -3427,6 +3436,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->product)) {
             $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
         }
         if (!Utils::isUnset($request->ruleName)) {
             $query['RuleName'] = $request->ruleName;
@@ -3492,6 +3504,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
         }
         if (!Utils::isUnset($request->groupBy)) {
             $query['GroupBy'] = $request->groupBy;
@@ -4310,7 +4325,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and set alert rules for the process monitoring task.
+     * You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and configure alert rules for the process monitoring task.
      *   *
      * @param DescribeGroupMonitoringAgentProcessRequest $request DescribeGroupMonitoringAgentProcessRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -4352,7 +4367,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and set alert rules for the process monitoring task.
+     * You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and configure alert rules for the process monitoring task.
      *   *
      * @param DescribeGroupMonitoringAgentProcessRequest $request DescribeGroupMonitoringAgentProcessRequest
      *

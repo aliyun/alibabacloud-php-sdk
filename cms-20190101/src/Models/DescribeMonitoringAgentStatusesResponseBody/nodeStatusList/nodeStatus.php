@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class nodeStatus extends Model
 {
     /**
+     * @var string
+     */
+    public $agentInstallErrorCode;
+
+    /**
      * @description Indicates whether the CloudMonitor agent is automatically installed. Valid values:
      *
      *   true: The CloudMonitor agent is automatically installed.
@@ -109,14 +114,15 @@ class nodeStatus extends Model
      */
     public $status;
     protected $_name = [
-        'autoInstall'          => 'AutoInstall',
-        'instanceId'           => 'InstanceId',
-        'osMonitorConfig'      => 'OsMonitorConfig',
-        'osMonitorErrorCode'   => 'OsMonitorErrorCode',
-        'osMonitorErrorDetail' => 'OsMonitorErrorDetail',
-        'osMonitorStatus'      => 'OsMonitorStatus',
-        'osMonitorVersion'     => 'OsMonitorVersion',
-        'status'               => 'Status',
+        'agentInstallErrorCode' => 'AgentInstallErrorCode',
+        'autoInstall'           => 'AutoInstall',
+        'instanceId'            => 'InstanceId',
+        'osMonitorConfig'       => 'OsMonitorConfig',
+        'osMonitorErrorCode'    => 'OsMonitorErrorCode',
+        'osMonitorErrorDetail'  => 'OsMonitorErrorDetail',
+        'osMonitorStatus'       => 'OsMonitorStatus',
+        'osMonitorVersion'      => 'OsMonitorVersion',
+        'status'                => 'Status',
     ];
 
     public function validate()
@@ -126,6 +132,9 @@ class nodeStatus extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentInstallErrorCode) {
+            $res['AgentInstallErrorCode'] = $this->agentInstallErrorCode;
+        }
         if (null !== $this->autoInstall) {
             $res['AutoInstall'] = $this->autoInstall;
         }
@@ -162,6 +171,9 @@ class nodeStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentInstallErrorCode'])) {
+            $model->agentInstallErrorCode = $map['AgentInstallErrorCode'];
+        }
         if (isset($map['AutoInstall'])) {
             $model->autoInstall = $map['AutoInstall'];
         }

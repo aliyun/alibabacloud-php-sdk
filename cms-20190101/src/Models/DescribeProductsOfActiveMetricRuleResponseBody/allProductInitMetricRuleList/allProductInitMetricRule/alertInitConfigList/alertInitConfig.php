@@ -9,12 +9,40 @@ use AlibabaCloud\Tea\Model;
 class alertInitConfig extends Model
 {
     /**
+     * @description The operator that is used to compare the metric value with the threshold for Warn-level alerts.
+     *
+     * Valid values:
+     *
+     *   LessThanThreshold: less than the threshold
+     *
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *
+     *   NotEqualToThreshold: does not equal to the threshold
+     *
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *
+     *   GreaterThanThreshold: greater than the threshold
+     *
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *
+     * @example GreaterThanOrEqualToThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
-     * @description The consecutive number of times for which the metric value is measured before an alert is triggered.
+     * @description The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
      *
      * @example 3
      *
@@ -23,12 +51,29 @@ class alertInitConfig extends Model
     public $evaluationCount;
 
     /**
+     * @description The alert level.
+     *
+     * Valid values:
+     *
+     *   INFO
+     *
+     * <!-- -->
+     *
+     *   WARN
+     *
+     * <!-- -->
+     *
+     *   CRITICAL
+     *
+     * <!-- -->
+     * @example CRITICAL
+     *
      * @var string
      */
     public $level;
 
     /**
-     * @description The name of the metric. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The metric name. For more information, see [Appendix 1: Metrics](~~163515~~).
      *
      * @example cpu_total
      *
@@ -46,7 +91,7 @@ class alertInitConfig extends Model
     public $namespace;
 
     /**
-     * @description The aggregation period of the monitoring data. Unit: minutes. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The aggregation period of monitoring data. Unit: minutes. For more information, see [Appendix 1: Metrics](~~163515~~).
      *
      * @example 1m
      *
@@ -55,7 +100,7 @@ class alertInitConfig extends Model
     public $period;
 
     /**
-     * @description The statistical aggregation method that is used to calculate metric values that trigger alerts. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @description The method used to calculate metric values that trigger alerts. For more information, see [Appendix 1: Metrics](~~163515~~).
      *
      * @example Average
      *
@@ -64,7 +109,7 @@ class alertInitConfig extends Model
     public $statistics;
 
     /**
-     * @description The threshold of the metric value.
+     * @description The alert threshold.
      *
      * @example 90
      *

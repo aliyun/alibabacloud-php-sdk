@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class matchExpress extends Model
 {
     /**
-     * @description The method used to match the instances. Default value: all. Valid values:
+     * @description The matching condition. Valid values:
      *
-     *   all
-     *   startWith
-     *   endWith
-     *   contains
-     *   notContains
-     *   equals
+     *   all (default): matches all
+     *   startWith: starts with a prefix
+     *   endWith: ends with a suffix
+     *   contains: contains
+     *   notContains: excludes
+     *   equals: equals
      *
      * >  The matched instances are monitored by the process monitoring task.
      * @example all
@@ -28,7 +28,7 @@ class matchExpress extends Model
     /**
      * @description The criteria based on which the instances are matched.
      *
-     * >  Set the value to `name`, indicating that the instances are matched based on instance name.
+     * >  Set the value to `name`. The value name indicates that the instances are matched based on the instance name.
      * @example name
      *
      * @var string

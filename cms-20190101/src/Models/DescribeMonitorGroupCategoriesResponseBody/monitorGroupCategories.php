@@ -19,7 +19,7 @@ class monitorGroupCategories extends Model
     public $groupId;
 
     /**
-     * @description One of the cloud services to which the resources in the application group belong and the number of resources that belong to the cloud service.
+     * @description The cloud services to which the resources in the application group belong and the number of resources that belong to the cloud service.
      *
      * @var monitorGroupCategory
      */

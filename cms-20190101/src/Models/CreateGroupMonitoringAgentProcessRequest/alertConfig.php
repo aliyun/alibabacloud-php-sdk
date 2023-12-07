@@ -56,9 +56,8 @@ class alertConfig extends Model
     public $escalationsLevel;
 
     /**
-     * @description The time period during which the alert rule is ineffective.
+     * @description This parameter is deprecated.
      *
-     * Valid values of N: 1 to 3.
      * @example 00:00-23:59
      *
      * @var string
@@ -95,7 +94,7 @@ class alertConfig extends Model
     /**
      * @description The alert threshold.
      *
-     * Valid values of N: 1 to 3.
+     * Unit: cores.
      * @example 5
      *
      * @var string

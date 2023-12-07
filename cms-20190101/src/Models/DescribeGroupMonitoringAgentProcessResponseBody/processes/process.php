@@ -11,13 +11,15 @@ use AlibabaCloud\Tea\Model;
 class process extends Model
 {
     /**
-     * @description The configurations of the alert rule.
+     * @description The alert rule configurations.
      *
      * @var alertConfig
      */
     public $alertConfig;
 
     /**
+     * @description The ID of the application group.
+     *
      * @example 12345
      *
      * @var string
@@ -34,7 +36,7 @@ class process extends Model
     public $id;
 
     /**
-     * @description The conditional expressions used to match the instances.
+     * @description The matching conditions.
      *
      * >  Only the instances that meet the conditional expressions are monitored by the process monitoring task.
      * @var matchExpress
@@ -42,6 +44,12 @@ class process extends Model
     public $matchExpress;
 
     /**
+     * @description The logical operator used between conditional expressions that are used to match instances. Valid values:
+     *
+     *   all
+     *   and
+     *   or
+     *
      * @example and
      *
      * @var string
@@ -49,7 +57,7 @@ class process extends Model
     public $matchExpressFilterRelation;
 
     /**
-     * @description The name of the process monitoring task.
+     * @description The process name.
      *
      * @example sshd
      *

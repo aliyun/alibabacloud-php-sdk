@@ -17,6 +17,9 @@ class DescribeProductsOfActiveMetricRuleResponseBody extends Model
     public $allProductInitMetricRuleList;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -24,6 +27,20 @@ class DescribeProductsOfActiveMetricRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the services for which one-click alert is enabled. Services are separated with commas (,). Valid values:
+     *
+     *   ecs: Elastic Compute Service (ECS)
+     *   rds: ApsaraDB RDS
+     *   slb: Server Load Balancer (SLB)
+     *   redis_standard: ApsaraDB for Redis of the standard architecture
+     *   redis_sharding: ApsaraDB for Redis of the cluster architecture
+     *   redis_splitrw: ApsaraDB for Redis of the read/write splitting architecture
+     *   mongodb: ApsaraDB for MongoDB of the replica set architecture
+     *   mongodb_sharding: ApsaraDB for MongoDB of the sharded cluster architecture
+     *   hbase: ApsaraDB for HBase
+     *   elasticsearch: Elasticsearch
+     *   opensearch: OpenSearch
+     *
      * @example ecs,rds
      *
      * @var string
@@ -31,7 +48,7 @@ class DescribeProductsOfActiveMetricRuleResponseBody extends Model
     public $datapoints;
 
     /**
-     * @description The returned message.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -40,7 +57,7 @@ class DescribeProductsOfActiveMetricRuleResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F82E6667-7811-4BA0-842F-5B2DC42BBAAD
      *
@@ -49,10 +66,10 @@ class DescribeProductsOfActiveMetricRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true: The request was successful.
+     *   false: The request failed.
      *
      * @example true
      *

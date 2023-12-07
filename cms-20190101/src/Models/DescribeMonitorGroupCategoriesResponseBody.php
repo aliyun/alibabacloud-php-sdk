@@ -12,7 +12,7 @@ class DescribeMonitorGroupCategoriesResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -20,7 +20,7 @@ class DescribeMonitorGroupCategoriesResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
+     * @description The error message returned.
      *
      * @example The specified resource is not found.
      *
@@ -36,6 +36,8 @@ class DescribeMonitorGroupCategoriesResponseBody extends Model
     public $monitorGroupCategories;
 
     /**
+     * @description The request ID.
+     *
      * @example 9E0347B0-EBC3-4769-A78D-D96F21C6BB52
      *
      * @var string
@@ -43,6 +45,11 @@ class DescribeMonitorGroupCategoriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -17,6 +17,8 @@ class allProductInitMetricRule extends Model
     public $alertInitConfigList;
 
     /**
+     * @description The abbreviation of the service name.
+     *
      * @example ecs
      *
      * @var string

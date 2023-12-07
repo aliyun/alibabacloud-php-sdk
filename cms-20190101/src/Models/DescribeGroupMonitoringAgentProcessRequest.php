@@ -18,7 +18,7 @@ class DescribeGroupMonitoringAgentProcessRequest extends Model
     public $groupId;
 
     /**
-     * @description The number of the page to return. Default value: 1.
+     * @description The page number. Default value: 1
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class DescribeGroupMonitoringAgentProcessRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10.
+     * @description The number of entries per page. Default value: 10.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class DescribeGroupMonitoringAgentProcessRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the process monitoring task.
+     * @description The process name.
      *
      * @example sshd
      *

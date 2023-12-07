@@ -27,6 +27,11 @@ class DescribeAlertLogListRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $eventType;
+
+    /**
      * @description The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL. Valid values:
      *
      *   `product`: aggregates data by cloud service.
@@ -184,6 +189,7 @@ class DescribeAlertLogListRequest extends Model
     protected $_name = [
         'contactGroup' => 'ContactGroup',
         'endTime'      => 'EndTime',
+        'eventType'    => 'EventType',
         'groupBy'      => 'GroupBy',
         'groupId'      => 'GroupId',
         'lastMin'      => 'LastMin',
@@ -214,6 +220,9 @@ class DescribeAlertLogListRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
         }
         if (null !== $this->groupBy) {
             $res['GroupBy'] = $this->groupBy;
@@ -280,6 +289,9 @@ class DescribeAlertLogListRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
         }
         if (isset($map['GroupBy'])) {
             $model->groupBy = $map['GroupBy'];

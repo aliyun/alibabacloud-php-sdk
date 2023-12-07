@@ -28,6 +28,11 @@ class DescribeAlertLogCountRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $eventType;
+
+    /**
      * @description The dimension based on which data is aggregated. This parameter is similar to the Group By clause of SQL statements. Valid values:
      *
      *   `product`: aggregates data by cloud service.
@@ -131,6 +136,11 @@ class DescribeAlertLogCountRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $ruleId;
+
+    /**
      * @description The name of the alert rule.
      *
      * @example test123
@@ -185,6 +195,7 @@ class DescribeAlertLogCountRequest extends Model
     protected $_name = [
         'contactGroup' => 'ContactGroup',
         'endTime'      => 'EndTime',
+        'eventType'    => 'EventType',
         'groupBy'      => 'GroupBy',
         'groupId'      => 'GroupId',
         'lastMin'      => 'LastMin',
@@ -195,6 +206,7 @@ class DescribeAlertLogCountRequest extends Model
         'pageSize'     => 'PageSize',
         'product'      => 'Product',
         'regionId'     => 'RegionId',
+        'ruleId'       => 'RuleId',
         'ruleName'     => 'RuleName',
         'searchKey'    => 'SearchKey',
         'sendStatus'   => 'SendStatus',
@@ -214,6 +226,9 @@ class DescribeAlertLogCountRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
         }
         if (null !== $this->groupBy) {
             $res['GroupBy'] = $this->groupBy;
@@ -244,6 +259,9 @@ class DescribeAlertLogCountRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -278,6 +296,9 @@ class DescribeAlertLogCountRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
+        }
         if (isset($map['GroupBy'])) {
             $model->groupBy = $map['GroupBy'];
         }
@@ -307,6 +328,9 @@ class DescribeAlertLogCountRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

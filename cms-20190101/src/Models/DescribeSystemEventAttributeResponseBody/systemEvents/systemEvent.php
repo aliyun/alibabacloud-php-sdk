@@ -27,6 +27,11 @@ class systemEvent extends Model
     public $groupId;
 
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @description The name of the instance.
      *
      * @example instanceId1
@@ -105,6 +110,7 @@ class systemEvent extends Model
     protected $_name = [
         'content'      => 'Content',
         'groupId'      => 'GroupId',
+        'id'           => 'Id',
         'instanceName' => 'InstanceName',
         'level'        => 'Level',
         'name'         => 'Name',
@@ -127,6 +133,9 @@ class systemEvent extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -169,6 +178,9 @@ class systemEvent extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
