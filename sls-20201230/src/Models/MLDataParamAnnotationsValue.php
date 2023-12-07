@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class MLDataParamAnnotationsValue extends Model
 {
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $annotatedBy;
 
     /**
+     * @example 1694761550
+     *
      * @var int
      */
     public $updateTime;

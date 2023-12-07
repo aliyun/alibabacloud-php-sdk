@@ -230,7 +230,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType'    => 'none',
         ]);
 
         return ApplyConfigToMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));

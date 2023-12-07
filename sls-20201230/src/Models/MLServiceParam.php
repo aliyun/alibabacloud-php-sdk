@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class MLServiceParam extends Model
 {
     /**
+     * @example 某某服务
+     *
      * @var string
      */
     public $description;
@@ -21,6 +23,8 @@ class MLServiceParam extends Model
     public $model;
 
     /**
+     * @example service_name
+     *
      * @var string
      */
     public $name;
@@ -31,16 +35,22 @@ class MLServiceParam extends Model
     public $resource;
 
     /**
+     * @example sls_builtin
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1695090077
+     *
      * @var int
      */
     public $updateTimestamp;

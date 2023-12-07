@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ServiceStatus extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example NotExist
+     *
      * @var string
      */
     public $status;

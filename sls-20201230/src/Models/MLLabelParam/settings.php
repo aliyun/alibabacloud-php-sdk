@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class settings extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example builtin
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example Trace.RCA
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 0.01
+     *
      * @var string
      */
     public $version;

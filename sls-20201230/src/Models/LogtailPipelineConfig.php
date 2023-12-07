@@ -33,6 +33,8 @@ class LogtailPipelineConfig extends Model
     public $flushers;
 
     /**
+     * @example {     "TopicType": "custom",     "TopicFormat": "aaa",     "EnableAlwaysOnline": true,     "EnableTimestampNanosecond": true,     "UsingOldContentTag": true }
+     *
      * @var mixed[]
      */
     public $global;
@@ -50,6 +52,8 @@ class LogtailPipelineConfig extends Model
     public $lastModifyTime;
 
     /**
+     * @example 127.0.0.1 - - [10/Jun/2022:12:36:49 +0800] "GET /index.html HTTP/1.1" 200
+     *
      * @var string
      */
     public $logSample;

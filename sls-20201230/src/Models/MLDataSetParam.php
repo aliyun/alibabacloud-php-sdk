@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class MLDataSetParam extends Model
 {
     /**
+     * @example sls-console
+     *
      * @var string
      */
     public $createBy;
 
     /**
+     * @example 1695090077
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example Metric
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @example d9bd488f6dd42d294495fb780858e83d
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @example 数据集A
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example a191ae4ca615b0ccb93c211fc8a998af
+     *
      * @var string
      */
     public $labelId;
 
     /**
+     * @example 1695090077
+     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
+     * @example sls_builtin_dataset_metric.shapeclassification.anomalydetection
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example Metric.ShapeClassification.AnomalyDetection
+     *
      * @var string
      */
     public $settingType;

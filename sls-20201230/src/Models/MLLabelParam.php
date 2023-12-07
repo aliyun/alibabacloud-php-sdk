@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class MLLabelParam extends Model
 {
     /**
+     * @example 1695090077
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 默认表
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example abbd488f6dd42d294495fb780858e83d
+     *
      * @var string
      */
     public $labelId;
 
     /**
+     * @example 1695090077
+     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
+     * @example 标签表
+     *
      * @var string
      */
     public $name;
@@ -40,6 +50,8 @@ class MLLabelParam extends Model
     public $settings;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $type;

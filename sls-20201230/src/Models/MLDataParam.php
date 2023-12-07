@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MLDataParam extends Model
 {
     /**
+     * @example dc74b0f569126bb310e1ba6454c351ac
+     *
      * @var string
      */
     public $annotationdataId;
@@ -24,21 +26,29 @@ class MLDataParam extends Model
     public $config;
 
     /**
+     * @example 1695094335
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 59db060bd89468245d76416a68a510ac
+     *
      * @var string
      */
     public $dataHash;
 
     /**
+     * @example a9bd488f6dd42d294495fb780858e83d
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @example 1695094335
+     *
      * @var int
      */
     public $lastModifyTime;
@@ -49,6 +59,8 @@ class MLDataParam extends Model
     public $predictions;
 
     /**
+     * @example xxx/xxx/xxx/
+     *
      * @var string
      */
     public $value;

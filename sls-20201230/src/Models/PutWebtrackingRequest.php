@@ -14,6 +14,8 @@ class PutWebtrackingRequest extends Model
     public $logs;
 
     /**
+     * @example source
+     *
      * @var string
      */
     public $source;
@@ -24,6 +26,8 @@ class PutWebtrackingRequest extends Model
     public $tags;
 
     /**
+     * @example topic
+     *
      * @var string
      */
     public $topic;
