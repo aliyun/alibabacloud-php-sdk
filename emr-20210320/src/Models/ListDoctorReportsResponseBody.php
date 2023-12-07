@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDoctorReportsResponseBody extends Model
 {
     /**
+     * @description The reports.
+     *
      * @var data[]
      */
     public $data;

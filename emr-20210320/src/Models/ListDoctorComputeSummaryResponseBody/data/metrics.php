@@ -17,41 +17,57 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The total memory consumption over time in seconds.
+     *
      * @var memSeconds
      */
     public $memSeconds;
 
     /**
+     * @description The day-to-day growth rate of the total memory consumption over time in seconds.
+     *
      * @var memSecondsDayGrowthRatio
      */
     public $memSecondsDayGrowthRatio;
 
     /**
+     * @description The average memory usage.
+     *
      * @var memUtilization
      */
     public $memUtilization;
 
     /**
+     * @description The total amount of data read from the file system.
+     *
      * @var readSize
      */
     public $readSize;
 
     /**
+     * @description The total CPU consumption over time in seconds.
+     *
      * @var vcoreSeconds
      */
     public $vcoreSeconds;
 
     /**
+     * @description The day-to-day growth rate of the total CPU consumption over time in seconds.
+     *
      * @var vcoreSecondsDayGrowthRatio
      */
     public $vcoreSecondsDayGrowthRatio;
 
     /**
+     * @description The average CPU utilization. The meaning is the same as the %CPU parameter in the output of the top command in Linux.
+     *
      * @var vcoreUtilization
      */
     public $vcoreUtilization;
 
     /**
+     * @description The total amount of data written to the file system.
+     *
      * @var writeSize
      */
     public $writeSize;

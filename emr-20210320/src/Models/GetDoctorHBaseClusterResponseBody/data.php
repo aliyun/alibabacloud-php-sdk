@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The analysis result.
+     *
      * @var analysis
      */
     public $analysis;
 
     /**
+     * @description The metric information.
+     *
      * @var metrics
      */
     public $metrics;

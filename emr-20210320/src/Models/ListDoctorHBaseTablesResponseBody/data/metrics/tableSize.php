@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableSize extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Size of the table
      *
      * @var string
@@ -16,6 +18,8 @@ class tableSize extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example tableSize
      *
      * @var string
@@ -23,6 +27,8 @@ class tableSize extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example MB
      *
      * @var string
@@ -30,6 +36,8 @@ class tableSize extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 678
      *
      * @var int

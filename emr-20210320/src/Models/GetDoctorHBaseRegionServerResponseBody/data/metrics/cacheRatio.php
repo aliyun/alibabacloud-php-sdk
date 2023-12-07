@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cacheRatio extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Ratio of the BlockCache memory size
      *
      * @var string
@@ -16,6 +18,8 @@ class cacheRatio extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example cacheRatio
      *
      * @var string
@@ -23,6 +27,8 @@ class cacheRatio extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class cacheRatio extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 95.3
      *
      * @var float

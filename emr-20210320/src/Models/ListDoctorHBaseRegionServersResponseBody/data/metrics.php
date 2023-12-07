@@ -19,51 +19,71 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The average garbage collection (GC) duration.
+     *
      * @var avgGc
      */
     public $avgGc;
 
     /**
+     * @description The cache hit ratio.
+     *
      * @var cacheRatio
      */
     public $cacheRatio;
 
     /**
+     * @description The number of daily read requests.
+     *
      * @var dailyReadRequest
      */
     public $dailyReadRequest;
 
     /**
+     * @description The growth rate of the number of daily read requests.
+     *
      * @var dailyReadRequestDayGrowthRatio
      */
     public $dailyReadRequestDayGrowthRatio;
 
     /**
+     * @description The number of daily write requests.
+     *
      * @var dailyWriteRequest
      */
     public $dailyWriteRequest;
 
     /**
+     * @description The growth rate of the number of daily write requests.
+     *
      * @var dailyWriteRequestDayGrowthRatio
      */
     public $dailyWriteRequestDayGrowthRatio;
 
     /**
+     * @description The number of regions.
+     *
      * @var regionCount
      */
     public $regionCount;
 
     /**
+     * @description The cumulative number of read requests.
+     *
      * @var totalReadRequest
      */
     public $totalReadRequest;
 
     /**
+     * @description The cumulative number of all requests.
+     *
      * @var totalRequest
      */
     public $totalRequest;
 
     /**
+     * @description The cumulative number of write requests.
+     *
      * @var totalWriteRequest
      */
     public $totalWriteRequest;

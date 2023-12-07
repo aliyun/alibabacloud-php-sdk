@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ListDoctorJobsRequest extends Model
 {
     /**
-     * @description app ID数组
+     * @description The IDs of the jobs that are submitted to YARN.
      *
      * @example null
      *
@@ -20,7 +20,7 @@ class ListDoctorJobsRequest extends Model
     public $appIds;
 
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -29,14 +29,14 @@ class ListDoctorJobsRequest extends Model
     public $clusterId;
 
     /**
-     * @description 结束range
+     * @description The range of end time. You can filter jobs whose end time falls within the specified time range.
      *
      * @var endRange
      */
     public $endRange;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The maximum number of entries to return on each page.
      *
      * @example 20
      *
@@ -45,7 +45,7 @@ class ListDoctorJobsRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the request to retrieve a new page of results.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -54,7 +54,10 @@ class ListDoctorJobsRequest extends Model
     public $nextToken;
 
     /**
-     * @description 排序字段
+     * @description The field that you use to sort the query results. Valid values:
+     *
+     *   vcoreSeconds: the aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running
+     *   memSeconds: the aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running
      *
      * @example vcoreSeconds
      *
@@ -63,7 +66,10 @@ class ListDoctorJobsRequest extends Model
     public $orderBy;
 
     /**
-     * @description 排序类型
+     * @description The order in which you want to sort the query results. Valid values:
+     *
+     *   ASC: the ascending order
+     *   DESC: the descending order
      *
      * @example ASC
      *
@@ -72,6 +78,8 @@ class ListDoctorJobsRequest extends Model
     public $orderType;
 
     /**
+     * @description The YARN queues to which the jobs are submitted.
+     *
      * @example null
      *
      * @var string[]
@@ -79,7 +87,7 @@ class ListDoctorJobsRequest extends Model
     public $queues;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -88,13 +96,15 @@ class ListDoctorJobsRequest extends Model
     public $regionId;
 
     /**
-     * @description 开始range
+     * @description The range of start time. You can filter jobs whose start time falls within the specified time range.
      *
      * @var startRange
      */
     public $startRange;
 
     /**
+     * @description The YARN engines to which the jobs are submitted.
+     *
      * @example null
      *
      * @var string[]
@@ -102,6 +112,8 @@ class ListDoctorJobsRequest extends Model
     public $types;
 
     /**
+     * @description The users who submit the jobs.
+     *
      * @example null
      *
      * @var string[]

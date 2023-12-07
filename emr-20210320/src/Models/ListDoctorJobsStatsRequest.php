@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ListDoctorJobsStatsRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -20,11 +20,16 @@ class ListDoctorJobsStatsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The range of end time. You can filter jobs whose end time falls within the specified time range.
+     *
      * @var endRange
      */
     public $endRange;
 
     /**
+     * @description The fields that are used for grouping data.
+     *
+     * Currently, only the first value is used for grouping data. Combinations of multiple values will be supported in the future.
      * @example null
      *
      * @var string[]
@@ -32,7 +37,7 @@ class ListDoctorJobsStatsRequest extends Model
     public $groupBy;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The maximum number of entries to return on each page.
      *
      * @example 20
      *
@@ -41,7 +46,7 @@ class ListDoctorJobsStatsRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the request to retrieve a new page of results.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -50,6 +55,11 @@ class ListDoctorJobsStatsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The field that you use to sort the query results. Valid values:
+     *
+     *   vcoreSeconds: the aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running
+     *   memSeconds: the aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running
+     *
      * @example vcoreSeconds
      *
      * @var string
@@ -57,6 +67,11 @@ class ListDoctorJobsStatsRequest extends Model
     public $orderBy;
 
     /**
+     * @description The order in which you want to sort the query results. Valid values:
+     *
+     *   ASC: in ascending order
+     *   DESC: in descending order
+     *
      * @example ASC
      *
      * @var string
@@ -64,7 +79,7 @@ class ListDoctorJobsStatsRequest extends Model
     public $orderType;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -73,6 +88,8 @@ class ListDoctorJobsStatsRequest extends Model
     public $regionId;
 
     /**
+     * @description The range of start time. You can filter jobs whose start time falls within the specified time range.
+     *
      * @var startRange
      */
     public $startRange;

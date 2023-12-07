@@ -24,6 +24,8 @@ class metrics extends Model
     public $dailyWriteRequest;
 
     /**
+     * @description The number of StoreFiles.
+     *
      * @var storeFileCount
      */
     public $storeFileCount;

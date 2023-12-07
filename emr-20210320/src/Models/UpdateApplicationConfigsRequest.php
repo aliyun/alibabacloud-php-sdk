@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationConfigsRequest extends Model
 {
     /**
-     * @description The list of application configurations.
+     * @description The application configurations.
      *
      * @example CLUSTER
      *
@@ -70,7 +70,7 @@ class UpdateApplicationConfigsRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the node group.
+     * @description The node group ID.
      *
      * @example ng-869471354ecd****
      *

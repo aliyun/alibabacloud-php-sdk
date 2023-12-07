@@ -28,6 +28,8 @@ class ListReleaseVersionsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The major EMR versions.
+     *
      * @var releaseVersions[]
      */
     public $releaseVersions;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorComputeSummaryRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -19,11 +19,15 @@ class GetDoctorComputeSummaryRequest extends Model
     public $clusterId;
 
     /**
+     * @description The resource information, which is used to filter the results.
+     *
      * @var componentInfo
      */
     public $componentInfo;
 
     /**
+     * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -31,7 +35,7 @@ class GetDoctorComputeSummaryRequest extends Model
     public $dateTime;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

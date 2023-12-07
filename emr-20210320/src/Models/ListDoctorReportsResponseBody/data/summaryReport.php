@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class summaryReport extends Model
 {
     /**
+     * @description The score.
+     *
      * @example 88
      *
      * @var int
@@ -16,11 +18,15 @@ class summaryReport extends Model
     public $score;
 
     /**
+     * @description The optimization suggestion.
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description The summary of the report.
+     *
      * @var string
      */
     public $summary;

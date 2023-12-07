@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class startRange extends Model
 {
     /**
+     * @description The end of the time range during which jobs were submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+     *
      * @example 1666406820000
      *
      * @var int
@@ -16,6 +18,8 @@ class startRange extends Model
     public $endTime;
 
     /**
+     * @description The beginning of the time range during which jobs were submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+     *
      * @example 1679036826987
      *
      * @var int

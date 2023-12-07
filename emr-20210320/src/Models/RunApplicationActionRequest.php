@@ -42,7 +42,7 @@ class RunApplicationActionRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the operation.
+     * @description The operation object.
      *
      * @var ComponentInstanceSelector
      */

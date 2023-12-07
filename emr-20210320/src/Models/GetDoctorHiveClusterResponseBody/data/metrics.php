@@ -54,28 +54,28 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
-     * @description The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+     * @description The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
      *
      * @var coldDataDayGrowthSize
      */
     public $coldDataDayGrowthSize;
 
     /**
-     * @description The proportion of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+     * @description The proportion of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
      *
      * @var coldDataRatio
      */
     public $coldDataRatio;
 
     /**
-     * @description The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+     * @description The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
      *
      * @var coldDataSize
      */
     public $coldDataSize;
 
     /**
-     * @description The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in 90 days.
+     * @description The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
      *
      * @var coldDataSizeDayGrowthRatio
      */
@@ -145,28 +145,28 @@ class metrics extends Model
     public $freezeDataSizeDayGrowthRatio;
 
     /**
-     * @description The daily increment of the amount of hot data. Hot data refers to data that is accessed in recent seven days.
+     * @description The daily increment of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
      *
      * @var hotDataDayGrowthSize
      */
     public $hotDataDayGrowthSize;
 
     /**
-     * @description The proportion of hot data. Hot data refers to data that is accessed in recent seven days.
+     * @description The proportion of hot data. Hot data refers to data that is accessed in previous seven days.
      *
      * @var hotDataRatio
      */
     public $hotDataRatio;
 
     /**
-     * @description The amount of hot data. Hot data refers to data that is accessed in recent seven days.
+     * @description The amount of hot data. Hot data refers to data that is accessed in previous seven days.
      *
      * @var hotDataSize
      */
     public $hotDataSize;
 
     /**
-     * @description The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in recent seven days.
+     * @description The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
      *
      * @var hotDataSizeDayGrowthRatio
      */
@@ -299,7 +299,7 @@ class metrics extends Model
     public $tinyFileRatio;
 
     /**
-     * @description The daily incremental of the total data volume.
+     * @description The daily incremental of the amount of total data.
      *
      * @var totalDataDayGrowthSize
      */
@@ -341,28 +341,28 @@ class metrics extends Model
     public $totalFileDayGrowthCount;
 
     /**
-     * @description The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+     * @description The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
      *
      * @var warmDataDayGrowthSize
      */
     public $warmDataDayGrowthSize;
 
     /**
-     * @description The proportion of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+     * @description The proportion of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
      *
      * @var warmDataRatio
      */
     public $warmDataRatio;
 
     /**
-     * @description The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+     * @description The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
      *
      * @var warmDataSize
      */
     public $warmDataSize;
 
     /**
-     * @description The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in 30 days.
+     * @description The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
      *
      * @var warmDataSizeDayGrowthRatio
      */

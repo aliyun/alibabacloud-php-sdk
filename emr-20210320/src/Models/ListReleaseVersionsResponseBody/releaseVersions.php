@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class releaseVersions extends Model
 {
     /**
-     * @description IaaS类型。取值范围：
-     * - K8S：基于K8S构建。
+     * @description The IaaS type.
+     *
      * @example ECS
      *
      * @var string
@@ -18,7 +18,7 @@ class releaseVersions extends Model
     public $iaasType;
 
     /**
-     * @description EMR发行版。
+     * @description The EMR version.
      *
      * @example EMR-5.3.0
      *
@@ -27,7 +27,7 @@ class releaseVersions extends Model
     public $releaseVersion;
 
     /**
-     * @description 版本序列。
+     * @description The version series.
      *
      * @example EMR-6.X
      *

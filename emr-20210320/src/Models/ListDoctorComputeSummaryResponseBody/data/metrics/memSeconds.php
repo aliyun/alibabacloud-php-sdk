@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class memSeconds extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Total memory usage over time in seconds
      *
      * @var string
@@ -16,6 +18,8 @@ class memSeconds extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example memSeconds
      *
      * @var string
@@ -23,6 +27,8 @@ class memSeconds extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example MB * Sec
      *
      * @var string
@@ -30,6 +36,8 @@ class memSeconds extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 12312312
      *
      * @var int

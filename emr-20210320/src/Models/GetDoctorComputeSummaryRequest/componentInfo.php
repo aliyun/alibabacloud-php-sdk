@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class componentInfo extends Model
 {
     /**
+     * @description Set the filter condition name based on the value of ComponentType. For example, if you set ComponentType to queue, you can specify a specific queue name to obtain the resource usage of a specific queue.
+     *
      * @example MAPREDUCE
      *
      * @var string
@@ -16,6 +18,13 @@ class componentInfo extends Model
     public $componentName;
 
     /**
+     * @description The resource type for filtering. Valid values:
+     *
+     *   engine: filters results by engine.
+     *   queue: filters results by queue.
+     *   cluster: displays the results at the cluster level.
+     *
+     * If you do not specify this parameter, the information at the cluster level is displayed by default.
      * @example engine
      *
      * @var string

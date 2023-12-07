@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class memHeap extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Memory heap usage in megabytes (MB)
      *
      * @var string
@@ -16,6 +18,8 @@ class memHeap extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example memHeap
      *
      * @var string
@@ -23,6 +27,8 @@ class memHeap extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example MB
      *
      * @var string
@@ -30,6 +36,8 @@ class memHeap extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 240
      *
      * @var int

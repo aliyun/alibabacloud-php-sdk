@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class requestBalance extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example The balance of distributing requests
      *
      * @var string
@@ -16,6 +18,8 @@ class requestBalance extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example requestBalance
      *
      * @var string
@@ -23,6 +27,8 @@ class requestBalance extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example “”
      *
      * @var string
@@ -30,6 +36,8 @@ class requestBalance extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 0.9
      *
      * @var float

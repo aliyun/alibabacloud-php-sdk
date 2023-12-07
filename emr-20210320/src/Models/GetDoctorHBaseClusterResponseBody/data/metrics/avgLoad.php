@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class avgLoad extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example The average load under normal working conditions
      *
      * @var string
@@ -16,6 +18,8 @@ class avgLoad extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example avgLoad
      *
      * @var string
@@ -23,6 +27,8 @@ class avgLoad extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class avgLoad extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 36.0
      *
      * @var float

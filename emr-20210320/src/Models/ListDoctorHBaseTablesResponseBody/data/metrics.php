@@ -33,121 +33,169 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The number of days during which the table was not accessed.
+     *
      * @var coldAccessDay
      */
     public $coldAccessDay;
 
     /**
+     * @description The number of consecutive days without access to data before the data is considered as cold data.
+     *
      * @var coldConfigDay
      */
     public $coldConfigDay;
 
     /**
+     * @description The size of cold data.
+     *
      * @var coldDataSize
      */
     public $coldDataSize;
 
     /**
+     * @description The total number of read requests for the table in a day.
+     *
      * @var dailyReadRequest
      */
     public $dailyReadRequest;
 
     /**
+     * @description The daily increment ratio of the number of read requests in a day.
+     *
      * @var dailyReadRequestDayGrowthRatio
      */
     public $dailyReadRequestDayGrowthRatio;
 
     /**
+     * @description The total number of write requests for the table in a day.
+     *
      * @var dailyWriteRequest
      */
     public $dailyWriteRequest;
 
     /**
+     * @description The daily increment ratio of the number of write requests in a day.
+     *
      * @var dailyWriteRequestDayGrowthRatio
      */
     public $dailyWriteRequestDayGrowthRatio;
 
     /**
+     * @description The number of consecutive days without access to data before the data is considered as very cold data.
+     *
      * @var freezeConfigDay
      */
     public $freezeConfigDay;
 
     /**
+     * @description The size of very cold data.
+     *
      * @var freezeDataSize
      */
     public $freezeDataSize;
 
     /**
+     * @description The size of hot data.
+     *
      * @var hotDataSize
      */
     public $hotDataSize;
 
     /**
+     * @description The localization rate.
+     *
      * @var locality
      */
     public $locality;
 
     /**
+     * @description The read balancing degree.
+     *
      * @var readRequestBalance
      */
     public $readRequestBalance;
 
     /**
+     * @description The balancing degree.
+     *
      * @var regionBalance
      */
     public $regionBalance;
 
     /**
+     * @description The number of partitions that are composed of the table.
+     *
      * @var regionCount
      */
     public $regionCount;
 
     /**
+     * @description The daily increment ratio of the number of partitions.
+     *
      * @var regionCountDayGrowthRatio
      */
     public $regionCountDayGrowthRatio;
 
     /**
+     * @description The number of region servers that host the table.
+     *
      * @var regionServerCount
      */
     public $regionServerCount;
 
     /**
+     * @description The request balancing degree.
+     *
      * @var requestBalance
      */
     public $requestBalance;
 
     /**
+     * @description The number of StoreFiles.
+     *
      * @var storeFileCount
      */
     public $storeFileCount;
 
     /**
+     * @description The daily increment ratio of the number of StoreFiles.
+     *
      * @var storeFileCountDayGrowthRatio
      */
     public $storeFileCountDayGrowthRatio;
 
     /**
+     * @description The size of the table.
+     *
      * @var tableSize
      */
     public $tableSize;
 
     /**
+     * @description The daily increment ratio of the table size.
+     *
      * @var tableSizeDayGrowthRatio
      */
     public $tableSizeDayGrowthRatio;
 
     /**
+     * @description The number of consecutive days without access to data before the data is considered as warm data.
+     *
      * @var warmConfigDay
      */
     public $warmConfigDay;
 
     /**
+     * @description The size of warm data.
+     *
      * @var warmDataSize
      */
     public $warmDataSize;
 
     /**
+     * @description The write balancing degree.
+     *
      * @var writeRequestBalance
      */
     public $writeRequestBalance;

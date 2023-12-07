@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class analysis extends Model
 {
     /**
+     * @description The partitions that have read hotspot issues.
+     *
      * @example null
      *
      * @var string[]
@@ -16,11 +18,15 @@ class analysis extends Model
     public $readRequestHotspotRegionList;
 
     /**
+     * @description The description of read imbalance.
+     *
      * @var string
      */
     public $readRequestUnbalanceSuggestion;
 
     /**
+     * @description The partitions that have read/write hotspot issues.
+     *
      * @example null
      *
      * @var string[]
@@ -28,11 +34,15 @@ class analysis extends Model
     public $requestHotspotRegionList;
 
     /**
+     * @description The description of read/write imbalance.
+     *
      * @var string
      */
     public $requestUnbalanceSuggestion;
 
     /**
+     * @description The score of the table.
+     *
      * @example 67
      *
      * @var int
@@ -40,6 +50,8 @@ class analysis extends Model
     public $tableScore;
 
     /**
+     * @description The partitions that have write hotspot issues.
+     *
      * @example null
      *
      * @var string[]
@@ -47,6 +59,8 @@ class analysis extends Model
     public $writeRequestHotspotRegionList;
 
     /**
+     * @description The description of write imbalance.
+     *
      * @var string
      */
     public $writeRequestUnbalanceSuggestion;

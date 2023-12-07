@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDoctorComputeSummaryRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,6 +18,13 @@ class ListDoctorComputeSummaryRequest extends Model
     public $clusterId;
 
     /**
+     * @description The resource types, which are used to filter query results. Valid values:
+     *
+     *   engine: filters results by engine.
+     *   queue: filters results by queue.
+     *   cluster: displays the results at the cluster level.
+     *
+     * If you do not specify this parameter, the information at the cluster level is displayed by default. Currently, only one resource type is supported. If you specify multiple resource types, the first resource type is used by default.
      * @example null
      *
      * @var string[]
@@ -25,6 +32,8 @@ class ListDoctorComputeSummaryRequest extends Model
     public $componentTypes;
 
     /**
+     * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -32,7 +41,7 @@ class ListDoctorComputeSummaryRequest extends Model
     public $dateTime;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The maximum number of entries to return on each page.
      *
      * @example 20
      *
@@ -41,7 +50,7 @@ class ListDoctorComputeSummaryRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the request to retrieve a new page of results.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -50,6 +59,9 @@ class ListDoctorComputeSummaryRequest extends Model
     public $nextToken;
 
     /**
+     * @description The basis on which you want to sort the query results. Valid values:
+     *
+     * 14. scoreDayGrowthRatio: the day-to-day growth rate of the score for jobs.
      * @example score
      *
      * @var string
@@ -57,6 +69,11 @@ class ListDoctorComputeSummaryRequest extends Model
     public $orderBy;
 
     /**
+     * @description The order in which you want to sort the query results. Valid values:
+     *
+     *   ASC: in ascending order.
+     *   DESC: in descending order.
+     *
      * @example ASC
      *
      * @var string
@@ -64,7 +81,7 @@ class ListDoctorComputeSummaryRequest extends Model
     public $orderType;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

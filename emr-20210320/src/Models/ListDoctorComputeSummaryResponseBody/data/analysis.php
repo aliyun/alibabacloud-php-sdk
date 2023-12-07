@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class analysis extends Model
 {
     /**
+     * @description The total number of healthy jobs.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,8 @@ class analysis extends Model
     public $healthyJobCount;
 
     /**
+     * @description The total number of jobs that require attention.
+     *
      * @example 23
      *
      * @var int
@@ -23,6 +27,8 @@ class analysis extends Model
     public $needAttentionJobCount;
 
     /**
+     * @description The score for jobs.
+     *
      * @example 56
      *
      * @var int
@@ -30,6 +36,8 @@ class analysis extends Model
     public $score;
 
     /**
+     * @description The day-to-day growth rate of the score for jobs.
+     *
      * @example 0.03
      *
      * @var float
@@ -37,6 +45,8 @@ class analysis extends Model
     public $scoreDayGrowthRatio;
 
     /**
+     * @description The total number of sub-healthy jobs.
+     *
      * @example 13
      *
      * @var int
@@ -44,6 +54,8 @@ class analysis extends Model
     public $subHealthyJobCount;
 
     /**
+     * @description The total number of unhealthy jobs.
+     *
      * @example 123
      *
      * @var int

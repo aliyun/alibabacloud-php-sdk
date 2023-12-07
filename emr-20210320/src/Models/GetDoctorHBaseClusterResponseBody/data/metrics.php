@@ -23,71 +23,99 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The average load.
+     *
      * @var avgLoad
      */
     public $avgLoad;
 
     /**
+     * @description The number of read requests in a day.
+     *
      * @var dailyReadRequest
      */
     public $dailyReadRequest;
 
     /**
+     * @description The number of write requests in a day.
+     *
      * @var dailyWriteRequest
      */
     public $dailyWriteRequest;
 
     /**
+     * @description The memory size.
+     *
      * @var memHeap
      */
     public $memHeap;
 
     /**
+     * @description The normal average load.
+     *
      * @var normalAvgLoad
      */
     public $normalAvgLoad;
 
     /**
+     * @description The region balance degree.
+     *
      * @var regionBalance
      */
     public $regionBalance;
 
     /**
+     * @description The number of regions.
+     *
      * @var regionCount
      */
     public $regionCount;
 
     /**
+     * @description The number of region servers.
+     *
      * @var regionServerCount
      */
     public $regionServerCount;
 
     /**
+     * @description The number of StoreFiles.
+     *
      * @var storeFileCount
      */
     public $storeFileCount;
 
     /**
+     * @description The number of tables.
+     *
      * @var tableCount
      */
     public $tableCount;
 
     /**
+     * @description The size of the cluster.
+     *
      * @var totalDataSize
      */
     public $totalDataSize;
 
     /**
+     * @description The total number of read requests.
+     *
      * @var totalReadRequest
      */
     public $totalReadRequest;
 
     /**
+     * @description The total number of requests in the cluster.
+     *
      * @var totalRequest
      */
     public $totalRequest;
 
     /**
+     * @description The total number of write requests.
+     *
      * @var totalWriteRequest
      */
     public $totalWriteRequest;

@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total number of jobs.
+     *
      * @var appsCount
      */
     public $appsCount;
 
     /**
+     * @description The aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running.
+     *
      * @var memSeconds
      */
     public $memSeconds;
 
     /**
+     * @description The YARN queue to which the job was submitted.
+     *
      * @example DW
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $queue;
 
     /**
+     * @description The type of the compute engine.
+     *
      * @example SPARK
      *
      * @var string
@@ -36,6 +44,8 @@ class data extends Model
     public $type;
 
     /**
+     * @description The username that is used to submit the job.
+     *
      * @example DW
      *
      * @var string
@@ -43,6 +53,8 @@ class data extends Model
     public $user;
 
     /**
+     * @description The aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running.
+     *
      * @var vcoreSeconds
      */
     public $vcoreSeconds;

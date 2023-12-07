@@ -18,7 +18,7 @@ class formats extends Model
     public $formatName;
 
     /**
-     * @description The proportion of data in a specific storage format.
+     * @description The proportion of the data in the format.
      *
      * @example 0.5
      *
@@ -27,7 +27,7 @@ class formats extends Model
     public $formatRatio;
 
     /**
-     * @description The size of storage format-specific data.
+     * @description The amount of data in the format.
      *
      * @example 100
      *
@@ -36,7 +36,7 @@ class formats extends Model
     public $formatSize;
 
     /**
-     * @description The unit of the data size.
+     * @description The unit of the amount of data in the format.
      *
      * @example MB
      *

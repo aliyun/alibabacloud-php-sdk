@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class ComponentInstanceSelector extends Model
 {
     /**
+     * @deprecated
+     *
+     * @var string
+     */
+    public $actionScope;
+
+    /**
      * @description 应用名称。
      *
      * @example HDFS
@@ -34,12 +41,15 @@ class ComponentInstanceSelector extends Model
     public $components;
 
     /**
-     * @description 执行范围。
+     * @description 动作执行范围。取值范围：
+     * - COMPONENT_INSTANCE：组件实例级别。
+     * @example APPLICATION
      *
      * @var string
      */
     public $runActionScope;
     protected $_name = [
+        'actionScope'        => 'ActionScope',
         'applicationName'    => 'ApplicationName',
         'componentInstances' => 'ComponentInstances',
         'components'         => 'Components',
@@ -53,6 +63,9 @@ class ComponentInstanceSelector extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->actionScope) {
+            $res['ActionScope'] = $this->actionScope;
+        }
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
@@ -89,6 +102,9 @@ class ComponentInstanceSelector extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActionScope'])) {
+            $model->actionScope = $map['ActionScope'];
+        }
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }

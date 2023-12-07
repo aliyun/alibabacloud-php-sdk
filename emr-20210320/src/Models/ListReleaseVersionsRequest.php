@@ -27,7 +27,7 @@ class ListReleaseVersionsRequest extends Model
     public $iaasType;
 
     /**
-     * @description The ID of the region in which you want to create the instance.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

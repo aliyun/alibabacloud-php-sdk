@@ -16,6 +16,8 @@ class storeFileCount extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example storeFileCount
      *
      * @var string
@@ -30,6 +32,8 @@ class storeFileCount extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 100
      *
      * @var int

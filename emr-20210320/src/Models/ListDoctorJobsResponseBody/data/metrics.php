@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The amount of memory consumed.
+     *
      * @var memSeconds
      */
     public $memSeconds;
 
     /**
+     * @description The CPU usage.
+     *
      * @var vcoreSeconds
      */
     public $vcoreSeconds;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The diagnosis result.
+     *
      * @var analysis
      */
     public $analysis;

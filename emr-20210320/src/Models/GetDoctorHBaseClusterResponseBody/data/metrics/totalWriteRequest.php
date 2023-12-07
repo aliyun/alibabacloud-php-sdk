@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class totalWriteRequest extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Total number of write requests
      *
      * @var string
@@ -16,6 +18,8 @@ class totalWriteRequest extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example totalWriteRequest
      *
      * @var string
@@ -23,6 +27,8 @@ class totalWriteRequest extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class totalWriteRequest extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 520
      *
      * @var int

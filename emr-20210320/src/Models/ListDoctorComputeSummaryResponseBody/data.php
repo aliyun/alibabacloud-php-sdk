@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The resource analysis results.
+     *
      * @var analysis
      */
     public $analysis;
 
     /**
+     * @description The name of the resource whose details are obtained based on the value of ComponentTypes. For example, if the value of ComponentTypes is Queue, the value of this parameter is a queue, such as DW.
+     *
      * @example DW
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $componentName;
 
     /**
+     * @description The metric information.
+     *
      * @var metrics
      */
     public $metrics;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class avgGc extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example The efficiency of garbage collection in the system
      *
      * @var string
@@ -16,6 +18,8 @@ class avgGc extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example avgGc
      *
      * @var string
@@ -23,6 +27,8 @@ class avgGc extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class avgGc extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 37.9
      *
      * @var float

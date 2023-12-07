@@ -36,6 +36,11 @@ class Node extends Model
     public $autoRenewDurationUnit;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @description 节点过期时间。
      *
      * @example 1603728394857
@@ -135,6 +140,7 @@ class Node extends Model
         'autoRenew'             => 'AutoRenew',
         'autoRenewDuration'     => 'AutoRenewDuration',
         'autoRenewDurationUnit' => 'AutoRenewDurationUnit',
+        'createTime'            => 'CreateTime',
         'expireTime'            => 'ExpireTime',
         'instanceType'          => 'InstanceType',
         'maintenanceStatus'     => 'MaintenanceStatus',
@@ -163,6 +169,9 @@ class Node extends Model
         }
         if (null !== $this->autoRenewDurationUnit) {
             $res['AutoRenewDurationUnit'] = $this->autoRenewDurationUnit;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
@@ -217,6 +226,9 @@ class Node extends Model
         }
         if (isset($map['AutoRenewDurationUnit'])) {
             $model->autoRenewDurationUnit = $map['AutoRenewDurationUnit'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];

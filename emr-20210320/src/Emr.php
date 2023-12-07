@@ -14,6 +14,10 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\DecreaseNodesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DecreaseNodesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteClusterResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetApmDataRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetApmDataResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetApplicationRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetAutoScalingActivityRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetAutoScalingActivityResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetAutoScalingPolicyRequest;
@@ -56,6 +60,8 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\IncreaseNodesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\IncreaseNodesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\JoinResourceGroupRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\JoinResourceGroupResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListApmMetadataRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListApmMetadataResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListApplicationConfigsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListApplicationConfigsResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListApplicationsRequest;
@@ -64,6 +70,10 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\ListAutoScalingActivitiesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListAutoScalingActivitiesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListClustersRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListClustersResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListComponentInstancesRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListComponentInstancesResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListComponentsRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListComponentsResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorApplicationsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorApplicationsResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorComputeSummaryRequest;
@@ -98,6 +108,11 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\PutAutoScalingPolicyRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\PutAutoScalingPolicyResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\QueryApmComponentsRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\QueryApmComponentsResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\QueryApmGrafanaDataRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\QueryApmGrafanaDataResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\QueryApmGrafanaDataShrinkRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RemoveAutoScalingPolicyRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RemoveAutoScalingPolicyResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RunApplicationActionRequest;
@@ -405,6 +420,117 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @param GetApmDataRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetApmDataResponse
+     */
+    public function getApmDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->componentName)) {
+            $query['ComponentName'] = $request->componentName;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->provider)) {
+            $query['Provider'] = $request->provider;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApmData',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApmDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetApmDataRequest $request
+     *
+     * @return GetApmDataResponse
+     */
+    public function getApmData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApmDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询应用详情。
+     *   *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetApplicationResponse GetApplicationResponse
+     */
+    public function getApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplication',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询应用详情。
+     *   *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     *
+     * @return GetApplicationResponse GetApplicationResponse
+     */
+    public function getApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取弹性伸缩活动详情。
      *   *
      * @param GetAutoScalingActivityRequest $request GetAutoScalingActivityRequest
@@ -511,12 +637,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 调用GetCluster获取集群详情。
-     *   *
-     * @param GetClusterRequest $request GetClusterRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param GetClusterRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return GetClusterResponse GetClusterResponse
+     * @return GetClusterResponse
      */
     public function getClusterWithOptions($request, $runtime)
     {
@@ -547,11 +671,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 调用GetCluster获取集群详情。
-     *   *
-     * @param GetClusterRequest $request GetClusterRequest
+     * @param GetClusterRequest $request
      *
-     * @return GetClusterResponse GetClusterResponse
+     * @return GetClusterResponse
      */
     public function getCluster($request)
     {
@@ -1510,12 +1632,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 加入资源组。
-     *   *
-     * @param JoinResourceGroupRequest $request JoinResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param JoinResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return JoinResourceGroupResponse JoinResourceGroupResponse
+     * @return JoinResourceGroupResponse
      */
     public function joinResourceGroupWithOptions($request, $runtime)
     {
@@ -1552,17 +1672,67 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 加入资源组。
-     *   *
-     * @param JoinResourceGroupRequest $request JoinResourceGroupRequest
+     * @param JoinResourceGroupRequest $request
      *
-     * @return JoinResourceGroupResponse JoinResourceGroupResponse
+     * @return JoinResourceGroupResponse
      */
     public function joinResourceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->joinResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListApmMetadataRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListApmMetadataResponse
+     */
+    public function listApmMetadataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApmMetadata',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApmMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListApmMetadataRequest $request
+     *
+     * @return ListApmMetadataResponse
+     */
+    public function listApmMetadata($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApmMetadataWithOptions($request, $runtime);
     }
 
     /**
@@ -1840,6 +2010,145 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listClustersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询组件实例列表。
+     *   *
+     * @param ListComponentInstancesRequest $request ListComponentInstancesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListComponentInstancesResponse ListComponentInstancesResponse
+     */
+    public function listComponentInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationNames)) {
+            $query['ApplicationNames'] = $request->applicationNames;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->componentNames)) {
+            $query['ComponentNames'] = $request->componentNames;
+        }
+        if (!Utils::isUnset($request->componentStates)) {
+            $query['ComponentStates'] = $request->componentStates;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->nodeIds)) {
+            $query['NodeIds'] = $request->nodeIds;
+        }
+        if (!Utils::isUnset($request->nodeNames)) {
+            $query['NodeNames'] = $request->nodeNames;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListComponentInstances',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListComponentInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询组件实例列表。
+     *   *
+     * @param ListComponentInstancesRequest $request ListComponentInstancesRequest
+     *
+     * @return ListComponentInstancesResponse ListComponentInstancesResponse
+     */
+    public function listComponentInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listComponentInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询组件列表。
+     *   *
+     * @param ListComponentsRequest $request ListComponentsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListComponentsResponse ListComponentsResponse
+     */
+    public function listComponentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationNames)) {
+            $query['ApplicationNames'] = $request->applicationNames;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->componentNames)) {
+            $query['ComponentNames'] = $request->componentNames;
+        }
+        if (!Utils::isUnset($request->componentStates)) {
+            $query['ComponentStates'] = $request->componentStates;
+        }
+        if (!Utils::isUnset($request->includeExpiredConfig)) {
+            $query['IncludeExpiredConfig'] = $request->includeExpiredConfig;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListComponents',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询组件列表。
+     *   *
+     * @param ListComponentsRequest $request ListComponentsRequest
+     *
+     * @return ListComponentsResponse ListComponentsResponse
+     */
+    public function listComponents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listComponentsWithOptions($request, $runtime);
     }
 
     /**
@@ -2676,12 +2985,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询节点组。
-     *   *
-     * @param ListNodeGroupsRequest $request ListNodeGroupsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param ListNodeGroupsRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return ListNodeGroupsResponse ListNodeGroupsResponse
+     * @return ListNodeGroupsResponse
      */
     public function listNodeGroupsWithOptions($request, $runtime)
     {
@@ -2730,11 +3037,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询节点组。
-     *   *
-     * @param ListNodeGroupsRequest $request ListNodeGroupsRequest
+     * @param ListNodeGroupsRequest $request
      *
-     * @return ListNodeGroupsResponse ListNodeGroupsResponse
+     * @return ListNodeGroupsResponse
      */
     public function listNodeGroups($request)
     {
@@ -2744,12 +3049,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询节点。
-     *   *
-     * @param ListNodesRequest $request ListNodesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param ListNodesRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @return ListNodesResponse
      */
     public function listNodesWithOptions($request, $runtime)
     {
@@ -2807,11 +3110,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询节点。
-     *   *
-     * @param ListNodesRequest $request ListNodesRequest
+     * @param ListNodesRequest $request
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @return ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -2991,6 +3292,142 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @param QueryApmComponentsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryApmComponentsResponse
+     */
+    public function queryApmComponentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->provider)) {
+            $query['Provider'] = $request->provider;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryApmComponents',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryApmComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryApmComponentsRequest $request
+     *
+     * @return QueryApmComponentsResponse
+     */
+    public function queryApmComponents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryApmComponentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryApmGrafanaDataRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryApmGrafanaDataResponse
+     */
+    public function queryApmGrafanaDataWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryApmGrafanaDataShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->variables)) {
+            $request->variablesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->variables, 'Variables', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dashboardId)) {
+            $query['DashboardId'] = $request->dashboardId;
+        }
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
+        }
+        if (!Utils::isUnset($request->provider)) {
+            $query['Provider'] = $request->provider;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->queryParams)) {
+            $query['QueryParams'] = $request->queryParams;
+        }
+        if (!Utils::isUnset($request->queryUrl)) {
+            $query['QueryUrl'] = $request->queryUrl;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
+        if (!Utils::isUnset($request->step)) {
+            $query['Step'] = $request->step;
+        }
+        if (!Utils::isUnset($request->time)) {
+            $query['Time'] = $request->time;
+        }
+        if (!Utils::isUnset($request->variablesShrink)) {
+            $query['Variables'] = $request->variablesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryApmGrafanaData',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryApmGrafanaDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryApmGrafanaDataRequest $request
+     *
+     * @return QueryApmGrafanaDataResponse
+     */
+    public function queryApmGrafanaData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryApmGrafanaDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RemoveAutoScalingPolicyRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -3040,12 +3477,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 执行应用操作。
-     *   *
-     * @param RunApplicationActionRequest $request RunApplicationActionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param RunApplicationActionRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return RunApplicationActionResponse RunApplicationActionResponse
+     * @return RunApplicationActionResponse
      */
     public function runApplicationActionWithOptions($request, $runtime)
     {
@@ -3097,11 +3532,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 执行应用操作。
-     *   *
-     * @param RunApplicationActionRequest $request RunApplicationActionRequest
+     * @param RunApplicationActionRequest $request
      *
-     * @return RunApplicationActionResponse RunApplicationActionResponse
+     * @return RunApplicationActionResponse
      */
     public function runApplicationAction($request)
     {

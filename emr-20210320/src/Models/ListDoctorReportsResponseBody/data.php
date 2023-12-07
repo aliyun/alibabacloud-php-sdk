@@ -10,6 +10,33 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The service types.
+     *
+     * Valid values:
+     *
+     *   compute
+     *
+     * <!-- -->
+     *
+     *   hive
+     *
+     * <!-- -->
+     *
+     *   hdfs
+     *
+     * <!-- -->
+     *
+     *   yarn
+     *
+     * <!-- -->
+     *
+     *   oss
+     *
+     * <!-- -->
+     *
+     *   hbase
+     *
+     * <!-- -->
      * @example null
      *
      * @var string[]
@@ -17,6 +44,8 @@ class data extends Model
     public $componentTypes;
 
     /**
+     * @description The date on which the report was generated.
+     *
      * @example 2023-06-29
      *
      * @var string
@@ -24,6 +53,8 @@ class data extends Model
     public $dateTime;
 
     /**
+     * @description The summary of the report.
+     *
      * @var summaryReport
      */
     public $summaryReport;

@@ -16,6 +16,8 @@ class analysis extends Model
     public $readRequestHotspotRegionList;
 
     /**
+     * @description The description of read imbalance.
+     *
      * @var string
      */
     public $readRequestUnbalanceSuggestion;
@@ -28,6 +30,8 @@ class analysis extends Model
     public $requestHotspotRegionList;
 
     /**
+     * @description The description of read/write imbalance.
+     *
      * @var string
      */
     public $requestUnbalanceSuggestion;
@@ -47,6 +51,8 @@ class analysis extends Model
     public $writeRequestHotspotRegionList;
 
     /**
+     * @description The description of write imbalance.
+     *
      * @var string
      */
     public $writeRequestUnbalanceSuggestion;

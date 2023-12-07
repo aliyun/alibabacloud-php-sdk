@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorHBaseRegionServerRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,6 +18,8 @@ class GetDoctorHBaseRegionServerRequest extends Model
     public $clusterId;
 
     /**
+     * @description The date.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -25,7 +27,7 @@ class GetDoctorHBaseRegionServerRequest extends Model
     public $dateTime;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -34,6 +36,8 @@ class GetDoctorHBaseRegionServerRequest extends Model
     public $regionId;
 
     /**
+     * @description The host of the region server.
+     *
      * @example emr-worker-4.cluster-20****
      *
      * @var string

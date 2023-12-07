@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class memUtilization extends Model
 {
     /**
+     * @description The description of the metric.
+     *
      * @example Ratio of used memory to total available memory
      *
      * @var string
@@ -16,6 +18,8 @@ class memUtilization extends Model
     public $description;
 
     /**
+     * @description The name of the metric.
+     *
      * @example memUtilization
      *
      * @var string
@@ -23,6 +27,8 @@ class memUtilization extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example “”
      *
      * @var string
@@ -30,6 +36,8 @@ class memUtilization extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 0.82
      *
      * @var float

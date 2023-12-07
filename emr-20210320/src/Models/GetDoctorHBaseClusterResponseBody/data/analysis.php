@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class analysis extends Model
 {
     /**
+     * @description The overall score of the HBase cluster.
+     *
      * @example 85
      *
      * @var int

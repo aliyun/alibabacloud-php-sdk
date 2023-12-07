@@ -21,6 +21,8 @@ class data extends Model
     public $suggestion;
 
     /**
+     * @description The summary of the report.
+     *
      * @var string
      */
     public $summary;

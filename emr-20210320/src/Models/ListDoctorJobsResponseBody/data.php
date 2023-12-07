@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the job that was submitted to YARN.
+     *
      * @example application_1607584549220_*****
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $appId;
 
     /**
+     * @description The name of the job.
+     *
      * @example tpcds
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $appName;
 
     /**
+     * @description The total running time of the job. Unit: milliseconds.
+     *
      * @example 242
      *
      * @var int
@@ -31,6 +37,14 @@ class data extends Model
     public $elapsedTime;
 
     /**
+     * @description The final state of the job. Valid values:
+     *
+     *   SUCCEEDED
+     *   FAILED
+     *   KILLED
+     *   ENDED
+     *   UNDEFINED
+     *
      * @example KILLED
      *
      * @var string
@@ -38,6 +52,8 @@ class data extends Model
     public $finalStatus;
 
     /**
+     * @description The end time of the job. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+     *
      * @example 1683690929000
      *
      * @var int
@@ -45,6 +61,8 @@ class data extends Model
     public $finishTime;
 
     /**
+     * @description The time when the job was started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+     *
      * @example 1672148400000
      *
      * @var int
@@ -52,11 +70,15 @@ class data extends Model
     public $launchTime;
 
     /**
+     * @description The data about the metrics.
+     *
      * @var metrics
      */
     public $metrics;
 
     /**
+     * @description The YARN queue to which the job was submitted.
+     *
      * @example DW
      *
      * @var string
@@ -64,6 +86,8 @@ class data extends Model
     public $queue;
 
     /**
+     * @description The time when the job was submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+     *
      * @example 1675180800000
      *
      * @var int
@@ -71,6 +95,12 @@ class data extends Model
     public $startTime;
 
     /**
+     * @description The running state of the job. Valid values:
+     *
+     *   FINISHED
+     *   FAILED
+     *   KILLED
+     *
      * @example FINISHED
      *
      * @var string
@@ -78,6 +108,8 @@ class data extends Model
     public $state;
 
     /**
+     * @description The type of the compute engine.
+     *
      * @example SPARK
      *
      * @var string
@@ -85,6 +117,8 @@ class data extends Model
     public $type;
 
     /**
+     * @description The username that was used to submit the job.
+     *
      * @example DW
      *
      * @var string

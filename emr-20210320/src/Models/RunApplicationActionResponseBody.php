@@ -4,10 +4,18 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
+use AlibabaCloud\SDK\Emr\V20210320\Models\RunApplicationActionResponseBody\abnInstances;
 use AlibabaCloud\Tea\Model;
 
 class RunApplicationActionResponseBody extends Model
 {
+    /**
+     * @description 异常节点列表。
+     *
+     * @var abnInstances[]
+     */
+    public $abnInstances;
+
     /**
      * @description The operation ID.
      *
@@ -26,8 +34,9 @@ class RunApplicationActionResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'operationId' => 'OperationId',
-        'requestId'   => 'RequestId',
+        'abnInstances' => 'AbnInstances',
+        'operationId'  => 'OperationId',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -37,6 +46,15 @@ class RunApplicationActionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->abnInstances) {
+            $res['AbnInstances'] = [];
+            if (null !== $this->abnInstances && \is_array($this->abnInstances)) {
+                $n = 0;
+                foreach ($this->abnInstances as $item) {
+                    $res['AbnInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
         }
@@ -55,6 +73,15 @@ class RunApplicationActionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AbnInstances'])) {
+            if (!empty($map['AbnInstances'])) {
+                $model->abnInstances = [];
+                $n                   = 0;
+                foreach ($map['AbnInstances'] as $item) {
+                    $model->abnInstances[$n++] = null !== $item ? abnInstances::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
         }

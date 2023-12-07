@@ -152,6 +152,15 @@ class NodeGroup extends Model
     public $stateChangeReason;
 
     /**
+     * @description 节点组状态，NodeGroupState别名。
+     *
+     * @example CREATED
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
      * @description 系统盘信息。
      *
      * @var SystemDisk
@@ -202,6 +211,7 @@ class NodeGroup extends Model
         'spotInstanceRemedy'         => 'SpotInstanceRemedy',
         'spotStrategy'               => 'SpotStrategy',
         'stateChangeReason'          => 'StateChangeReason',
+        'status'                     => 'Status',
         'systemDisk'                 => 'SystemDisk',
         'vSwitchIds'                 => 'VSwitchIds',
         'withPublicIp'               => 'WithPublicIp',
@@ -277,6 +287,9 @@ class NodeGroup extends Model
         }
         if (null !== $this->stateChangeReason) {
             $res['StateChangeReason'] = null !== $this->stateChangeReason ? $this->stateChangeReason->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->systemDisk) {
             $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
@@ -368,6 +381,9 @@ class NodeGroup extends Model
         }
         if (isset($map['StateChangeReason'])) {
             $model->stateChangeReason = NodeGroupStateChangeReason::fromMap($map['StateChangeReason']);
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = SystemDisk::fromMap($map['SystemDisk']);
