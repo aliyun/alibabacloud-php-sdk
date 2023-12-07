@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\label
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\latestMetrics;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\latestProgress;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\outputChannels;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\outputModel;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\scheduler;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\statusTransitions;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\userVpc;
@@ -100,6 +101,11 @@ class GetTrainingJobResponseBody extends Model
     public $outputChannels;
 
     /**
+     * @var outputModel
+     */
+    public $outputModel;
+
+    /**
      * @var string
      */
     public $reasonCode;
@@ -185,6 +191,7 @@ class GetTrainingJobResponseBody extends Model
         'latestMetrics'          => 'LatestMetrics',
         'latestProgress'         => 'LatestProgress',
         'outputChannels'         => 'OutputChannels',
+        'outputModel'            => 'OutputModel',
         'reasonCode'             => 'ReasonCode',
         'reasonMessage'          => 'ReasonMessage',
         'requestId'              => 'RequestId',
@@ -291,6 +298,9 @@ class GetTrainingJobResponseBody extends Model
                     $res['OutputChannels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->outputModel) {
+            $res['OutputModel'] = null !== $this->outputModel ? $this->outputModel->toMap() : null;
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -435,6 +445,9 @@ class GetTrainingJobResponseBody extends Model
                     $model->outputChannels[$n++] = null !== $item ? outputChannels::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OutputModel'])) {
+            $model->outputModel = outputModel::fromMap($map['OutputModel']);
         }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
