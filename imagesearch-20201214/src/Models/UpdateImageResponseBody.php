@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     *   A value of 0 indicates that the operation is successful.
+     *   Values other than 0 indicate errors.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class UpdateImageResponseBody extends Model
     public $code;
 
     /**
+     * @description Id of the request
+     *
      * @example success
      *
      * @var string
@@ -23,6 +30,8 @@ class UpdateImageResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E0845DE6-52AF-4B50-9F15-51ED4044E6AB
      *
      * @var string
@@ -30,6 +39,8 @@ class UpdateImageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

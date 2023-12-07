@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the task.
+     *
      * @example 500
      *
      * @var string
@@ -16,6 +18,12 @@ class data extends Model
     public $id;
 
     /**
+     * @description The status of the task.
+     *
+     *   PROCESSING: in progress
+     *   FAIL: failed
+     *   SUCCESS: successful
+     *
      * @example PROCESSING
      *
      * @var string

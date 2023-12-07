@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DumpMetaListResponseBody extends Model
 {
     /**
+     * @description The information about the task that is used to export metadata.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B3137727-7D6E-488C-BA21-0E034C38A879
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class head extends Model
 {
     /**
+     * @description The number of images returned.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class head extends Model
     public $docsFound;
 
     /**
+     * @description The number of images that match the search conditions on the Image Search instance.
+     *
      * @example 10000
      *
      * @var int
@@ -23,6 +27,8 @@ class head extends Model
     public $docsReturn;
 
     /**
+     * @description The time it takes to complete the search process. Unit: milliseconds.
+     *
      * @example 95
      *
      * @var int

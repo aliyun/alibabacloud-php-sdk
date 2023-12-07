@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class IncreaseInstanceRequest extends Model
 {
     /**
+     * @description The name of the Object Storage Service (OSS) bucket.
+     *
+     * >  The bucket must be in the same region as the Image Search instance.
      * @example bucketName
      *
      * @var string
@@ -16,6 +19,8 @@ class IncreaseInstanceRequest extends Model
     public $bucketName;
 
     /**
+     * @description The callback address.
+     *
      * @example http://xxxxx
      *
      * @var string
@@ -23,6 +28,8 @@ class IncreaseInstanceRequest extends Model
     public $callbackAddress;
 
     /**
+     * @description The name of the instance.
+     *
      * @example imagesearchName
      *
      * @var string
@@ -30,6 +37,8 @@ class IncreaseInstanceRequest extends Model
     public $instanceName;
 
     /**
+     * @description The absolute path to the increment.meta file in the bucket. The path must start with a forward slash (/) and cannot end with a forward slash (/).
+     *
      * @example /xxx/xxx
      *
      * @var string

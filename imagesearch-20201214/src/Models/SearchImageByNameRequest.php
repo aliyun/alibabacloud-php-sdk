@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SearchImageByNameRequest extends Model
 {
     /**
+     * @description The category of the product. For more information, see [Category references](~~179184~~).
+     *
+     *   For product search: If a category is specified, the specified category prevails. If no category is specified, the system estimates and selects a category. The category selected by the system is included in the response.
+     *   For generic search: The parameter value is set to 88888888 regardless of whether a category is specified.
+     *
      * @example 88888888
      *
      * @var int
@@ -16,6 +21,14 @@ class SearchImageByNameRequest extends Model
     public $categoryId;
 
     /**
+     * @description The filter conditions. int_attr supports the following operators: >, >=, <, <=, and =. str_attr supports the following operators: = and !=. You can set the logical operator between conditions to AND or OR.
+     *
+     * Examples:
+     *
+     *   int_attr>=100
+     *   str_attr!="value1"
+     *   int_attr=1000 AND str_attr="value1"
+     *
      * @example int_attr>=100
      *
      * @var string
@@ -23,6 +36,8 @@ class SearchImageByNameRequest extends Model
     public $filter;
 
     /**
+     * @description The name of the Image Search instance. The name can be up to 20 characters in length.
+     *
      * @example demoinstance1
      *
      * @var string
@@ -30,6 +45,8 @@ class SearchImageByNameRequest extends Model
     public $instanceName;
 
     /**
+     * @description The number of images to return on each page. Valid values: 1 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +54,8 @@ class SearchImageByNameRequest extends Model
     public $num;
 
     /**
+     * @description The name of the image.
+     *
      * @example 2092061_1.jpg
      *
      * @var string
@@ -44,6 +63,8 @@ class SearchImageByNameRequest extends Model
     public $picName;
 
     /**
+     * @description The ID of the product.
+     *
      * @example 2092061_1
      *
      * @var string
@@ -51,6 +72,8 @@ class SearchImageByNameRequest extends Model
     public $productId;
 
     /**
+     * @description The number of the image to return. Valid values: 0 to 499. Default value: 0.
+     *
      * @example 0
      *
      * @var int

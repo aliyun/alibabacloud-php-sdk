@@ -76,10 +76,15 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param AddImageRequest $request
-     * @param RuntimeOptions  $runtime
+     * You can call this operation to add an image to an Image Search instance.
+     *   * > If you want to obtain more information about the service and technical support, click [Online Consulting](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or join the DingTalk group (ID 35035130).
+     *   * ## QPS limits
+     *   * By default, the concurrency limit for adding an image to instances whose image capacity specifications are 0.1 million images is 1. This means that the system can process up to one request of adding an image every second. By default, the concurrency limit for adding an image to instances of other image capacity specifications is 5. This means that the system can process up to five requests of adding an image every second.
+     *   *
+     * @param AddImageRequest $request AddImageRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddImageResponse
+     * @return AddImageResponse AddImageResponse
      */
     public function addImageWithOptions($request, $runtime)
     {
@@ -140,9 +145,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param AddImageRequest $request
+     * You can call this operation to add an image to an Image Search instance.
+     *   * > If you want to obtain more information about the service and technical support, click [Online Consulting](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or join the DingTalk group (ID 35035130).
+     *   * ## QPS limits
+     *   * By default, the concurrency limit for adding an image to instances whose image capacity specifications are 0.1 million images is 1. This means that the system can process up to one request of adding an image every second. By default, the concurrency limit for adding an image to instances of other image capacity specifications is 5. This means that the system can process up to five requests of adding an image every second.
+     *   *
+     * @param AddImageRequest $request AddImageRequest
      *
-     * @return AddImageResponse
+     * @return AddImageResponse AddImageResponse
      */
     public function addImage($request)
     {
@@ -230,10 +240,15 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * This operation deletes images from an Image Search instance.
+     *   * >  A success response is returned even if the specified image does not exist on the instance. Therefore, you cannot determine whether the image exists on the instance based on the response.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 20. In this case, the system can process at most 20 requests every second.
+     *   *
+     * @param DeleteImageRequest $request DeleteImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteImageResponse
+     * @return DeleteImageResponse DeleteImageResponse
      */
     public function deleteImageWithOptions($request, $runtime)
     {
@@ -267,9 +282,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageRequest $request
+     * This operation deletes images from an Image Search instance.
+     *   * >  A success response is returned even if the specified image does not exist on the instance. Therefore, you cannot determine whether the image exists on the instance based on the response.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 20. In this case, the system can process at most 20 requests every second.
+     *   *
+     * @param DeleteImageRequest $request DeleteImageRequest
      *
-     * @return DeleteImageResponse
+     * @return DeleteImageResponse DeleteImageResponse
      */
     public function deleteImage($request)
     {
@@ -279,10 +299,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param DetailRequest  $request
-     * @param RuntimeOptions $runtime
+     * This operation queries instance details.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process only 1 request every second.
+     *   *
+     * @param DetailRequest  $request DetailRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetailResponse
+     * @return DetailResponse DetailResponse
      */
     public function detailWithOptions($request, $runtime)
     {
@@ -310,9 +334,13 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param DetailRequest $request
+     * This operation queries instance details.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process only 1 request every second.
+     *   *
+     * @param DetailRequest $request DetailRequest
      *
-     * @return DetailResponse
+     * @return DetailResponse DetailResponse
      */
     public function detail($request)
     {
@@ -322,10 +350,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param DumpMetaRequest $request
-     * @param RuntimeOptions  $runtime
+     * This operation creates a task for exporting metadata from an Image Search instance.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     *   *
+     * @param DumpMetaRequest $request DumpMetaRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DumpMetaResponse
+     * @return DumpMetaResponse DumpMetaResponse
      */
     public function dumpMetaWithOptions($request, $runtime)
     {
@@ -353,9 +385,13 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param DumpMetaRequest $request
+     * This operation creates a task for exporting metadata from an Image Search instance.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     *   *
+     * @param DumpMetaRequest $request DumpMetaRequest
      *
-     * @return DumpMetaResponse
+     * @return DumpMetaResponse DumpMetaResponse
      */
     public function dumpMeta($request)
     {
@@ -365,10 +401,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param DumpMetaListRequest $request
-     * @param RuntimeOptions      $runtime
+     * This operation queries tasks that are used for exporting metadata from an Image Search instance.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     *   *
+     * @param DumpMetaListRequest $request DumpMetaListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DumpMetaListResponse
+     * @return DumpMetaListResponse DumpMetaListResponse
      */
     public function dumpMetaListWithOptions($request, $runtime)
     {
@@ -405,9 +445,13 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param DumpMetaListRequest $request
+     * This operation queries tasks that are used for exporting metadata from an Image Search instance.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     *   *
+     * @param DumpMetaListRequest $request DumpMetaListRequest
      *
-     * @return DumpMetaListResponse
+     * @return DumpMetaListResponse DumpMetaListResponse
      */
     public function dumpMetaList($request)
     {
@@ -417,10 +461,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param IncreaseInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * This operation creates a batch task on an Image Search instance.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     *   *
+     * @param IncreaseInstanceRequest $request IncreaseInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return IncreaseInstanceResponse
+     * @return IncreaseInstanceResponse IncreaseInstanceResponse
      */
     public function increaseInstanceWithOptions($request, $runtime)
     {
@@ -457,9 +505,13 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param IncreaseInstanceRequest $request
+     * This operation creates a batch task on an Image Search instance.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     *   *
+     * @param IncreaseInstanceRequest $request IncreaseInstanceRequest
      *
-     * @return IncreaseInstanceResponse
+     * @return IncreaseInstanceResponse IncreaseInstanceResponse
      */
     public function increaseInstance($request)
     {
@@ -469,10 +521,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param IncreaseListRequest $request
-     * @param RuntimeOptions      $runtime
+     * This operation queries batch tasks on an Image Search instance.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     *   *
+     * @param IncreaseListRequest $request IncreaseListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return IncreaseListResponse
+     * @return IncreaseListResponse IncreaseListResponse
      */
     public function increaseListWithOptions($request, $runtime)
     {
@@ -515,9 +571,13 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param IncreaseListRequest $request
+     * This operation queries batch tasks on an Image Search instance.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     *   *
+     * @param IncreaseListRequest $request IncreaseListRequest
      *
-     * @return IncreaseListResponse
+     * @return IncreaseListResponse IncreaseListResponse
      */
     public function increaseList($request)
     {
@@ -527,10 +587,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param SearchImageByNameRequest $request
-     * @param RuntimeOptions           $runtime
+     * This operation searches for images by image name on an Image Search instance.
+     *   * ## QPS limits
+     *   * The maximum number of queries per second is displayed in the Image Search console. The upper limit is specified when you purchase the instance. You can set the upper limit to 5 QPS or 10 QPS.
+     *   *
+     * @param SearchImageByNameRequest $request SearchImageByNameRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchImageByNameResponse
+     * @return SearchImageByNameResponse SearchImageByNameResponse
      */
     public function searchImageByNameWithOptions($request, $runtime)
     {
@@ -576,9 +640,13 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param SearchImageByNameRequest $request
+     * This operation searches for images by image name on an Image Search instance.
+     *   * ## QPS limits
+     *   * The maximum number of queries per second is displayed in the Image Search console. The upper limit is specified when you purchase the instance. You can set the upper limit to 5 QPS or 10 QPS.
+     *   *
+     * @param SearchImageByNameRequest $request SearchImageByNameRequest
      *
-     * @return SearchImageByNameResponse
+     * @return SearchImageByNameResponse SearchImageByNameResponse
      */
     public function searchImageByName($request)
     {
@@ -588,10 +656,16 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param SearchImageByPicRequest $request
-     * @param RuntimeOptions          $runtime
+     * This operation searches for images by image name on an Image Search instance.
+     *   * ## QPS limits
+     *   * The maximum number of queries per second is displayed in the Image Search console. The upper limit is specified when you purchase the instance. You can set the upper limit to 5 QPS or 10 QPS.
+     *   * ## SDK release notes
+     *   * The Image Search SDK has been upgraded to version 3.1.1, which supports multi-subject recognition and similarity scores. For more information, see [Image Search SDK for Java](/help/en/image-search/latest/version-v3-java-sdk).
+     *   *
+     * @param SearchImageByPicRequest $request SearchImageByPicRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchImageByPicResponse
+     * @return SearchImageByPicResponse SearchImageByPicResponse
      */
     public function searchImageByPicWithOptions($request, $runtime)
     {
@@ -640,9 +714,15 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param SearchImageByPicRequest $request
+     * This operation searches for images by image name on an Image Search instance.
+     *   * ## QPS limits
+     *   * The maximum number of queries per second is displayed in the Image Search console. The upper limit is specified when you purchase the instance. You can set the upper limit to 5 QPS or 10 QPS.
+     *   * ## SDK release notes
+     *   * The Image Search SDK has been upgraded to version 3.1.1, which supports multi-subject recognition and similarity scores. For more information, see [Image Search SDK for Java](/help/en/image-search/latest/version-v3-java-sdk).
+     *   *
+     * @param SearchImageByPicRequest $request SearchImageByPicRequest
      *
-     * @return SearchImageByPicResponse
+     * @return SearchImageByPicResponse SearchImageByPicResponse
      */
     public function searchImageByPic($request)
     {
@@ -730,10 +810,16 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * This operation updates image information on an Image Search instance.
+     *   * > *   Limits are imposed on the instance creation time.
+     *   * >*   This operation is supported by instances that are created in the Singapore (Singapore) region after December 2021. This operation is not supported in other regions.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 20. In this case, the system can process at most 20 requests every second.
+     *   *
+     * @param UpdateImageRequest $request UpdateImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateImageResponse
+     * @return UpdateImageResponse UpdateImageResponse
      */
     public function updateImageWithOptions($request, $runtime)
     {
@@ -782,9 +868,15 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageRequest $request
+     * This operation updates image information on an Image Search instance.
+     *   * > *   Limits are imposed on the instance creation time.
+     *   * >*   This operation is supported by instances that are created in the Singapore (Singapore) region after December 2021. This operation is not supported in other regions.
+     *   * ## QPS limits
+     *   * By default, the maximum number of queries supported by this operation is 20. In this case, the system can process at most 20 requests every second.
+     *   *
+     * @param UpdateImageRequest $request UpdateImageRequest
      *
-     * @return UpdateImageResponse
+     * @return UpdateImageResponse UpdateImageResponse
      */
     public function updateImage($request)
     {

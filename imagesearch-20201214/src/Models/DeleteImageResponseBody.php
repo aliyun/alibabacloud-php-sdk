@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteImageResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     *   A value of 0 indicates that the operation is successful.
+     *   Values other than 0 indicate errors.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +22,15 @@ class DeleteImageResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the deleted images.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +38,8 @@ class DeleteImageResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0703956F-9BCC-48FA-99F7-96C0BF449C69
      *
      * @var string
@@ -36,6 +47,8 @@ class DeleteImageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

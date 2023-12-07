@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class IncreaseListRequest extends Model
 {
     /**
+     * @description The name of the Object Storage Service (OSS) bucket.
+     *
      * @example bucketName
      *
      * @var string
@@ -16,6 +18,8 @@ class IncreaseListRequest extends Model
     public $bucketName;
 
     /**
+     * @description The ID of the batch task.
+     *
      * @example 500
      *
      * @var int
@@ -23,6 +27,8 @@ class IncreaseListRequest extends Model
     public $id;
 
     /**
+     * @description The name of the Image Search instance. The name can be up to 20 characters in length.
+     *
      * @example demoinstance1
      *
      * @var string
@@ -30,6 +36,8 @@ class IncreaseListRequest extends Model
     public $instanceName;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class IncreaseListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of images to return on each page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class IncreaseListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The absolute path to the increment.meta file in the bucket. The path must start with a forward slash (/) and cannot end with a forward slash (/).
+     *
      * @example /xxx/xxx
      *
      * @var string

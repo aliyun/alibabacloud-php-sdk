@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The name of the Object Storage Service (OSS) bucket.
+     *
      * @example bucketName
      *
      * @var string
@@ -16,6 +18,8 @@ class instance extends Model
     public $bucketName;
 
     /**
+     * @description The callback address.
+     *
      * @example http://xxxxx
      *
      * @var string
@@ -23,6 +27,11 @@ class instance extends Model
     public $callbackAddress;
 
     /**
+     * @description The error code returned.
+     *
+     *   A value of 0 indicates that the operation is successful.
+     *   Values other than 0 indicate errors.
+     *
      * @example 0
      *
      * @var string
@@ -30,6 +39,8 @@ class instance extends Model
     public $code;
 
     /**
+     * @description The address where you can download the result. The address is valid for 2 hours.
+     *
      * @example https://imagesearchname.oss-cn-shanghai.aliyuncs.com/xxx
      *
      * @var string
@@ -37,6 +48,8 @@ class instance extends Model
     public $errorUrl;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 500
      *
      * @var int
@@ -44,6 +57,8 @@ class instance extends Model
     public $id;
 
     /**
+     * @description The error message returned.
+     *
      * @example sucess
      *
      * @var string
@@ -51,6 +66,8 @@ class instance extends Model
     public $msg;
 
     /**
+     * @description The absolute path to the increment.meta file in the bucket. The path must start with a forward slash (/) and cannot end with a forward slash (/).
+     *
      * @example /xx/xx
      *
      * @var string
@@ -58,6 +75,12 @@ class instance extends Model
     public $path;
 
     /**
+     * @description The status of the batch task.
+     *
+     *   PROCESSING: in progress
+     *   FAIL: failed
+     *   SUCCESS: successful
+     *
      * @example SUCCESS
      *
      * @var string
@@ -65,6 +88,8 @@ class instance extends Model
     public $status;
 
     /**
+     * @description The time when the task was created. Unit: milliseconds.
+     *
      * @example 1629095713000
      *
      * @var string
@@ -72,6 +97,8 @@ class instance extends Model
     public $utcCreate;
 
     /**
+     * @description The time when the task was updated. Unit: milliseconds.
+     *
      * @example 1629095760000
      *
      * @var int

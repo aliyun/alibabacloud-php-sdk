@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DumpMetaListRequest extends Model
 {
     /**
+     * @description The ID of the export task.
+     *
      * @example 500
      *
      * @var int
@@ -16,6 +18,8 @@ class DumpMetaListRequest extends Model
     public $id;
 
     /**
+     * @description The name of the Image Search instance. The name can be up to 20 characters in length.
+     *
      * @example demoinstance1
      *
      * @var string
@@ -23,6 +27,8 @@ class DumpMetaListRequest extends Model
     public $instanceName;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class DumpMetaListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of images to return on each page. Default value: 10.
+     *
      * @example 10
      *
      * @var int

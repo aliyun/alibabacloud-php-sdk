@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name (PicName) of the deleted image.
+     *
      * @example 5555.jpg
      *
      * @var string[]

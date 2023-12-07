@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class auctions extends Model
 {
     /**
+     * @description The category of the image.
+     *
      * @example 8888888
      *
      * @var int
@@ -16,6 +18,8 @@ class auctions extends Model
     public $categoryId;
 
     /**
+     * @description The user-defined content.
+     *
      * @example zidingyi
      *
      * @var string
@@ -23,6 +27,8 @@ class auctions extends Model
     public $customContent;
 
     /**
+     * @description The attribute, which is an integer.
+     *
      * @example 2
      *
      * @var int
@@ -30,11 +36,15 @@ class auctions extends Model
     public $intAttr;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $intAttr2;
 
     /**
+     * @description The name of the image.
+     *
      * @example 2092061_1.jpg
      *
      * @var string
@@ -42,6 +52,8 @@ class auctions extends Model
     public $picName;
 
     /**
+     * @description The ID of the product.
+     *
      * @example 2092061_1
      *
      * @var string
@@ -49,6 +61,9 @@ class auctions extends Model
     public $productId;
 
     /**
+     * @description The similarity score of the searched image. Valid values: 0 to 1.
+     *
+     * >  To use this feature, you must upgrade the SDK to version 3.1.1.
      * @example 1
      *
      * @var float
@@ -56,6 +71,12 @@ class auctions extends Model
     public $score;
 
     /**
+     * @description The score information about the image.
+     *
+     * > *   This parameter is not supported. We recommend that you use the Score parameter.
+     * >*   The SortExprValues parameter indicates a 2-tuple in which values are separated by a semicolon (;). The first value indicates the correlation score of the returned image. A greater value indicates a higher correlation with the sample image. Different algorithms are used.
+     * >*   If the value of CategoryId is within the value range from 0 to 2, the value range of SortExprValues is from 0 to 7.33136443711219e+24.
+     * >*   If the value of CategoryId is not within the value range from 0 to 2, the value range of SortExprValues is from 0 to 5.37633353624177e+24. If the returned image is identical with the sample image, the highest correlation score is generated.
      * @example 5.37633353624177e+24;0
      *
      * @var string
@@ -63,6 +84,8 @@ class auctions extends Model
     public $sortExprValues;
 
     /**
+     * @description The attribute, which is a string.
+     *
      * @example 2
      *
      * @var string
@@ -70,6 +93,8 @@ class auctions extends Model
     public $strAttr;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $strAttr2;

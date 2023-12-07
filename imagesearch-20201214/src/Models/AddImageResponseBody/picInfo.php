@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class picInfo extends Model
 {
     /**
+     * @description The result of category prediction. If a category is specified in the request, the specified category prevails.
+     *
      * @example 88888888
      *
      * @var int
@@ -16,6 +18,8 @@ class picInfo extends Model
     public $categoryId;
 
     /**
+     * @description The result of subject identification. The subject area of the image is in the format of `x1,x2,y1,y2`. `x1 and y1` represent the position in the upper-left corner, in pixels. `x2 and y2` represent the position in the lower-right corner, in pixels. If a subject area is specified in the request, the specified subject area prevails.
+     *
      * @example 94,691,206,650
      *
      * @var string

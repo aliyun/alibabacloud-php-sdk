@@ -12,11 +12,18 @@ use AlibabaCloud\Tea\Model;
 class SearchImageByNameResponseBody extends Model
 {
     /**
+     * @description The product descriptions returned.
+     *
      * @var auctions[]
      */
     public $auctions;
 
     /**
+     * @description The error code returned.
+     *
+     *   A value of 0 indicates that the operation is successful.
+     *   Values other than 0 indicate errors.
+     *
      * @example 0
      *
      * @var int
@@ -24,11 +31,15 @@ class SearchImageByNameResponseBody extends Model
     public $code;
 
     /**
+     * @description The summary of the search result.
+     *
      * @var head
      */
     public $head;
 
     /**
+     * @description The error message returned.
+     *
      * @example success
      *
      * @var string
@@ -36,11 +47,15 @@ class SearchImageByNameResponseBody extends Model
     public $msg;
 
     /**
+     * @description The information such as the system-selected category and result of subject recognition.
+     *
      * @var picInfo
      */
     public $picInfo;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 36C43E96-8F68-44AA-B1AF-B1F7AB94A6C1
      *
      * @var string
@@ -48,6 +63,8 @@ class SearchImageByNameResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

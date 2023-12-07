@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class IncreaseInstanceResponseBody extends Model
 {
     /**
+     * @description The information about the task.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 36C43E96-8F68-44AA-B1AF-B1F7AB94A6C1
      *
      * @var string
@@ -22,6 +26,8 @@ class IncreaseInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

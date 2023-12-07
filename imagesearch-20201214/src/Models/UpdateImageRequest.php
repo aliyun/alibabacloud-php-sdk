@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageRequest extends Model
 {
     /**
+     * @description The user-defined content. The value can be up to 4,096 characters in length.
+     *
+     * >  If you set this parameter, the response includes this parameter and its value. You can add text such as an image description.
      * @example zidingyi
      *
      * @var string
@@ -16,6 +19,8 @@ class UpdateImageRequest extends Model
     public $customContent;
 
     /**
+     * @description The name of the Image Search instance. The name can be up to 20 characters in length.
+     *
      * @example demoinstance1
      *
      * @var string
@@ -23,6 +28,8 @@ class UpdateImageRequest extends Model
     public $instanceName;
 
     /**
+     * @description The attribute, which is an integer. The attribute can be used to filter images when you search for images. If you set this parameter, the response includes this parameter and its value.
+     *
      * @example 2
      *
      * @var int
@@ -30,11 +37,17 @@ class UpdateImageRequest extends Model
     public $intAttr;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $intAttr2;
 
     /**
+     * @description The name of the image. The name can be up to 512 characters in length.
+     *
+     * > *   An image is uniquely identified by the values of the ProductId and PicName parameters.
+     * >*   If you add an image whose product ID (ProductId) and image name (PicName) are the same as those of an existing image, the newly added image overwrites the existing image.
      * @example namexxx.jpg
      *
      * @var string
@@ -42,6 +55,9 @@ class UpdateImageRequest extends Model
     public $picName;
 
     /**
+     * @description The ID of the product. The ID can be up to 512 characters in length.
+     *
+     * >  A product may have multiple images.
      * @example 2092061_1
      *
      * @var string
@@ -49,6 +65,8 @@ class UpdateImageRequest extends Model
     public $productId;
 
     /**
+     * @description The attribute, which is a string. The value can be up to 128 characters in length. The attribute can be used to filter images. If you set this parameter, the response includes this parameter and its value.
+     *
      * @example ss
      *
      * @var string
@@ -56,6 +74,8 @@ class UpdateImageRequest extends Model
     public $strAttr;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $strAttr2;

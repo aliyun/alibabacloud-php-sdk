@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The capacity of the plan. Unit: × 10,000 images.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class instance extends Model
     public $capacity;
 
     /**
+     * @description The name of the instance.
+     *
      * @example imagesearchName
      *
      * @var string
@@ -23,6 +27,8 @@ class instance extends Model
     public $name;
 
     /**
+     * @description The number of queries per second supported by the plan.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class instance extends Model
     public $qps;
 
     /**
+     * @description The information about the region.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -37,6 +45,9 @@ class instance extends Model
     public $region;
 
     /**
+     * @description The Image Search model.
+     *
+     * 0: commodity search. 1: generic image search.
      * @example 0
      *
      * @var int
@@ -44,6 +55,8 @@ class instance extends Model
     public $serviceType;
 
     /**
+     * @description The number of images.
+     *
      * @example 10063
      *
      * @var int
@@ -51,6 +64,8 @@ class instance extends Model
     public $totalCount;
 
     /**
+     * @description The time when the instance was created. Unit: milliseconds.
+     *
      * @example 1620382716000
      *
      * @var string
@@ -58,6 +73,8 @@ class instance extends Model
     public $utcCreate;
 
     /**
+     * @description The time when the instance expires. Unit: milliseconds.
+     *
      * @example 1623081600000
      *
      * @var string

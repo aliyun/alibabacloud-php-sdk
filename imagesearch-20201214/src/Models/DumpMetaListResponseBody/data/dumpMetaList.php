@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dumpMetaList extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     *   A value of 0 indicates that the operation is successful.
+     *   Values other than 0 indicate errors.
+     *
      * @example 0
      *
      * @var string
@@ -16,6 +21,8 @@ class dumpMetaList extends Model
     public $code;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 500
      *
      * @var int
@@ -23,6 +30,8 @@ class dumpMetaList extends Model
     public $id;
 
     /**
+     * @description The address where you can download the metadata. The address is valid for 2 hours.
+     *
      * @example https://imagesearchname.oss-cn-shanghai.aliyuncs.com/xxx
      *
      * @var string
@@ -30,6 +39,8 @@ class dumpMetaList extends Model
     public $metaUrl;
 
     /**
+     * @description The error message returned.
+     *
      * @example success
      *
      * @var string
@@ -37,6 +48,12 @@ class dumpMetaList extends Model
     public $msg;
 
     /**
+     * @description The status of the export task.
+     *
+     *   PROCESSING: in progress
+     *   FAIL: failed
+     *   SUCCESS: successful
+     *
      * @example SUCCESS
      *
      * @var string
@@ -44,6 +61,8 @@ class dumpMetaList extends Model
     public $status;
 
     /**
+     * @description The time when the task was created. Unit: milliseconds.
+     *
      * @example 1629095713000
      *
      * @var string
@@ -51,6 +70,8 @@ class dumpMetaList extends Model
     public $utcCreate;
 
     /**
+     * @description The time when the task was updated. Unit: milliseconds.
+     *
      * @example 1629095760000
      *
      * @var int

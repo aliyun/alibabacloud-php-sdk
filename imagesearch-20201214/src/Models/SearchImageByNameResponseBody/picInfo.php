@@ -11,11 +11,16 @@ use AlibabaCloud\Tea\Model;
 class picInfo extends Model
 {
     /**
+     * @description The categories that are supported by the system.
+     *
      * @var allCategories[]
      */
     public $allCategories;
 
     /**
+     * @description The category selected by the system.
+     *
+     * If a category is specified in the request, the specified category prevails.
      * @example 20
      *
      * @var int
@@ -23,11 +28,16 @@ class picInfo extends Model
     public $categoryId;
 
     /**
+     * @description The recognized subjects.
+     *
      * @var multiRegion[]
      */
     public $multiRegion;
 
     /**
+     * @description The result of subject recognition.
+     *
+     * The subject area of the image, in the format of x1,x2,y1,y2. Specifically, x1 and y1 specify the upper-left pixel, and x2 and y2 specify the lower-right pixel. If a subject area is specified in the request, the specified subject area prevails.
      * @example 280,486,232,351
      *
      * @var string

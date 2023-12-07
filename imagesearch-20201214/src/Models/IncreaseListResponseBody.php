@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class IncreaseListResponseBody extends Model
 {
     /**
+     * @description The information about the batch task.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B3137727-7D6E-488C-BA21-0E034C38A879
      *
      * @var string
