@@ -2000,7 +2000,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteProjectPolicyResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4825,7 +4825,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType'    => 'none',
         ]);
 
         return PutProjectPolicyResponse::fromMap($this->execute($params, $req, $runtime));
