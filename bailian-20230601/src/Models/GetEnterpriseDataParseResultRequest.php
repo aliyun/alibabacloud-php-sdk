@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetEnterpriseDataParseResultRequest extends Model
 {
     /**
+     * @example c160c841c8e54295bf2f441432785944_p_efm
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example 2DC1DD169C6342628D2F96CFB1D39B24
+     *
      * @var string
      */
     public $dataId;

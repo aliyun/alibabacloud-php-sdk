@@ -17,6 +17,11 @@ class ImportEnterpriseDocumentRequest extends Model
     public $agentKey;
 
     /**
+     * @var int
+     */
+    public $dataType;
+
+    /**
      * @var documentList[]
      */
     public $documentList;
@@ -39,6 +44,7 @@ class ImportEnterpriseDocumentRequest extends Model
     public $tags;
     protected $_name = [
         'agentKey'     => 'AgentKey',
+        'dataType'     => 'DataType',
         'documentList' => 'DocumentList',
         'ownerId'      => 'OwnerId',
         'storeId'      => 'StoreId',
@@ -54,6 +60,9 @@ class ImportEnterpriseDocumentRequest extends Model
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
+        }
+        if (null !== $this->dataType) {
+            $res['DataType'] = $this->dataType;
         }
         if (null !== $this->documentList) {
             $res['DocumentList'] = [];
@@ -87,6 +96,9 @@ class ImportEnterpriseDocumentRequest extends Model
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
+        }
+        if (isset($map['DataType'])) {
+            $model->dataType = $map['DataType'];
         }
         if (isset($map['DocumentList'])) {
             if (!empty($map['DocumentList'])) {

@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Bailian\V20230601;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\AddEnterpriseTagRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\AddEnterpriseTagResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\CancelFineTuneJobRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\CancelFineTuneJobResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\CreateFineTuneJobRequest;
@@ -18,6 +20,8 @@ use AlibabaCloud\SDK\Bailian\V20230601\Models\CreateTextEmbeddingsResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\CreateTextEmbeddingsShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\CreateTokenRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\CreateTokenResponse;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\DelEnterpriseTagRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\DelEnterpriseTagResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\DeleteEnterpriseDataRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\DeleteEnterpriseDataResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\DeleteFineTuneJobRequest;
@@ -36,11 +40,17 @@ use AlibabaCloud\SDK\Bailian\V20230601\Models\GetEnterpriseDataPageImageRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\GetEnterpriseDataPageImageResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\GetEnterpriseDataParseResultRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\GetEnterpriseDataParseResultResponse;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\GetFileStoreUploadPolicyRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\GetFileStoreUploadPolicyResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\GetImportTaskResultRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\GetImportTaskResultResponse;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\GetPromptRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\GetPromptResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\ImportEnterpriseDocumentRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\ImportEnterpriseDocumentResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\ImportEnterpriseDocumentShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\ImportUserDocumentRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\ImportUserDocumentResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\ListFineTuneJobsRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\ListFineTuneJobsResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\ListServicesRequest;
@@ -48,9 +58,22 @@ use AlibabaCloud\SDK\Bailian\V20230601\Models\ListServicesResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\QueryEnterpriseDataListRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\QueryEnterpriseDataListResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\QueryEnterpriseDataListShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\QueryEnterpriseDataTagRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\QueryEnterpriseDataTagResponse;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\QueryEnterpriseTagListRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\QueryEnterpriseTagListResponse;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\QueryUserDocumentRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\QueryUserDocumentResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\SearchEnterpriseDataRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\SearchEnterpriseDataResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\SearchEnterpriseDataShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\UpdateEnterpriseDataInfoRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\UpdateEnterpriseDataInfoResponse;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\UpdateEnterpriseDataTagRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\UpdateEnterpriseDataTagResponse;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\UpdateEnterpriseDataTagShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\UpdateEnterpriseTagRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\UpdateEnterpriseTagResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -88,6 +111,52 @@ class Bailian extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddEnterpriseTagRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddEnterpriseTagResponse
+     */
+    public function addEnterpriseTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddEnterpriseTag',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddEnterpriseTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddEnterpriseTagRequest $request
+     *
+     * @return AddEnterpriseTagResponse
+     */
+    public function addEnterpriseTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addEnterpriseTagWithOptions($request, $runtime);
     }
 
     /**
@@ -355,6 +424,52 @@ class Bailian extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DelEnterpriseTagRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DelEnterpriseTagResponse
+     */
+    public function delEnterpriseTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DelEnterpriseTag',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DelEnterpriseTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DelEnterpriseTagRequest $request
+     *
+     * @return DelEnterpriseTagResponse
+     */
+    public function delEnterpriseTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->delEnterpriseTagWithOptions($request, $runtime);
     }
 
     /**
@@ -783,6 +898,58 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @param GetFileStoreUploadPolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetFileStoreUploadPolicyResponse
+     */
+    public function getFileStoreUploadPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileStoreId)) {
+            $query['FileStoreId'] = $request->fileStoreId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFileStoreUploadPolicy',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFileStoreUploadPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetFileStoreUploadPolicyRequest $request
+     *
+     * @return GetFileStoreUploadPolicyResponse
+     */
+    public function getFileStoreUploadPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileStoreUploadPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetImportTaskResultRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -829,6 +996,55 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @param GetPromptRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetPromptResponse
+     */
+    public function getPromptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->promptId)) {
+            $query['PromptId'] = $request->promptId;
+        }
+        if (!Utils::isUnset($request->vars)) {
+            $query['Vars'] = $request->vars;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPrompt',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPromptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPromptRequest $request
+     *
+     * @return GetPromptResponse
+     */
+    public function getPrompt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPromptWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ImportEnterpriseDocumentRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
@@ -848,6 +1064,9 @@ class Bailian extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
             $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dataType)) {
+            $query['DataType'] = $request->dataType;
         }
         if (!Utils::isUnset($request->documentListShrink)) {
             $query['DocumentList'] = $request->documentListShrink;
@@ -889,6 +1108,64 @@ class Bailian extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importEnterpriseDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportUserDocumentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ImportUserDocumentResponse
+     */
+    public function importUserDocumentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileStoreId)) {
+            $query['FileStoreId'] = $request->fileStoreId;
+        }
+        if (!Utils::isUnset($request->ossPath)) {
+            $query['OssPath'] = $request->ossPath;
+        }
+        if (!Utils::isUnset($request->storeId)) {
+            $query['StoreId'] = $request->storeId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportUserDocument',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportUserDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportUserDocumentRequest $request
+     *
+     * @return ImportUserDocumentResponse
+     */
+    public function importUserDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importUserDocumentWithOptions($request, $runtime);
     }
 
     /**
@@ -1055,6 +1332,150 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @param QueryEnterpriseDataTagRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryEnterpriseDataTagResponse
+     */
+    public function queryEnterpriseDataTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEnterpriseDataTag',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryEnterpriseDataTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryEnterpriseDataTagRequest $request
+     *
+     * @return QueryEnterpriseDataTagResponse
+     */
+    public function queryEnterpriseDataTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryEnterpriseDataTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryEnterpriseTagListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryEnterpriseTagListResponse
+     */
+    public function queryEnterpriseTagListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEnterpriseTagList',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryEnterpriseTagListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryEnterpriseTagListRequest $request
+     *
+     * @return QueryEnterpriseTagListResponse
+     */
+    public function queryEnterpriseTagList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryEnterpriseTagListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryUserDocumentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryUserDocumentResponse
+     */
+    public function queryUserDocumentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUserDocument',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryUserDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryUserDocumentRequest $request
+     *
+     * @return QueryUserDocumentResponse
+     */
+    public function queryUserDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUserDocumentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SearchEnterpriseDataRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
@@ -1121,5 +1542,163 @@ class Bailian extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchEnterpriseDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateEnterpriseDataInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateEnterpriseDataInfoResponse
+     */
+    public function updateEnterpriseDataInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->dataName)) {
+            $query['DataName'] = $request->dataName;
+        }
+        if (!Utils::isUnset($request->filePreviewLink)) {
+            $query['FilePreviewLink'] = $request->filePreviewLink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEnterpriseDataInfo',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEnterpriseDataInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEnterpriseDataInfoRequest $request
+     *
+     * @return UpdateEnterpriseDataInfoResponse
+     */
+    public function updateEnterpriseDataInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnterpriseDataInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateEnterpriseDataTagRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateEnterpriseDataTagResponse
+     */
+    public function updateEnterpriseDataTagWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateEnterpriseDataTagShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEnterpriseDataTag',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEnterpriseDataTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEnterpriseDataTagRequest $request
+     *
+     * @return UpdateEnterpriseDataTagResponse
+     */
+    public function updateEnterpriseDataTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnterpriseDataTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateEnterpriseTagRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateEnterpriseTagResponse
+     */
+    public function updateEnterpriseTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->tagId)) {
+            $query['TagId'] = $request->tagId;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEnterpriseTag',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEnterpriseTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEnterpriseTagRequest $request
+     *
+     * @return UpdateEnterpriseTagResponse
+     */
+    public function updateEnterpriseTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnterpriseTagWithOptions($request, $runtime);
     }
 }

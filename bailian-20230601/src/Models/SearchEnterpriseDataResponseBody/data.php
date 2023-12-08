@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 666A21E1FEFC4F80B84161E35C64CFD5
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @example data-9e4d8148-d552-4338-9408-22eb395cd244
+     *
      * @var string
      */
     public $dataName;
 
     /**
+     * @example 7
+     *
      * @var string
      */
     public $score;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $source;
@@ -39,6 +47,8 @@ class data extends Model
     public $title;
 
     /**
+     * @example http://123
+     *
      * @var string
      */
     public $titlePath;

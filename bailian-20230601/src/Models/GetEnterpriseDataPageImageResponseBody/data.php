@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 720
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example https://cadt-studio-publish.oss-cn-hangzhou.aliyuncs.com/1254528490571584/tsr-05FTI43JU8PHDEO9.png
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageId;
 
     /**
+     * @example 1280
+     *
      * @var int
      */
     public $width;

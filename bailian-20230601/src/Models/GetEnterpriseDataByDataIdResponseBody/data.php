@@ -46,11 +46,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $downloadUrl;
-
-    /**
-     * @var string
-     */
     public $statusDetail;
 
     /**
@@ -75,7 +70,6 @@ class data extends Model
         'dataStatusCode' => 'DataStatusCode',
         'dataType'       => 'DataType',
         'dataTypeCode'   => 'DataTypeCode',
-        'downloadUrl'    => 'DownloadUrl',
         'statusDetail'   => 'StatusDetail',
         'storeType'      => 'StoreType',
         'tags'           => 'Tags',
@@ -109,9 +103,6 @@ class data extends Model
         }
         if (null !== $this->dataTypeCode) {
             $res['DataTypeCode'] = $this->dataTypeCode;
-        }
-        if (null !== $this->downloadUrl) {
-            $res['DownloadUrl'] = $this->downloadUrl;
         }
         if (null !== $this->statusDetail) {
             $res['StatusDetail'] = $this->statusDetail;
@@ -157,9 +148,6 @@ class data extends Model
         }
         if (isset($map['DataTypeCode'])) {
             $model->dataTypeCode = $map['DataTypeCode'];
-        }
-        if (isset($map['DownloadUrl'])) {
-            $model->downloadUrl = $map['DownloadUrl'];
         }
         if (isset($map['StatusDetail'])) {
             $model->statusDetail = $map['StatusDetail'];

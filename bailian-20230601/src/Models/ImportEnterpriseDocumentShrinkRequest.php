@@ -16,6 +16,11 @@ class ImportEnterpriseDocumentShrinkRequest extends Model
     public $agentKey;
 
     /**
+     * @var int
+     */
+    public $dataType;
+
+    /**
      * @var string
      */
     public $documentListShrink;
@@ -38,6 +43,7 @@ class ImportEnterpriseDocumentShrinkRequest extends Model
     public $tagsShrink;
     protected $_name = [
         'agentKey'           => 'AgentKey',
+        'dataType'           => 'DataType',
         'documentListShrink' => 'DocumentList',
         'ownerId'            => 'OwnerId',
         'storeId'            => 'StoreId',
@@ -53,6 +59,9 @@ class ImportEnterpriseDocumentShrinkRequest extends Model
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
+        }
+        if (null !== $this->dataType) {
+            $res['DataType'] = $this->dataType;
         }
         if (null !== $this->documentListShrink) {
             $res['DocumentList'] = $this->documentListShrink;
@@ -80,6 +89,9 @@ class ImportEnterpriseDocumentShrinkRequest extends Model
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
+        }
+        if (isset($map['DataType'])) {
+            $model->dataType = $map['DataType'];
         }
         if (isset($map['DocumentList'])) {
             $model->documentListShrink = $map['DocumentList'];

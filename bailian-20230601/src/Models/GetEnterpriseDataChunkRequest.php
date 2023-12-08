@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetEnterpriseDataChunkRequest extends Model
 {
     /**
+     * @example c160c841c8e54295bf2f441432785944_p_efm
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example CB9D20BABFED4FB19BC9F9A6398F7E32
+     *
      * @var string
      */
     public $dataId;

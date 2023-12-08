@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class GetEnterpriseDataParseResultResponseBody extends Model
 {
     /**
+     * @example {\"Token\": \"46cab0a8450c40f29a84e0ce8e983d22\", \"ExpiredTime\": 1692842544}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example queryStsApiDimensionCallerListByTypeSingle failed
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description Id of the request
+     *
+     * @example 1C139002-0EC5-584C-A755-4B8B9FA080BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

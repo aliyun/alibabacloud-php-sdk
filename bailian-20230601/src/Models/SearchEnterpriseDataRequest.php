@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchEnterpriseDataRequest extends Model
 {
     /**
+     * @example c160c841c8e54295bf2f441432785944_p_efm
+     *
      * @var string
      */
     public $agentKey;
@@ -19,6 +21,8 @@ class SearchEnterpriseDataRequest extends Model
     public $dataIdList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableRank;
@@ -34,6 +38,8 @@ class SearchEnterpriseDataRequest extends Model
     public $query;
 
     /**
+     * @example s-6feuw0nabn
+     *
      * @var int
      */
     public $storeId;

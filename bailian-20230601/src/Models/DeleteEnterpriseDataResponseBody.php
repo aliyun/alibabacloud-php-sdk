@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnterpriseDataResponseBody extends Model
 {
     /**
+     * @example True
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example error check permissions
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description Id of the request
+     *
+     * @example 1C139002-0EC5-584C-A755-4B8B9FA080BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

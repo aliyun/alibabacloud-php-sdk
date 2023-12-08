@@ -15,21 +15,31 @@ class GetEnterpriseDataChunkResponseBody extends Model
     public $data;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example queryStsApiDimensionCallerListByTypeSingle failed
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description Id of the request
+     *
+     * @example 778C0B3B-03C1-5FC1-A947-36EDD13606AB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetEnterpriseDataPageImageRequest extends Model
 {
     /**
+     * @example c160c841c8e54295bf2f441432785944_p_efm
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example F1E83CDC6CBC40358504F762D1AFED1B
+     *
      * @var string
      */
     public $dataId;

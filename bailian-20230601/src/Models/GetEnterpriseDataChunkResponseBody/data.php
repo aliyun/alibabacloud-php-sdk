@@ -19,6 +19,8 @@ class data extends Model
     public $title;
 
     /**
+     * @example http://12
+     *
      * @var string
      */
     public $titlePath;
