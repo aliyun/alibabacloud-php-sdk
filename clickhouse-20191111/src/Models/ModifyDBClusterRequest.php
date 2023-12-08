@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
+     * @example S4-NEW
+     *
      * @var string
      */
     public $DBClusterClass;
 
     /**
+     * @example cc-bp19lo45sy98x****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $DBNodeGroupCount;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $DBNodeStorage;
@@ -39,6 +47,8 @@ class ModifyDBClusterRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

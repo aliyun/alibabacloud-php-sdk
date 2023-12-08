@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynDbsResponseBody extends Model
 {
     /**
+     * @example 7655F5F9-1313-5ABA-8516-F6EB79605A5F
+     *
      * @var string
      */
     public $requestId;

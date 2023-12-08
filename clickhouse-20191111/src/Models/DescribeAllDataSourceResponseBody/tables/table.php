@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class table extends Model
 {
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example database
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example table
+     *
      * @var string
      */
     public $tableName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class schema extends Model
 {
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example database
+     *
      * @var string
      */
     public $schemaName;

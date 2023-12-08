@@ -15,6 +15,8 @@ class DescribeProcessListResponseBody extends Model
     public $processList;
 
     /**
+     * @example FD61BB0D-788A-5185-A8E3-1B90BA8F6F04
+     *
      * @var string
      */
     public $requestId;

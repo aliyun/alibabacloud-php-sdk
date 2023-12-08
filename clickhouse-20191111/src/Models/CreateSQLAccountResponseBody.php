@@ -4,23 +4,18 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLogHubAttributeResponseBody\loghubInfo;
 use AlibabaCloud\Tea\Model;
 
-class DescribeLogHubAttributeResponseBody extends Model
+class CreateSQLAccountResponseBody extends Model
 {
     /**
-     * @var loghubInfo
-     */
-    public $loghubInfo;
-
-    /**
+     * @example F5178C10-1407-4987-9133-DE4DC9119F76
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'loghubInfo' => 'LoghubInfo',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +25,6 @@ class DescribeLogHubAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->loghubInfo) {
-            $res['LoghubInfo'] = null !== $this->loghubInfo ? $this->loghubInfo->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,14 +35,11 @@ class DescribeLogHubAttributeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeLogHubAttributeResponseBody
+     * @return CreateSQLAccountResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LoghubInfo'])) {
-            $model->loghubInfo = loghubInfo::fromMap($map['LoghubInfo']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

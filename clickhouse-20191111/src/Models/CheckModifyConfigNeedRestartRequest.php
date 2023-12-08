@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckModifyConfigNeedRestartRequest extends Model
 {
     /**
+     * @example <?xml version="1.0"?>
+     * </yandex>
      * @var string
      */
     public $config;
 
     /**
+     * @example cc-bp1tm8zf130ew****
+     *
      * @var string
      */
     public $DBClusterId;

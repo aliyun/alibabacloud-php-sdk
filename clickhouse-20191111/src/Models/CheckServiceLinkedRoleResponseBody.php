@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckServiceLinkedRoleResponseBody extends Model
 {
     /**
+     * @example xxxx
+     *
      * @var bool
      */
     public $hasServiceLinkedRole;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $requestId;

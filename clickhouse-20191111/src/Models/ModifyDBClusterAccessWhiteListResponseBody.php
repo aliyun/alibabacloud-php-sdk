@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterAccessWhiteListResponseBody extends Model
 {
     /**
+     * @example D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
+     *
      * @var string
      */
     public $requestId;

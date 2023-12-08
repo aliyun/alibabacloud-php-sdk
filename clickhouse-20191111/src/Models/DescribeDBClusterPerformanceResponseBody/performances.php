@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class performances extends Model
 {
     /**
+     * @example MEM_USAGE
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example mem_usage
+     *
      * @var string
      */
     public $name;
@@ -25,6 +29,8 @@ class performances extends Model
     public $series;
 
     /**
+     * @example %
+     *
      * @var string
      */
     public $unit;

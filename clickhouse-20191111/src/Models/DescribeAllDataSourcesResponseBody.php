@@ -17,6 +17,8 @@ class DescribeAllDataSourcesResponseBody extends Model
     public $columns;
 
     /**
+     * @example 75EA41D7-025A-50A6-9287-359A91399F1E
+     *
      * @var string
      */
     public $requestId;

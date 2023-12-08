@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterConfigInXMLRequest extends Model
 {
     /**
+     * @example <?xml version="1.0"?>
+     * </yandex>
      * @var string
      */
     public $config;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

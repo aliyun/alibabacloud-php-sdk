@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterMaintainTimeRequest extends Model
 {
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example 00:00Z-01:00Z
+     *
      * @var string
      */
     public $maintainTime;

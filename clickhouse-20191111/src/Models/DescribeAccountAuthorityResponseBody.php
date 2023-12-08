@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountAuthorityResponseBody extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
@@ -24,16 +26,22 @@ class DescribeAccountAuthorityResponseBody extends Model
     public $allowDictionaries;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ddlAuthority;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $dmlAuthority;
 
     /**
+     * @example F5178C10-1407-4987-9133-DE4DC9119F75
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOSSStorageRequest extends Model
 {
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,6 +26,8 @@ class DescribeOSSStorageRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

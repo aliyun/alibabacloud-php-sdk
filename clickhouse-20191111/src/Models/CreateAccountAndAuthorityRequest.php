@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountAndAuthorityRequest extends Model
 {
     /**
+     * @example ceshi
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example 123456Aa
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @example db1
+     *
      * @var string
      */
     public $allowDatabases;
 
     /**
+     * @example dt1
+     *
      * @var string
      */
     public $allowDictionaries;
 
     /**
+     * @example cc-bp1p816075e21****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ddlAuthority;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $dmlAuthority;
@@ -59,6 +75,8 @@ class CreateAccountAndAuthorityRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -74,11 +92,15 @@ class CreateAccountAndAuthorityRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example db1,db2
+     *
      * @var string
      */
     public $totalDatabases;
 
     /**
+     * @example dt1,dt2
+     *
      * @var string
      */
     public $totalDictionaries;

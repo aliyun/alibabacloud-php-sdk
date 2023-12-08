@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsResponseBody extends Model
 {
     /**
+     * @example DF203CC8-5F68-5E3F-8050-3C77DD65731A
+     *
      * @var string
      */
     public $requestId;

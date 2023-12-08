@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class historyDetail extends Model
 {
     /**
+     * @example 100%
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $sourceDBCluster;
 
     /**
+     * @example Finished
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cc-bp13zkh9uw523****
+     *
      * @var string
      */
     public $targetDBCluster;

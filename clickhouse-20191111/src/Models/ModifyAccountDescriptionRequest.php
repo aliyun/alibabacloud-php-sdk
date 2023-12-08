@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountDescriptionRequest extends Model
 {
     /**
+     * @example ceshi
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;

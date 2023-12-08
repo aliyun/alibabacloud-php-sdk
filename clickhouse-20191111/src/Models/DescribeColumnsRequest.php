@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeColumnsRequest extends Model
 {
     /**
+     * @example cc-2zeux3ua25242****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -34,11 +36,15 @@ class DescribeColumnsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example database
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example table
+     *
      * @var string
      */
     public $tableName;

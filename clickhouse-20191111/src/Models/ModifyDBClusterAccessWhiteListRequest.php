@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterAccessWhiteListRequest extends Model
 {
     /**
+     * @example NULL
+     *
      * @var string
      */
     public $DBClusterIPArrayAttribute;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $DBClusterIPArrayName;
 
     /**
+     * @example cc-bp1qx68m06981****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example Cover
+     *
      * @var string
      */
     public $modifyMode;
@@ -49,6 +57,8 @@ class ModifyDBClusterAccessWhiteListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 192.168.xx.xx
+     *
      * @var string
      */
     public $securityIps;

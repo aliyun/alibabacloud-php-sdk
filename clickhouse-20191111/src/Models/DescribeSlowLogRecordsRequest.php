@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
+     * @example cc-bp1z58t881wcx****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example 2022-05-27 16:00:00
+     *
      * @var string
      */
     public $endTime;
@@ -29,21 +33,29 @@ class DescribeSlowLogRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $queryDurationMs;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -59,6 +71,8 @@ class DescribeSlowLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2022-05-20 16:00:00
+     *
      * @var string
      */
     public $startTime;

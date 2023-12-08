@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ResetAccountPasswordRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example 123456Ff
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;

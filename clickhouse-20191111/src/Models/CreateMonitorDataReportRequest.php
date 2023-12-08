@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorDataReportRequest extends Model
 {
     /**
+     * @example cc-bp13s14l8498l****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,6 +26,8 @@ class CreateMonitorDataReportRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

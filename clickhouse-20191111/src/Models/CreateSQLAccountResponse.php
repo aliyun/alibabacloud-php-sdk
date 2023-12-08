@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class OperateLorneTaskStatusResponse extends Model
+class CreateSQLAccountResponse extends Model
 {
     /**
      * @var string[]
@@ -14,17 +14,24 @@ class OperateLorneTaskStatusResponse extends Model
     public $headers;
 
     /**
-     * @var OperateLorneTaskStatusResponseBody
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @var CreateSQLAccountResponseBody
      */
     public $body;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
         Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
         Model::validateRequired('body', $this->body, true);
     }
 
@@ -33,6 +40,9 @@ class OperateLorneTaskStatusResponse extends Model
         $res = [];
         if (null !== $this->headers) {
             $res['headers'] = $this->headers;
+        }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toMap() : null;
@@ -44,7 +54,7 @@ class OperateLorneTaskStatusResponse extends Model
     /**
      * @param array $map
      *
-     * @return OperateLorneTaskStatusResponse
+     * @return CreateSQLAccountResponse
      */
     public static function fromMap($map = [])
     {
@@ -52,8 +62,11 @@ class OperateLorneTaskStatusResponse extends Model
         if (isset($map['headers'])) {
             $model->headers = $map['headers'];
         }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
         if (isset($map['body'])) {
-            $model->body = OperateLorneTaskStatusResponseBody::fromMap($map['body']);
+            $model->body = CreateSQLAccountResponseBody::fromMap($map['body']);
         }
 
         return $model;

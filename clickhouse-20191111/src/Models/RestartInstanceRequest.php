@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartInstanceRequest extends Model
 {
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,16 +26,22 @@ class RestartInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -47,6 +55,13 @@ class RestartInstanceRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @example 2020-02-02T00:00:50Z
+     *
+     * @var string
+     */
+    public $restartTime;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
         'ownerAccount'         => 'OwnerAccount',
@@ -56,6 +71,7 @@ class RestartInstanceRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'restartTime'          => 'RestartTime',
     ];
 
     public function validate()
@@ -88,6 +104,9 @@ class RestartInstanceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->restartTime) {
+            $res['RestartTime'] = $this->restartTime;
         }
 
         return $res;
@@ -124,6 +143,9 @@ class RestartInstanceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RestartTime'])) {
+            $model->restartTime = $map['RestartTime'];
         }
 
         return $model;

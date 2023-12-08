@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountAuthorityRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example db1
+     *
      * @var string
      */
     public $allowDatabases;
 
     /**
+     * @example dt1
+     *
      * @var string
      */
     public $allowDictionaries;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ddlAuthority;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $dmlAuthority;
@@ -49,6 +61,8 @@ class ModifyAccountAuthorityRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -64,11 +78,15 @@ class ModifyAccountAuthorityRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example db1,db2
+     *
      * @var string
      */
     public $totalDatabases;
 
     /**
+     * @example dt1,dt2
+     *
      * @var string
      */
     public $totalDictionaries;

@@ -17,11 +17,15 @@ class slowLogRecords extends Model
     public $data;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $rows;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $rowsBeforeLimitAtLeast;

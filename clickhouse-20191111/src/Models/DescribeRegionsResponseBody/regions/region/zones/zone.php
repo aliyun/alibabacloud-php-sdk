@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $vpcEnabled;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

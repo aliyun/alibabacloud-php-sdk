@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterConfigRequest extends Model
 {
     /**
+     * @example cc-bp1t9lbb7a4z7****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,11 +26,15 @@ class ModifyDBClusterConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +50,8 @@ class ModifyDBClusterConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example {"keep_alive_timeout":"301"}
+     *
      * @var string
      */
     public $userConfig;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class synDbs extends Model
 {
     /**
+     * @example ClickHouse exception, code: 49, host: 100.100.118.132, port: 49670; Code: 49, e.displayText() = DB::Exception: Logical error: there is no global context (version 20.8.17.25)n
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example rm-wz9d11qg1j0h4****
+     *
      * @var string
      */
     public $rdsId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $rdsUserName;
 
     /**
+     * @example rm-bp16t9h3999xb0a711****.mysql.rds.aliyuncs.com:3306
+     *
      * @var string
      */
     public $rdsVpcUrl;
 
     /**
+     * @example database
+     *
      * @var string
      */
     public $synDb;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $synStatus;

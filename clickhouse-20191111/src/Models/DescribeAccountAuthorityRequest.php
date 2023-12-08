@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountAuthorityRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example cc-bp1p816075e21****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -29,6 +33,8 @@ class DescribeAccountAuthorityRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

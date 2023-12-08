@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBConfigRequest extends Model
 {
     /**
+     * @example {"name":"test"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example cc-bp1r59y779o04****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -29,6 +33,8 @@ class ModifyDBConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

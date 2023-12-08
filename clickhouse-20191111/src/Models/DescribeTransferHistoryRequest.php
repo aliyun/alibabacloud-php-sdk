@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTransferHistoryRequest extends Model
 {
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckModifyConfigNeedRestartResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needRestart;
 
     /**
+     * @example 06798FEE-BEF2-5FAF-A30D-728973BBE97C
+     *
      * @var string
      */
     public $requestId;

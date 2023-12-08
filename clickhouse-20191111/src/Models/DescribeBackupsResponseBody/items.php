@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 2021-11-22T18:28:41Z
+     *
      * @var string
      */
     public $backupEndTime;
 
     /**
+     * @example 117403****
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @example Physical
+     *
      * @var string
      */
     public $backupMethod;
 
     /**
+     * @example {"shard_count"：4}
+     *
      * @var string
      */
     public $backupSetInfo;
 
     /**
+     * @example 131072
+     *
      * @var int
      */
     public $backupSize;
 
     /**
+     * @example 2021-11-22T18:28:22Z
+     *
      * @var string
      */
     public $backupStartTime;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @example IncrementalBackup
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @example cc-bp1qx68m06981****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example 2022-07-22T18:28:41Z
+     *
      * @var string
      */
     public $expireDate;

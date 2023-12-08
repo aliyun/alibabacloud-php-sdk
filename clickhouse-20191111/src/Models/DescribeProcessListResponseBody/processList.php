@@ -17,11 +17,15 @@ class processList extends Model
     public $data;
 
     /**
+     * @example 1145700
+     *
      * @var string
      */
     public $rows;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $rowsBeforeLimitAtLeast;

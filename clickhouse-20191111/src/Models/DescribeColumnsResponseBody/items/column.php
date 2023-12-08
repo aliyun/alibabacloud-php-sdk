@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class column extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoIncrementColumn;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example cc-2zeux3ua25242****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $primaryKey;
 
     /**
+     * @example database
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example table
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example String
+     *
      * @var string
      */
     public $type;

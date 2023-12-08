@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class tableDetail extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $cluster;
 
     /**
+     * @example db_name
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $detail;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $tableName;

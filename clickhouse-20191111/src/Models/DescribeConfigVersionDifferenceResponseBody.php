@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigVersionDifferenceResponseBody extends Model
 {
     /**
+     * @example "<?xml version="1.0"?>
+     * </yandex>"
      * @var string
      */
     public $newConfigXML;
 
     /**
+     * @example "<?xml version="1.0"?>
+     * </yandex>"
      * @var string
      */
     public $oldConfigXML;
 
     /**
+     * @example D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
+     *
      * @var string
      */
     public $requestId;

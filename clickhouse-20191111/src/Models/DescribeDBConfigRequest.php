@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBConfigRequest extends Model
 {
     /**
+     * @example cc-t4nw17nh2e4t2****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,6 +26,8 @@ class DescribeDBConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

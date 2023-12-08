@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateRDSToClickhouseDbRequest extends Model
 {
     /**
+     * @example 123456Aa
+     *
      * @var string
      */
     public $ckPassword;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $ckUserName;
 
     /**
+     * @example 8123
+     *
      * @var int
      */
     public $clickhousePort;
 
     /**
+     * @example cc-2ze5zeyl72188****
+     *
      * @var string
      */
     public $dbClusterId;
 
     /**
+     * @example 50000
+     *
      * @var int
      */
     public $limitUpper;
@@ -44,31 +54,43 @@ class CreateRDSToClickhouseDbRequest extends Model
     public $ownerId;
 
     /**
+     * @example rm-8vb989qj9roh0****
+     *
      * @var string
      */
     public $rdsId;
 
     /**
+     * @example 123456Rr
+     *
      * @var string
      */
     public $rdsPassword;
 
     /**
+     * @example 3306
+     *
      * @var int
      */
     public $rdsPort;
 
     /**
+     * @example user2
+     *
      * @var string
      */
     public $rdsUserName;
 
     /**
+     * @example vpc-2zen93xryil99jsfy****
+     *
      * @var string
      */
     public $rdsVpcId;
 
     /**
+     * @example rm-bp16t9h3999xb0a7****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $rdsVpcUrl;
@@ -84,11 +106,15 @@ class CreateRDSToClickhouseDbRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $skipUnsupported;
 
     /**
+     * @example [{"Schema":"recommend","Tables":["mr_platform_cpm","mr_platform_ecpm","p_monitor_record"]}]
+     *
      * @var string
      */
     public $synDbTables;

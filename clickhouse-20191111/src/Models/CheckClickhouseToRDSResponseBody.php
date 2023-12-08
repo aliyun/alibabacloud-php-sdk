@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CheckClickhouseToRDSResponseBody extends Model
 {
     /**
+     * @example NotSameVpc
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example A82758F8-E793-5610-BE11-0E46664305C2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $status;

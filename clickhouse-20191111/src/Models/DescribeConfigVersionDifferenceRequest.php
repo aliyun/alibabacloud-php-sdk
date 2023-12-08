@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigVersionDifferenceRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $changeId;
 
     /**
+     * @example cc-bp1tm8zf130ew****
+     *
      * @var string
      */
     public $DBClusterId;

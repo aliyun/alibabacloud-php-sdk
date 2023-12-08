@@ -15,6 +15,8 @@ class DescribeColumnsResponseBody extends Model
     public $items;
 
     /**
+     * @example 66428721-FFEC-5023-B4E5-3BD1B67837E0
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterDescriptionRequest extends Model
 {
     /**
+     * @example ClusterDescriptionTest
+     *
      * @var string
      */
     public $DBClusterDescription;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;

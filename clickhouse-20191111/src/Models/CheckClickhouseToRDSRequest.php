@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CheckClickhouseToRDSRequest extends Model
 {
     /**
+     * @example 123456Aa
+     *
      * @var string
      */
     public $ckPassword;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $ckUserName;
 
     /**
+     * @example 8123
+     *
      * @var int
      */
     public $clickhousePort;
 
     /**
+     * @example cc-2zeyy362b5sbm****
+     *
      * @var string
      */
     public $dbClusterId;
@@ -39,31 +47,43 @@ class CheckClickhouseToRDSRequest extends Model
     public $ownerId;
 
     /**
+     * @example rm-bp13v4bnwlu8j****
+     *
      * @var string
      */
     public $rdsId;
 
     /**
+     * @example 123456Rr
+     *
      * @var string
      */
     public $rdsPassword;
 
     /**
+     * @example 3306
+     *
      * @var int
      */
     public $rdsPort;
 
     /**
+     * @example user2
+     *
      * @var string
      */
     public $rdsUserName;
 
     /**
+     * @example vpc-wz9mm0qka0winfl47****
+     *
      * @var string
      */
     public $rdsVpcId;
 
     /**
+     * @example rm-bp16t9h3999xb0a7****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $rdsVpcUrl;

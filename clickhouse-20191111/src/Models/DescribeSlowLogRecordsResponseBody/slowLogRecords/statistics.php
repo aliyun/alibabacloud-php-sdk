@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $bytesRead;
 
     /**
+     * @example 21.35
+     *
      * @var float
      */
     public $elapsedTime;
 
     /**
+     * @example 2016722
+     *
      * @var int
      */
     public $rowsRead;

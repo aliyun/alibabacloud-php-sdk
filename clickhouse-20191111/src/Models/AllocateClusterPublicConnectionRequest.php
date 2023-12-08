@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AllocateClusterPublicConnectionRequest extends Model
 {
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -29,11 +33,15 @@ class DescribeAccountsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

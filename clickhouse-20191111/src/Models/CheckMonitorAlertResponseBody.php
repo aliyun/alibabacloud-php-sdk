@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CheckMonitorAlertResponseBody extends Model
 {
     /**
+     * @example {   "monitor":{     "key1":"value1",     "key2":"value2"   },   "alert":{     "key1":"value1",     "key2":"value2"   } }
+     *
      * @var string
      */
     public $parameter;
 
     /**
+     * @example 94F92113-FF63-5E57-8401-6FE123AD11DD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example enable
+     *
      * @var string
      */
     public $state;

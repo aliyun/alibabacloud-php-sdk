@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @example 7
+     *
      * @var string
      */
     public $backupRetentionPeriod;
 
     /**
+     * @example cc-bp1qx68m06981****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -29,11 +33,15 @@ class ModifyBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @example Monday
+     *
      * @var string
      */
     public $preferredBackupPeriod;
 
     /**
+     * @example 15:00Z-16:00Z
+     *
      * @var string
      */
     public $preferredBackupTime;

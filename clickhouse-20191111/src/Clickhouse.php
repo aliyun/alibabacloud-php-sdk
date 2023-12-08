@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateRDSToClickhouseDbRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateRDSToClickhouseDbResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateServiceLinkedRoleResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateSQLAccountRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateSQLAccountResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteDBClusterRequest;
@@ -725,10 +727,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *   *
+     * @param CreateBackupPolicyRequest $request CreateBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBackupPolicyResponse
+     * @return CreateBackupPolicyResponse CreateBackupPolicyResponse
      */
     public function createBackupPolicyWithOptions($request, $runtime)
     {
@@ -780,9 +784,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupPolicyRequest $request
+     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *   *
+     * @param CreateBackupPolicyRequest $request CreateBackupPolicyRequest
      *
-     * @return CreateBackupPolicyResponse
+     * @return CreateBackupPolicyResponse CreateBackupPolicyResponse
      */
     public function createBackupPolicy($request)
     {
@@ -852,6 +858,9 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -867,11 +876,23 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->VPCId)) {
             $query['VPCId'] = $request->VPCId;
         }
+        if (!Utils::isUnset($request->vSwitchBak)) {
+            $query['VSwitchBak'] = $request->vSwitchBak;
+        }
+        if (!Utils::isUnset($request->vSwitchBak2)) {
+            $query['VSwitchBak2'] = $request->vSwitchBak2;
+        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
+        if (!Utils::isUnset($request->zondIdBak2)) {
+            $query['ZondIdBak2'] = $request->zondIdBak2;
+        }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
+        }
+        if (!Utils::isUnset($request->zoneIdBak)) {
+            $query['ZoneIdBak'] = $request->zoneIdBak;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1169,6 +1190,73 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRDSToClickhouseDbWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSQLAccountRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSQLAccountResponse
+     */
+    public function createSQLAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
+        }
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
+        }
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSQLAccount',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSQLAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSQLAccountRequest $request
+     *
+     * @return CreateSQLAccountResponse
+     */
+    public function createSQLAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSQLAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -2273,6 +2361,9 @@ class Clickhouse extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -3904,6 +3995,9 @@ class Clickhouse extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->restartTime)) {
+            $query['RestartTime'] = $request->restartTime;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

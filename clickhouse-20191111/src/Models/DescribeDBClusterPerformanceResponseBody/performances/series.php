@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
+     * @example cc-bp125e3uu94wo1s0k16****
+     *
      * @var string
      */
     public $name;

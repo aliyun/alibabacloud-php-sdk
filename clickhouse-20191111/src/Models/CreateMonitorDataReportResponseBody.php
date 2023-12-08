@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorDataReportResponseBody extends Model
 {
     /**
+     * @example 94F92113-FF63-5E57-8401-6FE123AD11DD
+     *
      * @var string
      */
     public $requestId;

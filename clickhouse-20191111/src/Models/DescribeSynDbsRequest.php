@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynDbsRequest extends Model
 {
     /**
+     * @example cc-bp1ab22b80814****
+     *
      * @var string
      */
     public $dbClusterId;

@@ -6,17 +6,40 @@ namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeLorneLogRequest extends Model
+class CreateSQLAccountRequest extends Model
 {
     /**
      * @var string
      */
-    public $DBClusterId;
+    public $accountDescription;
 
     /**
+     * @example test
+     *
      * @var string
      */
-    public $endTime;
+    public $accountName;
+
+    /**
+     * @example Test1234
+     *
+     * @var string
+     */
+    public $accountPassword;
+
+    /**
+     * @example Super
+     *
+     * @var string
+     */
+    public $accountType;
+
+    /**
+     * @example cc-bp1p816075e21****
+     *
+     * @var string
+     */
+    public $DBClusterId;
 
     /**
      * @var string
@@ -29,21 +52,6 @@ class DescribeLorneLogRequest extends Model
     public $ownerId;
 
     /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -52,28 +60,16 @@ class DescribeLorneLogRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $taskId;
     protected $_name = [
+        'accountDescription'   => 'AccountDescription',
+        'accountName'          => 'AccountName',
+        'accountPassword'      => 'AccountPassword',
+        'accountType'          => 'AccountType',
         'DBClusterId'          => 'DBClusterId',
-        'endTime'              => 'EndTime',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'startTime'            => 'StartTime',
-        'taskId'               => 'TaskId',
     ];
 
     public function validate()
@@ -83,11 +79,20 @@ class DescribeLorneLogRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountDescription) {
+            $res['AccountDescription'] = $this->accountDescription;
+        }
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->accountPassword) {
+            $res['AccountPassword'] = $this->accountPassword;
+        }
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -95,26 +100,11 @@ class DescribeLorneLogRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -123,16 +113,25 @@ class DescribeLorneLogRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeLorneLogRequest
+     * @return CreateSQLAccountRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountDescription'])) {
+            $model->accountDescription = $map['AccountDescription'];
+        }
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['AccountPassword'])) {
+            $model->accountPassword = $map['AccountPassword'];
+        }
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -140,26 +139,11 @@ class DescribeLorneLogRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
         }
 
         return $model;

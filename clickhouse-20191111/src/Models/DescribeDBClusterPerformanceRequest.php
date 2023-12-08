@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterPerformanceRequest extends Model
 {
     /**
+     * @example cc-bp125e3uu94wo****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example 2021-11-27T16:38Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example MEM_USAGE
+     *
      * @var string
      */
     public $key;
@@ -44,6 +50,8 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2021-11-27T16:37Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TransferVersionRequest extends Model
 {
     /**
+     * @example cc-bp1tm8zf130ew****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,16 +26,22 @@ class TransferVersionRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,26 +57,36 @@ class TransferVersionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $sourceAccount;
 
     /**
+     * @example 123456Aa
+     *
      * @var string
      */
     public $sourcePassword;
 
     /**
+     * @example test01
+     *
      * @var string
      */
     public $targetAccount;
 
     /**
+     * @example cc-bp14b39djx7zg****
+     *
      * @var string
      */
     public $targetDbClusterId;
 
     /**
+     * @example 123456Ff
+     *
      * @var string
      */
     public $targetPassword;

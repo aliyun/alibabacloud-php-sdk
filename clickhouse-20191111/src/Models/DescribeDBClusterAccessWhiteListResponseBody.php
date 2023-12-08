@@ -15,6 +15,8 @@ class DescribeDBClusterAccessWhiteListResponseBody extends Model
     public $DBClusterAccessWhiteList;
 
     /**
+     * @example 905F13A4-5097-4897-A84D-527EC75FFF4F
+     *
      * @var string
      */
     public $requestId;

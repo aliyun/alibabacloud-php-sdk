@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class resultSet extends Model
 {
     /**
+     * @example ::ffff:10.1.XX.XX
+     *
      * @var string
      */
     public $initialAddress;
 
     /**
+     * @example 2dd144fd-4230-4249-b15c-e63f964fbb5a
+     *
      * @var string
      */
     public $initialQueryId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $initialUser;
 
     /**
+     * @example select * from test order by score limit 1;
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @example 2000
+     *
      * @var string
      */
     public $queryDurationMs;
 
     /**
+     * @example 2021-02-02T09:14:48Z
+     *
      * @var string
      */
     public $queryStartTime;

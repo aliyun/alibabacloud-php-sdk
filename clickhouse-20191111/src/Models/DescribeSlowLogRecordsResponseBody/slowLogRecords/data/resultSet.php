@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class resultSet extends Model
 {
     /**
+     * @example ::ffff:100.104.XX.XX
+     *
      * @var string
      */
     public $initialAddress;
 
     /**
+     * @example \"b51496f2-6b0b-4546-aff9-e17951cb9410\"
+     *
      * @var string
      */
     public $initialQueryId;
 
     /**
+     * @example test_users
+     *
      * @var string
      */
     public $initialUser;
 
     /**
+     * @example 1048576
+     *
      * @var string
      */
     public $memoryUsage;
 
     /**
+     * @example Select * from table
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @example 2000
+     *
      * @var string
      */
     public $queryDurationMs;
 
     /**
+     * @example 2022-05-22 20:00:01
+     *
      * @var string
      */
     public $queryStartTime;
 
     /**
+     * @example 1048576
+     *
      * @var string
      */
     public $readBytes;
 
     /**
+     * @example 10027008
+     *
      * @var string
      */
     public $readRows;
 
     /**
+     * @example 1024
+     *
      * @var string
      */
     public $resultBytes;
 
     /**
+     * @example QueryFinish
+     *
      * @var string
      */
     public $type;

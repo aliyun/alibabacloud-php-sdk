@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CheckScaleOutBalancedResponseBody extends Model
 {
     /**
+     * @example 400
+     *
      * @var string
      */
     public $checkCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example F5178C10-1407-4987-9133-DE4DC9119F75
+     *
      * @var string
      */
     public $requestId;
@@ -35,11 +43,15 @@ class CheckScaleOutBalancedResponseBody extends Model
     public $tableDetails;
 
     /**
+     * @example 21
+     *
      * @var string
      */
     public $timeDuration;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

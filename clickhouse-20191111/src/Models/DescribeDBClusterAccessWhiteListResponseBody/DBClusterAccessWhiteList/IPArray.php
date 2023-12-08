@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class IPArray extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $DBClusterIPArrayAttribute;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $DBClusterIPArrayName;
 
     /**
+     * @example 192.168.xx.xx,192.168.xx.xx
+     *
      * @var string
      */
     public $securityIPList;

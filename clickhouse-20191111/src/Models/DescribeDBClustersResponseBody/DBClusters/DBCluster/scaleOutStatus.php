@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class scaleOutStatus extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @example 0MB/60469MB
+     *
      * @var string
      */
     public $ratio;

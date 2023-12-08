@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyRDSToClickhouseDbRequest extends Model
 {
     /**
+     * @example 123456Aa
+     *
      * @var string
      */
     public $ckPassword;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $ckUserName;
 
     /**
+     * @example 8123
+     *
      * @var int
      */
     public $clickhousePort;
 
     /**
+     * @example cc-bp158i5wvj436****
+     *
      * @var string
      */
     public $dbClusterId;
 
     /**
+     * @example 50000
+     *
      * @var int
      */
     public $limitUpper;
@@ -44,36 +54,50 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $ownerId;
 
     /**
+     * @example rm-uf6x3qq4t90ok****
+     *
      * @var string
      */
     public $rdsId;
 
     /**
+     * @example 123456Rr
+     *
      * @var string
      */
     public $rdsPassword;
 
     /**
+     * @example 3306
+     *
      * @var int
      */
     public $rdsPort;
 
     /**
+     * @example database
+     *
      * @var string
      */
     public $rdsSynDb;
 
     /**
+     * @example table
+     *
      * @var string
      */
     public $rdsSynTables;
 
     /**
+     * @example user2
+     *
      * @var string
      */
     public $rdsUserName;
 
     /**
+     * @example vpc-bp1v9dtwmqqjhwwg****
+     *
      * @var string
      */
     public $rdsVpcId;
@@ -89,6 +113,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $skipUnsupported;

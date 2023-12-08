@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigHistoryRequest extends Model
 {
     /**
+     * @example cc-bp1p816075e21****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example 2022-08-22T10:06:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2022-08-11T06:27:00Z
+     *
      * @var string
      */
     public $startTime;

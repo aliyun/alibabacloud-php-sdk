@@ -11,109 +11,166 @@ use AlibabaCloud\Tea\Model;
 class DBCluster extends Model
 {
     /**
+     * @example 140692647406****
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example 26842
+     *
      * @var string
      */
     public $bid;
 
     /**
+     * @example Basic
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example clickhouse_go_public_cn
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example cc-bp1fs5o051c61****.clickhouse.ads.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $controlVersion;
 
     /**
+     * @example 2021-10-28T07:24:45Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $DBClusterDescription;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $DBClusterNetworkType;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $DBClusterStatus;
 
     /**
+     * @example C8
+     *
      * @var string
      */
     public $DBNodeClass;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $DBNodeCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $DBNodeStorage;
 
     /**
+     * @example 2011-05-30T12:11:4Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @var int
+     */
+    public $extStorageSize;
+
+    /**
+     * @var string
+     */
+    public $extStorageType;
+
+    /**
+     * @example false
+     *
      * @var string
      */
     public $isExpired;
 
     /**
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @example DISK_FULL
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 8123
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var scaleOutStatus
@@ -121,6 +178,8 @@ class DBCluster extends Model
     public $scaleOutStatus;
 
     /**
+     * @example CloudESSD
+     *
      * @var string
      */
     public $storageType;
@@ -131,21 +190,31 @@ class DBCluster extends Model
     public $tags;
 
     /**
+     * @example vsw-bp1gzt31twhlo0sa5****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp175iuvg8nxqraf2****
+     *
      * @var string
      */
     public $vpcCloudInstanceId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp175iuvg8nxqraf2****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
@@ -165,12 +234,15 @@ class DBCluster extends Model
         'DBNodeCount'          => 'DBNodeCount',
         'DBNodeStorage'        => 'DBNodeStorage',
         'expireTime'           => 'ExpireTime',
+        'extStorageSize'       => 'ExtStorageSize',
+        'extStorageType'       => 'ExtStorageType',
         'isExpired'            => 'IsExpired',
         'lockMode'             => 'LockMode',
         'lockReason'           => 'LockReason',
         'payType'              => 'PayType',
         'port'                 => 'Port',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'scaleOutStatus'       => 'ScaleOutStatus',
         'storageType'          => 'StorageType',
         'tags'                 => 'Tags',
@@ -232,6 +304,12 @@ class DBCluster extends Model
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+        if (null !== $this->extStorageSize) {
+            $res['ExtStorageSize'] = $this->extStorageSize;
+        }
+        if (null !== $this->extStorageType) {
+            $res['ExtStorageType'] = $this->extStorageType;
+        }
         if (null !== $this->isExpired) {
             $res['IsExpired'] = $this->isExpired;
         }
@@ -249,6 +327,9 @@ class DBCluster extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->scaleOutStatus) {
             $res['ScaleOutStatus'] = null !== $this->scaleOutStatus ? $this->scaleOutStatus->toMap() : null;
@@ -328,6 +409,12 @@ class DBCluster extends Model
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+        if (isset($map['ExtStorageSize'])) {
+            $model->extStorageSize = $map['ExtStorageSize'];
+        }
+        if (isset($map['ExtStorageType'])) {
+            $model->extStorageType = $map['ExtStorageType'];
+        }
         if (isset($map['IsExpired'])) {
             $model->isExpired = $map['IsExpired'];
         }
@@ -345,6 +432,9 @@ class DBCluster extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ScaleOutStatus'])) {
             $model->scaleOutStatus = scaleOutStatus::fromMap($map['ScaleOutStatus']);

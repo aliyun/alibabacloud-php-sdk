@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class KillProcessRequest extends Model
 {
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example SELECT * FROM `test01` ;
+     *
      * @var string
      */
     public $initialQueryId;
@@ -29,6 +33,8 @@ class KillProcessRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

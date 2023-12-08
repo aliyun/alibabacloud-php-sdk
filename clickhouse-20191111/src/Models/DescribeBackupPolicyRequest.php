@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyRequest extends Model
 {
     /**
+     * @example cc-bp1qx68m06981****
+     *
      * @var string
      */
     public $DBClusterId;

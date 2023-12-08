@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSyndbRequest extends Model
 {
     /**
+     * @example cc-bp158i5wvj436****
+     *
      * @var string
      */
     public $dbClusterId;
@@ -34,6 +36,8 @@ class DeleteSyndbRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example database
+     *
      * @var string
      */
     public $synDb;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynDbTablesRequest extends Model
 {
     /**
+     * @example cc-bp158i5wvj436****
+     *
      * @var string
      */
     public $dbClusterId;
@@ -34,6 +36,8 @@ class DescribeSynDbTablesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example database
+     *
      * @var string
      */
     public $synDb;

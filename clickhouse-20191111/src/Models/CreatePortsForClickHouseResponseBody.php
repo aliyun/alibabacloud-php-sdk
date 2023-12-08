@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePortsForClickHouseResponseBody extends Model
 {
     /**
+     * @example 2FED790E-FB61-4721-8C1C-07C627FA5A19
+     *
      * @var string
      */
     public $requestId;

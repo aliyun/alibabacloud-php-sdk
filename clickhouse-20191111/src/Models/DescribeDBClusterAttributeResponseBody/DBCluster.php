@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DBCluster extends Model
 {
     /**
+     * @example 140692647406****
+     *
      * @var string
      */
     public $aliUid;
@@ -18,162 +20,246 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $appointmentRestartTime;
+
+    /**
+     * @example 26842
+     *
+     * @var string
+     */
     public $bid;
 
     /**
+     * @example HighAvailability
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example clickhouse_go_public_cn
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example cc-bp1qx68m06981****.ads.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $controlVersion;
 
     /**
+     * @example 2021-12-13T11:33:11Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterDescription;
 
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $DBClusterNetworkType;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $DBClusterStatus;
 
     /**
+     * @example Common
+     *
      * @var string
      */
     public $DBClusterType;
 
     /**
+     * @example C8
+     *
      * @var string
      */
     public $DBNodeClass;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $DBNodeCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $DBNodeStorage;
 
     /**
+     * @example 685f416f-87c9-4554-8d3a-75b6ce25****
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @example CloudDisk
+     *
      * @var string
      */
     public $encryptionType;
 
     /**
+     * @example ClickHouse
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 1.34.0
+     *
      * @var string
      */
     public $engineLatestMinorVersion;
 
     /**
+     * @example 1.6.0
+     *
      * @var string
      */
     public $engineMinorVersion;
 
     /**
+     * @example 21.8.10.19
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example 2022-11-11T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @var int
+     */
+    public $extStorageSize;
+
+    /**
+     * @var string
+     */
+    public $extStorageType;
+
+    /**
+     * @example false
+     *
      * @var string
      */
     public $isExpired;
 
     /**
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @example DISK_FULL
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $maintainAutoType;
 
     /**
+     * @example 00:00Z-01:00Z
+     *
      * @var string
      */
     public $maintainTime;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 8123
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example cc-bp1199ya710s7****.public.clickhouse.ads.aliyuncs.com
+     *
      * @var string
      */
     public $publicConnectionString;
 
     /**
+     * @example 121.40.xx.xx
+     *
      * @var string
      */
     public $publicIpAddr;
 
     /**
+     * @example 3306
+     *
      * @var string
      */
     public $publicPort;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var scaleOutStatus
@@ -181,26 +267,36 @@ class DBCluster extends Model
     public $scaleOutStatus;
 
     /**
+     * @example CloudESSD
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $supportBackup;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $supportHttpsPort;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $supportMysqlPort;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $supportOss;
@@ -211,31 +307,54 @@ class DBCluster extends Model
     public $tags;
 
     /**
+     * @example vsw-bp1n874li1t5y57wi****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp10tr8k9qasioaty****
+     *
      * @var string
      */
     public $vpcCloudInstanceId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp10tr8k9qasioaty****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example 192.168.xx.xx
+     *
      * @var string
      */
     public $vpcIpAddr;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var mixed[]
+     */
+    public $zoneIdVswitchMap;
+
+    /**
+     * @var string
+     */
+    public $zookeeperClass;
     protected $_name = [
         'aliUid'                   => 'AliUid',
+        'appointmentRestartTime'   => 'AppointmentRestartTime',
         'bid'                      => 'Bid',
         'category'                 => 'Category',
         'commodityCode'            => 'CommodityCode',
@@ -257,6 +376,8 @@ class DBCluster extends Model
         'engineMinorVersion'       => 'EngineMinorVersion',
         'engineVersion'            => 'EngineVersion',
         'expireTime'               => 'ExpireTime',
+        'extStorageSize'           => 'ExtStorageSize',
+        'extStorageType'           => 'ExtStorageType',
         'isExpired'                => 'IsExpired',
         'lockMode'                 => 'LockMode',
         'lockReason'               => 'LockReason',
@@ -268,6 +389,7 @@ class DBCluster extends Model
         'publicIpAddr'             => 'PublicIpAddr',
         'publicPort'               => 'PublicPort',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'scaleOutStatus'           => 'ScaleOutStatus',
         'storageType'              => 'StorageType',
         'supportBackup'            => 'SupportBackup',
@@ -280,6 +402,8 @@ class DBCluster extends Model
         'vpcId'                    => 'VpcId',
         'vpcIpAddr'                => 'VpcIpAddr',
         'zoneId'                   => 'ZoneId',
+        'zoneIdVswitchMap'         => 'ZoneIdVswitchMap',
+        'zookeeperClass'           => 'ZookeeperClass',
     ];
 
     public function validate()
@@ -291,6 +415,9 @@ class DBCluster extends Model
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
+        }
+        if (null !== $this->appointmentRestartTime) {
+            $res['AppointmentRestartTime'] = $this->appointmentRestartTime;
         }
         if (null !== $this->bid) {
             $res['Bid'] = $this->bid;
@@ -355,6 +482,12 @@ class DBCluster extends Model
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+        if (null !== $this->extStorageSize) {
+            $res['ExtStorageSize'] = $this->extStorageSize;
+        }
+        if (null !== $this->extStorageType) {
+            $res['ExtStorageType'] = $this->extStorageType;
+        }
         if (null !== $this->isExpired) {
             $res['IsExpired'] = $this->isExpired;
         }
@@ -387,6 +520,9 @@ class DBCluster extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->scaleOutStatus) {
             $res['ScaleOutStatus'] = null !== $this->scaleOutStatus ? $this->scaleOutStatus->toMap() : null;
@@ -424,6 +560,12 @@ class DBCluster extends Model
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
+        if (null !== $this->zoneIdVswitchMap) {
+            $res['ZoneIdVswitchMap'] = $this->zoneIdVswitchMap;
+        }
+        if (null !== $this->zookeeperClass) {
+            $res['ZookeeperClass'] = $this->zookeeperClass;
+        }
 
         return $res;
     }
@@ -438,6 +580,9 @@ class DBCluster extends Model
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
+        }
+        if (isset($map['AppointmentRestartTime'])) {
+            $model->appointmentRestartTime = $map['AppointmentRestartTime'];
         }
         if (isset($map['Bid'])) {
             $model->bid = $map['Bid'];
@@ -502,6 +647,12 @@ class DBCluster extends Model
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+        if (isset($map['ExtStorageSize'])) {
+            $model->extStorageSize = $map['ExtStorageSize'];
+        }
+        if (isset($map['ExtStorageType'])) {
+            $model->extStorageType = $map['ExtStorageType'];
+        }
         if (isset($map['IsExpired'])) {
             $model->isExpired = $map['IsExpired'];
         }
@@ -534,6 +685,9 @@ class DBCluster extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ScaleOutStatus'])) {
             $model->scaleOutStatus = scaleOutStatus::fromMap($map['ScaleOutStatus']);
@@ -570,6 +724,12 @@ class DBCluster extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['ZoneIdVswitchMap'])) {
+            $model->zoneIdVswitchMap = $map['ZoneIdVswitchMap'];
+        }
+        if (isset($map['ZookeeperClass'])) {
+            $model->zookeeperClass = $map['ZookeeperClass'];
         }
 
         return $model;

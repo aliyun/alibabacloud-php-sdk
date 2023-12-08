@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeMinorVersionRequest extends Model
 {
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -34,16 +36,22 @@ class UpgradeMinorVersionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $upgradeImmediately;
 
     /**
+     * @example 2022-08-07T16:38Z
+     *
      * @var string
      */
     public $upgradeTime;
 
     /**
+     * @example 1.37.0
+     *
      * @var string
      */
     public $upgradeVersion;

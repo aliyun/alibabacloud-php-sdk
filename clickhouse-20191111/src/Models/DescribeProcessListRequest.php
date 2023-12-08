@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeProcessListRequest extends Model
 {
     /**
+     * @example cc-bp1190tj036am****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example 6c69d508-f05f-4c74-857c-d982b7e7e79f
+     *
      * @var string
      */
     public $initialQueryId;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $initialUser;
 
     /**
+     * @example join
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example elapsed
+     *
      * @var string
      */
     public $order;
@@ -44,21 +54,29 @@ class DescribeProcessListRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $queryDurationMs;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

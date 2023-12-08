@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class configHistoryItems extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $changeId;
 
     /**
+     * @example 253460731706911258
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 2022-08-22T10:00:00Z
+     *
      * @var string
      */
     public $time;

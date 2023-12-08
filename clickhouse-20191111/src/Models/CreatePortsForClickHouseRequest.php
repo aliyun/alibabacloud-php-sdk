@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePortsForClickHouseRequest extends Model
 {
     /**
+     * @example cc-bp108z124a8o7****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,11 +26,15 @@ class CreatePortsForClickHouseRequest extends Model
     public $ownerId;
 
     /**
+     * @example mysql_port
+     *
      * @var string
      */
     public $portType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

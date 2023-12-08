@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteSyndbResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example ClickHouse exception, code: 49, host: 100.100.xx.xx, port: 49670; Code: 49, e.displayText() = DB::Exception: Logical error: there is no global context (version 20.8.17.25)n
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example 2C7393F1-5FD1-5CEE-A2EA-270A2CF99693
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $status;

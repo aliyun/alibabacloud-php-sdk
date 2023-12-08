@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynDbTablesResponseBody extends Model
 {
     /**
+     * @example 851D11EA-681C-5B38-A065-C3F90BBD49DE
+     *
      * @var string
      */
     public $requestId;

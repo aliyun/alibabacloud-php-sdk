@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRDSToClickhouseDbResponseBody extends Model
 {
     /**
+     * @example ClickHouse exception, code: 49, host: 100.100.79.102, port: 14540; Code: 49, e.displayText() = DB::Exception: Logical error: there is no global context (version 20.8.17.25)n
+     *
      * @var string
      */
     public $errorMsg;
@@ -19,11 +21,15 @@ class CreateRDSToClickhouseDbResponseBody extends Model
     public $repeatedDbs;
 
     /**
+     * @example 66676F54-1994-5DCF-993F-74536649628A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterPerformanceResponseBody extends Model
 {
     /**
+     * @example cc-bp125e3uu94wo****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example 2021-11-27T16:38Z
+     *
      * @var string
      */
     public $endTime;
@@ -25,11 +29,15 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $performances;
 
     /**
+     * @example FE242962-6DA3-5FC8-9691-37B62A3210F7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2021-11-27T16:37Z
+     *
      * @var string
      */
     public $startTime;
