@@ -1,0 +1,77 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageResponseBody\data\jobAcuUsage;
+
+use AlibabaCloud\Tea\Model;
+
+class acuUsageDetail extends Model
+{
+    /**
+     * @example 16ACU
+     *
+     * @var float
+     */
+    public $elasticAcuNumber;
+
+    /**
+     * @example 16ACU
+     *
+     * @var float
+     */
+    public $reservedAcuNumber;
+
+    /**
+     * @example 32ACU
+     *
+     * @var float
+     */
+    public $totalAcuNumber;
+    protected $_name = [
+        'elasticAcuNumber'  => 'ElasticAcuNumber',
+        'reservedAcuNumber' => 'ReservedAcuNumber',
+        'totalAcuNumber'    => 'TotalAcuNumber',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->elasticAcuNumber) {
+            $res['ElasticAcuNumber'] = $this->elasticAcuNumber;
+        }
+        if (null !== $this->reservedAcuNumber) {
+            $res['ReservedAcuNumber'] = $this->reservedAcuNumber;
+        }
+        if (null !== $this->totalAcuNumber) {
+            $res['TotalAcuNumber'] = $this->totalAcuNumber;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return acuUsageDetail
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['ElasticAcuNumber'])) {
+            $model->elasticAcuNumber = $map['ElasticAcuNumber'];
+        }
+        if (isset($map['ReservedAcuNumber'])) {
+            $model->reservedAcuNumber = $map['ReservedAcuNumber'];
+        }
+        if (isset($map['TotalAcuNumber'])) {
+            $model->totalAcuNumber = $map['TotalAcuNumber'];
+        }
+
+        return $model;
+    }
+}

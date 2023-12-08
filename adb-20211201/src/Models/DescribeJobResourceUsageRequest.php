@@ -6,27 +6,32 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSparkAppInfoRequest extends Model
+class DescribeJobResourceUsageRequest extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * >  You can call the [ListSparkApps](~~455888~~) operation to query the Spark application IDs.
-     * @example s202205201533hz1209892000****
-     *
-     * @var string
-     */
-    public $appId;
-
-    /**
-     * @example am-bp11q28kvl688****
+     * @example am-uf6g8w25jacm7****
      *
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @example 2023-03-17T16:00:00Z
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @example 2023-02-04T03:45:00Z
+     *
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'appId'       => 'AppId',
         'DBClusterId' => 'DBClusterId',
+        'endTime'     => 'EndTime',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -36,11 +41,14 @@ class GetSparkAppInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -49,16 +57,19 @@ class GetSparkAppInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSparkAppInfoRequest
+     * @return DescribeJobResourceUsageRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnabledPrivilegesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accountName;
+
+    /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
      * @example amv-bp14t95lun0w****
@@ -26,6 +31,7 @@ class DescribeEnabledPrivilegesRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
         'regionId'    => 'RegionId',
     ];
@@ -37,6 +43,9 @@ class DescribeEnabledPrivilegesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -55,6 +64,9 @@ class DescribeEnabledPrivilegesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }

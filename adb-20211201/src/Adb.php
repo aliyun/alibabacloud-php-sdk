@@ -66,12 +66,22 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsResourceGroupsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsResourceGroupsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAuditLogRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAuditLogRecordsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeBackupPolicyRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeBackupPolicyResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeBackupsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeBackupsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterAccessWhiteListRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterAccessWhiteListResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterResourceDetailRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterResourceDetailResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterResourceUsageRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterResourceUsageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeColumnsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeColumnsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeComputeResourceUsageRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeComputeResourceUsageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterAttributeRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterAttributeResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterHealthStatusRequest;
@@ -102,6 +112,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeElasticPlansRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeElasticPlansResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEnabledPrivilegesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEnabledPrivilegesResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribePatternPerformanceRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribePatternPerformanceResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeRegionsRequest;
@@ -118,6 +130,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSqlPatternRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSqlPatternResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSQLPatternsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSQLPatternsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeStorageResourceUsageRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeStorageResourceUsageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableAccessCountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableAccessCountResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTablesRequest;
@@ -188,6 +202,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkLogAnalyzeTasksRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkLogAnalyzeTasksResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkTemplateFileIdsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkTemplateFileIdsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\LoadSampleDataSetRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\LoadSampleDataSetResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountPrivilegesRequest;
@@ -195,6 +211,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountPrivilegesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountPrivilegesShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAuditLogConfigRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAuditLogConfigResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyBackupPolicyRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyClusterAccessWhiteListRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyClusterAccessWhiteListResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyClusterConnectionStringRequest;
@@ -1970,6 +1988,131 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeBackupPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupPolicyResponse
+     */
+    public function describeBackupPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupPolicy',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupPolicyRequest $request
+     *
+     * @return DescribeBackupPolicyResponse
+     */
+    public function describeBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeBackupsResponse
+     */
+    public function describeBackupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackups',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupsRequest $request
+     *
+     * @return DescribeBackupsResponse
+     */
+    public function describeBackups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeClusterAccessWhiteListRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -2059,6 +2202,89 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeClusterResourceDetailRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeClusterResourceDetailResponse
+     */
+    public function describeClusterResourceDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterResourceDetail',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterResourceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterResourceDetailRequest $request
+     *
+     * @return DescribeClusterResourceDetailResponse
+     */
+    public function describeClusterResourceDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterResourceDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClusterResourceUsageRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeClusterResourceUsageResponse
+     */
+    public function describeClusterResourceUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterResourceUsage',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterResourceUsageRequest $request
+     *
+     * @return DescribeClusterResourceUsageResponse
+     */
+    public function describeClusterResourceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterResourceUsageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeColumnsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2108,6 +2334,58 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeColumnsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeComputeResourceUsageRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeComputeResourceUsageResponse
+     */
+    public function describeComputeResourceUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeComputeResourceUsage',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeComputeResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeComputeResourceUsageRequest $request
+     *
+     * @return DescribeComputeResourceUsageResponse
+     */
+    public function describeComputeResourceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeComputeResourceUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -2918,6 +3196,55 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeJobResourceUsageRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeJobResourceUsageResponse
+     */
+    public function describeJobResourceUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeJobResourceUsage',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeJobResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeJobResourceUsageRequest $request
+     *
+     * @return DescribeJobResourceUsageResponse
+     */
+    public function describeJobResourceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeJobResourceUsageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePatternPerformanceRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -3349,6 +3676,55 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSqlPatternWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeStorageResourceUsageRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeStorageResourceUsageResponse
+     */
+    public function describeStorageResourceUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStorageResourceUsage',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeStorageResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeStorageResourceUsageRequest $request
+     *
+     * @return DescribeStorageResourceUsageResponse
+     */
+    public function describeStorageResourceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStorageResourceUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -5124,6 +5500,49 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param LoadSampleDataSetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return LoadSampleDataSetResponse
+     */
+    public function loadSampleDataSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LoadSampleDataSet',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LoadSampleDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param LoadSampleDataSetRequest $request
+     *
+     * @return LoadSampleDataSetResponse
+     */
+    public function loadSampleDataSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->loadSampleDataSetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyAccountDescriptionRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -5288,6 +5707,76 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAuditLogConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyBackupPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyBackupPolicyResponse
+     */
+    public function modifyBackupPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupRetentionPeriod)) {
+            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->enableBackupLog)) {
+            $query['EnableBackupLog'] = $request->enableBackupLog;
+        }
+        if (!Utils::isUnset($request->logBackupRetentionPeriod)) {
+            $query['LogBackupRetentionPeriod'] = $request->logBackupRetentionPeriod;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->preferredBackupPeriod)) {
+            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        }
+        if (!Utils::isUnset($request->preferredBackupTime)) {
+            $query['PreferredBackupTime'] = $request->preferredBackupTime;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBackupPolicy',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyBackupPolicyRequest $request
+     *
+     * @return ModifyBackupPolicyResponse
+     */
+    public function modifyBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBackupPolicyWithOptions($request, $runtime);
     }
 
     /**

@@ -9,20 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetSparkAppInfoResponseBody extends Model
 {
     /**
-     * @description Details of the Spark application. Fields in the response parameter:
+     * @description The queried Spark application. Fields in the response parameter:
      *
-     * - **Data**: the data of the Spark application template.
-     * - **EstimateExecutionCpuTimeInSeconds**: the amount of time it takes to consume CPU resources for running the Spark application. Unit: milliseconds.
-     * - **LogRootPath**: the storage path of log files.
-     * - **LastAttemptId**: the most recent attempt ID.
-     * - **WebUiAddress**: the web UI URL.
-     * - **SubmittedTimeInMillis**: the time when the Spark application was submitted. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
-     * - **StartedTimeInMillis**: the time when the Spark application was created. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
-     * - **LastUpdatedTimeInMillis**: the time when the Spark application was last updated. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
-     * - **TerminatedTimeInMillis**: the time when the Spark application task was terminated. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
-     * - **DBClusterId**: the ID of the cluster on which the Spark application runs.
-     * - **ResourceGroupName**: the name of the job resource group.
-     * - **DurationInMillis**: the amount of time it takes to run the Spark application. Unit: milliseconds.
+     *   **Data**: the data of the Spark application template.
+     *   **EstimateExecutionCpuTimeInSeconds**: the amount of time that is required to consume CPU resources for running the Spark application. Unit: milliseconds.
+     *   **LogRootPath**: the storage path of log files.
+     *   **LastAttemptId**: the most recent attempt ID.
+     *   **WebUiAddress**: the web UI URL.
+     *   **SubmittedTimeInMillis**: the time when the Spark application was submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *   **StartedTimeInMillis**: the time when the Spark application was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *   **LastUpdatedTimeInMillis**: the time when the Spark application was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *   **TerminatedTimeInMillis**: the time when the Spark application was terminated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *   **DBClusterId**: the ID of the cluster on which the Spark application runs.
+     *   **ResourceGroupName**: the name of the job resource group.
+     *   **DurationInMillis**: the amount of time that is required to run the Spark application. Unit: milliseconds.
+     *
      * @example {     \"name\": \"SparkPi\",     \"file\": \"local:///tmp/spark-examples.jar\",     \"className\": \"org.apache.spark.examples.SparkPi\",     \"args\": [         \"1000000\"     ],     \"conf\": {         \"spark.driver.resourceSpec\": \"small\",         \"spark.executor.instances\": 1,         \"spark.executor.resourceSpec\": \"small\"     } }",
      * }
      * @var SparkAppInfo
@@ -30,7 +31,7 @@ class GetSparkAppInfoResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D65A809F-34CE-4550-9BC1-0ED21ETG380
      *

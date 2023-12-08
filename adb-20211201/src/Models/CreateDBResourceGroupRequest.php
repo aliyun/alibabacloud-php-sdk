@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDBResourceGroupRequest extends Model
 {
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $clusterMode;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $clusterSizeResource;
@@ -54,6 +62,10 @@ class CreateDBResourceGroupRequest extends Model
     public $groupType;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var int
      */
     public $maxClusterCount;
@@ -71,15 +83,19 @@ class CreateDBResourceGroupRequest extends Model
     public $maxComputeResource;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var int
      */
     public $minClusterCount;
 
     /**
-     * @description The minimum reserved computing resources. Unit: AnalyticDB Compute Unit (ACU).
+     * @description The minimum reserved computing resources. Unit: AnalyticDB Compute Units (ACUs).
      *
-     *   If GroupType is set to Interactive, set the value to 16ACU.
-     *   If GroupType is set to Job, set the value to 0ACU.
+     *   When GroupType is set to Interactive, set this parameter to 16 ACUs.
+     *   When GroupType is set to Job, set this parameter to 0 ACUs.
      *
      * @example 0
      *

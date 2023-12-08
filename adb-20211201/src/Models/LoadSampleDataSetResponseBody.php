@@ -6,27 +6,24 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSparkAppInfoRequest extends Model
+class LoadSampleDataSetResponseBody extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * >  You can call the [ListSparkApps](~~455888~~) operation to query the Spark application IDs.
-     * @example s202205201533hz1209892000****
-     *
-     * @var string
-     */
-    public $appId;
-
-    /**
-     * @example am-bp11q28kvl688****
+     * @example amv-2ze0z517o1mgp66a
      *
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @example FA31BE84-ABE8-554A-A769-5F860C34EE10
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'appId'       => 'AppId',
         'DBClusterId' => 'DBClusterId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -36,11 +33,11 @@ class GetSparkAppInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,16 +46,16 @@ class GetSparkAppInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSparkAppInfoRequest
+     * @return LoadSampleDataSetResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
