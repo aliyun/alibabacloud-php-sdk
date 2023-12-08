@@ -11,7 +11,7 @@ class GetInternetTupleShrinkRequest extends Model
     /**
      * @description The IDs of member accounts.
      *
-     * @var string[]
+     * @var int[]
      */
     public $accountIds;
 
