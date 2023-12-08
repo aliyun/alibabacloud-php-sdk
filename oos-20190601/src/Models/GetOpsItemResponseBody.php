@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetOpsItemResponseBody extends Model
 {
     /**
+     * @description The information about the O\&M item.
+     *
      * @var opsItem
      */
     public $opsItem;
 
     /**
+     * @description The request ID.
+     *
      * @example 8BED4C16-BD30-5E27-94D4-7EBCCECF70C1
      *
      * @var string

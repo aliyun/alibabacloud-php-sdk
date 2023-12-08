@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateOpsItemResponseBody extends Model
 {
     /**
+     * @description The information about the O\&M item.
+     *
      * @var opsItem
      */
     public $opsItem;
 
     /**
+     * @description The request ID.
+     *
      * @example C996DECB-3D2B-5321-B359-BE7031B6399E
      *
      * @var string

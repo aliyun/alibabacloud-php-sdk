@@ -63,7 +63,7 @@ class patchBaseline extends Model
     public $name;
 
     /**
-     * @description The type of the operating system.
+     * @description The operating system.
      *
      * @example Windows
      *
@@ -72,6 +72,10 @@ class patchBaseline extends Model
     public $operationSystem;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm4dpaq2yox6q
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class opsItem extends Model
 {
     /**
+     * @description The attributes of the O\&M item.
+     *
+     * @example [{\"Attribute\": {\"Weight\": 100}, \"RealServer\": \"uaejc8hnqzqz5valyh8dibolpvza48ik.yundunwaf5.com\"}]
+     *
      * @var string
      */
     public $attributes;
 
     /**
+     * @description The category.
+     *
      * @example Security
      *
      * @var string
@@ -21,6 +27,8 @@ class opsItem extends Model
     public $category;
 
     /**
+     * @description The time when the O\&M item was created.
+     *
      * @example 2023-03-16T07:04Z
      *
      * @var string
@@ -28,6 +36,8 @@ class opsItem extends Model
     public $createDate;
 
     /**
+     * @description The user who created the patch baseline.
+     *
      * @example root(130900000)
      *
      * @var string
@@ -35,6 +45,8 @@ class opsItem extends Model
     public $createdBy;
 
     /**
+     * @description The description.
+     *
      * @example test-update
      *
      * @var string
@@ -42,6 +54,8 @@ class opsItem extends Model
     public $description;
 
     /**
+     * @description The user who modified the O\&M item.
+     *
      * @example root(130900000)
      *
      * @var string
@@ -49,6 +63,8 @@ class opsItem extends Model
     public $lastModifiedBy;
 
     /**
+     * @description The ID of the O\&M item.
+     *
      * @example oi-e2264dcf040c472598e9
      *
      * @var string
@@ -56,6 +72,8 @@ class opsItem extends Model
     public $opsItemId;
 
     /**
+     * @description The priority.
+     *
      * @example 2
      *
      * @var int
@@ -63,6 +81,8 @@ class opsItem extends Model
     public $priority;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxsn4m4******
      *
      * @var string
@@ -70,11 +90,15 @@ class opsItem extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ARNs of the associated resources.
+     *
      * @var string[]
      */
     public $resources;
 
     /**
+     * @description The severity level.
+     *
      * @example Medium
      *
      * @var string
@@ -82,11 +106,15 @@ class opsItem extends Model
     public $severity;
 
     /**
+     * @description The solutions.
+     *
      * @var string[]
      */
     public $solutions;
 
     /**
+     * @description The source business.
+     *
      * @example /aliyun/ecs
      *
      * @var string
@@ -94,6 +122,8 @@ class opsItem extends Model
     public $source;
 
     /**
+     * @description The status.
+     *
      * @example Open
      *
      * @var string
@@ -101,6 +131,8 @@ class opsItem extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @example {
      * }
      * @var mixed[]
@@ -108,6 +140,8 @@ class opsItem extends Model
     public $tags;
 
     /**
+     * @description The title of the O\&M item.
+     *
      * @example Test
      *
      * @var string
@@ -115,6 +149,8 @@ class opsItem extends Model
     public $title;
 
     /**
+     * @description The time when the O\&M item was updated.
+     *
      * @example 2023-03-16T08:04Z
      *
      * @var string

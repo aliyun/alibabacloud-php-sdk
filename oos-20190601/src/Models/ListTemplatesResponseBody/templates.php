@@ -18,6 +18,11 @@ class templates extends Model
     public $category;
 
     /**
+     * @var string
+     */
+    public $constraints;
+
+    /**
      * @description The user who created the template.
      *
      * @example root(1309200)
@@ -63,6 +68,11 @@ class templates extends Model
     public $hash;
 
     /**
+     * @var bool
+     */
+    public $isFavorite;
+
+    /**
      * @description The popularity of the public template. Valid values: **1-10**. A greater value indicates higher popularity. If the **ShareType** parameter is set to **Private**, the value of this parameter is `-1`.
      *
      **Notes** This parameter is valid only if the value of the **ShareType** parameter is set to **Public**.
@@ -72,6 +82,11 @@ class templates extends Model
      * @var int
      */
     public $popularity;
+
+    /**
+     * @var string
+     */
+    public $publisher;
 
     /**
      * @description The ID of the resource group.
@@ -177,12 +192,15 @@ class templates extends Model
     public $updatedDate;
     protected $_name = [
         'category'            => 'Category',
+        'constraints'         => 'Constraints',
         'createdBy'           => 'CreatedBy',
         'createdDate'         => 'CreatedDate',
         'description'         => 'Description',
         'hasTrigger'          => 'HasTrigger',
         'hash'                => 'Hash',
+        'isFavorite'          => 'IsFavorite',
         'popularity'          => 'Popularity',
+        'publisher'           => 'Publisher',
         'resourceGroupId'     => 'ResourceGroupId',
         'shareType'           => 'ShareType',
         'tags'                => 'Tags',
@@ -206,6 +224,9 @@ class templates extends Model
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+        if (null !== $this->constraints) {
+            $res['Constraints'] = $this->constraints;
+        }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
         }
@@ -221,8 +242,14 @@ class templates extends Model
         if (null !== $this->hash) {
             $res['Hash'] = $this->hash;
         }
+        if (null !== $this->isFavorite) {
+            $res['IsFavorite'] = $this->isFavorite;
+        }
         if (null !== $this->popularity) {
             $res['Popularity'] = $this->popularity;
+        }
+        if (null !== $this->publisher) {
+            $res['Publisher'] = $this->publisher;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -272,6 +299,9 @@ class templates extends Model
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+        if (isset($map['Constraints'])) {
+            $model->constraints = $map['Constraints'];
+        }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
         }
@@ -287,8 +317,14 @@ class templates extends Model
         if (isset($map['Hash'])) {
             $model->hash = $map['Hash'];
         }
+        if (isset($map['IsFavorite'])) {
+            $model->isFavorite = $map['IsFavorite'];
+        }
         if (isset($map['Popularity'])) {
             $model->popularity = $map['Popularity'];
+        }
+        if (isset($map['Publisher'])) {
+            $model->publisher = $map['Publisher'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

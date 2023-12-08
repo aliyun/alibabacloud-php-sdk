@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class opsItem extends Model
 {
     /**
+     * @description The information about the attributes of the O\&M item.
+     *
      * @var mixed[]
      */
     public $attributes;
 
     /**
+     * @description The category of the O\&M item.
+     *
      * @example Security
      *
      * @var string
@@ -21,6 +25,8 @@ class opsItem extends Model
     public $category;
 
     /**
+     * @description The user who created the O\&M item.
+     *
      * @example root(130900000)
      *
      * @var string
@@ -28,6 +34,8 @@ class opsItem extends Model
     public $createBy;
 
     /**
+     * @description The time when the O\&M item was created.
+     *
      * @example 2023-04-10T06:15Z
      *
      * @var string
@@ -35,11 +43,15 @@ class opsItem extends Model
     public $createDate;
 
     /**
+     * @description The duplicated string.
+     *
      * @var string
      */
     public $dedupString;
 
     /**
+     * @description The description.
+     *
      * @example test-update
      *
      * @var string
@@ -47,11 +59,17 @@ class opsItem extends Model
     public $description;
 
     /**
+     * @description The user who last modified the O\&M item.
+     *
+     * @example modifiedBy
+     *
      * @var string
      */
     public $lastModifiedBy;
 
     /**
+     * @description The O\&M item ID.
+     *
      * @example oi-d52b08695e2b46ae8413
      *
      * @var string
@@ -59,6 +77,8 @@ class opsItem extends Model
     public $opsItemId;
 
     /**
+     * @description The priority of the O\&M item.
+     *
      * @example 1
      *
      * @var int
@@ -66,6 +86,8 @@ class opsItem extends Model
     public $priority;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-aekzxkofnlxtn2i
      *
      * @var string
@@ -73,11 +95,15 @@ class opsItem extends Model
     public $resourceGroupId;
 
     /**
+     * @description The Alibaba Cloud Resource Names (ARNs) of the associated resources.
+     *
      * @var string[]
      */
     public $resources;
 
     /**
+     * @description The severity level of the O\&M item.
+     *
      * @example Medium
      *
      * @var string
@@ -85,11 +111,15 @@ class opsItem extends Model
     public $severity;
 
     /**
+     * @description The solutions to the O\&M item.
+     *
      * @var mixed[][]
      */
     public $solutions;
 
     /**
+     * @description The source business of the O\&M item.
+     *
      * @example /aliyun/appManager
      *
      * @var string
@@ -97,6 +127,8 @@ class opsItem extends Model
     public $source;
 
     /**
+     * @description The status of the O\&M item.
+     *
      * @example Open
      *
      * @var string
@@ -104,6 +136,8 @@ class opsItem extends Model
     public $status;
 
     /**
+     * @description The tags attached to the O\&M item.
+     *
      * @example {"K1":"V1"}
      *
      * @var mixed[]
@@ -111,6 +145,8 @@ class opsItem extends Model
     public $tags;
 
     /**
+     * @description The title of the O\&M item.
+     *
      * @example test
      *
      * @var string
@@ -118,6 +154,8 @@ class opsItem extends Model
     public $title;
 
     /**
+     * @description The time when the O\&M item was updated.
+     *
      * @example 2023-04-10T06:15Z
      *
      * @var string

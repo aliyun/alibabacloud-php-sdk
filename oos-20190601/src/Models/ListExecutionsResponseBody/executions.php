@@ -98,6 +98,8 @@ class executions extends Model
     public $lastSuccessfulTriggerTime;
 
     /**
+     * @description The outputs of last trigger.
+     *
      * @example {
      * }
      * @var string
@@ -114,6 +116,8 @@ class executions extends Model
     public $lastTriggerStatus;
 
     /**
+     * @description The status message of last trigger.
+     *
      * @example ""
      *
      * @var string

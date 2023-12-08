@@ -16,7 +16,7 @@ class ListPatchBaselinesShrinkRequest extends Model
     public $approvedPatchesShrink;
 
     /**
-     * @description Whether the approved patch includes updates other than security.
+     * @description Specifies whether the approved patch involves updates other than security-related updates.
      *
      * @example true
      *
@@ -79,6 +79,10 @@ class ListPatchBaselinesShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -96,7 +100,7 @@ class ListPatchBaselinesShrinkRequest extends Model
     public $shareType;
 
     /**
-     * @description The list of patch source configurations.
+     * @description The patch source configurations.
      *
      * @var string
      */

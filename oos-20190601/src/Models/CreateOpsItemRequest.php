@@ -9,6 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateOpsItemRequest extends Model
 {
     /**
+     * @description The category.
+     *
+     * Valid values:
+     *
+     *   Availability
+     *
+     * <!-- -->
+     *
+     *   Performance
+     *
+     * <!-- -->
+     *
+     *   Security
+     *
+     * <!-- -->
+     *
+     *   Cost
+     *
+     * <!-- -->
+     *
+     *   Recovery
+     *
+     * <!-- -->
      * @example Security
      *
      * @var string
@@ -16,6 +39,8 @@ class CreateOpsItemRequest extends Model
     public $category;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @example 123e56767-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -23,6 +48,8 @@ class CreateOpsItemRequest extends Model
     public $clientToken;
 
     /**
+     * @description The string to be deduplicated.
+     *
      * @example ecs_instance_Sys
      *
      * @var string
@@ -30,6 +57,8 @@ class CreateOpsItemRequest extends Model
     public $dedupString;
 
     /**
+     * @description The description of the operation.
+     *
      * @example OpsItem
      *
      * @var string
@@ -37,6 +66,8 @@ class CreateOpsItemRequest extends Model
     public $description;
 
     /**
+     * @description The priority. Valid values: 1 to 5. 1 indicates the highest priority.
+     *
      * @example 4
      *
      * @var int
@@ -44,6 +75,8 @@ class CreateOpsItemRequest extends Model
     public $priority;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +84,8 @@ class CreateOpsItemRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxsn4m4******
      *
      * @var string
@@ -58,11 +93,34 @@ class CreateOpsItemRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The Alibaba Cloud Resource Names (ARNs) of the associated resources.
+     *
+     * @example [\"acs:oos:cn-hangzhou:1563457855438522:application/test-33333/applicationgroup/default-cn-hangzhou-1\"]
+     *
      * @var string
      */
     public $resources;
 
     /**
+     * @description The severity level.
+     *
+     * Valid values:
+     *
+     *   High
+     *
+     * <!-- -->
+     *
+     *   Low
+     *
+     * <!-- -->
+     *
+     *   Medium
+     *
+     * <!-- -->
+     *
+     *   Critical
+     *
+     * <!-- -->
      * @example Medium
      *
      * @var string
@@ -70,11 +128,17 @@ class CreateOpsItemRequest extends Model
     public $severity;
 
     /**
+     * @description The solutions.
+     *
+     * @example \[{\n \\"priority\\":3,\n \\"type\\":\\"SingleAZEcs\\",\n \\"url\\":\\"http://ecs.consle.aliyuncs.com\\",\n \\"description\\":\\"Create Elastic Compute Service (ECS) instances in different zones and import them to an application group.\\"\n}]
+     *
      * @var string
      */
     public $solutions;
 
     /**
+     * @description The source business.
+     *
      * @example /aliyun/ecs
      *
      * @var string
@@ -82,6 +146,8 @@ class CreateOpsItemRequest extends Model
     public $source;
 
     /**
+     * @description The tags.
+     *
      * @example {
      * }
      * @var mixed[]
@@ -89,6 +155,8 @@ class CreateOpsItemRequest extends Model
     public $tags;
 
     /**
+     * @description The title of the O\&M item.
+     *
      * @example ECS reboot is scheduled
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class opsItems extends Model
 {
     /**
+     * @description The category.
+     *
      * @example Security
      *
      * @var string
@@ -16,6 +18,8 @@ class opsItems extends Model
     public $category;
 
     /**
+     * @description The time when the O\&M item was created.
+     *
      * @example 2023-07-09T10:01Z
      *
      * @var string
@@ -23,6 +27,8 @@ class opsItems extends Model
     public $createDate;
 
     /**
+     * @description The ID of the O\&M item.
+     *
      * @example oi-d52b08695e2b46ae8413
      *
      * @var string
@@ -30,6 +36,8 @@ class opsItems extends Model
     public $opsItemId;
 
     /**
+     * @description The priority.
+     *
      * @example 1
      *
      * @var int
@@ -37,11 +45,15 @@ class opsItems extends Model
     public $priority;
 
     /**
+     * @description The Alibaba Resource Names (ARNs) of the associated resources.
+     *
      * @var string[]
      */
     public $resources;
 
     /**
+     * @description The severity level.
+     *
      * @example Medium
      *
      * @var string
@@ -49,6 +61,8 @@ class opsItems extends Model
     public $severity;
 
     /**
+     * @description The source business.
+     *
      * @example /aliyun/ecs
      *
      * @var string
@@ -56,6 +70,8 @@ class opsItems extends Model
     public $source;
 
     /**
+     * @description The status of the O\&M item.
+     *
      * @example Open
      *
      * @var string
@@ -63,6 +79,8 @@ class opsItems extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @example {"k1":"v1"}
      *
      * @var mixed[]
@@ -70,6 +88,8 @@ class opsItems extends Model
     public $tags;
 
     /**
+     * @description The title of the O\&M item.
+     *
      * @example Test
      *
      * @var string
@@ -77,6 +97,8 @@ class opsItems extends Model
     public $title;
 
     /**
+     * @description The time when the O\&M item was updated.
+     *
      * @example 2023-07-09T10:01Z
      *
      * @var string

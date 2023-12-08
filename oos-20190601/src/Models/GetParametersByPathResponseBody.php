@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetParametersByPathResponseBody extends Model
 {
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class GetParametersByPathResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
      *
      * @var string
@@ -31,6 +35,8 @@ class GetParametersByPathResponseBody extends Model
     public $parameters;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 25156E99-7437-4590-AA58-2ACA17DE405C
      *
      * @var string
@@ -38,6 +44,8 @@ class GetParametersByPathResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 1
      *
      * @var int

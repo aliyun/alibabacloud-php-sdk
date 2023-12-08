@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serviceSettings extends Model
 {
     /**
+     * @description The name of OSS bucket to deliver.
+     *
      * @example OssBucketName
      *
      * @var string
@@ -16,6 +18,8 @@ class serviceSettings extends Model
     public $deliveryOssBucketName;
 
     /**
+     * @description Whether to enable OSS delivery.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class serviceSettings extends Model
     public $deliveryOssEnabled;
 
     /**
+     * @description The key prefix of OSS to deliver.
+     *
      * @example oos/execution
      *
      * @var string
@@ -30,6 +36,8 @@ class serviceSettings extends Model
     public $deliveryOssKeyPrefix;
 
     /**
+     * @description Whether to enable SLS delivery.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +45,8 @@ class serviceSettings extends Model
     public $deliverySlsEnabled;
 
     /**
+     * @description The name of SLS project to deliver.
+     *
      * @example SlsProjectName
      *
      * @var string
@@ -44,6 +54,8 @@ class serviceSettings extends Model
     public $deliverySlsProjectName;
 
     /**
+     * @description The id of RDC Enterprise.
+     *
      * @example RdcEnterpriseId
      *
      * @var string

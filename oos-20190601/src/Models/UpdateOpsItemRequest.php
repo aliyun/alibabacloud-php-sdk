@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateOpsItemRequest extends Model
 {
     /**
+     * @description The category.
+     *
      * @example Security
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateOpsItemRequest extends Model
     public $category;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @example DASKJJLKADS-AHKLJHJSAKL-AJK
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateOpsItemRequest extends Model
     public $clientToken;
 
     /**
+     * @description The string to be deduplicated.
+     *
      * @example ecs_instance_SystemMaintenance.Reboot
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateOpsItemRequest extends Model
     public $dedupString;
 
     /**
+     * @description The description of the O\&M item.
+     *
      * @example test-update
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateOpsItemRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the O\&M item.
+     *
      * @example oi-e2264dcf040c472598e9
      *
      * @var string
@@ -44,6 +54,8 @@ class UpdateOpsItemRequest extends Model
     public $opsItemId;
 
     /**
+     * @description The priority.
+     *
      * @example 2
      *
      * @var int
@@ -51,6 +63,8 @@ class UpdateOpsItemRequest extends Model
     public $priority;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +72,8 @@ class UpdateOpsItemRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxsn4m4******
      *
      * @var string
@@ -65,6 +81,8 @@ class UpdateOpsItemRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The Alibaba Resource Names (ARNs) of the associated resources.
+     *
      * @example [\"arn:acs:ecs:cn-heyuan:1139354755361920:instance/i-f8z928h7aqotd3o65032\"]
      *
      * @var string
@@ -72,6 +90,8 @@ class UpdateOpsItemRequest extends Model
     public $resources;
 
     /**
+     * @description The severity level.
+     *
      * @example Medium
      *
      * @var string
@@ -79,11 +99,17 @@ class UpdateOpsItemRequest extends Model
     public $severity;
 
     /**
+     * @description The solutions.
+     *
+     * @example \[{\n \\"priority\\":3,\n \\"type\\":\\"url\\",\n \\"url\\":\\"https://example.com\\",\n \\"description\\":\\"Specify a cross-zone high availability cluster. \\"\n}]
+     *
      * @var string
      */
     public $solutions;
 
     /**
+     * @description The source business.
+     *
      * @example /aliyun/ecs
      *
      * @var string
@@ -91,6 +117,8 @@ class UpdateOpsItemRequest extends Model
     public $source;
 
     /**
+     * @description The status.
+     *
      * @example Open
      *
      * @var string
@@ -98,6 +126,8 @@ class UpdateOpsItemRequest extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @example {
      * }
      * @var mixed[]
@@ -105,6 +135,8 @@ class UpdateOpsItemRequest extends Model
     public $tags;
 
     /**
+     * @description The title of the O\&M item.
+     *
      * @example Test
      *
      * @var string

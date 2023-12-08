@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class alarmConfig extends Model
 {
     /**
+     * @description The alert contact list.
+     *
      * @var string[]
      */
     public $contactGroups;
 
     /**
+     * @description The health check URL of the application.
+     *
+     * @example /api/health/
+     *
      * @var string
      */
     public $healthCheckUrl;
 
     /**
+     * @description The ID of the alert template.
+     *
      * @var string[]
      */
     public $templateIds;

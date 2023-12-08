@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @description The user who created the common parameter.
+     *
      * @example root(130900000)
      *
      * @var string
@@ -16,6 +18,8 @@ class parameters extends Model
     public $createdBy;
 
     /**
+     * @description The time when the common parameter was created.
+     *
      * @example 2020-09-01T08:01:43Z
      *
      * @var string
@@ -23,6 +27,8 @@ class parameters extends Model
     public $createdDate;
 
     /**
+     * @description The description of the common parameter.
+     *
      * @example parameter
      *
      * @var string
@@ -30,6 +36,8 @@ class parameters extends Model
     public $description;
 
     /**
+     * @description The common parameter ID.
+     *
      * @example p-4c4b401cab6747xxxxxx
      *
      * @var string
@@ -37,6 +45,8 @@ class parameters extends Model
     public $id;
 
     /**
+     * @description The name of the common parameter.
+     *
      * @example MyParameter
      *
      * @var string
@@ -44,6 +54,8 @@ class parameters extends Model
     public $name;
 
     /**
+     * @description The version number of the common parameter.
+     *
      * @example 1
      *
      * @var string
@@ -51,6 +63,8 @@ class parameters extends Model
     public $parameterVersion;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmxsn4m4******
      *
      * @var string
@@ -58,6 +72,8 @@ class parameters extends Model
     public $resourceGroupId;
 
     /**
+     * @description The share type of the common parameter.
+     *
      * @example Private
      *
      * @var string
@@ -65,6 +81,8 @@ class parameters extends Model
     public $shareType;
 
     /**
+     * @description The tags added to the common parameter.
+     *
      * @example {"k1": "v1", "k2": "v2"}
      *
      * @var mixed[]
@@ -72,6 +90,8 @@ class parameters extends Model
     public $tags;
 
     /**
+     * @description The data type of the common parameter.
+     *
      * @example String
      *
      * @var string
@@ -79,6 +99,8 @@ class parameters extends Model
     public $type;
 
     /**
+     * @description The user who updated the common parameter.
+     *
      * @example root(130900000)
      *
      * @var string
@@ -86,6 +108,8 @@ class parameters extends Model
     public $updatedBy;
 
     /**
+     * @description The time when the common parameter was updated.
+     *
      * @example 2020-09-01T08:01:43Z
      *
      * @var string

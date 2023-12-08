@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class GetTemplateRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the template. The name can be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (\_). The name cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
+     *
      * @example MyTemplate
      *
      * @var string
@@ -23,6 +27,8 @@ class GetTemplateRequest extends Model
     public $templateName;
 
     /**
+     * @description The version of the template. The default value is the latest version of the template.
+     *
      * @example v1
      *
      * @var string

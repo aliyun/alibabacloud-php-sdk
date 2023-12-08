@@ -18,11 +18,17 @@ class CreatePatchBaselineShrinkRequest extends Model
     public $approvalRules;
 
     /**
+     * @description The approved patches.
+     *
      * @var string
      */
     public $approvedPatchesShrink;
 
     /**
+     * @description Specifies whether the approved patch involves updates other than security-related updates.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $approvedPatchesEnableNonSecurity;
@@ -82,26 +88,40 @@ class CreatePatchBaselineShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The rejected patches.
+     *
      * @var string
      */
     public $rejectedPatchesShrink;
 
     /**
+     * @description The action of the rejected patch.
+     *
+     * @example ALLOW_AS_DEPENDENCY
+     *
      * @var string
      */
     public $rejectedPatchesAction;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The patch source configurations.
+     *
      * @var string
      */
     public $sourcesShrink;
 
     /**
+     * @description The tags.
+     *
      * @var string
      */
     public $tagsShrink;

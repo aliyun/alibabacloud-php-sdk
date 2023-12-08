@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOpsItemRequest extends Model
 {
     /**
+     * @description The O\&M item ID.
+     *
      * @example oi-d52b08695e2b46ae8413
      *
      * @var string
@@ -16,6 +18,8 @@ class GetOpsItemRequest extends Model
     public $opsItemId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

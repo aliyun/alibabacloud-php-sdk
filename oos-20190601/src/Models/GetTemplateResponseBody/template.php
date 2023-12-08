@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The creator of the template.
+     *
      * @example ACS
      *
      * @var string
@@ -16,6 +18,8 @@ class template extends Model
     public $createdBy;
 
     /**
+     * @description The time when the template was created.
+     *
      * @example 2019-05-16T10:26:14Z
      *
      * @var string
@@ -23,11 +27,17 @@ class template extends Model
     public $createdDate;
 
     /**
+     * @description The description of the template.
+     *
+     * @example "{\"en\": \"Creates an ECS image\", \"zh-cn\": \"创建一个ECS镜像\", \"name-en\": \"Create Image\", \"name-zh-cn\": \"创建镜像\", \"categories\": [\"image_manage\", \"application_manage\"]}"
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the template was configured with a trigger.
+     *
      * @example false
      *
      * @var bool
@@ -35,6 +45,8 @@ class template extends Model
     public $hasTrigger;
 
     /**
+     * @description The SHA-256 value of the template content.
+     *
      * @example 40fb5e3e08ef6c8a499ff7cd8441194f518028ad08338a84cb70c023a64576f1
      *
      * @var string
@@ -42,6 +54,8 @@ class template extends Model
     public $hash;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxsn4m4******
      *
      * @var string
@@ -49,6 +63,8 @@ class template extends Model
     public $resourceGroupId;
 
     /**
+     * @description The share type of the template. The share type of a user-created template is **Private**.
+     *
      * @example Public
      *
      * @var string
@@ -56,6 +72,8 @@ class template extends Model
     public $shareType;
 
     /**
+     * @description The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+     *
      * @example {"k1":"k2","k2":"v2"}
      *
      * @var mixed[]
@@ -63,6 +81,8 @@ class template extends Model
     public $tags;
 
     /**
+     * @description The format of the template. The system automatically determines whether the format is JSON or YAML.
+     *
      * @example YAML
      *
      * @var string
@@ -70,6 +90,8 @@ class template extends Model
     public $templateFormat;
 
     /**
+     * @description The ID of the template.
+     *
      * @example t-4bdb1745c171401883a2
      *
      * @var string
@@ -77,6 +99,8 @@ class template extends Model
     public $templateId;
 
     /**
+     * @description The name of the template.
+     *
      * @example ACS-ECS-CreateImage
      *
      * @var string
@@ -84,6 +108,8 @@ class template extends Model
     public $templateName;
 
     /**
+     * @description The type of the template.
+     *
      * @example Automation
      *
      * @var string
@@ -91,6 +117,8 @@ class template extends Model
     public $templateType;
 
     /**
+     * @description The version of the template. The name of the version consists of the letter v and a number. The number starts from 1.
+     *
      * @example v15
      *
      * @var string
@@ -98,6 +126,8 @@ class template extends Model
     public $templateVersion;
 
     /**
+     * @description The user who last updated the template.
+     *
      * @example ACS
      *
      * @var string
@@ -105,6 +135,8 @@ class template extends Model
     public $updatedBy;
 
     /**
+     * @description The time when the template was last updated.
+     *
      * @example 2022-04-26T08:37:07Z
      *
      * @var string
@@ -112,6 +144,8 @@ class template extends Model
     public $updatedDate;
 
     /**
+     * @description The name of the version of the template.
+     *
      * @example version15
      *
      * @var string

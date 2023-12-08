@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationRequest extends Model
 {
     /**
+     * @description The configurations of application alerts.
+     *
      * @var alarmConfig
      */
     public $alarmConfig;
@@ -60,6 +62,15 @@ class CreateApplicationRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example service-79538e30e44541b699d8
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
      * @description The tags.
      *
      * @example {"k1":"v1","k2":"v2"}
@@ -74,6 +85,7 @@ class CreateApplicationRequest extends Model
         'name'            => 'Name',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'serviceId'       => 'ServiceId',
         'tags'            => 'Tags',
     ];
 
@@ -101,6 +113,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -134,6 +149,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

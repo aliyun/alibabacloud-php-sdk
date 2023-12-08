@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetParametersResponseBody extends Model
 {
     /**
+     * @description Invalid parameters.
+     *
      * @var string[]
      */
     public $invalidParameters;
 
     /**
+     * @description The information about the common parameters.
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @description The request ID.
+     *
      * @example 2597E94B-5346-42D1-BB58-D3333EDD0975
      *
      * @var string

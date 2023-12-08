@@ -55,6 +55,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteTemplatesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteTemplatesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeployApplicationGroupRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeployApplicationGroupResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DescribeApplicationGroupBillRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DescribeApplicationGroupBillResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GenerateExecutionPolicyRequest;
@@ -411,6 +413,9 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
         if (!Utils::isUnset($request->tagsShrink)) {
             $query['Tags'] = $request->tagsShrink;
@@ -1462,6 +1467,67 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param DescribeApplicationGroupBillRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeApplicationGroupBillResponse
+     */
+    public function describeApplicationGroupBillWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->billingCycle)) {
+            $query['BillingCycle'] = $request->billingCycle;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApplicationGroupBill',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApplicationGroupBillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeApplicationGroupBillRequest $request
+     *
+     * @return DescribeApplicationGroupBillResponse
+     */
+    public function describeApplicationGroupBill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationGroupBillWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1522,6 +1588,9 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateContent)) {
+            $query['TemplateContent'] = $request->templateContent;
         }
         if (!Utils::isUnset($request->templateName)) {
             $query['TemplateName'] = $request->templateName;
@@ -3712,6 +3781,9 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->hasTrigger)) {
             $query['HasTrigger'] = $request->hasTrigger;
+        }
+        if (!Utils::isUnset($request->isFavorite)) {
+            $query['IsFavorite'] = $request->isFavorite;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;

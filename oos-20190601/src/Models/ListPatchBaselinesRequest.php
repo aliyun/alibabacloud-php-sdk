@@ -17,7 +17,7 @@ class ListPatchBaselinesRequest extends Model
     public $approvedPatches;
 
     /**
-     * @description Whether the approved patch includes updates other than security.
+     * @description Specifies whether the approved patch involves updates other than security-related updates.
      *
      * @example true
      *
@@ -80,6 +80,10 @@ class ListPatchBaselinesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -97,7 +101,7 @@ class ListPatchBaselinesRequest extends Model
     public $shareType;
 
     /**
-     * @description The list of patch source configurations.
+     * @description The patch source configurations.
      *
      * @var string[]
      */

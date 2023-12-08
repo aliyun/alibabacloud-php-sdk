@@ -17,7 +17,7 @@ class RegisterDefaultPatchBaselineResponseBody extends Model
     public $patchBaseline;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D6850689-348D-59FC-AE13-BB0EDB7C4BE8
      *

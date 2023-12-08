@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListOpsItemsShrinkRequest extends Model
 {
     /**
+     * @description The filter rules for the component.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+     *
      * @example 50
      *
      * @var int
@@ -22,6 +26,8 @@ class ListOpsItemsShrinkRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
      * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
      *
      * @var string
@@ -29,6 +35,8 @@ class ListOpsItemsShrinkRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +44,8 @@ class ListOpsItemsShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The information about resource tags.
+     *
      * @example {
      * }
      * @var string
@@ -43,6 +53,8 @@ class ListOpsItemsShrinkRequest extends Model
     public $resourceTagsShrink;
 
     /**
+     * @description The tags.
+     *
      * @example {"k1": "v1", "k2": "v2"}
      *
      * @var string

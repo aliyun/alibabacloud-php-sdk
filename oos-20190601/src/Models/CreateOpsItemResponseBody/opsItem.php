@@ -9,86 +9,154 @@ use AlibabaCloud\Tea\Model;
 class opsItem extends Model
 {
     /**
+     * @description The attributes of the O\&M item.
+     *
+     * @example {\"regionId\":\"cn-zhangjiakou\",\"appId\":\"992BKO1X75GRQ4E8\",\"instanceId\":\"i-8vbcymxagqsyyyjppbr4\",\"instance_name\":\"cdae\"}
+     *
      * @var string
      */
     public $attributes;
 
     /**
+     * @description The category of the O\&M item.
+     *
+     * @example Security
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The time when the O\&M item was created.
+     *
+     * @example 2023-03-24T03:55Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The user who created the O\&M item.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @description The description of the O\&M item.
+     *
+     * @example OpsItem
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The user who last modified the O\&M item.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $lastModifiedBy;
 
     /**
+     * @description The ID of the O\&M item.
+     *
+     * @example oi-dba9c6eec9254a4d87c1
+     *
      * @var string
      */
     public $opsItemId;
 
     /**
+     * @description The priority of the O\&M item.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ARNs of the associated resources.
+     *
+     * @example [\"acs:oos:cn-hangzhou:1563457855438522:application/dingTest/applicationgroup/fltest\"]
+     *
      * @var string
      */
     public $resources;
 
     /**
+     * @description The severity level of the O\&M item.
+     *
+     * @example Medium
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @description The solutions.
+     *
+     * @example \[{\n \\"priority\\":3,\n \\"type\\":\\"url\\",\n \\"url\\":\\"https://example..com\\",\n \\"description\\":\\"Specify a cross-zone high availability cluster. \\"\n}]
+     *
      * @var string
      */
     public $solutions;
 
     /**
+     * @description The source business of the O\&M item.
+     *
+     * @example /aliyun/ecs
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The state of the O\&M item.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tags of the O\&M item.
+     *
+     * @example {"k1": "v1"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The title of the O\&M item.
+     *
+     * @example ECS reboot is scheduled
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The time when the O\&M item was updated.
+     *
+     * @example 2023-03-24T03:55Z
+     *
      * @var string
      */
     public $updateDate;

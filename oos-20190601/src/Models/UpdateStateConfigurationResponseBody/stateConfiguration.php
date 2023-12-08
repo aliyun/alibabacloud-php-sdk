@@ -29,6 +29,8 @@ class stateConfiguration extends Model
     /**
      * @description The description of the desired-state configuration.
      *
+     * @example collect inventory data
+     *
      * @var string
      */
     public $description;

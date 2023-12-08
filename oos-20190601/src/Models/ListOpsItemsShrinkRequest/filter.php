@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The parameter name of the filter.
+     *
      * @example Status
      *
      * @var string
@@ -16,6 +18,8 @@ class filter extends Model
     public $name;
 
     /**
+     * @description The comparison operator that is used to filter property values.
+     *
      * @example Equal
      *
      * @var string
@@ -23,6 +27,8 @@ class filter extends Model
     public $operator;
 
     /**
+     * @description The parameter values of the filter.
+     *
      * @var string[]
      */
     public $value;

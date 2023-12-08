@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationShrinkRequest extends Model
 {
     /**
+     * @description The configurations of application alerts.
+     *
      * @var string
      */
     public $alarmConfigShrink;
 
     /**
+     * @description Specifies whether to delete existing alert rules before applying the alert template. Default value: false.
+     *
      * @example false
      *
      * @var bool

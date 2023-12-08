@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class patchBaselines extends Model
 {
     /**
-     * @description 批准补丁的列表。
+     * @description The approved patches.
      *
      * @var string[]
      */
     public $approvedPatches;
 
     /**
-     * @description 批准补丁是否包括除安全性之外的更新
+     * @description Indicates whether the approved patch involves updates other than security-related updates.
      *
      * @example true
      *
@@ -26,7 +26,7 @@ class patchBaselines extends Model
     public $approvedPatchesEnableNonSecurity;
 
     /**
-     * @description The name of the patch baseline.
+     * @description The user who created the patch baseline.
      *
      * @example root(130900000)
      *
@@ -35,7 +35,7 @@ class patchBaselines extends Model
     public $createdBy;
 
     /**
-     * @description The ID of the patch baseline.
+     * @description The time when the patch baseline was created.
      *
      * @example 2021-09-08T03:41:23Z
      *
@@ -44,7 +44,7 @@ class patchBaselines extends Model
     public $createdDate;
 
     /**
-     * @description The user who last modified the patch baseline.
+     * @description The description of the patch baseline.
      *
      * @example ListPatchBaseline
      *
@@ -53,7 +53,7 @@ class patchBaselines extends Model
     public $description;
 
     /**
-     * @description Queries the details of patch baselines.
+     * @description The ID of the patch baseline.
      *
      * @example pb-c2838b5d89b540e19ee6
      *
@@ -62,7 +62,7 @@ class patchBaselines extends Model
     public $id;
 
     /**
-     * @description The time when the patch baseline was last modified.
+     * @description Indicates whether the patch baseline is set as the default patch baseline.
      *
      * @example false
      *
@@ -71,7 +71,7 @@ class patchBaselines extends Model
     public $isDefault;
 
     /**
-     * @description The share type of the patch baseline.
+     * @description The name of the patch baseline.
      *
      * @example MyPatchBaseline
      *
@@ -80,7 +80,7 @@ class patchBaselines extends Model
     public $name;
 
     /**
-     * @description The description of the patch baseline.
+     * @description The type of the operating system.
      *
      * @example AliyunLinux
      *
@@ -89,12 +89,16 @@ class patchBaselines extends Model
     public $operationSystem;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek256ia6vhsndy
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description Queries the details of patch baselines.
+     * @description The share type of the patch baseline.
      *
      * @example Private
      *
@@ -103,21 +107,21 @@ class patchBaselines extends Model
     public $shareType;
 
     /**
-     * @description 补丁源配置列表。
+     * @description The configurations of patch sources.
      *
      * @var string[]
      */
     public $sources;
 
     /**
-     * @description 标签。
+     * @description The tags of the patch baseline.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The time when the patch baseline was created.
+     * @description The user who last updated the patch baseline.
      *
      * @example root(130900000)
      *
@@ -126,7 +130,7 @@ class patchBaselines extends Model
     public $updatedBy;
 
     /**
-     * @description The creator of the patch baseline.
+     * @description The time when the patch baseline was updated.
      *
      * @example 2021-09-08T03:44:34Z
      *

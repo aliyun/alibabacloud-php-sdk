@@ -54,11 +54,19 @@ class UpdateExecutionRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags of the execution.
+     *
+     * @example {"k1": "v1", "k2": "v2"}
+     *
      * @var string
      */
     public $tags;

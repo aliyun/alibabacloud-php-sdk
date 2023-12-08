@@ -27,6 +27,11 @@ class GenerateExecutionPolicyRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $templateContent;
+
+    /**
      * @description The name of the template.
      *
      * @example vmeixme
@@ -46,6 +51,7 @@ class GenerateExecutionPolicyRequest extends Model
     protected $_name = [
         'ramRole'         => 'RamRole',
         'regionId'        => 'RegionId',
+        'templateContent' => 'TemplateContent',
         'templateName'    => 'TemplateName',
         'templateVersion' => 'TemplateVersion',
     ];
@@ -62,6 +68,9 @@ class GenerateExecutionPolicyRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->templateContent) {
+            $res['TemplateContent'] = $this->templateContent;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
@@ -86,6 +95,9 @@ class GenerateExecutionPolicyRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TemplateContent'])) {
+            $model->templateContent = $map['TemplateContent'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];

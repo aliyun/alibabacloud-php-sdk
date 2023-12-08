@@ -19,11 +19,17 @@ class CreatePatchBaselineRequest extends Model
     public $approvalRules;
 
     /**
+     * @description The approved patches.
+     *
      * @var string[]
      */
     public $approvedPatches;
 
     /**
+     * @description Specifies whether the approved patch involves updates other than security-related updates.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $approvedPatchesEnableNonSecurity;
@@ -83,26 +89,40 @@ class CreatePatchBaselineRequest extends Model
     public $regionId;
 
     /**
+     * @description The rejected patches.
+     *
      * @var string[]
      */
     public $rejectedPatches;
 
     /**
+     * @description The action of the rejected patch.
+     *
+     * @example ALLOW_AS_DEPENDENCY
+     *
      * @var string
      */
     public $rejectedPatchesAction;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The patch source configurations.
+     *
      * @var string[]
      */
     public $sources;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

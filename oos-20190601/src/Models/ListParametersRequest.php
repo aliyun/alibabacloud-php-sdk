@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListParametersRequest extends Model
 {
     /**
+     * @description The number of entries per page. Valid values: 10 to 100. Default value: 50.
+     *
      * @example 50
      *
      * @var int
@@ -16,6 +18,8 @@ class ListParametersRequest extends Model
     public $maxResults;
 
     /**
+     * @description The name of the common parameter.
+     *
      * @example MyParameter
      *
      * @var string
@@ -23,6 +27,8 @@ class ListParametersRequest extends Model
     public $name;
 
     /**
+     * @description The pagination token that can be used in the next request to retrieve a new page of results.
+     *
      * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzA
      *
      * @var string
@@ -30,6 +36,8 @@ class ListParametersRequest extends Model
     public $nextToken;
 
     /**
+     * @description The path of the parameter. For example, if the name of a parameter is /path/path1/Myparameter, the path of the parameter is /path/path1/.
+     *
      * @example /path1/path2/
      *
      * @var string
@@ -37,6 +45,8 @@ class ListParametersRequest extends Model
     public $path;
 
     /**
+     * @description Specifies whether to query parameters from all levels of directories in the specified path. Default value: false.
+     *
      * @example false
      *
      * @var bool
@@ -44,6 +54,8 @@ class ListParametersRequest extends Model
     public $recursive;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +63,8 @@ class ListParametersRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmxsn4m4******
      *
      * @var string
@@ -58,6 +72,12 @@ class ListParametersRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The share type of the common parameter. Valid values:
+     *
+     *   Public
+     *   Private
+     *
+     * Default value: Private.
      * @example ‘Private’
      *
      * @var string
@@ -65,6 +85,11 @@ class ListParametersRequest extends Model
     public $shareType;
 
     /**
+     * @description The field used to sort the query results. Valid values:
+     *
+     *   Name
+     *   CreatedDate
+     *
      * @example Name
      *
      * @var string
@@ -72,6 +97,11 @@ class ListParametersRequest extends Model
     public $sortField;
 
     /**
+     * @description The order in which the entries are sorted. Valid values:
+     *
+     *   Ascending
+     *   Descending (Default)
+     *
      * @example Descending
      *
      * @var string
@@ -79,6 +109,8 @@ class ListParametersRequest extends Model
     public $sortOrder;
 
     /**
+     * @description The tags.
+     *
      * @example {"k1": "v1", "k2": "v2"}
      *
      * @var mixed[]
@@ -86,6 +118,8 @@ class ListParametersRequest extends Model
     public $tags;
 
     /**
+     * @description The data type of the common parameter.
+     *
      * @example String
      *
      * @var string

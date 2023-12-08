@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelExecutionRequest extends Model
 {
     /**
+     * @description The ID of the execution.
+     *
      * @example exec-xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class CancelExecutionRequest extends Model
     public $executionId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

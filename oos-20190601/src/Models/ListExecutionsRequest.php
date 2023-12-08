@@ -36,6 +36,8 @@ class ListExecutionsRequest extends Model
     public $depth;
 
     /**
+     * @description The description of the execution.
+     *
      * @example MyDescription
      *
      * @var string

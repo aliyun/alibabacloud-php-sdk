@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationShrinkRequest extends Model
 {
     /**
+     * @description The configurations of application alerts.
+     *
      * @var string
      */
     public $alarmConfigShrink;
@@ -59,6 +61,15 @@ class CreateApplicationShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example service-79538e30e44541b699d8
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
      * @description The tags.
      *
      * @example {"k1":"v1","k2":"v2"}
@@ -73,6 +84,7 @@ class CreateApplicationShrinkRequest extends Model
         'name'              => 'Name',
         'regionId'          => 'RegionId',
         'resourceGroupId'   => 'ResourceGroupId',
+        'serviceId'         => 'ServiceId',
         'tagsShrink'        => 'Tags',
     ];
 
@@ -100,6 +112,9 @@ class CreateApplicationShrinkRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
         }
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
@@ -133,6 +148,9 @@ class CreateApplicationShrinkRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
         }
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];

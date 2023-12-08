@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListOpsItemsResponseBody extends Model
 {
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 50
      *
      * @var int
@@ -17,6 +19,8 @@ class ListOpsItemsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that can be used in the next request to retrieve a new page of results.
+     *
      * @example gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC6KPDUL0FIIb
      *
      * @var string
@@ -24,11 +28,15 @@ class ListOpsItemsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The list of O\&M items.
+     *
      * @var opsItems[]
      */
     public $opsItems;
 
     /**
+     * @description The request ID.
+     *
      * @example 113DD533-389C-5F83-9C69-F64D5BAB10B2
      *
      * @var string
@@ -36,6 +44,8 @@ class ListOpsItemsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

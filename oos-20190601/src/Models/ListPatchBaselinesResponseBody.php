@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListPatchBaselinesResponseBody extends Model
 {
     /**
-     * @description The type of the operating system.
+     * @description The number of entries per page.
      *
      * @example 50
      *
@@ -19,7 +19,7 @@ class ListPatchBaselinesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+     * @description The token that is used to retrieve the next page of results.
      *
      * @example The number of entries returned on each page.
      *
@@ -28,14 +28,14 @@ class ListPatchBaselinesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Indicates whether the patch baseline is set as the default patch baseline.
+     * @description The patch baselines.
      *
      * @var patchBaselines[]
      */
     public $patchBaselines;
 
     /**
-     * @description The details of the patch baselines.
+     * @description The request ID.
      *
      * @example 432996A1-03C0-5C4C-A8E6-66C4110765B8
      *

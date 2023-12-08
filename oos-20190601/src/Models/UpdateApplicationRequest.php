@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationRequest extends Model
 {
     /**
+     * @description The configurations of application alerts.
+     *
      * @var alarmConfig
      */
     public $alarmConfig;
 
     /**
+     * @description Specifies whether to delete existing alert rules before applying the alert template. Default value: false.
+     *
      * @example false
      *
      * @var bool

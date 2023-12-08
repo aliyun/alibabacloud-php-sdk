@@ -10,11 +10,30 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
+     * @description The configurations of application alerts.
+     *
      * @var alarmConfig
      */
     public $alarmConfig;
 
     /**
+     * @description The type of the application.
+     *
+     * Valid values:
+     *
+     *   ComputeNest
+     *
+     * <!-- -->
+     *
+     *   Custom
+     *
+     * <!-- -->
+     *
+     *   DingTalk
+     *
+     * <!-- -->
+     * @example DingTalk
+     *
      * @var string
      */
     public $applicationType;
@@ -56,6 +75,15 @@ class application extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the service.
+     *
+     * @example service-79538e30e44541b699d8
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
      * @description The tags.
      *
      * @example {"k1": "v1", "k2": "v2"}
@@ -79,6 +107,7 @@ class application extends Model
         'description'     => 'Description',
         'name'            => 'Name',
         'resourceGroupId' => 'ResourceGroupId',
+        'serviceId'       => 'ServiceId',
         'tags'            => 'Tags',
         'updateDate'      => 'UpdateDate',
     ];
@@ -107,6 +136,9 @@ class application extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -143,6 +175,9 @@ class application extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

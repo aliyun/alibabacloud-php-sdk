@@ -59,6 +59,11 @@ class ListTemplatesShrinkRequest extends Model
     public $hasTrigger;
 
     /**
+     * @var bool
+     */
+    public $isFavorite;
+
+    /**
      * @description The number of entries to return on each page. Valid values: 20 to 100. Default value: 50.
      *
      * @example 50
@@ -113,6 +118,7 @@ class ListTemplatesShrinkRequest extends Model
      *   **Popularity**: The system sorts the returned templates based on the popularity of the template.
      *   **TemplateName**: The system sorts the returned templates based on the name of the template.
      *   **CreatedDate**: The system sorts the returned templates based on the creation time of the template.
+     *   **UpdateDate**: The system sorts the returned templates based on the update time of the template.
      *
      * @example Popularity
      *
@@ -165,6 +171,19 @@ class ListTemplatesShrinkRequest extends Model
     /**
      * @description The type of the template.
      *
+     * Valid values:
+     *
+     *   Automation
+     *
+     * <!-- -->
+     *
+     *   State
+     *
+     * <!-- -->
+     *
+     *   Package
+     *
+     * <!-- -->
      * @example private
      *
      * @var string
@@ -176,6 +195,7 @@ class ListTemplatesShrinkRequest extends Model
         'createdDateAfter'  => 'CreatedDateAfter',
         'createdDateBefore' => 'CreatedDateBefore',
         'hasTrigger'        => 'HasTrigger',
+        'isFavorite'        => 'IsFavorite',
         'maxResults'        => 'MaxResults',
         'nextToken'         => 'NextToken',
         'regionId'          => 'RegionId',
@@ -210,6 +230,9 @@ class ListTemplatesShrinkRequest extends Model
         }
         if (null !== $this->hasTrigger) {
             $res['HasTrigger'] = $this->hasTrigger;
+        }
+        if (null !== $this->isFavorite) {
+            $res['IsFavorite'] = $this->isFavorite;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -270,6 +293,9 @@ class ListTemplatesShrinkRequest extends Model
         }
         if (isset($map['HasTrigger'])) {
             $model->hasTrigger = $map['HasTrigger'];
+        }
+        if (isset($map['IsFavorite'])) {
+            $model->isFavorite = $map['IsFavorite'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
