@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListOssBucketScanInfoResponseBody extends Model
 {
     /**
+     * @description The data that is returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The page information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 6C578F36-92D2-552C-8AA0-86EB1AC2****
      *
      * @var string

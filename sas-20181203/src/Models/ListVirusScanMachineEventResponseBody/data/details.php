@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
+     * @description The display type of the value for ValueDisplay. Valid value:
+     *
+     *   **download_url**, which indicates a download URL.
+     *
      * @example download_url
      *
      * @var string
@@ -16,6 +20,8 @@ class details extends Model
     public $infoType;
 
     /**
+     * @description The display name of the alert event.
+     *
      * @example Trojan Path
      *
      * @var string
@@ -23,6 +29,13 @@ class details extends Model
     public $nameDisplay;
 
     /**
+     * @description The format in which the details of the exception are displayed.
+     *
+     * Valid values:
+     *
+     *   **text**
+     *   **html**
+     *
      * @example html
      *
      * @var string
@@ -30,6 +43,8 @@ class details extends Model
     public $type;
 
     /**
+     * @description The attribute information about the exception. The information includes the logon time or location of an alert triggered by an unusual logon, and the trojan file path or trojan type of an alert.
+     *
      * @example getopt
      *
      * @var string

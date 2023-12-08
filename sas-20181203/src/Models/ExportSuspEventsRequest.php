@@ -87,6 +87,20 @@ class ExportSuspEventsRequest extends Model
     public $from;
 
     /**
+     * @description The ID of the new server group to which the servers belong.
+     *
+     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     * @example 8076980
+     *
+     * @var int
+     */
+    public $groupId;
+
+    /**
+     * @description The unique ID of the alert event.
+     *
+     * @example 17821
+     *
      * @var int
      */
     public $id;
@@ -126,6 +140,8 @@ class ExportSuspEventsRequest extends Model
     public $name;
 
     /**
+     * @description The status codes of alert events.
+     *
      * @var string[]
      */
     public $operateErrorCodeList;
@@ -241,11 +257,19 @@ class ExportSuspEventsRequest extends Model
     public $timeStart;
 
     /**
+     * @description The unique key of the alert event.
+     *
+     * @example 1fbe8d16727f61d1478a674d6fa0****
+     *
      * @var string
      */
     public $uniqueInfo;
 
     /**
+     * @description The unique ID of the associated instance.
+     *
+     * @example 18b7336e-d469-473b-af83-8e5420f9****
+     *
      * @var string
      */
     public $uuid;
@@ -257,6 +281,7 @@ class ExportSuspEventsRequest extends Model
         'currentPage'          => 'CurrentPage',
         'dealed'               => 'Dealed',
         'from'                 => 'From',
+        'groupId'              => 'GroupId',
         'id'                   => 'Id',
         'lang'                 => 'Lang',
         'levels'               => 'Levels',
@@ -301,6 +326,9 @@ class ExportSuspEventsRequest extends Model
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -381,6 +409,9 @@ class ExportSuspEventsRequest extends Model
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

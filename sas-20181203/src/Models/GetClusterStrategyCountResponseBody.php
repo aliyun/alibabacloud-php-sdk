@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetClusterStrategyCountResponseBody extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +19,8 @@ class GetClusterStrategyCountResponseBody extends Model
     public $code;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 3
      *
      * @var int
@@ -24,11 +28,15 @@ class GetClusterStrategyCountResponseBody extends Model
     public $count;
 
     /**
+     * @description The returned data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class GetClusterStrategyCountResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -43,6 +53,8 @@ class GetClusterStrategyCountResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 796348B5-115C-5BFB-83EA-B5C3C12F822F
      *
      * @var string
@@ -50,6 +62,11 @@ class GetClusterStrategyCountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

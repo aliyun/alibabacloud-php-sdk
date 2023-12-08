@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallHybridProxyRequest extends Model
 {
     /**
+     * @description The cluster name.
+     *
      * @example proxy-test
      *
      * @var string
@@ -16,6 +18,8 @@ class InstallHybridProxyRequest extends Model
     public $clusterName;
 
     /**
+     * @description The installation code.
+     *
      * @example Z9c8SA
      *
      * @var string
@@ -23,6 +27,8 @@ class InstallHybridProxyRequest extends Model
     public $installCode;
 
     /**
+     * @description The UUIDs of the proxy servers.
+     *
      * @var string[]
      */
     public $yundunUuids;

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CreateOssBucketScanTaskRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allKeyPrefix;
+
+    /**
+     * @description The names of the buckets.
+     *
      * @var string[]
      */
     public $bucketNameList;
 
     /**
+     * @description The suffixes of the objects that you do not want to check.
+     *
      * @var string[]
      */
     public $excludeKeySuffixList;
@@ -21,17 +30,31 @@ class CreateOssBucketScanTaskRequest extends Model
     /**
      * @var string[]
      */
+    public $keyPrefixList;
+
+    /**
+     * @description The suffixes of the objects that you want to check.
+     *
+     * @var string[]
+     */
     public $keySuffixList;
 
     /**
+     * @description The check mode. Valid values:
+     *
+     *   **1**: checks all objects in the bucket.
+     *   **2**: checks only new objects in the bucket.
+     *
      * @example 1
      *
      * @var int
      */
     public $scanMode;
     protected $_name = [
+        'allKeyPrefix'         => 'AllKeyPrefix',
         'bucketNameList'       => 'BucketNameList',
         'excludeKeySuffixList' => 'ExcludeKeySuffixList',
+        'keyPrefixList'        => 'KeyPrefixList',
         'keySuffixList'        => 'KeySuffixList',
         'scanMode'             => 'ScanMode',
     ];
@@ -43,11 +66,17 @@ class CreateOssBucketScanTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allKeyPrefix) {
+            $res['AllKeyPrefix'] = $this->allKeyPrefix;
+        }
         if (null !== $this->bucketNameList) {
             $res['BucketNameList'] = $this->bucketNameList;
         }
         if (null !== $this->excludeKeySuffixList) {
             $res['ExcludeKeySuffixList'] = $this->excludeKeySuffixList;
+        }
+        if (null !== $this->keyPrefixList) {
+            $res['KeyPrefixList'] = $this->keyPrefixList;
         }
         if (null !== $this->keySuffixList) {
             $res['KeySuffixList'] = $this->keySuffixList;
@@ -67,6 +96,9 @@ class CreateOssBucketScanTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllKeyPrefix'])) {
+            $model->allKeyPrefix = $map['AllKeyPrefix'];
+        }
         if (isset($map['BucketNameList'])) {
             if (!empty($map['BucketNameList'])) {
                 $model->bucketNameList = $map['BucketNameList'];
@@ -75,6 +107,11 @@ class CreateOssBucketScanTaskRequest extends Model
         if (isset($map['ExcludeKeySuffixList'])) {
             if (!empty($map['ExcludeKeySuffixList'])) {
                 $model->excludeKeySuffixList = $map['ExcludeKeySuffixList'];
+            }
+        }
+        if (isset($map['KeyPrefixList'])) {
+            if (!empty($map['KeyPrefixList'])) {
+                $model->keyPrefixList = $map['KeyPrefixList'];
             }
         }
         if (isset($map['KeySuffixList'])) {

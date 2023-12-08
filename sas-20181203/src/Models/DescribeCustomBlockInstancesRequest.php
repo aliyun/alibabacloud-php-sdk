@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomBlockInstancesRequest extends Model
 {
     /**
+     * @description The IP address that you want to specify in the rule.
+     *
+     * >  You can call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to obtain the IP address.
      * @example 47.92.33.1xx
      *
      * @var string
@@ -16,6 +19,11 @@ class DescribeCustomBlockInstancesRequest extends Model
     public $blockIp;
 
     /**
+     * @description The traffic direction that you want to specify in the custom rule. Valid values:
+     *
+     *   **in**: inbound
+     *   **out**: outbound
+     *
      * @example in
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeCustomBlockInstancesRequest extends Model
     public $bound;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 8
      *
      * @var int
@@ -30,6 +40,8 @@ class DescribeCustomBlockInstancesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries per page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -42,6 +54,12 @@ class DescribeCustomBlockInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether the rule is enabled for the server.
+     *
+     *   **2**: enabling failed
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 1
      *
      * @var int

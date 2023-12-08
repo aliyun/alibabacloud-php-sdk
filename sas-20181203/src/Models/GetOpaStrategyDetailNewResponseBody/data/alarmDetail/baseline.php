@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class baseline extends Model
 {
     /**
+     * @description The baseline information.
+     *
      * @var item[]
      */
     public $item;
 
     /**
+     * @description The risk levels.
+     *
      * @var string[]
      */
     public $riskLevel;

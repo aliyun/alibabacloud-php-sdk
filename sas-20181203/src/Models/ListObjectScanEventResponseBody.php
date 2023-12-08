@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListObjectScanEventResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 7BC55C8F-226E-5AF5-9A2C-2EC43864****
      *
      * @var string

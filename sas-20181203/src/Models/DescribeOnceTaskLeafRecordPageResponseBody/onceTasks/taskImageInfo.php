@@ -27,7 +27,7 @@ class taskImageInfo extends Model
     public $clusterId;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * @example ACK-test-****
      *
@@ -36,6 +36,19 @@ class taskImageInfo extends Model
     public $clusterName;
 
     /**
+     * @description The time consumed. The value is in the JSON format. The end time of each item is displayed.
+     *
+     *   **vul**: system vulnerabilities
+     *   **scaVul**: application vulnerabilities
+     *   **scaVul**: baseline
+     *   **binary**: binary
+     *   **forbiddenPackageInfo**: information about the prohibited package
+     *   **identificationInfo**: identity authentication
+     *   **script**: malicious scripts
+     *   **sensitiveFile**: sensitive files
+     *   **sensitiveInfo**: AccessKey pair leaks
+     *   **webshell**: website scripts
+     *
      * @example {"scaVul":"2023-09-04 09:37:21","identificationInfo":"2023-09-04 09:37:30","forbiddenPackageInfo":"2023-09-04 09:37:16","binary":"2023-09-04 09:37:25","baseline":"2023-09-04 09:37:19","sensitiveFile":"2023-09-04 09:38:34","vul":"2023-09-04 09:37:31","webshell":"2023-09-04 09:38:27","sensitiveInfo":"2023-09-04 09:37:16","script":"2023-09-04 09:39:44"}
      *
      * @var string

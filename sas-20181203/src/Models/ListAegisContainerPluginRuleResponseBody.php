@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListAegisContainerPluginRuleResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
      *
      * @var string
@@ -23,6 +27,8 @@ class ListAegisContainerPluginRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The rules.
+     *
      * @var ruleList[]
      */
     public $ruleList;

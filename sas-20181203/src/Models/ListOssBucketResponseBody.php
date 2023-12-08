@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListOssBucketResponseBody extends Model
 {
     /**
+     * @description The data that is returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 3956048F-9D73-5EDB-834B-4827BB48****
      *
      * @var string

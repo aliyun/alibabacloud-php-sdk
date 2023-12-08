@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the bucket.
+     *
      * @example iboxpublic****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $bucketName;
 
     /**
+     * @description The reason why the bucket cannot be checked.
+     *
      * @example Unsupported Region。
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $message;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +36,13 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The storage class of the bucket. Valid values:
+     *
+     *   Standard (default)
+     *   IA
+     *   Archive
+     *   ColdArchive
+     *
      * @example Standard
      *
      * @var string
@@ -37,17 +50,28 @@ class data extends Model
     public $storageClass;
 
     /**
+     * @description Indicates whether the bucket can be checked. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
      */
     public $support;
+
+    /**
+     * @var string
+     */
+    public $supportConfig;
     protected $_name = [
-        'bucketName'   => 'BucketName',
-        'message'      => 'Message',
-        'regionId'     => 'RegionId',
-        'storageClass' => 'StorageClass',
-        'support'      => 'Support',
+        'bucketName'    => 'BucketName',
+        'message'       => 'Message',
+        'regionId'      => 'RegionId',
+        'storageClass'  => 'StorageClass',
+        'support'       => 'Support',
+        'supportConfig' => 'SupportConfig',
     ];
 
     public function validate()
@@ -71,6 +95,9 @@ class data extends Model
         }
         if (null !== $this->support) {
             $res['Support'] = $this->support;
+        }
+        if (null !== $this->supportConfig) {
+            $res['SupportConfig'] = $this->supportConfig;
         }
 
         return $res;
@@ -98,6 +125,9 @@ class data extends Model
         }
         if (isset($map['Support'])) {
             $model->support = $map['Support'];
+        }
+        if (isset($map['SupportConfig'])) {
+            $model->supportConfig = $map['SupportConfig'];
         }
 
         return $model;

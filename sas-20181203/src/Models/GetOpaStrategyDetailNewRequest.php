@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetOpaStrategyDetailNewRequest extends Model
 {
     /**
+     * @description The rule ID.
+     *
+     * >  You can call the [ListOpaClusterStrategyNew](~~2623574~~) operation to obtain the rule ID.
      * @example 1349
      *
      * @var int

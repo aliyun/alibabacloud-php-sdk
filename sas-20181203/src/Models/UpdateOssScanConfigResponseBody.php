@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateOssScanConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example FFA14F61-4E2F-54C7-9276-81C60BAC****
      *
      * @var string

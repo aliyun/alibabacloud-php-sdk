@@ -19,7 +19,7 @@ class checks extends Model
     public $checkId;
 
     /**
-     * @description The information about the check policies.
+     * @description The check policies.
      *
      * @var checkPolicies[]
      */
@@ -72,28 +72,28 @@ class checks extends Model
     /**
      * @description The asset type of the cloud service. Valid values:
      *
-     *   **ECS**: Elastic Compute Service (ECS)
-     *   **SLB**: Server Load Balancer (SLB)
+     *   **ECS**: ECS
+     *   **SLB**: SLB
      *   **RDS**: ApsaraDB RDS
-     *   **MONGODB**: ApsaraDB for MongoDB (MongoDB)
-     *   **KVSTORE**: ApsaraDB for Redis
+     *   **MONGODB**: MongoDB
+     *   **KVSTORE**: Redis
      *   **ACR**: Container Registry
-     *   **CSK**: Container Service for Kubernetes (ACK)
-     *   **VPC**: Virtual Private Cloud (VPC)
+     *   **CSK**: ACK
+     *   **VPC**: VPC
      *   **ACTIONTRAIL**: ActionTrail
-     *   **CDN**: Alibaba Cloud CDN (CDN)
-     *   **CAS**: Certificate Management Service
+     *   **CDN**: CDN
+     *   **CAS**: Certificate Management Service (formerly SSL Certificates Service)
      *   **RDC**: Apsara Devops
-     *   **RAM**: Resource Access Management (RAM)
+     *   **RAM**: RAM
      *   **DDOS**: Anti-DDoS
-     *   **WAF**: Web Application Firewall (WAF)
-     *   **OSS**: Object Storage Service (OSS)
+     *   **WAF**: WAF
+     *   **OSS**: OSS
      *   **POLARDB**: PolarDB
      *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL
-     *   **MSE**: Microservices Engine (MSE)
-     *   **NAS**: Apsara File Storage NAS (NAS)
-     *   **SDDP**: Sensitive Data Discovery and Protection (SDDP)
-     *   **EIP**: Elastic IP Address (EIP)
+     *   **MSE**: MSE
+     *   **NAS**: NAS
+     *   **SDDP**: SDDP
+     *   **EIP**: EIP
      *
      * @example ECS
      *
@@ -102,7 +102,7 @@ class checks extends Model
     public $instanceType;
 
     /**
-     * @description The timestamp generated when the last check was performed. Unit: milliseconds.
+     * @description The timestamp when the last check was performed. Unit: milliseconds.
      *
      * @example 1657793398000
      *
@@ -126,11 +126,11 @@ class checks extends Model
     /**
      * @description The status of the check item. Valid values:
      *
-     *   **PASS**
-     *   **NOT_PASS**
-     *   **CHECKING**
-     *   **NOT_CHECK**
-     *   **WHITELIST**
+     *   **PASS**: passed
+     *   **NOT_PASS**: failed
+     *   **CHECKING**: being checked
+     *   **NOT_CHECK**: not checked
+     *   **WHITELIST**: added to the whitelist
      *
      * @example PASS
      *
@@ -139,6 +139,10 @@ class checks extends Model
     public $status;
 
     /**
+     * @description The message returned if the status of the check item is abnormal.
+     *
+     * @example TIMEOUT
+     *
      * @var string
      */
     public $statusMessage;

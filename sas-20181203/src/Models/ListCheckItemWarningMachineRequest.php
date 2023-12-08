@@ -124,6 +124,11 @@ class ListCheckItemWarningMachineRequest extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var string[]
+     */
+    public $uuidList;
     protected $_name = [
         'checkId'             => 'CheckId',
         'containerFieldName'  => 'ContainerFieldName',
@@ -136,6 +141,7 @@ class ListCheckItemWarningMachineRequest extends Model
         'riskType'            => 'RiskType',
         'source'              => 'Source',
         'status'              => 'Status',
+        'uuidList'            => 'UuidList',
     ];
 
     public function validate()
@@ -177,6 +183,9 @@ class ListCheckItemWarningMachineRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->uuidList) {
+            $res['UuidList'] = $this->uuidList;
         }
 
         return $res;
@@ -222,6 +231,11 @@ class ListCheckItemWarningMachineRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['UuidList'])) {
+            if (!empty($map['UuidList'])) {
+                $model->uuidList = $map['UuidList'];
+            }
         }
 
         return $model;

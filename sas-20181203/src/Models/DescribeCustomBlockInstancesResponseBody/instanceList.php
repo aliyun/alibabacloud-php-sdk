@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @description The status of the host network extension. Valid values:
+     *
+     *   **true**: online
+     *   **false**: offline
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,11 @@ class instanceList extends Model
     public $aliNetOnline;
 
     /**
+     * @description The blocking type. Valid values:
+     *
+     *   **group**: security group
+     *   **alinet**: host network extension
+     *
      * @example group
      *
      * @var string
@@ -23,6 +33,8 @@ class instanceList extends Model
     public $blockType;
 
     /**
+     * @description The error code returned.
+     *
      * @example AliNetNotOnline
      *
      * @var string
@@ -30,6 +42,8 @@ class instanceList extends Model
     public $errorCode;
 
     /**
+     * @description The name of the asset.
+     *
      * @example myInstance
      *
      * @var string
@@ -37,6 +51,8 @@ class instanceList extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 116.62.121.1xx
      *
      * @var string
@@ -44,6 +60,8 @@ class instanceList extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 192.168.1.xx
      *
      * @var string
@@ -51,6 +69,12 @@ class instanceList extends Model
     public $intranetIp;
 
     /**
+     * @description Indicates whether the rule is enabled for the server.
+     *
+     *   **2**: enabling failed
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +82,8 @@ class instanceList extends Model
     public $status;
 
     /**
+     * @description The information that is returned after brute-force attacks are blocked.
+     *
      * @example {"aliUid":*******,"groupId":"sg-xxxx","groupName":"Sas_Malicious_Ip_Security_Group","groupType":"normal","instanceId":"i-xxxx","regionId":"cn-shenzhen","vpcId":"vpc-xxxxxxxx"}
      *
      * @var string
@@ -65,6 +91,8 @@ class instanceList extends Model
     public $successInfo;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example f2d6e901-1004-4ca8-9dae-53ec04a9****
      *
      * @var string

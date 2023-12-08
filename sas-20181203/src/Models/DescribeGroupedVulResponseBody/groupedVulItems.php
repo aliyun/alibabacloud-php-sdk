@@ -72,12 +72,12 @@ class groupedVulItems extends Model
     public $nntfCount;
 
     /**
-     * @description Indicates whether the application protection feature is supported.
+     * @description Indicates whether the application protection feature is supported. Valid values:
      *
-     *   **0**: no
-     *   **1**: yes
+     *   **0**: not supported
+     *   **1**: supported
      *
-     * > If this parameter is not returned, the application protection feature is not supported.
+     * >  If this parameter is not returned, the application protection feature is not supported.
      * @example 1
      *
      * @var int
@@ -94,14 +94,14 @@ class groupedVulItems extends Model
     public $related;
 
     /**
-     * @description The tag that is added to the vulnerability. Valid values:
+     * @description The tag of the vulnerability. Valid values:
      *
-     *   Restart required
-     *   Remote utilization
-     *   EXP exists
-     *   Available
-     *   Elevation of Privilege
-     *   Code Execution
+     *   **Restart required**
+     *   **Remote utilization**
+     *   **EXP exists**
+     *   **Available**
+     *   **Elevation of Privilege**
+     *   **Code Execution**
      *
      * @example Code Execution
      *
@@ -126,7 +126,7 @@ class groupedVulItems extends Model
      *   **cms**: Web-CMS vulnerability
      *   **app**: application vulnerability
      *   **emg**: urgent vulnerability
-     *   **sca**: vulnerability that is detected based on software component analysis
+     *   **sca**: vulnerability that is detected by software component analysis
      *
      * @example cve
      *

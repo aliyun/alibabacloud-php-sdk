@@ -27,7 +27,7 @@ class DescribeRestoreJobsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details about the restoration task.
+     * @description An array that consists of the restoration tasks.
      *
      * @var restoreJobs[]
      */

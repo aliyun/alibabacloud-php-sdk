@@ -37,6 +37,16 @@ class ListCheckTypesRequest extends Model
     public $riskId;
 
     /**
+     * @var bool
+     */
+    public $showChecks;
+
+    /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @example 293b07cb-db2d-4f39-941f-b2e4abb8****
      *
      * @var string
@@ -47,6 +57,8 @@ class ListCheckTypesRequest extends Model
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
         'riskId'      => 'RiskId',
+        'showChecks'  => 'ShowChecks',
+        'source'      => 'Source',
         'uuid'        => 'Uuid',
     ];
 
@@ -68,6 +80,12 @@ class ListCheckTypesRequest extends Model
         }
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
+        }
+        if (null !== $this->showChecks) {
+            $res['ShowChecks'] = $this->showChecks;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
@@ -95,6 +113,12 @@ class ListCheckTypesRequest extends Model
         }
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];
+        }
+        if (isset($map['ShowChecks'])) {
+            $model->showChecks = $map['ShowChecks'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];

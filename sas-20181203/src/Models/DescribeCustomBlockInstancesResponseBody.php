@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomBlockInstancesResponseBody extends Model
 {
     /**
+     * @description The server ID.
+     *
      * @var instanceList[]
      */
     public $instanceList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example D81DD78E-E006-5C65-A171-C8CB09XXXXX
      *
      * @var string

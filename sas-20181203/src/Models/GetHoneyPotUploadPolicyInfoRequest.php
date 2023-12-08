@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetHoneyPotUploadPolicyInfoRequest extends Model
 {
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

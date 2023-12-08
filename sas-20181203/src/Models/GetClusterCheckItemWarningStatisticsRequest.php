@@ -19,8 +19,9 @@ class GetClusterCheckItemWarningStatisticsRequest extends Model
     public $clusterId;
 
     /**
-     * @description The UUID of the server.
+     * @description The server UUID.
      *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the server UUID.
      * @example e4af3620-6895-4e2f-a641-a9d8fb53****
      *
      * @var string

@@ -61,6 +61,11 @@ class AddContainerDefenseRuleShrinkRequest extends Model
     public $ruleSwitch;
 
     /**
+     * @description The rule type. Valid values:
+     *
+     *   2: user-defined rules
+     *
+     * > Only the value 2 is supported.
      * @example 2
      *
      * @var int

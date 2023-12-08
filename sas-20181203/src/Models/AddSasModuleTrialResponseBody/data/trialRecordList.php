@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class trialRecordList extends Model
 {
     /**
+     * @description The authorized quota.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class trialRecordList extends Model
     public $authLimit;
 
     /**
+     * @description The end time of the trial use.
+     *
      * @example 1638201599999
      *
      * @var int
@@ -23,6 +27,8 @@ class trialRecordList extends Model
     public $gmtEnd;
 
     /**
+     * @description The start time of the trial use.
+     *
      * @example 1667232000000
      *
      * @var int
@@ -30,6 +36,11 @@ class trialRecordList extends Model
     public $gmtStart;
 
     /**
+     * @description The module code. Valid values:
+     *
+     *   **vulFix**: vulnerability fixing
+     *   **cloudSiem**: threat analysis
+     *
      * @example vulFix
      *
      * @var string
@@ -37,6 +48,11 @@ class trialRecordList extends Model
     public $moduleCode;
 
     /**
+     * @description The status of the trial use. Valid values:
+     *
+     *   **1**: The feature is in trial use.
+     *   **0**: The trial use ends.
+     *
      * @example 1
      *
      * @var int

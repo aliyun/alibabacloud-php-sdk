@@ -51,6 +51,10 @@ class AddPrivateRegistryRequest extends Model
     public $password;
 
     /**
+     * @description The port number.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;

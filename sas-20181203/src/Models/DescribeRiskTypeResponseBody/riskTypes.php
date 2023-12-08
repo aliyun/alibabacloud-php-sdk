@@ -19,6 +19,12 @@ class riskTypes extends Model
     public $alias;
 
     /**
+     * @description The baseline type flag of the current user version. Valid values:
+     *
+     * - **true**: Have access
+     * - **false**: No permissions
+     * @example true
+     *
      * @var bool
      */
     public $authFlag;

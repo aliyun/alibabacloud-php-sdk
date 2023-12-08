@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
+     * @description The type of the item.
+     *
      * @example html
      *
      * @var string
@@ -16,6 +18,8 @@ class details extends Model
     public $infoType;
 
     /**
+     * @description The name of the item.
+     *
      * @example DownloadUrl。
      *
      * @var string
@@ -23,6 +27,8 @@ class details extends Model
     public $name;
 
     /**
+     * @description The display name of the item.
+     *
      * @example DownloadUrl。
      *
      * @var string
@@ -30,6 +36,8 @@ class details extends Model
     public $nameDisplay;
 
     /**
+     * @description The type of the item.
+     *
      * @example html
      *
      * @var string
@@ -37,6 +45,8 @@ class details extends Model
     public $type;
 
     /**
+     * @description The value of the item.
+     *
      * @example http://****
      *
      * @var string
@@ -44,6 +54,8 @@ class details extends Model
     public $value;
 
     /**
+     * @description The display value of the item.
+     *
      * @example http://****
      *
      * @var string

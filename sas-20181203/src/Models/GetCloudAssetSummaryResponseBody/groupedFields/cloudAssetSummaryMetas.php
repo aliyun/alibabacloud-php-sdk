@@ -43,7 +43,7 @@ class cloudAssetSummaryMetas extends Model
      *   **23**: Data Security Center (DSC)
      *   **24**: Elastic IP Address (EIP)
      *   **25**: Identity as a Service (IDaaS) - Enterprise Identity Access Management (EIAM)
-     *   **26**: PolarDB for Xscale (PolarDB-X)
+     *   **26**: PolarDB-X
      *   **27**: Elasticsearch
      *
      * @example 16
@@ -71,6 +71,16 @@ class cloudAssetSummaryMetas extends Model
     public $instanceRiskCount;
 
     /**
+     * @description The type of the server. Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud
+     *   **1**: a third-party cloud asset
+     *   **2**: an asset in a data center
+     *   **3**, **4**, **5**, and **7**: an asset provided by another cloud
+     *   **8**: a lightweight cloud asset
+     *
+     * @example 3
+     *
      * @var int
      */
     public $vendor;

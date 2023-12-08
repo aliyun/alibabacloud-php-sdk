@@ -19,6 +19,12 @@ class subTypes extends Model
     public $alias;
 
     /**
+     * @description The baseline subtype permission flag of the current user version. Valid values:
+     *
+     * - **true**: Have access
+     * - **false**: No permissions
+     * @example true
+     *
      * @var bool
      */
     public $authFlag;
@@ -31,6 +37,12 @@ class subTypes extends Model
     public $checkDetails;
 
     /**
+     * @description The operating system type of the server. Valid values:
+     *
+     * - **windows**
+     * - **linux**
+     * @example linux
+     *
      * @var string
      */
     public $supportedOs;

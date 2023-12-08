@@ -99,6 +99,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $imageUuid;
 
     /**
+     * @description The name of the ECS instance.
+     *
      * @example sql-test-001
      *
      * @var string
@@ -106,6 +108,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 47.101.XX.XX
      *
      * @var string
@@ -113,6 +117,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 172.22.XX.XX
      *
      * @var string
@@ -246,6 +252,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $tag;
 
     /**
+     * @description The ID of the task object.
+     *
      * @example m-bp17m0pc0xprzbwo****
      *
      * @var string
@@ -253,6 +261,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $targetId;
 
     /**
+     * @description The name of the task object.
+     *
      * @example source-test-obj-9LaLJ
      *
      * @var string
@@ -260,6 +270,10 @@ class affectedMaliciousFileImagesResponse extends Model
     public $targetName;
 
     /**
+     * @description The object type. Valid value:
+     *
+     *   **ECS_IMAGE**
+     *
      * @example ECS_IMAGE
      *
      * @var string
@@ -267,6 +281,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $targetType;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 48a473c4-1650-4931-a822-7e6c2c28****
      *
      * @var string

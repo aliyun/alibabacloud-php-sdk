@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example 200
      *
      * @var string
@@ -18,6 +20,8 @@ class ListGroupsResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -25,11 +29,15 @@ class ListGroupsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The groups.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The error message.
+     *
      * @example successful
      *
      * @var string
@@ -37,11 +45,15 @@ class ListGroupsResponseBody extends Model
     public $message;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example CB414DB5-F692-5DAB-9F0F-975C060AF***
      *
      * @var string
@@ -49,6 +61,11 @@ class ListGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether exceptions are handled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

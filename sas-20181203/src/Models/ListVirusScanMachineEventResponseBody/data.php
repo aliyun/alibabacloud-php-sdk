@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The details of the exception.
+     *
      * @var details[]
      */
     public $details;
 
     /**
+     * @description The ID of the alert event.
+     *
      * @example 911273
      *
      * @var int
@@ -22,11 +26,17 @@ class data extends Model
     public $eventId;
 
     /**
+     * @description The name of the alert event. The value indicates a subtype.
+     *
+     * @example Unusual Logon
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The name of the instance.
+     *
      * @example i-wz92q7m5hsbgfhdss***
      *
      * @var string
@@ -34,6 +44,8 @@ class data extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address.
+     *
      * @example 172.16.XX.XX
      *
      * @var string
@@ -41,6 +53,8 @@ class data extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address.
+     *
      * @example 10.42.XX.XX
      *
      * @var string
@@ -48,6 +62,8 @@ class data extends Model
     public $intranetIp;
 
     /**
+     * @description The timestamp when the alert event was last generated. Unit: milliseconds.
+     *
      * @example 1682046733628
      *
      * @var int
@@ -55,6 +71,12 @@ class data extends Model
     public $lastTimeStamp;
 
     /**
+     * @description The risk level of the alert event. Valid values:
+     *
+     *   **serious**
+     *   **suspicious**
+     *   **remind**
+     *
      * @example serious
      *
      * @var string

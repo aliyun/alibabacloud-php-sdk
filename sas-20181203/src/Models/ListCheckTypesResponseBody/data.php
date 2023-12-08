@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckTypesResponseBody;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckTypesResponseBody\data\checkDetails;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
+    /**
+     * @var checkDetails[]
+     */
+    public $checkDetails;
+
     /**
      * @example data_integrity
      *
@@ -22,6 +28,7 @@ class data extends Model
      */
     public $checkTypeDisName;
     protected $_name = [
+        'checkDetails'     => 'CheckDetails',
         'checkType'        => 'CheckType',
         'checkTypeDisName' => 'CheckTypeDisName',
     ];
@@ -33,6 +40,15 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkDetails) {
+            $res['CheckDetails'] = [];
+            if (null !== $this->checkDetails && \is_array($this->checkDetails)) {
+                $n = 0;
+                foreach ($this->checkDetails as $item) {
+                    $res['CheckDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
         }
@@ -51,6 +67,15 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckDetails'])) {
+            if (!empty($map['CheckDetails'])) {
+                $model->checkDetails = [];
+                $n                   = 0;
+                foreach ($map['CheckDetails'] as $item) {
+                    $model->checkDetails[$n++] = null !== $item ? checkDetails::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
         }

@@ -31,6 +31,11 @@ class SaveImageBaselineStrategyRequest extends Model
     public $lang;
 
     /**
+     * @description The data source. If this parameter is left empty, the baseline check policy for images is queried. Valid values:
+     *
+     *   **default**: the baseline check policy for images
+     *   **agentless**: agentless detection
+     *
      * @example agentless
      *
      * @var string

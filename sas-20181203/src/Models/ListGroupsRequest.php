@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 89
      *
      * @var int
@@ -16,6 +18,11 @@ class ListGroupsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class ListGroupsRequest extends Model
     public $lang;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. If the return value of NextToken is empty, no next query is to be sent. If a value of NextToken is returned, the value indicates the token that is used for the next query.
+     *
      * @example 1426C575705AE8545E8360A6EFA3B***
      *
      * @var string
@@ -30,6 +39,8 @@ class ListGroupsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The number of entries per page. Default value: 20. Maximum value: 2000.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +48,11 @@ class ListGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description Specifies whether to use NextToken to query vulnerabilities. If you set this parameter to true, TotalCount is not returned. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

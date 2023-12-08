@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOssBucketScanTaskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example BBD75EC2-2F4F-5A7B-AA53-18724DC8****
      *
      * @var string

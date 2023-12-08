@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetOpaStrategyDetailNewResponseBody extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetOpaStrategyDetailNewResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetOpaStrategyDetailNewResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -36,6 +44,8 @@ class GetOpaStrategyDetailNewResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example E819FD71-D240-5E54-AA7F-20FED2ECBEB6
      *
      * @var string
@@ -43,6 +53,11 @@ class GetOpaStrategyDetailNewResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

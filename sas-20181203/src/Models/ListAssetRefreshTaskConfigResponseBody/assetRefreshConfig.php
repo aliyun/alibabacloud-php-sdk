@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class assetRefreshConfig extends Model
 {
     /**
+     * @description The type of the configuration. Valid values:
+     *
+     *   **0**: server synchronization task
+     *   **1**: cloud service synchronization task
+     *   **2**: scheduled AccessKey pair verification task
+     *
+     * @example 1
+     *
      * @var int
      */
     public $refreshConfigType;
@@ -30,7 +38,7 @@ class assetRefreshConfig extends Model
     public $schedulePeriod;
 
     /**
-     * @description The status of asset synchonization. Valid values:
+     * @description The status of the configuration. Valid values:
      *
      *   **1**: enabled
      *   **0**: disabled
@@ -45,7 +53,7 @@ class assetRefreshConfig extends Model
      * @description The service provider of the cloud asset. Valid values:
      *
      *   **3**: Tencent Cloud
-     *   **4**: HUAWEI CLOUD
+     *   **4**: Huawei Cloud
      *   **7**: Amazon Web Services (AWS) Cloud
      *
      * @example 3

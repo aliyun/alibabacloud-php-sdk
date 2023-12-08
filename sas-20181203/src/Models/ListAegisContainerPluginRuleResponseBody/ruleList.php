@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleList extends Model
 {
     /**
+     * @description The time when the rule was created. Unit: milliseconds.
+     *
      * @example 1676355025000
      *
      * @var int
@@ -16,6 +18,8 @@ class ruleList extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the rule was modified. Unit: milliseconds.
+     *
      * @example 1681985833000
      *
      * @var int
@@ -23,6 +27,11 @@ class ruleList extends Model
     public $gmtModified;
 
     /**
+     * @description The action of the rule. Valid values:
+     *
+     *   **1**: Alert
+     *   **2**: Block
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,8 @@ class ruleList extends Model
     public $mode;
 
     /**
+     * @description The description of the rule.
+     *
      * @example system_call
      *
      * @var string
@@ -37,6 +48,8 @@ class ruleList extends Model
     public $ruleDescription;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 30****
      *
      * @var int
@@ -44,6 +57,8 @@ class ruleList extends Model
     public $ruleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test-18****
      *
      * @var string
@@ -51,6 +66,8 @@ class ruleList extends Model
     public $ruleName;
 
     /**
+     * @description The ID of the rule template. The ListSystemClientRules operation returns the ID of a rule template.
+     *
      * @example 868**
      *
      * @var string
@@ -58,6 +75,8 @@ class ruleList extends Model
     public $ruleTemplateId;
 
     /**
+     * @description The name of the rule template.
+     *
      * @example system_call
      *
      * @var string
@@ -65,11 +84,15 @@ class ruleList extends Model
     public $ruleTemplateName;
 
     /**
+     * @description The fields in the value of the rule subtype.
+     *
      * @var string[]
      */
     public $selectedPolicy;
 
     /**
+     * @description The switch ID of the rule.
+     *
      * @example USER-ENABLE-SWITCH-TYPE_****
      *
      * @var string
@@ -77,6 +100,8 @@ class ruleList extends Model
     public $switchId;
 
     /**
+     * @description The images that are added to the whitelist of the rule.
+     *
      * @var string[]
      */
     public $whiteImages;

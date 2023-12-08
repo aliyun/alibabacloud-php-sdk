@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListContainerDefenseRuleRequest extends Model
 {
     /**
-     * @description The conditions.
+     * @description The details of the condition.
      *
      * @var conditions[]
      */
@@ -36,6 +36,11 @@ class ListContainerDefenseRuleRequest extends Model
     public $isDefaultRule;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
      * @example zh
      *
      * @var string
@@ -53,6 +58,11 @@ class ListContainerDefenseRuleRequest extends Model
     public $pageSize;
 
     /**
+     * @description The rule type. Valid values:
+     *
+     *   1: system rule
+     *   2: user-defined rule
+     *
      * @example 1
      *
      * @var int

@@ -21,6 +21,13 @@ class DescribeRiskTypeRequest extends Model
     public $lang;
 
     /**
+     * @description The data source. Valid values:
+     *
+     *   **default**: host baseline
+     *   **agentless**: agentless baseline
+     *
+     * @example agentless
+     *
      * @var string
      */
     public $source;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAegisContainerPluginRuleRequest extends Model
 {
     /**
+     * @description The query condition.
+     *
      * @example [{\"name\": \"name\", \"value\": \"test-1818\"}]
      *
      * @var string
@@ -16,6 +18,8 @@ class ListAegisContainerPluginRuleRequest extends Model
     public $criteria;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,11 @@ class ListAegisContainerPluginRuleRequest extends Model
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +39,8 @@ class ListAegisContainerPluginRuleRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +48,11 @@ class ListAegisContainerPluginRuleRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **0**: custom
+     *   **1**: system
+     *
      * @example 0
      *
      * @var int

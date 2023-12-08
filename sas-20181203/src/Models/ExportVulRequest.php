@@ -28,7 +28,7 @@ class ExportVulRequest extends Model
     public $attachTypes;
 
     /**
-     * @description 要查询漏洞影响的容器名称。
+     * @description The name of the container that is affected by the vulnerability.
      *
      * @example xxljob-7b87597b99-mcskr
      *
@@ -37,8 +37,9 @@ class ExportVulRequest extends Model
     public $containerName;
 
     /**
-     * @description 首次扫描时间结束时间。
-     * > 时间戳，单位为毫秒。
+     * @description The end time of the first scan.
+     *
+     * >  This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1696186800000
      *
      * @var int
@@ -46,8 +47,9 @@ class ExportVulRequest extends Model
     public $createTsEnd;
 
     /**
-     * @description 首次扫描时间起始时间。
-     * > 时间戳，单位为毫秒。
+     * @description The start time of the first scan.
+     *
+     * >  This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1696128144000
      *
      * @var int
@@ -55,6 +57,8 @@ class ExportVulRequest extends Model
     public $createTsStart;
 
     /**
+     * @description The Common Vulnerabilities and Exposures (CVE) ID of the vulnerability.
+     *
      * @example CVE-2022-44702
      *
      * @var string
@@ -84,7 +88,7 @@ class ExportVulRequest extends Model
     public $groupId;
 
     /**
-     * @description 要查询漏洞影响的镜像名称。
+     * @description The name of the image that is affected by the vulnerability.
      *
      * @example container-***:****
      *
@@ -118,7 +122,7 @@ class ExportVulRequest extends Model
     public $necessity;
 
     /**
-     * @description 要查询漏洞影响的进程路径。
+     * @description The path of the process that is affected by the vulnerability.
      *
      * @example /etc/test
      *

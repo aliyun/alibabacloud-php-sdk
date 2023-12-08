@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallHybridProxyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example E55BE5DB-E2DF-57EB-A0C5-7A85EEA67A4C
      *
      * @var string

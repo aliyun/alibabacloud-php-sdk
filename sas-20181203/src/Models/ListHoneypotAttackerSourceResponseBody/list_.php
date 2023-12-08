@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The total number of attack events.
+     *
      * @example 30
      *
      * @var int
@@ -16,11 +18,17 @@ class list_ extends Model
     public $eventCount;
 
     /**
+     * @description The most recent honeypot that was attacked.
+     *
+     * @example vpc tcp honeypot
+     *
      * @var string
      */
     public $lastTargetHoneypot;
 
     /**
+     * @description The most recent IP address that was attacked.
+     *
      * @example 144.23.66.***
      *
      * @var string
@@ -28,6 +36,8 @@ class list_ extends Model
     public $lastTargetIp;
 
     /**
+     * @description The last time when the attack event occurred.
+     *
      * @example 1693446913000
      *
      * @var int
@@ -35,6 +45,12 @@ class list_ extends Model
     public $lastTime;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **2**: low
+     *   **3**: medium
+     *   **4**: high
+     *
      * @example 2
      *
      * @var string
@@ -42,6 +58,8 @@ class list_ extends Model
     public $riskLevel;
 
     /**
+     * @description The source IP address of the attack.
+     *
      * @example 101.102.61.***
      *
      * @var string

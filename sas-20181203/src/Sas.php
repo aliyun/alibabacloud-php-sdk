@@ -804,6 +804,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaStrategyDetailNewResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaStrategyTemplateSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOssBucketScanStatisticRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOssBucketScanStatisticResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetOssScanConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOssScanConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetPropertyScheduleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetPropertyScheduleConfigResponse;
@@ -874,6 +875,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAvailableHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAvailableHoneypotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListBackupRecordRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListBackupRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemRequest;
@@ -4582,11 +4585,17 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->allKeyPrefix)) {
+            $query['AllKeyPrefix'] = $request->allKeyPrefix;
+        }
         if (!Utils::isUnset($request->bucketNameList)) {
             $query['BucketNameList'] = $request->bucketNameList;
         }
         if (!Utils::isUnset($request->excludeKeySuffixList)) {
             $query['ExcludeKeySuffixList'] = $request->excludeKeySuffixList;
+        }
+        if (!Utils::isUnset($request->keyPrefixList)) {
+            $query['KeyPrefixList'] = $request->keyPrefixList;
         }
         if (!Utils::isUnset($request->keySuffixList)) {
             $query['KeySuffixList'] = $request->keySuffixList;
@@ -4634,6 +4643,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->allKeyPrefix)) {
+            $query['AllKeyPrefix'] = $request->allKeyPrefix;
+        }
         if (!Utils::isUnset($request->bucketNameList)) {
             $query['BucketNameList'] = $request->bucketNameList;
         }
@@ -4643,8 +4655,14 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->keyPrefixList)) {
+            $query['KeyPrefixList'] = $request->keyPrefixList;
+        }
         if (!Utils::isUnset($request->keySuffixList)) {
             $query['KeySuffixList'] = $request->keySuffixList;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->scanDayList)) {
             $query['ScanDayList'] = $request->scanDayList;
@@ -8427,6 +8445,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->checkId)) {
+            $query['CheckId'] = $request->checkId;
+        }
         if (!Utils::isUnset($request->checkWarningId)) {
             $query['CheckWarningId'] = $request->checkWarningId;
         }
@@ -8438,6 +8459,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -19407,6 +19431,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->from)) {
             $query['From'] = $request->from;
         }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
@@ -22791,13 +22818,24 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetOssScanConfigRequest $request
+     * @param RuntimeOptions          $runtime
      *
      * @return GetOssScanConfigResponse
      */
-    public function getOssScanConfigWithOptions($runtime)
+    public function getOssScanConfigWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'GetOssScanConfig',
             'version'     => '2018-12-03',
@@ -22814,13 +22852,15 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param GetOssScanConfigRequest $request
+     *
      * @return GetOssScanConfigResponse
      */
-    public function getOssScanConfig()
+    public function getOssScanConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getOssScanConfigWithOptions($runtime);
+        return $this->getOssScanConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -23584,6 +23624,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->checkAndRiskTypeList)) {
             $query['CheckAndRiskTypeList'] = $request->checkAndRiskTypeList;
+        }
+        if (!Utils::isUnset($request->checkIds)) {
+            $query['CheckIds'] = $request->checkIds;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
@@ -24612,6 +24655,64 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ListBackupRecordRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListBackupRecordResponse
+     */
+    public function listBackupRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupEndTime)) {
+            $query['BackupEndTime'] = $request->backupEndTime;
+        }
+        if (!Utils::isUnset($request->backupStartTime)) {
+            $query['BackupStartTime'] = $request->backupStartTime;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->machineRemark)) {
+            $query['MachineRemark'] = $request->machineRemark;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBackupRecord',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBackupRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBackupRecordRequest $request
+     *
+     * @return ListBackupRecordResponse
+     */
+    public function listBackupRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBackupRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListCheckInstanceResultRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -24772,6 +24873,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -25043,6 +25147,12 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->riskId)) {
             $query['RiskId'] = $request->riskId;
+        }
+        if (!Utils::isUnset($request->showChecks)) {
+            $query['ShowChecks'] = $request->showChecks;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->uuid)) {
             $query['Uuid'] = $request->uuid;
@@ -35536,6 +35646,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->allKeyPrefix)) {
+            $query['AllKeyPrefix'] = $request->allKeyPrefix;
+        }
         if (!Utils::isUnset($request->bucketNameList)) {
             $query['BucketNameList'] = $request->bucketNameList;
         }
@@ -35545,8 +35658,17 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->keyPrefixList)) {
+            $query['KeyPrefixList'] = $request->keyPrefixList;
+        }
         if (!Utils::isUnset($request->keySuffixList)) {
             $query['KeySuffixList'] = $request->keySuffixList;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->scanDayList)) {
             $query['ScanDayList'] = $request->scanDayList;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example c8ca91e0907d94efaba7fb0827eb9****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $clusterId;
 
     /**
+     * @description The number of policies.
+     *
      * @example 10
      *
      * @var int

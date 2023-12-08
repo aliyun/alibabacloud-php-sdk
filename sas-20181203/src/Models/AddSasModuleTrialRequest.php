@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddSasModuleTrialRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,11 @@ class AddSasModuleTrialRequest extends Model
     public $lang;
 
     /**
+     * @description The module code. Valid values:
+     *
+     *   **vulFix**: vulnerability fixing
+     *   **cloudSiem**: threat analysis
+     *
      * @example vulFix
      *
      * @var string

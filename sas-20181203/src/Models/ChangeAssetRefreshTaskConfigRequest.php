@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ChangeAssetRefreshTaskConfigRequest extends Model
 {
     /**
-     * @description The asset synchronization configurations.
+     * @description The asset synchronization configuration.
      *
      * @var assetRefreshConfigs[]
      */

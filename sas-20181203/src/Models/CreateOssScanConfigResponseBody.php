@@ -9,12 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CreateOssScanConfigResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @description The request ID.
+     *
      * @example 5DFD6277-CC36-57F7-ACE6-F5952123****
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'id'        => 'Id',
         'requestId' => 'RequestId',
     ];
 
@@ -25,6 +33,9 @@ class CreateOssScanConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,6 +51,9 @@ class CreateOssScanConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

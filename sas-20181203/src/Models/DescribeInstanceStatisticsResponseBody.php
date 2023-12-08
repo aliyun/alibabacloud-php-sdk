@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatisticsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the risk information about assets.
+     * @description The risk information about the asset.
      *
      * @var data[]
      */

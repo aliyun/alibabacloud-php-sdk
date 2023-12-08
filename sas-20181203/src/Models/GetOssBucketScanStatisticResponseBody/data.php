@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The expiration time of the purchased quota.
+     *
      * @example 1714442403000
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $expireTime;
 
     /**
+     * @description The number of high-risk objects.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $highRisk;
 
     /**
+     * @description The number of low-risk objects.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $lowRisk;
 
     /**
+     * @description The number of medium-risk objects.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $mediumRisk;
 
     /**
+     * @description The number of buckets that are not checked.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $noScanBucket;
 
     /**
+     * @description The remaining quota.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +63,8 @@ class data extends Model
     public $remainAuth;
 
     /**
+     * @description The number of buckets in which at-risk objects exist.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +72,8 @@ class data extends Model
     public $riskBucket;
 
     /**
+     * @description The number of objects that are checked.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +81,8 @@ class data extends Model
     public $scanObject;
 
     /**
+     * @description The total number of buckets.
+     *
      * @example 1
      *
      * @var int
@@ -72,6 +90,8 @@ class data extends Model
     public $totalBucket;
 
     /**
+     * @description The total number of objects in the bucket.
+     *
      * @example 1
      *
      * @var int

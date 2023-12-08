@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSaleRequest extends Model
 {
     /**
+     * @description The region in which the Security Center instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou:** inside China
+     *   Global **ap-southeast-1:** outside China
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The timestamp when the virus scan task ended. Unit: milliseconds.
+     *
      * @example 1662343860051
      *
      * @var int
@@ -16,6 +18,8 @@ class list_ extends Model
     public $endTime;
 
     /**
+     * @description The name of the server.
+     *
      * @example sql-test-0****
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 8.210.XX.XX
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 172.25.XX.XX
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @description The progress of the task in percentage.
+     *
      * @example 62
      *
      * @var int
@@ -44,11 +54,18 @@ class list_ extends Model
     public $progress;
 
     /**
+     * @description The information about the file that is scanned.
+     *
      * @var string[]
      */
     public $scanPath;
 
     /**
+     * @description The type of the virus scan task. Valid values:
+     *
+     *   **system**: automatic scan task
+     *   **user**: custom scan task
+     *
      * @example system
      *
      * @var string
@@ -56,6 +73,8 @@ class list_ extends Model
     public $scanType;
 
     /**
+     * @description The timestamp when the virus scan task started. Unit: milliseconds.
+     *
      * @example 1651290987000
      *
      * @var int
@@ -63,6 +82,13 @@ class list_ extends Model
     public $startTime;
 
     /**
+     * @description The status of the virus scan task. Valid values:
+     *
+     *   **1**: running
+     *   **2**: complete
+     *   **3**: failed
+     *   **4**: timed out
+     *
      * @example 1
      *
      * @var int
@@ -70,6 +96,8 @@ class list_ extends Model
     public $status;
 
     /**
+     * @description The ID of the virus scan task.
+     *
      * @example 2e75557bfa570381f5c516cad9b6xxxx
      *
      * @var string
@@ -77,6 +105,10 @@ class list_ extends Model
     public $taskId;
 
     /**
+     * @description The name of the virus scan task.
+     *
+     *   The value is fixed as **VIRUS_VUL_SCHEDULE_SCAN**, which indicates a virus scan task.
+     *
      * @example VIRUS_VUL_SCHEDULE_SCAN
      *
      * @var string
@@ -84,6 +116,8 @@ class list_ extends Model
     public $taskName;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateBucketScanTaskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 0C8487EF-50C2-54BB-8634-10F8C35D****
      *
      * @var string

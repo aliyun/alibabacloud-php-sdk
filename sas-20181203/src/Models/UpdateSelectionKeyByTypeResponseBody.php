@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSelectionKeyByTypeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example DBABBC2E-26DF-5586-BF7C-4FC846EF****
      *
      * @var string

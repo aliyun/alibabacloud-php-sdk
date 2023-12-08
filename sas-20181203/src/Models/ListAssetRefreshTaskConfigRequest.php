@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListAssetRefreshTaskConfigRequest extends Model
 {
     /**
+     * @description The type of the configuration. Valid values:
+     *
+     *   **0**: server synchronization task
+     *   **1**: cloud service synchronization task
+     *   **2**: scheduled AccessKey pair verification task
+     *
+     * @example 2
+     *
      * @var int
      */
     public $refreshConfigType;
@@ -23,6 +31,10 @@ class ListAssetRefreshTaskConfigRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the data entry containing the AccessKey pair that you specify when you configure the scheduled AccessKey pair verification task.
+     *
+     * @example 2295
+     *
      * @var int
      */
     public $targetId;

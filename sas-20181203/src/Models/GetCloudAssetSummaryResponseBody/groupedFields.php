@@ -17,6 +17,8 @@ class groupedFields extends Model
     public $cloudAssetSummaryMetas;
 
     /**
+     * @description The total number of cloud service instances.
+     *
      * @example 919
      *
      * @var int
@@ -24,6 +26,8 @@ class groupedFields extends Model
     public $instanceCountTotal;
 
     /**
+     * @description The total number of cloud service instances that are at risk.
+     *
      * @example 544
      *
      * @var int

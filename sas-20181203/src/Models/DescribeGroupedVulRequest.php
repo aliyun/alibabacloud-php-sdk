@@ -75,7 +75,8 @@ class DescribeGroupedVulRequest extends Model
     /**
      * @description Specifies whether the vulnerability is handled. Valid values:
      *
-     **y**: yes **n**: no
+     *   **y**: handled
+     *   **n**: not handled
      *
      * @example n
      *
@@ -129,7 +130,7 @@ class DescribeGroupedVulRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
-     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
      * @example 127608589417****
      *
      * @var int
@@ -137,14 +138,14 @@ class DescribeGroupedVulRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
-     * @description The tag that is used to filter vulnerabilities. Valid values:
+     * @description The tag that is used to search for the vulnerability. Valid values:
      *
-     *   Restart required
-     *   Remote utilization
-     *   EXP exists
-     *   Available
-     *   Elevation of Privilege
-     *   Code Execution
+     *   **Restart required**
+     *   **Remote utilization**
+     *   **EXP exists**
+     *   **Available**
+     *   **Elevation of Privilege**
+     *   **Code Execution**
      *
      * @example Code Execution
      *
@@ -170,8 +171,8 @@ class DescribeGroupedVulRequest extends Model
      *   **cve**: Linux software vulnerability
      *   **sys**: Windows system vulnerability
      *   **cms**: Web-CMS vulnerability
-     *   **app**: application vulnerability
-     *   **emg**: urgent vulnerability
+     *   **app**: application vulnerability that is detected by network scanning
+     *   **sca**: application vulnerability that is detected by software component analysis
      *
      * @example cve
      *

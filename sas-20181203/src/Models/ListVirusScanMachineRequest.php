@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListVirusScanMachineRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListVirusScanMachineRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class ListVirusScanMachineRequest extends Model
     public $pageSize;
 
     /**
+     * @description The information about the server that you want to query. The value can be the name or the IP address of the server.
+     *
      * @example 192.168.1****
      *
      * @var string
@@ -30,6 +36,8 @@ class ListVirusScanMachineRequest extends Model
     public $remark;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 7cc91747-2845-40d4-bb69-c077597f****
      *
      * @var string

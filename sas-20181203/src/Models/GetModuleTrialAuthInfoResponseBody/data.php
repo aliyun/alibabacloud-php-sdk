@@ -10,11 +10,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the user is qualified for the trial use. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @var bool
      */
     public $canTry;
 
     /**
+     * @description The module code. Valid values:
+     *
+     *   **vulFix**: vulnerability fixing
+     *   **cloudSiem**: threat analysis
+     *
      * @example vulFix
      *
      * @var string
@@ -22,6 +32,8 @@ class data extends Model
     public $moduleCode;
 
     /**
+     * @description The trial use record.
+     *
      * @var trialRecordList[]
      */
     public $trialRecordList;

@@ -22,6 +22,8 @@ class data extends Model
     /**
      * @description The description of the rule.
      *
+     * @example Custom defense configuration
+     *
      * @var string
      */
     public $description;

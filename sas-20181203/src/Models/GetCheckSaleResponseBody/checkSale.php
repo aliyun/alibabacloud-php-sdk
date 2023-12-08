@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class checkSale extends Model
 {
     /**
+     * @description The consumed quota.
+     *
      * @example 500
      *
      * @var int
@@ -16,6 +18,11 @@ class checkSale extends Model
     public $consumeCount;
 
     /**
+     * @description Indicates whether the user is an existing user and whether the user uses the configuration assessment feature before the feature is released for sale on July 07, 2023. Valid values:
+     *
+     *   **true**: existing user
+     *   **false**: new user
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class checkSale extends Model
     public $loyalUser;
 
     /**
+     * @description The purchased quota.
+     *
      * @example 1000
      *
      * @var int
@@ -30,6 +39,12 @@ class checkSale extends Model
     public $purchaseCount;
 
     /**
+     * @description The type of the user. Valid values:
+     *
+     *   **1**: a user who can use all check items.
+     *   **2**: an user who can only use the check items before the release of the feature on July 07, 2023. This type of users must upgrade Security Center before the users can use all check items.
+     *   **3**: a new user who cannot use the configuration assessment feature. This type of users must make a purchase before the users can use the feature.
+     *
      * @example 1
      *
      * @var int

@@ -17,6 +17,11 @@ class IgnoreCheckItemsRequest extends Model
     public $checkAndRiskTypeList;
 
     /**
+     * @var int[]
+     */
+    public $checkIds;
+
+    /**
      * @description The language of the content within the request and response. Default value: **zh**. Valid values:
      *
      *   **zh**: Chinese
@@ -38,10 +43,10 @@ class IgnoreCheckItemsRequest extends Model
     public $reason;
 
     /**
-     * @description Data Sources. Valid values:
+     * @description The data source. Valid values:
      *
-     *   **default**: Host baseline
-     *   **agentless**: Agentless baseline
+     *   **default**: host baseline
+     *   **agentless**: agentless baseline
      *
      * @example agentless
      *
@@ -69,6 +74,7 @@ class IgnoreCheckItemsRequest extends Model
     public $uuidList;
     protected $_name = [
         'checkAndRiskTypeList' => 'CheckAndRiskTypeList',
+        'checkIds'             => 'CheckIds',
         'lang'                 => 'Lang',
         'reason'               => 'Reason',
         'source'               => 'Source',
@@ -91,6 +97,9 @@ class IgnoreCheckItemsRequest extends Model
                     $res['CheckAndRiskTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->checkIds) {
+            $res['CheckIds'] = $this->checkIds;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -126,6 +135,11 @@ class IgnoreCheckItemsRequest extends Model
                 foreach ($map['CheckAndRiskTypeList'] as $item) {
                     $model->checkAndRiskTypeList[$n++] = null !== $item ? checkAndRiskTypeList::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['CheckIds'])) {
+            if (!empty($map['CheckIds'])) {
+                $model->checkIds = $map['CheckIds'];
             }
         }
         if (isset($map['Lang'])) {

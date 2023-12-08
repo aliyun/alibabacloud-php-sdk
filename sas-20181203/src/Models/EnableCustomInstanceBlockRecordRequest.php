@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableCustomInstanceBlockRecordRequest extends Model
 {
     /**
+     * @description The IP address that you want to block.
+     *
      * @example 192.168.xx.xx
      *
      * @var string
@@ -16,6 +18,11 @@ class EnableCustomInstanceBlockRecordRequest extends Model
     public $blockIp;
 
     /**
+     * @description The traffic direction from the IP address that you want to block. Valid value:
+     *
+     *   **in**
+     *   **out**
+     *
      * @example in
      *
      * @var string
@@ -28,6 +35,8 @@ class EnableCustomInstanceBlockRecordRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
      *
      * @var string

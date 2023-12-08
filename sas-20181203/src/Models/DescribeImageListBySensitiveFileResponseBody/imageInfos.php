@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class imageInfos extends Model
 {
     /**
-     * @description The digest of the image.
+     * @description The image digest.
      *
      * @example v005
      *
@@ -27,7 +27,7 @@ class imageInfos extends Model
     public $firstScanTime;
 
     /**
-     * @description The ID of the image instance.
+     * @description The image instance ID.
      *
      * @example cri-a595qp31knh9****
      *
@@ -54,7 +54,7 @@ class imageInfos extends Model
     public $regionId;
 
     /**
-     * @description The name of the image repository.
+     * @description The image repository name.
      *
      * @example opa-test
      *
@@ -85,12 +85,20 @@ class imageInfos extends Model
     public $riskLevel;
 
     /**
+     * @description The sensitive file status. Valid values:
+     *
+     *   **0**: unhandled
+     *   **1**: ignored
+     *   **2**: false positive
+     *
+     * @example 0
+     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The tag of the image.
+     * @description The tag that is added to the image.
      *
      * @example nuxeo6
      *
@@ -99,7 +107,7 @@ class imageInfos extends Model
     public $tag;
 
     /**
-     * @description The UUID of the image.
+     * @description The image UUID.
      *
      * @example f58681174f944623345379e23b7b****
      *

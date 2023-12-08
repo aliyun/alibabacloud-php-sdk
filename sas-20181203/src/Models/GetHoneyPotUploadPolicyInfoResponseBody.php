@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetHoneyPotUploadPolicyInfoResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetHoneyPotUploadPolicyInfoResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetHoneyPotUploadPolicyInfoResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -36,6 +44,8 @@ class GetHoneyPotUploadPolicyInfoResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 8C177095-A734-59B2-9409-7D4F26FF****
      *
      * @var string
@@ -43,6 +53,11 @@ class GetHoneyPotUploadPolicyInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

@@ -27,6 +27,13 @@ class ListCheckResultRequest extends Model
     public $currentPage;
 
     /**
+     * @description Specifies whether the check item supports custom parameters. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $customParam;

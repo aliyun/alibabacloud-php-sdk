@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListVirusScanTaskRequest extends Model
 {
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListVirusScanTaskRequest extends Model
     public $currentPage;
 
     /**
+     * @description The timestamp when the virus scan task ended. Unit: milliseconds.
+     *
      * @example 1680919232999
      *
      * @var int
@@ -23,6 +27,8 @@ class ListVirusScanTaskRequest extends Model
     public $endTime;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 120.27.XX.XX
      *
      * @var string
@@ -30,6 +36,8 @@ class ListVirusScanTaskRequest extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 172.26.XX.XX
      *
      * @var string
@@ -37,6 +45,11 @@ class ListVirusScanTaskRequest extends Model
     public $intranetIp;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -44,6 +57,8 @@ class ListVirusScanTaskRequest extends Model
     public $lang;
 
     /**
+     * @description The name of the server.
+     *
      * @example oracle-win-001****
      *
      * @var string
@@ -51,6 +66,8 @@ class ListVirusScanTaskRequest extends Model
     public $machineName;
 
     /**
+     * @description The number of entries per page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -58,6 +75,8 @@ class ListVirusScanTaskRequest extends Model
     public $pageSize;
 
     /**
+     * @description Specifies whether the virus scan task is the root task.
+     *
      * @example true
      *
      * @var bool
@@ -65,6 +84,9 @@ class ListVirusScanTaskRequest extends Model
     public $rootTask;
 
     /**
+     * @description The ID of the root task.
+     *
+     * >  You can call the [GetVirusScanLatestTaskStatistic](~~GetVirusScanLatestTaskStatistic~~) operation to query the ID.
      * @example 89f5d7813bd59dd237580a8664b3xxxx
      *
      * @var string
@@ -72,6 +94,11 @@ class ListVirusScanTaskRequest extends Model
     public $rootTaskId;
 
     /**
+     * @description The type of the virus scan task. Valid values:
+     *
+     *   **system**: automatic scan task
+     *   **user**: custom scan task
+     *
      * @example user
      *
      * @var string
@@ -79,6 +106,8 @@ class ListVirusScanTaskRequest extends Model
     public $scanType;
 
     /**
+     * @description The timestamp when the virus scan task started. Unit: milliseconds.
+     *
      * @example 1680919232000
      *
      * @var int
@@ -86,6 +115,13 @@ class ListVirusScanTaskRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the virus scan task. Valid values:
+     *
+     *   **1**: running
+     *   **2**: complete
+     *   **3**: failed
+     *   **4**: timed out
+     *
      * @example 1
      *
      * @var int
@@ -93,11 +129,16 @@ class ListVirusScanTaskRequest extends Model
     public $status;
 
     /**
+     * @description The statuses of virus scan tasks.
+     *
      * @var int[]
      */
     public $statusList;
 
     /**
+     * @description The ID of the virus scan task.
+     *
+     * >  You can call the [ListVirusScanTask](~~ListVirusScanTask~~) operation to query the ID.
      * @example 1471d8ebb96795b41ede090b9758****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOssBucketScanInfoRequest extends Model
 {
     /**
+     * @description The name of the bucket.
+     *
      * @example iboxpublic****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListOssBucketScanInfoRequest extends Model
     public $bucketName;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListOssBucketScanInfoRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the bucket that is used for fuzzy match.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,11 @@ class ListOssBucketScanInfoRequest extends Model
     public $fuzzBucketName;
 
     /**
+     * @description Specifies whether at-risk objects are detected. Valid values:
+     *
+     *   **0**: No at-risk objects are detected.
+     *   **1**: At-risk objects are detected.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +48,11 @@ class ListOssBucketScanInfoRequest extends Model
     public $hasRisk;
 
     /**
+     * @description The language of the content in the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
      * @example zh
      *
      * @var string
@@ -44,6 +60,8 @@ class ListOssBucketScanInfoRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -51,6 +69,13 @@ class ListOssBucketScanInfoRequest extends Model
     public $pageSize;
 
     /**
+     * @description The check status of the bucket. Valid values:
+     *
+     *   **1**: The bucket is not checked.
+     *   **2**: All objects in the bucket are being checked.
+     *   **3**: Only new objects in the bucket are being checked.
+     *   **4**: The bucket is checked.
+     *
      * @example 1
      *
      * @var int

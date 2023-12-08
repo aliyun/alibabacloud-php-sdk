@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSaleResponseBody extends Model
 {
     /**
+     * @description The sales information about the configuration assessment quota.
+     *
      * @var checkSale
      */
     public $checkSale;
 
     /**
+     * @description The request ID.
+     *
      * @example F5CF78A7-30AA-59DB-847F-13EE3AE7****
      *
      * @var string

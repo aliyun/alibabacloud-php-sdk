@@ -87,6 +87,18 @@ class backupMachineStatus extends Model
     public $savedBackupCount;
 
     /**
+     * @description The status of the anti-ransomware service. Valid values:
+     *   **SERVICE_EXCEPTION**: Service exception
+     *   **RESTORING**: Restoring
+     *   **BACKING_UP**: Backup in process
+     *
+     * @example RESTORING
+     *
+     * @var string
+     */
+    public $serviceStatus;
+
+    /**
      * @description The status of the anti-ransomware agent. Valid values:
      *
      *   **NOT_INSTALLED**: not installed
@@ -125,6 +137,7 @@ class backupMachineStatus extends Model
         'instanceId'       => 'InstanceId',
         'regionId'         => 'RegionId',
         'savedBackupCount' => 'SavedBackupCount',
+        'serviceStatus'    => 'ServiceStatus',
         'status'           => 'Status',
         'uuid'             => 'Uuid',
         'vaultId'          => 'VaultId',
@@ -166,6 +179,9 @@ class backupMachineStatus extends Model
         }
         if (null !== $this->savedBackupCount) {
             $res['SavedBackupCount'] = $this->savedBackupCount;
+        }
+        if (null !== $this->serviceStatus) {
+            $res['ServiceStatus'] = $this->serviceStatus;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -217,6 +233,9 @@ class backupMachineStatus extends Model
         }
         if (isset($map['SavedBackupCount'])) {
             $model->savedBackupCount = $map['SavedBackupCount'];
+        }
+        if (isset($map['ServiceStatus'])) {
+            $model->serviceStatus = $map['ServiceStatus'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

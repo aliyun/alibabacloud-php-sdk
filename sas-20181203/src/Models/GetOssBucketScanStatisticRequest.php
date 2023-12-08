@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOssBucketScanStatisticRequest extends Model
 {
     /**
+     * @description The names of the buckets.
+     *
      * @var string[]
      */
     public $bucketNameList;

@@ -155,7 +155,7 @@ class DescribeImageSensitiveFileListRequest extends Model
     /**
      * @description The UUID of the image.
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the UUIDs of images from the value of the **ImageUuid** response parameter.
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation of Container Registry to query the image UUID from the value of the **ImageUuid** response parameter.
      * @example 850613a48999900f48417c7e6e9dcfdd
      *
      * @var string

@@ -18,7 +18,7 @@ class ExportSuspEventsResponseBody extends Model
     public $fileName;
 
     /**
-     * @description The ID of the export record.
+     * @description The ID of the export record of the anomalous event.
      *
      * @example 1
      *

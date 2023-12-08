@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class sensitiveFileList extends Model
 {
     /**
+     * @description The key of the sensitive file type.
+     *
+     * @example password
+     *
      * @var string
      */
     public $classKey;
 
     /**
+     * @description The name of the sensitive file type.
+     *
+     * @example password
+     *
      * @var string
      */
     public $className;
@@ -37,7 +45,7 @@ class sensitiveFileList extends Model
     public $firstScanTime;
 
     /**
-     * @description The timestamp generated when the last baseline check was performed. Unit: milliseconds.
+     * @description The timestamp generated when the last scan was performed. Unit: milliseconds.
      *
      * @example 1663321552000
      *
@@ -59,7 +67,7 @@ class sensitiveFileList extends Model
     public $riskLevel;
 
     /**
-     * @description The type of alerts for the sensitive file. Valid value:
+     * @description The type of the alert for the sensitive file. Valid values:
      *
      *   **npm_token**: NPM access token
      *   **ftp_cfg**: FTP configuration
@@ -126,7 +134,7 @@ class sensitiveFileList extends Model
      *   **rdp**: RDP
      *   **mailgun_key**: Mailgun webhook signing key
      *   **mailchimp_api_key**: API key for Mailchimp
-     *   **netrc_cfg**: .netrc configuration file
+     *   **netrc_cfg**: netrc configuration file
      *   **openvpn_cfg**: OpenVPN configuration
      *   **github_refresh_token**: GitHub refresh token
      *   **salesforce**: Salesforce credentials

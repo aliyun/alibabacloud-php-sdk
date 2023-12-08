@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListSupportObjectSuffixResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var string[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 571B2642-BF51-5BDD-906B-D2340DB9****
      *
      * @var string

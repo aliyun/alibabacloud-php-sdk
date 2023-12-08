@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerAppsRequest extends Model
 {
     /**
+     * @description The ID of the container cluster.
+     *
      * @example ca0a686115432429ca26cf780f5e9fff5
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeContainerAppsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeContainerAppsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The application value that you want to query. Fuzzy match is supported.
+     *
      * @example cas-adad-qeqwe
      *
      * @var string
@@ -30,6 +36,9 @@ class DescribeContainerAppsRequest extends Model
     public $fieldValue;
 
     /**
+     * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 200
      *
      * @var int

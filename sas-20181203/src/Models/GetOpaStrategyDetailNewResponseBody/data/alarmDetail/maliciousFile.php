@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class maliciousFile extends Model
 {
     /**
+     * @description The information about the malicious samples.
+     *
      * @var item[]
      */
     public $item;
 
     /**
+     * @description The risk levels.
+     *
      * @var string[]
      */
     public $riskLevel;

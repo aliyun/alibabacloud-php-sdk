@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The details of the alert event.
+     *
      * @var details[]
      */
     public $details;
 
     /**
+     * @description The name of the alert item.
+     *
      * @example WebShell
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $eventName;
 
     /**
+     * @description The name of the object.
+     *
      * @example sca_2023****
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $fileName;
 
     /**
+     * @description The MD5 hash value of the object.
+     *
      * @example 0552c44e243abdea1729d4507bce****
      *
      * @var string

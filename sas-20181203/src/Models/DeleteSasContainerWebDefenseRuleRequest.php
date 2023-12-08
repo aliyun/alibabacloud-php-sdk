@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteSasContainerWebDefenseRuleRequest extends Model
 {
     /**
+     * @description The rule ID.
+     *
+     * >  You can call the ListContainerWebDefenseRule operation to query the rule ID.
      * @example 400597
      *
      * @var int

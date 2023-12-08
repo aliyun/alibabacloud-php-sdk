@@ -44,7 +44,7 @@ class DescribeRestoreJobsRequest extends Model
      *   **CANCELING**: The task is being canceled.
      *   **CANCELED**: The task is canceled.
      *   **PARTIAL_COMPLETE**: The task is partially successful.
-     *   **CREATED**: The task was created but is not run.
+     *   **CREATED**: The task is created but is not run.
      *   **EXPIRED**: The task is not updated.
      *   **QUEUED**: The task is waiting to be run.
      *   **CLIENT_DELETED**: The task fails because the anti-ransomware agent is uninstalled.

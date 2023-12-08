@@ -9,11 +9,33 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var bool
+     */
+    public $allKeyPrefix;
+
+    /**
+     * @var int
+     */
+    public $bucketCount;
+
+    /**
+     * @var string
+     */
+    public $bucketName;
+
+    /**
+     * @description The names of the buckets.
+     *
      * @var string[]
      */
     public $bucketNameList;
 
     /**
+     * @description Indicates whether the check policy is enabled. Valid values:
+     *
+     *   **1**: enabled.
+     *   **0**: disabled.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +43,8 @@ class data extends Model
     public $enable;
 
     /**
+     * @description The end time of the check. The time is in the HH:mm:ss format.
+     *
      * @example 00:00:00
      *
      * @var string
@@ -28,26 +52,59 @@ class data extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string[]
+     */
+    public $keyPrefixList;
+
+    /**
+     * @description The suffixes of the objects that are checked.
+     *
      * @var string[]
      */
     public $keySuffixList;
 
     /**
+     * @var int
+     */
+    public $lastUpdateTime;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description The days when the check is performed. The value indicates the days of the week.
+     *
      * @var int[]
      */
     public $scanDayList;
 
     /**
+     * @description The start time of the check. The time is in the HH:mm:ss format.
+     *
      * @example 00:00:00
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
+        'allKeyPrefix'   => 'AllKeyPrefix',
+        'bucketCount'    => 'BucketCount',
+        'bucketName'     => 'BucketName',
         'bucketNameList' => 'BucketNameList',
         'enable'         => 'Enable',
         'endTime'        => 'EndTime',
+        'id'             => 'Id',
+        'keyPrefixList'  => 'KeyPrefixList',
         'keySuffixList'  => 'KeySuffixList',
+        'lastUpdateTime' => 'LastUpdateTime',
+        'name'           => 'Name',
         'scanDayList'    => 'ScanDayList',
         'startTime'      => 'StartTime',
     ];
@@ -59,6 +116,15 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allKeyPrefix) {
+            $res['AllKeyPrefix'] = $this->allKeyPrefix;
+        }
+        if (null !== $this->bucketCount) {
+            $res['BucketCount'] = $this->bucketCount;
+        }
+        if (null !== $this->bucketName) {
+            $res['BucketName'] = $this->bucketName;
+        }
         if (null !== $this->bucketNameList) {
             $res['BucketNameList'] = $this->bucketNameList;
         }
@@ -68,8 +134,20 @@ class data extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->keyPrefixList) {
+            $res['KeyPrefixList'] = $this->keyPrefixList;
+        }
         if (null !== $this->keySuffixList) {
             $res['KeySuffixList'] = $this->keySuffixList;
+        }
+        if (null !== $this->lastUpdateTime) {
+            $res['LastUpdateTime'] = $this->lastUpdateTime;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->scanDayList) {
             $res['ScanDayList'] = $this->scanDayList;
@@ -89,6 +167,15 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllKeyPrefix'])) {
+            $model->allKeyPrefix = $map['AllKeyPrefix'];
+        }
+        if (isset($map['BucketCount'])) {
+            $model->bucketCount = $map['BucketCount'];
+        }
+        if (isset($map['BucketName'])) {
+            $model->bucketName = $map['BucketName'];
+        }
         if (isset($map['BucketNameList'])) {
             if (!empty($map['BucketNameList'])) {
                 $model->bucketNameList = $map['BucketNameList'];
@@ -100,10 +187,24 @@ class data extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['KeyPrefixList'])) {
+            if (!empty($map['KeyPrefixList'])) {
+                $model->keyPrefixList = $map['KeyPrefixList'];
+            }
+        }
         if (isset($map['KeySuffixList'])) {
             if (!empty($map['KeySuffixList'])) {
                 $model->keySuffixList = $map['KeySuffixList'];
             }
+        }
+        if (isset($map['LastUpdateTime'])) {
+            $model->lastUpdateTime = $map['LastUpdateTime'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['ScanDayList'])) {
             if (!empty($map['ScanDayList'])) {

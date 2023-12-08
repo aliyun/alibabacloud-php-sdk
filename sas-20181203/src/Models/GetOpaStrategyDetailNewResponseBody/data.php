@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The rule configuration information.
+     *
      * @var alarmDetail
      */
     public $alarmDetail;
 
     /**
+     * @description The cluster ID.
+     *
      * @example c8ca91e0907d94efaba7fb0827eb9****
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $clusterId;
 
     /**
+     * @description The cluster name.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $clusterName;
 
     /**
+     * @description The page number. Default value: **1**. Pages start from page 1.
+     *
      * @example 4
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $currentPage;
 
     /**
+     * @description The rule description.
+     *
      * @example Custom defense configuration
      *
      * @var string
@@ -44,16 +54,25 @@ class data extends Model
     public $description;
 
     /**
+     * @description The image names.
+     *
      * @var string[]
      */
     public $imageName;
 
     /**
+     * @description The image tags.
+     *
      * @var string[]
      */
     public $label;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -61,6 +80,11 @@ class data extends Model
     public $lang;
 
     /**
+     * @description Indicates whether the rule applies to malicious Internet images. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -68,6 +92,8 @@ class data extends Model
     public $maliciousImage;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -75,6 +101,12 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The action that is performed when the rule is hit. Valid values:
+     *
+     *   **1**: trigger alerts
+     *   **2**: block
+     *   **3**: allow
+     *
      * @example 1
      *
      * @var int
@@ -82,11 +114,15 @@ class data extends Model
     public $ruleAction;
 
     /**
+     * @description The scope.
+     *
      * @var scopes[]
      */
     public $scopes;
 
     /**
+     * @description The rule ID.
+     *
      * @example 1005
      *
      * @var int
@@ -94,6 +130,8 @@ class data extends Model
     public $strategyId;
 
     /**
+     * @description The rule name.
+     *
      * @example test001
      *
      * @var string
@@ -101,6 +139,8 @@ class data extends Model
     public $strategyName;
 
     /**
+     * @description The ID of the rule template.
+     *
      * @example 1204
      *
      * @var int
@@ -108,6 +148,11 @@ class data extends Model
     public $strategyTemplateId;
 
     /**
+     * @description Indicates whether the rule applies to unscanned images. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -115,6 +160,8 @@ class data extends Model
     public $unScanedImage;
 
     /**
+     * @description The image tags that are added to the whitelist.
+     *
      * @var string[]
      */
     public $whiteList;

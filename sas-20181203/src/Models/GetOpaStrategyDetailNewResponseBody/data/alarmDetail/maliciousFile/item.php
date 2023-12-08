@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The ID of the malicious sample.
+     *
      * @example 1811
      *
      * @var string
@@ -16,6 +18,8 @@ class item extends Model
     public $id;
 
     /**
+     * @description The name of the malicious sample.
+     *
      * @example abnormal binary file
      *
      * @var string

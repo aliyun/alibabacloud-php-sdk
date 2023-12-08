@@ -30,6 +30,11 @@ class DescribeSuspEventDetailRequest extends Model
     public $lang;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
+     * @example 16670360956*****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;

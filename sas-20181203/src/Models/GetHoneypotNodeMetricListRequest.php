@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetHoneypotNodeMetricListRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Valid values:
+     *
+     *   UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC
+     *   Date format: YYYY-MM-DDThh:mm:ssZ
+     *
      * @example 2019-01-30 00:10:00
      *
      * @var string
@@ -16,6 +21,9 @@ class GetHoneypotNodeMetricListRequest extends Model
     public $endTime;
 
     /**
+     * @description The expression that is used to compute the query results in real time.
+     *
+     * >  Only the groupby expression is supported. This expression is similar to the GROUP BY statement that applies to databases.
      * @example {"groupby":["userId","instanceId"]}
      *
      * @var string
@@ -23,6 +31,9 @@ class GetHoneypotNodeMetricListRequest extends Model
     public $express;
 
     /**
+     * @description The number of entries per page.
+     *
+     * >  The maximum value of the Length parameter in a request is 1440.
      * @example 100
      *
      * @var string
@@ -30,6 +41,8 @@ class GetHoneypotNodeMetricListRequest extends Model
     public $length;
 
     /**
+     * @description The metric that is used to monitor the cloud service.
+     *
      * @example cpu_total
      *
      * @var string
@@ -37,6 +50,8 @@ class GetHoneypotNodeMetricListRequest extends Model
     public $metricName;
 
     /**
+     * @description The namespace of the cloud service. Format: acs_cloud service name.
+     *
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -44,6 +59,8 @@ class GetHoneypotNodeMetricListRequest extends Model
     public $namespace;
 
     /**
+     * @description The management node ID.
+     *
      * @example cc427e14-f257-4670-9d2b-d83bbbe7****
      *
      * @var string
@@ -51,6 +68,8 @@ class GetHoneypotNodeMetricListRequest extends Model
     public $nodeId;
 
     /**
+     * @description The time interval. Unit: seconds. Valid values: 60, 300, and 900.
+     *
      * @example 60
      *
      * @var string
@@ -58,6 +77,12 @@ class GetHoneypotNodeMetricListRequest extends Model
     public $period;
 
     /**
+     * @description The beginning of the time range to query. The following formats are supported:
+     *
+     *   UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC
+     *   Date format: YYYY-MM-DDThh:mm:ssZ
+     *   The interval between the start time and the end time is less than or equal to 31 days.
+     *
      * @example 2019-01-30 00:00:00
      *
      * @var string

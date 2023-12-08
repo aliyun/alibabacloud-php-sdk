@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OperationCancelIgnoreSuspEventRequest extends Model
 {
     /**
-     * @description The information about the remarks.
+     * @description The remarks.
      *
      * @example remark text
      *

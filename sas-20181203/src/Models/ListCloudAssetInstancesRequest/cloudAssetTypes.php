@@ -11,7 +11,7 @@ class cloudAssetTypes extends Model
     /**
      * @description The subtype of the cloud asset.
      *
-     * You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the subtypes of cloud assets from the AssetSubType response parameter.
+     * You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the subtype of the cloud asset.
      * @example 0
      *
      * @var int
@@ -21,7 +21,7 @@ class cloudAssetTypes extends Model
     /**
      * @description The type of the cloud asset.
      *
-     * You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the types of cloud assets from the AssetType response parameter.
+     * You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the cloud asset type.
      * @example 18
      *
      * @var int
@@ -29,6 +29,14 @@ class cloudAssetTypes extends Model
     public $assetType;
 
     /**
+     * @description The server type. Valid values:
+     *
+     *   **0**: a cloud asset provided by Alibaba Cloud
+     *   **1**: a cloud asset outside Alibaba Cloud
+     *   **2**: a cloud asset in a data center
+     *   **3**, **4**, **5**, and **7**: a cloud asset provided by a third-party service provider
+     *   **8**: a lightweight cloud asset
+     *
      * @example 0
      *
      * @var int

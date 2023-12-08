@@ -27,7 +27,7 @@ class basicData extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example sg-t4nbk2aodzio52xv****
      *
@@ -60,7 +60,7 @@ class basicData extends Model
     public $status;
 
     /**
-     * @description The information about the exceptions of check items.
+     * @description The exception message of the check item.
      *
      * @example Task is failed.
      *

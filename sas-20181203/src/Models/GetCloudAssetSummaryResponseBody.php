@@ -17,6 +17,8 @@ class GetCloudAssetSummaryResponseBody extends Model
     public $groupedFields;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example F5CF78A7-30AA-59DB-847F-13EE3AE7****
      *
      * @var string

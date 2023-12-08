@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnceTaskLeafRecordPageResponseBody extends Model
 {
     /**
-     * @description The details of the sub-tasks.
+     * @description The details of the sub-task.
      *
      * @var onceTasks[]
      */

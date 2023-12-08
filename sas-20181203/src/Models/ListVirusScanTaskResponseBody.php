@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListVirusScanTaskResponseBody extends Model
 {
     /**
+     * @description The returned virus scan tasks.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7
      *
      * @var string

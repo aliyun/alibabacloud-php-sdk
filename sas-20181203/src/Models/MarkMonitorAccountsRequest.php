@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MarkMonitorAccountsRequest extends Model
 {
     /**
+     * @description The IDs of the members.
+     *
      * @example 131331822340XXXX,140649175187XXXX
      *
      * @var string

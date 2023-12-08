@@ -219,6 +219,14 @@ class DescribeImageListBySensitiveFileRequest extends Model
     public $sensitiveFileKey;
 
     /**
+     * @description The sensitive file status. Valid values:
+     *
+     *   **0**: unhandled
+     *   **1**: ignored
+     *   **2**: false positive
+     *
+     * @example 0
+     *
      * @var string
      */
     public $status;

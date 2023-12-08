@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
+     * @description The name of the parameter in the file details.
+     *
      * @example DownloadUrl
      *
      * @var string
@@ -16,6 +18,8 @@ class details extends Model
     public $name;
 
     /**
+     * @description The display name of the alert.
+     *
      * @example DownloadUrl
      *
      * @var string
@@ -23,6 +27,8 @@ class details extends Model
     public $nameDisplay;
 
     /**
+     * @description The value type of the parameter in the file details.
+     *
      * @example html
      *
      * @var string
@@ -30,6 +36,8 @@ class details extends Model
     public $type;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example http://gcx.cn-hangzhou.aliyuncs.com/****
      *
      * @var string
@@ -37,6 +45,8 @@ class details extends Model
     public $value;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example http://gcx.cn-hangzhou.aliyuncs.com/****
      *
      * @var string

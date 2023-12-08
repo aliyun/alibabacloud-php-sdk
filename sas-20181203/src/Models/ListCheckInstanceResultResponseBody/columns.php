@@ -26,7 +26,7 @@ class columns extends Model
     public $key;
 
     /**
-     * @description Indicates whether the search condition is supported. Valid values:
+     * @description Indicates whether the search condition is used. Valid values:
      *
      *   **true**
      *   **false**
@@ -38,7 +38,7 @@ class columns extends Model
     public $search;
 
     /**
-     * @description The value of the search condition.
+     * @description The search key.
      *
      * @example InstanceIdKey
      *
@@ -56,7 +56,7 @@ class columns extends Model
     public $showName;
 
     /**
-     * @description The format of the check result for the instance. Valid values:
+     * @description The type of the check result for the instance. Valid values:
      *
      *   **text**
      *   **link**

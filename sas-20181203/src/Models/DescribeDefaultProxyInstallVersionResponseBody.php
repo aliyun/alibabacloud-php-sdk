@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefaultProxyInstallVersionResponseBody extends Model
 {
     /**
+     * @description The default installation version.
+     *
      * @example proxy_01_03
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDefaultProxyInstallVersionResponseBody extends Model
     public $installVersion;
 
     /**
+     * @description The request ID.
+     *
      * @example F9FCB51A-5078-5D31-9C4D-3B25BEF068C7
      *
      * @var string

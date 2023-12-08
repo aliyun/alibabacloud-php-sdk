@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotAttackerSourceRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListHoneypotAttackerSourceRequest extends Model
     public $currentPage;
 
     /**
+     * @description The end of the time range to query. This value is a timestamp.
+     *
      * @example 1676945366221
      *
      * @var int
@@ -23,6 +27,11 @@ class ListHoneypotAttackerSourceRequest extends Model
     public $endTimeStamp;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +39,8 @@ class ListHoneypotAttackerSourceRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -37,11 +48,15 @@ class ListHoneypotAttackerSourceRequest extends Model
     public $pageSize;
 
     /**
+     * @description An array that consists of risk levels.
+     *
      * @var string[]
      */
     public $riskLevelList;
 
     /**
+     * @description The source IP address of the attack.
+     *
      * @example 175.136.230.***
      *
      * @var string
@@ -49,6 +64,8 @@ class ListHoneypotAttackerSourceRequest extends Model
     public $srcIp;
 
     /**
+     * @description The beginning of the time range to query. This value is a timestamp.
+     *
      * @example 1674007632124
      *
      * @var int

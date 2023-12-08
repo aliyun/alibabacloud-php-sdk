@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the OSS bucket.
+     *
      * @example hz-new01****
      *
      * @var string
@@ -17,11 +19,18 @@ class data extends Model
     public $bucketName;
 
     /**
+     * @description The details of the file.
+     *
      * @var details[]
      */
     public $details;
 
     /**
+     * @description Indicates whether the file can be detected by cloud sandbox. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var string
@@ -29,6 +38,8 @@ class data extends Model
     public $displaySandboxResult;
 
     /**
+     * @description The ID of the alert.
+     *
      * @example 911273
      *
      * @var int
@@ -36,6 +47,8 @@ class data extends Model
     public $eventId;
 
     /**
+     * @description The name of the alert.
+     *
      * @example WebShell
      *
      * @var string
@@ -43,6 +56,8 @@ class data extends Model
     public $eventName;
 
     /**
+     * @description The path to the file.
+     *
      * @example /usr/local****
      *
      * @var string
@@ -50,6 +65,8 @@ class data extends Model
     public $filePath;
 
     /**
+     * @description The timestamp at which the alert was first detected.
+     *
      * @example 1694576692000
      *
      * @var int
@@ -57,6 +74,8 @@ class data extends Model
     public $firstTime;
 
     /**
+     * @description The timestamp at which the alert was last detected.
+     *
      * @example 1694576692000
      *
      * @var int
@@ -64,6 +83,8 @@ class data extends Model
     public $lastTime;
 
     /**
+     * @description The MD5 hash value of the file.
+     *
      * @example 5b394b54ca632fe51c4ab4a6dbaf****
      *
      * @var string
@@ -71,6 +92,8 @@ class data extends Model
     public $md5;
 
     /**
+     * @description The key of the file that is stored in the OSS bucket.
+     *
      * @example 1/2023/07/21/10/18/16899059356518bcf6c64-a04e-492d-a421-4ae8b888****
      *
      * @var string
@@ -78,6 +101,12 @@ class data extends Model
     public $ossKey;
 
     /**
+     * @description The risk level of the alert. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @example medium
      *
      * @var string
@@ -85,6 +114,8 @@ class data extends Model
     public $riskLevel;
 
     /**
+     * @description The SHA-1 hash value of the file.
+     *
      * @example 3c01bdbb26f358bab27f267924aa2c9a03fc****
      *
      * @var string
@@ -92,6 +123,8 @@ class data extends Model
     public $sha1;
 
     /**
+     * @description The SHA-256 hash value of the file.
+     *
      * @example 3a6fed5fc11392b3ee9f81caf017b48640d7458766a8eb0382899a605b41****
      *
      * @var string
@@ -99,6 +132,11 @@ class data extends Model
     public $sha256;
 
     /**
+     * @description The method that is used to detect the malicious file. Valid values:
+     *
+     *   **API**: uses API operations.
+     *   **OSS**: uses OSS file check.
+     *
      * @example OSS
      *
      * @var string

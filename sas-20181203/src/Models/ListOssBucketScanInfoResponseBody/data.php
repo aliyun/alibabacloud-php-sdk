@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the bucket.
+     *
      * @example hz-new02****
      *
      * @var string
@@ -16,6 +18,13 @@ class data extends Model
     public $bucketName;
 
     /**
+     * @var int
+     */
+    public $configStatus;
+
+    /**
+     * @description The number of high-risk objects.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +32,8 @@ class data extends Model
     public $highRisk;
 
     /**
+     * @description The time when the most recent check ended. Unit: milliseconds.
+     *
      * @example 1698388233883
      *
      * @var int
@@ -30,6 +41,8 @@ class data extends Model
     public $lastScanEndTime;
 
     /**
+     * @description The time when the bucket was last checked. Unit: milliseconds.
+     *
      * @example 1698388233883
      *
      * @var int
@@ -37,6 +50,8 @@ class data extends Model
     public $lastScanTime;
 
     /**
+     * @description The number of low-risk objects.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +59,8 @@ class data extends Model
     public $lowRisk;
 
     /**
+     * @description The number of medium-risk objects.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +68,8 @@ class data extends Model
     public $mediumRisk;
 
     /**
+     * @description The reason why the bucket cannot be checked.
+     *
      * @example Unsupported Region。
      *
      * @var string
@@ -58,6 +77,8 @@ class data extends Model
     public $message;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +86,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The number of objects that are checked.
+     *
      * @example 100
      *
      * @var int
@@ -72,6 +95,11 @@ class data extends Model
     public $scanObject;
 
     /**
+     * @description Indicates whether the bucket is checked. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -79,6 +107,13 @@ class data extends Model
     public $scanned;
 
     /**
+     * @description The check status of the bucket. Valid values:
+     *
+     *   **1**: The bucket is not checked.
+     *   **2**: All objects in the bucket are being checked.
+     *   **3**: Only new objects are being checked.
+     *   **4**: The bucket is checked.
+     *
      * @example 1
      *
      * @var int
@@ -86,6 +121,13 @@ class data extends Model
     public $status;
 
     /**
+     * @description The storage class of the bucket. Valid values:
+     *
+     *   **Standard**
+     *   **IA**
+     *   **Archive**
+     *   **ColdArchive**
+     *
      * @example Archive
      *
      * @var string
@@ -93,6 +135,11 @@ class data extends Model
     public $storageClass;
 
     /**
+     * @description Indicates whether the bucket can be checked. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -100,6 +147,8 @@ class data extends Model
     public $support;
 
     /**
+     * @description The total number of objects in the bucket.
+     *
      * @example 100
      *
      * @var int
@@ -107,6 +156,7 @@ class data extends Model
     public $totalObject;
     protected $_name = [
         'bucketName'      => 'BucketName',
+        'configStatus'    => 'ConfigStatus',
         'highRisk'        => 'HighRisk',
         'lastScanEndTime' => 'LastScanEndTime',
         'lastScanTime'    => 'LastScanTime',
@@ -131,6 +181,9 @@ class data extends Model
         $res = [];
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
+        }
+        if (null !== $this->configStatus) {
+            $res['ConfigStatus'] = $this->configStatus;
         }
         if (null !== $this->highRisk) {
             $res['HighRisk'] = $this->highRisk;
@@ -185,6 +238,9 @@ class data extends Model
         $model = new self();
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
+        }
+        if (isset($map['ConfigStatus'])) {
+            $model->configStatus = $map['ConfigStatus'];
         }
         if (isset($map['HighRisk'])) {
             $model->highRisk = $map['HighRisk'];

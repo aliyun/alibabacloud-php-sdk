@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateBucketScanTaskRequest extends Model
 {
     /**
+     * @description The name of the bucket.
+     *
      * @example iboxpublic****
      *
      * @var string
@@ -16,6 +18,10 @@ class OperateBucketScanTaskRequest extends Model
     public $bucketName;
 
     /**
+     * @description The operation that you want to perform on the bucket. Valid value:
+     *
+     *   **1**: cancels the bucket check.
+     *
      * @example 1
      *
      * @var int

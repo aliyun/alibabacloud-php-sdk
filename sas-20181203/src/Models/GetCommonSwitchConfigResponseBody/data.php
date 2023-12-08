@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Specifies whether to turn on the switch for newly added servers. Valid values:
+     *
+     *   **add**: By default, the switch is turned on for newly added servers.
+     *   **del**: By default, the switch is turned off for newly added servers.
+     *
      * @example add
      *
      * @var string
@@ -16,6 +21,11 @@ class data extends Model
     public $targetDefault;
 
     /**
+     * @description The status of the synchronization. Valid values:
+     *
+     *   **sync**: The modifications are being synchronized.
+     *   **valid**: The modifications has taken effect.
+     *
      * @example valid
      *
      * @var string

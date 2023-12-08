@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetObjectScanEventRequest extends Model
 {
     /**
+     * @description The ID of the alert event.
+     *
      * @example 81****
      *
      * @var string
@@ -16,6 +18,11 @@ class GetObjectScanEventRequest extends Model
     public $eventId;
 
     /**
+     * @description The language of the content in the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
      * @example zh
      *
      * @var string

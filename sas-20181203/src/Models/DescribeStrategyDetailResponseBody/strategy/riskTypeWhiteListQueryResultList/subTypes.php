@@ -38,6 +38,11 @@ class subTypes extends Model
     public $on;
 
     /**
+     * @var string
+     */
+    public $supportedOs;
+
+    /**
      * @description The type of the sub-check item.
      *
      * @example hc_exploit_redis
@@ -49,6 +54,7 @@ class subTypes extends Model
         'alias'        => 'Alias',
         'checkDetails' => 'CheckDetails',
         'on'           => 'On',
+        'supportedOs'  => 'SupportedOs',
         'typeName'     => 'TypeName',
     ];
 
@@ -73,6 +79,9 @@ class subTypes extends Model
         }
         if (null !== $this->on) {
             $res['On'] = $this->on;
+        }
+        if (null !== $this->supportedOs) {
+            $res['SupportedOs'] = $this->supportedOs;
         }
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
@@ -103,6 +112,9 @@ class subTypes extends Model
         }
         if (isset($map['On'])) {
             $model->on = $map['On'];
+        }
+        if (isset($map['SupportedOs'])) {
+            $model->supportedOs = $map['SupportedOs'];
         }
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];

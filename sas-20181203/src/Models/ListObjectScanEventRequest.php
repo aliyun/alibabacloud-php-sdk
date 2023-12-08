@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListObjectScanEventRequest extends Model
 {
     /**
+     * @description The name of the OSS bucket.
+     *
      * @example ltrbuck****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListObjectScanEventRequest extends Model
     public $bucketName;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListObjectScanEventRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the alert.
+     *
      * @example WebShell
      *
      * @var string
@@ -30,6 +36,11 @@ class ListObjectScanEventRequest extends Model
     public $eventName;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -37,6 +48,8 @@ class ListObjectScanEventRequest extends Model
     public $lang;
 
     /**
+     * @description The MD5 hash value of the file.
+     *
      * @example 0552c44e243abdea1729d4507bce****
      *
      * @var string
@@ -44,6 +57,8 @@ class ListObjectScanEventRequest extends Model
     public $md5;
 
     /**
+     * @description The key of the file that is stored in an OSS bucket.
+     *
      * @example 1/2022/06/23/15/41/16559701077444693a0c6-33b2-4cc2-a99f-9f38b8b8****
      *
      * @var string
@@ -51,6 +66,8 @@ class ListObjectScanEventRequest extends Model
     public $ossKey;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -58,6 +75,12 @@ class ListObjectScanEventRequest extends Model
     public $pageSize;
 
     /**
+     * @description The risk level of the alert. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @example low
      *
      * @var string
@@ -65,6 +88,11 @@ class ListObjectScanEventRequest extends Model
     public $riskLevel;
 
     /**
+     * @description The method that is used to detect the malicious file. Valid values:
+     *
+     *   **API**: uses API operations.
+     *   **OSS**: uses Object Storage Service (OSS) file check.
+     *
      * @example OSS
      *
      * @var string
@@ -72,6 +100,8 @@ class ListObjectScanEventRequest extends Model
     public $source;
 
     /**
+     * @description The end of the time range during which the exception is detected.
+     *
      * @example 1683862286000
      *
      * @var int
@@ -79,6 +109,8 @@ class ListObjectScanEventRequest extends Model
     public $timeEnd;
 
     /**
+     * @description The beginning of the time range during which the exception is detected.
+     *
      * @example 1683603086000
      *
      * @var int

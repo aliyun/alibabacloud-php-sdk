@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The server group type. Valid values:
+     *
+     *   **0**: default group
+     *   **1**: other group
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class list_ extends Model
     public $groupFlag;
 
     /**
+     * @description The server group ID.
+     *
      * @example 11028542
      *
      * @var int
@@ -23,6 +30,8 @@ class list_ extends Model
     public $groupId;
 
     /**
+     * @description The server group name.
+     *
      * @example cn-shenzhen+dir-1440978***
      *
      * @var string

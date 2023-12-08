@@ -53,6 +53,10 @@ class HandleSimilarSecurityEventsRequest extends Model
     public $operationParams;
 
     /**
+     * @description The remark of the operation.
+     *
+     * @example remark test.
+     *
      * @var string
      */
     public $remark;

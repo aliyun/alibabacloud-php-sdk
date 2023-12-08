@@ -64,6 +64,11 @@ class list_ extends Model
     public $fixList;
 
     /**
+     * @var int
+     */
+    public $fixStatus;
+
+    /**
      * @description The instance ID of the server.
      *
      * @example i-bp1a69mvjujbakxu****
@@ -98,6 +103,11 @@ class list_ extends Model
      * @var string
      */
     public $intranetIp;
+
+    /**
+     * @var int
+     */
+    public $lastHandleTime;
 
     /**
      * @description The timestamp generated when the last scan was performed. Unit: milliseconds.
@@ -204,10 +214,12 @@ class list_ extends Model
         'containerId'     => 'ContainerId',
         'containerName'   => 'ContainerName',
         'fixList'         => 'FixList',
+        'fixStatus'       => 'FixStatus',
         'instanceId'      => 'InstanceId',
         'instanceName'    => 'InstanceName',
         'internetIp'      => 'InternetIp',
         'intranetIp'      => 'IntranetIp',
+        'lastHandleTime'  => 'LastHandleTime',
         'lastScanTime'    => 'LastScanTime',
         'portOpen'        => 'PortOpen',
         'prompt'          => 'Prompt',
@@ -248,6 +260,9 @@ class list_ extends Model
                 }
             }
         }
+        if (null !== $this->fixStatus) {
+            $res['FixStatus'] = $this->fixStatus;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -259,6 +274,9 @@ class list_ extends Model
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->lastHandleTime) {
+            $res['LastHandleTime'] = $this->lastHandleTime;
         }
         if (null !== $this->lastScanTime) {
             $res['LastScanTime'] = $this->lastScanTime;
@@ -329,6 +347,9 @@ class list_ extends Model
                 }
             }
         }
+        if (isset($map['FixStatus'])) {
+            $model->fixStatus = $map['FixStatus'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -340,6 +361,9 @@ class list_ extends Model
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['LastHandleTime'])) {
+            $model->lastHandleTime = $map['LastHandleTime'];
         }
         if (isset($map['LastScanTime'])) {
             $model->lastScanTime = $map['LastScanTime'];

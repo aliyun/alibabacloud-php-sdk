@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetOssBucketScanStatisticResponseBody extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example FAC50208-E56B-5CC8-8738-2B219D1A****
      *
      * @var string

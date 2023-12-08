@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnMarkMonitorAccountsRequest extends Model
 {
     /**
+     * @description The IDs of the members.
+     *
      * @example 125267953644XXXX,125807832682XXXX
      *
      * @var string
