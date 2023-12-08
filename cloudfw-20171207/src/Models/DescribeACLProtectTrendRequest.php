@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeACLProtectTrendRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp that is accurate to seconds.
+     *
      * @example 1670397599
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeACLProtectTrendRequest extends Model
     public $endTime;
 
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeACLProtectTrendRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example 223.95.87.130
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeACLProtectTrendRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp that is accurate to seconds.
+     *
      * @example 1677050306
      *
      * @var string

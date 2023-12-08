@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeACLProtectTrendResponseBody extends Model
 {
     /**
+     * @description The number of internal requests that are blocked by the ACL feature.
+     *
      * @example 100
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeACLProtectTrendResponseBody extends Model
     public $inProtectCnt;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example 0
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeACLProtectTrendResponseBody extends Model
     public $interVPCProtectCnt;
 
     /**
+     * @description The interval for returning data. Unit: seconds.
+     *
      * @example 86400
      *
      * @var int
@@ -31,6 +37,8 @@ class DescribeACLProtectTrendResponseBody extends Model
     public $interval;
 
     /**
+     * @description The number of external requests that are blocked by the ACL feature.
+     *
      * @example 200
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeACLProtectTrendResponseBody extends Model
     public $outProtectCnt;
 
     /**
+     * @description The request ID.
+     *
      * @example 9063AB86-6FFA-5B2D-A16D-697C966DECA3
      *
      * @var string
@@ -45,6 +55,8 @@ class DescribeACLProtectTrendResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of requests that are blocked by the ACL feature.
+     *
      * @example 300
      *
      * @var int
@@ -52,6 +64,8 @@ class DescribeACLProtectTrendResponseBody extends Model
     public $totalProtectCnt;
 
     /**
+     * @description The statistics on the requests that are blocked by the ACL feature.
+     *
      * @var trendList[]
      */
     public $trendList;

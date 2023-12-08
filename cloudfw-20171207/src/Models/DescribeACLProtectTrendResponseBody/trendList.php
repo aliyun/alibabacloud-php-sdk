@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class trendList extends Model
 {
     /**
+     * @description The number of requests that are blocked by ACL on the current day.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class trendList extends Model
     public $protectCnt;
 
     /**
+     * @description The UNIX timestamp at midnight (00:00:00) of each day, which indicates the date of the current day. Unit: seconds.
+     *
      * @example 1697299200
      *
      * @var int

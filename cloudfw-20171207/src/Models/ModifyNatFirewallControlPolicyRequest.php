@@ -106,6 +106,11 @@ class ModifyNatFirewallControlPolicyRequest extends Model
     public $destinationType;
 
     /**
+     * @var string
+     */
+    public $direction;
+
+    /**
      * @description The domain name resolution method of the access control policy. By default, an access control policy is enabled after it is created. Valid values:
      *
      *   **0**: Fully qualified domain name (FQDN)-based resolution
@@ -237,6 +242,7 @@ class ModifyNatFirewallControlPolicyRequest extends Model
         'destPortType'        => 'DestPortType',
         'destination'         => 'Destination',
         'destinationType'     => 'DestinationType',
+        'direction'           => 'Direction',
         'domainResolveType'   => 'DomainResolveType',
         'endTime'             => 'EndTime',
         'lang'                => 'Lang',
@@ -285,6 +291,9 @@ class ModifyNatFirewallControlPolicyRequest extends Model
         }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
+        }
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
         }
         if (null !== $this->domainResolveType) {
             $res['DomainResolveType'] = $this->domainResolveType;
@@ -365,6 +374,9 @@ class ModifyNatFirewallControlPolicyRequest extends Model
         }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
+        }
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
         }
         if (isset($map['DomainResolveType'])) {
             $model->domainResolveType = $map['DomainResolveType'];

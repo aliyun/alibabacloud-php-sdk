@@ -18,6 +18,11 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
     public $aclUuid;
 
     /**
+     * @var string
+     */
+    public $direction;
+
+    /**
      * @description The language of the content within the response. Valid values:
      *
      *   **zh**: Chinese (default)
@@ -49,6 +54,7 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
     public $newOrder;
     protected $_name = [
         'aclUuid'      => 'AclUuid',
+        'direction'    => 'Direction',
         'lang'         => 'Lang',
         'natGatewayId' => 'NatGatewayId',
         'newOrder'     => 'NewOrder',
@@ -63,6 +69,9 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
         $res = [];
         if (null !== $this->aclUuid) {
             $res['AclUuid'] = $this->aclUuid;
+        }
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -87,6 +96,9 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
         $model = new self();
         if (isset($map['AclUuid'])) {
             $model->aclUuid = $map['AclUuid'];
+        }
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

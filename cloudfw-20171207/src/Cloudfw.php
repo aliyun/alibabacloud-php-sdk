@@ -3245,9 +3245,6 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
@@ -4340,6 +4337,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->destinationType)) {
             $query['DestinationType'] = $request->destinationType;
         }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
         if (!Utils::isUnset($request->domainResolveType)) {
             $query['DomainResolveType'] = $request->domainResolveType;
         }
@@ -4423,6 +4423,9 @@ class Cloudfw extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->aclUuid)) {
             $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;

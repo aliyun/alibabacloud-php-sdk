@@ -44,6 +44,11 @@ class aclGroupList extends Model
     public $aclRuleCount;
 
     /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
      * @description The UID of the member that is managed by your Alibaba Cloud account.
      *
      * @example 258039427902****
@@ -55,6 +60,7 @@ class aclGroupList extends Model
         'aclGroupId'   => 'AclGroupId',
         'aclGroupName' => 'AclGroupName',
         'aclRuleCount' => 'AclRuleCount',
+        'isDefault'    => 'IsDefault',
         'memberUid'    => 'MemberUid',
     ];
 
@@ -73,6 +79,9 @@ class aclGroupList extends Model
         }
         if (null !== $this->aclRuleCount) {
             $res['AclRuleCount'] = $this->aclRuleCount;
+        }
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
         }
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
@@ -97,6 +106,9 @@ class aclGroupList extends Model
         }
         if (isset($map['AclRuleCount'])) {
             $model->aclRuleCount = $map['AclRuleCount'];
+        }
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
         }
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];
