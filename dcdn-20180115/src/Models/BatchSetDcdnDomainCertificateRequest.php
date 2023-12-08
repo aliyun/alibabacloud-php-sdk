@@ -65,7 +65,7 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     /**
      * @description Specifies whether to enable the HTTPS certificate. Valid values:
      *
-     *   \*\*on\*\*: enables the HTTPS certificate.
+     *   **on**: enables the HTTPS certificate.
      *   **off**: does not enable the HTTPS certificate.
      *
      * This is the default value.

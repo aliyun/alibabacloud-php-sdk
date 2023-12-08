@@ -82,7 +82,7 @@ class policy extends Model
     public $policyType;
 
     /**
-     * @description The protection rule configurations that are defined in the protection policy. The configurations only support bot management. For more information, see [BatchCreateDcdnWafRules](~~BatchCreateDcdnWafRules~~).
+     * @description The protection rule configurations corresponding to the protection policy. The configurations only support Bot management. For more information, see [BatchCreateDcdnWafRules](~~BatchCreateDcdnWafRules~~).
      *
      * @example {     "type":"target_type",     "status":"on",     "config":{"target":"app"},     "action":""   }
      *

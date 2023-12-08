@@ -20,7 +20,7 @@ class CreateRoutineRequest extends Model
     /**
      * @description The configurations of the specified environment.
      *
-     * @example {"staging":{"pecName":"50ms"},"production":{"SpecName":"50ms"}}
+     * @example {"staging":{"SpecName":"50ms"},"production":{"SpecName":"50ms"}}
      *
      * @var mixed[]
      */

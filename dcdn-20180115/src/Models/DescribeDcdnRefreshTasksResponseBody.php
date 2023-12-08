@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRefreshTasksResponseBody extends Model
 {
     /**
-     * @description The number of the returned page.
+     * @description The page number of the returned page.
      *
      * @example 2
      *
@@ -37,7 +37,7 @@ class DescribeDcdnRefreshTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The tasks.
+     * @description Details about tasks.
      *
      * @var tasks
      */

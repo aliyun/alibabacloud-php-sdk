@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainLogExTtlResponseBody\domainLogDetails;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDcdnDomainLogExTtlResponseBody extends Model
 {
     /**
-     * @var int
+     * @var domainLogDetails
      */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
+    public $domainLogDetails;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
+        'domainLogDetails' => 'DomainLogDetails',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -41,17 +30,11 @@ class DescribeDcdnDomainLogExTtlResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->domainLogDetails) {
+            $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -65,17 +48,11 @@ class DescribeDcdnDomainLogExTtlResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['DomainLogDetails'])) {
+            $model->domainLogDetails = domainLogDetails::fromMap($map['DomainLogDetails']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

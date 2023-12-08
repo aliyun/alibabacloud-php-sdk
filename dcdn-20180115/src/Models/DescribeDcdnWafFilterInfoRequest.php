@@ -15,10 +15,7 @@ class DescribeDcdnWafFilterInfoRequest extends Model
      *   custom_acl: custom protection
      *   whitelist: IP address whitelist
      *
-     **
-     *
-     **If you do not specify this parameter, all types are returned.
-     *
+     * >If you do not specify this parameter, all types are returned.
      * @example custom_acl
      *
      * @var string

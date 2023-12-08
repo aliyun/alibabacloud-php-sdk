@@ -37,11 +37,10 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $objectPath;
 
     /**
-     * @description The type of the task. Valid values:
+     * @description The type of the task.
      *
      *   **file**: URL-based refresh
      *   **directory**: directory-based refresh
-     *   **regex**: regular expression-based refresh
      *   **preload**: URL-based prefetch
      *
      * If you set **DomainName** or **Status**, you must also set this parameter.
@@ -89,7 +88,7 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $startTime;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The status of the task.
      *
      *   **Complete**: The task is complete.
      *   **Refreshing**: The task is in progress.

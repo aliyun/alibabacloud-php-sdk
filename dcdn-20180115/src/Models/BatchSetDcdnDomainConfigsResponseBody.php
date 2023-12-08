@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class BatchSetDcdnDomainConfigsResponseBody extends Model
 {
     /**
-     * @description The list of domain configurations.
+     * @description 域名配置清单。
      *
      * @var domainConfigList
      */

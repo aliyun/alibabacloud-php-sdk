@@ -24,7 +24,7 @@ class task extends Model
      *   **OriginTimeout**: The response from the origin server timed out.
      *   **OriginReturn StatusCode 5XX**: The origin server returned a 5XX error.
      *
-     * @example Internal Error
+     * @example InternalError
      *
      * @var string
      */
@@ -40,11 +40,10 @@ class task extends Model
     public $objectPath;
 
     /**
-     * @description The type of the task. Valid values:
+     * @description The type of the task.
      *
      *   **file**: URL-based refresh
      *   **path**: directory-based refresh
-     *   **regex**: regular expression-based refresh
      *   **preload**: URL-based prefetch
      *
      * @example file
@@ -63,7 +62,7 @@ class task extends Model
     public $process;
 
     /**
-     * @description The status of the auxiliary media asset.
+     * @description The status of the task.
      *
      *   **Complete**: The task is complete.
      *   **Refreshing**: The task is in progress.
@@ -76,7 +75,7 @@ class task extends Model
     public $status;
 
     /**
-     * @description The task ID.
+     * @description The ID of the task.
      *
      * @example 123
      *
