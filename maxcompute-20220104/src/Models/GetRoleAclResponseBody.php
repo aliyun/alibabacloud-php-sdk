@@ -17,6 +17,21 @@ class GetRoleAclResponseBody extends Model
     public $data;
 
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMsg;
+
+    /**
+     * @var int
+     */
+    public $httpCode;
+
+    /**
      * @description The ID of the request.
      *
      * @example 0a06dc0916696898838762018e9564
@@ -26,6 +41,9 @@ class GetRoleAclResponseBody extends Model
     public $requestId;
     protected $_name = [
         'data'      => 'data',
+        'errorCode' => 'errorCode',
+        'errorMsg'  => 'errorMsg',
+        'httpCode'  => 'httpCode',
         'requestId' => 'requestId',
     ];
 
@@ -38,6 +56,15 @@ class GetRoleAclResponseBody extends Model
         $res = [];
         if (null !== $this->data) {
             $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMsg) {
+            $res['errorMsg'] = $this->errorMsg;
+        }
+        if (null !== $this->httpCode) {
+            $res['httpCode'] = $this->httpCode;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -56,6 +83,15 @@ class GetRoleAclResponseBody extends Model
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
+        }
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
+        }
+        if (isset($map['errorMsg'])) {
+            $model->errorMsg = $map['errorMsg'];
+        }
+        if (isset($map['httpCode'])) {
+            $model->httpCode = $map['httpCode'];
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];

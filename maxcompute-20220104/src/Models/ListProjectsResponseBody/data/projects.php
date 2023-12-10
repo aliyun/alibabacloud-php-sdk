@@ -103,6 +103,10 @@ class projects extends Model
     public $status;
 
     /**
+     * @description Indicates whether the current project support the three-tier model
+     *
+     * @example true
+     *
      * @var bool
      */
     public $threeTierModel;

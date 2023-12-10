@@ -1,3 +1,6 @@
+2023-12-10 Version: 1.1.3
+- Generated php 2022-01-04 for MaxCompute.
+
 2023-11-16 Version: 1.1.2
 - Generated php 2022-01-04 for MaxCompute.
 

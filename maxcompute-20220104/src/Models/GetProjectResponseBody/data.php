@@ -104,6 +104,11 @@ class data extends Model
     public $status;
 
     /**
+     * @var string[]
+     */
+    public $superAdmins;
+
+    /**
      * @description The type of the project. Valid values: -**managed**: The project is an internal project. -**external**: The project is an external project.
      *
      * @example managed
@@ -123,6 +128,7 @@ class data extends Model
         'saleTag'            => 'saleTag',
         'securityProperties' => 'securityProperties',
         'status'             => 'status',
+        'superAdmins'        => 'superAdmins',
         'type'               => 'type',
     ];
 
@@ -165,6 +171,9 @@ class data extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->superAdmins) {
+            $res['superAdmins'] = $this->superAdmins;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -213,6 +222,11 @@ class data extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['superAdmins'])) {
+            if (!empty($map['superAdmins'])) {
+                $model->superAdmins = $map['superAdmins'];
+            }
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

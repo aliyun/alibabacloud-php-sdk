@@ -23,9 +23,15 @@ class package extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $schemaName;
     protected $_name = [
-        'actions' => 'actions',
-        'name'    => 'name',
+        'actions'    => 'actions',
+        'name'       => 'name',
+        'schemaName' => 'schemaName',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class package extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->schemaName) {
+            $res['schemaName'] = $this->schemaName;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class package extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['schemaName'])) {
+            $model->schemaName = $map['schemaName'];
         }
 
         return $model;

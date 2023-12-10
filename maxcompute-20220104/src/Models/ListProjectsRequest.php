@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
+     * @description The flag to choose whether list the specific catalog - system_catalog.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $listSystemCatalog;
