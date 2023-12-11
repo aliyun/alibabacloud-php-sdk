@@ -41,22 +41,6 @@ class extensions extends Model
     public $extensionName;
 
     /**
-     * @description The timestamp when extension was modified.
-     *
-     * @example 1660117173
-     *
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
-     * @example 1569308162000
-     *
-     * @var int
-     */
-    public $gmtModified;
-
-    /**
      * @description The description of the extension.
      *
      * @example 34452335611988
@@ -96,8 +80,6 @@ class extensions extends Model
         'extensionCode'    => 'ExtensionCode',
         'extensionDesc'    => 'ExtensionDesc',
         'extensionName'    => 'ExtensionName',
-        'gmtCreate'        => 'GmtCreate',
-        'gmtModified'      => 'GmtModified',
         'modifyUser'       => 'ModifyUser',
         'owner'            => 'Owner',
         'parameterSetting' => 'ParameterSetting',
@@ -122,12 +104,6 @@ class extensions extends Model
         }
         if (null !== $this->extensionName) {
             $res['ExtensionName'] = $this->extensionName;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->modifyUser) {
             $res['ModifyUser'] = $this->modifyUser;
@@ -164,12 +140,6 @@ class extensions extends Model
         }
         if (isset($map['ExtensionName'])) {
             $model->extensionName = $map['ExtensionName'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['ModifyUser'])) {
             $model->modifyUser = $map['ModifyUser'];
