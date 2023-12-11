@@ -11,7 +11,7 @@ class GrantOperatorPermissionRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query cluster IDs.
+     * > You can call the [DescribeDBClusters](~~129857~~) operation to query cluster IDs.
      * @example am-bp1565u55p32****
      *
      * @var string

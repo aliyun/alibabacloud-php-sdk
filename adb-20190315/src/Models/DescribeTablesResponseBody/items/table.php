@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class table extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
      * @example am-bp1xxxxxxxx47
      *

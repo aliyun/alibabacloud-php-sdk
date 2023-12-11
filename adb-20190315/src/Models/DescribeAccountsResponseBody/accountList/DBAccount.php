@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DBAccount extends Model
 {
     /**
-     * @description The description of the account.
+     * @description The description of the database account.
      *
      * @var string
      */
     public $accountDescription;
 
     /**
-     * @description The name of the account.
+     * @description The name of the database account.
      *
      * @example test1
      *
@@ -25,11 +25,11 @@ class DBAccount extends Model
     public $accountName;
 
     /**
-     * @description The status of the account.
+     * @description The state of the database account. Valid values:
      *
-     *   Creating: The account is being created.
-     *   Available: The account is available.
-     *   Deleting: The account is being deleted.
+     *   Creating
+     *   Available
+     *   Deleting
      *
      * @example Available
      *
@@ -38,8 +38,8 @@ class DBAccount extends Model
     public $accountStatus;
 
     /**
-     * @description *   Normal: standard account
-     *   Super: privileged account
+     * @description *   Normal: standard account.
+     *   Super: privileged account.
      *
      * @example Normal
      *

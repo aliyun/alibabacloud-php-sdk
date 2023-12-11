@@ -26,7 +26,7 @@ class performances extends Model
     public $series;
 
     /**
-     * @description The unit of the performance metric.
+     * @description The unit of the performance metrics.
      *
      * @example %
      *

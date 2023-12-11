@@ -10,13 +10,7 @@ class ModifyMaintenanceActionRequest extends Model
 {
     /**
      * @description The ID of the pending O\&M event. You can specify multiple IDs to batch change the switchover time. Separate multiple IDs with commas (,).
-     *
-     * >
-     *
-     *   You can call the [DescribeMaintenanceAction](~~271738~~) operation to query the information about pending O\&M events, including the event ID.
-     *
-     *   You can change the switchover time only for pending O\&M events. The switchover time of historical O\&M events cannot be changed. For more information about the status of pending and historical O\&M events, see [DescribeMaintenanceAction](~~271738~~).
-     *
+     * > - You can change the switchover time only for pending O\&M events. The switchover time of historical O\&M events cannot be changed. For more information about the status of pending and historical O\&M events, see [DescribeMaintenanceAction](~~271738~~).
      * @example 11111
      *
      * @var string
@@ -36,10 +30,7 @@ class ModifyMaintenanceActionRequest extends Model
     /**
      * @description The ID of the region where the pending O\&M event occurs.
      *
-     * >
-     *
-     *   You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
-     *
+     * > - You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +38,8 @@ class ModifyMaintenanceActionRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-4690g37929XXXX
      *
      * @var string

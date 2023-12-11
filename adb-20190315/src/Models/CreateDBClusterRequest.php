@@ -119,6 +119,11 @@ class CreateDBClusterRequest extends Model
     public $DBNodeStorage;
 
     /**
+     * @var string
+     */
+    public $diskEncryption;
+
+    /**
      * @description The number of elastic I/O units (EIUs). For more information, see [Use EIUs to scale up storage resources](~~189505~~).
      *
      * @example 0
@@ -133,6 +138,11 @@ class CreateDBClusterRequest extends Model
      * @var string
      */
     public $executorCount;
+
+    /**
+     * @var string
+     */
+    public $kmsId;
 
     /**
      * @description The mode of the cluster. Valid values:
@@ -305,8 +315,10 @@ class CreateDBClusterRequest extends Model
         'DBClusterVersion'     => 'DBClusterVersion',
         'DBNodeGroupCount'     => 'DBNodeGroupCount',
         'DBNodeStorage'        => 'DBNodeStorage',
+        'diskEncryption'       => 'DiskEncryption',
         'elasticIOResource'    => 'ElasticIOResource',
         'executorCount'        => 'ExecutorCount',
+        'kmsId'                => 'KmsId',
         'mode'                 => 'Mode',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -365,11 +377,17 @@ class CreateDBClusterRequest extends Model
         if (null !== $this->DBNodeStorage) {
             $res['DBNodeStorage'] = $this->DBNodeStorage;
         }
+        if (null !== $this->diskEncryption) {
+            $res['DiskEncryption'] = $this->diskEncryption;
+        }
         if (null !== $this->elasticIOResource) {
             $res['ElasticIOResource'] = $this->elasticIOResource;
         }
         if (null !== $this->executorCount) {
             $res['ExecutorCount'] = $this->executorCount;
+        }
+        if (null !== $this->kmsId) {
+            $res['KmsId'] = $this->kmsId;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
@@ -476,11 +494,17 @@ class CreateDBClusterRequest extends Model
         if (isset($map['DBNodeStorage'])) {
             $model->DBNodeStorage = $map['DBNodeStorage'];
         }
+        if (isset($map['DiskEncryption'])) {
+            $model->diskEncryption = $map['DiskEncryption'];
+        }
         if (isset($map['ElasticIOResource'])) {
             $model->elasticIOResource = $map['ElasticIOResource'];
         }
         if (isset($map['ExecutorCount'])) {
             $model->executorCount = $map['ExecutorCount'];
+        }
+        if (isset($map['KmsId'])) {
+            $model->kmsId = $map['KmsId'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];

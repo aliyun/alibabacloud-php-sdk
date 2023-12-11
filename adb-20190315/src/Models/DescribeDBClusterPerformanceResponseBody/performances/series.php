@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
-     * @description The name of the performance metric.
+     * @description The name of the performance metric value.
      *
      * @example worker_avg_cpu_used
      *
@@ -18,6 +18,10 @@ class series extends Model
     public $name;
 
     /**
+     * @description The tags that are added to the cluster.
+     *
+     * @example instance_name: "amv-8vbf80pjcz*****"
+     *
      * @var string
      */
     public $tags;

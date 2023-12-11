@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteElasticPlanResponseBody extends Model
+class ModifyResubmitConfigResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string
@@ -37,7 +35,7 @@ class DeleteElasticPlanResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteElasticPlanResponseBody
+     * @return ModifyResubmitConfigResponseBody
      */
     public static function fromMap($map = [])
     {

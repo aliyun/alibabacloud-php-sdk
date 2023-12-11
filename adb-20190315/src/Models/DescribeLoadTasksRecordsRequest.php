@@ -84,6 +84,9 @@ class DescribeLoadTasksRecordsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

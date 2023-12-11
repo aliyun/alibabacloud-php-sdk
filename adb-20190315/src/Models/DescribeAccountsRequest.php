@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsRequest extends Model
 {
     /**
-     * @description The account of the database.
+     * @description The name of the database account.
      *
      * @example test_accout
      *
@@ -18,8 +18,8 @@ class DescribeAccountsRequest extends Model
     public $accountName;
 
     /**
-     * @description *   Normal: standard account
-     *   Super: privileged account
+     * @description *   Normal: standard account.
+     *   Super: privileged account.
      *
      * @example Normal
      *
@@ -28,7 +28,7 @@ class DescribeAccountsRequest extends Model
     public $accountType;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *

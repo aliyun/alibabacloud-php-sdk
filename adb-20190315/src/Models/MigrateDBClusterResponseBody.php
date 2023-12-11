@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MigrateDBClusterResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F0983B43-B2EC-536A-8791-142B5CF1E9B6
      *
      * @var string

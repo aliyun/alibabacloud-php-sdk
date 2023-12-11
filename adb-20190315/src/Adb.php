@@ -120,12 +120,16 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeProcessListRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeProcessListResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeResubmitConfigRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeResubmitConfigResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSchemasRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSchemasResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogTrendRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogTrendResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQAConfigRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQAConfigResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSqlPatternRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSqlPatternResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPatternsRequest;
@@ -196,6 +200,11 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyLogBackupPolicyRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyLogBackupPolicyResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyMaintenanceActionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyMaintenanceActionResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyResubmitConfigRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyResubmitConfigResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyResubmitConfigShrinkRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifySQAConfigRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifySQAConfigResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ReleaseClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ReleaseClusterPublicConnectionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ResetAccountPasswordRequest;
@@ -761,11 +770,17 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->DBNodeStorage)) {
             $query['DBNodeStorage'] = $request->DBNodeStorage;
         }
+        if (!Utils::isUnset($request->diskEncryption)) {
+            $query['DiskEncryption'] = $request->diskEncryption;
+        }
         if (!Utils::isUnset($request->elasticIOResource)) {
             $query['ElasticIOResource'] = $request->elasticIOResource;
         }
         if (!Utils::isUnset($request->executorCount)) {
             $query['ExecutorCount'] = $request->executorCount;
+        }
+        if (!Utils::isUnset($request->kmsId)) {
+            $query['KmsId'] = $request->kmsId;
         }
         if (!Utils::isUnset($request->mode)) {
             $query['Mode'] = $request->mode;
@@ -1744,7 +1759,7 @@ class Adb extends OpenApiClient
 
     /**
      * Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](~~190628~~) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](~~190629~~) operation to enable SQL audit.
-     *   * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried.
+     *   * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
      *   *
      * @param DescribeAuditLogRecordsRequest $request DescribeAuditLogRecordsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1829,7 +1844,7 @@ class Adb extends OpenApiClient
 
     /**
      * Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](~~190628~~) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](~~190629~~) operation to enable SQL audit.
-     *   * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried.
+     *   * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
      *   *
      * @param DescribeAuditLogRecordsRequest $request DescribeAuditLogRecordsRequest
      *
@@ -3976,6 +3991,131 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeResubmitConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeResubmitConfigResponse
+     */
+    public function describeResubmitConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResubmitConfig',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeResubmitConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResubmitConfigRequest $request
+     *
+     * @return DescribeResubmitConfigResponse
+     */
+    public function describeResubmitConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResubmitConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSQAConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeSQAConfigResponse
+     */
+    public function describeSQAConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSQAConfig',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSQAConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSQAConfigRequest $request
+     *
+     * @return DescribeSQAConfigResponse
+     */
+    public function describeSQAConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQAConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSQLPatternsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -4642,6 +4782,9 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -5106,7 +5249,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
+     * ###
+     *   * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
      *   *
      * @param GrantOperatorPermissionRequest $request GrantOperatorPermissionRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -5157,7 +5301,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
+     * ###
+     *   * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
      *   *
      * @param GrantOperatorPermissionRequest $request GrantOperatorPermissionRequest
      *
@@ -6426,6 +6571,136 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyMaintenanceActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyResubmitConfigRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyResubmitConfigResponse
+     */
+    public function modifyResubmitConfigWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyResubmitConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->rules)) {
+            $request->rulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->rulesShrink)) {
+            $query['Rules'] = $request->rulesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyResubmitConfig',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyResubmitConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyResubmitConfigRequest $request
+     *
+     * @return ModifyResubmitConfigResponse
+     */
+    public function modifyResubmitConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyResubmitConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifySQAConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifySQAConfigResponse
+     */
+    public function modifySQAConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->SQAStatus)) {
+            $query['SQAStatus'] = $request->SQAStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySQAConfig',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifySQAConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifySQAConfigRequest $request
+     *
+     * @return ModifySQAConfigResponse
+     */
+    public function modifySQAConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySQAConfigWithOptions($request, $runtime);
     }
 
     /**

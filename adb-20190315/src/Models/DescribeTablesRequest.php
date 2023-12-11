@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTablesRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
      * @example am-bp1xxxxxxxx47
      *
@@ -28,6 +28,11 @@ class DescribeTablesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

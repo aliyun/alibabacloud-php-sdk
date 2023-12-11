@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeComputeResourceRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * @example am-bp1r053byu48p****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -23,6 +27,11 @@ class DescribeComputeResourceRequest extends Model
     public $DBClusterVersion;
 
     /**
+     * @description The available computing resources for migrating AnalyticDB MySQL Data Warehouse Edition to AnalyticDB MySQL Lakehouse Edition. Possible values are:
+     * - **true**
+     * - **false**(default value)
+     * @example false
+     *
      * @var bool
      */
     public $migrate;

@@ -16,7 +16,7 @@ class DBCluster extends Model
      *   **CLUSTER**: reserved mode for Cluster Edition.
      *   **MIXED_STORAGE**: elastic mode for Cluster Edition.
      *
-     * > For more information about cluster editions, see [Editions](~~205001~~).
+     * >  For more information about cluster editions, see [Editions](~~205001~~).
      * @example MIXED_STORAGE
      *
      * @var string
@@ -36,7 +36,7 @@ class DBCluster extends Model
     public $commodityCode;
 
     /**
-     * @description The specifications of computing resources that are used by the cluster in elastic mode. The increase of computing resources can speed up queries. You can adjust the value of this parameter to scale the cluster.
+     * @description The specifications of computing resources that are used in the cluster in elastic mode. The increase of computing resources can speed up queries. You can adjust the value of this parameter to scale the cluster.
      *
      * @example 8Core32GB
      *
@@ -147,6 +147,11 @@ class DBCluster extends Model
     public $DBVersion;
 
     /**
+     * @var string
+     */
+    public $diskEncryption;
+
+    /**
      * @description The ESSD performance level.
      *
      * @example PL1
@@ -162,11 +167,12 @@ class DBCluster extends Model
      *   **cloud**: basic disk.
      *   **cloud_ssd**: standard SSD.
      *   **cloud_efficiency**: ultra disk.
-     *   **cloud_essd**: PL1 enhanced SSD (ESSD).
+     *   **cloud_essd0**: PL0 enhanced SSD (ESSD).
+     *   **cloud_essd**: PL1 ESSD.
      *   **cloud_essd2**: PL2 ESSD.
      *   **cloud_essd3**: PL3 ESSD.
      *
-     * > For more information about ESSDs, see [ESSD specifications](~~122389~~).
+     * >  For more information about ESSDs, see [ESSDs](~~122389~~).
      * @example cloud_essd
      *
      * @var string
@@ -302,7 +308,7 @@ class DBCluster extends Model
     /**
      * @description The ID of the key that is used to encrypt disk data.
      *
-     * > This parameter is returned only when disk encryption is enabled.
+     * >  This parameter is returned only when disk encryption is enabled.
      * @example e1935511-cf88-1123-a0f8-1be8d251****
      *
      * @var string
@@ -327,7 +333,7 @@ class DBCluster extends Model
     /**
      * @description The reason why the cluster is locked.
      *
-     * > This parameter is returned only when the cluster was locked. The value is **instance_expire**.
+     * >  This parameter is returned only when the cluster was locked. **instance_expire** is returned.
      * @example instance_expired
      *
      * @var string
@@ -335,9 +341,9 @@ class DBCluster extends Model
     public $lockReason;
 
     /**
-     * @description The maintenance window of the cluster. The window is in the *HH:mmZ-HH:mmZ* format. The time is displayed in UTC. Example: *04:00Z-05:00Z*, which indicates that routine maintenance can be performed from 04:00 to 05:00.
+     * @description The maintenance window of the cluster. The window follows the ISO 8601 standard in the *HH:mmZ- HH:mmZ* format. The time is displayed in UTC. An example is *04:00Z-05:00Z*, which indicates that routine maintenance can be performed from 04:00 to 05:00.
      *
-     * > For more information about maintenance windows, see [Configure a maintenance window](~~122569~~).
+     * >  For more information about maintenance windows, see [Configure a maintenance window](~~122569~~).
      * @example 04:00Z-05:00Z
      *
      * @var string
@@ -350,7 +356,7 @@ class DBCluster extends Model
      *   **flexible**: elastic mode.
      *   **reserver**: reserved mode.
      *
-     * > For more information about cluster modes, see [Editions](~~205001~~).
+     * >  For more information about cluster modes, see [Editions](~~205001~~).
      * @example flexible
      *
      * @var string
@@ -397,7 +403,7 @@ class DBCluster extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmyiu4ekp****
      *
@@ -406,7 +412,7 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
-     * @description The specifications of storage resources that are used by the cluster in elastic mode. These resources are used to read and write data. You can increase the value of this parameter to improve the read and write performance of the cluster.
+     * @description The specifications of storage resources that are used in the cluster in elastic mode. These resources are used to read and write data. You can increase the value of this parameter to improve the read and write performance of the cluster.
      *
      * @example 8Core32GB
      *
@@ -483,6 +489,7 @@ class DBCluster extends Model
         'DBNodeCount'           => 'DBNodeCount',
         'DBNodeStorage'         => 'DBNodeStorage',
         'DBVersion'             => 'DBVersion',
+        'diskEncryption'        => 'DiskEncryption',
         'diskPerformanceLevel'  => 'DiskPerformanceLevel',
         'diskType'              => 'DiskType',
         'dtsJobId'              => 'DtsJobId',
@@ -564,6 +571,9 @@ class DBCluster extends Model
         }
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
+        }
+        if (null !== $this->diskEncryption) {
+            $res['DiskEncryption'] = $this->diskEncryption;
         }
         if (null !== $this->diskPerformanceLevel) {
             $res['DiskPerformanceLevel'] = $this->diskPerformanceLevel;
@@ -711,6 +721,9 @@ class DBCluster extends Model
         }
         if (isset($map['DBVersion'])) {
             $model->DBVersion = $map['DBVersion'];
+        }
+        if (isset($map['DiskEncryption'])) {
+            $model->diskEncryption = $map['DiskEncryption'];
         }
         if (isset($map['DiskPerformanceLevel'])) {
             $model->diskPerformanceLevel = $map['DiskPerformanceLevel'];

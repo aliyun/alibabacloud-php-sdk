@@ -68,7 +68,7 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @description The ID of the zone.
      *
-     * @example cn-hangzhou-h
+     * @example cn-hangzhou-k
      *
      * @var string
      */

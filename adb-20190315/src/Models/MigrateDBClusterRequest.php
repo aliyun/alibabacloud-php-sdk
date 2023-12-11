@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MigrateDBClusterRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
      * @example am-bp1xxxxxxxx47
      *
      * @var string

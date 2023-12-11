@@ -16,7 +16,7 @@ class DBCluster extends Model
      *   **CLUSTER**: reserved mode for Cluster Edition.
      *   **MIXED_STORAGE**: elastic mode for Cluster Edition.
      *
-     * > For more information about cluster editions, see [Editions](~~205001~~).
+     * >  For more information about cluster editions, see [Editions](~~205001~~).
      * @example MIXED_STORAGE
      *
      * @var string
@@ -150,11 +150,12 @@ class DBCluster extends Model
      *   **cloud**: basic disk.
      *   **cloud_ssd**: standard SSD.
      *   **cloud_efficiency**: ultra disk.
-     *   **cloud_essd**: PL1 enhanced SSD (ESSD).
+     *   **cloud_essd**: PL0 enhanced SSD (ESSD).
+     *   **cloud_essd**: PL1 ESSD.
      *   **cloud_essd2**: PL2 ESSD.
      *   **cloud_essd3**: PL3 ESSD.
      *
-     * > For more information, see [ESSDs](~~122389~~).
+     * >  For more information, see [ESSDs](~~122389~~).
      * @example cloud_essd
      *
      * @var string
@@ -173,7 +174,7 @@ class DBCluster extends Model
     /**
      * @description The number of elastic I/O units (EIUs). For more information, see [Use EIUs to scale up storage resources](~~189505~~).
      *
-     * > This parameter is returned only for clusters in elastic mode.
+     * >  This parameter is returned only for clusters in elastic mode.
      * @example 0
      *
      * @var int
@@ -261,7 +262,7 @@ class DBCluster extends Model
     /**
      * @description The reason why the cluster is locked.
      *
-     * > This parameter is returned only when the cluster was locked. **instance_expire** is returned.
+     * >  This parameter is returned only when the cluster was locked. **instance_expire** is returned.
      * @example instance_expired
      *
      * @var string
@@ -324,7 +325,7 @@ class DBCluster extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmyiu4ekp****
      *

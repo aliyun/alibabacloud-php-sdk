@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogBackupPolicyRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
      * @example am-bp1xxxxxxxx47
      *
@@ -50,6 +50,10 @@ class ModifyLogBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfm4f7oger****
+     *
      * @var string
      */
     public $resourceGroupId;

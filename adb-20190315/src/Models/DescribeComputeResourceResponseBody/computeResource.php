@@ -11,6 +11,8 @@ class computeResource extends Model
     /**
      * @description The specifications of computing resources displayed in the console.
      *
+     * @example 8 Core 32 GB（单机版）
+     *
      * @var string
      */
     public $displayValue;
