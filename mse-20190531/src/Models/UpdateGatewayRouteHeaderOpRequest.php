@@ -39,7 +39,7 @@ class UpdateGatewayRouteHeaderOpRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The information about the header configuration policy.
+     * @description The description of user header settings.
      *
      * @example {\"status\":\"on\",\"headerOpItems\":[{\"directionType\":\"Request\",\"opType\":\"Update\",\"key\":\"hosts\",\"value\":\"test.com\"}]}
      *

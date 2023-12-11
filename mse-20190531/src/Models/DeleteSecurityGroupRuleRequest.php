@@ -21,6 +21,11 @@ class DeleteSecurityGroupRuleRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var bool
+     */
+    public $cascadingDelete;
+
+    /**
      * @description The unique ID of the gateway.
      *
      * @example gw-83b0ddb569434f82b9fe8e4c60c40f7c
@@ -39,6 +44,7 @@ class DeleteSecurityGroupRuleRequest extends Model
     public $id;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
+        'cascadingDelete' => 'CascadingDelete',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'id'              => 'Id',
     ];
@@ -52,6 +58,9 @@ class DeleteSecurityGroupRuleRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->cascadingDelete) {
+            $res['CascadingDelete'] = $this->cascadingDelete;
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
@@ -73,6 +82,9 @@ class DeleteSecurityGroupRuleRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['CascadingDelete'])) {
+            $model->cascadingDelete = $map['CascadingDelete'];
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];

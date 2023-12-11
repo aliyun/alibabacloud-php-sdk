@@ -1447,6 +1447,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($tmpReq->pathList)) {
             $request->pathListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pathList, 'PathList', 'json');
         }
+        if (!Utils::isUnset($tmpReq->toAuthorizeSecurityGroups)) {
+            $request->toAuthorizeSecurityGroupsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->toAuthorizeSecurityGroups, 'ToAuthorizeSecurityGroups', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -1471,6 +1474,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->toAuthorizeSecurityGroupsShrink)) {
+            $query['ToAuthorizeSecurityGroups'] = $request->toAuthorizeSecurityGroupsShrink;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -3610,6 +3616,9 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->cascadingDelete)) {
+            $query['CascadingDelete'] = $request->cascadingDelete;
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;

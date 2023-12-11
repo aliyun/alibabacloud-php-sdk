@@ -27,7 +27,7 @@ class GetServiceListPageRequest extends Model
     public $appId;
 
     /**
-     * @description 应用名字。
+     * @description The application name.
      *
      * @example example-app
      *

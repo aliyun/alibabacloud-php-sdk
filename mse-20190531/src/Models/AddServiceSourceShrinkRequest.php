@@ -82,6 +82,11 @@ class AddServiceSourceShrinkRequest extends Model
     public $source;
 
     /**
+     * @var string
+     */
+    public $toAuthorizeSecurityGroupsShrink;
+
+    /**
      * @description The type of the service source.
      *
      *   K8s: Container Service for Kubernetes (ACK) cluster
@@ -93,15 +98,16 @@ class AddServiceSourceShrinkRequest extends Model
      */
     public $type;
     protected $_name = [
-        'acceptLanguage'              => 'AcceptLanguage',
-        'address'                     => 'Address',
-        'gatewayUniqueId'             => 'GatewayUniqueId',
-        'groupListShrink'             => 'GroupList',
-        'ingressOptionsRequestShrink' => 'IngressOptionsRequest',
-        'name'                        => 'Name',
-        'pathListShrink'              => 'PathList',
-        'source'                      => 'Source',
-        'type'                        => 'Type',
+        'acceptLanguage'                  => 'AcceptLanguage',
+        'address'                         => 'Address',
+        'gatewayUniqueId'                 => 'GatewayUniqueId',
+        'groupListShrink'                 => 'GroupList',
+        'ingressOptionsRequestShrink'     => 'IngressOptionsRequest',
+        'name'                            => 'Name',
+        'pathListShrink'                  => 'PathList',
+        'source'                          => 'Source',
+        'toAuthorizeSecurityGroupsShrink' => 'ToAuthorizeSecurityGroups',
+        'type'                            => 'Type',
     ];
 
     public function validate()
@@ -134,6 +140,9 @@ class AddServiceSourceShrinkRequest extends Model
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+        if (null !== $this->toAuthorizeSecurityGroupsShrink) {
+            $res['ToAuthorizeSecurityGroups'] = $this->toAuthorizeSecurityGroupsShrink;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -173,6 +182,9 @@ class AddServiceSourceShrinkRequest extends Model
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['ToAuthorizeSecurityGroups'])) {
+            $model->toAuthorizeSecurityGroupsShrink = $map['ToAuthorizeSecurityGroups'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

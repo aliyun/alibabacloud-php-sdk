@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
 {
     /**
-     * @description The details of the data.
+     * @description The response parameters.
      *
      * @example {}
      *

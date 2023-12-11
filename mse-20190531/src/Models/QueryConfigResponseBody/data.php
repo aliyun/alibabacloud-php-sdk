@@ -94,6 +94,10 @@ class data extends Model
     public $configSecretSupported;
 
     /**
+     * @description Indicates whether the Nacos open source console is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $consoleUIEnabled;

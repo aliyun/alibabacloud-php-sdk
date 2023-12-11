@@ -108,7 +108,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the primary key. The value -1 specifies a request that is used to create a lane. A value greater than 0 specifies a request that is used to modify a lane.
+     * @description The tag.
      *
      * @example gray
      *

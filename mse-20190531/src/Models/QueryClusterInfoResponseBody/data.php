@@ -137,7 +137,7 @@ class data extends Model
     public $diskType;
 
     /**
-     * @description 弹性公网IP（EIP）的实例ID
+     * @description The ID of the instance that is associated with the Elastic IP Address (EIP).
      *
      * @example eip-bp1uujshd5funmyy8rcl9
      *
@@ -146,7 +146,7 @@ class data extends Model
     public $eipInstanceId;
 
     /**
-     * @description 到期时间（包年包月）
+     * @description The time when the subscription instance expires.
      *
      * @example 2021-08-01 00:00:00
      *
@@ -268,6 +268,8 @@ class data extends Model
     public $intranetPort;
 
     /**
+     * @description The O\&M time window.
+     *
      * @var maintenancePeriod
      */
     public $maintenancePeriod;
@@ -327,7 +329,7 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description ENI网络接入的安全组ID
+     * @description The ID of the security group to which the elastic network interface (ENI) is connected.
      *
      * @example sg-uf6hgwe067prhg68agfa
      *
@@ -336,7 +338,7 @@ class data extends Model
     public $securityGroupId;
 
     /**
-     * @description ENI网络接入的安全组类型
+     * @description The type of the security group to which the ENI is connected.
      *
      * @example enterprise
      *

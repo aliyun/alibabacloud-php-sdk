@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceRequest\ingressOptionsRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceRequest\toAuthorizeSecurityGroups;
 use AlibabaCloud\Tea\Model;
 
 class AddServiceSourceRequest extends Model
@@ -83,6 +84,11 @@ class AddServiceSourceRequest extends Model
     public $source;
 
     /**
+     * @var toAuthorizeSecurityGroups[]
+     */
+    public $toAuthorizeSecurityGroups;
+
+    /**
      * @description The type of the service source.
      *
      *   K8s: Container Service for Kubernetes (ACK) cluster
@@ -94,15 +100,16 @@ class AddServiceSourceRequest extends Model
      */
     public $type;
     protected $_name = [
-        'acceptLanguage'        => 'AcceptLanguage',
-        'address'               => 'Address',
-        'gatewayUniqueId'       => 'GatewayUniqueId',
-        'groupList'             => 'GroupList',
-        'ingressOptionsRequest' => 'IngressOptionsRequest',
-        'name'                  => 'Name',
-        'pathList'              => 'PathList',
-        'source'                => 'Source',
-        'type'                  => 'Type',
+        'acceptLanguage'            => 'AcceptLanguage',
+        'address'                   => 'Address',
+        'gatewayUniqueId'           => 'GatewayUniqueId',
+        'groupList'                 => 'GroupList',
+        'ingressOptionsRequest'     => 'IngressOptionsRequest',
+        'name'                      => 'Name',
+        'pathList'                  => 'PathList',
+        'source'                    => 'Source',
+        'toAuthorizeSecurityGroups' => 'ToAuthorizeSecurityGroups',
+        'type'                      => 'Type',
     ];
 
     public function validate()
@@ -135,6 +142,15 @@ class AddServiceSourceRequest extends Model
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+        if (null !== $this->toAuthorizeSecurityGroups) {
+            $res['ToAuthorizeSecurityGroups'] = [];
+            if (null !== $this->toAuthorizeSecurityGroups && \is_array($this->toAuthorizeSecurityGroups)) {
+                $n = 0;
+                foreach ($this->toAuthorizeSecurityGroups as $item) {
+                    $res['ToAuthorizeSecurityGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -178,6 +194,15 @@ class AddServiceSourceRequest extends Model
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['ToAuthorizeSecurityGroups'])) {
+            if (!empty($map['ToAuthorizeSecurityGroups'])) {
+                $model->toAuthorizeSecurityGroups = [];
+                $n                                = 0;
+                foreach ($map['ToAuthorizeSecurityGroups'] as $item) {
+                    $model->toAuthorizeSecurityGroups[$n++] = null !== $item ? toAuthorizeSecurityGroups::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

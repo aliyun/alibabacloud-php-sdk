@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string[]
+     */
+    public $authCidrs;
+
+    /**
      * @description The rule description.
      *
      * @example Test
@@ -89,6 +94,7 @@ class data extends Model
      */
     public $securityGroupId;
     protected $_name = [
+        'authCidrs'       => 'AuthCidrs',
         'description'     => 'Description',
         'gatewayId'       => 'GatewayId',
         'gatewayUniqueId' => 'GatewayUniqueId',
@@ -107,6 +113,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authCidrs) {
+            $res['AuthCidrs'] = $this->authCidrs;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -146,6 +155,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthCidrs'])) {
+            if (!empty($map['AuthCidrs'])) {
+                $model->authCidrs = $map['AuthCidrs'];
+            }
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
