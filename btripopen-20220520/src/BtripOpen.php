@@ -41,6 +41,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BaseCityInfoSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BaseCityInfoSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BaseCityInfoSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BtripBillInfoAdjustHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BtripBillInfoAdjustRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BtripBillInfoAdjustResponse;
@@ -1420,6 +1423,62 @@ class BtripOpen extends OpenApiClient
         $headers = new ApplyQueryHeaders([]);
 
         return $this->applyQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param BaseCityInfoSearchRequest $request
+     * @param BaseCityInfoSearchHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BaseCityInfoSearchResponse
+     */
+    public function baseCityInfoSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripAccessToken)) {
+            $realHeaders['x-acs-btrip-access-token'] = Utils::toJSONString($headers->xAcsBtripAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BaseCityInfoSearch',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/city/v1/cities/action/search',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return BaseCityInfoSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BaseCityInfoSearchRequest $request
+     *
+     * @return BaseCityInfoSearchResponse
+     */
+    public function baseCityInfoSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BaseCityInfoSearchHeaders([]);
+
+        return $this->baseCityInfoSearchWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -28,6 +28,11 @@ class dataList extends Model
     public $airlineCorpName;
 
     /**
+     * @var string
+     */
+    public $alipayId;
+
+    /**
      * @example 2021100122001138061456080520
      *
      * @var string
@@ -591,6 +596,7 @@ class dataList extends Model
         'advanceDay'             => 'advance_day',
         'airlineCorpCode'        => 'airline_corp_code',
         'airlineCorpName'        => 'airline_corp_name',
+        'alipayId'               => 'alipay_id',
         'alipayTradeNo'          => 'alipay_trade_no',
         'applyArrCityCode'       => 'apply_arr_city_code',
         'applyArrCityName'       => 'apply_arr_city_name',
@@ -699,6 +705,9 @@ class dataList extends Model
         }
         if (null !== $this->airlineCorpName) {
             $res['airline_corp_name'] = $this->airlineCorpName;
+        }
+        if (null !== $this->alipayId) {
+            $res['alipay_id'] = $this->alipayId;
         }
         if (null !== $this->alipayTradeNo) {
             $res['alipay_trade_no'] = $this->alipayTradeNo;
@@ -993,6 +1002,9 @@ class dataList extends Model
         }
         if (isset($map['airline_corp_name'])) {
             $model->airlineCorpName = $map['airline_corp_name'];
+        }
+        if (isset($map['alipay_id'])) {
+            $model->alipayId = $map['alipay_id'];
         }
         if (isset($map['alipay_trade_no'])) {
             $model->alipayTradeNo = $map['alipay_trade_no'];
