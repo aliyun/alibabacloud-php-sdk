@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteContainerDefenseRuleRequest extends Model
 {
     /**
+     * @description The IDs of the rules that you want to delete.
+     *
+     * >  You can call the [ListContainerDefenseRule](~~2590599~~) operation to query the rule IDs.
      * @var int[]
      */
     public $ruleIds;

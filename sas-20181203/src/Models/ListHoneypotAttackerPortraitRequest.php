@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotAttackerPortraitRequest extends Model
 {
     /**
+     * @description The page number. Default value: **1**. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListHoneypotAttackerPortraitRequest extends Model
     public $currentPage;
 
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp.
+     *
      * @example 1672285044000
      *
      * @var int
@@ -23,6 +27,11 @@ class ListHoneypotAttackerPortraitRequest extends Model
     public $endTimeStamp;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +39,9 @@ class ListHoneypotAttackerPortraitRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -37,6 +49,8 @@ class ListHoneypotAttackerPortraitRequest extends Model
     public $pageSize;
 
     /**
+     * @description The source IP address of the attack.
+     *
      * @example 101.133.155.***
      *
      * @var string
@@ -44,6 +58,8 @@ class ListHoneypotAttackerPortraitRequest extends Model
     public $srcIp;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp.
+     *
      * @example 1672249044000
      *
      * @var int

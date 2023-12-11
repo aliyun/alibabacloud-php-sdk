@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class vul extends Model
 {
     /**
+     * @description The vulnerabilities.
+     *
      * @var item[]
      */
     public $item;
 
     /**
+     * @description The risk levels.
+     *
      * @var string[]
      */
     public $riskLevel;

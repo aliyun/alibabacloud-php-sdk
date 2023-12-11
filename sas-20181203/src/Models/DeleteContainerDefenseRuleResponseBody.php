@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteContainerDefenseRuleResponseBody extends Model
 {
     /**
+     * @description The status code that is returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteContainerDefenseRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The number of deleted rules.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DeleteContainerDefenseRuleResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code. The value 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +36,8 @@ class DeleteContainerDefenseRuleResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -37,6 +45,8 @@ class DeleteContainerDefenseRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 47365EC5-**-6DEA1788EB11
      *
      * @var string
@@ -44,6 +54,11 @@ class DeleteContainerDefenseRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

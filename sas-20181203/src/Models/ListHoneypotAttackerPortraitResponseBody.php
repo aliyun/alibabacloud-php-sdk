@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotAttackerPortraitResponseBody extends Model
 {
     /**
+     * @description The status code that is returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -18,6 +20,8 @@ class ListHoneypotAttackerPortraitResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -25,11 +29,15 @@ class ListHoneypotAttackerPortraitResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The details of the attacker profile.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -37,11 +45,15 @@ class ListHoneypotAttackerPortraitResponseBody extends Model
     public $message;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 8A5A2DA6-67EA-5968-960F-6B20FD0C*****
      *
      * @var string
@@ -49,6 +61,11 @@ class ListHoneypotAttackerPortraitResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

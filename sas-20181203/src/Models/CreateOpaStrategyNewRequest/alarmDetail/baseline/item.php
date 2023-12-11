@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The ID of the baseline check item.
+     *
+     * >  You can call the [GetOpaClusterBaseLineList](~~2539883~~) operation to query the IDs of check items.
      * @example hc.image.checklist.identify.hc_exploit_couchdb_linux.item
      *
      * @var string
@@ -16,6 +19,9 @@ class item extends Model
     public $id;
 
     /**
+     * @description The name of the baseline check item.
+     *
+     * >  You can call the [GetOpaClusterBaseLineList](~~2539883~~) operation to query the names of check items.
      * @example Unauthorized access to CouchDB configuration risk
      *
      * @var string

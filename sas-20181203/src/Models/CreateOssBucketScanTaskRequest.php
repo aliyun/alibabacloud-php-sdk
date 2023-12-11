@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateOssBucketScanTaskRequest extends Model
 {
     /**
+     * @description Whether to match all prefixes.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allKeyPrefix;
@@ -28,6 +32,8 @@ class CreateOssBucketScanTaskRequest extends Model
     public $excludeKeySuffixList;
 
     /**
+     * @description The prefixes of the objects that you want to check.
+     *
      * @var string[]
      */
     public $keyPrefixList;

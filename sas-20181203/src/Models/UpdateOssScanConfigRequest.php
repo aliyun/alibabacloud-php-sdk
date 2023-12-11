@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateOssScanConfigRequest extends Model
 {
     /**
+     * @description Whether to match all file prefixes.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allKeyPrefix;
@@ -42,11 +46,17 @@ class UpdateOssScanConfigRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the policy.
+     *
+     * @example 65778
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The prefixes of the object that you want to check.
+     *
      * @var string[]
      */
     public $keyPrefixList;
@@ -59,6 +69,10 @@ class UpdateOssScanConfigRequest extends Model
     public $keySuffixList;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example nacos****
+     *
      * @var string
      */
     public $name;

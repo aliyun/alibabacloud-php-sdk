@@ -62,6 +62,13 @@ class data extends Model
     public $support;
 
     /**
+     * @description Whether to support config. Valid values:
+     *
+     * true
+     * false
+     *
+     * @example true
+     *
      * @var string
      */
     public $supportConfig;

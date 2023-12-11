@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Whether to match all file prefixes.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allKeyPrefix;
 
     /**
+     * @description The number of the buckets.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $bucketCount;
 
     /**
+     * @description The name of the bucket.
+     *
+     * @example hz-new01****
+     *
      * @var string
      */
     public $bucketName;
@@ -52,11 +64,17 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description The ID of the policy.
+     *
+     * @example 1274****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The prefixes of the object that you want to check.
+     *
      * @var string[]
      */
     public $keyPrefixList;
@@ -69,11 +87,19 @@ class data extends Model
     public $keySuffixList;
 
     /**
+     * @description The time when the policy last update.
+     *
+     * @example 1702025633079
+     *
      * @var int
      */
     public $lastUpdateTime;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example test0104
+     *
      * @var string
      */
     public $name;

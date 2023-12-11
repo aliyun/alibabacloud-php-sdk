@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @description The public IP addresses.
+     *
      * @var string[]
      */
     public $externalIp;
 
     /**
+     * @description The private IP addresses.
+     *
      * @var string[]
      */
     public $internalIp;
 
     /**
+     * @description The originating IP addresses.
+     *
      * @var string[]
      */
     public $realIp;

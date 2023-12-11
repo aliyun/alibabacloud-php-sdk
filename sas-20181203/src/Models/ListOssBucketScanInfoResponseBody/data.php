@@ -18,6 +18,13 @@ class data extends Model
     public $bucketName;
 
     /**
+     * @description Configuration status, valid values:
+     *
+     * - **0**: No Configuration.
+     * - **1**: Not Open.
+     * - **2**: Open.
+     * @example 1
+     *
      * @var int
      */
     public $configStatus;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of entries on the current page.
+     *
      * @example 2
      *
      * @var int
@@ -17,11 +19,20 @@ class data extends Model
     public $count;
 
     /**
+     * @description The statistics details.
+     *
      * @var honeypotAttackStatistics[]
      */
     public $honeypotAttackStatistics;
 
     /**
+     * @description The type of the attack source statistics. Valid values:
+     *
+     *   **TOP_ATTACKED_AGENT**: the top five probes that are attacked the most frequently.
+     *   **TOP_ATTACKED_IP**: the top five IP addresses that are attacked the most frequently.
+     *   **ATTACK_EVENT_TYPE**: the type of the intrusion event.
+     *   **ATTACK_HONEYPOT_TYPE**: the type of the attacked honeypot.
+     *
      * @example TOP_ATTACKED_IP
      *
      * @var string

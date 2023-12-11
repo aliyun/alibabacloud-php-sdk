@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total number of honeypots.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,11 @@ class data extends Model
     public $totalHoneypotCount;
 
     /**
+     * @description The health status of the management node. Valid values:
+     *
+     *   1: normal
+     *   2: abnormal
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,8 @@ class data extends Model
     public $totalNodeStatus;
 
     /**
+     * @description The total number of authorized probes.
+     *
      * @example 40
      *
      * @var int
@@ -30,6 +39,8 @@ class data extends Model
     public $totalProbeCount;
 
     /**
+     * @description The number of deployed honeypots.
+     *
      * @example 7
      *
      * @var int
@@ -37,6 +48,8 @@ class data extends Model
     public $usedHoneypotCount;
 
     /**
+     * @description The number of deployed host probes.
+     *
      * @example 9
      *
      * @var int
@@ -44,6 +57,8 @@ class data extends Model
     public $usedHostProbeCount;
 
     /**
+     * @description The number of deployed probes.
+     *
      * @example 15
      *
      * @var int
@@ -51,6 +66,8 @@ class data extends Model
     public $usedProbeCount;
 
     /**
+     * @description The number of deployed VPC probes.
+     *
      * @example 6
      *
      * @var int

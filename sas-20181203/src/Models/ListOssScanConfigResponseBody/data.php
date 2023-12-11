@@ -2,15 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sas\V20181203\Models;
+namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListOssScanConfigResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateOssScanConfigRequest extends Model
+class data extends Model
 {
     /**
-     * @description Whether to match all prefixes.
-     *
      * @example true
      *
      * @var bool
@@ -18,18 +16,18 @@ class CreateOssScanConfigRequest extends Model
     public $allKeyPrefix;
 
     /**
-     * @description The names of buckets.
+     * @example 10
      *
+     * @var int
+     */
+    public $bucketCount;
+
+    /**
      * @var string[]
      */
     public $bucketNameList;
 
     /**
-     * @description Specifies whether to enable the policy. Valid values:
-     *
-     *   **1**: yes
-     *   **0**: no
-     *
      * @example 1
      *
      * @var int
@@ -37,47 +35,49 @@ class CreateOssScanConfigRequest extends Model
     public $enable;
 
     /**
-     * @description The time when the scan ends. The time must be in the HH:mm:ss format.
-     *
-     * @example 01:01:00
+     * @example 06:00:00
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The prefixes of the object that you want to check.
+     * @example 443496
      *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string[]
      */
     public $keyPrefixList;
 
     /**
-     * @description The suffixes of the files to scan.
-     *
      * @var string[]
      */
     public $keySuffixList;
 
     /**
-     * @description The name of the policy.
+     * @example 1698388233883
      *
-     * @example runtime
+     * @var int
+     */
+    public $lastUpdateTime;
+
+    /**
+     * @example test****
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description The days on which the scan is executed in a week.
-     *
      * @var int[]
      */
     public $scanDayList;
 
     /**
-     * @description The time when the scan starts. The time must be in the HH:mm:ss format.
-     *
      * @example 00:00:00
      *
      * @var string
@@ -85,11 +85,14 @@ class CreateOssScanConfigRequest extends Model
     public $startTime;
     protected $_name = [
         'allKeyPrefix'   => 'AllKeyPrefix',
+        'bucketCount'    => 'BucketCount',
         'bucketNameList' => 'BucketNameList',
         'enable'         => 'Enable',
         'endTime'        => 'EndTime',
+        'id'             => 'Id',
         'keyPrefixList'  => 'KeyPrefixList',
         'keySuffixList'  => 'KeySuffixList',
+        'lastUpdateTime' => 'LastUpdateTime',
         'name'           => 'Name',
         'scanDayList'    => 'ScanDayList',
         'startTime'      => 'StartTime',
@@ -105,6 +108,9 @@ class CreateOssScanConfigRequest extends Model
         if (null !== $this->allKeyPrefix) {
             $res['AllKeyPrefix'] = $this->allKeyPrefix;
         }
+        if (null !== $this->bucketCount) {
+            $res['BucketCount'] = $this->bucketCount;
+        }
         if (null !== $this->bucketNameList) {
             $res['BucketNameList'] = $this->bucketNameList;
         }
@@ -114,11 +120,17 @@ class CreateOssScanConfigRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->keyPrefixList) {
             $res['KeyPrefixList'] = $this->keyPrefixList;
         }
         if (null !== $this->keySuffixList) {
             $res['KeySuffixList'] = $this->keySuffixList;
+        }
+        if (null !== $this->lastUpdateTime) {
+            $res['LastUpdateTime'] = $this->lastUpdateTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -136,13 +148,16 @@ class CreateOssScanConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateOssScanConfigRequest
+     * @return data
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllKeyPrefix'])) {
             $model->allKeyPrefix = $map['AllKeyPrefix'];
+        }
+        if (isset($map['BucketCount'])) {
+            $model->bucketCount = $map['BucketCount'];
         }
         if (isset($map['BucketNameList'])) {
             if (!empty($map['BucketNameList'])) {
@@ -155,6 +170,9 @@ class CreateOssScanConfigRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['KeyPrefixList'])) {
             if (!empty($map['KeyPrefixList'])) {
                 $model->keyPrefixList = $map['KeyPrefixList'];
@@ -164,6 +182,9 @@ class CreateOssScanConfigRequest extends Model
             if (!empty($map['KeySuffixList'])) {
                 $model->keySuffixList = $map['KeySuffixList'];
             }
+        }
+        if (isset($map['LastUpdateTime'])) {
+            $model->lastUpdateTime = $map['LastUpdateTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

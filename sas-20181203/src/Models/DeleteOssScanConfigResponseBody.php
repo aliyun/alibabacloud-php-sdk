@@ -6,21 +6,16 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetHoneypotStatisticsRequest extends Model
+class DeleteOssScanConfigResponseBody extends Model
 {
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh**: Chinese.
-     *   **en**: English.
-     *
-     * @example zh
+     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB393****
      *
      * @var string
      */
-    public $lang;
+    public $requestId;
     protected $_name = [
-        'lang' => 'Lang',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,8 +25,8 @@ class GetHoneypotStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -40,13 +35,13 @@ class GetHoneypotStatisticsRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetHoneypotStatisticsRequest
+     * @return DeleteOssScanConfigResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

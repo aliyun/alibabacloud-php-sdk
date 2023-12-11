@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class honeypotAttackStatistics extends Model
 {
     /**
+     * @description The number of times the value is counted.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class honeypotAttackStatistics extends Model
     public $statisticsCount;
 
     /**
+     * @description The statistical value.
+     *
      * @example 112.168.1.**
      *
      * @var string

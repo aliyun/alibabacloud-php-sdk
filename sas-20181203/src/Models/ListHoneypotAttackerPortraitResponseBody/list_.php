@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The number of attacks.
+     *
      * @example 10
      *
      * @var int
@@ -17,16 +19,22 @@ class list_ extends Model
     public $attackCount;
 
     /**
+     * @description The information about the browsers of the attack source.
+     *
      * @var string[]
      */
     public $browser;
 
     /**
+     * @description The information about the hosts of the attack source.
+     *
      * @var string[]
      */
     public $host;
 
     /**
+     * @description The timestamp at which the attack was last detected. Unit: milliseconds.
+     *
      * @example 1679896965
      *
      * @var int
@@ -34,11 +42,15 @@ class list_ extends Model
     public $lastTime;
 
     /**
+     * @description The network information about the attack source.
+     *
      * @var network
      */
     public $network;
 
     /**
+     * @description The attacker profile ID.
+     *
      * @example cd48604a-1694-4f03-ade0-ec6994c3****
      *
      * @var string
@@ -46,6 +58,8 @@ class list_ extends Model
     public $portraitId;
 
     /**
+     * @description The social information about the attack source.
+     *
      * @var string[]
      */
     public $social;

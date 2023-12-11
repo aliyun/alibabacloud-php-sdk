@@ -200,6 +200,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousNoteRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteMaliciousNoteResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteOpaStrategyNewRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteOpaStrategyNewResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteOssScanConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteOssScanConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeletePrivateRegistryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeletePrivateRegistryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSasContainerWebDefenseRuleRequest;
@@ -966,6 +968,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListOssBucketRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOssBucketResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOssBucketScanInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOssBucketScanInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListOssScanConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListOssScanConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPluginForUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPluginForUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPluginForUuidShrinkRequest;
@@ -6381,6 +6385,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteOpaStrategyNewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteOssScanConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteOssScanConfigResponse
+     */
+    public function deleteOssScanConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOssScanConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteOssScanConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteOssScanConfigRequest $request
+     *
+     * @return DeleteOssScanConfigResponse
+     */
+    public function deleteOssScanConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOssScanConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -27195,6 +27242,46 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listOssBucketScanInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListOssScanConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListOssScanConfigResponse
+     */
+    public function listOssScanConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOssScanConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOssScanConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOssScanConfigRequest $request
+     *
+     * @return ListOssScanConfigResponse
+     */
+    public function listOssScanConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOssScanConfigWithOptions($request, $runtime);
     }
 
     /**

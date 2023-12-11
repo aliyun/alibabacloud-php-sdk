@@ -6,28 +6,16 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetOssScanConfigRequest extends Model
+class DeleteOssScanConfigRequest extends Model
 {
     /**
-     * @description The name of the bucket.
+     * @example 1589
      *
-     * @example iboxpublic****
-     *
-     * @var string
-     */
-    public $bucketName;
-
-    /**
-     * @description The ID of the policy.
-     *
-     * @example 1
-     *
-     * @var string
+     * @var int
      */
     public $id;
     protected $_name = [
-        'bucketName' => 'BucketName',
-        'id'         => 'Id',
+        'id' => 'Id',
     ];
 
     public function validate()
@@ -37,9 +25,6 @@ class GetOssScanConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bucketName) {
-            $res['BucketName'] = $this->bucketName;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -50,14 +35,11 @@ class GetOssScanConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetOssScanConfigRequest
+     * @return DeleteOssScanConfigRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BucketName'])) {
-            $model->bucketName = $map['BucketName'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

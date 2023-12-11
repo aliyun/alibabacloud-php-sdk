@@ -2,52 +2,36 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotAttackerPortraitResponseBody;
+namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class pageInfo extends Model
+class ListOssScanConfigRequest extends Model
 {
     /**
-     * @description The number of entries returned on the current page.
-     *
-     * @example 11
-     *
-     * @var int
-     */
-    public $count;
-
-    /**
-     * @description The page number.
-     *
-     * @example 2
+     * @example 1
      *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries per page.
+     * @example testName
      *
+     * @var string
+     */
+    public $name;
+
+    /**
      * @example 20
      *
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @description The total number of entries returned.
-     *
-     * @example 25
-     *
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
-        'count'       => 'Count',
         'currentPage' => 'CurrentPage',
+        'name'        => 'Name',
         'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -57,17 +41,14 @@ class pageInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -76,22 +57,19 @@ class pageInfo extends Model
     /**
      * @param array $map
      *
-     * @return pageInfo
+     * @return ListOssScanConfigRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

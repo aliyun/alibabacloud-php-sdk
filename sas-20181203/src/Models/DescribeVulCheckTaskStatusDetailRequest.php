@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulCheckTaskStatusDetailRequest extends Model
 {
     /**
-     * @description The IDs of tasks.
+     * @description The task IDs.
      *
      * @var string[]
      */

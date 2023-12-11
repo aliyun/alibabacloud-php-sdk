@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetHoneypotAttackStatisticsRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class GetHoneypotAttackStatisticsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The end time. The value is a UNIX timestamp.
+     *
      * @example 1675058931215
      *
      * @var int
@@ -23,6 +27,11 @@ class GetHoneypotAttackStatisticsRequest extends Model
     public $endTimeStamp;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +39,8 @@ class GetHoneypotAttackStatisticsRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page. We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -37,11 +48,15 @@ class GetHoneypotAttackStatisticsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The risk levels.
+     *
      * @var string[]
      */
     public $riskLevelList;
 
     /**
+     * @description The source IP address of the attack.
+     *
      * @example 47.92.139.**
      *
      * @var string
@@ -49,6 +64,8 @@ class GetHoneypotAttackStatisticsRequest extends Model
     public $srcIp;
 
     /**
+     * @description The start time. The value is a UNIX timestamp.
+     *
      * @example 1681624877761
      *
      * @var int
@@ -56,6 +73,13 @@ class GetHoneypotAttackStatisticsRequest extends Model
     public $startTimeStamp;
 
     /**
+     * @description The type of the attack source statistics. Valid values:
+     *
+     *   **TOP_ATTACKED_AGENT**: the top 5 probes that are attacked the most frequently
+     *   **TOP_ATTACKED_IP**: the top 5 IP addresses that are attacked the most frequently
+     *   **ATTACK_EVENT_TYPE**: the type of the intrusion event
+     *   **ATTACK_HONEYPOT_TYPE**: the type of the attacked honeypot
+     *
      * @example TOP_ATTACKED_IP
      *
      * @var string
