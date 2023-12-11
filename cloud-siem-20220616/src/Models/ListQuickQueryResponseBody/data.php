@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of saved searches per page.
+     *
      * @example 10
      *
      * @var int
@@ -17,11 +19,15 @@ class data extends Model
     public $count;
 
     /**
+     * @description The saved search.
+     *
      * @var quickQueryList[]
      */
     public $quickQueryList;
 
     /**
+     * @description The total number of saved searches that meet the query conditions.
+     *
      * @example 101
      *
      * @var int

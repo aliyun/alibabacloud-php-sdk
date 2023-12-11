@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The index fields of the logs.
+     *
      * @var string[]
      */
     public $indexList;

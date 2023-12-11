@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveQuickQueryRequest extends Model
 {
     /**
+     * @description The name of the saved search.
+     *
      * @example no_1_created_search_used_for_dispaly_ip
      *
      * @var string
@@ -16,6 +18,8 @@ class SaveQuickQueryRequest extends Model
     public $displayName;
 
     /**
+     * @description The query statement.
+     *
      * @example * and dst_ip : "121.43.234.***"
      *
      * @var string
@@ -23,6 +27,11 @@ class SaveQuickQueryRequest extends Model
     public $query;
 
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in the Chinese mainland or in the China (Hong Kong) region.
+     *   ap-southeast-1: Your assets reside in regions outside the Chinese mainland, excluding the China (Hong Kong) region.
+     *
      * @example cn-hangzhou
      *
      * @var string

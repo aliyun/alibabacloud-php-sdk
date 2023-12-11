@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class histograms extends Model
 {
     /**
+     * @description Indicates whether the query results within the subinterval is complete. Valid values:
+     *
+     *   true: The query is complete and the returned result is complete.
+     *   false: The query is complete but the returned result is incomplete. You must repeat the request to obtain the complete result.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class histograms extends Model
     public $completedOrNot;
 
     /**
+     * @description The number of logs within the subinterval.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +30,8 @@ class histograms extends Model
     public $count;
 
     /**
+     * @description The start time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1409529600
      *
      * @var int
@@ -30,6 +39,8 @@ class histograms extends Model
     public $from;
 
     /**
+     * @description The end time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1409569200
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the storage region can be changed for once. Default value: false Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,11 @@ class data extends Model
     public $canOperate;
 
     /**
+     * @description Indicates whether the storage region can be changed. Default value: false Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +33,8 @@ class data extends Model
     public $displayRegion;
 
     /**
+     * @description The region in which the logs are stored. Default value: cn-shanghai. Valid values: cn-shanghai for the China site and ap-southeast-1 for the international site.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -30,6 +42,8 @@ class data extends Model
     public $region;
 
     /**
+     * @description The storage period of logs. Unit: day. Default value: 180. Valid values: 30 to 3000.
+     *
      * @example 180
      *
      * @var int

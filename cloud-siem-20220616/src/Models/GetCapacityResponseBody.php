@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetCapacityResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class GetCapacityResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the storage capacity.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example DeleteJobConfigError
      *
      * @var string
@@ -29,6 +35,8 @@ class GetCapacityResponseBody extends Model
     public $dyCode;
 
     /**
+     * @description The dynamic message.
+     *
      * @example Task[%s] is submitting, please try it later
      *
      * @var string
@@ -36,6 +44,8 @@ class GetCapacityResponseBody extends Model
     public $dyMessage;
 
     /**
+     * @description The error code.
+     *
      * @example Siem.Storage.Exception
      *
      * @var string
@@ -43,6 +53,8 @@ class GetCapacityResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -50,6 +62,8 @@ class GetCapacityResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 27D27DCB-D76B-5064-8B3B-0900DEF7****
      *
      * @var string
@@ -57,6 +71,11 @@ class GetCapacityResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

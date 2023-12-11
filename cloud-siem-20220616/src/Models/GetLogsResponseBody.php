@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetLogsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class GetLogsResponseBody extends Model
     public $code;
 
     /**
+     * @description The results of the log query.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class GetLogsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 93A8B186-A5F1-5B20-9BCF-5605C5E9****
      *
      * @var string
@@ -36,6 +44,11 @@ class GetLogsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example True
      *
      * @var bool

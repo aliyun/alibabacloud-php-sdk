@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
+     * @description The status of the log query. Valid values:
+     *
+     *   true: The query is complete and the returned result is complete.
+     *   false: The query is complete but the returned result is incomplete. You must resend the request to obtain the complete result.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class responseData extends Model
     public $completeOrNot;
 
     /**
+     * @description The time period of the log query. Unit: milliseconds.
+     *
      * @example 28
      *
      * @var int
@@ -23,6 +30,8 @@ class responseData extends Model
     public $cost;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 4
      *
      * @var int
@@ -30,6 +39,11 @@ class responseData extends Model
     public $count;
 
     /**
+     * @description Indicated whether an analytic statement is contained. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -37,11 +51,15 @@ class responseData extends Model
     public $hasSql;
 
     /**
+     * @description The index fields of the logs.
+     *
      * @var string[]
      */
     public $keys;
 
     /**
+     * @description The raw data generated in the query.
+     *
      * @var mixed[]
      */
     public $lines;

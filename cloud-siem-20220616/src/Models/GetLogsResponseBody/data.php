@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The result on the current page.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The log.
+     *
      * @var responseData
      */
     public $responseData;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The distribution of logs.
+     *
      * @var histograms[]
      */
     public $histograms;
 
     /**
+     * @description The name of the server.
+     *
      * @example nginx
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $server;
 
     /**
+     * @description The number of logs that are generated within the subinterval.
+     *
      * @example 2
      *
      * @var int

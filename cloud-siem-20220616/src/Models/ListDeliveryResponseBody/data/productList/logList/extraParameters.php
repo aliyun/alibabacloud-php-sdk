@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class extraParameters extends Model
 {
     /**
+     * @description The ID of the extended parameter.
+     *
      * @example flag
      *
      * @var string
@@ -16,6 +18,8 @@ class extraParameters extends Model
     public $key;
 
     /**
+     * @description The value of the extended parameter.
+     *
      * @example value
      *
      * @var string

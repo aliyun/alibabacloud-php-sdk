@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The URL that is displayed in charts.
+     *
      * @example https://sls4service.console.aliyun.com/lognext/project/aliyun-cloudsiem-data-127608589417****-cn-shanghai
      * /dashboard/cloud-siem?isShare=true&hideTopbar=true&hideSidebar=true&ignoreTabLocalStorage=true
      * @var string
@@ -17,6 +19,11 @@ class data extends Model
     public $dashboardUrl;
 
     /**
+     * @description Indicates whether the log delivery switch is displayed. Default value: true. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +31,8 @@ class data extends Model
     public $displaySwitchOrNot;
 
     /**
+     * @description The name of the Logstore for the threat analysis feature on the user side. The value is in the cloud_siem format.
+     *
      * @example cloud-siem
      *
      * @var string
@@ -31,11 +40,15 @@ class data extends Model
     public $logStoreName;
 
     /**
+     * @description The cloud services.
+     *
      * @var productList[]
      */
     public $productList;
 
     /**
+     * @description The name of the project for the threat analysis feature in Simple Log service on the user side. The value is in the aliyun-cloudsiem-data-${aliUid}-${region} format.
+     *
      * @example aliyun-cloudsiem-data-127608589417****-cn-shanghai
      *
      * @var string
@@ -43,6 +56,8 @@ class data extends Model
     public $projectName;
 
     /**
+     * @description The URL that is used for log analysis.
+     *
      * @example https://sls4service.console.aliyun.com/lognext/project/aliyun-cloudsiem-data-127608589417****-cn-shanghai
      * /logsearch/cloud-siem?isShare=true&hideTopbar=true&hideSidebar=true&ignoreTabLocalStorage=true
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class quickQueryList extends Model
 {
     /**
+     * @description The alias of the saved search.
+     *
      * @example no_1_created_search_used_for_dispaly_ip
      *
      * @var string
@@ -16,6 +18,8 @@ class quickQueryList extends Model
     public $displayName;
 
     /**
+     * @description The query statement corresponding to the saved search.
+     *
      * @example * and SamplerAddress:\"172.18.1.1\" and OutIf:\"105\"
      *
      * @var string
@@ -23,6 +27,8 @@ class quickQueryList extends Model
     public $query;
 
     /**
+     * @description The name of the saved search.
+     *
      * @example data_analysis
      *
      * @var string

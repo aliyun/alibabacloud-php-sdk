@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLogsRequest extends Model
 {
     /**
+     * @description The time when the query starts. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1684377190
      *
      * @var int
@@ -16,6 +18,8 @@ class GetLogsRequest extends Model
     public $from;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class GetLogsRequest extends Model
     public $pageIndex;
 
     /**
+     * @description The number of entries per page. Valid values: 0 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class GetLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The search statement or the analytic statement. For more information, see [Log search overview](https://help.aliyun.com/zh/sls/user-guide/log-analysis-overview?spm=a2c4g.11186623.0.i1#t13103.html) and [Log analysis overview](https://help.aliyun.com/zh/sls/user-guide/search-syntax?spm=a2c4g.11186623.0.i0#concept-tnd-1jq-zdb).
+     *
      * @example status: 401 | SELECT remote_addr,COUNT(*) as pv GROUP by remote_addr ORDER by pv desc limit 5
      *
      * @var string
@@ -37,6 +45,11 @@ class GetLogsRequest extends Model
     public $query;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions inside the Chinese mainland or in the China (Hong Kong) region.
+     *   ap-southeast-1: Your assets reside in regions outside the Chinese mainland, excluding the China (Hong Kong) region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +57,11 @@ class GetLogsRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to sort the results of the log query by time in minutes in descending order. Default value: true. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +69,8 @@ class GetLogsRequest extends Model
     public $reverseOrNot;
 
     /**
+     * @description The time when the query ends. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1684378326
      *
      * @var int
@@ -58,6 +78,8 @@ class GetLogsRequest extends Model
     public $to;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

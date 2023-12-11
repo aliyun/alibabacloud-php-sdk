@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetStorageRequest extends Model
 {
     /**
+     * @description The storage region of logs. By default, the region of the data management center is used and cannot be changed. cn-shanghai is used for the China data management center, and ap-southeast-1 is used for the Outside China data management center. To change the region, contact the technical support of threat analysis.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -16,6 +18,11 @@ class SetStorageRequest extends Model
     public $region;
 
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in the Chinese mainland or in the China (Hong Kong) region.
+     *   ap-southeast-1: Your assets reside in regions outside the Chinese mainland, excluding the China (Hong Kong) region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +30,8 @@ class SetStorageRequest extends Model
     public $regionId;
 
     /**
+     * @description The storage duration of logs. Default value: 180. Minimum value: 30. Maximum value: 3000. Unit: days.
+     *
      * @example 180
      *
      * @var int

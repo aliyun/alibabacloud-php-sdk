@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetQuickQueryResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class GetQuickQueryResponseBody extends Model
     public $code;
 
     /**
+     * @description The query statement.
+     *
      * @example status: 401 | SELECT remote_addr,COUNT(*) as pv GROUP by remote_addr ORDER by pv desc limit 5
      *
      * @var string
@@ -23,6 +27,8 @@ class GetQuickQueryResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example DeleteJobConfigError
      *
      * @var string
@@ -30,6 +36,8 @@ class GetQuickQueryResponseBody extends Model
     public $dyCode;
 
     /**
+     * @description The dynamic message.
+     *
      * @example Task[%s] is submitting, please try it later
      *
      * @var string
@@ -37,6 +45,8 @@ class GetQuickQueryResponseBody extends Model
     public $dyMessage;
 
     /**
+     * @description The error code.
+     *
      * @example Siem.Delivery.ErrorMapping
      *
      * @var string
@@ -44,6 +54,8 @@ class GetQuickQueryResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -51,6 +63,8 @@ class GetQuickQueryResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 27D27DCB-D76B-5064-8B3B-0900DEF7****
      *
      * @var string
@@ -58,6 +72,11 @@ class GetQuickQueryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

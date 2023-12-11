@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
      * @example ""
      *
      * @var string
@@ -16,6 +18,11 @@ class data extends Model
     public $aggQueryd;
 
     /**
+     * @description Indicates whether the quick analysis was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class data extends Model
     public $completeOrNot;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +39,8 @@ class data extends Model
     public $count;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example true
      *
      * @var bool
@@ -37,11 +48,15 @@ class data extends Model
     public $hasSQL;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @var string[]
      */
     public $keys;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example 0
      *
      * @var int
@@ -49,11 +64,15 @@ class data extends Model
     public $limited;
 
     /**
+     * @description The logs queried by using the quick analysis feature.
+     *
      * @var mixed[]
      */
     public $logs;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example ""
      *
      * @var string
@@ -61,6 +80,8 @@ class data extends Model
     public $PQuery;
 
     /**
+     * @description The number of entries queried.
+     *
      * @example 1000
      *
      * @var int
@@ -68,6 +89,8 @@ class data extends Model
     public $processedRows;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example 0
      *
      * @var int
@@ -75,6 +98,8 @@ class data extends Model
     public $queryMode;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example * and alert_level : remind | with_pack_meta
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DoQuickFieldResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class DoQuickFieldResponseBody extends Model
     public $code;
 
     /**
+     * @description The response of the quick analysis.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example DeleteJobConfigError
      *
      * @var string
@@ -29,6 +35,8 @@ class DoQuickFieldResponseBody extends Model
     public $dyCode;
 
     /**
+     * @description The dynamic message.
+     *
      * @example Task[%s] is submitting, please try it later
      *
      * @var string
@@ -36,6 +44,8 @@ class DoQuickFieldResponseBody extends Model
     public $dyMessage;
 
     /**
+     * @description The error code.
+     *
      * @example Siem.Analysis.IllegalParameter
      *
      * @var string
@@ -43,6 +53,8 @@ class DoQuickFieldResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -50,6 +62,8 @@ class DoQuickFieldResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 06735F17-1EDE-5212-81A3-8585368F****
      *
      * @var string
@@ -57,6 +71,11 @@ class DoQuickFieldResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

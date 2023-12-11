@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestoreCapacityResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,11 @@ class RestoreCapacityResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the release command has been sent. Valid values:
+     *
+     *   true: The command has been sent and the storage space is being released.
+     *   false: The command failed to be sent.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class RestoreCapacityResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example DeleteJobConfigError
      *
      * @var string
@@ -30,6 +39,8 @@ class RestoreCapacityResponseBody extends Model
     public $dyCode;
 
     /**
+     * @description The dynamic message.
+     *
      * @example Task[%s] is submitting, please try it later
      *
      * @var string
@@ -37,6 +48,8 @@ class RestoreCapacityResponseBody extends Model
     public $dyMessage;
 
     /**
+     * @description The error code.
+     *
      * @example Request.Forbidden
      *
      * @var string
@@ -44,6 +57,8 @@ class RestoreCapacityResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -51,6 +66,8 @@ class RestoreCapacityResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 6276D891-58D4-55B2-87B9-74D413F7****
      *
      * @var string
@@ -58,6 +75,11 @@ class RestoreCapacityResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

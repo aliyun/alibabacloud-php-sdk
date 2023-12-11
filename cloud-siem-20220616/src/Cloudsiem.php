@@ -6,6 +6,14 @@ namespace AlibabaCloud\SDK\Cloudsiem\V20220616;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddDataSourceLogRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddDataSourceLogResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddDataSourceRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddDataSourceResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserSourceLogConfigRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserSourceLogConfigResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobCheckRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobCheckResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobSubmitRequest;
@@ -14,10 +22,18 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\CloseDeliveryRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\CloseDeliveryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteAutomateResponseConfigRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteAutomateResponseConfigResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteBindAccountRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteBindAccountResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteCustomizeRuleRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteCustomizeRuleResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceLogRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceLogResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteQuickQueryRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteQuickQueryResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteUserRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteWhiteRuleListRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteWhiteRuleListResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAggregateFunctionRequest;
@@ -42,6 +58,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertTypeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertTypeResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAttackTimeLineRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAttackTimeLineResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAuthRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAuthResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigCounterRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigCounterResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigFeatureRequest;
@@ -56,6 +74,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemEventDetailRequ
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemEventDetailResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemEventsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemEventsResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCsImportedProdStatusByUserRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCsImportedProdStatusByUserResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleCountRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleCountResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleRequest;
@@ -64,6 +84,10 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleTestHistogr
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleTestHistogramResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleTestRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleTestResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeDataSourceInstanceRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeDataSourceInstanceResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeDataSourceParametersRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeDataSourceParametersResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeDisposeAndPlaybookRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeDisposeAndPlaybookResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeDisposeStrategyPlaybookRequest;
@@ -74,6 +98,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeEventCountByThreatLevelR
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeEventCountByThreatLevelResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeEventDisposeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeEventDisposeResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeImportedLogCountRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeImportedLogCountResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeJobStatusRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeJobStatusResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogFieldsRequest;
@@ -86,10 +112,16 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogTypeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogTypeResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeOperatorsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeOperatorsResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeProdCountRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeProdCountResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeScopeUsersRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeScopeUsersResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeServiceStatusRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeServiceStatusResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeStorageResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeUserBuyStatusRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeUserBuyStatusResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWafScopeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWafScopeResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWhiteRuleListRequest;
@@ -98,6 +130,10 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoQuickFieldRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoQuickFieldResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoSelfDelegateRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoSelfDelegateResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableAccessForCloudSiemRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableAccessForCloudSiemResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableServiceForCloudSiemRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableServiceForCloudSiemResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetCapacityRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetCapacityResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetHistogramsRequest;
@@ -108,22 +144,52 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetQuickQueryRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetQuickQueryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetStorageResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListAccountAccessIdRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListAccountAccessIdResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListAccountsByLogRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListAccountsByLogResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListAllProdsRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListAllProdsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListAutomateResponseConfigsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListAutomateResponseConfigsResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListBindAccountRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListBindAccountResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListBindDataSourcesRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListBindDataSourcesResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListCloudSiemCustomizeRulesRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListCloudSiemCustomizeRulesResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListCloudSiemPredefinedRulesRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListCloudSiemPredefinedRulesResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListCustomizeRuleTestResultRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListCustomizeRuleTestResultResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDataSourceLogsRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDataSourceLogsResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDataSourceTypesRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDataSourceTypesResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDisposeStrategyRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDisposeStrategyResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListImportedLogsByProdRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListImportedLogsByProdResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListOperationRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListOperationResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListProjectLogStoresRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListProjectLogStoresResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListQuickQueryRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListQuickQueryResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListRdUsersRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListRdUsersResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListUserProdLogsRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListUserProdLogsResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListUsersByProdRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListUsersByProdResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ModifyBindAccountRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ModifyBindAccountResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ModifyDataSourceLogRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ModifyDataSourceLogResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ModifyDataSourceRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ModifyDataSourceResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\OpenDeliveryRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\OpenDeliveryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\PostAutomateResponseConfigRequest;
@@ -148,6 +214,10 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SetStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SetStorageResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ShowQuickAnalysisRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ShowQuickAnalysisResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SubmitImportLogTasksRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SubmitImportLogTasksResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SubmitJobsRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SubmitJobsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\UpdateAutomateResponseConfigStatusRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\UpdateAutomateResponseConfigStatusResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\UpdateWhiteRuleListRequest;
@@ -189,6 +259,232 @@ class Cloudsiem extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddDataSourceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddDataSourceResponse
+     */
+    public function addDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceName)) {
+            $body['DataSourceInstanceName'] = $request->dataSourceInstanceName;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceParams)) {
+            $body['DataSourceInstanceParams'] = $request->dataSourceInstanceParams;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceRemark)) {
+            $body['DataSourceInstanceRemark'] = $request->dataSourceInstanceRemark;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $body['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDataSource',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddDataSourceRequest $request
+     *
+     * @return AddDataSourceResponse
+     */
+    public function addDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddDataSourceLogRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddDataSourceLogResponse
+     */
+    public function addDataSourceLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceId)) {
+            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceLogs)) {
+            $body['DataSourceInstanceLogs'] = $request->dataSourceInstanceLogs;
+        }
+        if (!Utils::isUnset($request->logCode)) {
+            $body['LogCode'] = $request->logCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDataSourceLog',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDataSourceLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddDataSourceLogRequest $request
+     *
+     * @return AddDataSourceLogResponse
+     */
+    public function addDataSourceLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDataSourceLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddUserRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return AddUserResponse
+     */
+    public function addUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->addedUserId)) {
+            $body['AddedUserId'] = $request->addedUserId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddUser',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddUserRequest $request
+     *
+     * @return AddUserResponse
+     */
+    public function addUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddUserSourceLogConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddUserSourceLogConfigResponse
+     */
+    public function addUserSourceLogConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deleted)) {
+            $body['Deleted'] = $request->deleted;
+        }
+        if (!Utils::isUnset($request->disPlayLine)) {
+            $body['DisPlayLine'] = $request->disPlayLine;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceLogCode)) {
+            $body['SourceLogCode'] = $request->sourceLogCode;
+        }
+        if (!Utils::isUnset($request->sourceLogInfo)) {
+            $body['SourceLogInfo'] = $request->sourceLogInfo;
+        }
+        if (!Utils::isUnset($request->sourceProdCode)) {
+            $body['SourceProdCode'] = $request->sourceProdCode;
+        }
+        if (!Utils::isUnset($request->subUserId)) {
+            $body['SubUserId'] = $request->subUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddUserSourceLogConfig',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddUserSourceLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddUserSourceLogConfigRequest $request
+     *
+     * @return AddUserSourceLogConfigResponse
+     */
+    public function addUserSourceLogConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addUserSourceLogConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -379,6 +675,61 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * @param DeleteBindAccountRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteBindAccountResponse
+     */
+    public function deleteBindAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessId)) {
+            $body['AccessId'] = $request->accessId;
+        }
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->bindId)) {
+            $body['BindId'] = $request->bindId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBindAccount',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBindAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBindAccountRequest $request
+     *
+     * @return DeleteBindAccountResponse
+     */
+    public function deleteBindAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBindAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteCustomizeRuleRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -425,6 +776,113 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * @param DeleteDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDataSourceResponse
+     */
+    public function deleteDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceId)) {
+            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataSource',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDataSourceRequest $request
+     *
+     * @return DeleteDataSourceResponse
+     */
+    public function deleteDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDataSourceLogRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteDataSourceLogResponse
+     */
+    public function deleteDataSourceLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceId)) {
+            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+        }
+        if (!Utils::isUnset($request->logInstanceId)) {
+            $body['LogInstanceId'] = $request->logInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataSourceLog',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataSourceLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDataSourceLogRequest $request
+     *
+     * @return DeleteDataSourceLogResponse
+     */
+    public function deleteDataSourceLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataSourceLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteQuickQueryRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -468,6 +926,52 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteQuickQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteUserResponse
+     */
+    public function deleteUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->addedUserId)) {
+            $body['AddedUserId'] = $request->addedUserId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUser',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteUserRequest $request
+     *
+     * @return DeleteUserResponse
+     */
+    public function deleteUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserWithOptions($request, $runtime);
     }
 
     /**
@@ -1092,6 +1596,49 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * @param DescribeAuthRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeAuthResponse
+     */
+    public function describeAuthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAuth',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAuthRequest $request
+     *
+     * @return DescribeAuthResponse
+     */
+    public function describeAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAuthWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAutomateResponseConfigCounterRequest $request
      * @param RuntimeOptions                               $runtime
      *
@@ -1453,6 +2000,55 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * @param DescribeCsImportedProdStatusByUserRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeCsImportedProdStatusByUserResponse
+     */
+    public function describeCsImportedProdStatusByUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceLogProd)) {
+            $body['SourceLogProd'] = $request->sourceLogProd;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCsImportedProdStatusByUser',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCsImportedProdStatusByUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCsImportedProdStatusByUserRequest $request
+     *
+     * @return DescribeCsImportedProdStatusByUserResponse
+     */
+    public function describeCsImportedProdStatusByUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCsImportedProdStatusByUserWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCustomizeRuleRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1631,6 +2227,107 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCustomizeRuleTestHistogramWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataSourceInstanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDataSourceInstanceResponse
+     */
+    public function describeDataSourceInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceId)) {
+            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataSourceInstance',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDataSourceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataSourceInstanceRequest $request
+     *
+     * @return DescribeDataSourceInstanceResponse
+     */
+    public function describeDataSourceInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataSourceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataSourceParametersRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDataSourceParametersResponse
+     */
+    public function describeDataSourceParametersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $body['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataSourceParameters',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDataSourceParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataSourceParametersRequest $request
+     *
+     * @return DescribeDataSourceParametersResponse
+     */
+    public function describeDataSourceParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataSourceParametersWithOptions($request, $runtime);
     }
 
     /**
@@ -1885,6 +2582,49 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEventDisposeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeImportedLogCountRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeImportedLogCountResponse
+     */
+    public function describeImportedLogCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImportedLogCount',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImportedLogCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImportedLogCountRequest $request
+     *
+     * @return DescribeImportedLogCountResponse
+     */
+    public function describeImportedLogCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImportedLogCountWithOptions($request, $runtime);
     }
 
     /**
@@ -2161,6 +2901,49 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * @param DescribeProdCountRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeProdCountResponse
+     */
+    public function describeProdCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProdCount',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeProdCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeProdCountRequest $request
+     *
+     * @return DescribeProdCountResponse
+     */
+    public function describeProdCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProdCountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeScopeUsersRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2204,6 +2987,49 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * @param DescribeServiceStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeServiceStatusResponse
+     */
+    public function describeServiceStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceStatus',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeServiceStatusRequest $request
+     *
+     * @return DescribeServiceStatusResponse
+     */
+    public function describeServiceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServiceStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeStorageRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2244,6 +3070,52 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeStorageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUserBuyStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeUserBuyStatusResponse
+     */
+    public function describeUserBuyStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->subUserId)) {
+            $body['SubUserId'] = $request->subUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserBuyStatus',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserBuyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserBuyStatusRequest $request
+     *
+     * @return DescribeUserBuyStatusResponse
+     */
+    public function describeUserBuyStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserBuyStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -2458,6 +3330,92 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->doSelfDelegateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableAccessForCloudSiemRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EnableAccessForCloudSiemResponse
+     */
+    public function enableAccessForCloudSiemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableAccessForCloudSiem',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableAccessForCloudSiemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableAccessForCloudSiemRequest $request
+     *
+     * @return EnableAccessForCloudSiemResponse
+     */
+    public function enableAccessForCloudSiem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableAccessForCloudSiemWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableServiceForCloudSiemRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableServiceForCloudSiemResponse
+     */
+    public function enableServiceForCloudSiemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableServiceForCloudSiem',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableServiceForCloudSiemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableServiceForCloudSiemRequest $request
+     *
+     * @return EnableServiceForCloudSiemResponse
+     */
+    public function enableServiceForCloudSiem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableServiceForCloudSiemWithOptions($request, $runtime);
     }
 
     /**
@@ -2709,6 +3667,147 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * @param ListAccountAccessIdRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAccountAccessIdResponse
+     */
+    public function listAccountAccessIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccountAccessId',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAccountAccessIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAccountAccessIdRequest $request
+     *
+     * @return ListAccountAccessIdResponse
+     */
+    public function listAccountAccessId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAccountAccessIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAccountsByLogRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAccountsByLogResponse
+     */
+    public function listAccountsByLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->logCodes)) {
+            $body['LogCodes'] = $request->logCodes;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $body['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccountsByLog',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAccountsByLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAccountsByLogRequest $request
+     *
+     * @return ListAccountsByLogResponse
+     */
+    public function listAccountsByLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAccountsByLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAllProdsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAllProdsResponse
+     */
+    public function listAllProdsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAllProds',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAllProdsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAllProdsRequest $request
+     *
+     * @return ListAllProdsResponse
+     */
+    public function listAllProds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAllProdsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAutomateResponseConfigsRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2776,6 +3875,101 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAutomateResponseConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBindAccountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListBindAccountResponse
+     */
+    public function listBindAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBindAccount',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBindAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBindAccountRequest $request
+     *
+     * @return ListBindAccountResponse
+     */
+    public function listBindAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBindAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBindDataSourcesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListBindDataSourcesResponse
+     */
+    public function listBindDataSourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBindDataSources',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBindDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBindDataSourcesRequest $request
+     *
+     * @return ListBindDataSourcesResponse
+     */
+    public function listBindDataSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBindDataSourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -2977,6 +4171,104 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * @param ListDataSourceLogsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListDataSourceLogsResponse
+     */
+    public function listDataSourceLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceId)) {
+            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataSourceLogs',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataSourceLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataSourceLogsRequest $request
+     *
+     * @return ListDataSourceLogsResponse
+     */
+    public function listDataSourceLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataSourceLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataSourceTypesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDataSourceTypesResponse
+     */
+    public function listDataSourceTypesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataSourceTypes',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataSourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataSourceTypesRequest $request
+     *
+     * @return ListDataSourceTypesResponse
+     */
+    public function listDataSourceTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataSourceTypesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListDeliveryRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -3102,6 +4394,55 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * @param ListImportedLogsByProdRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListImportedLogsByProdResponse
+     */
+    public function listImportedLogsByProdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $body['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListImportedLogsByProd',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListImportedLogsByProdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListImportedLogsByProdRequest $request
+     *
+     * @return ListImportedLogsByProdResponse
+     */
+    public function listImportedLogsByProd($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImportedLogsByProdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListOperationRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3142,6 +4483,58 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listOperationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProjectLogStoresRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListProjectLogStoresResponse
+     */
+    public function listProjectLogStoresWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceLogCode)) {
+            $body['SourceLogCode'] = $request->sourceLogCode;
+        }
+        if (!Utils::isUnset($request->sourceProdCode)) {
+            $body['SourceProdCode'] = $request->sourceProdCode;
+        }
+        if (!Utils::isUnset($request->subUserId)) {
+            $body['SubUserId'] = $request->subUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjectLogStores',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectLogStoresResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectLogStoresRequest $request
+     *
+     * @return ListProjectLogStoresResponse
+     */
+    public function listProjectLogStores($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectLogStoresWithOptions($request, $runtime);
     }
 
     /**
@@ -3191,6 +4584,330 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listQuickQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRdUsersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRdUsersResponse
+     */
+    public function listRdUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRdUsers',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRdUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRdUsersRequest $request
+     *
+     * @return ListRdUsersResponse
+     */
+    public function listRdUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRdUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListUserProdLogsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListUserProdLogsResponse
+     */
+    public function listUserProdLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceLogCode)) {
+            $body['SourceLogCode'] = $request->sourceLogCode;
+        }
+        if (!Utils::isUnset($request->sourceProdCode)) {
+            $body['SourceProdCode'] = $request->sourceProdCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserProdLogs',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserProdLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserProdLogsRequest $request
+     *
+     * @return ListUserProdLogsResponse
+     */
+    public function listUserProdLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserProdLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListUsersByProdRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListUsersByProdResponse
+     */
+    public function listUsersByProdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceProdCode)) {
+            $body['SourceProdCode'] = $request->sourceProdCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsersByProd',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUsersByProdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUsersByProdRequest $request
+     *
+     * @return ListUsersByProdResponse
+     */
+    public function listUsersByProd($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUsersByProdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyBindAccountRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyBindAccountResponse
+     */
+    public function modifyBindAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessId)) {
+            $body['AccessId'] = $request->accessId;
+        }
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->accountName)) {
+            $body['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->bindId)) {
+            $body['BindId'] = $request->bindId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBindAccount',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyBindAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyBindAccountRequest $request
+     *
+     * @return ModifyBindAccountResponse
+     */
+    public function modifyBindAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBindAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyDataSourceResponse
+     */
+    public function modifyDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceId)) {
+            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceName)) {
+            $body['DataSourceInstanceName'] = $request->dataSourceInstanceName;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceParams)) {
+            $body['DataSourceInstanceParams'] = $request->dataSourceInstanceParams;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceRemark)) {
+            $body['DataSourceInstanceRemark'] = $request->dataSourceInstanceRemark;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $body['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDataSource',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDataSourceRequest $request
+     *
+     * @return ModifyDataSourceResponse
+     */
+    public function modifyDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDataSourceLogRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyDataSourceLogResponse
+     */
+    public function modifyDataSourceLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceId)) {
+            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceInstanceLogs)) {
+            $body['DataSourceInstanceLogs'] = $request->dataSourceInstanceLogs;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $body['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->logCode)) {
+            $body['LogCode'] = $request->logCode;
+        }
+        if (!Utils::isUnset($request->logInstanceId)) {
+            $body['LogInstanceId'] = $request->logInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDataSourceLog',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDataSourceLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDataSourceLogRequest $request
+     *
+     * @return ModifyDataSourceLogResponse
+     */
+    public function modifyDataSourceLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDataSourceLogWithOptions($request, $runtime);
     }
 
     /**
@@ -3839,6 +5556,110 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->showQuickAnalysisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitImportLogTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitImportLogTasksResponse
+     */
+    public function submitImportLogTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accounts)) {
+            $body['Accounts'] = $request->accounts;
+        }
+        if (!Utils::isUnset($request->autoImported)) {
+            $body['AutoImported'] = $request->autoImported;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->logCodes)) {
+            $body['LogCodes'] = $request->logCodes;
+        }
+        if (!Utils::isUnset($request->prodCode)) {
+            $body['ProdCode'] = $request->prodCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitImportLogTasks',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitImportLogTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitImportLogTasksRequest $request
+     *
+     * @return SubmitImportLogTasksResponse
+     */
+    public function submitImportLogTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitImportLogTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitJobsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SubmitJobsResponse
+     */
+    public function submitJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jsonParam)) {
+            $body['JsonParam'] = $request->jsonParam;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitJobs',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitJobsRequest $request
+     *
+     * @return SubmitJobsResponse
+     */
+    public function submitJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitJobsWithOptions($request, $runtime);
     }
 
     /**

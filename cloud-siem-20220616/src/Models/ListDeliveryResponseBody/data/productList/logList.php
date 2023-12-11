@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class logList extends Model
 {
     /**
+     * @description Indicates whether the log delivery feature can be enabled or disabled. The feature can be enabled or disabled only by the administrator of the threat analysis feature. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -17,11 +22,15 @@ class logList extends Model
     public $canOperateOrNot;
 
     /**
+     * @description The extended parameter.
+     *
      * @var extraParameters[]
      */
     public $extraParameters;
 
     /**
+     * @description The code of the log.
+     *
      * @example cloud_siem_config_log
      *
      * @var string
@@ -29,6 +38,8 @@ class logList extends Model
     public $logCode;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example audit log
      *
      * @var string
@@ -36,6 +47,8 @@ class logList extends Model
     public $logName;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example audit log
      *
      * @var string
@@ -43,6 +56,8 @@ class logList extends Model
     public $logNameEn;
 
     /**
+     * @description The language code of the log that is used to indicate the language in which the log is displayed.
+     *
      * @example ${sas.cloudsiem.prod.cloud_siem_aegis_crack_from_beaver}
      *
      * @var string
@@ -50,6 +65,11 @@ class logList extends Model
     public $logNameKey;
 
     /**
+     * @description The status of the log delivery. Valid values:
+     *
+     *   true: The logs are being delivered.
+     *   false: The log delivery feature is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -57,6 +77,8 @@ class logList extends Model
     public $status;
 
     /**
+     * @description The topic of the log in the Logstore. The value is an index field in the Logstore that can be used to distinguish different logs.
+     *
      * @example sas_login_event
      *
      * @var string

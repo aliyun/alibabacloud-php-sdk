@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the Logstores for the threat analysis feature exist on the user side. Valid values:
+     *
+     *   true: The logs are in the normal state. The log analysis feature is available.
+     *   false: The logs are being cleared. The log analysis feature is unavailable.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class data extends Model
     public $existLogStore;
 
     /**
+     * @description The purchased storage capacity of the threat analysis feature. Unit: GB.
+     *
      * @example 9000
      *
      * @var int
@@ -23,6 +30,8 @@ class data extends Model
     public $preservedCapacity;
 
     /**
+     * @description The billable storage capacity of the threat analysis feature. Unit: GB.
+     *
      * @example 10
      *
      * @var float

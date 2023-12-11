@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetStorageResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class GetStorageResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the storage.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example DeleteJobConfigError
      *
      * @var string
@@ -29,6 +35,8 @@ class GetStorageResponseBody extends Model
     public $dyCode;
 
     /**
+     * @description The dynamic message.
+     *
      * @example Task[%s] is submitting, please try it later
      *
      * @var string
@@ -36,6 +44,8 @@ class GetStorageResponseBody extends Model
     public $dyMessage;
 
     /**
+     * @description The error code.
+     *
      * @example Siem.Analysis.IllegalParameter
      *
      * @var string
@@ -43,6 +53,8 @@ class GetStorageResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -50,6 +62,8 @@ class GetStorageResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 97A31C3A-3F9F-5866-8979-5159E3DC****
      *
      * @var string
@@ -57,6 +71,11 @@ class GetStorageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

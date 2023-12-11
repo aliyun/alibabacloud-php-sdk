@@ -10,6 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListDeliveryResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * Valid values:
+     *
+     *   200
+     *
+     * <!-- -->
+     *
+     *   500
+     *
+     * <!-- -->
      * @example 200
      *
      * @var int
@@ -17,11 +28,15 @@ class ListDeliveryResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example DeleteJobConfigError
      *
      * @var string
@@ -29,6 +44,8 @@ class ListDeliveryResponseBody extends Model
     public $dyCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example Task[%s] is submitting, please try it later
      *
      * @var string
@@ -36,6 +53,8 @@ class ListDeliveryResponseBody extends Model
     public $dyMessage;
 
     /**
+     * @description The error code.
+     *
      * @example SLS.Sls4Service.Error
      *
      * @var string
@@ -43,6 +62,8 @@ class ListDeliveryResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The error message.
+     *
      * @example successful
      *
      * @var string
@@ -50,6 +71,8 @@ class ListDeliveryResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 6276D891-58D4-55B2-87B9-74D413F7****
      *
      * @var string
@@ -57,6 +80,20 @@ class ListDeliveryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Valid values:
+     *
+     *   True
+     *
+     * <!-- -->
+     *
+     *   False
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the user is an administrator. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class data extends Model
     public $adminOrNot;
 
     /**
+     * @description The resources on which the permissions are granted.
+     *
      * @var string[]
      */
     public $operationList;

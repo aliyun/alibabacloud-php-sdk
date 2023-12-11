@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenDeliveryResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,11 @@ class OpenDeliveryResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the log delivery feature is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class OpenDeliveryResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example DeleteJobConfigError
      *
      * @var string
@@ -30,6 +39,8 @@ class OpenDeliveryResponseBody extends Model
     public $dyCode;
 
     /**
+     * @description The dynamic message.
+     *
      * @example Task[%s] is submitting, please try it later
      *
      * @var string
@@ -37,6 +48,8 @@ class OpenDeliveryResponseBody extends Model
     public $dyMessage;
 
     /**
+     * @description The error code.
+     *
      * @example Siem.Delivery.ErrorMapping
      *
      * @var string
@@ -44,6 +57,8 @@ class OpenDeliveryResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -51,6 +66,8 @@ class OpenDeliveryResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 15FD134E-D69B-51E8-B052-73F97BD8****
      *
      * @var string
@@ -58,6 +75,11 @@ class OpenDeliveryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

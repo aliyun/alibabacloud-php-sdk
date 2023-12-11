@@ -11,16 +11,46 @@ use AlibabaCloud\Tea\Model;
 class productList extends Model
 {
     /**
+     * @description The logs of the cloud services.
+     *
      * @var logList[]
      */
     public $logList;
 
     /**
+     * @description The log group. For example, in Security Center, the logs of hosts and networks are stored in different groups. Key indicates the group information, and value indicates the logs in the group.
+     *
      * @var DataProductListLogMapValue[][]
      */
     public $logMap;
 
     /**
+     * @description The code of the cloud service. Valid values:
+     *
+     *   qcloud_waf
+     *   qlcoud_cfw
+     *   hcloud_waf
+     *   hcloud_cfw
+     *   ddos
+     *   sas
+     *   cfw
+     *   config
+     *   csk
+     *   fc
+     *   rds
+     *   nas
+     *   apigateway
+     *   cdn
+     *   mongodb
+     *   eip
+     *   slb
+     *   vpc
+     *   actiontrail
+     *   waf
+     *   bastionhost
+     *   oss
+     *   polardb
+     *
      * @example sas
      *
      * @var string
@@ -28,6 +58,8 @@ class productList extends Model
     public $productCode;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example Security Center
      *
      * @var string
