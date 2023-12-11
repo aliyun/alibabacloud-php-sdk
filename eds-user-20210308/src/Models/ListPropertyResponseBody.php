@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListPropertyResponseBody extends Model
 {
     /**
-     * @description The information about the properties.
+     * @description The token that is used for the next query. If this parameter is empty, all results have been returned.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -19,14 +19,14 @@ class ListPropertyResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The information about the properties.
      *
      * @var properties[]
      */
     public $properties;
 
     /**
-     * @description The ID of the property.
+     * @description The ID of the request.
      *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *

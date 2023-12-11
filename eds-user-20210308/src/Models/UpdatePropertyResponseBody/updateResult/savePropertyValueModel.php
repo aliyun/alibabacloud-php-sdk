@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class savePropertyValueModel extends Model
 {
     /**
-     * @description UpdateProperty
+     * @description The property values that failed to be modified.
      *
      * @var failedPropertyValues[]
      */
     public $failedPropertyValues;
 
     /**
-     * @description The ID of the request.
+     * @description The property values that were modified.
      *
      * @var savePropertyValues[]
      */

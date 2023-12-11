@@ -126,6 +126,11 @@ class users extends Model
     public $phone;
 
     /**
+     * @var string
+     */
+    public $realNickName;
+
+    /**
      * @description The remarks.
      *
      * @example 1
@@ -169,6 +174,7 @@ class users extends Model
         'isTenantManager'         => 'IsTenantManager',
         'ownerType'               => 'OwnerType',
         'phone'                   => 'Phone',
+        'realNickName'            => 'RealNickName',
         'remark'                  => 'Remark',
         'status'                  => 'Status',
         'userSetPropertiesModels' => 'UserSetPropertiesModels',
@@ -210,6 +216,9 @@ class users extends Model
         }
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
+        }
+        if (null !== $this->realNickName) {
+            $res['RealNickName'] = $this->realNickName;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -267,6 +276,9 @@ class users extends Model
         }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
+        }
+        if (isset($map['RealNickName'])) {
+            $model->realNickName = $map['RealNickName'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];

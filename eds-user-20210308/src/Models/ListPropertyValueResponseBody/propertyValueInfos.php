@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class propertyValueInfos extends Model
 {
     /**
+     * @description The value of the property.
+     *
      * @example HR
      *
      * @var string
@@ -16,6 +18,8 @@ class propertyValueInfos extends Model
     public $propertyValue;
 
     /**
+     * @description The ID of the property value.
+     *
      * @example 978
      *
      * @var int

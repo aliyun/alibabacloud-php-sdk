@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdatePropertyRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **UpdateProperty**.
+     * @description The ID of the property that you want to modify. You can call the [ListProperty](~~410890~~) operation to query the property ID.
      *
      * @example 390
      *
@@ -19,7 +19,7 @@ class UpdatePropertyRequest extends Model
     public $propertyId;
 
     /**
-     * @description The property values that failed to be modified.
+     * @description The new property name.
      *
      * @example testkey
      *
@@ -28,7 +28,7 @@ class UpdatePropertyRequest extends Model
     public $propertyKey;
 
     /**
-     * @description The new property value N.
+     * @description The values of property.
      *
      * @var propertyValues[]
      */

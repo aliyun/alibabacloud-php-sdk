@@ -19,7 +19,7 @@ class updateResult extends Model
     public $propertyId;
 
     /**
-     * @description The ID of property value N that you want to modify. You can call the [ListProperty](~~410890~~) operation to query the property value ID.
+     * @description The name of the property.
      *
      * @example testkey2
      *
@@ -28,7 +28,7 @@ class updateResult extends Model
     public $propertyKey;
 
     /**
-     * @description The property values that were modified.
+     * @description The result of the property value modification.
      *
      * @var savePropertyValueModel
      */

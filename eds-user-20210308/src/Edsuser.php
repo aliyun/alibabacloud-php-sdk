@@ -413,6 +413,9 @@ class Edsuser extends OpenApiClient
             $query['NextToken'] = $request->nextToken;
         }
         $body = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $body['BizType'] = $request->bizType;
+        }
         if (!Utils::isUnset($request->endUserIds)) {
             $body['EndUserIds'] = $request->endUserIds;
         }
@@ -424,6 +427,9 @@ class Edsuser extends OpenApiClient
         }
         if (!Utils::isUnset($request->orgId)) {
             $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->solutionId)) {
+            $body['SolutionId'] = $request->solutionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertyValues extends Model
 {
     /**
-     * @description The error code.
+     * @description The new property value.
      *
      * @example testvalue
      *
@@ -18,7 +18,7 @@ class propertyValues extends Model
     public $propertyValue;
 
     /**
-     * @description The ID of the property that you want to modify. You can call the [ListProperty](~~410890~~) operation to query the property ID.
+     * @description The ID of property value that you want to modify. You can call the [ListProperty](~~410890~~) operation to query the property value ID.
      *
      * @example 978
      *

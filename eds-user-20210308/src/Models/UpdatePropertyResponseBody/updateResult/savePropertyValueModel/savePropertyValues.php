@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class savePropertyValues extends Model
 {
     /**
-     * @description Modifies a user property.
+     * @description The value of the property.
      *
      * @example testvalue2
      *
@@ -18,7 +18,7 @@ class savePropertyValues extends Model
     public $propertyValue;
 
     /**
-     * @description The value of the property.
+     * @description The ID of the property value.
      *
      * @example 978
      *

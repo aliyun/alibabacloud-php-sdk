@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListPropertyValueRequest extends Model
 {
     /**
-     * @description Queries property values of a user property.
+     * @description The ID of the property. You can call the [ListProperty](~~410890~~) operation to query the property ID.
      *
      * @example 390
      *

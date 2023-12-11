@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizType;
+
+    /**
      * @description The list of usernames that must be exactly matched.
      *
      * @var string[]
@@ -65,7 +70,13 @@ class DescribeUsersRequest extends Model
      * @var string
      */
     public $orgId;
+
+    /**
+     * @var string
+     */
+    public $solutionId;
     protected $_name = [
+        'bizType'           => 'BizType',
         'endUserIds'        => 'EndUserIds',
         'excludeEndUserIds' => 'ExcludeEndUserIds',
         'filter'            => 'Filter',
@@ -73,6 +84,7 @@ class DescribeUsersRequest extends Model
         'maxResults'        => 'MaxResults',
         'nextToken'         => 'NextToken',
         'orgId'             => 'OrgId',
+        'solutionId'        => 'SolutionId',
     ];
 
     public function validate()
@@ -82,6 +94,9 @@ class DescribeUsersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
         if (null !== $this->endUserIds) {
             $res['EndUserIds'] = $this->endUserIds;
         }
@@ -103,6 +118,9 @@ class DescribeUsersRequest extends Model
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
+        if (null !== $this->solutionId) {
+            $res['SolutionId'] = $this->solutionId;
+        }
 
         return $res;
     }
@@ -115,6 +133,9 @@ class DescribeUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
                 $model->endUserIds = $map['EndUserIds'];
@@ -139,6 +160,9 @@ class DescribeUsersRequest extends Model
         }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
+        }
+        if (isset($map['SolutionId'])) {
+            $model->solutionId = $map['SolutionId'];
         }
 
         return $model;

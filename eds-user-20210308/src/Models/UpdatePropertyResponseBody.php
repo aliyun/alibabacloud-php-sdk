@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdatePropertyResponseBody extends Model
 {
     /**
-     * @description The name of the property.
+     * @description The ID of the request.
      *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
@@ -19,7 +19,7 @@ class UpdatePropertyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the property.
+     * @description The result of the modification.
      *
      * @var updateResult
      */

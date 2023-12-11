@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class properties extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **ListProperty**.
+     * @description The ID of the property.
      *
      * @example 30
      *
@@ -19,7 +19,7 @@ class properties extends Model
     public $propertyId;
 
     /**
-     * @description Queries all user properties within an Alibaba Cloud account.
+     * @description The name of the property.
      *
      * @example department
      *
@@ -28,7 +28,7 @@ class properties extends Model
     public $propertyKey;
 
     /**
-     * @description ListProperty
+     * @description Details about the property values.
      *
      * @var propertyValues[]
      */

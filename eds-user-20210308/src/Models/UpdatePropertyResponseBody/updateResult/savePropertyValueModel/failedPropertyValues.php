@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failedPropertyValues extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example ExistedPropertyValue
      *
      * @var string
@@ -16,6 +18,8 @@ class failedPropertyValues extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example The property value is used by another property.
      *
      * @var string
@@ -23,6 +27,8 @@ class failedPropertyValues extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the property.
+     *
      * @example 390
      *
      * @var int
@@ -30,6 +36,8 @@ class failedPropertyValues extends Model
     public $propertyId;
 
     /**
+     * @description The value of the property.
+     *
      * @example testvalue
      *
      * @var string

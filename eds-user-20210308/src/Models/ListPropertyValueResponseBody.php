@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListPropertyValueResponseBody extends Model
 {
     /**
+     * @description Details about property values.
+     *
      * @var propertyValueInfos[]
      */
     public $propertyValueInfos;
 
     /**
-     * @description ListPropertyValue
+     * @description The ID of the request.
      *
      * @example C52013A5-3422-5D1F-B22C-A57110972AD9
      *
